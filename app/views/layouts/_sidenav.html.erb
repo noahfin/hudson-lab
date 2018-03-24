@@ -5,7 +5,7 @@
 <div class="list-group">
   <% active = params[:group_id] == nil || params[:group_id].empty? ? 'bg-dark' : '' %>
   <%= link_to contacts_path, class: "list-group-item text-info #{active}" do %>
-      All Contacts <span class="badge text-info"><%= @contacts.count %></span>
+      All Contacts <span class="badge text-info"><%= Contact.count %></span>
   <% end %>
 <% Group.all.each do |group| %>
   <% active = params[:group_id].to_i == group.id ? 'bg-dark' : '' %>
