@@ -1,10 +1,20 @@
+<div class="card card-nav-tabs mt-0" >
+  <div class="card-header card-header-dark mt-0">
+    All contacts and Groups
+  </div>
 <div class="list-group">
-  <%= link_to contacts_path, class: "list-group-item" do %>
-      All Contacts <span class="badge text-dark"><%= @contacts.count %></span>
+  <% active = params[:group_id] == nil || params[:group_id].empty? ? 'bg-dark' : '' %>
+  <%= link_to contacts_path, class: "list-group-item text-info #{active}" do %>
+      All Contacts <span class="badge text-info"><%= @contacts.count %></span>
   <% end %>
 <% Group.all.each do |group| %>
-    <%= link_to contacts_path(group_id: group.id), class: "list-group-item" do %>
-      <%= group.name %><span class="badge text-dark "><%= group.contacts.count %></span>
+  <% active = params[:group_id].to_i == group.id ? 'bg-dark' : '' %>
+
+    <%= link_to contacts_path(group_id: group.id), class: "list-group-item text-info #{active}" do %>
+      <%= group.name %><span class="badge text-info "><%= group.contacts.count %></span>
     <% end %>
 <% end %>
 </div>
+
+
+  </div>

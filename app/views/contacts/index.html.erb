@@ -1,12 +1,13 @@
     <!-- content -->
-    <div class="container">
-      <div class="row">
+    <div class="container-fluid pt-0">
+      <div class="row pt-0">
         <div class="col-md-3">
         <%= render 'layouts/sidenav' %>
         </div><!-- /.col-md-3 -->
 
-        <div class="col-md-9">
-          <div class="panel panel-default">
+        <div class="col-md-9 mt-2  pt-2">
+          <H3>Contacts</H3>
+          <div class="panel panel-default mt-2">
             <% if @contacts.blank? %>
             <div class="alert alert-warning">
               <strong>Record not found</strong>

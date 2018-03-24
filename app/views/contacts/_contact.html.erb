@@ -8,7 +8,7 @@
                       </a>
                     </div>
                     <div class="media-body">
-                      <h4 class="media-heading"><%= contact.name %></h4>
+                      <h4 class="media-heading text-info"><%= contact.name %></h4>
                       <address>
                         <strong><%= contact.company %></strong><br>
                         <%= contact.email %>
@@ -18,11 +18,11 @@
                 </td>
                 <td width="100" class="middle">
                   <div>
-                    <a href="#" class="btn btn-circle btn-default btn-xs" title="Edit">
-                      <i class="glyphicon glyphicon-edit"></i>
+                    <a href="#" class="btn btn-circle btn btn-success btn-xs" title="Edit" rel="tooltip">
+                      <i class="material-icons">edit</i>
                     </a>
-                    <a href="#" class="btn btn-circle btn-danger btn-xs" title="Edit">
-                      <i class="glyphicon glyphicon-remove"></i>
+                    <a href="#" class="btn btn-circle btn-danger btn-xs" title="Remove" rel="tooltip">
+                       <i class="material-icons">close</i>
                     </a>
                   </div>
                 </td>
