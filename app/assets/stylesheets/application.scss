@@ -15,7 +15,9 @@
  */
 @import "material-dashboard.css";
 @import "demo.css";
-
+body {
+  // background-color: #323b44 !important;
+}
 .page-header {
  background-image: image-url('login.jpg');
  background-size: cover;

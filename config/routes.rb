@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
     authenticated do
     get 'contacts/index', to: 'contacts#index', as: 'contacts'
+    get 'contacts/new', as: 'new_contact'
          root 'contacts#index'
 
   end

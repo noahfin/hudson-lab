@@ -9,19 +9,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="wrapper">
       <% if user_signed_in? %>
-        <div class="main-panel">
+
           <%= render 'layouts/sidebar' %>
-          <%= render 'layouts/navbar' %>
-            <div class="content   mt-4 pt-4">
-              <div class="container-fluid">
+
+                  <!-- main right col -->
+
                 <%= render 'layouts/messages' if !flash.empty? %>
                 <% end %>
                 <%= yield %>
               </div>
             </div>
-          </div>
+           </div>
         </div>
+
+        <!-- /main -->
+
+
+
       </body>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+
     </html>
