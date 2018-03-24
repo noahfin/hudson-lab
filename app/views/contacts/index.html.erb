@@ -7,6 +7,11 @@
 
         <div class="col-md-9">
           <div class="panel panel-default">
+            <% if @contacts.blank? %>
+            <div class="alert alert-warning">
+              <strong>Record not found</strong>
+            </div>
+            <% end %>
             <table class="table">
             <%= render @contacts %>
 
