@@ -15,3 +15,13 @@
  */
 @import "material-dashboard.css";
 @import "demo.css";
+
+.page-header {
+ background-image: image-url('login.jpg');
+ background-size: cover;
+ background-position: top center;
+}
+
+.input-group input{
+  min-width: 100% !important;
+}

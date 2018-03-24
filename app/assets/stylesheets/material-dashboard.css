@@ -45,7 +45,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fafafa; }
+  background-color: white; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -356,7 +356,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fafafa; }
+  background-color: white; }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -12974,7 +12974,7 @@ h2.title {
     width: 100%; }
 
 body {
-  background-color: #eee;
+  background-color: #fff;
   color: #3C4858;
   font-weight: 300; }
 
@@ -20770,3 +20770,4 @@ select.selectpicker {
     display: none; } }
 
 /*# sourceMappingURL=material-dashboard.css.map */
+
