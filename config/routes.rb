@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
     authenticated do
-     root 'contacts#index'
-    get 'contacts/index', to: 'contacts#index'
+    get 'contacts/index', to: 'contacts#index', as: 'contacts'
+         root 'contacts#index'
 
   end
 end
