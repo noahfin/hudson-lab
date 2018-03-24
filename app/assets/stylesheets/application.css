@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+material-dashboard.css
+@import "material-dashboard.css";
+@import "demo.css";
