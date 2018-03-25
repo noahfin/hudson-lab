@@ -10,8 +10,12 @@
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #323b44;
-    color: #fff;
+    background-image: image-url('sidebar-4.jpg');
+    -webkit-background-size: cover;
+     -moz-background-size: cover;
+     background-size: cover;
+     -o-background-size: cover;
+    color: black;
     transition: all 0.3s;
 }
 
@@ -44,6 +48,7 @@
     display: block;
     font-size: 1.8em;
     margin-bottom: 5px;
+     color: black;
 }
 
 #sidebar.active ul ul a {
@@ -61,7 +66,7 @@
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #32383e;
+    background: transparent;
 }
 
 #sidebar .sidebar-header strong {
@@ -88,7 +93,7 @@
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
+     color: black;
     background: #3d4853 !important;
 }
 
@@ -114,6 +119,7 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #3d4853 !important;
+
 }
 
 ul.CTAs {
