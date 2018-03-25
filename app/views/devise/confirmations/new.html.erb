@@ -1,16 +1,74 @@
-<h2>Resend confirmation instructions</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+
+<div class="landding-page">
+  <div class="layer">
+    <!-- Page Content -->
+<div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-t-85 p-b-20">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+
+
+        <form class="login100-form ">
+          <span class="login100-form-title p-b-70">
+           Resend confirmation instructions
+          </span>
+          <span class="login100-form-avatar">
+            <%= devise_error_messages! %>
+          </span>
+
+
+          <div class="wrap-input100 m-b-50  mt-3">
+    <%= f.email_field :email, autofocus: true,  class: 'input100', autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+
+            <span class="focus-input100" data-placeholder="Password"></span>
+          </div>
+
+          <div class="container-login100-form-btn mt-4 mb-3">
+            <button class="login100-form-btn" type="submit">
+             Resend confirmation instructions
+            </button>
+          </div>
+
+          <ul class="login-more p-t-190">
+               <li class="m-b-8">
+              <span class="txt1">
+                 <%= link_to "Forgot?", new_password_path(resource_name), class: 'txt1' %>
+
+              </span>
+
+              <a href="#" class="txt2">
+                <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+                <%= link_to "Username / Password", new_confirmation_path(resource_name), class: 'txt2' %>
+              <% end %>
+              <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+                <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'txt2' %>
+              <% end -%>
+
+              </a>
+            </li>
+
+
+            <li>
+              <span class="txt1">
+               Have a Account?
+              </span>
+
+              <a href="/users/sign_in" class="txt2">
+                Sign In
+              </a>
+            </li>
+          </ul>
+         <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  </div>
+</div>
+
+
+
+

@@ -15,14 +15,7 @@
  */
 @import "material-dashboard.css";
 @import "demo.css";
-body {
-  // background-color: #323b44 !important;
-}
-.page-header {
- background-image: image-url('login.jpg');
- background-size: cover;
- background-position: top center;
-}
+
 
 .input-group input{
   min-width: 100% !important;
@@ -65,5 +58,8 @@ body {
   line-height: 1.428571429;
   border-radius: 15px;
 }
-
-
+.card-signup {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}

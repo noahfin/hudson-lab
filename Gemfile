@@ -27,7 +27,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-gem 'simple_form'
+# gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
 group :development do

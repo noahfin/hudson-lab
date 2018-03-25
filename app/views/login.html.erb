@@ -1,19 +1,17 @@
-
-
 <div class="landding-page">
   <div class="layer">
     <!-- Page Content -->
 <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100 p-t-85 p-b-20">
-     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-         <%= devise_error_messages! %>
+      <%= form_for @user, :url => session_path(@user) do |f| %>
+        <%= render '/devise/shared/error_messages', :target => @user %>
         <form class="login100-form validate-form">
           <span class="login100-form-title p-b-70">
             Welcome
           </span>
-          <span class="login100-form ">
-             <%= render 'layouts/error_messages', object: resource %>
+          <span class="login100-form-avatar">
+
           </span>
 
           <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Email">
@@ -28,7 +26,7 @@
           </div>
 
           <div class="container-login100-form-btn mt-4 mb-3">
-            <button class="login100-form-btn">
+            <button class="login100-form-btn" type="submit">
               Login
             </button>
           </div>
@@ -36,18 +34,11 @@
           <ul class="login-more p-t-190">
             <li class="m-b-8">
               <span class="txt1">
-                 <%= link_to "Forgot?", new_password_path(resource_name), class: 'txt1' %>
-
+                Forgot
               </span>
 
               <a href="#" class="txt2">
-                <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-                <%= link_to "Username / Password", new_confirmation_path(resource_name), class: 'txt2' %>
-              <% end %>
-              <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-                <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'txt2' %>
-              <% end -%>
-
+                Username / Password?
               </a>
             </li>
 
@@ -56,7 +47,7 @@
                 Don’t have an account?
               </span>
 
-              <a href="/users/sign_up" class="txt2">
+              <a href="#" class="txt2">
                 Sign up
               </a>
             </li>

@@ -1,0 +1,15 @@
+<% if resource.errors.any? %>
+  <% saved_key = "" %>
+  <% devise_error_messages!.each do |key, value| %>
+    <% if key != saved_key %>
+        <div class="row">
+          <div class="span4">
+            <div id="alert-box" class=" alert-box rounded-0 fade in flash <%= key %>"><%= key %> <%= value %>
+             <a class="close" data-dismiss="alert">×</a>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <% saved_key = key %>
+  <% end %>
+<% end %>
