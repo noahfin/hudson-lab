@@ -11,7 +11,7 @@
                 <ul class="list-unstyled components">
                     <li class="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                            <i class="glyphicon glyphicon-home"></i>
+                            <i class="fa fa-home"></i>
                             Home
                         </a>
                         <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -22,12 +22,12 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-briefcase"></i>
-                            About
+                            <i class="fa fa-user"></i>
+                            Contacts
                         </a>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">
-                            <i class="glyphicon glyphicon-duplicate"></i>
-                            Pages
+                            <i class="fa fa-archive"></i>
+                            Files
                         </a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li><a href="#">Page 1</a></li>
@@ -37,20 +37,20 @@
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-link"></i>
-                            Portfolio
+                            <i class="fa fa-building"></i>
+                            Properties
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-paperclip"></i>
-                            FAQ
+                            <i class="fa fa-tasks"></i>
+                            Action Steps
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="glyphicon glyphicon-send"></i>
-                            Contact
+                            <i class="fa fa-calendar"></i>
+                            Calendar
                         </a>
                     </li>
                 </ul>
@@ -64,29 +64,37 @@
             <!-- Page Content Holder -->
             <div id="content" style="max-width: 100%; !important;">
                 <div class="row">
+                    <div class="col-md-12">
 
-                <div class="col-md-12">
 
+                    <nav class="navbar navbar-expand-lg navbar-dark navbar-inverse mr-3 ml-3 mb-4">
 
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
+                            <button type="button" id="sidebarCollapse" class="navbar-btn">
+                                <i class="fa fa-bars"></i>
 
-                        <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                                <i class="glyphicon glyphicon-align-left"></i>
-                                <span>Toggle Sidebar</span>
                             </button>
-                        </div>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <a class="navbar-brand" href="#">Hudson Lab</a>
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                          <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                      </div>
+                    </nav>
 
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
 
 
