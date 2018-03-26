@@ -20,11 +20,13 @@
                 </td>
                 <td width="100" class="middle">
                   <div>
-                    <%= link_to edit_contact_path(contact, class: 'btn btn-circle btn btn-outline-info btn-xs' ) do %>
+                    <%= link_to edit_contact_path(contact), class: 'btn btn-circle btn btn-outline-info btn-xs', title: 'edit', rel: "tooltip"  do %>
                       <i class="material-icons">edit</i>
                     </a><% end %>
-                    <a href="#" class="btn btn-circle btn-outline-danger btn-xs" title="Remove" rel="tooltip">
-                       <i class="material-icons">close</i>
+                      <%= link_to destroy_contact_path(contact), method: :delete, class: 'btn btn-circle btn btn-outline-info btn-xs', title: 'delete', rel: "tooltip", data: { confirm: "Are you sure you want delete this contact?"}  do %>
+                      <i class="material-icons">close</i>
+                    </a><% end %>
+
                     </a>
                   </div>
                 </td>

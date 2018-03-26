@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'contact/:id/edit', to: 'contacts#edit', as: 'edit_contact'
     post 'contacts/create', to: 'contacts#create', as: 'create_contact'
     patch 'contacts/:id/update', to: 'contacts#update', as: 'update_contact'
+    delete 'contacts/:id/destory', to: 'contacts#destroy', as: 'destroy_contact'
+
     root 'contacts#index'
   end
 end
