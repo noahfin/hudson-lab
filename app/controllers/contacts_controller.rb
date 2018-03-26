@@ -14,8 +14,8 @@ class ContactsController < ApplicationController
     group_id = params[:group_id]
 
 
-      @contacts = Contact.by_group(group_id).search(term).order(created_at: :desc).page(params[:page])
-      render json: @contacts.map {|contact| {id: contact.id, value: contact.name}}
+      @contacts = Contact.search(term).order(created_at: :desc).page(params[:page])
+      # render json: @contacts.map {|contact| {id: contact.id, value: contact.name}}
   end
 
   def new
