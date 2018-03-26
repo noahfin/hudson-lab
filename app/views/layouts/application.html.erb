@@ -1,55 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dashbord</title>
+    <title>Hudson Lab</title>
     <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-      <% if user_signed_in? %>
+    <body>
+        <% if user_signed_in? %>
 
-          <%= render 'layouts/sidebar' %>
+            <%= render 'layouts/sidebar' %>
 
-                  <!-- main right col -->
+              <!-- /main -->
 
-                 <%= render 'layouts/messages'%>
-                <% end %>
-                <%= yield %>
+              <%= render 'layouts/messages'%>
+       <% end %>
 
-           </div>
-        </div>
+      <%= yield %>
 
-        <!-- /main -->
+         </div>
+      </div>
 
-
-
-      </body>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-         <script type="text/javascript">
-             $(document).ready(function () {
-              $(function() {
-  $('#term').autocomplete({
-    source: '/contacts/autocomplete',
-    minLength: 2,
-    select: function (event, ui) {
-      $('#term').val(ui.item.value);
-      $(this).closest('form').submit();
-    }
-  });
-});
-
-                  // Alert removal
-                  $(".alert-box").fadeTo(5000, 500).slideUp(500, function(){
-                  $(".alert-box").slideUp(500);
-                  });
-                 $('#sidebarCollapse').on('click', function () {
-                     $('#sidebar').toggleClass('active');
-                 });
+</body>
+   <script type="text/javascript">
+      $(document).ready(function() {
+        // AUTO COMPLETE
+         $(function() {
+             $('#term').autocomplete({
+                 source: '/contacts/autocomplete',
+                 minLength: 2,
+                 select: function(event, ui) {
+                     $('#term').val(ui.item.value);
+                     $(this).closest('form').submit();
+                 }
              });
-         </script>
+         });
 
-    </html>
+         // ALERT REMOVAL
+         $(".alert-box").fadeTo(5000, 500).slideUp(500, function() {
+             $(".alert-box").slideUp(500);
+         });
+         $('#sidebarCollapse').on('click', function() {
+             $('#sidebar').toggleClass('active');
+         });
+     });
+ </script>
+ </html>

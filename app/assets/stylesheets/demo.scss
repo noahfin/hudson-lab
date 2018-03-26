@@ -14,7 +14,6 @@ html,body {
 
       min-height: 14.3%;
       background: image-url('phone-guy.jpg');
-
       background-position: right 0% bottom 40%;
       // background-position:
       -webkit-background-size: cover;
@@ -23,8 +22,13 @@ html,body {
        -o-background-size: cover;
        border-bottom: 2px solid #004267;
        margin-bottom: 15px;
+}
+@media (max-width: 900px) {
+  .main-header {
 
-
+      min-height: 14.3%;
+      height: auto;
+  }
 }
 #sidebar {
     min-width: 250px;
