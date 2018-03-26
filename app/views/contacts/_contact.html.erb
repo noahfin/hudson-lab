@@ -3,8 +3,10 @@
                 <td class="middle">
                   <div class="media">
                     <div class="media-left">
-                      <a href="#">
-                        <%= image_tag gravatar_url(contact.email), class: "media-object" %>
+                       <a href="#">
+
+                      <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object" %>
+
                       </a>
                     </div>
                     <div class="media-body">
@@ -18,9 +20,9 @@
                 </td>
                 <td width="100" class="middle">
                   <div>
-                    <a href="#" class="btn btn-circle btn btn-outline-info btn-xs" title="Edit" rel="tooltip">
+                    <%= link_to edit_contact_path(contact, class: 'btn btn-circle btn btn-outline-info btn-xs' ) do %>
                       <i class="material-icons">edit</i>
-                    </a>
+                    </a><% end %>
                     <a href="#" class="btn btn-circle btn-outline-danger btn-xs" title="Remove" rel="tooltip">
                        <i class="material-icons">close</i>
                     </a>

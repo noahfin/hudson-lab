@@ -7,8 +7,9 @@ Rails.application.routes.draw do
     authenticated do
     get 'contacts/index', to: 'contacts#index', as: 'contacts'
     get 'contacts/new', as: 'new_contact'
-         root 'contacts#index'
-   post '/contacts/index', to: 'contacts#create'
-
+    get 'contact/:id/edit', to: 'contacts#edit', as: 'edit_contact'
+    post 'contacts/create', to: 'contacts#create', as: 'create_contact'
+    patch 'contacts/:id/update', to: 'contacts#update', as: 'update_contact'
+    root 'contacts#index'
   end
 end

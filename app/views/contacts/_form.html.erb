@@ -1,0 +1,111 @@
+<%= form_for(@contact, url: @contact.new_record? ? create_contact_path : update_contact_path(@contact), html: { multipart: true}) do |form| %> <!-- start of form to add new contact -->
+
+          <div class="panel panel-default special-color form-panel">
+
+              <div class="panel-body special-color">
+                <div class="row">
+                  <div class="col-md-8"><% if @contact.errors.any? %>
+                    <div class="alert alert-danger">
+                      <h4>Please correct the following errors:</h4>
+                      <ul><% @contact.errors.full_messages.each do |message| %>
+                        <li><%= message %>
+                        </li>
+                      </ul><% end %>
+                    </div><% end %>
+                  </div>
+                </div>
+                <div class="form-horizontal">
+                  <div class="row">
+                    <div class="col-md-6 no-gutters mr-1 pr-1">
+                      <div class="form-group">
+                        <label for="name" class="control-label col-md-3 bmd-label-floating text-dark">Name</label>
+                        <div class="col-md-12">
+                          <%= form.text_field :name, id: :contact_name, class: 'form-control rounded-0', placeholder: 'name' %>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="company" class="control-label col-md-3 bmd-label-floating text-dark">Company</label>
+                          <div class="col-md-12">
+                             <%= form.text_field :company, id: :contact_company, class: 'form-control rounded-0', placeholder: 'Company' %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="email" class="control-label col-md-3 bmd-label-floating text-dark">Email</label>
+                            <div class="col-md-12">
+                               <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0', placeholder: 'Email'  %>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="phone" class="control-label col-md-3 bmd-label-floating text-dark">Phone</label>
+                              <div class="col-md-12">
+                                <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0', placeholder: 'Phone' %>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="name" class="control-label col-md-3 bmd-label-floating text-dark">Address</label>
+                                <div class="col-md-12">
+                                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0', placeholder: 'Address', row: '3' %>
+
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-5 form-right no-gutters ml-0 pl-0 mr-0 pr-0">
+                              <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="row">
+                                  <div class="col-md-6 pl-4 ">
+                                    <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                                     <%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                                      <img src="http://placehold.it/150x150" alt="Photo">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                      <div class="text-center">
+                                        <span class="btn default-color-dark btn-file rounded-0">
+                                          <span class="fileinput-new">Choose Photo</span>
+                                          <span class="fileinput-exists">Change</span>
+                                        <%= form.file_field :avatar %>
+                                          </span>
+                                          <a href="#" class="btn btn-danger fileinput-exists rounded-0" data-dismiss="fileinput">Remove</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <div class="col-md-12  mt-4  mr-0 pr-0">
+                                      <div class="pt-3">
+                                         <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: "select Group"}, class: "form-control" %>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                      <div class="row">
+                                        <div class="col-md-12 mt-4  pr-0">
+                                          <a href="#" id="add-group-btn" class="btn mt-4  btn bg-dark mt-2 btn-block rounded-0">+ Group</a>
+                                        </div>
+                                        <div class="col-md-12 mt-4 pr-0" >
+                                          <div class="input-group mb-3">
+                                            <input type="text" name="" id="" class="form-control rounded-0  " placeholder="Type group name">
+
+                                            </div>
+                                          </div>
+                                          <div class="panel-footer">
+                                            <div class="col-md-12">
+
+                                              <div class="row  mt-4">
+                                                <div class="col">
+                                                  <%= form.submit @contact.new_record? ? "Save New Contact" : "Update the Contact", class: "btn btn-primary" %>
+                                                </div>
+                                                <div class="col">
+                                                  <a href="#" class="btn  btn-danger  ml-0  deep-orange-text rounded-0" style="min-width: 100%;">Cancel</a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          <% end %>
