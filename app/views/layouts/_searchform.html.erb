@@ -1,5 +1,4 @@
 <%= form_tag(contacts_path, class: 'form-inline', role: "search", method: :get) do %>
-
 <div class="form-group">
     <%= hidden_field_tag :group_id, params[:group_id] %>
     <%= text_field_tag :term, params[:term], class: "form-control bg-trans b-dark"%>
@@ -10,4 +9,5 @@
             <span class="fa fa-search"></span>
         </button>
     </span>
-</div><% end %>
+</div>
+<% end %>

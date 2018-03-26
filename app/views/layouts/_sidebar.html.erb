@@ -82,41 +82,4 @@
     </nav>
     <!-- Page Content Holder -->
     <div id="content" style="max-width: 100%; !important; ">
-        <div class="main-header mr-0 pr-0">
-            <nav class="navbar navbar-expand-lg navbar-dark  navbar-trans mr-3 ml-3 mb-4 border-0">
-                <button type="button" id="sidebarCollapse" class="navbar-btn">
-                    <i class="fa fa-bars text-light"></i>
-                </button>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">Hudson Lab</a>
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contacts/index">Contacts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/users/">Users</a>
-                        </li>
-                    </ul><%= link_to new_contact_path, class: " float-right" do %>
-                    <i class="">+</i>
-                      add contact
-                     <%end %>
-                </div>
-            </nav>
-            <div style="max-width: 90%; margin-left: 4%;">
-                <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2">
-                        <div class="row"><%= render 'layouts/searchform' %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <%= render 'layouts/navbar' %>

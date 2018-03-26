@@ -20,31 +20,31 @@
                       <div class="form-group">
                         <label for="name" class="control-label col-md-3 bmd-label-floating text-dark">Name</label>
                         <div class="col-md-12">
-                          <%= form.text_field :name, id: :contact_name, class: 'form-control rounded-0', placeholder: 'name' %>
+                          <%= form.text_field :name, id: :contact_name, class: 'form-control rounded- bg-dark b-dark', placeholder: 'name' %>
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="company" class="control-label col-md-3 bmd-label-floating text-dark">Company</label>
                           <div class="col-md-12">
-                             <%= form.text_field :company, id: :contact_company, class: 'form-control rounded-0', placeholder: 'Company' %>
+                             <%= form.text_field :company, id: :contact_company, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Company' %>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="email" class="control-label col-md-3 bmd-label-floating text-dark">Email</label>
                             <div class="col-md-12">
-                               <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0', placeholder: 'Email'  %>
+                               <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Email'  %>
                               </div>
                             </div>
                             <div class="form-group">
                               <label for="phone" class="control-label col-md-3 bmd-label-floating text-dark">Phone</label>
                               <div class="col-md-12">
-                                <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0', placeholder: 'Phone' %>
+                                <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Phone' %>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label for="name" class="control-label col-md-3 bmd-label-floating text-dark">Address</label>
                                 <div class="col-md-12">
-                                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0', placeholder: 'Address', row: '3' %>
+                                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Address', row: '3' %>
 
                                 </div>
                               </div>
@@ -76,7 +76,7 @@
                                    <% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
                                     <div class="col-md-12  mt-4  mr-0 pr-0">
                                       <div class="pt-3">
-                                         <%= form.collection_select :group_id, Group.all, :id, :name, attr, class: "form-control" %>
+                                         <%= form.collection_select :group_id, Group.all, :id, :name, attr, class: "form-control bg-dark b-dark" %>
                                       </div>
                                     </div>
                                     <div class="col-md-12">
@@ -85,10 +85,21 @@
                                           <a href="#" id="add-group-btn" class="btn mt-4  btn bg-dark mt-2 btn-block rounded-0">+ Group</a>
                                         </div>
                                         <div class="col-md-12 mt-4 pr-0" >
-                                          <div class="input-group mb-3">
-                                            <input type="text" name="" id="" class="form-control rounded-0  " placeholder="Type group name">
+                                        <div class="form-inline">
 
-                                            </div>
+
+                                          <div class="form-group">
+
+                                            <input type="text" name="group[name]" class="form-control bg-trans b-dark col-md-12" placeholder="Type group name">
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="submit">
+                                                    <span class="fa fa-check"></span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                       </div>
                                           </div>
                                           <div class="panel-footer">
                                             <div class="col-md-12">

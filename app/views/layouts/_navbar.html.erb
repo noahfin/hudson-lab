@@ -1,39 +1,38 @@
-
-
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-0" >
-
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                <i class="glyphicon glyphicon-align-left"></i>
-                Toggle Sidebar
-            </button>
-  <div class="container" id="main-navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="/">Hudson Commercial Lab</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Calender</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Action Steps</a>
-        </li>
-      </ul>
-      <form class="form-inline ml-auto">
-          <div class="form-group has-white">
-            <%= link_to new_contact_path, class: "btn btn-default" do %>
-               <i class="glyphicon glyphicon-plus"></i>
-                Add Contact
-            <% end %>
-
-      </form>
+<div class="main-header mr-0 pr-0">
+    <nav class="navbar navbar-expand-lg navbar-dark  navbar-trans mr-3 ml-3 mb-4 border-0">
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+            <i class="fa fa-bars text-light"></i>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">Hudson Lab</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacts/index">Contacts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/">Users</a>
+                </li>
+            </ul><%= link_to new_contact_path, class: " float-right" do %>
+            <i class="">+</i>
+              add contact
+             <%end %>
+        </div>
+    </nav>
+    <div style="max-width: 90%; margin-left: 4%;">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="row"><%= render 'layouts/searchform' %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
+</div>
 
