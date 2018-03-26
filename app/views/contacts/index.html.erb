@@ -8,15 +8,19 @@
         <div class="col-md-9 mt-2  pt-2">
           <H3>Contacts</H3>
           <div class="panel panel-default mt-2">
-            <% if @contacts.blank? %>
-            <div class="alert alert-warning">
-              <strong>Record not found</strong>
-            </div>
-            <% end %>
+
             <table class="table">
             <%= render @contacts %>
 
             </table>
+              <% if @contacts.blank? %>
+              <div class="panel-footer message">
+
+              <div class="alert alert-warning">
+                <strong>Record not found</strong>
+              </div>
+              <% end %>
+             </div>
           </div>
 
           <div class="text-center">

@@ -9,14 +9,20 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
-*= require jasny-bootstrap.min
+ *= require jquery-ui
+ *= require jasny-bootstrap.min
  *= require_tree .
  *= require_self
  */
 @import "material-dashboard.css";
 @import "demo.css";
 
-
+.bg-trans {
+  background: transparent !important;
+}
+.b-dark {
+  border-color: black !important;
+}
 .input-group input{
   min-width: 100% !important;
 }
@@ -62,4 +68,9 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10%;
+}
+.ui-autocomplete {
+  position: relative;
+  cursor: default;
+  z-index: 9999 !important;
 }

@@ -9,8 +9,20 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require jasny-bootstrap.min
 //= require vendorapps
+//= require jasny-bootstrap.min
+//= require jquery-ui
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+  $('#term').autocomplete({
+    source: '/contacts/autocomplete',
+    minLength: 3,
+    select: function (event, ui) {
+      $('#term.val(ui,item.value)');
+    }
+  });
+});

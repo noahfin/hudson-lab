@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
     authenticated do
-      resources :contacts, except: [:show]
+      resources :contacts, except: [:show] do
 
+          get 'autocomplete', on: :collection
+
+      end
       root 'contacts#index'
   end
 end

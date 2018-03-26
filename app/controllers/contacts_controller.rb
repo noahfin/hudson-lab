@@ -2,12 +2,20 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: [:edit, :update, :destroy]
   def index
     session[:selected_group_id] = params[:group_id]
-    if params[:group_id] && !params[:group_id].empty?
-      @contacts = Contact.where(group_id: params[:group_id]).page(params[:page])
+    term = params[:term]
+    group_id = params[:group_id]
 
-    else
-      @contacts = Contact.order(created_at: :desc).page(params[:page])
-    end
+      @contacts = Contact.by_group(group_id).search(term).order(created_at: :desc).page(params[:page])
+  end
+
+    def autocomplete
+    session[:selected_group_id] = params[:group_id]
+    term = params[:term]
+    group_id = params[:group_id]
+
+
+      @contacts = Contact.by_group(group_id).search(term).order(created_at: :desc).page(params[:page])
+      render json: @contacts.map {|contact| {id: contact.id, value: contact.name}}
   end
 
   def new
@@ -55,4 +63,5 @@ class ContactsController < ApplicationController
     session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
 
   end
+
 end

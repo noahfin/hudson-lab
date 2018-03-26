@@ -31,7 +31,15 @@
 
          <script type="text/javascript">
              $(document).ready(function () {
-
+              $(function() {
+  $('#term').autocomplete({
+    source: '/contacts/autocomplete',
+    minLength: 2,
+    select: function (event, ui) {
+      $('#term').val(ui.item.value);
+    }
+  });
+});
 
                   // Alert removal
                   $(".alert-box").fadeTo(5000, 500).slideUp(500, function(){
