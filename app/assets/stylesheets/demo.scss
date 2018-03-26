@@ -6,11 +6,30 @@
     display: flex;
     align-items: stretch;
 }
+html,body {
+  padding: 0px;
+  margin: 0px;
+}
+.main-header {
 
+      min-height: 14.8%;
+      background: image-url('phone-guy.jpg');
+
+      background-position: right 0% bottom 40%;
+      // background-position:
+      -webkit-background-size: cover;
+       -moz-background-size: cover;
+       background-size: cover;
+       -o-background-size: cover;
+       border-bottom: 2px solid #004267;
+       margin-bottom: 15px;
+
+
+}
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background-image: image-url('sidebar-3.jpg');
+    background-image: image-url('sidebar-2.jpg');
     -webkit-background-size: cover;
      -moz-background-size: cover;
      background-size: cover;
@@ -146,7 +165,7 @@ a.download {
     CONTENT STYLE
 ----------------------------------------------------- */
 #content {
-    padding: 20px;
+    padding-right: 0px !important;
     min-height: 100vh;
     transition: all 0.3s;
     width: 100%;
