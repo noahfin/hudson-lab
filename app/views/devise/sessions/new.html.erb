@@ -4,31 +4,48 @@
             <div class="col-md-4 container">
                 <div class="container creds-sec">
 
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-signin') do |f| %>
-                        <center>
+                     <!-- Material form login -->
+                    <div class="form-header deep-blue-gradient rounded">
+                            <h3><i class="fa fa-lock"></i> Login:</h3>
+                        </div>
 
-                            <i id="icon" class="fa fa-user" style="text-shadow: rgb(34, 37, 40) 0px 0px 0px, rgb(37, 40, 43) 1px 1px 0px, rgb(40, 43, 47) 2px 2px 0px, rgb(43, 47, 50) 3px 3px 0px, rgb(46, 50, 54) 4px 4px 0px; font-size: 58px; color: rgb(0, 66, 103); height: 90px; width: 90px; line-height: 90px; border-radius: 48%; text-align: center; background-color: rgb(49, 53, 57);"></i>
-                        </center>
-
-                        <h1 class="h3 mb-3 font-weight-normal text-center mt-4">Please sign in</h1>
-                        <%= devise_error_messages! %>
-                        <%= render 'layouts/error_messages'%>
-                        <label for="inputEmail" class="sr-only">Email address</label>
-                        <%= f.text_field :email, class: "form-control", placeholder: "Email address", required: true %>
-                        <label for="inputPassword" class="sr-only">Password</label>
-                        <%= f.password_field :password, class: "form-control", placeholder: "Enter Password" %>
-                            <div class="checkbox mb-3 mt-2">
-                                <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                            </div>
-                            <button class="btn btn-lg btn-block main-creds-btn" type="submit">Sign in</button>
+                        <div class="card">
+                            <center><i class="fa fa-user logo-i blue-grey-text mt-4" style="font-size: 4rem;"></i></center>
 
 
+                        <div class="card-body">
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-signin') do |f| %>
+                        <!-- Material input email -->
+                        <div class="md-form font-weight-light">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <%= f.text_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>
 
-                    <% end %>
+                        </div>
+
+                        <!-- Material input password -->
+                        <div class="md-form font-weight-light">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                         <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password" %>
+
+
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button class="btn  unique-color-dark " type="submit">Login</button>
+                        </div>
+                         <% end %>
+                    </div>
+                </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+
+<!-- Material form login -->
+

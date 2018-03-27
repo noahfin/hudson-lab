@@ -1,8 +1,8 @@
 <%= form_for(@contact, html: { multipart: true}) do |form| %> <!-- start of form to add new contact -->
 
-          <div class="panel panel-default special-color form-panel">
+          <div class=" special-color">
 
-              <div class="panel-body special-color">
+              <div class="">
                 <div class="row">
                   <div class="col-md-8"><% if @contact.errors.any? %>
                     <div class="alert alert-danger">
@@ -14,42 +14,43 @@
                     </div><% end %>
                   </div>
                 </div>
-                <div class="form-horizontal">
-                  <div class="row">
+                <div class="form-horizontal bg-dark">
+                  <h2>New Contact</h2>
+                  <div class="row mt-3">
                     <div class="col-md-6 no-gutters mr-1 pr-1">
                       <div class="form-group">
-                        <label for="name" class="control-label col-md-3 bmd-label-floating text-dark">Name</label>
+
                         <div class="col-md-12">
-                          <%= form.text_field :name, id: :contact_name, class: 'form-control rounded- bg-dark b-dark', placeholder: 'name' %>
+                          <%= form.text_field :name, id: :contact_name, class: 'form-control rounded-0 ', placeholder: 'name' %>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="company" class="control-label col-md-3 bmd-label-floating text-dark">Company</label>
+
                           <div class="col-md-12">
-                             <%= form.text_field :company, id: :contact_company, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Company' %>
+                             <%= form.text_field :company, id: :contact_company, class: 'form-control rounded-0 ', placeholder: 'Company' %>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="email" class="control-label col-md-3 bmd-label-floating text-dark">Email</label>
+
                             <div class="col-md-12">
-                               <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Email'  %>
+                               <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0 ', placeholder: 'Email'  %>
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="phone" class="control-label col-md-3 bmd-label-floating text-dark">Phone</label>
+
                               <div class="col-md-12">
-                                <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Phone' %>
+                                <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 ', placeholder: 'Phone' %>
                                 </div>
                               </div>
                               <div class="form-group">
-                                <label for="name" class="control-label col-md-3 bmd-label-floating text-dark">Address</label>
+
                                 <div class="col-md-12">
-                                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0 bg-dark b-dark', placeholder: 'Address', row: '3' %>
+                                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0', placeholder: 'Address', row: '3' %>
 
                                 </div>
                               </div>
                             </div>
-                            <div class="col-md-5 form-right no-gutters ml-0 pl-0 mr-0 pr-0">
+                            <div class="col-md-5 form-right no-gutters ml-0 pl-0 mr-0 pr-0 mt-3">
                               <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="row">
                                   <div class="col-md-6 pl-4 ">
@@ -59,9 +60,9 @@
                                       </div>
                                     </div>
                                     <div class="col-md-6">
-                                      <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                                      <div class="text-center">
-                                        <span class="btn default-color-dark btn-file rounded-0">
+                                      <div class="fileinput-preview fileinput-exists thumbnail  mt-4 pt-4" style="max-width: 200px; max-height: 150px;"></div>
+                                      <div class="text-center  mt-3 pt-2">
+                                        <span class="btn-default btn-file rounded-0 mt-4 pt-4">
                                           <span class="fileinput-new">Choose Photo</span>
                                           <span class="fileinput-exists">Change</span>
                                         <%= form.file_field :avatar %>
@@ -74,42 +75,46 @@
                                   <div class="form-group">
                                     <% attr = {prompt: "Select Group"} %>
                                    <% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
-                                    <div class="col-md-12  mt-4  mr-0 pr-0">
-                                      <div class="pt-3">
-                                         <%= form.collection_select :group_id, Group.all, :id, :name, attr, class: "form-control bg-dark b-dark" %>
+                                    <div class="col-md-12  mt-2  mr-0 pr-0">
+                                      <div class="pt-3 mb-2">
+                                         <%= form.collection_select :group_id, Group.all, :id, :name, attr, class: "form-control" %>
                                       </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 mt-3">
                                       <div class="row">
                                         <div class="col-md-12 mt-4  pr-0">
-                                          <a href="#" id="add-group-btn" class="btn mt-4  btn bg-dark mt-2 btn-block rounded-0">+ Group</a>
+
                                         </div>
-                                        <div class="col-md-12 mt-4 pr-0" >
-                                        <div class="form-inline">
+                                        <div class="col-md-12 mt-2 pr-0" >
+                                        <div class="" id="add-new-group">
 
 
-                                          <div class="form-group">
+                                            <div class="row">
+                                              <div class="col-md-12">
 
-                                            <input type="text" name="group[name]" class="form-control bg-trans b-dark col-md-12" placeholder="Type group name">
-                                        </div>
-                                        <div class="form-group">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="submit">
-                                                    <span class="fa fa-check"></span>
-                                                </button>
-                                            </span>
-                                        </div>
+                                                  <div class="input-group">
+
+                                                    <input type="text" id="new_group" class="form-control rounded-0  mr-0 input-group" placeholder="Make new group if needed then click button">
+                                                  </div>
+                                              </div>
+                                            </div>
+
+
+
                                        </div>
                                           </div>
-                                          <div class="panel-footer">
+                                          <div class="panel-footer mt-4 mb-0  ">
                                             <div class="col-md-12">
 
-                                              <div class="row  mt-4">
-                                                <div class="col">
-                                                  <%= form.submit @contact.new_record? ? "Save New Contact" : "Update the Contact", class: "btn btn-primary" %>
+                                              <div class="row  mt-2 ">
+                                                <div class="col-md-4">
+                                                  <%= form.submit @contact.new_record? ? "Save" : "Update", class: "btn btn-primary btn-lg mr-0 "  %>
                                                 </div>
-                                                <div class="col">
-                                                  <a href="#" class="btn  btn-danger  ml-0  deep-orange-text rounded-0" style="min-width: 100%;">Cancel</a>
+                                                <div class="col-md-4">
+                                                  <a href="#" class="btn  btn-danger  ml-0  mr-4 rounded-0 btn-lg" >Cancel</a>
+                                                </div>
+                                                 <div class="col-md-4">
+                                                  <a href="#" class="btn btn-default  ml-0 rounded-0 btn-lg" id="save-new-group">Group</a>
                                                 </div>
                                               </div>
                                             </div>

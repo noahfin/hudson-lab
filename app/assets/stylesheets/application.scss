@@ -19,6 +19,7 @@
 @import "material-dashboard.css";
 @import "demo.css";
 @import "font-awesome";
+@import "jasny-bootstrap";
 
 .bg-trans {
   background: transparent !important;
@@ -72,10 +73,15 @@
   width: 30px;
   height: 30px;
   text-align: center;
-  padding: 2px 0;
+  padding: 10px 0;
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
+}
+.btn-circle i{
+  position: relative;
+  bottom: .3rem;
+  left:.1rem;
 }
 .card-signup {
   margin-left: auto;
@@ -86,5 +92,6 @@
   position: relative;
   cursor: default;
   z-index: 9999 !important;
-  max-width: 201px !important;
+  max-width: 246px !important;
 }
+

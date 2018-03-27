@@ -1,13 +1,12 @@
-<%= form_tag(contacts_path, class: 'form-inline', role: "search", method: :get) do %>
-<div class="form-group">
+<%= form_tag(contacts_path, class: 'form-inline my-2 my-lg-0', role: "search", method: :get) do %>
+
     <%= hidden_field_tag :group_id, params[:group_id] %>
-    <%= text_field_tag :term, params[:term], class: "form-control bg-trans b-dark"%>
-</div>
-<div class="form-group">
-    <span class="input-group-btn">
-        <button class="btn bg-trans b-dark" type="submit">
-            <span class="fa fa-search"></span>
-        </button>
-    </span>
-</div>
+    <%= text_field_tag :term, params[:term], class: "form-control form-control-lg mr-sm-2 ", placeholder: "Name, company, email" %>
+
+<button type="submit" class="btn btn-outline-info btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
 <% end %>
+
+
