@@ -1,65 +1,37 @@
 
 <div class="landding-page">
-  <div class="layer">
-    <!-- Page Content -->
-    <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100 p-t-85 p-b-20">
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="layer">
+        <div class="container">
+            <div class="col-md-4 container">
+                <div class="container creds-sec">
 
-        <form class="login100-form validate-form">
-          <span class="login100-form-title p-b-70">
-            Forgot your password?
-          </span>
-          <span class="login100-form ">
-        <%= devise_error_messages! %>
-          </span>
+                      <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: 'form-signin', html: { method: :post }) do |f| %>
+                        <center>
 
-          <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter Email">
-          <%= f.email_field :email, class: 'input100' %>
-            <span class="focus-input100" data-placeholder="Email"></span>
-          </div>
+                            <i id="icon" class="fa fa-user" style="text-shadow: rgb(34, 37, 40) 0px 0px 0px, rgb(37, 40, 43) 1px 1px 0px, rgb(40, 43, 47) 2px 2px 0px, rgb(43, 47, 50) 3px 3px 0px, rgb(46, 50, 54) 4px 4px 0px; font-size: 58px; color: rgb(0, 66, 103); height: 90px; width: 90px; line-height: 90px; border-radius: 48%; text-align: center; background-color: rgb(49, 53, 57);"></i>
+                        </center>
 
+                        <h1 class="h3 mb-3 font-weight-normal text-center mt-4">Reset password?</h1>
+                        <%= devise_error_messages! %>
+                        <%= render 'layouts/error_messages'%>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <%= f.text_field :email, class: "form-control", placeholder: "Email address", required: true %>
 
-          <div class="container-login100-form-btn mt-4 mb-3">
-            <button class="login100-form-btn">
-             Send me reset password instructions
-            </button>
-          </div>
+                            <div class="checkbox mb-3 mt-4">
 
-          <ul class="login-more p-t-190">
-            <li class="m-b-8">
+                            </div>
+                            <button class="btn btn-lg btn-block main-creds-btn" type="submit">Get password instructions</button>
+
+                      <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+                        <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'txt2' %>
+                      <% end -%>
 
 
-              <a href="#" class="txt2">
-
-              <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-                <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'txt2' %>
-              <% end -%>
-
-              </a>
-            </li>
-
-            <li>
-              <span class="text-center">
-
-
-
-              <a href="/users/sign_in" class="txt2">
-                Sign in
-              </a>
-            </span>
-            </li>
-          </ul>
-         <% end %>
-      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  </div>
 </div>
-
-
 
 

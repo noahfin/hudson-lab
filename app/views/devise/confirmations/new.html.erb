@@ -2,71 +2,31 @@
 
 
 <div class="landding-page">
-  <div class="layer">
-    <!-- Page Content -->
-<div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100 p-t-85 p-b-20">
-  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="layer">
+        <div class="container">
+            <div class="col-md-4 container">
+                <div class="container creds-sec">
+                    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), class: 'form-signin', html: { method: :post }) do |f| %>
+                        <center>
 
+                            <i id="icon" class="fa fa-user" style="text-shadow: rgb(34, 37, 40) 0px 0px 0px, rgb(37, 40, 43) 1px 1px 0px, rgb(40, 43, 47) 2px 2px 0px, rgb(43, 47, 50) 3px 3px 0px, rgb(46, 50, 54) 4px 4px 0px; font-size: 58px; color: rgb(0, 66, 103); height: 90px; width: 90px; line-height: 90px; border-radius: 48%; text-align: center; background-color: rgb(49, 53, 57);"></i>
+                        </center>
 
-        <form class="login100-form ">
-          <span class="login100-form-title p-b-70">
-           Resend confirmation instructions
-          </span>
-          <span class="login100-form-avatar">
-            <%= devise_error_messages! %>
-          </span>
+                        <h1 class="h3 mb-3 font-weight-normal text-center mt-4">Confirmation instructions</h1>
+                        <%= devise_error_messages! %>
+                        <%= render 'layouts/error_messages'%>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <%= f.text_field :email, class: "form-control", placeholder: "Email address", required: true %>
 
+                            <button class="btn btn-lg btn-block main-creds-btn mt-4" type="submit"> Resend confirmation instructions</button>
 
-          <div class="wrap-input100 m-b-50  mt-3">
-    <%= f.email_field :email, autofocus: true,  class: 'input100', autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+                     <%= render "devise/shared/links" %>
 
-            <span class="focus-input100" data-placeholder="Password"></span>
-          </div>
-
-          <div class="container-login100-form-btn mt-4 mb-3">
-            <button class="login100-form-btn" type="submit">
-             Resend confirmation instructions
-            </button>
-          </div>
-
-          <ul class="login-more p-t-190">
-               <li class="m-b-8">
-              <span class="txt1">
-                 <%= link_to "Forgot?", new_password_path(resource_name), class: 'txt1' %>
-
-              </span>
-
-              <a href="#" class="txt2">
-                <% if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-                <%= link_to "Username / Password", new_confirmation_path(resource_name), class: 'txt2' %>
-              <% end %>
-              <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-                <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: 'txt2' %>
-              <% end -%>
-
-              </a>
-            </li>
-
-
-            <li>
-              <span class="txt1">
-               Have a Account?
-              </span>
-
-              <a href="/users/sign_in" class="txt2">
-                Sign In
-              </a>
-            </li>
-          </ul>
-         <% end %>
-      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  </div>
 </div>
 
 

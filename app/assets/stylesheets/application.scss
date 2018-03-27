@@ -12,11 +12,13 @@
  *= require jquery-ui/autocomplete
  *= require jquery-ui/menu
  *= require jasny-bootstrap.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 @import "material-dashboard.css";
 @import "demo.css";
+@import "font-awesome";
 
 .bg-trans {
   background: transparent !important;
