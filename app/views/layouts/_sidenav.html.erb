@@ -1,19 +1,19 @@
 <div class="list-group border-0 mt-3">
   <div class=" " >
-    <div class="card-header card-header-dark bg-dark mt-0">
-      All contacts and Groups
+    <div class=" text-light mt-0">
+      All contacts / <a href="/contacts/new" title="new contact" class="text-light">+ Add Contact</a>
     </div>
 
     <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'bg-dark' : '' %>
     <%= link_to contacts_path, class: "list-group-item text-info #{active}" do %>
         All Contacts <span class="badge text-info"><%= Contact.count %></span>
     <% end %>
-  <% Group.all.each do |group| %>
-    <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'bg-dark' : '' %>
+    <% Group.all.each do |group| %>
+      <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'bg-dark' : '' %>
 
-      <%= link_to contacts_path(group_id: group.id ), class: "list-group-item text-info #{active}" do %>
-        <%= group.name %><span class="badge text-info "><%= group.contacts.count %></span>
-      <% end %>
-  <% end %>
+        <%= link_to contacts_path(group_id: group.id ), class: "list-group-item text-info #{active}" do %>
+          <%= group.name %><span class="badge text-info "><%= group.contacts.count %></span>
+        <% end %>
+    <% end %>
   </div>
 </div>

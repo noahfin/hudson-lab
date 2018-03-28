@@ -2,7 +2,7 @@
 
 
 
-     <div class="sidebar" data-color="danger" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+     <div class="sidebar" data-color="black" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -92,62 +92,43 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
-              <i class="material-icons">apps</i>
+              <i class="material-icons">person</i>
               <p> Contacts
                 <b class="caret"></b>
               </p>
             </a>
+
+
             <div class="collapse" id="componentsExamples">
               <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="./components/buttons.html">
-                    <span class="sidebar-mini"> B </span>
-                    <span class="sidebar-normal"> Buttons </span>
-                  </a>
+
+
+                 <li class="nav-item ">
+                  <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
+
+                  <%= link_to contacts_path, class: "nav-link #{active}" do %>
+                    <span class="sidebar-mini">  A</span>
+                     <span class="sidebar-normal"> All Contacts <span class="text-info">  <%= Contact.count %></span></span>
+                  <% end %>
                 </li>
+                <% Group.all.each do |group| %>
                 <li class="nav-item ">
-                  <a class="nav-link" href="./components/grid.html">
-                    <span class="sidebar-mini"> GS </span>
-                    <span class="sidebar-normal"> Grid System </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="./components/panels.html">
-                    <span class="sidebar-mini"> P </span>
-                    <span class="sidebar-normal"> Panels </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="./components/sweet-alert.html">
-                    <span class="sidebar-mini"> SA </span>
-                    <span class="sidebar-normal"> Sweet Alert </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="./components/notifications.html">
-                    <span class="sidebar-mini"> N </span>
-                    <span class="sidebar-normal"> Notifications </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="./components/icons.html">
-                    <span class="sidebar-mini"> I </span>
-                    <span class="sidebar-normal"> Icons </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="./components/typography.html">
-                    <span class="sidebar-mini"> T </span>
-                    <span class="sidebar-normal"> Typography </span>
-                  </a>
+                  <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
+
+                    <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
+
+                    <span class="sidebar-mini">  <%= group.name[0] %> </span>
+                    <span class="sidebar-normal">  <%= group.name %> <span class=" text-info ">  <%= group.contacts.count %></span></span>
+                    <% end %>
+                <% end %>
                 </li>
               </ul>
             </div>
-          </li>
+
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#formsExamples">
               <i class="material-icons">content_paste</i>
-              <p> Forms
+              <p> Actions
                 <b class="caret"></b>
               </p>
             </a>
