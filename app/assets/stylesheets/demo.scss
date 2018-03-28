@@ -6,8 +6,10 @@
 html,body {
   padding: 0px;
   margin: 0px;
-  background-color: #212121;
+  background-color: #212121 !important;
   color: white !important;
+  box-sizing: border-box;
+width: 100%;
 }
 
 

@@ -45,8 +45,13 @@ $(function() {
           if(group.id != null){
            newGroup.next('.text-danger').detach();
             $('#new_group').addClass('has-success')
-            .after('<p class="text-success pt-2 mb-0">The Group: ' + '"' + group.name+'"' + ' was successfuly created you can now select it</p>' );
 
+
+            .after('<p class="text-success pt-2 mb-0">The Group: ' + '"' + group.name+'"' + ' was successfuly created you can now select it</p>' );
+            $.notify({
+              title: "New Group Added:",
+              message: '<p class="text-success pt-2 mb-0">The Group: ' + '"' + group.name+'"' + ' was successfuly created you can now select it</p>'
+            });
             $('#contact_group_id').append(newOption);
           }
         },
