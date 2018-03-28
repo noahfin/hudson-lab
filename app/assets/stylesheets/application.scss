@@ -40,10 +40,25 @@
 .input-group input{
   min-width: 100% !important;
 }
-.sidenar {
-  background-image: image-url('sidebar-4.jpg');
+.sidebar {
+    background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+rgba(0,0,0,.5), rgba(0, 0, 0,1)
+    ),
+    /* bottom, image */
+    image-url('sidebar-6.jpg') no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     background-size: cover;
+     -o-background-size: cover;
 }
-
+.text-white {
+  color: white !important
+}
+.text-white a{
+  color: white !important
+}
 .table tbody>tr>td.middle {
   vertical-align: middle;
 }

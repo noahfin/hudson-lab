@@ -2,7 +2,7 @@
 
 
 
-     <div class="sidebar" data-color="black" data-background-color="black" data-image="<%= asset_url('sidebar-1.jpg') %>">
+     <div class="sidebar  text-light" >
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -28,8 +28,8 @@
                 <b class="caret"></b>
               </span>
             </a>
-            <div class="collapse" id="collapseExample">
-              <ul class="nav">
+            <div class="collapse " id="collapseExample">
+              <ul class="nav text-white">
                 <li class="nav-item">
                   <a class="nav-link" href="#">
                     <span class="sidebar-mini"> MP </span>
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <ul class="nav">
+        <ul class="nav text-white ">
           <li class="nav-item active ">
             <a class="nav-link" href="/">
               <i class="material-icons">dashboard</i>
@@ -90,7 +90,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item text-white ">
             <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
               <i class="material-icons">person</i>
               <p> Contacts
@@ -100,7 +100,7 @@
 
 
             <div class="collapse" id="componentsExamples">
-              <ul class="nav">
+              <ul class="nav text-white ">
 
 
                  <li class="nav-item ">
@@ -108,7 +108,7 @@
 
                   <%= link_to contacts_path, class: "nav-link #{active}" do %>
                     <span class="sidebar-mini">  A</span>
-                     <span class="sidebar-normal"> All Contacts <span class="text-info">  <%= Contact.count %></span></span>
+                     <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%= Contact.count %></span></span>
                   <% end %>
                 </li>
                 <% Group.all.each do |group| %>
@@ -118,14 +118,14 @@
                     <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
 
                     <span class="sidebar-mini">  <%= group.name[0] %> </span>
-                    <span class="sidebar-normal">  <%= group.name %> <span class=" text-info ">  <%= group.contacts.count %></span></span>
+                    <span class="sidebar-normal">  <%= group.name %> <span class=" text-muted">  <%= group.contacts.count %></span></span>
                     <% end %>
                 <% end %>
                 </li>
               </ul>
             </div>
 
-          <li class="nav-item ">
+          <li class="nav-item text-white ">
             <a class="nav-link" data-toggle="collapse" href="#formsExamples">
               <i class="material-icons">content_paste</i>
               <p> Actions
@@ -133,7 +133,7 @@
               </p>
             </a>
             <div class="collapse" id="formsExamples">
-              <ul class="nav">
+              <ul class="nav text-white ">
                 <li class="nav-item ">
                   <a class="nav-link" href="./forms/regular.html">
                     <span class="sidebar-mini"> RF </span>
@@ -161,7 +161,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item text-white  ">
             <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
               <i class="material-icons">grid_on</i>
               <p> Tables
@@ -169,7 +169,7 @@
               </p>
             </a>
             <div class="collapse" id="tablesExamples">
-              <ul class="nav">
+              <ul class="nav text-white ">
                 <li class="nav-item ">
                   <a class="nav-link" href="./tables/regular.html">
                     <span class="sidebar-mini"> RT </span>
@@ -191,7 +191,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item text-white ">
             <a class="nav-link" data-toggle="collapse" href="#mapsExamples">
               <i class="material-icons">place</i>
               <p> Maps
@@ -221,19 +221,19 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item text-white ">
             <a class="nav-link" href="./widgets.html">
               <i class="material-icons">widgets</i>
               <p> Widgets </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item text-white  ">
             <a class="nav-link" href="./charts.html">
               <i class="material-icons">timeline</i>
               <p> Charts </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item text-white ">
             <a class="nav-link" href="./calendar.html">
               <i class="material-icons">date_range</i>
               <p> Calendar </p>

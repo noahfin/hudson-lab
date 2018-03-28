@@ -8,7 +8,8 @@
                     <div class="form-group">
 
                       <div class="col-md-9">
-                     <%= form.text_field :name, id: :contact_name, class: 'form-control', placeholder: 'name' %>
+                      <label for="name" class="bmd-label-floating">Contacts Name</label>
+                     <%= form.text_field :name, id: :contact_name, class: 'form-control' %>
 
                       </div>
                     </div>
@@ -16,22 +17,16 @@
                     <div class="form-group">
 
                       <div class="col-md-9">
-                    <%= form.text_field :company, id: :contact_company, class: 'form-control ', placeholder: 'Company' %>
+                        <label for="company" class="bmd-label-floating">Contacts Company</label>
+                    <%= form.text_field :company, id: :contact_company, class: 'form-control '%>
 
                       </div>
                     </div>
 
                     <div class="form-group">
                       <div class="col-md-9">
-                      <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0 ', placeholder: 'Email'  %>
-
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-
-                      <div class="col-md-9">
-                     <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 ', placeholder: 'Phone' %>
+                        <label for="email" class="bmd-label-floating">Contacts Email</label>
+                      <%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0 '  %>
 
                       </div>
                     </div>
@@ -39,10 +34,29 @@
                     <div class="form-group">
 
                       <div class="col-md-9">
-                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0', placeholder: 'Address', row: '3' %>
+                        <label for="phone" class="bmd-label-floating">Contacts Phone</label>
+                     <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 ' %>
+
                       </div>
                     </div>
                     <div class="form-group">
+
+                      <div class="col-md-9">
+                        <label for="cell" class="bmd-label-floating">Contacts Cell</label>
+                     <%= form.text_field :cell, id: :contact_cell, class: 'form-control rounded-0 '%>
+
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+
+                      <div class="col-md-9">
+                        <label for="address" class="bmd-label-floating">Address</label>
+                      <%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0', row: '3' %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                       <label for="group" class="bmd-label-floating ml-3">Select Group or create one</label>
                       <% attr = {prompt: "Select Group"} %>
                       <% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
                       <div class="row">
@@ -64,6 +78,7 @@
                           <div class="row pl-0">
 
                             <div class="col-md-10 pl-0">
+                              <label for="address" class="bmd-label-floating">New Group Name</label>
                               <input type="text" name="new_group" id="new_group" class="form-control ml-0">
                             </div>
                             <div class="col-md-2 ">
