@@ -55,9 +55,9 @@ $(function() {
         success: function (group) {
           console.log(group);
           if(group.id != null){
+           var newOption = '<option value="' + group.id +'">' +group.name+'</option></select>'
            newGroup.next('.text-danger').detach();
             $('#new_group').addClass('has-success')
-
 
             .after('<p class="text-success pt-2 mb-0">The Group: ' + '"' + group.name+'"' + ' was successfuly created you can now select it</p>' );
             $.notify({
