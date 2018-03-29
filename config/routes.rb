@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
 
   root to: 'visitors#index'
-  devise_for :users, :controllers => { registrations: 'registrations' }
+    get'/dashboard', to: 'dashboard#index'
+  devise_for :users, path: 'auth', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { registrations: 'registrations' }
   resources :users
     authenticated do
       resources :contacts, except: [:show] do
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
       end
       post '/groups', to: 'groups#create'
-      get'/dashboard', to: 'dashboard#index'
+
       root 'home#index'
   end
 end
