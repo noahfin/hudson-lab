@@ -22,13 +22,15 @@
                               <i class="material-icons">dashboard</i> Dashboard
                             </a>
                           </li>
-                          <li class="nav-item active">
-                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, "users/sign_up", class: 'nav-link' %>
+                        <li class="nav-item active">
+                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
                           </li>
                           <li class="nav-item">
-                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, "users/sign_in", class: 'nav-link' %>
+                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
                             </li>
-                            <li>
+                            <li class="nav-item ">
+                              <%= link_to "<i class='material-icons'>person_add</i> Account".html_safe, edit_user_registration_path, class: 'nav-link' %>
+                          </li>
                               <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe, "users/password/new", class: 'nav-link' %>
                             </li>
                         </ul>
@@ -43,7 +45,9 @@
       <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
       <div class="container">
         <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+            <%= render 'layouts/messages' %>
             <div class="card card-login card-hidden">
               <div class="card-header card-header-success text-center">
                 <h4 class="card-title">Log in</h4>
@@ -68,8 +72,19 @@
                         <i class="material-icons">face</i>
                       </span>
                     </div>
-                    <%= f.text_field :name, class: "form-control white-text", placeholder: "Full Name" required: true %>
+                    <%= f.text_field :first_name, class: "form-control white-text", placeholder: "First Name", required: true %>
 
+
+                  </div>
+                </span>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">face</i>
+                      </span>
+                    </div>
+                    <%= f.text_field :last_name, class: "form-control white-text", placeholder: "Last Name", required: true %>
 
                   </div>
                 </span>
@@ -80,7 +95,7 @@
                         <i class="material-icons">email</i>
                       </span>
                     </div>
-                     <%= f.text_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>                  </div>
+                     <%= f.email_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>                  </div>
                 </span>
                 <span class="bmd-form-group">
                   <div class="input-group">
@@ -89,7 +104,7 @@
                         <i class="material-icons">lock_outline</i>
                       </span>
                     </div>
-                    <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password" %>
+                    <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password", required: true  %>
 
                   </div>
                 </span>

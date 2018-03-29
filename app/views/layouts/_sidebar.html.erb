@@ -10,10 +10,10 @@
     -->
       <div class="logo">
         <a href="" class="simple-text logo-mini mb-2">
-          NF
+         <%= current_user.first_name[0] if current_user.first_name %> <%= current_user.last_name[0] if current_user.last_name %>
         </a>
         <a href="" class="simple-text logo-normal mb-2">
-         <%= current_user.name if current_user.name %>
+        <%= current_user.first_name if current_user.first_name %> <%= current_user.last_name if current_user.last_name %>
         </a>
       </div>
       <div class="sidebar-wrapper">
