@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'dashboard/index'
+
+  get 'home/index'
+
   root to: 'visitors#index'
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users
@@ -11,7 +15,8 @@ Rails.application.routes.draw do
 
       end
 
+      get'/dashboard', to: 'dashboard#index'
       post '/groups', to: 'groups#create'
-      root 'contacts#index'
+      root 'home#index'
   end
 end
