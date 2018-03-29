@@ -64,7 +64,7 @@
 
 
                       <div class="col-md-5 ml-3">
-                      <%= form.collection_select :group_id, Group.all, :id, :name, attr, class: "form-control", data-style="select-with-transition" %>
+                      <%= form.collection_select :group_id, Group.all, :id, :name, attr,{class: " selectpicker", "data-style" => "select-with-transition", "data-size" => Group.count } %>
 
                       </div>
                       <div class="col-md-3">

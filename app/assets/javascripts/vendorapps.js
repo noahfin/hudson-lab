@@ -11118,6 +11118,48 @@ window.Modernizr = (function( window, document, undefined ) {
     return Modernizr;
 
 })(this, this.document);
+
+
+
+
+
+
+/*! =========================================================
+ *
+ * Material Dashboard PRO - V1.2.1
+ *
+ * =========================================================
+ *
+ * Copyright 2016 Creative Tim (http://www.creative-tim.com/product/material-dashboard-pro)
+ *
+ *
+ *                       _oo0oo_
+ *                      o8888888o
+ *                      88" . "88
+ *                      (| -_- |)
+ *                      0\  =  /0
+ *                    ___/`---'\___
+ *                  .' \|     |// '.
+ *                 / \|||  :  |||// \
+ *                / _||||| -:- |||||- \
+ *               |   | \\  -  /// |   |
+ *               | \_|  ''\---/''  |_/ |
+ *               \  .-\__  '-'  ___/-. /
+ *             ___'. .'  /--.--\  `. .'___
+ *          ."" '<  `.___\_<|>_/___.' >' "".
+ *         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ *         \  \ `_.   \_ __\ /__ _/   .-` /  /
+ *     =====`-.____`.___ \_____/___.-`___.-'=====
+ *                       `=---='
+ *
+ *     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *
+ *               Buddha Bless:  "No Bugs"
+ *
+ * ========================================================= */
+
+
+
 /*! =========================================================
  *
  * Material Dashboard PRO - V1.2.1
@@ -11186,7 +11228,7 @@ var seq2 = 0,
     durations2 = 500;
 
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function(){
 
    $('body').bootstrapMaterialDesign();
 
@@ -11275,7 +11317,7 @@ $(document).ready(function() {
     });
 
 });
-
+$(document).on('turbolinks:load', function(){
 $(document).on('click', '.navbar-toggler', function() {
     $toggle = $(this);
 
@@ -11325,7 +11367,7 @@ $(document).on('click', '.navbar-toggler', function() {
     }
 
 });
-
+});
 // activate collapse right menu when the windows is resized
 $(window).resize(function() {
     md.initSidebarsCheck();
