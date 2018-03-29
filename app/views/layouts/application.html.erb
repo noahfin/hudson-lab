@@ -6,19 +6,8 @@
     <%= csrf_meta_tags %>
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 
-
-    <!-- Bootstrap CSS -->
-
-
-
-
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-
+      <%= javascript_include_tag 'vendorapps', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </head>
@@ -45,12 +34,8 @@
    <script type="text/javascript">
 
 
-    $(document).ready(function() {
-
-
-
-        // AUTO COMPLETE
-         $(function() {
+                // AUTO COMPLETE
+        $(document).on('turbolinks:load', function(){
              $('#term').autocomplete({
                  source: '/contacts/autocomplete',
                  minLength: 2,
@@ -59,16 +44,18 @@
                      $(this).closest('form').submit();
                  }
              });
-         });
+
+
+
 
          // ALERT REMOVAL
          $(".alert-box").fadeTo(5000, 500).slideUp(500, function() {
              $(".alert-box").slideUp(500);
          });
-         $('#sidebarCollapse').on('click', function() {
-             $('#sidebar').toggleClass('active');
-         });
+
      });
  </script>
 
  </html>
+
+

@@ -1,51 +1,128 @@
-<div class="landding-page">
-    <div class="layer">
+<div class="off-canvas-sidebar ">
+  <!-- Navbar -->
+    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
         <div class="container">
-            <div class="col-md-4 container">
-                <div class="container creds-sec">
-
-                     <!-- Material form login -->
-                    <div class="form-header deep-blue-gradient rounded">
-                            <h3><i class="fa fa-lock"></i> Login:</h3>
-                        </div>
-
-                        <div class="card">
-                            <center><i class="fa fa-user logo-i blue-grey-text mt-4" style="font-size: 4rem;"></i></center>
-
-
-                        <div class="card-body">
-                        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form-signin') do |f| %>
-                        <!-- Material input email -->
-                        <div class="md-form font-weight-light">
-                            <i class="fa fa-envelope prefix grey-text"></i>
-                            <%= f.text_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>
-
-                        </div>
-
-                        <!-- Material input password -->
-                        <div class="md-form font-weight-light">
-                            <i class="fa fa-lock prefix grey-text"></i>
-                         <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password" %>
-
-
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <button class="btn  unique-color-dark " type="submit">Login</button>
-                        </div>
-                         <% end %>
-                    </div>
-                </div>
-
-                </div>
+            <div class="navbar-translate">
+                <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="dropdown nav-item">
+                      <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                        <ul class="navbar-nav text-white">
+                          <li class="nav-item">
+                            <a href="/" class="nav-link">
+                              <i class="material-icons">dashboard</i> Dashboard
+                            </a>
+                          </li>
+                          <li class="nav-item active">
+                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, "users/sign_up", class: 'nav-link' %>
+                          </li>
+                          <li class="nav-item">
+                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, "users/sign_in", class: 'nav-link' %>
+                            </li>
+                            <li>
+                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe, "users/password/new", class: 'nav-link' %>
+                            </li>
+                        </ul>
+                      </div>
+                </ul>
             </div>
         </div>
+    </nav>
+  <!-- End Navbar -->
+  <div class="wrapper wrapper-full-page">
+    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('<%= asset_url("login.jpg")  %>'); background-size: cover; background-position: top center;">
+      <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+      <div class="container">
+        <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+           <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Log in</h4>
+                <div class="social-line">
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-facebook-square"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body ">
+                <p class="card-description text-center">Or Be Classical</p>
+
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                      </span>
+                    </div>
+                     <%= f.text_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>
+                </div>
+                </span>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                    <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password" %>
+
+                  </div>
+                </span>
+              </div>
+              <div class="card-footer justify-content-center">
+                <button type="submit" class="btn btn-danger btn-link btn-lg">Lets Go</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <footer class="footer ">
+        <div class="container">
+          <nav class="pull-left">
+            <ul>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright pull-right">
+
+
+          </div>
+        </div>
+      </footer>
     </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+    demo.checkFullPageBackgroundImage();
+
+    setTimeout(function() {
+      // after 1000 ms we add the class animated to the login/register card
+      $('.card').removeClass('card-hidden');
+    }, 700)
+  });
+</script>
 </div>
-
-
-
-
-
-<!-- Material form login -->
-

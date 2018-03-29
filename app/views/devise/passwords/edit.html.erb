@@ -1,69 +1,133 @@
-<h2>Change your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-
-<div class="landding-page">
-    <div class="layer">
+<div class="off-canvas-sidebar ">
+  <!-- Navbar -->
+    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
         <div class="container">
-            <div class="col-md-4 container">
-                <div class="container creds-sec">
-
-                                 <%= form_for(resource, as: resource_name, url: password_path(resource_name), class: 'form-signin', html: { method: :put }) do |f| %>
-                        <center>
-
-                            <i id="icon" class="fa fa-user" style="text-shadow: rgb(34, 37, 40) 0px 0px 0px, rgb(37, 40, 43) 1px 1px 0px, rgb(40, 43, 47) 2px 2px 0px, rgb(43, 47, 50) 3px 3px 0px, rgb(46, 50, 54) 4px 4px 0px; font-size: 58px; color: rgb(0, 66, 103); height: 90px; width: 90px; line-height: 90px; border-radius: 48%; text-align: center; background-color: rgb(49, 53, 57);"></i>
-                        </center>
-
-                        <h1 class="h3 mb-3 font-weight-normal text-center mt-4">Change your password</h1>
-                        <%= devise_error_messages! %>
-                        <%= f.hidden_field :reset_password_token %>
-
-                        <div class="field">
-                          <%= f.label :password, "New password", class: "sr-only" %><br />
-                          <% if @minimum_password_length %>
-                            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-                          <% end %>
-                          <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control" %>
-                        </div>
-
-                        <div class="field">
-                          <%= f.label :password_confirmation, "Confirm new password", class: "sr-only"  %><br />
-                          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-                        </div>
-
-                        <div class="actions">
-                          <%= f.submit "Change my password", class: "btn btn-lg btn-block main-creds-btn" %>
-                        </div>
-                      <% end %>
-
-                      <%= render "devise/shared/links" %>
-                </div>
+            <div class="navbar-translate">
+                <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="dropdown nav-item">
+                      <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                        <ul class="navbar-nav text-white">
+                          <li class="nav-item">
+                            <a href="/" class="nav-link">
+                              <i class="material-icons">dashboard</i> Dashboard
+                            </a>
+                          </li>
+                          <li class="nav-item active">
+                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, "users/sign_up", class: 'nav-link' %>
+                          </li>
+                          <li class="nav-item">
+                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, "users/sign_in", class: 'nav-link' %>
+                            </li>
+                            <li>
+                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe, "users/password/new", class: 'nav-link' %>
+                            </li>
+                        </ul>
+                      </div>
+                </ul>
             </div>
         </div>
-    </div>
-</div>
+    </nav>
+  <!-- End Navbar -->
+  <div class="wrapper wrapper-full-page">
+    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('<%= asset_url("login.jpg")  %>'); background-size: cover; background-position: top center;">
+      <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+      <div class="container">
+        <div class="col-md-4 col-sm-6 ml-auto mr-auto">
+           <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Change your password</h4>
+                <div class="social-line">
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-facebook-square"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body ">
+                <p class="card-description text-center">Or Be Classical</p>
 
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                        <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                      <% end %>
+                      <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password" %>
+                </div>
+                </span>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                     <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Enter Password confirmation" %>
+                  </div>
+                </span>
+              </div>
+              <div class="card-footer justify-content-center">
+                <button type="submit" class="btn btn-danger btn-link btn-lg">Change my password</button>
+              </div>
+              <center class="text-center"><%= render "devise/shared/links" %></center>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <footer class="footer ">
+        <div class="container">
+          <nav class="pull-left">
+            <ul>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+              <li>
+
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright pull-right">
+
+
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+    demo.checkFullPageBackgroundImage();
+
+    setTimeout(function() {
+      // after 1000 ms we add the class animated to the login/register card
+      $('.card').removeClass('card-hidden');
+    }, 700)
+  });
+</script>
+</div>
 

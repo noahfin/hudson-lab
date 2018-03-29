@@ -63,7 +63,9 @@ width: 100%;
   border-top-right-radius: 0;
 }
 
-
+.login-page {
+  background-image: image-url('login.jpg') no-repeat center center fixed !important;
+}
 
 .nav-landing {
   min-height: 100px;
@@ -80,7 +82,7 @@ width: 100%;
      margin-top: 0px !important;
 
 }
- .landding-page{
+.landding-page{
   background:
     /* top, transparent red, faked with gradient */
     linear-gradient(

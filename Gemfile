@@ -15,6 +15,9 @@ gem 'kaminari'
 gem "paperclip", "~> 6.0.0"
 gem 'jasny-bootstrap-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.12.9'
+gem 'jquery-turbolinks'
 gem "font-awesome-rails"
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

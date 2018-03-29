@@ -1,10 +1,10 @@
-<div class="landding-page">
+<!-- <div class="landding-page">
   <div class="layer">
-    <!-- Page Content -->
+
     <section filter-color="orange ">
       <center>
         <div class="top-header">
-          <!--  render 'layouts/messages'  -->
+
           <div class="text-center main-brand ">
             <div class="" >
               <div class="">
@@ -23,6 +23,117 @@
       </center>
     </section>
   </div>
-</div>
+</div> -->
 
- font-size: 5rem"
+<body class="presentation-page ">
+    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="dropdown nav-item">
+                      <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                        <ul class="navbar-nav text-white">
+                          <li class="nav-item">
+                            <a href="/" class="nav-link">
+                              <i class="material-icons">dashboard</i> Dashboard
+                            </a>
+                          </li>
+                          <li class="nav-item active">
+                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, "users/sign_up", class: 'nav-link' %>
+                          </li>
+                          <li class="nav-item">
+                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, "users/sign_in", class: 'nav-link' %>
+                            </li>
+                            <li>
+                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe, "users/password/new", class: 'nav-link' %>
+                            </li>
+                        </ul>
+                      </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<%= asset_url("purple-1.jpg") %>')";>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+                        <h1>Hudon Commercial
+                            <span class="pro-badge">
+                                Lab
+                            </span>
+                        </h1>
+                        <h3 class="title"> A well crafted CRM Dashbord. To help take your bussiness to the next level. Let's get strated and what its made to do. </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h4 class="description text-center">Material Kit PRO is a Bootstrap UI Kit with a fresh, new design inspired by Google&apos;s Material Design. You asked for it, so we built it. It&apos;s a great pleasure to introduce to you the material concepts in an easy to use and beautiful set of components.</h4>
+                    </div>
+                </div>
+                <div class="features-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="info">
+                                <div class="icon icon-rose">
+                                    <i class="material-icons">apps</i>
+                                </div>
+                                <h4 class="info-title">Huge Number of Components</h4>
+                                <p>Every element that you need in a product comes built in as a component. All components fit perfectly with each other and can take variations in colour.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info">
+                                <div class="icon icon-info">
+                                    <i class="material-icons">view_day</i>
+                                </div>
+                                <h4 class="info-title">Multi-Purpose Sections</h4>
+                                <p>Putting together a page has never been easier than matching together sections. From team presentation to pricing options, you can easily customise and built your pages.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info">
+                                <div class="icon icon-success">
+                                    <i class="material-icons">view_carousel</i>
+                                </div>
+                                <h4 class="info-title">Example Pages</h4>
+                                <p>If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-sections mb-4">
+            <div class="container">
+                <div class="col-md-8 ml-auto mr-auto mb-4">
+                    <div class="section-description">
+                        <h2 class="title">Ready to get strated?</h2>
+                        <h5 class="description">Build your page section by section! We have created multiple options for you to put together and customise into pixel perfect pages. From headers to footers, you will be able to choose the best combination for your project.</h5>
+                        <a href="sections.html" target="_blank" class="btn btn-rose btn-round">Register</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </script>
+
+</body>
+
+</html>
