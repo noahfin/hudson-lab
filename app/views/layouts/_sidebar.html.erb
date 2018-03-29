@@ -53,12 +53,12 @@
           </div>
         </div>
         <ul class="nav text-white ">
-          <li class="nav-item active ">
-            <a class="nav-link" href="/dashboard">
-              <i class="material-icons">dashboard</i>
-              <p> Dashboard </p>
-            </a>
-          </li>
+            <li class="nav-item <%=active_item('dashboard') %>">
+             <%= link_to "<i class='material-icons'>dashboard</i><p> Dashboard </p>".html_safe, dashboard_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item <%=active_item('dashboard') %>">
+             <%= link_to "<i class='material-icons'>dashboard</i><p> Dashboard </p>".html_safe, dashboard_path, class: 'nav-link' %>
+            </li>
           <li class="nav-item ">
             <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
               <i class="material-icons">image</i>
@@ -68,18 +68,13 @@
             </a>
             <div class="collapse" id="pagesExamples">
               <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="/pages/about">
-                    <span class="sidebar-mini"> D </span>
-                    <span class="sidebar-normal"> Documentation </span>
-                  </a>
+                <li class="nav-item <%=active_item('about') %>">
+                 <%= link_to '<span class="sidebar-mini"> D </span><span class="sidebar-normal"> Documentation </span>'.html_safe, 'pages/about', class: 'nav-link' %>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="/contacts/new">
-                    <span class="sidebar-mini"> +C </span>
-                    <span class="sidebar-normal"> New Contact </span>
-                  </a>
+                <li class="nav-item <%=active_item('contacts/new') %>">
+                 <%= link_to '<span class="sidebar-mini"> +C </span><span class="sidebar-normal"> New Contact </span>'.html_safe, new_contact_path, class: 'nav-link' %>
                 </li>
+
                 <li class="nav-item ">
                   <a class="nav-link" href="">
                     <span class="sidebar-mini"> T </span>
