@@ -1,6 +1,6 @@
 class Contact < ApplicationRecord
   belongs_to :group
-  # paginates_per 10
+  belongs_to :user
   validates :name, :email, :group_id, presence: true
   validates :name, length: { minimum: 2}
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
