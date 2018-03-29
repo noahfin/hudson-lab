@@ -117,10 +117,10 @@ Devise.setup do |config|
   # config.pepper = '546e1895431f176f61960739b4e8882bad28a71332f3a082892bd466e1f0cc793bbf27a1776b86692ba3e34def8472cda77d3b44b6fe1b6cad8ea2aae68680ca'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+   config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+   config.send_password_change_notification = true
 
   # ==> Configuration for :invitable
   # The period the generated invitation token is valid, after

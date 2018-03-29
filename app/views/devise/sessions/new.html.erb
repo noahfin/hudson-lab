@@ -40,8 +40,17 @@
     <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('<%= asset_url("login.jpg")  %>'); background-size: cover; background-position: top center;">
       <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
       <div class="container">
+
         <div class="col-md-4 col-sm-6 ml-auto mr-auto">
            <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+
+           <%= devise_error_messages! %>
+                    <%= render 'layouts/messages' %>
+            <script>
+
+
+</script>
+
             <div class="card card-login card-hidden">
               <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">Log in</h4>
