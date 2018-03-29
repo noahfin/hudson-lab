@@ -13,23 +13,31 @@ require 'faker'
 
 Group.destroy_all
 Contact.destroy_all
+User.destroy_all
 
-group_ids = []
-group_ids << Group.create(name: 'Ulster County').id
-group_ids << Group.create(name: 'Dutchess County').id
-group_ids << Group.create(name: 'Westchester County').id
-group_ids << Group.create(name: 'New Leads').id
-group_ids << Group.create(name: 'Invertors').id
-group_ids << Group.create(name: 'Lawyers').id
+user_ids = []
+user_ids << User.create(name: "Jhon Doe", email: "johndoe@test.com", password: 'secret').id
+user_ids << User.create(name: "Jane Roe", email: "janeroe@test.com", password: 'secret').id
+
+p "2 users created"
+group_ids = { user_ids[0] => [], user_ids[1] => []}
+
+group_ids[user_ids[0]] << Group.create(name: 'Ulster County', user_id: user_ids[0] ).id
+group_ids[user_ids[1]]<< Group.create(name: 'Dutchess County', user_id: user_ids[1] ).id
+group_ids[user_ids[0]]<< Group.create(name: 'Westchester County', user_id: user_ids[0] ).id
+group_ids[user_ids[1]] << Group.create(name: 'New Leads', user_id: user_ids[1] ).id
+group_ids[user_ids[0]] << Group.create(name: 'Invertors', user_id: user_ids[0] ).id
+group_ids[user_ids[1]]<< Group.create(name: 'Lawyers', user_id: user_ids[1] ).id
 
 
 p "#{group_ids.count} created"
 
 group_count = group_ids.length
-number_of_contacts = 20
+number_of_contacts = 60
 contacts = []
 
 number_of_contacts.times do |i|
+ user_id = user_ids[Random.rand(0...2)]
   new_contact = {
 
     name: Faker::Name.name,
@@ -38,7 +46,8 @@ number_of_contacts.times do |i|
     phone: Faker::PhoneNumber.cell_phone,
     cell: Faker::PhoneNumber.cell_phone,
     address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city } #{Faker::Address.state}",
-    group_id: group_ids[Random.rand(0...group_count)]
+    group_id: group_ids[user_id][Random.rand(0...group_count)],
+    user_id: user_id
   }
   contacts.push(new_contact)
 
