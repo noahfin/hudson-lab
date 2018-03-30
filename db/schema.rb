@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329232138) do
+ActiveRecord::Schema.define(version: 20180330012019) do
+
+  create_table "Groups_Users", id: false, force: :cascade do |t|
+    t.integer "Group_id", null: false
+    t.integer "User_id", null: false
+    t.index ["Group_id", "User_id"], name: "index_Groups_Users_on_group_id_and_user_id"
+    t.index ["User_id", "Group_id"], name: "index_Groups_Users_on_user_id_and_group_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"

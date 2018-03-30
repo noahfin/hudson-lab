@@ -1,29 +1,4 @@
-<!-- <div class="landding-page">
-  <div class="layer">
 
-    <section filter-color="orange ">
-      <center>
-        <div class="top-header">
-
-          <div class="text-center main-brand ">
-            <div class="" >
-              <div class="">
-                <strong>
-                  <h1 class="title white-text"  style="color: white !important; font-size: 5rem">
-                    The Hudson Commercial
-                  </h1>
-                </strong>
-                <h3 class="description white-text" style="color: white !important;  font-size: 3rem"">Dashbord CRM</h3>
-                <br/>
-                <a id="sign_up" href="/users/sign_up" class="btn btn-trans btn-lg text-light b-light" >Lets do this get started <span><i class="fa fa-sign-in"></i></span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </center>
-    </section>
-  </div>
-</div> -->
 
 <body class="presentation-page ">
     <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
@@ -46,14 +21,14 @@
                               <i class="material-icons">dashboard</i> Dashboard
                             </a>
                           </li>
-                          <li class="nav-item active">
-                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, "users/sign_up", class: 'nav-link' %>
+                             <li class="nav-item active">
+                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
                           </li>
                           <li class="nav-item">
-                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, "users/sign_in", class: 'nav-link' %>
+                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
                             </li>
                             <li>
-                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe, "users/password/new", class: 'nav-link' %>
+                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe,  new_user_password_path, class: 'nav-link' %>
                             </li>
                         </ul>
                       </div>
@@ -94,8 +69,8 @@
                                 <div class="icon icon-rose">
                                     <i class="material-icons">apps</i>
                                 </div>
-                                <h4 class="info-title">Huge Number of Components</h4>
-                                <p>Every element that you need in a product comes built in as a component. All components fit perfectly with each other and can take variations in colour.</p>
+                                <h4 class="info-title">Full feature multi user CRM</h4>
+                                <p>This app designed to make organizing your business contact and your personal contacts easy and quick to navigate through.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -103,8 +78,8 @@
                                 <div class="icon icon-info">
                                     <i class="material-icons">view_day</i>
                                 </div>
-                                <h4 class="info-title">Multi-Purpose Sections</h4>
-                                <p>Putting together a page has never been easier than matching together sections. From team presentation to pricing options, you can easily customise and built your pages.</p>
+                                <h4 class="info-title">Kepp track of your activty</h4>
+                                <p>The Hudson Commercial Lab is also a real estate activity tracker. Allowing you to easily keep track of what actions and events are happing on your listings and deals. </p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -112,8 +87,8 @@
                                 <div class="icon icon-success">
                                     <i class="material-icons">view_carousel</i>
                                 </div>
-                                <h4 class="info-title">Example Pages</h4>
-                                <p>If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.</p>
+                                <h4 class="info-title">Action Steps</h4>
+                                <p>Plan out action steps needed to get deals done or whats actions need to be made on new leads. Assign to other employees and add comments if needed.</p>
                             </div>
                         </div>
                     </div>
@@ -121,12 +96,12 @@
             </div>
         </div>
 
-        <div class="section section-sections mb-4">
+        <div class="section section-sections" style="padding-bottom: 100px !important;">
             <div class="container">
                 <div class="col-md-8 ml-auto mr-auto mb-4">
                     <div class="section-description">
                         <h2 class="title">Ready to get strated?</h2>
-                        <h5 class="description">Build your page section by section! We have created multiple options for you to put together and customise into pixel perfect pages. From headers to footers, you will be able to choose the best combination for your project.</h5>
+                        <h5 class="description">Technology is the feature. Connecting with your coustomers and keeping them inform is a fundumantly part of a successful real estate company.</h5>
                          <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'btn btn-rose btn-round' %>
                     </div>
                 </div>

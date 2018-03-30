@@ -13,6 +13,6 @@ private
 
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name).merge(:user => current_user)
   end
 end

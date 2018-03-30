@@ -6,7 +6,7 @@
                 <div class="row">
                   <div class="col-md-8">
                     <div class="form-group">
-
+                      <%= render 'layouts/messages' if !flash.empty? %>
                       <div class="col-md-9">
                       <label for="name" class="bmd-label-floating">Contacts Name</label>
                      <%= form.text_field :name, id: :contact_name, class: 'form-control' %>
@@ -65,6 +65,10 @@
 
                       <div class="col-md-5 ml-3">
                       <%= form.collection_select :group_id, Group.all, :id, :name, attr,{class: " selectpicker", "data-style" => "select-with-transition", "data-size" => Group.count } %>
+
+                      </div>
+                       <div class="col-md-5 ml-3">
+                      <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{class: " selectpicker", "data-style" => "select-with-transition", "data-size" => User.count } %>
 
                       </div>
                       <div class="col-md-3">

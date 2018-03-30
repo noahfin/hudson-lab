@@ -21,6 +21,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+
   end
   def edit
 
@@ -32,6 +33,7 @@ class ContactsController < ApplicationController
       flash[:success] = "Contact was successfully updated."
       redirect_to contacts_path(previous_query_string)
       else
+      flash[:danger] = @contact.errors.full_messages.to_s
       render 'edit'
     end
   end
@@ -48,13 +50,15 @@ class ContactsController < ApplicationController
       flash[:success] = "Contact was successfully created."
       redirect_to contacts_path(previous_query_string)
     else
+       flash[:danger] = @contact.errors.full_messages.to_s
+
       render 'new'
     end
   end
 
   private
   def contact_params
-    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :group_id, :avatar)
+    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :group_id, :avatar).merge(:user => current_user)
   end
 
   def find_contact
