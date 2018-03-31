@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330012019) do
-
-  create_table "Groups_Users", id: false, force: :cascade do |t|
-    t.integer "Group_id", null: false
-    t.integer "User_id", null: false
-    t.index ["Group_id", "User_id"], name: "index_Groups_Users_on_group_id_and_user_id"
-    t.index ["User_id", "Group_id"], name: "index_Groups_Users_on_user_id_and_group_id"
-  end
+ActiveRecord::Schema.define(version: 20180330204244) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -38,10 +31,24 @@ ActiveRecord::Schema.define(version: 20180330012019) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "contacts_users", id: false, force: :cascade do |t|
+    t.integer "contact_id", null: false
+    t.integer "user_id", null: false
+    t.index ["contact_id", "user_id"], name: "index_contacts_users_on_contact_id_and_user_id"
+    t.index ["user_id", "contact_id"], name: "index_contacts_users_on_user_id_and_contact_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "user_id", null: false
+    t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
+    t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
   end
 
   create_table "users", force: :cascade do |t|

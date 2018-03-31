@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :groups
-  has_many :contacts, through: :groups
+  has_and_belongs_to_many :groups
+  has_and_belongs_to_many :contacts, through: :groups
 
 
   enum role: [:user, :vip, :admin]

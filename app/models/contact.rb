@@ -1,6 +1,6 @@
 class Contact < ApplicationRecord
   belongs_to :group
-  belongs_to :user
+  has_and_belongs_to_many :user
   validates :name, :email, :group_id, presence: true
   validates :name, length: { minimum: 2}
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
@@ -28,5 +28,7 @@ scope :by_group, -> (group_id) { where(group_id: group_id) if group_id.present?}
   #     all
   #   end
   # end
+
+
 
 end
