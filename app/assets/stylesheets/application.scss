@@ -94,9 +94,16 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
   border-radius: 15px;
 }
 .btn-circle i{
-  position: relative;
-  bottom: .3rem;
-  left:.1rem;
+  position: absolute !important;
+   left: .43rem !important;
+}
+.e-contact {
+  top: 1.6rem !important;
+
+}
+.d-contact {
+
+   top: 1.5rem !important;
 }
 .card-signup {
   margin-left: auto;
@@ -110,3 +117,6 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
   max-width: 246px !important;
 }
 
+#add-group-btn {
+  width: 150px !important;
+}

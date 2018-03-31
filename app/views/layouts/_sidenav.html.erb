@@ -1,7 +1,7 @@
 <div class="list-group border-0 mt-3">
   <div class=" " >
     <div class=" text-light mt-0">
-      All contacts / <a href="/contacts/new" title="new contact" class="text-light">+ Add Contact</a>
+      All contacts / <a href="/contacts/new" title="Add new contact to the database" class="text-light" rel= "tooltip">+ Add Contact</a>
     </div>
 
     <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'bg-dark' : '' %>
@@ -13,8 +13,10 @@
       <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'bg-dark' : '' %>
 
         <%= link_to contacts_path(group_id: group.id ), class: "list-group-item text-info #{active}" do %>
-          <%= group.name %><span class="badge text-info "><%= Contact.where(["group_id = ? and user_id= ?", group.id, current_user.id]).count %></span>
+          <%= group.name %><span class="badge text-info "><%= current_user.contacts.where(["group_id = ?", group.id, ]).count%></span>
         <% end %>
     <% end %>
   </div>
 </div>
+
+
