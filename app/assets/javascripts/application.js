@@ -28,16 +28,11 @@
 
 
 $(window).resize(function(){
-
-
   if ($(window).width() > 991) {
-
-            // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
-           $('.sidebar-wrapper').find($('#side-search')).remove();
-            $('.sidebar-wrapper').find('.nav-mobile-menu').remove();
-
-
-        }
+      // removes all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
+     $('.sidebar-wrapper').find($('#side-search')).remove();
+     $('.sidebar-wrapper').find('.nav-mobile-menu').remove();
+  }
 
 })
 
@@ -84,7 +79,7 @@ var i = 0;
         success: function (group) {
           console.log(group);
           if(group.id != null){
-           var newOption = '<option selected="true" value="' + group.id.toString() +'">' +group.name+'</option></select>'
+           var newOption = $('<option selected="true" value="' + group.id.toString() +'">' +group.name+'</option></select>');
            newGroup.next('.text-danger').detach();
             $('#new_group').addClass('has-success')
 
@@ -93,7 +88,10 @@ var i = 0;
               title: "New Group Added:",
               message: 'The Group: ' + '"' + group.name+'"' + ' was successfuly created it is selected'
             });
+            console.log(newOption)
             $('#contact_group_id').append(newOption);
+            $('.selectpicker').selectpicker('render');
+
             newGroup.val("");
           }
         },

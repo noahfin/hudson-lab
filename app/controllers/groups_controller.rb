@@ -9,15 +9,15 @@ class GroupsController < ApplicationController
       main_model = GroupsUser.create(group: @group, user: user)
       flash[:warring] = "Group user relationships was successfully created."
     end
-    render json: @group, status: : created
+    render json: @group, status: :created
     else
-      render json: @group.errors.full_messages, status: : unprocessable_entity
+      render json: @group.errors.full_messages, status:  :unprocessable_entity
     end
   end
 
   private
 
   def group_params
-    params.require(: group).permit(: name, : user_id => [])
+    params.require(:group).permit(:name, :user_id => [])
   end
 end
