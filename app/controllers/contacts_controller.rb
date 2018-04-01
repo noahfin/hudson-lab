@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def index
     session[:selected_group_id] = params[:group_id]
     if params[:group_id] && !params[:group_id].empty?
-      @contacts = current_user.contacts.where(["group_id = ?", params[:group_id] ]).order(created_at: :desc).page(params[:page])
+      @contacts = current_user.contacts.merge(Group.where(["group_id = ?", params[:group_id] ])).order(created_at: :desc).page(params[:page])
     else
       @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
     end
@@ -27,6 +27,11 @@ class ContactsController < ApplicationController
 
   def edit
 
+  if current_user.contacts.where(["id = ?", params[:id] ])
+  else
+
+    authorize @contact
+  end
   end
 
   def update
