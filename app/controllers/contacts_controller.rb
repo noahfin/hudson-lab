@@ -35,6 +35,11 @@ class ContactsController < ApplicationController
   end
 
   def update
+    if current_user.contacts.where(["id = ?", params[:id] ])
+    else
+
+      authorize @contact
+    end
     if @contact.update(contact_params)
       flash[:success] = "Contact was successfully updated."
       redirect_to contacts_path(previous_query_string)
@@ -45,6 +50,11 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+   if current_user.contacts.where(["id = ?", params[:id] ])
+    else
+
+      authorize @contact
+    end
     @contact = @contact.destroy
     flash[:success] = "Contact was successfully deleted."
     redirect_to contacts_path

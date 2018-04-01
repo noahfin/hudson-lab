@@ -3,4 +3,7 @@ class ContactPolicy < ApplicationPolicy
 
     user.id === record.user_id
   end
+    def destroy?
+      update?
+  end
 end

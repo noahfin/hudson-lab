@@ -70,8 +70,8 @@
                 <div class="col-xl-6  ml-0  pl-0 pb-1">
                   <label for="cell" class="bmd-label-floating">Pick a Group</label><%= form.collection_select :group_id, current_user.groups.uniq, :id, :name, attr,{required: true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => Group.count } %>
                 </div>
-                <div class="col-xl-6 ml-0 pl-0 pb-1">
-                  <label for="cell" class="bmd-label-floating">Pick users</label><%= form.collection_select :user_id, User.all, :id, :first_name, {prompt: "Select users"},{:multiple => true, required: true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => User.count } %>
+                <div class="col-xl-6 ml-0 pl-0 pb-1"><% attr = {prompt: "Select related users"} %><% attr[:selected] = current_user.id.to_i if current_user.id %>
+                  <label for="cell" class="bmd-label-floating" title="You need to select yourself anyone else who needs the contact." rel="tooltip">Pick users</label><%= form.collection_select :user_id, User.all, :id, :first_name, attr,{required: true, :multiple => true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => User.count } %>
                 </div>
               </div>
             </div>
