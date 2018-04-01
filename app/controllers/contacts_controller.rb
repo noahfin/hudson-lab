@@ -55,8 +55,8 @@ class ContactsController < ApplicationController
 
     @contact = Contact.new(contact_params)
     if @contact.save
-       user_reltionships(Group.find( params['contact'][:group_id]),"group")
-       user_reltionships(@contact, "contacts")
+       user_reltionships(Group.find( params['contact'][:group_id]),"group",params['contact'][:user_id])
+       user_reltionships(@contact, "contacts", params['contact'][:user_id])
       flash[:success] = "Contact was successfully created."
       redirect_to contacts_path(previous_query_string)
     else

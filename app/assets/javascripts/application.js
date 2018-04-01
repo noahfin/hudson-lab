@@ -41,6 +41,103 @@ $(window).resize(function(){
 
 })
 
+$(document).on('turbolinks:load', function(){
+     $("#add-new-group").hide();
+    $('#add-group-btn').click(function () {
+      $("#add-new-group").slideToggle(function() {
+        $('#new_group').focus();
+      });
+      return false;
+    });
+
+  $("#save-new-group").on( "click", function(event) {
+    var inputs = document.querySelectorAll('form div input[type=checkbox]');
+var user_ids = []
+var i = 0;
+[].forEach.call(inputs, function(input) {
+  input.addEventListener('invalid',function(e){
+    input.parentNode.style.display = 'block'
+    user_ids[i] = input.value();
+    i++
+  });
+});
+
+  $('.users-for-new-group').each(function(i ) {
+    user_ids[i] =  $( this ).val();
+    console.log(user_ids[i]);
+
+  });
+
+
+    console.log(user_ids);
+        var newGroup = $('#new_group');
+        // var inputGroup = $('#new_group')
+
+
+      event.preventDefault();
+      $.ajax({
+        url: "/groups",
+        method: "post",
+        data: {
+          group: {name: $("#new_group").val(), user_id: user_ids }
+        },
+        success: function (group) {
+          console.log(group);
+          if(group.id != null){
+           var newOption = '<option selected="true" value="' + group.id.toString() +'">' +group.name+'</option></select>'
+           newGroup.next('.text-danger').detach();
+            $('#new_group').addClass('has-success')
+
+
+            $.notify({
+              title: "New Group Added:",
+              message: 'The Group: ' + '"' + group.name+'"' + ' was successfuly created it is selected'
+            });
+            $('#contact_group_id').append(newOption);
+            newGroup.val("");
+          }
+        },
+        error: function(err){
+
+          var errors = err.responseJSON;
+          var error = errors.join(", ");
+
+          if (error) {
+           newGroup.next('.text-danger').detach();
+            $('#new_group').addClass('has-error')
+            .after('<p class="text-danger pt-2 mb-0">' + error + '</p>' );
+            $.notify({
+              title: '<strong>Heads up!</strong>',
+              message: error
+            },{
+              type: 'danger'
+            });
+            }
+        }
+      })
+
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $(document).on('turbolinks:load', function(){

@@ -1,13 +1,17 @@
 module ContactsHelper
-    def user_reltionships(obj,type)
+    def user_reltionships(obj,type, users)
 
-      if params['contact'][:user_id].count < 50
+
+
+
          error_msg = ''
-         params['contact'][:user_id].each_with_index do |user, i|
-          next if user == ""
+
+         users.each_with_index do |user, i|
+          next if user = ""
           user = User.find(user)
+
           if type == "group"
-            next if Group.where(["group_id = ? and user_id= ?", obj.id, user.id])
+
             main_model = GroupsUser.create(group: obj, user: user)
 
            elsif type == "contacts"
@@ -26,7 +30,7 @@ module ContactsHelper
          end
 
       end
-    end
+
   end
 
 
