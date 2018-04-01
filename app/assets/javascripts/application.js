@@ -12,7 +12,7 @@
 //= require jquery
 //= require popper
 //= require jquery_ujs
-
+//= require jquery.turbolinks
 //= require jasny-bootstrap.min
 //= require jquery-ui/widget
 //= require jquery-ui/position

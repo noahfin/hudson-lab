@@ -21,7 +21,7 @@ class Contact < ApplicationRecord
   #   end
   # end
 
-scope :by_group, -> (group_id) { where(group_id: group_id) if group_id.present?}
+scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
   #   def self.by_group(group_id)
   #   if group_id && !group_id.empty?
 

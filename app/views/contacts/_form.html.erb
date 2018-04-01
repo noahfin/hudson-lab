@@ -68,10 +68,10 @@
             <div class="form-group "><% attr = {prompt: "Select Group"} %><% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
               <div class="row">
                 <div class="col-xl-6  ml-0  pl-0 pb-1">
-                  <label for="cell" class="bmd-label-floating">Pick a Group</label><%= form.collection_select :group_id, current_user.groups.uniq, :id, :name, attr,{class: " selectpicker", "data-style" => "select-with-transition", "data-size" => Group.count } %>
+                  <label for="cell" class="bmd-label-floating">Pick a Group</label><%= form.collection_select :group_id, current_user.groups.uniq, :id, :name, attr,{required: true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => Group.count } %>
                 </div>
                 <div class="col-xl-6 ml-0 pl-0 pb-1">
-                  <label for="cell" class="bmd-label-floating">Share with users</label><%= form.collection_select :user_id, User.all, :id, :first_name, {prompt: "Select users"},{:multiple => true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => User.count } %>
+                  <label for="cell" class="bmd-label-floating">Pick users</label><%= form.collection_select :user_id, User.all, :id, :first_name, {prompt: "Select users"},{:multiple => true, required: true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => User.count } %>
                 </div>
               </div>
             </div>

@@ -1,37 +1,25 @@
 module ContactsHelper
-    def user_reltionships(obj,type, users)
-
-
-
-
-         error_msg = ''
-
-         users.each_with_index do |user, i|
-          next if user = ""
-          user = User.find(user)
-
-          if type == "group"
-
-            main_model = GroupsUser.create(group: obj, user: user)
-
-           elsif type == "contacts"
-
-             main_model = ContactsUser.create(contact: obj, user: user)
-
-            end
-            if main_model.errors.any?
-              error_msg += ' ' + main_model.errors.full_messages.to_s
-              end
-
-            if error_msg.length > 2
-            flash[:danger] = main_model.errors.full_messages.to_s
-            else
-          flash[:warring] =   type +" user relationships was successfully created."
-         end
-
+  def user_reltionships()
+    err = ''
+    @group = Group.find(params['contact'][:group_id])
+    users = params['contact']['user_id'].to_a
+    users.each do |user|
+      next if user.to_i < 1
+      user = User.find(user.to_i)
+         group_model = GroupsUser.create(group: @group, user: user) unless Group.exists?(user_id: user.id)
+      if group_model.errors.any?
+        err += "****" + contact_model.errors.full_messages.to_s
       end
+        flash[:warring] = "Group user relationships was successfully created." unless group_model.errors.any?
 
+        @contact = Contact.find(@contact.id)
+        contact_model = ContactsUser.new(contact: @contact, user: user)
+      if contact_model.save
+        flash[:warring] = "Contact users relationship was successfully created."
+      else
+         err += "****" + contact_model.errors.full_messages.to_s
+         flash[:danger] = err if err
+      end
+    end
   end
-
-
 end
