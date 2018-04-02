@@ -37,10 +37,17 @@ $(window).resize(function(){
 })
 
 $(document).on('turbolinks:load', function(){
-     $("#add-new-group").hide();
-    $('#add-group-btn').click(function () {
+    $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function(){
+      history.pushState({}, '', $(this).attr('href'));
+    });
+    $(window).on('popstate',function(){
+     $.get(document.location.href);
+    });
+
+      $("#add-new-group").hide();
+      $('#add-group-btn').click(function () {
       $("#add-new-group").slideToggle(function() {
-        $('#new_group').focus();
+      $('#new_group').focus();
       });
       return false;
     });
