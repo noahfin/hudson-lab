@@ -10,13 +10,17 @@ class ContactsController < ApplicationController
     else
       @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
     end
+    render 'index', turbolinks: true, change: 'contacts'
   end
+
 
   def autocomplete
     session[:selected_group_id] = params[:group_id]
-    term = params[:term]
-    group_id = params[:group_id]
-    @contacts = Contact.search(term).order(created_at: :desc).page(params[:page])
+
+    @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
+
+
+
     # render json: @contacts.map {|contact| {id: contact.id, value: contact.name}}
   end
 
@@ -52,7 +56,6 @@ class ContactsController < ApplicationController
   def destroy
    if current_user.contacts.where(["id = ?", params[:id] ])
     else
-
       authorize @contact
     end
     @contact = @contact.destroy

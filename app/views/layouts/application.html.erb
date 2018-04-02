@@ -33,19 +33,21 @@
 
                 // AUTO COMPLETE
         $(document).on('turbolinks:load', function(){
+            // $("#my_search_form").on( "click", function(event) {
+            //      $(this).closest('form').submit();
+            //       event.preventDefault();
+            //   });
              $('#term').autocomplete({
                  source: '/contacts/autocomplete',
                  minLength: 2,
                  select: function(event, ui) {
                      $('#term').val(ui.item.value);
-                     $(this).closest('form').submit();
+                     $('#send-search').click();
                  }
              });
 
          // ALERT REMOVAL
-         $(".alert-box").fadeTo(5000, 500).slideUp(500, function() {
-             $(".alert-box").slideUp(500);
-         });
+
 
      });
  </script>

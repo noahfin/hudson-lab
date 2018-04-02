@@ -9,8 +9,8 @@
           <H3>Contacts</H3>
           <div class="panel panel-default mt-2">
 
-            <table class="table">
-            <%= render @contacts %>
+            <table class="table" id="contacts">
+            <%= render  @contacts %>
 
             </table>
               <% if @contacts.blank? %>
@@ -21,9 +21,9 @@
               </div>
               <% end %>
              </div>
-            <div class="text-center">
+            <div class="text-center" id="pagin">
             <nav>
-            <%= paginate @contacts %>
+            <%= paginate @contacts, remote: true %>
             </nav>
           </div>
           </div>
