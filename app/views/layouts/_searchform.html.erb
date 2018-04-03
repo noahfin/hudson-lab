@@ -1,14 +1,9 @@
-
 <%= form_with url: contacts_path,  :format=> :js, :method=> 'get', :class=> 'form-inline navbar-form my-2 my-lg-0',
-                :remote=> true, :authenticity_token => true do |form|%>
-    <%= hidden_field_tag :group_id, params[:group_id] %>
-    <%= text_field_tag :term, params[:term], class: "form-control form-control-lg mr-sm-2 ", placeholder: "Name, company, email" %>
-
+:remote=> true, :authenticity_token => true do |form|%><%= hidden_field_tag :group_id, params[:group_id] %>
+<%= text_field_tag :term, params[:term], class: "form-control form-control-lg mr-sm-2 ", placeholder: "Name, company, email" %>
 <button type="submit" class="btn btn-outline-info btn-round btn-just-icon" id="send-search">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-
-                </button>
-
+  <i class="material-icons">search</i>
+  <div class="ripple-container"></div>
+</button>
 <% end %>
 

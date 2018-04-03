@@ -1,34 +1,37 @@
-    <!-- content -->
-    <div class="container-fluid pt-0">
-      <div class="row pt-0">
-        <div class="col-md-3">
-        <%= render 'layouts/sidenav' %>
-        </div><!-- /.col-md-3 -->
-
-        <div class="col-md-9 mt-2  pt-2">
-          <H3>Contacts</H3>
-          <div class="panel panel-default mt-2">
-
-            <table class="table" id="contacts">
-            <%= render  @contacts %>
-
-            </table>
-              <% if @contacts.blank? %>
-              <div class="panel-footer message">
-
-              <div class="alert alert-warning">
-                <strong>Record not found</strong>
+<div class="container-fluid pt-0">
+  <div class="row pt-0">
+    <div class="col-md-3" id="sidenav"><%= render 'layouts/sidenav' %>
+    </div>
+    <div class="col-md-9 mt-2  pt-2">
+      <H3>Contacts</H3>
+      <div class="panel panel-default mt-2">
+        <table class="table" id="contacts"><%= render  @contacts %>
+        </table><% if @contacts.blank? %>
+        <div class="panel-footer message">
+          <div class="alert alert-warning">
+            <strong>Record not found</strong>
+          </div><% end %>
+        </div>
+        <div class="text-center" id="pagin">
+          <nav><%= paginate @contacts, remote: true %>
+          </nav>
+        </div>
+        <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" >
+          <div class="modal-dialog modal-signup" role="document">
+            <div class="modal-content bg-modal">
+              <div class="card card-signup card-plain">
+                <div class="modal-header">
+                  <h5 class="modal-title card-title text-left" id="form-modal-title">Register</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="material-icons">clear</i>
+                  </button>
+                </div>
+                <div class="modal-body" id="form-modal-body"></div>
               </div>
-              <% end %>
-             </div>
-            <div class="text-center" id="pagin">
-            <nav>
-            <%= paginate @contacts, remote: true %>
-            </nav>
+            </div>
           </div>
-          </div>
-
-
         </div>
       </div>
     </div>
+  </div>
+</div>

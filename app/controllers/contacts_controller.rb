@@ -2,48 +2,37 @@ class ContactsController < ApplicationController
   include ContactsHelper
   before_action :authenticate_user!
   before_action :find_contact, only: [:edit, :update, :destroy]
+  before_action :my_contacts, only: [:edit, :create]
 
   def index
     session[:selected_group_id] = params[:group_id]
     if params[:group_id] && !params[:group_id].empty?
-      @contacts = current_user.contacts.merge(Group.where(["group_id = ?", params[:group_id] ])).order(created_at: :desc).page(params[:page])
+      my_contacts
     else
       @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
     end
     render 'index', turbolinks: true, change: 'contacts'
   end
 
-
   def autocomplete
     session[:selected_group_id] = params[:group_id]
-
     @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
-
-
-
-    # render json: @contacts.map {|contact| {id: contact.id, value: contact.name}}
   end
-
 
   def new
     @contact = Contact.new
+    @groups = current_user.groups.uniq
+    @users = User.all
   end
 
   def edit
-
-  if current_user.contacts.where(["id = ?", params[:id] ])
-  else
-
-    authorize @contact
-  end
+    @groups = current_user.groups.uniq
+    @users = User.all
+  authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   end
 
   def update
-    if current_user.contacts.where(["id = ?", params[:id] ])
-    else
-
-      authorize @contact
-    end
+    authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     if @contact.update(contact_params)
       flash[:success] = "Contact was successfully updated."
       redirect_to contacts_path(previous_query_string)
@@ -54,10 +43,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-   if current_user.contacts.where(["id = ?", params[:id] ])
-    else
-      authorize @contact
-    end
+    authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     @contact = @contact.destroy
     flash[:success] = "Contact was successfully deleted."
     redirect_to contacts_path
@@ -87,5 +73,9 @@ class ContactsController < ApplicationController
 
   def previous_query_string
     session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
+  end
+
+  def my_contacts
+      @contacts = current_user.contacts.merge(Group.where(["group_id = ?", params[:group_id] ])).order(created_at: :desc).page(params[:page])
   end
 end

@@ -42,12 +42,23 @@
 }
 .sidebar {
     background:
-    /* top, transparent red, faked with gradient */
+    linear-gradient(
+rgba(0,0,0,.5), rgba(0, 0, 0,1)
+    ),
+    image-url('sidebar-6.jpg') no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     background-size: cover;
+     -o-background-size: cover;
+}
+.bg-modal {
+  background:
+
     linear-gradient(
 rgba(0,0,0,.5), rgba(0, 0, 0,1)
     ),
     /* bottom, image */
-    image-url('sidebar-6.jpg') no-repeat center center fixed;
+    image-url('modal-c.jpg') no-repeat center center fixed;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      background-size: cover;

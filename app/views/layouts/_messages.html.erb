@@ -1,19 +1,16 @@
-<%# Rails flash messages styled for Bootstrap 4.0 %>
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
   <% name = "info" if !name %>
-<script>
-  $(function() {
-    $.notify({
-  title: '<strong>Heads up!</strong>',
-  message: '<%= msg.to_s %>'
-},{
-  type: '<%= name.to_s %>'
-});
-});
-
-</script>
-
+    <script>
+      $(function() {
+        $.notify({
+      title: '<strong>Heads up!</strong>',
+      message: '<%= msg.to_s %>'
+    },{
+      type: '<%= name.to_s %>'
+    });
+    });
+    </script>
   <% end %>
 <% end %>
 

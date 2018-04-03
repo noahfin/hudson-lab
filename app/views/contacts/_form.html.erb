@@ -1,136 +1,158 @@
-<%= form_for(@contact, html: { multipart: true}) do |form| %>
-<!-- start of form to add new contact -->
+<%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
 <div class="panel-body">
   <div class="form-horizontal">
-    <div class="row">
-      <div class="col-lg-6">
-        <%= render 'layouts/messages' if !flash.empty? %>
-        <%= content_tag :div, class: "form-group #{'has-danger' if has_error?(@contact, :name)}" do %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6"><%= render 'layouts/messages' if !flash.empty? %><%= content_tag :div, class: "form-group #{'has-danger' if has_error?(@contact, :name)}" do %>
           <div class="col-xl-12">
-            <label for="name" class="bmd-label-floating">Contacts Name</label><%= form.text_field :name, id: :contact_name, class: 'form-control' %>
-          </div>
-        <% end %>
-        <div class="form-group">
+            <label for="name" class="bmd-label-floating text-light">Contacts Name<small>(required)</small></label><%= form.text_field :name, id: :contact_name, class: 'form-control text-light', required: true %>
+          </div><% end %>
+          <div class="form-group">
+            <div class="col-xl-12">
+              <label for="company" class="bmd-label-floating text-light">Contacts Company</label><%= form.text_field :company, id: :contact_company, class: 'form-control text-light'%>
+            </div>
+          </div><%= content_tag :div, class: "form-group text-light #{'has-danger' if has_error?(@contact, :name)}" do %>
           <div class="col-xl-12">
-            <label for="company" class="bmd-label-floating">Contacts Company</label><%= form.text_field :company, id: :contact_company, class: 'form-control '%>
+            <label for="email" class="bmd-label-floating text-light">Contacts Email<small>(required)</small></label><%= form.email_field :email, id: :contact_email, class: 'form-control rounded-0 text-light', required: true  %>
+          </div><% end %>
+          <div class="form-group">
+            <div class="col-xl-12">
+              <label for="phone" class="bmd-label-floating text-light">Contacts Phone</label><%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 text-light' %>
+            </div>
           </div>
-        </div>
-        <%= content_tag :div, class: "form-group #{'has-danger' if has_error?(@contact, :name)}" do %>
-          <div class="col-xl-12">
-            <label for="email" class="bmd-label-floating">Contacts Email</label><%= form.text_field :email, id: :contact_email, class: 'form-control rounded-0 '  %>
+          <div class="form-group">
+            <div class="col-xl-12">
+              <label for="cell" class="bmd-label-floating text-light">Contacts Cell</label><%= form.text_field :cell, id: :contact_cell, class: 'form-control rounded-0 text-light'%>
+            </div>
           </div>
-         <% end %>
-        <div class="form-group">
-          <div class="col-xl-12">
-            <label for="phone" class="bmd-label-floating">Contacts Phone</label><%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 ' %>
+          <div class="form-group">
+            <div class="col-xl-12">
+              <label for="address" class="bmd-label-floating text-light">Address</label><%= form.text_area :address, id: :contact_address, class: 'form-control text-light rounded-0', row: '3' %>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xl-12">
-            <label for="cell" class="bmd-label-floating">Contacts Cell</label><%= form.text_field :cell, id: :contact_cell, class: 'form-control rounded-0 '%>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-xl-12">
-            <label for="address" class="bmd-label-floating">Address</label><%= form.text_area :address, id: :contact_address, class: 'form-control rounded-0', row: '3' %>
-          </div>
-        </div>
-      <div class="col-xl-12">
-        <div class="row">
-          <div class="form-inline">
+          <div class="row ml-0">
+            <div class="col-md-7 mr-0 pl-3"><% attr = {prompt: "Select Group"} %><% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
+              <div class="collapse mr-0" id="collapseGroup">
+                <label for="cell" class="bmd-label-floating text-light ">Pick a Group<small>(required)</small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, required: true, class: "selectpicker select_g_picker" } %>
+              </div>
+            </div>
+            <div class="col-md-5 ml-0 pl-0 ">
+              <div class="form-group ml-0 pr-2 pl-0 mt-0">
+                <div class="collapse mr-0 ml-0 pl-0" id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected] = current_user.id.to_i if current_user.id %>
 
-          <div class="input-group"><%= form.submit @contact.new_record? ? "Save" : "Update", class: "btn btn-outline-success  ml-3"  %>
-          </div>
-            <div class="input-group  ml-3">
-                <a href="/contacts/" class="btn btn-outline-danger  ml-3">Cancel</a>
+                  <label for="cell" class="bmd-label-floating text-light ml-0 pl-0" >Pick users<small>(required)</small></label><%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker ml-0 " } %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      </div>
-      <div class="col-xl-6 mt-4">
-        <div class="row">
-          <div class="col-xl-4  mr-0 pr-0">
-            <div class="fileinput fileinput-new" data-provides="fileinput">
-              <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+        <div class="col-xl-4 mt-4">
+          <div class="row">
+            <div class="col-xl-4"></div>
+            <div class="col-xl-8  mr-0 pr-0">
+              <div class="fileinput fileinput-new" data-provides="fileinput">
+                <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                </div>
+                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                </div>
+                <div class="text-center">
+                  <span class="btn btn-default btn-file">
+                    <span class="fileinput-new">Choose Photo</span>
+                    <span class="fileinput-exists">Change</span><%= form.file_field :avatar %>
+                  </span>
+                  <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                </div>
               </div>
-              <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
-              </div>
-              <div class="text-center">
-                <span class="btn btn-default btn-file">
-                  <span class="fileinput-new">Choose Photo</span>
-                  <span class="fileinput-exists">Change</span><%= form.file_field :avatar %>
-                </span>
-                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-8  ml-0 pl-4">
-            <div class="form-group "><% attr = {prompt: "Select Group"} %><% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
               <div class="row">
-                <div class="col-xl-6  ml-0  pl-0 pb-1">
-                  <label for="cell" class="bmd-label-floating">Pick a Group</label><%= form.collection_select :group_id, current_user.groups.uniq, :id, :name, attr,{required: true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => Group.count } %>
-                </div>
-                <div class="col-xl-6 ml-0 pl-0 pb-1"><% attr = {prompt: "Select related users"} %><% attr[:selected] = current_user.id.to_i if current_user.id %>
-                  <label for="cell" class="bmd-label-floating" title="You need to select yourself anyone else who needs the contact." rel="tooltip">Pick users</label><%= form.collection_select :user_id, User.all, :id, :first_name, attr,{required: true, :multiple => true, class: " selectpicker", "data-style" => "select-with-transition", "data-size" => User.count } %>
+                <% if local_assigns[:ajax_true]%>
+                <div class="col-md-11">
+                  <% else %>
+                <div class="col-md-10  pr-4">
+                  <% end %>
+                  <div class=" pl-0 mt-4 pr-2">
+                    <a  class="btn btn-outline-info btn-block mb-4 pr-4 mr-0"  data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">Add Group</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class=" pl-0 mt-4 pr-2">
-              <a href="#" id="add-group-btn" class="btn btn-outline-info btn-block mb-4 pr-4 mr-0">Add Group</a>
-            </div>
-          </div>
-          </div>
-        <div class="form-group " id="add-new-group" style="display: none;">
-          <div class="row mt-4">
-            <div class="col-xl-4 mr-0 pr-2  " >
-              <button class="btn btn-outline-info col-lg-12 mr-0" type="button" data-toggle="collapse" data-target="#add-users-group" aria-expanded="false" aria-controls="add-users-group">
-           Share &nbsp;&nbsp; <i class="fa fa-user-circle-o"></i>
-            </button>
-            </div>
-            <div class=" col-md-6">
-              <div class="input-group pl-0">
-                <div class="col-xl-12">
-                  <div class="row pl-0">
-                    <div class="col-xl-10 pl-3 mb-4">
-                      <label for="address" class="bmd-label-floating">New Group Name</label>
-                      <input type="text" name="new_group" id="new_group" class="form-control ml-0">
-                      </div>
-                      <div class="col-xl-2 ">
-                        <span class="input-group-btn mr-0 ml-2">
-                          <button type="button" class="btn btn-fab btn-round btn-info" id="save-new-group">
-                            <i class="material-icons">input</i>
-                          </button>
-                        </span>
+          <div class="form-group ml-4 collapse" id="add-users-group">
+            <div class="row mt-4">
+              <div class=" col-md-12">
+                <div class="input-group pl-0">
+                  <div class="col-xl-12">
+                    <div class="row pl-0">
+                      <div class="col-xl-10 pl-3 mb-4">
+                        <label for="address" class="bmd-label-floating">New Group Name</label>
+                        <input type="text" name="new_group" id="new_group" class="form-control ml-0">
+                        </div>
+                        <div class="col-xl-2 ">
+                          <span class="input-group-btn mr-0 ml-2">
+                            <button type="button" class="btn btn-fab btn-round btn-info" id="save-new-group" data-remote="true">
+                              <i class="material-icons">input</i>
+                            </button>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div>
+                <div class="btn-group"><% User.all.each do |user| %><%  next if !user.first_name  %>
+                  <div class="togglebutton form-check-inline">
+                    <label>
+                      <input type="checkbox" checked="true" value=
+                        <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                        <span class="toggle"></span>
+                        <span class="text-light"><%= user.first_name if user.first_name %>
+                        </span>
+                      </label>
+                    </div><% end %>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="collapse" id="add-users-group">
-              <div class="btn-group"><% User.all.each do |user| %><%  next if !user.first_name  %>
-                <div class="togglebutton form-check-inline">
-                  <label>
-                    <input type="checkbox" checked="true" value=<%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                      <span class="toggle"></span>
-                      <span class="text-light"><%= user.first_name + ' ' + user.last_name  if user.first_name  && user.last_name %>
-                      </span>
-                    </label>
-                  </div><% end %>
+            <div class="col-xl-7 ml-0 mr-0">
+              <div class="row">
+                <div class="col-md-6 ml-0 mr-0">
+                  <div class="form-inline mr-3 ml-0">
+                    <div class="col-md-4 ml-3 mr-3 pr-0 pl-0">
+                      <div class="form-group ml-0 mr-2 pr-0 pl-0"><%= form.submit @contact.new_record? ? "Save" : "Update", class: "btn btn-outline-success mr-1 ml-0", id: "save-form-modal"  %>
+                      </div>
+                    </div>
+                    <div class="col-md-4 ml-2 mr-0 pr-0 pl-0">
+                      <div class="form-group ml-3 mr-0 pr-0 pl-0">
+                        <a href="/contacts/" class=" <%=  @contact.new_record? ? ' btn btn btn-outline-danger mr-1"' : 'btn btn-outline-danger  ml-2 mr-3"' %>  ">Cancel </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 ml-3 mr-0 pr-0 pl-0">
+                  <div class="form-inline ">
+                    <div class="form-group ml-2 mr-0 pr-0 pl-0">
+                      <a class="btn btn-just-icon btn-round  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
+                        <i class="material-icons">group</i>
+                      </a>
+
+                    </div>
+                    <div class="form-group ml-2 mr-0 pr-0 pl-0">
+                      <button class="btn btn-just-icon btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
+                        <i class="material-icons">person_add</i>
+                      </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        <div class="col-md-5 info-feedback">
+          <div class="">
+           <label for="contact[group_id]" class=" text-light">Please pick a group. </label><span><i class="material-icons mt-3">group</i></span>
+          <label for="contact[user_id]" class=" text-light"> Make sure you and the nessasry users are selected if needed. <span><i class="material-icons text-muted">person_add</i></span></label>
+           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="panel-footer">
-
-  </div>
+</div>
 </div><% end %>
