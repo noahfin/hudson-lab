@@ -21,13 +21,9 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
-    @groups = current_user.groups.uniq
-    @users = User.all
   end
 
   def edit
-    @groups = current_user.groups.uniq
-    @users = User.all
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   end
 
@@ -76,6 +72,8 @@ class ContactsController < ApplicationController
   end
 
   def my_contacts
+      @users = User.all
       @contacts = current_user.contacts.merge(Group.where(["group_id = ?", params[:group_id] ])).order(created_at: :desc).page(params[:page])
   end
+
 end

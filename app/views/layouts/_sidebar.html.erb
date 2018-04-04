@@ -87,7 +87,7 @@
                  <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%= Contact.count %></span></span>
               <% end %>
             </li>
-            <% Group.all.each do |group| %>
+            <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
                 <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
@@ -136,30 +136,26 @@
       </li>
       <li class="nav-item text-white  ">
         <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
-          <i class="material-icons">grid_on</i>
-          <p> Tables
+          <i class="material-icons">group</i>
+          <p> Groups
             <b class="caret"></b>
           </p>
         </a>
         <div class="collapse" id="tablesExamples">
           <ul class="nav text-white ">
             <li class="nav-item ">
-              <a class="nav-link" href="./tables/regular.html">
-                <span class="sidebar-mini"> RT </span>
-                <span class="sidebar-normal"> Regular Tables </span>
-              </a>
-            </li>
+              <a class="nav-link" href="./maps/google.html">
+                <span class="sidebar-mini"> VG</span>
+                <span class="sidebar-normal"> View Groups  </span>
+              </a>></li>
+            <%  @groups.each do |group| %>
             <li class="nav-item ">
-              <a class="nav-link" href="./tables/extended.html">
-                <span class="sidebar-mini"> ET </span>
-                <span class="sidebar-normal"> Extended Tables </span>
-              </a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="./tables/datatables.net.html">
-                <span class="sidebar-mini"> DT </span>
-                <span class="sidebar-normal"> DataTables.net </span>
-              </a>
+                <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
+                <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
+                <span class="sidebar-mini">  <%= group.name[0] %> </span>
+                <span class="sidebar-normal">  <%= group.name %> <span class=" text-muted">  <%= group.contacts.count %></span></span>
+                <% end %>
+            <% end %>
             </li>
           </ul>
         </div>
