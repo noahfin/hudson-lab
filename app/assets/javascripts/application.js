@@ -31,16 +31,119 @@ $(window).resize(function() {
 })
 
 $(document).on('turbolinks:load', function() {
+$('body').on('click', '#close-form', function(event) {
+  document.location.reload(true);
+});
+   $('#contact_address').hide();
+  var i = 1;
+  $('body').on('click', '#btn_next', function(event) {
+    var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
 
-    $('body').on('click', '#save-form-modal', function(event) {
-        $('.info-feedback').show();
-        $('#new_contact').submit();
+
+    $(this).removeAttr("disabled");
+    console.log('button clicked')
+    $(formArray[i]).trigger( "click" );
+    i++
+    if (i === 4 ) {
+      $('.btn_next').hide()
+      $('.btn-finish').show()
+      var address_str =  '';
+      console.log(jQuery.type($('#contact_street_num').val()));
+      if (jQuery.type($('#contact_street_num').val()) === "string")  address_str += $('#contact_street_num').val();
+      console.log(address_str);
+      if (jQuery.type($('#contact_strret_name').val()) === "string")  address_str += ' ' + $('#contact_strret_name').val();
+      console.log(address_str);
+      if (jQuery.type($('#contact_city').val() === "string")) address_str += ' ' + $('#contact_city').val();
+      console.log(address_str);
+      if (jQuery.type($('#contact_postal_code').val() === "string")) address_str += ' ' +  $('#contact_postal_code').val();
+      console.log(address_str);
+      if (jQuery.type($('#contact_country').val() === "string"))  address_str += ' ' +  $('#contact_country').val();
+      console.log(address_str);
+      $('#c-add-hidden').val(address_str);
+      console.log($('#c-add-hidden').val());
+      $('body').on('click', '.btn-finish', function(event) {
+
+      $('#new_contact').submit();
+    })
+    }
+});
+
+
+  var u_s = false;
+ $(document).on('click', '.u-check-box, .users-for-new-contact', function(event) {
+
+  console.log('your hav been choosen')
+  if (u_s === false) {
+    u_s = true
+    $(this).css({
+      color: '#4caf50'
+    });
+  }else {
+     u_s = false
+      $(this).css({
+      color: '#6c757d'
+    });
+  }
+
+                              });
+
+
+
+
+    $('body').on('click', '.update_group', function(event) {
+       event.preventDefault();
+        var user_ids = []
+
+        $('.users-for-new-group').each(function(i) {
+            user_ids[i] = $(this).val();
+        });
+
+
+        var newGroup = $('#group_name').val();
+        $.ajax({
+            url: "/groups",
+            method: "post",
+            data: {group: { name: newGroup, user_id: user_ids }},
+            success: function(group) {
+                console.log(group);
+                if (group.id != null) {
+                    var newOption = $('<option selected="true" value="' + group.id.toString() + '">' + group.name + '</option></select>');
+                   if ( $(' p .text-danger'))
+                    {$(' p .text-danger').detach();}
+                    $('#group_name').addClass('has-success')
+
+
+                    $.notify({
+                        title: "New Group Added:",
+                        message: 'The Group: ' + '"' + group.name + '"' + ' was successfuly updated'
+                    });
+
+                    $('#contact_group_id').append(newOption);
+                    $('.selectpicker').selectpicker('render');
+
+                }
+            },
+            error: function(err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+                    newGroup.next('.text-danger').detach();
+                    $('#new_group').addClass('has-error')
+                        .after('<p class="text-danger pt-2 mb-0">' + error + '</p>');
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
     });
 
-      $('.selectpicker').selectpicker({
-    style: 'btn-info',
-
-  });
 
     $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function() {
         history.pushState({}, '', $(this).attr('href'));
@@ -60,46 +163,34 @@ $(document).on('turbolinks:load', function() {
     });
 
 
- $(document).on('click', '#save-new-group', function(event) {
+ $('body').on('click', '.save-new-group', function(event) {
         console.log('button clicked')
-        var inputs = document.querySelectorAll('form div input[type=checkbox]');
+        var inputs = document.querySelectorAll('ul input[type=checkbox]');
         var user_ids = []
         var i = 0;
-        [].forEach.call(inputs, function(input) {
-            input.addEventListener('invalid', function(e) {
-                input.parentNode.style.display = 'block'
-                user_ids[i] = input.value();
-                i++
-            });
-        });
 
         $('.users-for-new-group').each(function(i) {
             user_ids[i] = $(this).val();
-            console.log(user_ids[i]);
-
         });
 
 
-        console.log(user_ids);
-        var newGroup = $('#new_group');
-        // var inputGroup = $('#new_group')
-
-
+        var newGroup = $('input[name=new_group').val();
+        console.log(newGroup);
+        if ( newGroup === undefined || newGroup === '') {
+           console.log(newGroup + "is in the block");
+          newGroup = $('.g-name').val();
+        }
         event.preventDefault();
         $.ajax({
             url: "/groups",
             method: "post",
-            data: {
-                group: {
-                    name: $("#new_group").val(),
-                    user_id: user_ids
-                }
-            },
+            data: {group: { name: newGroup, user_id: user_ids }},
             success: function(group) {
                 console.log(group);
                 if (group.id != null) {
                     var newOption = $('<option selected="true" value="' + group.id.toString() + '">' + group.name + '</option></select>');
-                    newGroup.next('.text-danger').detach();
+                   if ( $(' p .text-danger'))
+                    {$(' p .text-danger').detach();}
                     $('#new_group').addClass('has-success')
 
 
@@ -107,11 +198,10 @@ $(document).on('turbolinks:load', function() {
                         title: "New Group Added:",
                         message: 'The Group: ' + '"' + group.name + '"' + ' was successfuly created it is selected'
                     });
-                    console.log(newOption)
+
                     $('#contact_group_id').append(newOption);
                     $('.selectpicker').selectpicker('render');
-
-                    newGroup.val("");
+                    $('input[name=new_group').val("");
                 }
             },
             error: function(err) {
@@ -2188,4 +2278,9 @@ $(document).on('turbolinks:load', function() {
         }
 
     }
+
+ demo.initMaterialWizard();
+
+
+
 });

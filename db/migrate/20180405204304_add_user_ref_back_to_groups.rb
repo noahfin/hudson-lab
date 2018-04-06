@@ -1,4 +1,4 @@
-class AddUserRefToGroups < ActiveRecord::Migration[5.1]
+class AddUserRefBackToGroups < ActiveRecord::Migration[5.1]
   def change
     add_column :groups, :user_id, :integer
   end

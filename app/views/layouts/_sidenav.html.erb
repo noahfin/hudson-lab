@@ -1,6 +1,7 @@
+ <div class="card card-5" style=" background-color: #212121 !important; color: white !important;">
 <div class="list-group border-0 mt-3">
   <div>
-    <div class=" text-light mt-0">
+    <div class=" text-light mt-0 b-bottom p-3" >
       <%= link_to 'View Groups ','/groups/', class: "text-light"%> / <%= link_to '+ Add Contact', new_contact_path, class: "text-light", remote: true %>
     </div>
     <% user_contact = current_user.contacts %>
@@ -22,5 +23,5 @@
     <% end %>
   </div>
 </div>
-
+</div>
 

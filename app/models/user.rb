@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :contacts, :through => :groups, :source => :user
 
-
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 

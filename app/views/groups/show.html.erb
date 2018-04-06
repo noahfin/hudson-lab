@@ -1,19 +1,81 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+    <main role="main" class="container card-5 pt-3" style=" background-color: #212121 !important; color: white !important; margin-top: -2%">
+      <div class="jumbotron p-3 mt-2 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-12 px-0">
+          <h1 class="display-4 font-italic"><%= @group.name %></h1>
+          <p class="lead my-3"><%= @group.contacts.count %></p>
+           <h4 class="d-block text-right mt-3">
+          <%= link_to 'Edit', edit_group_path(@group) %> | <%= link_to 'Back', groups_path %>
+        </h4>
+        </div>
+      </div>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @group.contact %>
-</p>
+      <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow" style=" background-color: #212121 !important; color: white !important;">
 
-<p>
-  <strong>User:</strong>
-  <%= @group.user %>
-</p>
+        <div class="lh-100">
+          <h6 class="mb-0 text-white lh-100"><p id="notice"><%= notice %></p></h6>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+        </div>
+      </div>
+
+      <div class="my-3 p-3 bg-white rounded box-shadow card" style=" background-color: #212121 !important; color: white !important;">
+        <h1 class="border-bottom border-gray  pb-2 mb-0"><%= @group.name %></h1>
+        <div class="media text-muted pt-3">
+
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"> Name:</strong>
+            <%= @group.name %>
+          </p>
+        </div>
+        <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">Total Contacts:</strong>
+              <%= @group.contacts.count %>
+          </p>
+        </div>
+        <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">Users:</strong>
+          <span>
+          <% @group.users.each do |user| %>
+          <span><%= user.first_name %></span>
+          </span>
+         <% end %>
+       </p>
+        </div>
+        <small class="d-block text-right mt-3">
+          <%= link_to 'Edit', edit_group_path(@group) %> | <%= link_to 'Back', groups_path %>
+        </small>
+      </div>
+
+
+      <div class="my-3 p-3 bg-white rounded box-shadow" style=" background-color: #212121 !important; color: white !important;">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Contacts</h6>
+        <% @group.contacts.each do |contact| %>
+        <div class="media text-muted pt-3">
+
+
+          <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <div class="d-flex justify-content-between align-items-center w-100">
+              <strong class="text-gray-dark"><%= contact.name %></strong>
+
+            </div>
+            <span class="d-block"><%= contact.phone %></span>
+            <span class="d-block"><%= contact.email %></span>
+            <span class="d-block"><%= contact.cell %></span>
+            <span class="d-block"><%= contact.company %></span>
+            <span class="d-block"><%= contact.address %></span>
+            <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", remote: true, title: 'edit', rel: "tooltip"  do %>
+          <i class=" fa fa-edit e-contact"></i>
+          <% end %>
+         <%= link_to contact_path(contact.id), method: :delete, class: 'btn btn-circle btn btn-outline-info  ', remote: true, data: { confirm: "Are you sure you want delete this contact?"}  do %>
+                <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
+          <% end %>
+          </div>
+        </div>
+        <% end %>
+        <small class="d-block text-right mt-3">
+          <a href="/contacts/">All Contacts</a>
+        </small>
+      </div>
+    </main>

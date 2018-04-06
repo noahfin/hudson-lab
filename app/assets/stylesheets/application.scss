@@ -21,6 +21,17 @@
 @import "font-awesome";
 @import "jasny-bootstrap";
 
+
+.card-5 {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background-color: #212121 !important; color: white !important;
+}
+.b-bottom {
+  border-bottom: 2px solid #51586a !important;
+}
+.bg-hudson {
+  background-color: #004267 !important;
+}
 .bg-trans {
   background: transparent !important;
 }
@@ -51,19 +62,7 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
      background-size: cover;
      -o-background-size: cover;
 }
-.bg-modal {
-  background:
 
-    linear-gradient(
-rgba(0,0,0,.5), rgba(0, 0, 0,1)
-    ),
-    /* bottom, image */
-    image-url('modal-c.jpg') no-repeat center center fixed;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     background-size: cover;
-     -o-background-size: cover;
-}
 .text-white {
   color: white !important
 }
@@ -73,7 +72,6 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
 .table tbody>tr>td.middle {
   vertical-align: middle;
 }
-
 .media {
   padding: 10px 0;
 }
@@ -128,6 +126,17 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
   max-width: 246px !important;
 }
 
-#add-group-btn {
-  width: 150px !important;
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+html,body {
+  padding: 0px;
+  margin: 0px;
+  background-color: #212121 !important;
+  color: white !important;
+  box-sizing: border-box;
+  width: 100%;
 }
+

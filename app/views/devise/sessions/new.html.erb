@@ -1,3 +1,37 @@
+   <!-- Your custom styles (optional) -->
+    <style>
+        .intro-2 {
+            background: url("http://mdbootstrap.com/img/Photos/Others/images/91.jpg")no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: rgba(229, 228, 255, 0.2);
+        }
+        .card-creds-form { margin-top: 20% !important }
+
+
+        h6 {
+            line-height: 1.7;
+        }
+
+
+
+
+
+    </style>
+
+</head>
+
+
+<body class="creative-lp">
+
+    <!--Main Navigation-->
+    <header>
+
+
+
 <div class="off-canvas-sidebar ">
   <!-- Navbar -->
     <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
@@ -37,101 +71,86 @@
     </nav>
   <!-- End Navbar -->
   <div class="wrapper wrapper-full-page">
-    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('<%= asset_url("login.jpg")  %>'); background-size: cover; background-position: top center;">
-      <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
-      <div class="container">
 
-        <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-           <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+        <!--Intro Section-->
+        <section class="view intro-2">
+            <div class="full-bg-img">
+                <div class="mask rgba-indigo-light flex-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
+
+                                <!--Form with header-->
+                                <div class="card card-creds-form" >
+                                    <div class="card-body">
+                                    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
 
 
-            <%= render 'layouts/messages' %>
-            <script>
+                                        <%= render 'layouts/messages' %>
+                                        <!--Header-->
+                                        <div class="form-header pink-gradient text-center">
+                                            <h3>
+                                                <i class="fa fa-user mt-2 mb-2"></i> Log in:</h3>
+                                        </div>
 
+                                                            <!--Body-->
+                                  <div class="card-body ">
+                                    <p class="card-description text-center">Or Be Classical</p>
 
-</script>
+                                    <span class="bmd-form-group">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">
+                                            <i class="material-icons">email</i>
+                                          </span>
+                                        </div>
+                                         <%= f.email_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>
+                                    </div>
+                                    </span>
+                                    <span class="bmd-form-group">
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">
+                                            <i class="material-icons">lock_outline</i>
+                                          </span>
+                                        </div>
+                                        <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password", required: true  %>
 
-            <div class="card card-login card-hidden">
-              <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Log in</h4>
-                <div class="social-line">
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-facebook-square"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="card-body ">
-                <p class="card-description text-center">Or Be Classical</p>
+                                      </div>
+                                    </span>
+                                  </div>
 
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">email</i>
-                      </span>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-outline-secondary btn-lg">Sign in</button>
+                                            <hr>
+                                            <div class="text-muted">
+                                                <%= render "devise/shared/links" %>
+                                            </div>
+
+                                        </div>
+                                        <% end %>
+                                    </div>
+                                </div>
+                                <!--/Form with header-->
+
+                            </div>
+                        </div>
                     </div>
-                     <%= f.email_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>
                 </div>
-                </span>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
-                      </span>
-                    </div>
-                    <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password", required: true  %>
-
-                  </div>
-                </span>
-              </div>
-              <div class="card-footer justify-content-center">
-                <button type="submit" class="btn btn-danger btn-link btn-lg">Lets Go</button>
-              </div>
             </div>
-          <% end %>
-        </div>
-      </div>
-      <footer class="footer ">
-        <div class="container">
-          <nav class="pull-left">
-            <ul>
-              <li>
+        </section>
 
-              </li>
-              <li>
-
-              </li>
-              <li>
-
-              </li>
-              <li>
-
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright pull-right">
-
-
-          </div>
-        </div>
-      </footer>
-    </div>
+    </header>
   </div>
-  <script>
-    $(document).ready(function() {
-    demo.checkFullPageBackgroundImage();
+    <!--Main Navigation-->
 
-    setTimeout(function() {
-      // after 1000 ms we add the class animated to the login/register card
-      $('.card').removeClass('card-hidden');
-    }, 700)
-  });
-</script>
-</div>
+
+
+
+
+
+
+
+
+
+

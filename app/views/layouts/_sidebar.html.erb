@@ -63,9 +63,11 @@
              <%= link_to '<span class="sidebar-mini"> +C </span><span class="sidebar-normal"> New Contact </span>'.html_safe, new_contact_path, class: 'nav-link' %>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="">
-                <span class="sidebar-mini"> T </span>
-                <span class="sidebar-normal"> Timeline </span>
+              <a class="nav-link" data-toggle="collapse" href="/groups/">
+                <span class="sidebar-mini"> G </span>
+                <span class="sidebar-normal"> Groups <i class="material-icons">group</i> </span>
+
+
               </a>
             </li>
           </ul>
@@ -135,7 +137,7 @@
         </div>
       </li>
       <li class="nav-item text-white  ">
-        <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
+        <a class="nav-link" data-toggle="collapse" href="/groups/">
           <i class="material-icons">group</i>
           <p> Groups
             <b class="caret"></b>
@@ -146,7 +148,7 @@
             <li class="nav-item ">
               <a class="nav-link" href="./maps/google.html">
                 <span class="sidebar-mini"> VG</span>
-                <span class="sidebar-normal"> View Groups  </span>
+                <span class="sidebar-normal"> View Groups </span>
               </a>></li>
             <%  @groups.each do |group| %>
             <li class="nav-item ">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330204244) do
+ActiveRecord::Schema.define(version: 20180406164925) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20180330204244) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer "user_id"
+    t.string "county"
+    t.string "state"
+    t.string "country"
+    t.string "postal_code"
+    t.text "notes"
+    t.string "city"
+    t.string "street_num"
+    t.string "strret_name"
+    t.string "title"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
@@ -41,7 +50,6 @@ ActiveRecord::Schema.define(version: 20180330204244) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "groups_users", id: false, force: :cascade do |t|

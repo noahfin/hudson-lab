@@ -7,20 +7,21 @@
 </span>
 <% end %>
 <%= link_to 'New Group', new_group_path %>
-<%= render  @groups %>
+<div id="groups">
+  <%= render  @groups %>
+</div>
+          <div class="container">
+            <div class="col-md-8 mr-auto ml-auto">
 
-        <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" >
-          <div class="modal-dialog modal-signup" role="document">
-            <div class="modal-content bg-modal">
-              <div class="card card-signup card-plain">
-                <div class="modal-header">
-                  <h5 class="modal-title card-title text-left" id="form-modal-title">Register</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="material-icons">clear</i>
-                  </button>
-                </div>
-                <div class="modal-body" id="form-modal-body"></div>
-              </div>
+
+            <div class="modal-body" id="form-modal-body"></div>
             </div>
           </div>
-        </div>
+
+
+
+
+
+
+
+

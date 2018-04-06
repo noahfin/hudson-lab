@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+
   end
 
   # GET /groups/new
@@ -31,7 +32,8 @@ class GroupsController < ApplicationController
       main_model = GroupsUser.create(group: @group, user: user)
       flash[:warring] = "Group user relationships was successfully created."
     end
-    render json: @group, status: :created
+
+      render json: @group, status: :created
     else
       render json: @group.errors.full_messages, status:  :unprocessable_entity
     end
@@ -43,15 +45,20 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :user_id => [])
   end
   def update
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+     if @group.update(group_params)
+      params['group']['user_id'].each_with_index do |user, i |
+       user = User.find(user.to_i)
+       main_model = GroupsUser.update(group: @group, user: user)
       end
+      flash[:warring] = "Group user relationships was successfully created."
+      flash[:info] = "Group was successfully updated."
+      redirect_to group_path(@group)
+
+    else
+      flash[:info] = "Error group was not successfully updated."
+      redirect_to edit_group_path(@group)
     end
+
   end
 
   # DELETE /groups/1
@@ -71,7 +78,8 @@ class GroupsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def group_params
-      params.require(:group).permit(:name, :contact_id, :user_id)
-    end
+  def group_params
+    params.require(:group).permit(:name, :user_id => [])
+  end
+
 end

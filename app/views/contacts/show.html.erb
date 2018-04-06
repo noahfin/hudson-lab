@@ -1,0 +1,115 @@
+       <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card card-5" >
+                <div class="card-header card-header-icon ">
+                  <div class="card-icon bg-hudson ">
+                    <i class="material-icons">perm_identity</i>
+                  </div>
+                  <h4 class="card-title text-light">Edit Profile -
+                    <small class="category text-light">Complete contact profile</small>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
+
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Company (disabled)</label>
+                          <%= form.text_field :company, id: :contact_company, class: 'form-control text-light'%>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Title</label>
+                          <input type="text" name="contact[title]" class="form-control text-light">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <%= form.email_field :email, id: :contact_email, class: 'form-control text-light', required: true  %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fist Name</label>
+                          <%= form.text_field :name, id: :contact_name, class: 'form-control text-light', required: true %>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Phone</label>
+                          <%= form.text_field :phone, id: :contact_phone, class: 'form-control rounded-0 text-light' %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Adress</label>
+                          <%= form.text_field :address, id: :contact_address, class: 'form-control text-light rounded-0' %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">City</label>
+                          <%= form.text_field :city, id: :contact_city, class: 'form-control text-light' %>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">County</label>
+                          <input type="text" name="contact[county]" class="form-control text-light">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Postal Code</label>
+                           <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-light' %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Contact Notes</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating text-light"> Enter important notes for this contact.</label>
+                            <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-light', row: '5' %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn bg-hudson pull-right">Update Profile</button>
+                    <div class="clearfix"></div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile card-5">
+                <div class="card-avatar">
+                  <a href="">
+                    <%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : gravatar_url(@contact.email), class: "media-object" %>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h6 class="card-category text-gray"><%=@contact.title + '/ ' if @contact.title %> <%= @contact.company %></h6>
+                  <h4 class="card-title"><%= @contact.name %></h4>
+                  <p class="card-description">
+                    <%= @contact.notes %>
+                  </p>
+                  <a href="#pablo" class="btn bg-hudson btn-round">Add Contact</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+

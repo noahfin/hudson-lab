@@ -30,6 +30,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
   def get_groups
-  @groups = current_user.groups.uniq
+    @groups = current_user.groups.uniq if current_user
   end
 end

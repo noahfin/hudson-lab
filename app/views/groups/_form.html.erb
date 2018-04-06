@@ -1,4 +1,7 @@
-<%= form_with(model: group, local: true) do |form| %>
+
+
+
+<%= form_with(model: group, id: "group_form") do |form| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -11,22 +14,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :group_name %>
+  <div class="form-group">
+
+    <%= form.text_field :name, id: :group_name, class: 'form-control g-name', placeholder: 'Enter new group name new_group' %>
   </div>
 
-  <div class="field">
-    <%= form.label :contact_id %>
-    <%= form.text_field :contact_id, id: :group_contact_id %>
-  </div>
+  <div class="form-group">
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :group_user_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="btn-group">
+      <span class="mt-0 pt-1"><label class="text-light mt-0 pb-4 ">Share with</label> </span>
+      <% User.all.each do |user| %><%  next if !user.first_name  %>
+      <div class="togglebutton form-check-inline">
+        <label>
+          <ul class="list-inline">
+
+            <li class="list-inline-item">    <input type="checkbox" name="group[user_id]" checked="true" value=
+            <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+            <span class="toggle"></span>
+            <span class="text-light"><%= user.first_name if user.first_name %>
+            </span>
+          </label></li>
+
+          </ul>
+
+        </div><% end %>
+
+      </div>
+
+    </div>
+
 <% end %>
+
+

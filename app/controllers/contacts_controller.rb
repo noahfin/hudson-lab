@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   before_action :authenticate_user!
-  before_action :find_contact, only: [:edit, :update, :destroy]
+  before_action :find_contact, only: [:edit, :update, :destroy, :show]
   before_action :my_contacts, only: [:edit, :create]
 
   def index
@@ -22,7 +22,9 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
+ def show
 
+ end
   def edit
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   end
@@ -60,7 +62,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :group_id, :avatar,{:user_id => []})
+    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :group_id, :avatar,{:user_id => []})
   end
 
   def find_contact
