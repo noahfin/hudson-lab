@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     resources :contacts do
       get 'autocomplete', on: :collection
+      post 'inport', on: :collection
     end
   end
 end

@@ -27,7 +27,7 @@
   background-color: #212121 !important; color: white !important;
 }
 .b-bottom {
-  border-bottom: 2px solid #51586a !important;
+  border-bottom: 1px solid #51586a !important;
 }
 .bg-hudson {
   background-color: #004267 !important;
@@ -134,9 +134,12 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
 html,body {
   padding: 0px;
   margin: 0px;
-  background-color: #212121 !important;
+     background: #232323;
+    background: radial-gradient(ellipse at center,#585858 0,#232323 100%) !important;
+
   color: white !important;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
 }
 

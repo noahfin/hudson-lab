@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  require 'CSV'
   include ContactsHelper
   before_action :authenticate_user!
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
@@ -17,6 +18,14 @@ class ContactsController < ApplicationController
   def autocomplete
     session[:selected_group_id] = params[:group_id]
     @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
+  end
+
+  def inport
+    group = Group.find(params[:group_id])
+    users = params['input']
+    Contact.inport(params[:file], group, users)
+    flash[:success] = "Contact data inported!"
+    redirect_to contacts_path(previous_query_string)
   end
 
   def new
@@ -50,7 +59,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      user_reltionships()
+      user_reltionships(true)
       flash[:success] = "Contact was successfully created."
       redirect_to contacts_path(previous_query_string)
     else

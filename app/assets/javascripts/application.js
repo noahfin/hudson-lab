@@ -85,11 +85,17 @@ $('body').on('click', '#close-form', function(event) {
     });
   }
 
-                              });
+});
 
 
+$('body').on('click', '#pick-users-csv', function(event) {
+event.preventDefault();
+        var user_ids = []
 
-
+        $('.users-for-new-group').each(function(i) {
+            user_ids[i] = $(this).val();
+        });
+});
     $('body').on('click', '.update_group', function(event) {
        event.preventDefault();
         var user_ids = []

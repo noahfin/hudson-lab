@@ -91,6 +91,34 @@
                   <% end %>
                 </div>
               </div>
+              <div class="card card-5">
+                <div class="card-header card-header-icon ">
+                  <div class="card-icon bg-hudson ">
+                    <i class="material-icons">perm_identity</i>
+                  </div>
+                  <h4 class="card-title text-light">Contact / Facts
+
+                  </h4>
+                </div>
+
+                <div class="card-body">
+
+
+               <div class="panel panel-default">
+                 <div class="panel-heading">
+                 </div>
+                  <div class="panel-body"><i style="color:green" class="fa fa-check-square"></i> Yes, Contact has beeen verified.
+                    <ul class="list-group">
+                      <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Created</strong></span> <%= @contact.created_at %></li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last contacted</strong></span><%= @contact.created_at %></li>
+                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span><%= @contact.name %></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span>Owner</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+           </div>
             </div>
             <div class="col-md-4">
               <div class="card card-profile card-5">
@@ -108,8 +136,21 @@
                   <a href="#pablo" class="btn bg-hudson btn-round">Add Contact</a>
                 </div>
               </div>
+              <div class="list-group">
+            <a href="#" class="list-group-item bg-hudson">
+              </a>
+              <% User.all.each do |user| %><%  next if !user.first_name  %>
+
+            <a href="#" class="list-group-item list-group-item-action text-light"><%= user.first_name %></a>
+
+            <% end %>
+          </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
+
 

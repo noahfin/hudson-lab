@@ -1,5 +1,6 @@
 module ContactsHelper
-  def user_reltionships()
+  def user_reltionships(contact)
+
     err = ''
     @group = Group.find(params['contact'][:group_id])
     users = params['contact']['user_id'].to_a
@@ -14,12 +15,15 @@ module ContactsHelper
 
         @contact = Contact.find(@contact.id)
         contact_model = ContactsUser.new(contact: @contact, user: user)
+      end
       if contact_model.save
-        flash[:warring] = "Contact users relationship was successfully created."
+        flash[:warring] = "Contact users relationship was successfully created." unless !contact
+
       else
-         err += "****" + contact_model.errors.full_messages.to_s
-         flash[:danger] = err if err
+          err += "****" + contact_model.errors.full_messages.to_s unless !contact
+          flash[:danger] = err if err
+        end
       end
     end
-  end
-end
+
+
