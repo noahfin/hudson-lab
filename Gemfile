@@ -3,7 +3,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-ruby '2.3.4'
+ruby '2.4.0'
 gem 'rails', '~> 5.1.5'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -55,6 +55,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
+  gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
   gem 'pg'
 end
 group :test do
