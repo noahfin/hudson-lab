@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-  require 'CSV'
   include ContactsHelper
   before_action :authenticate_user!
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
