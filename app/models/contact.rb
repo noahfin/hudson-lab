@@ -1,4 +1,5 @@
 class Contact < ApplicationRecord
+  require 'roo'
   include ContactsHelper
   has_many :groups
   has_and_belongs_to_many :user
@@ -18,12 +19,17 @@ class Contact < ApplicationRecord
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
 
 
+
+
 def self.inport(file, group, users )
-  CSV.foreach(file.path, headers: true) do |row|
-  conatcts = row.to_hash
-  conatcts['group_id'] = group.id
-  contact = Contact.create!(conatcts)
-  user_reltionships(contact, group, users)
+  spreadsheet = Roo::Spreadsheet.open(file.path)
+  header = spreadsheet.row(1)
+  (2..spreadsheet.last_row).each do |i|
+    row = Hash[[header, spreadsheet.row(i)].transpose]
+    contact = find_by(id: row["id"]) || new
+    contact.attributes = row.to_hash
+    contact.save!
+    user_reltionships(contact, group, users)
   end
 end
 
@@ -35,5 +41,14 @@ end
       contact_model = ContactsUser.create(contact: contact, user: user)
       group_model = GroupsUser.create(group: group, user: user) unless Group.exists?(user_id: user.id)
     end
+  end
+
+    def self.open_spreadsheet(file)
+      case File.extname(file.original_filename)
+        when ".csv" then Roo::CSV.new(file.path, nil, :ignore)
+        when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
+        when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+      else raise "Unknown file type: #{file.original_filename}"
+      end
   end
 end
