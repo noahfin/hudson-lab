@@ -24,10 +24,29 @@
 
 .card-5 {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  background-color: #212121 !important; color: white !important;
+  background-color: #000 !important;
+
+
+
+  border-radius: 0px !important;
+  color: white !important;
 }
+.card-6 {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+background-color:  #009099 !important;  /* fallback for old browsers */
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #141e30, #243b55) !important;
+  // background: linear-gradient(to right, #141e30, #243b55) !important;
+  color: white !important;
+}
+
 .b-bottom, .b-top {
   border-bottom: 1px solid #51586a !important;
+}
+.bg-black {
+  background-color: #000 !important;
 }
 .bg-hudson {
   background-color: #004267 !important;
@@ -133,13 +152,17 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-html,body {
+html,body, .content {
   padding: 0px;
   margin: 0px;
-  background: #303030 !important;
+
+  background: -webkit-linear-gradient(to right, #414345, #232526 ) !important;/* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,  #414345, #232526) !important;
+ background-size: cover;
   color: white !important;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+ height: 100% !important;
 }
+
 

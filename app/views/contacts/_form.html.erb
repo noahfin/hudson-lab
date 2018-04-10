@@ -2,7 +2,7 @@
 <%= render 'layouts/messages' if !flash.empty? %>
 <!--      Wizard container        -->
 <div class="wizard-container">
-   <div class="card card-wizard" data-color="green" id="wizardProfile" style=" background-color: #212121 !important; color: white !important;">
+   <div class="card card-wizard card-6" data-color="green" id="wizardProfile" >
 
 
          <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
@@ -10,10 +10,10 @@
          <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close-form">
           <span aria-hidden="true">&times;</span>
         </button>
-            <h3 class="card-title">
+            <h3 class="card-title ">
                Build The Contact Profile
             </h3>
-            <h5 class="card-description">This information will store what we need for the contact or customer.</h5>
+            <h5 class="card-description text-white">This information will store what we need for the contact or customer.</h5>
          </div>
          <div class="wizard-navigation" >
             <ul class="nav nav-pills text-light">
@@ -49,12 +49,12 @@
                         <div class="input-group form-control-lg ml-4">
                            <div class="input-group-prepend">
                               <span class="input-group-text">
-                              <i class="material-icons">phone</i>
+                              <i class="material-icons text-white">phone</i>
                               </span>
                            </div>
-                           <div class="form-group">
-                              <label for="exampleInput1" class="bmd-label-floating">Contact Phone</label>
-                              <%= form.text_field :phone, id: :contact_phone, class: 'form-control text-light' %>
+                           <div class="form-group text-white">
+                              <label for="exampleInput1" class="bmd-label-floating text-white">Contact Phone</label>
+                              <%= form.text_field :phone, id: :contact_phone, class: 'form-control text-white' %>
                            </div>
                         </div>
                      </div>
@@ -68,54 +68,54 @@
                            </div>
                            <div class="text-center">
                               <span class="btn btn-default btn-file">
-                              <span class="fileinput-new">Choose Photo</span>
-                              <span class="fileinput-exists">Change</span><%= form.file_field :avatar %>
+                              <span class="fileinput-new text-white">Choose Photo</span>
+                              <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
                               </span>
                               <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                            </div>
                         </div>
                      </div>
                      <div class="col-sm-6">
-                        <div class="input-group form-control-lg">
+                        <div class="input-group form-control-lg text-white">
                            <div class="input-group-prepend">
                               <span class="input-group-text">
-                              <i class="material-icons">face</i>
+                              <i class="material-icons text-white">face</i>
                               </span>
                            </div>
                            <div class="form-group">
-                              <label for="exampleInput1" class="bmd-label-floating">Contact Name (required)</label>
-                              <%= form.text_field :name, id: :contact_name, class: 'form-control text-light', required: true %>
+                              <label for="exampleInput1" class="bmd-label-floating text-white">Contact Name (required)</label>
+                              <%= form.text_field :name, id: :contact_name, class: 'form-control text-white', required: true %>
                            </div>
                         </div>
-                        <div class="input-group form-control-lg">
+                        <div class="input-group form-control-lg text-white">
                            <div class="input-group-prepend">
                               <span class="input-group-text">
-                              <i class="material-icons">record_voice_over</i>
+                              <i class="material-icons text-white" text-white>record_voice_over</i>
                               </span>
                            </div>
-                           <div class="form-group">
-                              <label for="exampleInput11" class="bmd-label-floating">Company Name</label>
-                              <%= form.text_field :company, id: :contact_company, class: 'form-control text-light'%>
+                           <div class="form-group text-white">
+                              <label for="exampleInput11" class="bmd-label-floating text-white">Company Name</label>
+                              <%= form.text_field :company, id: :contact_company, class: 'form-control text-white'%>
                            </div>
                         </div>
                      </div>
-                     <div class="col-lg-10 mt-3 ml-0 pl-0">
+                     <div class="col-lg-10 mt-3 ml-0 pl-0 text-white">
                         <div class="input-group form-control-lg ml-0 pl-0">
                            <div class="input-group-prepend ml-0 pl-0">
                               <span class="input-group-text ml-0 pl-0">
-                              <i class="material-icons">email</i>
+                              <i class="material-icons text-white">email</i>
                               </span>
                            </div>
                            <div class="form-group pl-0">
-                              <label for="exampleInput1" class="bmd-label-floating">Email (required)</label>
-                              <%= form.email_field :email, id: :contact_email, class: 'form-control text-light', required: true  %>
+                              <label for="exampleInput1" class="bmd-label-floating text-white">Email (required)</label>
+                              <%= form.email_field :email, id: :contact_email, class: 'form-control text-white', required: true  %>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="tab-pane" id="account">
-                  <h5 class="info-text"> Pick users inculding yourself if needed (checkboxes) </h5>
+                  <h5 class="info-text text-white"> Pick users inculding yourself if needed (checkboxes) </h5>
                   <div class="row justify-content-center" id="circle-users">
                      <div class="col-lg-10">
                         <div class="row">
@@ -126,7 +126,7 @@
                                  <div class="icon">
                                     <i class="fa fa-user u-check-box"></i>
                                  </div>
-                                 <h6><label class="user-lable"  for="">Adrrian</h6>
+                                 <h6><label class="user-lable text-white"  for="">Adrrian</h6>
                                  </label>
                               </div>
                            </div>
@@ -136,7 +136,7 @@
                                  <div class="icon">
                                     <i class="fa fa-user u-check-box"></i>
                                  </div>
-                                 <h6><label class="user-lable">Sam</h6>
+                                 <h6><label class="user-lable text-white">Sam</h6>
                                  </label>
                               </div>
                            </div>
@@ -146,7 +146,7 @@
                                  <div class="icon">
                                     <i class="fa fa-user u-check-box"></i>
                                  </div>
-                                 <h6><label class="user-lable">Noah</h6>
+                                 <h6><label class="user-lable text-white">Noah</h6>
                                  </label>
                               </div>
                            </div>
@@ -157,31 +157,31 @@
                <div class="tab-pane" id="address">
                   <div class="row justify-content-center">
                      <div class="col-sm-12">
-                        <h5 class="info-text">Fill out the current address for contact </h5>
+                        <h5 class="info-text text-white">Fill out the current address for contact </h5>
                       <input type="hidden" name="contact[address]" id="c-add-hidden">
                      </div>
                      <div class="col-sm-7">
-                        <div class="form-group">
+                        <div class="form-group text-white">
                            <label class="bmd-label-floating">Street Name</label>
-                           <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control' %>
+                           <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white' %>
                         </div>
                      </div>
                      <div class="col-sm-3">
-                        <div class="form-group">
+                        <div class="form-group text-white">
                            <label class="bmd-label-floating">Street No.</label>
-                           <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control' %>
+                           <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white' %>
                         </div>
                      </div>
                      <div class="col-sm-5">
-                        <div class="form-group text-light">
+                        <div class="form-group text-white">
                            <label class="bmd-label-floating">City</label>
-                           <%= form.text_field :city, id: :contact_city, class: 'form-control text-light' %>
+                           <%= form.text_field :city, id: :contact_city, class: 'form-control text-white' %>
                         </div>
                      </div>
                      <div class="col-sm-5">
                         <div class="form-group">
-                           <select class="selectpicker county-select" name="contact[contact_county]" data-style="select-with-transition" title="Single Select">
-                              <option value="Select County" class="tex-mute"> Select County </option>
+                           <select class="selectpicker county-select " name="contact[contact_county]" data-style="select-with-transition" title="Single Select">
+                              <option value="Select County"> Select County </option>
                               <option value="Dutchess"> Dutchess </option>
                               <option value="Ulster"> Ulster </option>
                               <option value="Putnam"> Putnam </option>
@@ -196,38 +196,38 @@
                   </div>
                   <div class="row pl-4 pr-4 ml-4">
                      <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group text-white">
                            <label class="bmd-label-floating">State</label>
-                           <%= form.text_field :state, id: :contact_state, class: 'form-control text-light' %>
+                           <%= form.text_field :state, id: :contact_state, class: 'form-control text-white' %>
                         </div>
                      </div>
                      <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group text-white">
                            <label class="bmd-label-floating">Country</label>
-                           <%= form.text_field :country, id: :contact_country, class: 'form-control text-light' %>
+                           <%= form.text_field :country, id: :contact_country, class: 'form-control text-white' %>
                         </div>
                      </div>
                      <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group text-white">
                            <label class="bmd-label-floating">Postal Code</label>
-                           <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-light' %>
+                           <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white' %>
                         </div>
                      </div>
                   </div>
                   <div class="row  pl-4 pr-4 ml-4">
                      <div class="col-md-12">
-                        <div class="form-group">
+                        <div class="form-group text-white">
                            <label>Contact Notes</label>
                            <div class="form-group">
                               <label class="bmd-label-floating">Enter important notes for this contact.</label>
-                              <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-light' %>
+                              <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-white' %>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="tab-pane" id="account">
-                  <h5 class="info-text"> Pick users inculding yourself if needed (checkboxes) </h5>
+                  <h5 class="info-text text-white"> Pick users inculding yourself if needed (checkboxes) </h5>
                   <div class="row justify-content-center" id="circle-users">
                      <div class="col-lg-10">
                         <div class="row">
@@ -268,7 +268,7 @@
                <div class="tab-pane" id="group">
                   <div class="row justify-content-center">
                      <div class="col-sm-12">
-                        <h5 class="info-text">Very important to select group and the Emplyees who need access to the contact</h5>
+                        <h5 class="info-text text-white">Very important to select group and the Emplyees who need access to the contact</h5>
                      </div>
                      <div class="col-md-4 ml-3 mr-0 pr-0 pl-0">
                         <div class="form-inline ">

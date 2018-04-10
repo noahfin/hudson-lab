@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
   end
 
     def after_sign_up_path_for(resource)
+      if resource.errors.any?
+        flash[:danger] = resource.errors.full_messages.to_s
+      end
       after_sign_in_path_for(resource)
     end
 
@@ -26,8 +29,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation])
   end
   def get_groups
     @groups = current_user.groups.uniq if current_user

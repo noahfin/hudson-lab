@@ -27,7 +27,9 @@ def self.inport(file, group, users )
   (2..spreadsheet.last_row).each do |i|
     row = Hash[[header, spreadsheet.row(i)].transpose]
     contact = find_by(id: row["id"]) || new
-    contact.attributes = row.to_hash
+    row = row.to_hash
+    row['group_id'] = group.id
+    contact.attributes = row
     contact.save!
     user_reltionships(contact, group, users)
   end

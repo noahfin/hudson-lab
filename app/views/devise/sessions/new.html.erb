@@ -1,169 +1,110 @@
-   <!-- Your custom styles (optional) -->
-    <style>
-        .intro-2 {
-            background: url("http://mdbootstrap.com/img/Photos/Others/images/91.jpg")no-repeat center center;
-            background-size: cover;
-            height: 100vh;
-        }
-
-        .card {
-            background-color: rgba(229, 228, 255, 0.2);
-        }
-        .card-creds-form { margin-top: 20% !important }
-
-
-        h6 {
-            line-height: 1.7;
-        }
-
-
-
-
-
-    </style>
-
-
-
-<body class="creative-lp">
-
-    <!--Main Navigation-->
-    <header>
-
-
-
-<div class="off-canvas-sidebar ">
-  <!-- Navbar -->
-    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
-        <div class="container">
-            <div class="navbar-translate">
-                <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="dropdown nav-item">
-                      <div class="collapse navbar-collapse justify-content-end" id="navbar">
-                        <ul class="navbar-nav text-white">
-                          <li class="nav-item">
-                            <a href="/" class="nav-link">
-                              <i class="material-icons">dashboard</i> Dashboard
-                            </a>
-                          </li>
-                          <li class="nav-item ">
-                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
-                          </li>
-                          <li class="nav-item active">
-                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
-                            </li>
-                            <li>
-                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe,  new_user_password_path, class: 'nav-link' %>
-                            </li>
-                        </ul>
-                      </div>
-                </ul>
-            </div>
-        </div>
-    </nav>
-  <!-- End Navbar -->
-  <div class="wrapper wrapper-full-page">
-
-        <!--Intro Section-->
-        <section class="view intro-2">
-            <div class="full-bg-img">
-                <div class="mask rgba-indigo-light layer flex-center">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
-
-                                <!--Form with header-->
-                                <div class="card card-creds-form" >
-                                  <div class="card-header  card-header-primary text-center">
-                                    <h4 class="card-title text-light"><i class="fa fa-user mt-2 mb-2"></i> Log in:</h3></h4>
-                                    <div class="social-line">
-                                      <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-facebook-square"></i>
-                                      </a>
-                                      <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-twitter"></i>
-                                      </a>
-                                      <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                                        <i class="fa fa-google-plus"></i>
-                                      </a>
-                                    </div>
-                                  </div>
-                                    <div class="card-body">
-                                    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
-
-
-                                        <%= render 'layouts/messages' %>
-                                        <!--Header-->
-                                        <div class="form-header pink-gradient text-center">
-                                            <h3></h3>
-
-                                        </div>
-
-                                                            <!--Body-->
-                                  <div class="card-body ">
-                                    <p class="card-description text-center text-light">Or Be Classical</p>
-
-                                    <span class="bmd-form-group">
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
+<!-- Your custom styles (optional) -->
+<style>
+   .intro-2 {
+   margin: auto;
+   width: 20%;
+   }
+   .card {
+   background-color: rgba(229, 228, 255, 0.2);
+   }
+   .card-creds-form { margin-top: 15% !important; margin: auto !important; }
+   h6 {
+   line-height: 1.7;
+   }
+</style>
+<body class="presentation-page ">
+   <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+      <div class="container">
+         <div class="navbar-translate">
+            <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            </button>
+         </div>
+         <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+               <li class="dropdown nav-item">
+                  <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                     <ul class="navbar-nav text-white">
+                        <li class="nav-item ">
+                           <a href="/" class="nav-link">
+                           <i class="material-icons">dashboard</i> Dashboard
+                           </a>
+                        </li>
+                        <li class="nav-item ">
+                           <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
+                        </li>
+                        <li class="nav-item active">
+                           <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
+                        </li>
+                        <li>
+                           <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe,  new_user_password_path, class: 'nav-link' %>
+                        </li>
+                     </ul>
+                  </div>
+            </ul>
+         </div>
+      </div>
+   </nav>
+   <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<%= asset_url("purple-1.jpg") %>')";>
+      <section class="view intro-2">
+         <div class="full-bg-img">
+            <div class="mask rgba-indigo-light  flex-center">
+               <div class="col-md-12">
+                  <div class="row">
+                     <div class="container">
+                        <!--Form with header-->
+                        <div class="card card-creds-form " >
+                           <div class="card-header   card-header-primary  text-center">
+                              <h4 class="card-title text-light"><i class="fa fa-user mt-2 mb-2"></i> Log in:</h3></h4>
+                           </div>
+                           <div class="card-body">
+                              <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+                              <%= render 'layouts/messages' %>
+                              <!--Header-->
+                              <div class="form-header pink-gradient text-center">
+                                 <h3></h3>
+                              </div>
+                              <!--Body-->
+                              <div class="card-body ">
+                                 <span class="bmd-form-group">
+                                    <div class="input-group">
+                                       <div class="input-group-prepend">
                                           <span class="input-group-text">
-                                            <i class="material-icons text-light">email</i>
+                                          <i class="material-icons text-light">email</i>
                                           </span>
-                                        </div>
-                                         <%= f.email_field :email, class: "form-control pl-2 text-light", placeholder: "Email address", required: true %>
+                                       </div>
+                                       <%= f.email_field :email, class: "form-control pl-2 text-light", placeholder: "Email address", required: true %>
                                     </div>
-                                    </span>
-                                    <span class="bmd-form-group">
-                                      <div class="input-group">
-                                        <div class="input-group-prepend">
+                                 </span>
+                                 <span class="bmd-form-group">
+                                    <div class="input-group">
+                                       <div class="input-group-prepend">
                                           <span class="input-group-text">
-                                            <i class="material-icons text-light">lock_outline</i>
+                                          <i class="material-icons text-light">lock_outline</i>
                                           </span>
-                                        </div>
-                                        <%= f.password_field :password, class: "form-control  pl-2 text-light", placeholder: "Enter Password", required: true  %>
-
-                                      </div>
-                                    </span>
-                                  </div>
-
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-outline-secondary btn-lg text-light">Sign in</button>
-                                            <hr>
-                                            <div class="text-muted">
-                                                <%= render "devise/shared/links" %>
-                                            </div>
-
-                                        </div>
-                                        <% end %>
+                                       </div>
+                                       <%= f.password_field :password, class: "form-control  pl-2 text-light", placeholder: "Enter Password", required: true  %>
                                     </div>
-                                </div>
-                                <!--/Form with header-->
-
-                            </div>
+                                 </span>
+                              </div>
+                              <div class="text-center">
+                                 <button type="submit" class="btn btn-outline-secondary btn-lg text-light">Sign in</button>
+                                 <hr>
+                                 <div class="text-muted">
+                                 </div>
+                              </div>
+                              <% end %>
+                           </div>
                         </div>
-                    </div>
-                </div>
+                        <!--/Form with header-->
+                     </div>
+                  </div>
+               </div>
             </div>
-        </section>
-
-    </header>
-  </div>
-    <!--Main Navigation-->
-
-
-
-
-
-
-
-
-
-
-
+         </div>
+      </section>
+   </div>
+</body>

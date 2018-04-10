@@ -1,120 +1,245 @@
-
+<style>
+   .intro-2 {
+   margin: auto;
+   width: 42%;
+   }
+   .card {
+   background-color: rgba(229, 228, 255, 0.2);
+   }
+   .card-creds-form { }
+   h6 {
+   line-height: 1.7;
+   }
+   .card-reg { margin-left: -55%;  margin-top: -40% !important; width: 200%; z-index: 99999999; }
+</style>
   <div class="wrapper wrapper-full-page">
-    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('<%= asset_url("login.jpg")  %>'); background-size: cover; background-position: top center;">
+    <div class="page-header " >
       <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
       <div class="container">
         <div class="col-md-4 col-sm-6 ml-auto mr-auto">
-         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-signin', html: { method: :put }) do |f| %>
 
             <%= render 'layouts/messages' %>
-            <div class="card card-login card-hidden">
-              <div class="card-header card-header-success text-center">
-                <h4 class="card-title">Update Account</h4>
-                <div class="social-line">
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-facebook-square"></i>
+                  <div class="wizard-container">
+        <div class="card card-wizard card-reg  card-hidden" data-color="purple" id="wizardProfile">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: '', html: { method: :put }) do |f| %>
+
+            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+            <div class="card-header text-center">
+              <h3 class="card-title">
+                Edit Your Profile
+              </h3>
+              <h5 class="card-description">Edit This information if needed, it let us know more about you.</h5>
+            </div>
+            <div class="wizard-navigation">
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#about" data-toggle="tab" role="tab">
+                    About
                   </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-twitter"></i>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#account" data-toggle="tab" role="tab">
+                    Account
                   </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
-                    <i class="fa fa-google-plus"></i>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#address" data-toggle="tab" role="tab">
+                    Address
                   </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane active" id="about">
+                  <h5 class="info-text text-light"> Let's start with the basic information (with validation)</h5>
+                  <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                      <div class="picture-container">
+                        <div class="picture">
+
+                          <input type="file" id="wizard-picture">
+                        </div>
+                        <h6 class="description text-white">Choose Picture</h6>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="input-group form-control-lg text-light">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">face</i>
+                          </span>
+                        </div>
+                        <div class="form-group text-light">
+                          <label for="exampleInput1" class="bmd-label-floating">First Name (required)</label>
+                           <%= f.text_field :first_name, class: "form-control long-input text-light", required: true %>
+                        </div>
+                      </div>
+                      <div class="input-group form-control-lg text-light">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">record_voice_over</i>
+                          </span>
+                        </div>
+                        <div class="form-group text-light">
+                          <label for="exampleInput11" class="bmd-label-floating text-white">Last Name</label>
+                           <%= f.text_field :last_name, class: "form-control text-white", required: true %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-10 mt-3 text-light">
+                      <div class="input-group form-control-lg">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">email</i>
+                          </span>
+                        </div>
+                        <div class="form-group text-light text-white">
+                          <label for="exampleInput1" class="bmd-label-floating text-white">Email (required)</label>
+                          <%= f.email_field :email, class: "form-control long-input pl-2 text-white", required: true %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="account">
+                  <h5 class="info-text text-white"> What type of user? (checkboxes) </h5>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="choice" data-toggle="wizard-checkbox">
+                            <%= f.check_box :customer, {:class => "customer", }, "true", "false" %>
+
+
+                            <div class="icon">
+                              <i class="fa fa-user"></i>
+                            </div>
+                            <h6 class="text-white">Customer</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                             <%= f.check_box :employee, {:class => "myclass", }, "true", "false" %>
+
+
+                            <div class="icon">
+                              <i class="fa  fa-address-card-o"></i>
+                            </div>
+                            <h6 class="text-white">Employee</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-4 ">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                            <div class="icon ">
+                              <i class="fa fa fa-user"></i>
+                            </div>
+                            <h6 class="text-white">VIP</h6>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="address">
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <h5 class="info-text text-white"> Are you living in a nice area? </h5>
+                    </div>
+                    <div class="col-sm-7 text-light">
+                      <div class="form-group text-white">
+                        <label>Street Name</label>
+                        <%= f.text_field :street_name, id: :user_street_name, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-3 text-light">
+                      <div class="form-group text-white">
+                        <label>Street No.</label>
+                        <%= f.text_field :street_num, id: :user_street_num, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-5 text-light">
+                      <div class="form-group text-white">
+                        <label>City</label>
+                        <%= f.text_field :city, id: :user_city, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-5 text-light">
+                      <div class="form-group">
+                          <select class="selectpicker county-select" name="county" data-style="select-with-transition" >
+                          <option value="Select County" class="text-white"> <a class="text-white" style="color: white !important;">Select County</a> </option>
+                          <option value="Dutchess"> Dutchess </option>
+                          <option value="Ulster"> Ulster </option>
+                          <option value="Putnam"> Putnam </option>
+                          <option value="Orange"> Orange </option>
+                          <option value="Columbia"> Columbia </option>
+                          <option value="Sullivan"> Sullivan </option>
+                          <option value="Greene"> Greene </option>
+                          <option value="westchester"> westchester </option>
+                       </select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+
+                <div class="col-md-5 ml-4">
+
+                <span class="bmd-form-group ml-4 text-white">
+                  <div class="input-group ml-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons text-white">lock_outline</i>
+                      </span>
+                    </div>
+                    <%= f.password_field :password, class: "form-control  pl-2 text-white", placeholder: "Enter Password", required: true  %>
+
+                  </div>
+                </span>
+                 </div>
+                   <div class="col-md-5 text-light">
+                <span class="bmd-form-group mr-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                      <%= f.label :current_password, class: 'bmd-label-floating text-white' do %> <i>(we need your current password to confirm your changes)</i></span> <% end %><br />
+                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control text-white" %>
+
+                  </div>
+                </span>
+                 </div>
+                 </div>
+
+
                 </div>
               </div>
-              <div class="card-body ">
-                <p class="card-description text-center">Or Be Classical</p>
-                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                        <div class="text-center">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                      <% end %>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">face</i>
-                      </span>
-                    </div>
-                    <%= f.text_field :first_name, class: "form-control white-text", placeholder: "First Name", required: true %>
-
-
-                  </div>
-                </span>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">face</i>
-                      </span>
-                    </div>
-                    <%= f.text_field :last_name, class: "form-control white-text", placeholder: "Last Name", required: true %>
-
-                  </div>
-                </span>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">email</i>
-                      </span>
-                    </div>
-                     <%= f.email_field :email, class: "form-control pl-2", placeholder: "Email address", required: true %>                  </div>
-                </span>
-                <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
-                      </span>
-                    </div>
-                    <%= f.password_field :password, class: "form-control  pl-2", placeholder: "Enter Password", required: true  %>
-
-                  </div>
-                </span>
-                 <span class="bmd-form-group">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">lock_outline</i>
-                      </span>
-                    </div>
-                    <span>
-                   <%= f.label :current_password, class: 'bmd-label-floating' do %> <i>(we need your current password to confirm your changes)</i></span> <% end %><br />
-                    <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-
-                  </div>
-                </span>
+            </div>
+            <div class="card-footer">
+              <div class="mr-auto">
+                <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
               </div>
-              <div class="card-footer justify-content-center">
-                <button type="submit" class="btn btn-danger btn-link btn-lg">Lets Update Account</button>
+              <div class="ml-auto">
+                <input type="button" class="btn btn-next btn-fill btn-primary btn-wd" name="next" value="Next">
+                <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd" style="display: none;">finish </button>
               </div>
+              <div class="clearfix"></div>
             </div>
           <% end %>
         </div>
       </div>
-      <footer class="footer ">
-        <div class="container">
-          <nav class="pull-left">
-            <ul>
-              <li>
-
-              </li>
-              <li>
-
-              </li>
-              <li>
-
-              </li>
-              <li>
-
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright pull-right">
-
-
-          </div>
-        </div>
-      </footer>
+    </div>
+      <!-- wizard container -->
+    </div>
+            </div>
+         </div>
+     </div>
+      </section>
+   </div>
     </div>
   </div>
   <script>
@@ -128,6 +253,4 @@
   });
 </script>
 </div>
-
-
 

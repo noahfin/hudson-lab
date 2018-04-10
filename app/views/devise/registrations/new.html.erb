@@ -1,244 +1,284 @@
 
-
-    <style>
-    .reg-page {
-      min-height: 100%vh !important;
-    }
-        .intro-2 {
-         margin-top: -20px !important;
-            background: url('<%= asset_url("login.jpg")  %>')no-repeat center center;
-            background-size: cover
-            min-height: 100vh !important;
-                    }
-
-        .mask.rgba-gradient7 {
-            background: -webkit-linear-gradient(98deg, rgba(22, 91, 231, 0.5), rgba(255, 32, 32, 0.5) 100%);
-            background: -webkit-gradient(linear, 98deg, from(rgba(22, 91, 231, 0.5)), to(rgba(255, 32, 32, 0.5)));
-            background: linear-gradient(to 98deg, rgba(22, 91, 231, 0.5), rgba(255, 32, 32, 0.5) 100%);
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.85);
-        }
-
-        .reg-nav {
-          margin-top: -10px;
-        }
-        .full-w {
-          min-width: 100% !important;
-        }
-        p {
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-
-        h4 {
-            font-size: 1.3rem;
-        }
-
-        h6 {
-            line-height: 1.7;
-        }
-
-        .md-form label {
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-           .md-form .log-input {
-           min-width: 100% !important;
-        }
-
-
-    </style>
-
-</head>
-
-
-
-    <!--Main Navigation-->
-
-        <!-- Navbar -->
-  <div class="reg-page" style="height: 100vh ">
-
-
-  <!-- Navbar -->
-    <nav class="navbar navbar-color-on-scroll navbar-transparent reg-nav  fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
-        <div class="container">
-            <div class="navbar-translate">
-                <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="dropdown nav-item">
-                      <div class="collapse navbar-collapse justify-content-end" id="navbar">
-                        <ul class="navbar-nav text-white">
-                          <li class="nav-item">
-                            <a href="/" class="nav-link">
-                              <i class="material-icons">dashboard</i> Dashboard
-                            </a>
-                          </li>
+<!-- Your custom styles (optional) -->
+<style>
+   .intro-2 {
+   margin: auto;
+   width: 42%;
+   }
+   .card {
+   background-color: rgba(229, 228, 255, 0.2);
+   }
+   .card-creds-form { margin-top: 15% !important; margin: auto !important; }
+   h6 {
+   line-height: 1.7;
+   }
+   .card-reg { z-index: 99999999; }
+</style>
+<body class="presentation-page ">
+   <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+      <div class="container">
+         <div class="navbar-translate">
+            <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            </button>
+         </div>
+         <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+               <li class="dropdown nav-item">
+                  <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                     <ul class="navbar-nav text-white">
+                        <li class="nav-item ">
+                           <a href="/" class="nav-link">
+                           <i class="material-icons">dashboard</i> Dashboard
+                           </a>
+                        </li>
                         <li class="nav-item active">
-                              <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
-                          </li>
-                          <li class="nav-item">
-                              <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
-                            </li>
-                            <li class="nav-item ">
-                              <%= link_to "<i class='material-icons'>person_add</i> Account".html_safe, edit_user_registration_path, class: 'nav-link' %>
-                          </li>
-                              <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe,  new_user_password_path, class: 'nav-link' %>
-                            </li>
-                        </ul>
-                      </div>
-                </ul>
+                           <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
+                        </li>
+                        <li class="nav-item ">
+                           <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
+                        </li>
+                        <li>
+                           <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe,  new_user_password_path, class: 'nav-link' %>
+                        </li>
+                     </ul>
+                  </div>
+            </ul>
+         </div>
+      </div>
+   </nav>
+   <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<%= asset_url("purple-1.jpg") %>')";>
+      <section class="view intro-2">
+         <div class="full-bg-img">
+
+            <div class="mask rgba-indigo-light  flex-center">
+               <div class="col-md-12">
+                     <div style="padding-top: 2%; ">
+
+
+      <div class="wizard-container">
+        <div class="card card-wizard card-reg" data-color="purple" id="wizardProfile">
+           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+            <div class="card-header text-center">
+              <h3 class="card-title">
+                Build Your Profile
+              </h3>
+              <h5 class="card-description text-white">This information will let us know more about you.</h5>
             </div>
-        </div>
-    </nav>
+            <div class="wizard-navigation">
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#about" data-toggle="tab" role="tab">
+                    About
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#account" data-toggle="tab" role="tab">
+                    Account
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#address" data-toggle="tab" role="tab">
+                    Address
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane active" id="about">
+                  <h5 class="info-text text-white"> Let's start with the basic information (with validation)</h5>
+                  <div class="row justify-content-center">
+                    <div class="col-sm-4">
+                      <div class="picture-container">
+                        <div class="picture">
 
-        <!--Intro Section-->
-        <section class="view intro-2" style="height: 100vh !important;">
-            <div class="full-bg-img" style="height: 100vh !important;">
-                <div class="mask rgba-gradient7" style="height: 100vh !important;">
-                    <div class="container flex-center">
-
-                    <!--Grid row-->
-                    <div class="row  pt-5 mt-3">
-
-                        <!--Grid column-->
-                        <div class="col-md-12">
-
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <h2 class="feature-title text-center mb-5 mt-4 font-weight-bold">
-                                        <strong>REGISTER</strong>
-                                    </h2>
-                                    <hr>
-
-                                    <!--Grid row-->
-                                    <div class="row mt-5">
-
-                                        <!--Grid column-->
-                                        <div class="col-md-6 ml-lg-5 ml-md-3 features-small">
-
-                                            <!--Grid row-->
-                                            <div class="row pb-3">
-                                                <div class="col-2 col-lg-1">
-                                                    <i class="fa fa-bank indigo-text fa-lg"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <h4 class="feature-title">
-                                                        <strong>Safety</strong>
-                                                    </h4>
-                                                    <p class="dark-grey-text"> is our primary concern. For survivors who face threats of harm, who live daily in fear from oline attackers. This app will help your feel better, because it's built with secuity best practices. </p>
-                                                </div>
-                                            </div>
-                                            <!--Grid row-->
-
-                                            <!--Grid row-->
-                                            <div class="row pb-3">
-                                                <div class="col-2 col-lg-1">
-                                                    <i class="fa fa-desktop indigo-text fa-lg"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <h4 class="feature-title">
-                                                        <strong>Technology</strong>
-                                                    </h4>
-                                                    <p class="dark-grey-text"> We use JavaScript which is a very popular programming language used in lots of projects. We also use Ruby on Rails version 5 for our server</p>
-                                                </div>
-                                            </div>
-                                            <!--Grid row-->
-
-                                            <!--Grid row-->
-                                            <div class="row pb-4">
-                                                <div class="col-2 col-lg-1">
-                                                    <i class="fa fa-money indigo-text fa-lg"></i>
-                                                </div>
-                                                <div class="col-10">
-                                                    <h4 class="feature-title">
-                                                        <strong>Finance</strong>
-                                                    </h4>
-                                                    <p class="dark-grey-text">The app is main purpose is to help your company increase it's revenue. Built with the intention of helping you harnes your data, so it can be use to increase sales.</p>
-                                                </div>
-                                            </div>
-                                            <!--Grid row-->
-
-                                        </div>
-                                        <!--Grid column-->
-                                         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                                        <!--Grid column-->
-                                        <div class="col-md-6 full-w">
-
-                                            <!--Grid row-->
-                                            <div class="row pb-4 d-flex justify-content-center mb-4">
-
-                                                <h4 class="mt-3 mr-4">
-                                                    <strong>Enter your name, email and password </strong>
-                                                </h4>
-
-
-
-                                            </div>
-                                            <!--/Grid row-->
-                                             <%= render 'layouts/messages' %>
-                                            <!--Body-->
-                                            <div class="md-form">
-                                                <i class="fa fa-user prefix dark-grey-text"></i>
-
-                                                   <%= f.text_field :first_name, class: "form-control long-input white-text", required: true %>
-                                                </div>
-
-                                                <label for="orangeForm-name">Your first name</label>
-
-                                            <div class="md-form">
-                                                <i class="fa fa-user prefix dark-grey-text"></i>
-                                                  <%= f.text_field :last_name, class: "form-control white-text", required: true %>
-                                                <label for="orangeForm-name">Your last name</label>
-                                            </div>
-                                            <div class="md-form">
-                                                <i class="fa fa-envelope prefix dark-grey-text"></i>
-
-                                                 <%= f.email_field :email, class: "form-control long-input pl-2", required: true %>
-                                                <label for="orangeForm-email">Your email</label>
-                                            </div>
-
-                                            <div class="md-form">
-                                                <i class="fa fa-lock prefix dark-grey-text"></i>
-                                                 <%= f.password_field :password, class: "form-control long-input  pl-2", required: true  %>
-                                                <label for="orangeForm-pass">Your password</label>
-                                            </div>
-
-                                            <div class="text-center">
-                                                <button class="btn btn-rose btn-round mt-4">Sign up</button>
-                                            </div>
-
-                                        </div>
-                                        <!--Grid column-->
-                                        <% end %>
-                                    </div>
-                                    <!--Grid row-->
-
-                                </div>
-                            </div>
-
+                          <input type="file" id="wizard-picture">
                         </div>
-                        <!--Grid column-->
-
+                        <h6 class="description text-white">Choose Picture</h6>
+                      </div>
                     </div>
-                    <!--Grid row-->
+                    <div class="col-sm-6">
+                      <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">face</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput1" class="bmd-label-floating text-white">First Name (required)</label>
+                           <%= f.text_field :first_name, class: "form-control long-input text-white", required: true %>
+                        </div>
+                      </div>
+                      <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">record_voice_over</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput11" class="bmd-label-floating">Last Name</label>
+                           <%= f.text_field :last_name, class: "form-control text-white", required: true %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-10 mt-3 text-white">
+                      <div class="input-group form-control-lg">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">email</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput1" class="bmd-label-floating text-white">Email (required)</label>
+                          <%= f.email_field :email, class: "form-control long-input pl-2 text-white", required: true %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="account">
+                  <h5 class="info-text text-white"> What type of user? (checkboxes) </h5>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                      <div class="row ">
+                        <div class="col-sm-4">
+                          <div class="choice" data-toggle="wizard-checkbox">
+                            <%= f.check_box :customer, {:class => "customer", }, "true", "false" %>
+
+
+                            <div class="icon">
+                              <i class="fa fa-user"></i>
+                            </div>
+                            <h6 class="text-white">Customer</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                             <%= f.check_box :employee, {:class => "myclass", }, "true", "false" %>
+
+
+                            <div class="icon">
+                              <i class="fa  fa-address-card-o"></i>
+                            </div>
+                            <h6 class="text-white">Employee</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                            <div class="icon">
+                              <i class="fa fa fa-user"></i>
+                            </div>
+                            <h6 class="text-white">VIP</h6>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="address">
+                  <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <h5 class="info-text"> Are you living in a nice area? </h5>
+                    </div>
+                    <div class="col-sm-7">
+                      <div class="form-group">
+                        <label>Street Name</label>
+                        <%= f.text_field :street_name, id: :user_street_name, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Street No.</label>
+                        <%= f.text_field :street_num, id: :user_street_num, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group">
+                        <label>City</label>
+                        <%= f.text_field :city, id: :user_city, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group">
+                          <select class="selectpicker county-select" name="county" data-style="select-with-transition" title="Single Select">
+                          <option value="Select County" class="tex-mute"> Select County </option>
+                          <option value="Dutchess"> Dutchess </option>
+                          <option value="Ulster"> Ulster </option>
+                          <option value="Putnam"> Putnam </option>
+                          <option value="Orange"> Orange </option>
+                          <option value="Columbia"> Columbia </option>
+                          <option value="Sullivan"> Sullivan </option>
+                          <option value="Greene"> Greene </option>
+                          <option value="westchester"> westchester </option>
+                       </select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+
+                <div class="col-md-5 ml-4">
+
+                <span class="bmd-form-group ml-4 ">
+                  <div class="input-group ml-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons text-white">lock_outline</i>
+                      </span>
+                    </div>
+                    <%= f.password_field :password, class: "form-control  pl-2 text-white", placeholder: "Enter Password", required: true  %>
+
+                  </div>
+                </span>
+                 </div>
+                   <div class="col-md-5 ">
+                <span class="bmd-form-group mr-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons text-white">lock_outline</i>
+                      </span>
+                    </div>
+                    <%= f.password_field :password_confirmation, class: "form-control  pl-2 text-white", placeholder: "Enter Password confirmation", required: true  %>
+
+                  </div>
+                </span>
+                 </div>
+                 </div>
+
 
                 </div>
+              </div>
             </div>
-        </section>
-
-
-    <!--Main Navigation-->
-
-    <!--Main Layout-->
+            <div class="card-footer">
+              <div class="mr-auto">
+                <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
+              </div>
+              <div class="ml-auto">
+                <input type="button" class="btn btn-next btn-fill btn-primary btn-wd" name="next" value="Next">
+                <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd" style="display: none;">finish </button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <!--Main Layout-->
+    </div>
+      <!-- wizard container -->
+    </div>
+            </div>
+         </div>
+     </div>
+      </section>
+   </div>
+</body>
+
+
+

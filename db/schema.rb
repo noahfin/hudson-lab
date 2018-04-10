@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406174715) do
+ActiveRecord::Schema.define(version: 20180409213404) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 20180406174715) do
     t.integer "user_id", null: false
     t.index ["contact_id", "user_id"], name: "index_contacts_users_on_contact_id_and_user_id"
     t.index ["user_id", "contact_id"], name: "index_contacts_users_on_user_id_and_contact_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "groups", force: :cascade do |t|
@@ -89,6 +97,13 @@ ActiveRecord::Schema.define(version: 20180406174715) do
     t.integer "invitations_count", default: 0
     t.string "first_name"
     t.string "last_name"
+    t.boolean "employee"
+    t.boolean "customer"
+    t.string "street_name"
+    t.string "street_num"
+    t.string "city"
+    t.string "county"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
