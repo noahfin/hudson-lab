@@ -1,8 +1,12 @@
+
+
+
+
 <!-- Your custom styles (optional) -->
 <style>
    .intro-2 {
    margin: auto;
-   width: 20%;
+   width: 42%;
    }
    .card {
    background-color: rgba(229, 228, 255, 0.2);
@@ -11,6 +15,7 @@
    h6 {
    line-height: 1.7;
    }
+   .card-reg { z-index: 99999999; }
 </style>
 <body class="presentation-page ">
    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
@@ -33,10 +38,10 @@
                            <i class="material-icons">dashboard</i> Dashboard
                            </a>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item active">
                            <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item ">
                            <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
                         </li>
                         <li>
@@ -51,60 +56,90 @@
    <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<%= asset_url("purple-1.jpg") %>')";>
       <section class="view intro-2">
          <div class="full-bg-img">
+
             <div class="mask rgba-indigo-light  flex-center">
                <div class="col-md-12">
-                  <div class="row">
-                     <div class="container">
-                        <!--Form with header-->
-                        <div class="card card-creds-form " >
-                           <div class="card-header   card-header-primary  text-center">
-                              <h4 class="card-title text-light"><i class="fa fa-user mt-2 mb-2"></i> Log in:</h3></h4>
-                           </div>
-                           <div class="card-body">
-                              <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
-                              <%= render 'layouts/messages' %>
-                              <!--Header-->
-                              <div class="form-header pink-gradient text-center">
-                                 <h3></h3>
-                              </div>
-                              <!--Body-->
-                              <div class="card-body ">
-                                 <span class="bmd-form-group">
-                                    <div class="input-group">
-                                       <div class="input-group-prepend">
-                                          <span class="input-group-text">
-                                          <i class="material-icons text-light">email</i>
-                                          </span>
-                                       </div>
-                                       <%= f.email_field :email, class: "form-control pl-2 text-light", placeholder: "Email address", required: true %>
-                                    </div>
-                                 </span>
-                                 <span class="bmd-form-group">
-                                    <div class="input-group">
-                                       <div class="input-group-prepend">
-                                          <span class="input-group-text">
-                                          <i class="material-icons text-light">lock_outline</i>
-                                          </span>
-                                       </div>
-                                       <%= f.password_field :password, class: "form-control  pl-2 text-light", placeholder: "Enter Password", required: true  %>
-                                    </div>
-                                 </span>
-                              </div>
-                              <div class="text-center">
-                                 <button type="submit" class="btn btn-outline-secondary btn-lg text-light">Sign in</button>
-                                 <hr>
-                                 <div class="text-muted">
-                                 </div>
-                              </div>
-                              <% end %>
-                           </div>
+                     <div style="padding-top: 2%; ">
+
+
+      <div class="wizard-container">
+        <div class="card card-wizard card-reg" data-color="purple" id="wizardProfile">
+           <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+            <div class="card-header text-center">
+              <h3 class="card-title">
+                Login to Your Acount
+              </h3>
+              <h5 class="card-description text-white">I hope you rember your password, if not you can clcik the link above to reset it</h5>
+            </div>
+            <div class="wizard-navigation">
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#about" data-toggle="tab" role="tab">
+                    login
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane active" id="about">
+                  <h5 class="info-text text-white"> Signin with your email password you used to register with </h5>
+                  <div class="row justify-content-center">
+                    <div class="col-md-6">
+                            <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                               <i class="material-icons text-light">lock_outline</i>
+                          </span>
                         </div>
-                        <!--/Form with header-->
-                     </div>
+                        <div class="form-group">
+                           <label for="exampleInput1" class="bmd-label-floating text-white">Email (required)</label>
+                        <%= f.email_field :email, class: "form-control pl-2 text-light", required: true %>
+                        </div>
+                      </div>
+
+
+                      <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                               <i class="material-icons text-light">lock_outline</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput11" class="bmd-label-floating">Password</label>
+                         <%= f.password_field :password, class: "form-control  pl-2 text-light", required: true  %>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
-               </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="mr-auto">
+              </div>
+              <div class="ml-auto">
+
+                <button type="submit"  class="btn btn-fill btn-primary" >Sign in </button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+      <!-- wizard container -->
+    </div>
             </div>
          </div>
+     </div>
       </section>
    </div>
 </body>
+
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409213404) do
+ActiveRecord::Schema.define(version: 20180412001217) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20180409213404) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "deals", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
@@ -66,6 +74,45 @@ ActiveRecord::Schema.define(version: 20180409213404) do
     t.integer "user_id", null: false
     t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
     t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "property_id"
+    t.string "severity"
+    t.string "status", default: "REPORTED"
+    t.text "comment"
+    t.integer "deal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_issues_on_deal_id"
+    t.index ["property_id"], name: "index_issues_on_property_id"
+    t.index ["user_id"], name: "index_issues_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "property_id"
+    t.integer "deal_id"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_posts_on_deal_id"
+    t.index ["property_id"], name: "index_posts_on_property_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

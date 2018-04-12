@@ -14,20 +14,21 @@ require 'faker'
 Group.destroy_all
 Contact.destroy_all
 User.destroy_all
-
+user_array = []
 user_ids = []
-user_ids << User.create(name: "Jhon Doe", email: "johndoe@test.com", password: 'secret').id
-user_ids << User.create(name: "Jane Roe", email: "janeroe@test.com", password: 'secret').id
-
+user_array[0] = User.create(name: "Jhon Doe", email: "noahhudsoncommercial.com", password: 'secret')
+user_ids << user_array[0].id
+user_array[1] = User.create(name: "Jane Roe", email: "nonothetoad@gmail.com", password: 'secret')
+user_ids << user_array[1].id
 p "2 users created"
 group_ids = { user_ids[0] => [], user_ids[1] => []}
 
 group_ids[user_ids[0]] << Group.create(name: 'Ulster County', user_id: user_ids[0] ).id
-group_ids[user_ids[1]]<< Group.create(name: 'Dutchess County', user_id: user_ids[1] ).id
-group_ids[user_ids[0]]<< Group.create(name: 'Westchester County', user_id: user_ids[0] ).id
+group_ids[user_ids[1]] << Group.create(name: 'Dutchess County', user_id: user_ids[1] ).id
+group_ids[user_ids[0]] << Group.create(name: 'Westchester County', user_id: user_ids[0] ).id
 group_ids[user_ids[1]] << Group.create(name: 'New Leads', user_id: user_ids[1] ).id
 group_ids[user_ids[0]] << Group.create(name: 'Invertors', user_id: user_ids[0] ).id
-group_ids[user_ids[1]]<< Group.create(name: 'Lawyers', user_id: user_ids[1] ).id
+group_ids[user_ids[1]] << Group.create(name: 'Lawyers', user_id: user_ids[1] ).id
 
 
 p "#{group_ids.count} created"
@@ -57,3 +58,33 @@ Contact.create(contacts)
 p "#{number_of_contacts} created"
 
  p Faker::Name.name
+
+ property_array = []
+ property_array[0] = Property.create(name: '2622 South Ave', code: '26SA', category: 'office')
+ property_array[1] = Property.create(name: '235 Main Street', code: '23MS', category: 'office')
+ property_array[2] = Property.create(name: 'Medical Arts Building ', code: '19BA', category: 'Medical office')
+ property_array[3] = Property.create(name: '1970 Route 9W ', code: '199W', category: 'Warehouse')
+ deal_array = []
+deal_array[0] = Deal.create(name: 'SRI', code: 'sri1', category: 'Warhouse for sale')
+deal_array[1] = Deal.create(name: 'Quality Glass Works', code: 'QGW1', category: 'Warhouse for lease')
+
+posts = []
+number_of_contacts.times do |i|
+ user_id = user_ids[Random.rand(0...2)]
+ property_id =  property_array[Random.rand(0...4)]
+ deal_id = deal_array[Random.rand(0...2)]
+
+  new_post = {
+
+    user: user_id,
+    property: property_id,
+    deal: deal_id,
+    rating: Random.rand(1...6),
+    comment: Faker::ChuckNorris.fact
+
+  }
+  posts.push(new_post)
+
+end
+
+

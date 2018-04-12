@@ -1,0 +1,58 @@
+<tr>
+  <td class="middle">
+    <div class="media">
+      <div class="media-left">
+        <a href="#">
+        <%= image_tag property.avatar.present? ? property.avatar.url() : gravatar_url('no@hudsoncommercial.com'), class: "media-object" %>
+
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading text-info">
+     <%= link_to property_path(property.id), class: 'text-info' do %>
+      <%= property.name %>
+      <% end %>
+        </h4>
+        <address>
+          <strong><%= property.code %></strong><br>
+          <%= property.category %>
+        </address>
+        <div class="add">
+          <span> |
+           <%= link_to new_property_path, class: "text-info"  do %>
+           + <i class="material-icons pb-2">business</i>
+           <%end %> |
+            <%= link_to new_property_post_path(property), class: "text-info"  do %>
+           + Activty <i class="material-icons pb-2">assignment</i>
+           <%end %> |
+           <%= link_to new_property_issue_path(property), class: "text-info"  do %>
+           + Issue <i class="material-icons pb-2">report_problem</i>
+           <%end %> |
+          </span>
+        </div>
+
+        <div class="rating">
+          <% property.average_ratings.times do %>
+          <i class="material-icons">star_rate</i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </td>
+  <td width="100" class="middle">
+    <div>
+
+
+      <%= link_to edit_property_path( property.id), class: "btn btn-circle btn btn-outline-info", title: 'edit property', rel: "tooltip"  do %>
+      <i class=" fa fa-edit e-contact"></i>
+
+      <% end %>
+      <%= link_to  property_path( property.id), method: :delete, class: 'btn btn-circle btn btn-outline-info  ', data: { confirm: "Are you sure you want delete this  property?"}  do %>
+      <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
+
+      <% end %>
+      </a>
+    </div>
+  </td>
+</tr>
+

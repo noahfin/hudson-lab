@@ -89,6 +89,7 @@
                </div>
             </div>
          </div>
+      </div>
          <div class="row">
             <div class="col-md-5 ml-4">
                <div class=" pl-0 mt-4 pr-2 ml-4 pl-3">
@@ -98,47 +99,53 @@
             <div class="col-md-7">
             </div>
          </div>
-         <div class="form-group  collapse" id="add-users-group">
-            <div class="row mt-4">
-               <div class=" col-md-12">
-                  <div class="input-group pl-0">
-                     <div class="col-xl-12">
-                        <div class="row pl-0">
-                           <div class="col-xl-10 pl-3 mb-4">
-                              <label for="address" class="bmd-label-floating">New Group Name</label>
-                              <input type="text" name="new_group" id="new_group" class="form-control ml-0 new_group">
-                           </div>
-                           <div class="col-xl-2 ">
-                              <span class="input-group-btn mr-0 ml-2">
-                              <button type="button" class="btn btn-fab btn-round btn-info save-new-group" id="save-new-group" data-remote="true">
-                              <i class="material-icons">input</i>
-                              </button>
-                              </span>
+         <div class="row">
+            <div class="form-group  collapse" id="add-users-group">
+               <div class="row mt-4">
+                  <div class=" col-md-12">
+                     <div class="input-group pl-0">
+                        <div class="col-xl-12">
+                           <div class="row pl-0">
+                              <div class="col-xl-10 pl-3 mb-4">
+                                 <label for="address" class="bmd-label-floating">New Group Name</label>
+                                 <input type="text" name="new_group" id="new_group" class="form-control ml-0 new_group text-white">
+                              </div>
+                              <div class="col-xl-2 ">
+                                 <span class="input-group-btn mr-0 ml-2">
+                                 <button type="button" class="btn btn-fab btn-round btn-info save-new-group" id="save-new-group" data-remote="true">
+                                 <i class="material-icons">input</i>
+                                 </button>
+                                 </span>
+                              </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-            </div>
-            <div>
-               <div class="btn-group">
-                  <% User.all.each do |user| %><%  next if !user.first_name  %>
-                  <div class="togglebutton form-check-inline">
-                     <label>
-                     <input type="checkbox" checked="true" value=
-                        <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                     <span class="toggle"></span>
-                     <span class="text-muted"><%= user.first_name if user.first_name %>
-                     </span>
-                     </label>
+               <div>
+                  <div class="btn-group">
+                     <% User.all.each do |user| %><%  next if !user.first_name  %>
+                     <div class="togglebutton form-check-inline">
+                        <label>
+                        <input type="checkbox" checked="true" value=
+                           <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                        <span class="toggle"></span>
+                        <span class="text-muted"><%= user.first_name if user.first_name %>
+                        </span>
+                        </label>
+                     </div>
+                     <% end %>
                   </div>
-                  <% end %>
                </div>
             </div>
-         </div>
-         <div class="modal-footer b-top">
-            <hr>
-            <%= submit_tag "Import CSV", class: "btn bg-hudson" %>
+       </div>
+         <div class="row">
+         <div class="col-md-12">
+            <div class="modal-footer b-top">
+               <hr>
+               <%= submit_tag "Import CSV", class: "btn bg-hudson" %>
+            </div>
+          </div>
          </div>
          <% end %>
       </div>

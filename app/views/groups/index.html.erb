@@ -6,7 +6,7 @@
 <a href="<%= '#g-name-' + g.id.to_s %>" title=""><span class="badge badge-default"><%= g.name %></span></a>
 </span>
 <% end %>
-<%= link_to 'New Group', new_group_path %>
+<%= link_to 'New Group', new_group_path, class: "text-info" %>
 <div id="groups">
   <%= render  @groups %>
 </div>

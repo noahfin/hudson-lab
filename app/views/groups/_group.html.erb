@@ -5,7 +5,7 @@
                             <div class="card card-5">
                                 <div class="card-header ml-0 pl-2" >
                                 <%= link_to group_path(group.id),class: 'text-info' do %>
-                                   </span> <h2 class="title ml-0 pl-0"><span class="badge badge-info"><%= group.name %></span></h2><a href="#top" title="top">Back up <i class="fa fa-arrow-up"></i></a><span>
+                                   </span> <h2 class="title ml-0 pl-0"><span class="badge badge-info"><%= group.name %></span></h2><a href="#top" title="top" class="text-white">Back up <i class="fa fa-arrow-up"></i></a><span>
                                 <% end %>
                                     <p class="category"><%= group.contacts.count %>  contacts in this group</p>
                                 </div>
@@ -30,7 +30,7 @@
                                         <td><%= contact.cell %></td>
                                         <td><%= contact.email %></td>
                                         <td><%= contact.company %></td>
-                                        <td><%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", remote: true, title: 'edit', rel: "tooltip"  do %>
+                                        <td><%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
                                         <i class=" fa fa-edit e-contact"></i>
 
                                         <% end %></td>

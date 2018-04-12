@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include HomeHelper
   include Pundit
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -11,9 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
     def after_sign_up_path_for(resource)
-      if resource.errors.any?
-        flash[:danger] = resource.errors.full_messages.to_s
-      end
       after_sign_in_path_for(resource)
     end
 
