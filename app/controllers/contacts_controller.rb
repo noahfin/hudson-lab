@@ -58,7 +58,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      user_reltionships(true)
+      user_reltionships(@contact)
       flash[:success] = "Contact was successfully created."
       redirect_to contacts_path(previous_query_string)
     else

@@ -7,7 +7,12 @@ class Contact < ApplicationRecord
   has_many :current_users, -> { users }, class_name: 'User'
   validates :name, :email, presence: true
   validates :name, length: { minimum: 2}
-  has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },
+  :s3_credentials => "#{Rails.root}/config/s3.yml",
+    :bucket => 'hudson-lab-images',
+    :url => ":s3_domain_url",
+    :path => "/:class/avatars/:id_:basename.:style.:extension"
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   scope :search, -> (term) do

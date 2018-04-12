@@ -13,8 +13,9 @@ module ContactsHelper
       end
         flash[:warring] = "Group user relationships was successfully created." unless group_model.errors.any?
 
-        @contact = Contact.find(@contact.id)
-        contact_model = ContactsUser.new(contact: @contact, user: user)
+
+              contact_model = ContactsUser.create(contact: contact, user: user)
+
       end
       if contact_model.save
         flash[:warring] = "Contact users relationship was successfully created." unless !contact
