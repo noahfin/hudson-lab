@@ -15,15 +15,9 @@ module ContactsHelper
 
 
               contact_model = ContactsUser.create(contact: contact, user: user)
-
+              flash[:warring] = "Contact user relationships was successfully created." unless contact_model.errors.any?
       end
-      if contact_model.save
-        flash[:warring] = "Contact users relationship was successfully created." unless !contact
 
-      else
-          err += "****" + contact_model.errors.full_messages.to_s unless !contact
-          flash[:danger] = err if err
-        end
       end
     end
 
