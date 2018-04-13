@@ -17,6 +17,6 @@ class AddFieldsToProperties < ActiveRecord::Migration[5.1]
     add_column :properties, :for_lease, :boolean
     add_column :properties, :for_sale, :boolean
     add_column :properties, :owner_name, :string
-    add_reference :properties, :contact, foreign_key: true
+
   end
 end

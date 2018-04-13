@@ -130,8 +130,6 @@ ActiveRecord::Schema.define(version: 20180413012444) do
     t.boolean "for_lease"
     t.boolean "for_sale"
     t.string "owner_name"
-    t.integer "contact_id"
-    t.index ["contact_id"], name: "index_properties_on_contact_id"
   end
 
   create_table "users", force: :cascade do |t|
