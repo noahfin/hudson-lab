@@ -30,12 +30,22 @@
 }
 .card-6 {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  color: white !important;
+}
+.card-1 {
+  background: #191b1c !important;
 
-background: #323b44 !important;  /* fallback for old browsers */
- /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ /* fallback for old browsers */
-  // background: -webkit-linear-gradient(to right, #141e30, #243b55) !important;
-  // background: linear-gradient(to right, #141e30, #243b55) !important;
+  color: white !important;
+}
+.card-h-1 {
+    border-radius: 4px;
+    padding-left: 5px;
+    background-color: #3D3D3D  !important;
+    border: none !important;
+    color: white !important;
+}
+.section__title {}
+.card-h-1 h5 a{
   color: white !important;
 }
 .square-image, .square-image img {
@@ -44,12 +54,17 @@ background: #323b44 !important;  /* fallback for old browsers */
 .b-bottom, .b-top {
   border-bottom: 1px solid #51586a !important;
 }
+.b-white {border: 1px solid #fff !important;}
 .bg-black {
   background-color: #000 !important;
 }
 
 .bg-hudson {
   background-color: #004267 !important;
+}
+.bg-dark-secondary {
+  background-color:  #232526 !important;
+
 }
 .bg-trans {
   background: transparent !important;
@@ -169,4 +184,15 @@ html,body, .content {
  height: 100% !important;
 }
 
+.image-content {
+  max-width: 100%;
 
+}
+.image-content img{
+  max-width: 100%;
+}
+
+.dark-table {
+  color: white !important;
+}
+.dark-table tr:nth-child(odd) {background: #232526 !important;}

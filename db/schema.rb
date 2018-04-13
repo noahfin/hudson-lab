@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412001217) do
+ActiveRecord::Schema.define(version: 20180413012444) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -113,6 +113,25 @@ ActiveRecord::Schema.define(version: 20180412001217) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "rental_rate"
+    t.string "price"
+    t.string "year_built"
+    t.string "building_class"
+    t.string "lease_type"
+    t.string "overhead_doors"
+    t.string "loading_docks"
+    t.string "min_divisible"
+    t.string "space_use"
+    t.string "space_available"
+    t.string "date_available"
+    t.string "property_type"
+    t.string "address"
+    t.text "description"
+    t.boolean "for_lease"
+    t.boolean "for_sale"
+    t.string "owner_name"
+    t.integer "contact_id"
+    t.index ["contact_id"], name: "index_properties_on_contact_id"
   end
 
   create_table "users", force: :cascade do |t|

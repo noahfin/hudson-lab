@@ -172,16 +172,16 @@
         <div class="collapse" id="properties">
           <ul class="nav">
             <li class="nav-item ">
-              <a class="nav-link" href="./maps/google.html">
-                <span class="sidebar-mini"> GM </span>
-                <span class="sidebar-normal"> Google Maps </span>
-              </a>
+               <%= link_to properties_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> AP </span>
+                <span class="sidebar-normal"> All Properties</span>
+               <% end %>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="./maps/fullscreen.html">
-                <span class="sidebar-mini"> FSM </span>
-                <span class="sidebar-normal"> Full Screen Map </span>
-              </a>
+               <%= link_to new_property_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> NP </span>
+                <span class="sidebar-normal"> New Property </span>
+              <% end %>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="./maps/vector.html">

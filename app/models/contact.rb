@@ -2,6 +2,7 @@ class Contact < ApplicationRecord
   require 'roo'
   include ContactsHelper
   has_many :groups
+  belongs_to :property
   has_and_belongs_to_many :user
 
   has_many :current_users, -> { users }, class_name: 'User'

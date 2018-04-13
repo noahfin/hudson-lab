@@ -17,6 +17,7 @@
 //= require jquery-ui/position
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui/widgets/menu
+//= require jquery-ui/widgets/selectmenu
 //= require jquery-ui/core
 //= require vendorapps
 //= require rails-ujs
@@ -31,6 +32,21 @@ $(window).resize(function() {
 })
 
 $(document).on('turbolinks:load', function() {
+
+$( function() {
+    $( "#speed" ).selectmenu();
+
+    $( "#files" ).selectmenu();
+
+    $( "#number" )
+      .selectmenu()
+      .selectmenu( "menuWidget" )
+        .addClass( "overflow" );
+
+    $( "#salutation" ).selectmenu();
+  } );
+
+
 $('body').on('click', '#close-form', function(event) {
   document.location.reload(true);
 });
