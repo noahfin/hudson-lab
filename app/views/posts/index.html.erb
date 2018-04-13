@@ -1,0 +1,35 @@
+
+
+<h1>Activites and News for <%= @propert.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>Rating</th>
+      <th>Comment</th>
+       <th>Actions</th>
+    </tr>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%=  post.rating %></td>
+        <td><%= post.comment %></td>
+        <td><%= link_to 'Show', property_post_path(post.property, post) %></td>
+        <% if current_user.id == post.user.id %>
+        <td><%= link_to 'Edit', edit_property_post_path(post.property, post) %></td>
+        <td><%= link_to 'Destroy', [post.property, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
