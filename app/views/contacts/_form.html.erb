@@ -18,22 +18,22 @@
          <div class="wizard-navigation" >
             <ul class="nav nav-pills text-light">
                <li class="nav-item col-md-3" text-light>
-                  <a class="nav-link active text-light" href="#about" data-toggle="tab" role="tab" style="color: white !important">
+                  <a class="nav-link active text-light" href="#about" id="about_id" data-toggle="tab" role="tab" style="color: white !important">
                   Account
                   </a>
                </li>
                <li class="nav-item col-md-3 text-light">
-                  <a class="nav-link  text-light" href="#account" data-toggle="tab" role="tab" style="color: white !important">
+                  <a class="nav-link  text-light" href="#account"  id="account_id" data-toggle="tab" role="tab" style="color: white !important">
                   Users
                   </a>
                </li>
                <li class="nav-item col-md-3 text-light" >
-                  <a class="nav-link  text-light" href="#address" data-toggle="tab" role="tab" style="color: white !important">
+                  <a class="nav-link  text-light" href="#address" id="address_id" data-toggle="tab" role="tab" style="color: white !important">
                   Address
                   </a>
                </li>
                <li class="nav-item col-md-3 text-light" >
-                  <a class="nav-link  text-light" href="#group" data-toggle="tab" role="tab" style="color: white !important">
+                  <a class="nav-link  text-light" href="#group" id="link_group_id" data-toggle="tab" role="tab" style="color: white !important">
                   Group
                   </a>
                </li>
@@ -47,7 +47,7 @@
                      </div>
                      <div class="form-group col-sm-6 ml-4 pl-4">
                         <div class="input-group form-control-lg ml-4">
-                           <div class="input-group-prepend">
+                           <div class="input-group-prepend ">
                               <span class="input-group-text">
                               <i class="material-icons text-white">phone</i>
                               </span>
@@ -287,9 +287,29 @@
                               <i class="material-icons">group_add</i>
                            </a>
                         </div>
-                        </div>
-                     </div>
 
+                        </div>
+
+                     </div>
+                     <p class="mt-3"> Pick One Best describes the contact role or leave blank</p>
+                        <div class="form-group">
+
+                          <label class="bmd-label-floating mr-2">Broker:</label>
+
+                            <%= form.check_box :role, {:class => "employee mr-1", }, "broker", "potential_customer" %> |
+                             <label class="bmd-label-floating mr-1 ml-2">Agent:</label>
+                            <%= form.check_box :role, {:class => "employee  mr-1", }, "agent", "potential_customer" %> |
+                              <label class="bmd-label-floating mr-1 ml-2">Owner:</label>
+                            <%= form.check_box :role, {:class => "employee  mr-1", }, "owner", "potential_customer" %> |
+                              <label class="bmd-label-floating mr-1 ml-2">Buyer:</label>
+                            <%= form.check_box :role, {:class => "employee  mr-1", }, "buyer", "potential_customer" %> |
+                              <label class="bmd-label-floating mr-1 ml-2">Employee:</label>
+                            <%= form.check_box :role, {:class => "employee  mr-1", }, "employee", "potential_customer" %> |
+                              <label class="bmd-label-floating mr-1 ml-2">Management:</label>
+                            <%= form.check_box :role, {:class => "employee  mr-1", }, "management", "potential_customer" %> |
+                              <label class="bmd-label-floating mr-1   ml-2">Peronal:</label>
+                            <%= form.check_box :role, {:class => "employee  mr-1", }, "peronal", "potential_customer" %>
+                        </div>
                      <div class="col-md-5 ml-0 pl-0 ">
                         <div class="row">
                            <div class="form-group  collapse" id="add-users-group">
@@ -355,9 +375,13 @@
             <div class="mr-auto">
                <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
             </div>
-            <div class="ml-auto">
+            <div class="ml-auto c-form-foot">
+               <% if local_assigns[:ajax_true] %>
                <a class="btn btn_next btn-fill bg-hudson" id="btn_next">Next</a>
                <button type="submit" class="btn btn-finish btn-fill bg-hudson btn-wd"  style="display: none;">Finish</button>
+               <% else %>
+                <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd" style="display: none;">finish </button>
+               <% end %>
             </div>
             <div class="clearfix"></div>
          </div>

@@ -22,8 +22,9 @@
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Title</label>
-                          <input type="text" name="contact[title]" class="form-control text-light">
+                          <label class="bmd-label-floating">Role</label>
+                         <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker btn-outline-info col-md-12' }  )%>
+
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -91,12 +92,12 @@
                   <% end %>
                 </div>
               </div>
-              <div class="card card-5">
+              <div class="card card-5  text-right">
                 <div class="card-header card-header-icon ">
                   <div class="card-icon bg-hudson ">
                     <i class="material-icons">perm_identity</i>
                   </div>
-                  <h4 class="card-title text-light">Contact / Facts
+                  <h4 class="card-title text-light text-left">Contact / Facts
 
                   </h4>
                 </div>
@@ -107,13 +108,25 @@
                <div class="panel panel-default">
                  <div class="panel-heading">
                  </div>
-                  <div class="panel-body"><i style="color:green" class="fa fa-check-square"></i> Yes, Contact has beeen verified.
-                    <ul class="list-group">
-                      <li class="list-group-item text-muted" contenteditable="false">Profile</li>
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Created</strong></span> <%= @contact.created_at %></li>
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Last contacted</strong></span><%= @contact.created_at %></li>
-                      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Real name</strong></span><%= @contact.name %></li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong class="">Role: </strong></span>Owner</li>
+                  <div class="panel-body col-md-12">
+                    <span class="pull-left"></span><i style="color:green" class="fa fa-check-square"></i> Yes, Contact has beeen verified.
+                    <ul class="">
+                      <li class="list-group-item text-muted text-left" contenteditable="false">Profile</li>
+
+                      <li class="profile-list "><span class="pull-left"><strong class="">Created</strong></span> <span class="float-right"> <%= @contact.created_at %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Last contacted</strong></span> <span class="float-right"> <%= @contact.created_at %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Real name</strong></span><span class="float-right"><%= @contact.name %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Company: </strong></span><span class="float-right"><%= @contact.company %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Address: </strong></span><span class="float-right"><%= @contact.address %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Street Number: </strong></span><span class="float-right"><%= @contact.street_num %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"><%= @contact.strret_name %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Phone: </strong></span><span class="float-right"><%= @contact.phone %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">County: </strong></span><span class="float-right"><%= @contact.county %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Country: </strong></span><span class="float-right"><%= @contact.country %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Postal_code: </strong></span><span class="float-right"><%= @contact.postal_code %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">City: </strong></span><span class="float-right"><%= @contact.city %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email %></span></li>
                   </ul>
                 </div>
               </div>
@@ -131,7 +144,7 @@
                   <h6 class="card-category text-gray"><%=@contact.title + '/ ' if @contact.title %> <%= @contact.company %></h6>
                   <h4 class="card-title"><%= @contact.name %></h4>
                   <p class="card-description">
-                    <%= @contact.notes %>
+                    <%= @contact.address %>
                   </p>
                   <a href="#pablo" class="btn bg-hudson btn-round">Add Contact</a>
                 </div>
@@ -139,12 +152,17 @@
               <div class="list-group">
             <a href="#" class="list-group-item bg-hudson">
               </a>
-              <% User.all.each do |user| %><%  next if !user.first_name  %>
 
-            <a href="#" class="list-group-item list-group-item-action text-light"><%= user.first_name %></a>
-
-            <% end %>
           </div>
+
+                        <div class="card  card-1  p-4">
+                            <div class="card__header">
+                                <h2>Contact Notes</h2>
+                            </div>
+                            <div class="card__body">
+                                <p><%= @contact.notes %></p>
+                            </div>
+                        </div>
             </div>
           </div>
         </div>

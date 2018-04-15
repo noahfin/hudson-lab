@@ -3,7 +3,7 @@ class Contact < ApplicationRecord
   include ContactsHelper
   has_many :groups
   has_and_belongs_to_many :user
-
+  has_and_belongs_to_many :properties
   has_many :current_users, -> { users }, class_name: 'User'
   validates :name, :email, presence: true
   validates :name, length: { minimum: 2}
@@ -14,6 +14,14 @@ class Contact < ApplicationRecord
     :path => "/:class/avatars/:id_:basename.:style.:extension"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+  enum role: [:broker, :agent, :owner, :buyer, :lessor, :employee, :management, :peronal, :potential_customer]
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :potential_customer
+
+  end
 
   scope :search, -> (term) do
     where('name like :term or company like :term or email like :term', term: "%#{term.downcase}%") if term.present?

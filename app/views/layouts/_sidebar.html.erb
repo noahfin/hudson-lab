@@ -82,6 +82,12 @@
         </a>
         <div class="collapse" id="componentsExamples">
           <ul class="nav text-white ">
+            <li class="nav-item ">
+              <a class="nav-link" href="/contacts/new/">
+                <span class="sidebar-mini"> NC </span>
+                <span class="sidebar-normal"> New Contact </span>
+              </a>
+            </li>
              <li class="nav-item ">
               <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
               <%= link_to contacts_path, class: "nav-link #{active}" do %>
@@ -137,19 +143,24 @@
         </div>
       </li>
       <li class="nav-item text-white  ">
-        <a class="nav-link" data-toggle="collapse" href="/groups/">
+        <a class="nav-link" data-toggle="collapse" href="#groups">
           <i class="material-icons">group</i>
           <p> Groups
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse" id="tablesExamples">
+        <div class="collapse" id="groups">
           <ul class="nav text-white ">
             <li class="nav-item ">
-              <a class="nav-link" href="./maps/google.html">
+              <a class="nav-link" href="/groups/">
                 <span class="sidebar-mini"> VG</span>
                 <span class="sidebar-normal"> View Groups </span>
-              </a>></li>
+              </a></li>
+              <li class="nav-item ">
+              <a class="nav-link" href="/groups/new/">
+                <span class="sidebar-mini"> AG</span>
+                <span class="sidebar-normal"> Add Group </span>
+              </a></li>
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>

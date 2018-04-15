@@ -1,7 +1,7 @@
 <div class="container">
                 <header class="section__title card-h-1">
                     <h2><%= @property.name %></h2>
-                    <small>The Villa, Murano Hill, Manhattan, NY, 90082</small>
+                    <small><%= @property.address %></small>
 
 
                 </header>
@@ -12,7 +12,7 @@
                             <div class="detail-media">
                                 <div class="tab-content">
                                     <div class="image-content" >
-                                        <%= image_tag @property.avatar.url() %>
+                                        <%= image_tag @property.avatar.url(:medium) %>
                                     </div>
 
                                     <div class="tab-pane fade in active light-gallery" id="detail-media-images">
@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="tab-pane fade light-gallery" id="detail-media-floorplan">
                                         <a href="img/demo/floor-plan.png">
-                                            <%= image_tag @property.avatar.url(:medium) %>
+
                                         </a>
                                     </div>
                                     <div class="tab-pane fade" id="detail-media-map">
@@ -54,12 +54,33 @@
                                 <div class="flag">
 
                               </div></td>
-                                 <td> <span>Ownership Type</span></td>
+                                 <td> <span>Property Type</span></td>
                               <td class="text-right">
-                                2.920
+                                <%= @property.category %>
                               </td>
+
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="flag">
+
+                              </div></td>
+                                <td>  <span>Property Class</span></td>
                               <td class="text-right">
-                                53.23%
+                                <%= @property.building_class %>
+                              </td>
+
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="flag">
+
+                              </div></td>
+                                 <td>  <span>Space Use</span></td>
+                              <td class="text-right">
+                              <%= @property.space_use %>
+                              </td>
+
                               </td>
                             </tr>
                             <tr>
@@ -67,66 +88,35 @@
                                 <div class="flag">
 
                               </div></td>
-                                <td>  <span>Property Area</span></td>
+                                 <td> <span>For Sale</span></td>
                               <td class="text-right">
-                                1.300
+                               <%= @property.for_lease %>
                               </td>
-                              <td class="text-right">
-                                20.43%
-                              </td>
+
                             </tr>
                             <tr>
                               <td>
                                 <div class="flag">
 
                               </div></td>
-                                 <td>  <span>Overhead doors</span></td>
+                              <td>For Sale</td>
                               <td class="text-right">
-                                760
+                               <%= @property.for_sale %>
                               </td>
-                              <td class="text-right">
-                                10.35%
-                              </td>
+
                             </tr>
                             <tr>
                               <td>
                                 <div class="flag">
 
                               </div></td>
-                                 <td> <span>Floors</span></td>
+                              <td> Min Divisible</td>
                               <td class="text-right">
-                                690
+                              <%= @property.min_divisible %>
                               </td>
-                              <td class="text-right">
-                                7.87%
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
 
-                              </div></td>
-                              <td> space Available</td>
-                              <td class="text-right">
-                                600
-                              </td>
-                              <td class="text-right">
-                                5.94%
-                              </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div class="flag">
 
-                              </div></td>
-                              <td>Brasil</td>
-                              <td class="text-right">
-                                550
-                              </td>
-                              <td class="text-right">
-                                4.34%
-                              </td>
-                            </tr>
                           </tbody>
                         </table>
                         </div>
@@ -146,20 +136,28 @@
                         <div class="card  card-1 p-4 ">
                             <div class="card__header">
                                 <h2>Highlights</h2>
-                                <small>Maecenas seddiam eget risus varius blandit sitamet nonmagna</small>
+
                             </div>
 
-                            <div class="cardbody">
+                            <div class="card-body">
                                 <ul class="">
-                                    <li class="mdc-bg-red-300"><span class="label label-warning label-fill">Warehouse</span></li>
-                                    <li class="mdc-bg-purple-300">River Views</li>
-                                    <li class="mdc-bg-pink-300">Common Roof Deck</li>
-                                    <li class="mdc-bg-light-blue-500">City Views</li>
-                                    <li class="mdc-bg-amber-400">Gym</li>
-                                    <li class="mdc-bg-teal-400">Sauna</li>
-                                    <li class="mdc-bg-light-green-500">Open Views</li>
-                                    <li class="mdc-bg-brown-400">Basketball Court</li>
-                                    <li class="mdc-bg-blue-grey-400">Pool</li>
+                      <li class="list-group-item text-muted text-left ml-0 pl-0" contenteditable="false"> <h5>Profile</h5></li>
+
+                                    <li class="profile-list text-white" contenteditable="false"><span class="pull-left"><strong class="">price:</strong></span><span class="float-right"><%= @property.price %></span> </li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">year built:</strong></span><span class="float-right">  <%= @property.year_built %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">building class:</strong></span><span class="float-right"> <%= @property.building_class %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">lease type:</strong></span><span class="float-right"> <%= @property.lease_type %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">overhead doors: </strong></span><span class="float-right"> <%= @property.overhead_doors %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">loading docks: </strong></span><span class="float-right"> <%= @property.loading_docks %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">min divisible: </strong></span><span class="float-right"> <%= @property.min_divisible %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">space use: </strong></span><span class="float-right"> <%= @property.space_use %></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"> <%= @property.space_available %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">property type: </strong></span><span class="float-right"> <%= @property.property_type %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">date available: </strong></span><span class="float-right"> <%= @property.date_available %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">address: </strong></span><span class="float-right"> <%= @property.address %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">for lease: </strong></span><span class="float-right"> <%= @property.for_lease %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">for sale: </strong></span><span class="float-right"> <%= @property.for_sale %></span></li></li>
+                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">owner_name: </strong></span><span class="float-right"> <%= @property.owner_name %></span></li></li>
                                 </ul>
                             </div>
                         </div>
@@ -169,8 +167,7 @@
                                 <h2>Property Overview</h2>
                             </div>
                             <div class="card__body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                                <p>Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                <p><%=  @property.description %></p>
                             </div>
                         </div>
 
@@ -196,7 +193,9 @@
 
                                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
                                       <div class="card-body">
-                                        Robert Page
+                                        <% @property.contacts.each do |contact | %>
+                                        <%= contact.name if contact.owner  %>
+                                         <% end %>
                                       </div>
                                     </div>
                                   </div>
@@ -211,7 +210,10 @@
                                     </div>
                                     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                                       <div class="card-body">
-                                        845-213-99
+                                           <% @property.contacts.each do |contact | %>
+                                        <%= contact.phone if contact.owner  %>
+                                         <% end %>
+
                                       </div>
                                     </div>
                                   </div>
@@ -226,7 +228,10 @@
                                     </div>
                                     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                                       <div class="card-body">
-                                        robo@gmail.com
+                                           <% @property.contacts.each do |contact | %>
+                                         <%= contact.email if contact.owner  %>
+                                         <% end %>
+
                                       </div>
                                     </div>
                                   </div>
@@ -243,7 +248,7 @@
                             <li class="nav-item">
                                 <a class="nav-link active" href="#profile" data-toggle="tab">
                                     <i class="material-icons">bug_report</i>
-                                    Brokers
+                                    Onwner
                                 <div class="ripple-container"></div></a>
                             </li>
                             <li class="nav-item">
@@ -473,17 +478,86 @@
                 </div>
             </div>
         </div>
+
+
+
+                                                                      <div class="card card-1">
+                            <div class="card-header">
+                                <h4 class="card-title text-white">Borkers Informations</h4>
+                            </div>
+                            <div class="card-body">
+                              <div id="accordion" role="tablist">
+                                  <div class="card-collapse">
+                                    <div class="card-header card-h-1 pl-2" role="tab" id="headingOne">
+                                      <h5 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsed">
+                                         Brokers Name
+                                          <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                      </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
+                                      <div class="card-body">
+                                        <% @property.contacts.each do |contact | %>
+                                        <%= contact.name + ' ' if contact.broker || contact.agent %>
+                                         <% end %>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card-collapse">
+                                    <div class="card-header card-h-1 pl-2" role="tab" id="headingTwo">
+                                      <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                          Brokers Phone Number
+                                          <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                      <div class="card-body">
+                                           <% @property.contacts.each do |contact | %>
+                                        <%= contact.phone + ' ' if contact.broker || contact.agent %>
+                                         <% end %>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card-collapse">
+                                    <div class="card-header card-h-1 pl-2" role="tab" id="headingThree">
+                                      <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                          Brokers Email
+                                          <i class="material-icons">keyboard_arrow_down</i>
+                                        </a>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                      <div class="card-body">
+                                           <% @property.contacts.each do |contact | %>
+                                         <%= contact.email + ' ' if contact.broker || contact.agent %>
+                                         <% end %>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
                         <div class="card hidden-xs hidden-sm hidden-print  card-1">
                             <div class="card__header  p-4">
                                 <h2>You may also like...</h2>
-                                <small>Morbi risus porta consectetur vestibulum ateros</small>
+                                <small>Smimliar properties that are in the category <%= @property.category %></small>
                             </div>
 
                                 <div class="col-md-12">
 
                         <!--Image-->
                         <div class="view overlay rounded z-depth-1-half mb-3">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/images/77.jpg" class="img-fluid" alt="Sample post image">
+                          <% @similar_properties.each do |prop| %>
+                          <% if prop.name != @property.name  && prop.avatar? %>
+                             <%= image_tag prop.avatar.url(:thumb), class: 'img-fluid' %>
+                              <% end %>
                             <a>
                                 <div class="mask rgba-white-slight waves-effect waves-light"></div>
                             </a>
@@ -494,34 +568,37 @@
                             <a href="" class="light-blue-text">
                                 <h6>
                                     <i class="fa fa-plane"></i>
-                                    <strong> Travels</strong>
+                                    <strong><%= @property.category %></strong>
                                 </h6>
                             </a>
                             <p>
                                 <strong>
-                                    <i class="fa fa-clock-o"></i> 20/08/2018</strong>
+                                    <i class="fa fa-clock-o"></i>  <%= prop.created_at.strftime("%d %b. %Y") %></strong>
+
                             </p>
                         </div>
                         <h3>
                             <a>
-                                <strong>This is title of the news</strong>
+                                <strong><%= link_to property_path(prop.id), class: 'text-white' do %><%= prop.name %><% end %></strong>
                             </a>
                         </h3>
-                        <p> Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                            placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                        <p> <%=  prop.description %>
                         </p>
 
                         <!--/Featured news-->
 
                         <hr>
-
+                         <%  break %>
+                               <% end %>
                         <!--Small news-->
                         <div class="row">
-                            <div class="col-md-3">
+                         <%  @similar_properties.each do |prop| %>
+                         <% next if prop.name == @property.name %>
+                           <div class="col-md-3">
 
                                 <!--Image-->
                                 <div class="view overlay rounded z-depth-1">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg" class="img-fluid" alt="Minor sample post image">
+                                    <%= image_tag prop.avatar.url(), class: 'img-fluid' %>
                                     <a>
                                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                                     </a>
@@ -531,70 +608,20 @@
                             <!--Excerpt-->
                             <div class="col-md-9">
                                 <p class="dark-grey-text">
-                                    <strong>19/08/2018</strong>
+                                    <strong><%= prop.created_at.strftime("%d %b. %Y") %></strong>
                                 </p>
-                                <a>Lorem ipsum dolor sit amet
+                                <%= link_to property_path(prop.id) do %>
+                                <%= prop.name %>
                                     <i class="fa fa-angle-right"></i>
-                                </a>
+                                <% end %>
                             </div>
 
                         </div>
                         <!--/Small news-->
 
                         <hr>
+                         <% end %>
 
-                        <!--Small news-->
-                        <div class="row">
-                            <div class="col-md-3">
-
-                                <!--Image-->
-                                <div class="view overlay rounded z-depth-1">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg" class="img-fluid" alt="Minor sample post image">
-                                    <a>
-                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!--Excerpt-->
-                            <div class="col-md-9">
-                                <p class="dark-grey-text">
-                                    <strong>18/08/2018</strong>
-                                </p>
-                                <a>Soluta nobis est eligendi
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!--/Small news-->
-
-                        <hr>
-
-                        <!--Small news-->
-                        <div class="row">
-                            <div class="col-md-3">
-
-                                <!--Image-->
-                                <div class="view overlay rounded z-depth-1">
-                                    <img src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" class="img-fluid" alt="Minor sample post image">
-                                    <a>
-                                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!--Excerpt-->
-                            <div class="col-md-9">
-                                <p class="dark-grey-text">
-                                    <strong>17/08/2018</strong>
-                                </p>
-                                <a>Voluptatem accusantium doloremque
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-
-                        </div>
                         <!--/Small news-->
 
                     </div>

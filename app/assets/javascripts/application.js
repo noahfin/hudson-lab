@@ -30,55 +30,50 @@ $(window).resize(function() {
     }
 
 })
+  var i = 1;
+$(document).on('click', '.new-form', function(event) {
+    event.preventDefault();
+    var formArray = ['#about_id',  '#account_id', '#address_id', '#link_group_id'];
+    var linkArray = ['<a href="#about"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>',  '<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '#link_group_id<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#group"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>'];
+    var link = $(formArray[i]).click();
+    $(this).remove();
+     $('.c-form-foot').append(formArray[i]);
+       $(formArray[i]).click();
+    i++
+  });
+
 
 $(document).on('turbolinks:load', function() {
-
-$( function() {
-    $( "#speed" ).selectmenu();
-
-    $( "#files" ).selectmenu();
-
-    $( "#number" )
-      .selectmenu()
-      .selectmenu( "menuWidget" )
-        .addClass( "overflow" );
-
-    $( "#salutation" ).selectmenu();
-  } );
-
+  var i = 1;
 
 $('body').on('click', '#close-form', function(event) {
   document.location.reload(true);
 });
    $('#contact_address').hide();
-  var i = 1;
-  $('body').on('click', '#btn_next', function(event) {
+
+  $('body').on('click', '#btn_next', 'btn-form', function(event) {
     var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
 
 
-    $(this).removeAttr("disabled");
+    $('#contact_form').removeAttr("disabled");
     console.log('button clicked')
     $(formArray[i]).trigger( "click" );
     i++
     if (i === 4 ) {
+        i = 0;
       $('.btn_next').hide()
       $('.btn-finish').show()
       var address_str =  '';
-      console.log(jQuery.type($('#contact_street_num').val()));
       if (jQuery.type($('#contact_street_num').val()) === "string")  address_str += $('#contact_street_num').val();
-      console.log(address_str);
       if (jQuery.type($('#contact_strret_name').val()) === "string")  address_str += ' ' + $('#contact_strret_name').val();
-      console.log(address_str);
       if (jQuery.type($('#contact_city').val() === "string")) address_str += ' ' + $('#contact_city').val();
-      console.log(address_str);
       if (jQuery.type($('#contact_postal_code').val() === "string")) address_str += ' ' +  $('#contact_postal_code').val();
-      console.log(address_str);
       if (jQuery.type($('#contact_country').val() === "string"))  address_str += ' ' +  $('#contact_country').val();
-      console.log(address_str);
-      $('#c-add-hidden').val(address_str);
-      console.log($('#c-add-hidden').val());
-      $('body').on('click', '.btn-finish', function(event) {
 
+      $('#c-add-hidden').val(address_str);
+
+
+      $('body').on('click', '.btn-finish', function(event) {
       $('#new_contact').submit();
     })
     }
@@ -88,7 +83,6 @@ $('body').on('click', '#close-form', function(event) {
   var u_s = false;
  $(document).on('click', '.u-check-box, .users-for-new-contact', function(event) {
 
-  console.log('your hav been choosen')
   if (u_s === false) {
     u_s = true
     $(this).css({
@@ -173,7 +167,34 @@ event.preventDefault();
     $(window).on('popstate', function() {
         $.get(document.location.href);
     });
+var contact_ids_prop_i  = 0;
+var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];
 
+var contact_class_prop = ['.contact1','.contact2','.contact3','.contact4','.contact5','.contact6','.contact7','.contact8','.contact9','.contact10'];
+var contact_ids_prop = [];
+$('#form-check-inputs').click(function(event){ //listen for submit event
+   event.preventDefault();
+   $.each(contact_ids_prop, function(index, val) {
+      /* iterate through array or object */
+      console.log(val);
+      $('<input />').attr('type', 'text').attr('name', 'contact_id').attr('value',  contact_ids_prop[i]).appendTo('#property-form');
+   });
+
+    $('#property-form').submit();
+});
+
+$('#search-contat-check').autocomplete({
+        source: '/contacts/autocomplete',
+        minLength: 2,
+        select: function(event, ui) {
+           contact_ids_prop[contact_ids_prop.length] = ui.item.id
+           $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
+
+
+           $(contact_class_p_name[contact_ids_prop_i]).html( ui.item.value);
+           contact_ids_prop_i ++;
+        }
+    });
 
     $('#term').autocomplete({
         source: '/contacts/autocomplete',

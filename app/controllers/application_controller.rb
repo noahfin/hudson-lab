@@ -32,5 +32,6 @@ class ApplicationController < ActionController::Base
   end
   def get_groups
     @groups = current_user.groups.uniq if current_user
+    @contacts = current_user.contacts.uniq if current_user
   end
 end
