@@ -1,4 +1,7 @@
 
+<% @properties.each_slice(3) do |property| %>
+  <div class="row">
+    <% property.each do |property| %>
 
 
 
@@ -6,7 +9,7 @@
                           <div class="card card-product  card-1" data-count="3">
                             <div class="card-header card-header-image" data-header-animation="true">
                               <%= link_to property_path(property.id) do %>
-                                 <%= image_tag property.avatar.present? ? property.avatar.url() : gravatar_url('no@hudsoncommercial.com'), class: "media-object" %>
+                                 <%= image_tag property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object" %>
                               <% end %>
                             </div>
                             <div class="card-body">
@@ -71,3 +74,7 @@
                             </div>
                           </div>
                         </div>
+<% end %>
+  </div>
+<% end %>
+
