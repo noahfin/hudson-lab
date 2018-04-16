@@ -172,16 +172,6 @@ var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9
 
 var contact_class_prop = ['.contact1','.contact2','.contact3','.contact4','.contact5','.contact6','.contact7','.contact8','.contact9','.contact10'];
 var contact_ids_prop = [];
-$('#form-check-inputs').click(function(event){ //listen for submit event
-   event.preventDefault();
-   $.each(contact_ids_prop, function(index, val) {
-      /* iterate through array or object */
-      console.log(val);
-      $('<input />').attr('type', 'text').attr('name', 'contact_id').attr('value',  contact_ids_prop[i]).appendTo('#property-form');
-   });
-
-    $('#property-form').submit();
-});
 
 $('#search-contat-check').autocomplete({
         source: '/contacts/autocomplete',
