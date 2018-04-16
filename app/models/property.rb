@@ -18,8 +18,8 @@ class Property < ApplicationRecord
 
 
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-
-
+  paginates_per 12
+   max_paginates_per 24
 
  validates :name, length: {minimum: 6 }
  validates :code, length: {is: 4}

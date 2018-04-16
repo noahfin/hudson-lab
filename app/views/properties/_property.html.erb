@@ -41,13 +41,16 @@
                                   <%= property.name %>
                                  <% end %>
                               </h4>
-                              <div class="card-description">
-                               <%= property.description %>
+                              <div class="card-description card-description-property">
+
+                                  <%= property.description %>
+
+
                               </div>
                             </div>
                             <div class="card-footer">
                               <div class="price">
-                              <h4><%= property.category %>  <%= link_to 'See Activy', property_posts_path(property) %></h4>
+                              <h4 class="pl-3 pr-3 mb-2"><%= property.category %> <span class="float-right"> <%= link_to 'See Activy', property_posts_path(property) %></span></h4>
                               <div class="row">
                                 <div class="col-md-6 pl-0">
                                     <%= link_to  new_property_issue_path(property), class: 'btn btn-success btn-link fix-broken-card ml-0 pl-3' do %>

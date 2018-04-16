@@ -1,7 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :find_property, only: [:edit, :update, :destroy, :show]
    def index
-    @properties = Property.all
+    @properties = Property.all.order(created_at: :desc).page(params[:page])
    end
    def new
      @property = Property.new

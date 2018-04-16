@@ -213,3 +213,7 @@ html,body, .content {
 .profile-ul {
   list-style-type: none;
 }
+.card-description-property {
+  max-height: 90px;
+  overflow: hidden;
+}
