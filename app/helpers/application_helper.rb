@@ -3,7 +3,7 @@ module ApplicationHelper
   include ActionView::Context
   def gravatar_url(email)
     gravatar = Digest::MD5::hexdigest(email).downcase
-    url = "https://www.gravatar.com/avatar/#{gravatar}?s=200"
+    url = "https://www.gravatar.com/avatar/#{gravatar}"
   end
   def flash_class(level)
     case level

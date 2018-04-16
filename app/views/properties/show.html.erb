@@ -154,7 +154,6 @@
                                     <li class="profile-list text-white"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"> <%= @property.space_available %></span></li></li>
                                     <li class="profile-list text-white"><span class="pull-left"><strong class="">property type: </strong></span><span class="float-right"> <%= @property.property_type %></span></li></li>
                                     <li class="profile-list text-white"><span class="pull-left"><strong class="">date available: </strong></span><span class="float-right"> <%= @property.date_available %></span></li></li>
-                                    <li class="profile-list text-white"><span class="pull-left"><strong class="">address: </strong></span><span class="float-right"> <%= @property.address %></span></li></li>
                                     <li class="profile-list text-white"><span class="pull-left"><strong class="">for lease: </strong></span><span class="float-right"> <%= @property.for_lease %></span></li></li>
                                     <li class="profile-list text-white"><span class="pull-left"><strong class="">for sale: </strong></span><span class="float-right"> <%= @property.for_sale %></span></li></li>
                                     <li class="profile-list text-white"><span class="pull-left"><strong class="">owner_name: </strong></span><span class="float-right"> <%= @property.owner_name %></span></li></li>
@@ -567,8 +566,8 @@
                         <div class="news-data">
                             <a href="" class="light-blue-text">
                                 <h6>
-                                    <i class="fa fa-plane"></i>
-                                    <strong><%= @property.category %></strong>
+                                    <i class="material-icons">business</i>
+                                    <strong class="pt-4 mt-3"><%= @property.category %></strong>
                                 </h6>
                             </a>
                             <p>
