@@ -1,17 +1,31 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
+
+
+ <%= form_tag property_posts_path do |form| %>
+  <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% post.errors.full_messages.each do |message| %>
+      <% @post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+      <%= label_tag 'rating' %>
+      <% rating = ["1", "2", "3", "4", "5"] %>
+      <%= select_tag :rating, options_for_select(rating), prompt: '1 is worst, 5 is best', :selected=> @post.rating %>
+  </div>
+  <div class="form-group">
+      <%= label_tag :comment %> <br>
+       <%=  text_area_tag 'comment', @post.comment, rows: 10, cols: 25 %>
 
+
+
+  </div>
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <button type="submit" class= "btn btn-info">Submit</button>
   </div>
 <% end %>

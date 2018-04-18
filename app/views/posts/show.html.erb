@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="row">
+    <div class="col-md-6">
+    <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title"><%= @property.name %></h4>
+            <p class="category">Post <%= @property.id %></p>
+        </div>
+        <div class="card-body">
+
+<div class="col-md-6">
+<div class="row">
+
+
+<p class="pt-1">Rating: <%=@post.rating %></p>
+<% @post.rating.to_i.times do |i| %>
+<div class="col-md-1">
+  <i class="material-icons ml-0 mr-0 pl-0 pr-0 text-warning">star_rate</i>
+
+</div>
+<% end %>
+</div>
+  </div>
+<br>
+<br>
+<%= @post.comment %>
+<br>
+<%= link_to 'Edit', edit_property_post_path(@property.id) %> |
+<%= link_to 'Back', property(@property.id) %>
+</div>
+
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+

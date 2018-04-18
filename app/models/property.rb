@@ -23,6 +23,7 @@ class Property < ApplicationRecord
 
  validates :name, length: {minimum: 6 }
  validates :code, length: {is: 4}
+ accepts_nested_attributes_for :posts
  def average_ratings
    return 0 if posts.empty?
    posts.map{|p| p.rating}.inject(:+) / posts.size

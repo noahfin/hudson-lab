@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   root to: 'visitors#index'
 
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { registrations: 'registrations', confirmations: 'confirmations' }
@@ -11,8 +11,12 @@ Rails.application.routes.draw do
     get'/dashboard', to: 'dashboard#index'
 
     resources :properties do
-     resources :issues
+
      resources :posts
+
+      resources :issues
+    end
+
     end
 
     resources :contacts do
@@ -20,4 +24,4 @@ Rails.application.routes.draw do
       post 'inport', on: :collection
     end
   end
-end
+

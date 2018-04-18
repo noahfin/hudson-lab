@@ -1,6 +1,44 @@
-<h1>Editing Post</h1>
+<div class="contanier">
 
-<%= render 'form', post: @post %>
+<h1>Editing Post <%= @property.name %></h1>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+
+<%= form_with model: [@post.property, @post], local: true, :authenticity_token => true, id: "update_form"  do |form|%>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <div class="col-xl-3 ">
+      <%= label_tag 'rating' %>
+      <% rating = ["1", "2", "3", "4", "5"] %>
+      <%= select_tag :rating, options_for_select(rating), prompt: '1 is worst, 5 is best', :selected=> @post.rating, class: "form-control text-white" %>
+    </div>
+
+  </div>
+  <div class="form-group ml-3">
+      <%= label_tag :comment %> <br>
+       <%=  text_area_tag 'comment', @post.comment, rows: 14, cols: 45 %>
+
+
+
+  </div>
+  <br>
+  <div class="actions  ml-3">
+    <button type="submit" class= "btn btn-info">Edit Post</button>
+
+   <span class="ml-4 text-info"><%= link_to 'Show', [@post.property, @post], class: 'text-white' %> |
+    <%= link_to 'Back', property_posts_path(@post.property), class: 'text-white' %>
+    </span>
+  </div>
+<% end %>
+
+</div>

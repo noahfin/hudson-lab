@@ -1,29 +1,31 @@
 
 
-<h1>Activites and News for <%= @propert.name %></h1>
+<h1>Activites and News for <%= @property.name %></h1>
 
 <table>
-  <thead>
+  <thead class="b-bottom">
     <tr>
-
+       <tr class="">
+      <hr>
+      <th class="m-4 p-4 text-info">Rating</th>
+      <th class="m-4 p-4 text-info">Comments</th>
+       <th class="m-4 p-4 text-info">Actions</th>
+    </tr>
       <th colspan="10"></th>
     </tr>
   </thead>
 
-  <tbody>
-    <tr>
-      <th>Rating</th>
-      <th>Comment</th>
-       <th>Actions</th>
-    </tr>
+  <tbody class="m-4 p-4">
+
     <% @posts.each do |post| %>
-      <tr>
-        <td><%=  post.rating %></td>
-        <td><%= post.comment %></td>
-        <td><%= link_to 'Show', property_post_path(post.property, post) %></td>
+      <tr class="b-bottom">
+        <td class="m-4 p-4 text-warning"><%=  post.rating %></td>
+
+        <td class="m-4 p-4"><%= post.comment %></td>
+        <td class="m-4 p-4"><%= link_to 'Show', property_post_path(post.property, post), class: 'text-muted' %> </td>
         <% if current_user.id == post.user.id %>
-        <td><%= link_to 'Edit', edit_property_post_path(post.property, post) %></td>
-        <td><%= link_to 'Destroy', [post.property, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="m-4 p-4"><%= link_to 'Edit', edit_property_post_path(post.property, post), class: 'text-muted' %></td>
+        <td class="m-4 p-4"><%= link_to 'Destroy', [post.property, post], method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-muted' %></td>
          <% end %>
       </tr>
     <% end %>
@@ -32,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_property_post_path, class: "text-info" %>

@@ -1,5 +1,32 @@
+<div class="contanier">
 <h1>New Post</h1>
 
-<%= render 'form', post: @post %>
+  <%= form_tag property_posts_path do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<%= link_to 'Back', posts_path %>
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group col-md-4">
+      <%= label_tag 'rating' %>
+      <%= select_tag :rating, options_for_select(["1", "2", "3", "4", "5"]), prompt: '1 is worst, 5 is best', class: "form-control text-white"  %>
+  </div>
+  <div class="form-group">
+      <%= label_tag :comment %> <br>
+    <%=  text_area_tag 'comment', @post.comment, rows: 14, cols: 55 %>
+  </div>
+  <br>
+  <div class="actions">
+    <button type="submit" class= "btn btn-info">New Post</button>
+  </div>
+<% end %>
+
+
+
+</div>

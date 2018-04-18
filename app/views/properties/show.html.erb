@@ -28,7 +28,6 @@
                                         </a>
                                     </div>
                                     <div class="tab-pane fade" id="detail-media-map">
-                                        <div id="listing-map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div style="overflow: hidden;"></div><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 1; transform: matrix(1, 0, 0, 1, -64, -114);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 1; transform: matrix(1, 0, 0, 1, -64, -114);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div></div></div><div style="width: 20px; height: 28px; overflow: hidden; position: absolute; left: -10px; top: -28px; z-index: 0;"><img alt="" src="img/icons/map_marker.png" draggable="false" style="position: absolute; left: 0px; top: 0px; user-select: none; width: 20px; height: 28px; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 1; transform: matrix(1, 0, 0, 1, -64, -114);"></div></div></div><div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></div><div style="z-index: 4; position: absolute; left: 50%; top: 50%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div class="gmnoprint" title="" style="width: 20px; height: 28px; overflow: hidden; position: absolute; opacity: 0.01; cursor: pointer; touch-action: none; left: -10px; top: -28px; z-index: 0;"><img alt="" src="img/icons/map_marker.png" draggable="false" style="position: absolute; left: 0px; top: 0px; user-select: none; width: 20px; height: 28px; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div></div><iframe frameborder="0" src="about:blank" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none;"></iframe></div></div></div>
                                     </div>
                                 </div>
 
@@ -170,6 +169,39 @@
                             </div>
                         </div>
 
+                        <div class="card  card-1  p-4">
+                            <div class="card-header">
+                                <h2>Property Comments <span class="float-right"> <%= link_to 'New post', new_property_post_path(@property), class: 'text-white' %></span></h2>
+                            </div>
+                            <div class="card-body">
+                              <%  @property.posts.each do |post| %>
+
+                            <%= link_to '/properties/' + @property.id.to_s + '/posts/' + post.id.to_s + '/edit/' do %>
+
+                                <p class="text-white"> <%= post.comment %></p>
+
+                            <div class="col-md-6">
+                            <div class="row">
+
+
+                            <p class="pt-1 text-white">Rating: <%= post.rating %></p>
+                            <% if post.rating %>
+                            <% post.rating.to_i.times do |i|  %>
+                            <div class="col-md-1">
+                              <i class="material-icons ml-0 mr-0 pl-0 pr-0 text-warning">star_rate</i>
+
+                            </div>
+                            <% end %>
+
+                            <% end %>
+
+
+                            </div>
+                              </div>
+                                <% end %>
+                            <% end %>
+                                                        </div>
+                        </div>
 
                     </div>
 
@@ -566,7 +598,7 @@
                         <div class="news-data">
                             <a href="" class="light-blue-text">
                                 <h6>
-                                    <i class="material-icons">business</i>
+                                    <i class="material-icons text-muted">business</i>
                                     <strong class="pt-4 mt-3"><%= @property.category %></strong>
                                 </h6>
                             </a>
@@ -590,18 +622,22 @@
                          <%  break %>
                                <% end %>
                         <!--Small news-->
-                        <div class="row">
-                         <%  @similar_properties.each do |prop| %>
+
+                         <%  @similar_properties.each_with_index do |prop, index| %>
                          <% next if prop.name == @property.name %>
+                         <% break if index == 3 %>
+                          <div class="row">
                            <div class="col-md-3">
 
                                 <!--Image-->
                                 <div class="view overlay rounded z-depth-1">
-                                    <%= image_tag prop.avatar.url(), class: 'img-fluid' %>
+                                     <%= image_tag prop.avatar.url(), class: 'img-fluid' %>
+
                                     <a>
                                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                                     </a>
                                 </div>
+
                             </div>
 
                             <!--Excerpt-->
@@ -609,9 +645,9 @@
                                 <p class="dark-grey-text">
                                     <strong><%= prop.created_at.strftime("%d %b. %Y") %></strong>
                                 </p>
-                                <%= link_to property_path(prop.id) do %>
+                                <%= link_to property_path(prop.id), class: 'text-muted' do %>
                                 <%= prop.name %>
-                                    <i class="fa fa-angle-right"></i>
+
                                 <% end %>
                             </div>
 
@@ -628,7 +664,7 @@
                                 <div class="p-10"></div>
                             </div>
 
-                    </div>
+
                     <div class="card-1 card p-3">
                                     <div class="card-header">
                                 <h4 class="card-title text-white">All Contact related</h4>
@@ -639,12 +675,8 @@
                             <% @property.contacts.each do |contact | %>
 
                             <tr>
-                              <td>
-                                <div class="flag">
 
-                              </div></td>
-                                 <td> <span>Name</span></td>
-                              <td class="text-right">
+                               <td class="text-left">
                                 <%= contact.name %>
                               </td>
                                  <td class="text-right">
@@ -656,6 +688,7 @@
 
                           </tbody>
                         </table>
+                         </div>
                             </div>
                         </div>
                 </div>

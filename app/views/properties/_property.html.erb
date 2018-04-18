@@ -41,6 +41,15 @@
                                   <%= property.name %>
                                  <% end %>
                               </h4>
+                              <div class="rating pt-2 mt-1">
+                              <div class="row">
+                                <% property.average_ratings.times do %>
+                                <div class="col-md-1">
+                                    <i class="material-icons">star_rate</i>
+                                </div>
+
+                              <% end %>
+                              </div>
                               <div class="card-description card-description-property">
 
                                   <%= property.description %>
@@ -50,7 +59,7 @@
                             </div>
                             <div class="card-footer">
                               <div class="price">
-                              <h4 class="pl-3 pr-3 mb-2"><%= property.category %> <span class="float-right"> <%= link_to 'See Activy', property_posts_path(property) %></span></h4>
+                              <h4 class="pl-3 pr-1 mb-2"><%= link_to 'New post', new_property_post_path(property), class: 'text-white ml-0 pl-0' %><span class="float-right pr-0 mr-0"> <%= link_to 'See Activy', property_posts_path(property), class: "text-muted" %></span></h4>
                               <div class="row">
                                 <div class="col-md-6 pl-0">
                                     <%= link_to  new_property_issue_path(property), class: 'btn btn-success btn-link fix-broken-card ml-0 pl-3' do %>
@@ -68,10 +77,8 @@
 
                               </div>
                               <div class="stats">
-                            <div class="rating">
-                              <% property.average_ratings.times do %>
-                              <i class="material-icons">star_rate</i>
-                              <% end %>
+
+
                             </div>
                               </div>
                             </div>

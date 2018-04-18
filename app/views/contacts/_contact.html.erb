@@ -1,7 +1,7 @@
 <tr>
   <td class="middle">
     <div class="media">
-      <div class="media-left">
+      <div class="media-left thumbnail">
         <a href="#">
         <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object" %>
         </a>
