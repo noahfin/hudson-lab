@@ -13,4 +13,110 @@
       </table>
     </div>
   </div>
+  <div class="card card-5">
+    <div class="card-header">
+          <h3 class="text-info"> Create user</h3>
+      </div>
+    <div class="p-4">
+
+
+    <%= form_for User.create  do |f| %>
+     <div class="form-group">
+      <label for="exampleInput1" class="bmd-label-floating text-white">First Name (required)</label>
+       <%= f.text_field :first_name, class: "form-control long-input text-white", required: true %>
+    </div>
+
+<div class="form-group">
+    <label for="exampleInput11" class="bmd-label-floating text-white">Last Name</label>
+     <%= f.text_field :last_name, class: "form-control text-white", required: true %>
+  </div>
+  <div class="form-group">
+    <label for="exampleInput1" class="bmd-label-floating text-white">Email (required)</label>
+    <%= f.email_field :email, class: "form-control long-input pl-2 text-white", required: true %>
+  </div>
+  </div>
+   <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                      <h5 class="info-text ml-4"> User Address  info  </h5>
+                    </div>
+                    <div class="col-sm-7">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Street Name</label>
+                        <%= f.text_field :street_name, id: :user_street_name, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Street No.</label>
+                        <%= f.text_field :street_num, id: :user_street_num, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">City</label>
+                        <%= f.text_field :city, id: :user_city, class: 'form-control text-white' %>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-group">
+                          <select class="selectpicker county-select" name="county" data-style="select-with-transition" title="Single Select">
+                          <option value="Select County" class="tex-mute"> Select County </option>
+                          <option value="Dutchess"> Dutchess </option>
+                          <option value="Ulster"> Ulster </option>
+                          <option value="Putnam"> Putnam </option>
+                          <option value="Orange"> Orange </option>
+                          <option value="Columbia"> Columbia </option>
+                          <option value="Sullivan"> Sullivan </option>
+                          <option value="Greene"> Greene </option>
+                          <option value="westchester"> westchester </option>
+                       </select>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-1">
+
+                      </div>
+                <div class="col-md-5 ">
+                  <div class="row">
+                     <div class="col-md-1">
+                         <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons text-white">lock_outline</i>
+                      </span>
+                    </div>
+                      </div>
+                       <div class="col-md-11">
+                      <%= f.password_field :password, class: "form-control col-md-12 text-white", placeholder: "Enter Password", required: true  %>
+
+                      </div>
+                  </div>
+
+                 </div>
+                   <div class="col-md-5 ">
+                        <div class="row">
+                     <div class="col-md-1">
+                         <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons text-white">lock_outline</i>
+                      </span>
+                    </div>
+                      </div>
+                       <div class="col-md-11">
+                    <%= f.password_field :password_confirmation, class: "form-control   text-white", placeholder: "Enter Password confirmation", required: true  %>
+
+                      </div>
+                  </div>
+
+
+                 </div>
+                 </div>
+                 <div class="row">
+                   <div class="col-md-4 ml-4 p-3"><button type="submit"  class="btn btn-finish btn-fill btn-success ">Create user </button> </div>
+                 </div>
+
+
+
+<% end %>
+  </div>
 </div>

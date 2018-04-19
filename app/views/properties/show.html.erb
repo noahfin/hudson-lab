@@ -177,8 +177,19 @@
                               <%  @property.posts.each do |post| %>
 
                             <%= link_to '/properties/' + @property.id.to_s + '/posts/' + post.id.to_s + '/edit/' do %>
+                              <div class="row">
+                                <div class="col-md-8">
+                                   <p class="text-white"> <%= post.comment %></p>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="text-white  user float-right">
+                                    <div class="photo-user">
+                                    <%= image_tag small_gravatar_url(post.user.email), class: 'user-image' %>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
 
-                                <p class="text-white"> <%= post.comment %></p>
 
                             <div class="col-md-6">
                             <div class="row">
