@@ -43,22 +43,17 @@ class PropertiesController < ApplicationController
    end
 
  def update
+@property = Property.find(params[:id])
 
-      if  @property.update_attributes(property_params)
-
+    @property.update_attributes(property_params)
+       flash[:info] = "Property Was Updated."
         params['contact_ids'].each_with_index do |c_id, i|
           next if c_id.to_i == 0
          contact = Contact.find(c_id.to_i)
 
           @property.contacts << contact
          end
-
-        flash[:success] = "The property was successfully Updated."
-        redirect_to properties_path
-      else
-        flash[:danger] = @property.errors.full_messages.to_s
-        render 'new'
-      end
+       redirect_to property_path(params[:id])
 
   end
 

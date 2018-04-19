@@ -224,9 +224,11 @@
 
                                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
                                       <div class="card-body">
+                                         <%= @property.owner_name + ', '    %>
                                         <% @property.contacts.each do |contact | %>
-                                        <%= contact.name if contact.owner?  %>
+                                        <%= contact.name  if contact.owner?  %>
                                          <% end %>
+
                                       </div>
                                     </div>
                                   </div>
