@@ -11,11 +11,11 @@
     get'/dashboard', to: 'dashboard#index'
 
     resources :properties do
-
+     get 'category', on: :collection
      resources :posts
 
       resources :issues
-    end
+
 
     end
 
@@ -23,5 +23,6 @@
       get 'autocomplete', on: :collection
       post 'inport', on: :collection
     end
+   end
   end
 

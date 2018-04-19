@@ -1,0 +1,78 @@
+<div class="container">
+
+    <%  @categories.each do |category| %>
+     <div class="row">
+                <h2><%= category %> </h2>
+     </div>
+<% @similar_properties.each_slice(3) do |property, index| %>
+<div class="row">
+
+
+    <% property.each do |property| %>
+    <% break if property.category != category %>
+                    <div class="col-md-4">
+                        <div class="card card-background"  style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object") %>')";>
+                            <div class="card-body">
+                                <h6 class="card-category text-info"><%= link_to property_path(property.id), class: 'text-info' do %>
+                                           <%= property.name %>
+                              <% end %></h6>
+                                <%= link_to property_path(property.id), class: 'text-info' do %>
+                                    <h3 class="card-title"><%= property.name %></h3>
+                               <% end %>
+                                <p class="card-description text-info">
+                                <%= property.description %>
+                                   </p>
+
+                                    <%= link_to property_path(property.id, class: 'btn btn-white btn-round text-info') do %>
+                                            <i class="material-icons">subject</i><%= property.category %>
+                              <% end %> Read         <%= link_to edit_property_path( property.id), class: "text-info", title: 'edit property', rel: "tooltip"  do %>
+                                  <i class="material-icons text-info">edit</i>
+                                <% end %>
+
+                            </div>
+                        </div>
+                        <!-- end card -->
+
+              </div>
+
+              <% end %>
+              </div>
+              <div class="row">
+
+
+ <% index.each do |property| %>
+ <% break if property.category != category %>
+                    <div class="col-md-4">
+                        <div class="card card-background"  style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object") %>')";>
+                            <div class="card-body">
+                                <h6 class="card-category text-info"><%= link_to property_path(property.id), class: 'text-info' do %>
+                                           <%= property.name %>
+                              <% end %></h6>
+                                <%= link_to property_path(property.id), class: 'text-info' do %>
+                                    <h3 class="card-title"><%= property.name %></h3>
+                               <% end %>
+                                <p class="card-description text-info">
+                                <%= property.description %>
+                                   </p>
+
+                                    <%= link_to property_path(property.id, class: 'btn btn-white btn-round text-info') do %>
+                                            <i class="material-icons">subject</i><%= property.category %>
+                              <% end %> Read         <%= link_to edit_property_path( property.id), class: "text-info", title: 'edit property', rel: "tooltip"  do %>
+                                  <i class="material-icons text-info">edit</i>
+                                <% end %>
+
+                            </div>
+                        </div>
+                        <!-- end card -->
+
+              </div>
+
+              <% end %>
+
+                 </div>
+
+
+         <% end %>
+          <% end %>
+
+   </div>

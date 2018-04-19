@@ -171,7 +171,7 @@
 
                         <div class="card  card-1  p-4">
                             <div class="card-header">
-                                <h2>Property Comments <span class="float-right"> <%= link_to 'New post', new_property_post_path(@property), class: 'text-white' %></span></h2>
+                                <h2>Property Comments <span class="float-right"><small><%= link_to 'New post', new_property_post_path(@property), class: 'text-muted' %></span></small></h2>
                             </div>
                             <div class="card-body">
                               <%  @property.posts.each do |post| %>
@@ -667,7 +667,9 @@
 
                     <div class="card-1 card p-3">
                                     <div class="card-header">
-                                <h4 class="card-title text-white">All Contact related</h4>
+                                <h4 class="card-title text-white">All Contact related <span class="float-right"><%= link_to edit_property_path( @property.id), class: "text-info", title: 'edit property', rel: "tooltip"  do %>
+<i class="material-icons text-info">account_circle</i>
+                                <% end %></span></h4>
                             </div>
                                                     <div class="table-responsive table-sales">
                         <table class="table">
@@ -684,6 +686,58 @@
                               </td>
 
                             </tr>
+                              <% end %>
+
+                          </tbody>
+                        </table>
+                         </div>
+                            </div>
+
+                       <div class="card-1 card p-3">
+                        <div class="card-header">
+                            <h4 class="card-title text-white">Issues for this Property <span class="float-right"> <%= link_to  new_property_issue_path(@property) do %>
+                                 <i class="material-icons text-danger">report_problem</i>
+                                   <% end %></span></h4>
+                        </div>
+                      <div class="table-responsive table-sales">
+                        <table class="table">
+                          <tbody>
+                            <% @property.issues.each do |issue | %>
+
+                            <tr>
+
+                               <td class="text-left">
+                                severity
+
+                              </td>
+                                 <td class="text-right">
+                                  <%= issue.severity %>
+
+                              </td>
+
+                            </tr>
+
+                            <tr>
+
+                               <td class="text-left">
+                                status
+
+                              </td>
+                                 <td class="text-right">
+                                 <%= issue.status %>
+
+                              </td>
+
+                            </tr>
+                            <tr>
+                               <td class="text-left">
+                                <i class="material-icons text-muted">mode_comment</i>
+
+                              </td>
+                                 <td class="text-right">
+                                 <%= issue.comment %>
+
+                              </td> </tr>
                               <% end %>
 
                           </tbody>

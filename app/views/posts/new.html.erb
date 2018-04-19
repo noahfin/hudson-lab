@@ -1,8 +1,12 @@
-<div class="contanier">
-<h1>New Post</h1>
 
+<div class="container">
+<div class="row">
+
+
+<div class="">
+<div class="card card-1  ml-auto mr-auto" style="width: 18rem;">
   <%= form_tag property_posts_path do |form| %>
-  <% if @post.errors.any? %>
+   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
@@ -12,21 +16,41 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-  <div class="form-group col-md-4">
-      <%= label_tag 'rating' %>
-      <%= select_tag :rating, options_for_select(["1", "2", "3", "4", "5"]), prompt: '1 is worst, 5 is best', class: "form-control text-white"  %>
-  </div>
-  <div class="form-group">
-      <%= label_tag :comment %> <br>
-    <%=  text_area_tag 'comment', @post.comment, rows: 14, cols: 55 %>
-  </div>
-  <br>
-  <div class="actions">
-    <button type="submit" class= "btn btn-info">New Post</button>
-  </div>
-<% end %>
+     <% end %>
+       <div class="card-header">
+      <h5 class="card-title text-info">Create an New Post</h5>
 
+    <p class="card-text">Pick any post topics or events that you feel are worth documenting</p>
+        <hr>
+  </div>
+  <div class="card-body">
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+     <label class="bmd-label-floating ">Add rating</label>
+
+      <%= select_tag :rating, options_for_select(["1", "2", "3", "4", "5"]), prompt: '1 is worst, 5 is best', class: "form-control text-white"  %>
+
+
+  </li>
+
+
+
+    <li class="list-group-item">   <label class="">comment</label>
+      <%=  text_area_tag 'comment', @post.comment, rows: 2, cols: 45, class: 'form-control text-white ' %>
+
+
+
+      <li class="list-group-item">Send the form</li>
+  </ul>
+  <div class="card-body">
+     <button type="submit"  class='btn-success btn'>New Post</button>
+     <%= link_to 'Back', properties_path, class: 'float-right mt-4 text-white' %>
+  </div>
+</div>
+
+<% end %>
 
 
 </div>

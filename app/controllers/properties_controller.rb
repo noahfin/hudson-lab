@@ -7,6 +7,19 @@ class PropertiesController < ApplicationController
      @property = Property.new
 
    end
+   def edit
+
+   end
+
+ def category
+     @properties = Property.all
+     @categories = Property.pluck(:category).uniq
+      @similar_properties = []
+       @categories.each do |cat|
+
+   @similar_properties << Property.where("category like ?", "%#{cat}")
+   end
+ end
    def show
     @similar_properties = Property.where("category like ?", "%#{@property.category}")
    end
@@ -28,6 +41,26 @@ class PropertiesController < ApplicationController
         render 'new'
       end
    end
+
+ def update
+
+      if  @property.update_attributes(property_params)
+
+        params['contact_ids'].each_with_index do |c_id, i|
+          next if c_id.to_i == 0
+         contact = Contact.find(c_id.to_i)
+
+          @property.contacts << contact
+         end
+
+        flash[:success] = "The property was successfully Updated."
+        redirect_to properties_path
+      else
+        flash[:danger] = @property.errors.full_messages.to_s
+        render 'new'
+      end
+
+  end
 
    private
 

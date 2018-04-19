@@ -101,7 +101,13 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
      background-size: cover;
      -o-background-size: cover;
 }
-
+.property-card {
+   background-image:  no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     background-size: cover;
+     -o-background-size: cover;
+}
 .text-white {
   color: white !important
 }
@@ -209,6 +215,9 @@ html,body, .content {
   padding: 8px 3px 6px;
   border-bottom: 1px solid #232526;
   list-style-type: square;
+}
+.list-unstyled {
+  list-style-type: none;
 }
 .profile-ul {
   list-style-type: none;

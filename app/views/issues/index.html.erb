@@ -1,0 +1,45 @@
+<div class="container">
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Issues <span class=" pl-2 text-danger"> <i class="material-icons">build</i> </span></h1>
+
+<table>
+  <thead  class="b-bottom">
+    <tr>
+      <th class="m-4 p-4 text-info">Severity</th>
+      <th class="m-4 p-4 text-info">Status</th>
+      <th class="m-4 p-4 text-info">Comment</th>
+      <th class="m-4 p-4 text-info">User</th>
+      <th class="m-4 p-4 text-info">Property</th>
+       <th class="m-4 p-4 text-info text-right">Actions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @issues.each do |issue| %>
+      <tr class="b-bottom">
+        <td class="m-4 p-4"><%= issue.severity %></td>
+        <td class="m-4 p-4"><%= issue.status %></td>
+        <td class="m-4 p-4"><%= issue.comment %></td>
+        <td class="m-4 p-4"><%= issue.user_id %></td>
+        <td><%= issue.property_id %></td>
+
+        <td class="m-4 p-4"><%= link_to 'Show', property_issue_path(issue.property, issue), class: 'text-muted' %> </td>
+        <% if current_user.id == issue.user.id || current_user.admin? %>
+        <td class="m-4 p-4"><%= link_to 'Fix', edit_property_issue_path(issue.property, issue), class: 'text-muted' %></td>
+        <td class="m-4 p-4"><%= link_to 'Destroy', [issue.property, issue], method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-muted' %></td>
+         <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Issue', new_property_issue_path, class: 'text-info ml-4' %>
+<span class="ml-4 pl-4"> <%= link_to "Back", :properties, class: 'text-white' %></span>
+</div>
