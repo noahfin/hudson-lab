@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180414222934) do
+ActiveRecord::Schema.define(version: 20180420195119) do
+
+  create_table "Properties_Tasks", id: false, force: :cascade do |t|
+    t.integer "Property_id", null: false
+    t.integer "Task_id", null: false
+    t.index ["Property_id", "Task_id"], name: "index_Properties_Tasks_on_property_id_and_task_id"
+    t.index ["Task_id", "Property_id"], name: "index_Properties_Tasks_on_task_id_and_property_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -48,11 +55,27 @@ ActiveRecord::Schema.define(version: 20180414222934) do
     t.index ["property_id", "contact_id"], name: "index_contacts_properties_on_property_id_and_contact_id"
   end
 
+  create_table "contacts_tasks", id: false, force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "task_id"], name: "index_contacts_tasks_on_contact_id_and_task_id"
+    t.index ["task_id", "contact_id"], name: "index_contacts_tasks_on_task_id_and_contact_id"
+  end
+
   create_table "contacts_users", id: false, force: :cascade do |t|
     t.integer "contact_id", null: false
     t.integer "user_id", null: false
     t.index ["contact_id", "user_id"], name: "index_contacts_users_on_contact_id_and_user_id"
     t.index ["user_id", "contact_id"], name: "index_contacts_users_on_user_id_and_contact_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_conversations_on_author_id"
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -98,6 +121,16 @@ ActiveRecord::Schema.define(version: 20180414222934) do
     t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
+  create_table "personal_messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "conversation_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_personal_messages_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "property_id"
@@ -140,6 +173,20 @@ ActiveRecord::Schema.define(version: 20180414222934) do
     t.string "owner_name"
     t.string "county"
     t.string "zip_code"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "task_id", null: false
+    t.index ["task_id", "user_id"], name: "index_tasks_users_on_task_id_and_user_id"
+    t.index ["user_id", "task_id"], name: "index_tasks_users_on_user_id_and_task_id"
   end
 
   create_table "users", force: :cascade do |t|

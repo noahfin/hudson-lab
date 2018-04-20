@@ -12,6 +12,8 @@
 //= require jquery
 //= require popper
 //= require jquery.turbolinks
+
+
 //= require jasny-bootstrap.min
 //= require jquery-ui/widget
 //= require jquery-ui/position
@@ -19,9 +21,14 @@
 //= require jquery-ui/widgets/menu
 //= require jquery-ui/widgets/selectmenu
 //= require jquery-ui/core
+
+//= require conversations
+
+
 //= require vendorapps
 //= require rails-ujs
 //= require turbolinks
+
 $(window).resize(function() {
     if ($(window).width() > 991) {
         // removes all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
@@ -44,6 +51,7 @@ $(document).on('click', '.new-form', function(event) {
 
 
 $(document).on('turbolinks:load', function() {
+
   var i = 1;
 
 $('body').on('click', '#close-form', function(event) {
@@ -173,7 +181,7 @@ var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9
 var contact_class_prop = ['.contact1','.contact2','.contact3','.contact4','.contact5','.contact6','.contact7','.contact8','.contact9','.contact10'];
 var contact_ids_prop = [];
 
-$('#search-contat-check').autocomplete({
+$('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 2,
         select: function(event, ui) {

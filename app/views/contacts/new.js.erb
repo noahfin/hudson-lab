@@ -1,6 +1,6 @@
 $('#form-modal-body').html('<%= j render("form", ajax_true: true) %>' );
 $('#form-modal').modal('show')
-$('.select_g_picker').selectpicker('val', '<%= @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
+$('.select_c_picker').selectpicker('val', '<%= @contacts.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.county-select').selectpicker('val', ['Select County','Dutchess','Ulster','Orange','Columbia','Mustard','Sullivan','Greene','westchester']);
 $('.info-feedback').hide();

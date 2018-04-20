@@ -1,6 +1,13 @@
 <div class="container">
+
+<% unless current_user.admin? %>
+
+
   <h3>Users</h3>
   <div class="row">
+    <div class="col-md-10">
+
+
     <div class="column">
       <table class="table">
         <tbody>
@@ -12,6 +19,17 @@
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="col-md-4">
+<h6>Message users</h6>
+
+<ul class="list-unstyled "><% @users.each do |user|  %>
+<li>
+  <%= user.first_name %> | <%= link_to 'send a message', new_personal_message_path(receiver_id: user) %>
+</li>
+<% end %>
+</ul>
+  </div>
   </div>
   <div class="card card-5">
     <div class="card-header">
@@ -119,4 +137,6 @@
 
 <% end %>
   </div>
+  <% end %>
+
 </div>

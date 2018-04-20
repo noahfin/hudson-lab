@@ -1,0 +1,157 @@
+<div class="modal-header">
+    <h5 class="modal-title card-title float-left  text-left mb-3">Tasks</h5>
+
+</div>
+<%= simple_form_for(@task, remote: true) do |f| %>
+    <%= f.error_notification %>
+        <%= f.error :base, :error_method => :to_sentence %>
+            <table class="table card-1">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-inline ">
+                            <div class="form-group ml-2 mr-0 pr-0 pl-0">
+                                <a class="btn btn-just-icon btn-round  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
+                                    <i class="material-icons">group</i>
+                                </a>
+                            </div>
+                            <div class="form-group ml-2 mr-0 pr-0 pl-0">
+                                <button class="btn btn-just-icon btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
+                                    <i class="material-icons">person_add</i>
+                                </button>
+                            </div>
+                            <div class="form-group ml-2 mr-0 pr-0 pl-0">
+                                <a class="btn btn-just-icon btn-round  ml-2 mr-0" data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">
+                                    <i class="material-icons">group_add</i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+
+                        <div class="form-group ml-0 pr-2 pl-0 mt-0">
+                            <div class=" mr-0 pl-3">
+                                <div class="card-collapse">
+                                    <div class="card-header  ml-0 mr-0  p3 card-1" role="tab" id="headingTwo">
+                                        <div class="row">
+
+                                            <input class="form-control get-contacts  ml-3 mr-2 pl-2" type="text" placeholder="Search" aria-label="Search" id="search-contat-task">
+
+                                        </div>
+                                        <h5 class="mb-0">
+                          <a class="collapsed  pl-2 text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                             Create task for contacts
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </a>
+                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body" id="form-contact">
+
+                                            <ul class="list-inline p-0">
+                                                <li class="list-inline-item">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                                            <p class="c1  text-white">contact 1</p>
+                                                            <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                                            <p class="c2  text-white">contact 2 </p>
+                                                            <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                                            <p class="c3  text-white"> contact 3 </p>
+                                                            <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                                            <p class="c4  text-white">contact 4</p>
+                                                            <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                                            <p class="c5  text-white"> contact 5 </p>
+                                                            <span class="form-check-sign">
+                                  <span class="check"></span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group  pl-3">
+                        <div class="collapse " id="pickUsers">
+                            <% attr = {prompt: "Select related users"} %>
+                                <% attr[:selected] = current_user.id.to_i if current_user.id %>
+                                    <label for="cell" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
+                                    <%= f.collection_select :user_ids, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <label>Completed</label>
+                                <label class="form-check-label ">
+                                    <%= f.check_box :complete, class: 'form-check-input ' %>
+                                        <span class="form-check-sign">
+            <span class="check"></span>
+                                        </span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="pb-4">
+
+                                <%= f.input :name, label: false, placeholder: "action step" %>
+                            </div>
+                        </td>
+                        <td class="td-actions text-right">
+                            <%= f.button :submit, class: 'btn btn-primary mr-4' %>
+
+                                <button type="button" class="close ml-4 mr-3" data-dismiss="modal" aria-label="Close" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
+                                    <i class="material-icons">close</i>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <% end %>

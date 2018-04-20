@@ -1,6 +1,7 @@
 class Property < ApplicationRecord
   has_many :posts
   has_many :issues
+  has_and_belongs_to_many :tasks
   has_and_belongs_to_many :contacts
   has_many :posted_users, through: :posts,  source: :user
   has_many :complaining_users, through: :issues,  source: :user

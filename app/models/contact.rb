@@ -4,6 +4,7 @@ class Contact < ApplicationRecord
   has_many :groups
   has_and_belongs_to_many :user
   has_and_belongs_to_many :properties
+  has_and_belongs_to_many :tasks
   has_many :current_users, -> { users }, class_name: 'User'
   validates :name, :email, presence: true
   validates :name, length: { minimum: 2}

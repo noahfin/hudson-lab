@@ -13,6 +13,8 @@
  *= require jquery-ui/menu
  *= require jasny-bootstrap.min
  *= require font-awesome
+
+
  *= require_tree .
  *= require_self
  */
@@ -228,4 +230,9 @@ html,body, .content {
 }
 .user-image {
   border-radius: 50% !important;
+}
+#conversation-body {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 2em;
 }
