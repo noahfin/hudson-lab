@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180420195119) do
 
-  create_table "Properties_Tasks", id: false, force: :cascade do |t|
-    t.integer "Property_id", null: false
-    t.integer "Task_id", null: false
-    t.index ["Property_id", "Task_id"], name: "index_Properties_Tasks_on_property_id_and_task_id"
-    t.index ["Task_id", "Property_id"], name: "index_Properties_Tasks_on_task_id_and_property_id"
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "company"
@@ -173,6 +166,13 @@ ActiveRecord::Schema.define(version: 20180420195119) do
     t.string "owner_name"
     t.string "county"
     t.string "zip_code"
+  end
+
+  create_table "properties_tasks", id: false, force: :cascade do |t|
+    t.integer "property_id", null: false
+    t.integer "task_id", null: false
+    t.index ["property_id", "task_id"], name: "index_properties_tasks_on_property_id_and_task_id"
+    t.index ["task_id", "property_id"], name: "index_properties_tasks_on_task_id_and_property_id"
   end
 
   create_table "tasks", force: :cascade do |t|

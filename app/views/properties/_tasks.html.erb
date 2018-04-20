@@ -1,0 +1,25 @@
+<% if  @property.tasks %>
+<%  @property.tasks.each do |task| %>
+<tr id="edit_task_<%= task.id %>">
+   <td>
+    <div class="form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+            <span class="form-check-sign">
+                <span class="check"></span>
+            </span>
+        </label>
+    </div>
+    </td>
+    <td><%= task.name %></td>
+    <td class="td-actions text-right">
+       <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+            <i class="material-icons">edit</i>
+       <% end %>
+        <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+            <i class="material-icons">close</i>
+        <% end %>
+    </td>
+</tr>
+<% end %>
+<% end %>
