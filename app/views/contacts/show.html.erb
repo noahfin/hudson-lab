@@ -30,7 +30,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email address</label>
-                          <%= form.email_field :email, id: :contact_email, class: 'form-control text-light', required: true  %>
+                          <%= form.email_field :email, id: :contact_email, class: 'form-control text-light'  %>
                         </div>
                       </div>
                     </div>
@@ -51,16 +51,15 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Adress</label>
-                          <%= form.text_field :address, id: :contact_address, class: 'form-control text-light rounded-0' %>
+
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">City</label>
-                          <%= form.text_field :city, id: :contact_city, class: 'form-control text-light' %>
+                          <label class="bmd-label-floating">Adress</label>
+                           <input type="text" name="contact[address]" class="form-control text-light">
                         </div>
                       </div>
                       <div class="col-md-4">
@@ -81,8 +80,8 @@
                         <div class="form-group">
                           <label>Contact Notes</label>
                           <div class="form-group">
-                            <label class="bmd-label-floating text-light"> Enter important notes for this contact.</label>
-                            <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-light', row: '5' %>
+                            <label class="bmd-label-floating text-light"> </label>
+                            <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-light', row: '5', placeholder: 'Enter important notes for this contact.' %>
                           </div>
                         </div>
                       </div>

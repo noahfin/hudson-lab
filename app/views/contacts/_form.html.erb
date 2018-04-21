@@ -107,8 +107,8 @@
                               </span>
                            </div>
                            <div class="form-group pl-0">
-                              <label for="exampleInput1" class="bmd-label-floating text-white">Email (required)</label>
-                              <%= form.email_field :email, id: :contact_email, class: 'form-control text-white', required: true  %>
+                              <label for="exampleInput1" class="bmd-label-floating text-white">Email</label>
+                              <%= form.email_field :email, id: :contact_email, class: 'form-control text-white' %>
                            </div>
                         </div>
                      </div>
@@ -355,7 +355,7 @@
                            <div class=" mr-0 pl-3">
                               <% attr = {prompt: "Select Group"} %><% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
                               <div class="collapse " id="collapseGroup">
-                                 <label for="cell" class="bmd-label-floating text-light ">Pick a Group<small>(required)</small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, required: true, class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
+                                 <label for="cell" class="bmd-label-floating text-light ">Pick a Group<small>(required)</small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", required: true, class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
                               </div>
                            </div>
                            <div class="form-group  pl-3">

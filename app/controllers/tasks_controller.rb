@@ -120,6 +120,6 @@ class TasksController < ApplicationController
 
     def my_contacts
       @users = User.all
-      @contacts = current_user.contacts
+
   end
 end

@@ -2,7 +2,10 @@ module ContactsHelper
   def user_reltionships(contact)
 
     err = ''
-    @group = Group.find(params['contact'][:group_id])
+    params['contact'][:group_id].each do |group_id|
+       next if group_id ="" || group_id.to_i < 1
+    @group = Group.find(group_id)
+
     users = params['contact']['user_id'].to_a
     users.each do |user|
       next if user.to_i < 1
@@ -19,6 +22,7 @@ module ContactsHelper
       end
 
       end
+     end
     end
 
 
