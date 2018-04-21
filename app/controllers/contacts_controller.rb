@@ -58,6 +58,19 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+        params['contact'][:group_id].each do |g_id|
+          next if g_id.to_i == 0
+         group = Group.find(g_id.to_i)
+          @contact.groups << group
+         end
+
+            params['contact']['user_id'].each do |u_id|
+            next if u_id.to_i == 0
+              user = User.find(u_id.to_i)
+            contact_model = ContactsUser.create(contact: @contact, user: user)
+
+         end
+
       user_reltionships(@contact)
       flash[:success] = "Contact was successfully created."
       redirect_to contacts_path(previous_query_string)
@@ -70,7 +83,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :group_id, :role, :avatar,{:user_id => []}, {:group_id => []})
+    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :group_id, :contact_id, :role, :avatar,{:user_id => []}, {:group_id => []})
   end
 
   def find_contact
@@ -83,7 +96,7 @@ class ContactsController < ApplicationController
 
   def my_contacts
       @users = User.all
-      @contacts = current_user.contacts.merge(Group.where(["group_id = ?", params[:group_id] ])).order(created_at: :desc).page(params[:page])
+      @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
   end
 
 end

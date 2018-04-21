@@ -1,12 +1,12 @@
 class Contact < ApplicationRecord
   require 'roo'
   include ContactsHelper
-  has_many :groups
+  has_and_belongs_to_many :groups
   has_and_belongs_to_many :user
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
   has_many :current_users, -> { users }, class_name: 'User'
-  validates :name, :email, presence: true
+  validates :name,  presence: true
   validates :name, length: { minimum: 2}
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },
   :s3_credentials => "#{Rails.root}/config/s3.yml",
