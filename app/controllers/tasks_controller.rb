@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-   before_action :my_contacts, only: [:edit, :create]
+  before_action :my_contacts, only: [:edit, :create]
 
   # GET /tasks
   def index
@@ -34,14 +34,12 @@ class TasksController < ApplicationController
   # POST /tasks
   def create
     @task = Task.new(task_params)
-
+    @tasks = Task.order('lower(name)').all
     respond_to do |format|
       if @task.save
-
         params['contact_ids'].each_with_index do |c_id, i|
           next if c_id.to_i == 0
          contact = Contact.find(c_id.to_i)
-
           @task.contacts << contact
          end
          if params['task']['user_id']
@@ -51,9 +49,7 @@ class TasksController < ApplicationController
             @property.users << user
            end
          end
-
-        flash[:info] = "The Task was successfully created."
-
+        flash[:info] = "The Action Step was successfully created."
         format.html { redirect_to @tasks }
         format.json { render json: @tasks, status: :created }
         format.js
@@ -67,8 +63,10 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /tasks/1
   def update
+   @tasks = Task.order('lower(name)').all
     respond_to do |format|
       if @task.update(task_params)
+          flash[:info] = "The Action Step was successfully updated."
           params['contact_ids'].each_with_index do |c_id, i|
           next if c_id.to_i == 0
           contact = Contact.find(c_id.to_i)
@@ -96,6 +94,7 @@ class TasksController < ApplicationController
   def destroy
     respond_to do |format|
       if @task.destroy
+        flash[:danger] = "The Action Step was successfully deleted."
         format.html { redirect_to tasks_url }
         format.json { head :no_content }
         format.js
@@ -111,7 +110,7 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
-      @tasks = Task.order('lower(name)').all
+
     end
 
     # Only allow a trusted parameter "white list" through.
