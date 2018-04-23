@@ -33,6 +33,11 @@
 #show-input {
   min-width: 200% !important;
 }
+@media only screen and (max-width: 1296px) {
+#show-input {
+  min-width: 100% !important;
+}
+}
 .card-6 {
   background: #232526  !important;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
