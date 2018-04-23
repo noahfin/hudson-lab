@@ -285,7 +285,7 @@
 
 
       <div class="card-footer ">
-        <%= form.submit @property.new_record? ? "New Property" : "Update Property", class: "btn btn-outline-success "  %>
+        <%= form.submit @property.new_record? ? "New Property" : "Update Property", class: "btn btn-outline-success ", id: "property-submit"  %>
         <%= link_to 'Nevermind', properties_path, class: ' text-white' %>
         <% end %>
       </div>
