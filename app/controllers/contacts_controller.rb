@@ -87,7 +87,7 @@ class ContactsController < ApplicationController
   end
 
   def find_contact
-    @contact = Contact.find params[:id]
+     @contact = Contact.find(params[:id].to_i)
   end
 
   def previous_query_string
