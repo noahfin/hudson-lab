@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421142739) do
+ActiveRecord::Schema.define(version: 20180423125453) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180421142739) do
     t.string "title"
     t.integer "user_id"
     t.integer "role"
+    t.boolean "verified"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end

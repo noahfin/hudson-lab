@@ -88,7 +88,7 @@
                     </div>
                     <button type="submit" class="btn bg-hudson pull-right">Update Profile</button>
                     <div class="clearfix"></div>
-                  <% end %>
+
                 </div>
               </div>
               <div class="card card-5  text-right">
@@ -96,11 +96,22 @@
                   <div class="card-icon bg-hudson ">
                     <i class="material-icons">perm_identity</i>
                   </div>
-                  <h4 class="card-title text-light text-left">Contact / Facts
 
-                  </h4>
+                <h4 class="card-title text-light text-left">Contact / Facts
+                  <div class="form-check pull-right">
+                  <label class="form-check-label ">
+                     <%= form.check_box :verified, id: :contact_verified, class: 'form-check-input text-success ' %>
+
+                      <span class="form-check-sign text-success "  style="color:green">
+                          <span class="check text-success"></span>
+                      </span>
+                 <p class=" mb-3">  <%= @contact.verified ? 'Yes' : 'No' %>, Contact has beeen verified.</p>
+                  </label>
                 </div>
-
+                </span>
+                </div>
+                </h4>
+                 <% end %>
                 <div class="card-body">
 
 
@@ -108,7 +119,7 @@
                  <div class="panel-heading">
                  </div>
                   <div class="panel-body col-md-12">
-                    <span class="pull-left"></span><i style="color:green" class="fa fa-check-square"></i> Yes, Contact has beeen verified.
+
                     <ul class="">
                       <li class="list-group-item text-muted text-left" contenteditable="false">Profile</li>
 
@@ -145,7 +156,7 @@
                   <p class="card-description">
                     <%= @contact.address %>
                   </p>
-                  <a href="#pablo" class="btn bg-hudson btn-round">Add Contact</a>
+                  <%= link_to 'Go Back', contacts_path, class: 'btn bg-hudson btn-round' %>
                 </div>
               </div>
               <div class="list-group">
