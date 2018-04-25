@@ -4,7 +4,7 @@
 
 <div class="">
 <div class="card card-1  ml-auto mr-auto" style="width: 23rem;">
-   <%= form_tag  property_issues_path do |form| %>
+   <%= form_tag  property_issues_path, :authenticity_token => true do |form| %>
 
 
   <div class="card-body">

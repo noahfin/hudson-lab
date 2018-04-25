@@ -1,4 +1,4 @@
-<%= form_with(model: issue, local: true) do |form| %>
+<%= form_with(model: property_issue_path, local: true) do |form| %>
   <% if issue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(issue.errors.count, "error") %> prohibited this issue from being saved:</h2>

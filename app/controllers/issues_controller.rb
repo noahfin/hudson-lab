@@ -49,9 +49,10 @@ class IssuesController < ApplicationController
     params[:issue] = params
     respond_to do |format|
       if @issue.update(issue_params)
-        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to property_issue_path, notice: 'Issue was successfully updated.' }
         format.json { render :show, status: :ok, location: @issue }
       else
+        flash[:danger] = "Make Sure all parts of the form are filled out"
         format.html { render :edit }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end

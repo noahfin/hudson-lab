@@ -235,7 +235,7 @@
 
                                     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
                                       <div class="card-body">
-                                         <%= @property.owner_name + ', '    %>
+                                         <%= @property.owner_name + ', ' if @property.owner_name  %>
                                         <% @property.contacts.each do |contact | %>
                                         <%= contact.name  if contact.owner?  %>
                                          <% end %>
@@ -283,80 +283,58 @@
                             </div>
                           </div>
 
-                        <div class="card card-1">
-            <div class="card-header card-header-tabs  bg-black">
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
 
-                        <ul class="nav nav-tabs" data-tabs="tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#profile" data-toggle="tab">
-                                    <i class="material-icons">bug_report</i>
-                                    Onwner
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                    <i class="material-icons">code</i>
-                                    Teanets
-                                <div class="ripple-container"></div></a>
-                            </li>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                      <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="tasks-form-modal">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content bg-black" id="f-body">
 
-<div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="tasks-form-modal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content bg-black" id="f-body">
+                          </div>
+                        </div>
+                      </div>
 
-    </div>
-  </div>
-</div>
+                               <div class="card card-1">
+                                  <div class="card-header card-header-tabs  bg-black">
+                                      <div class="nav-tabs-navigation">
+                                          <div class="nav-tabs-wrapper">
 
-         <div class="card card-1">
-            <div class="card-header card-header-tabs  bg-black">
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
+                                              <ul class="nav nav-tabs" data-tabs="tabs">
+                                                  <li class="nav-item">
+                                                      <a class="nav-link active" href="#profile" data-toggle="tab">
+                                                          <i class="material-icons">bug_report</i>
+                                                          Onwner
+                                                      <div class="ripple-container"></div></a>
+                                                  </li>
+                                                  <li class="nav-item">
+                                                      <a class="nav-link" href="#messages" data-toggle="tab">
+                                                          <i class="material-icons">code</i>
+                                                          Teanets
+                                                      <div class="ripple-container"></div></a>
+                                                  </li>
 
-                        <ul class="nav nav-tabs" data-tabs="tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#profile" data-toggle="tab">
-                                    <i class="material-icons">bug_report</i>
-                                    Onwner
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                    <i class="material-icons">code</i>
-                                    Teanets
-                                <div class="ripple-container"></div></a>
-                            </li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
+                                  <div class="card-body">
+                                      <div class="tab-content">
+                                          <div class="tab-pane active" id="profile">
+                                              <table class="table">
+                                                    <tbody id="task-table-1">
+                                             <%= render 'tasks' %>
 
-            <div class="card-body">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="profile">
-                        <table class="table">
-                              <tbody id="task-table-1">
-                       <%= render 'tasks' %>
-
-                      </tbody>
-                      </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                            </tbody>
+                                            </table>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
 
 
 
 
-                                                                      <div class="card card-1">
+                          <div class="card card-1">
                             <div class="card-header">
                                 <h4 class="card-title text-white">Borkers Informations</h4>
                             </div>

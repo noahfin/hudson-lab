@@ -13,14 +13,16 @@ module ApplicationHelper
 end
 
   def gravatar_url(email)
-
     gravatar = Digest::MD5::hexdigest(email).downcase
     url = "https://www.gravatar.com/avatar/#{gravatar}"
   end
   def small_gravatar_url(email)
-
     gravatar = Digest::MD5::hexdigest(email).downcase
     url = "https://www.gravatar.com/avatar/#{gravatar}?s=30"
+  end
+  def large_gravatar_url(email)
+    gravatar = Digest::MD5::hexdigest(email).downcase
+    url = "https://www.gravatar.com/avatar/#{gravatar}?s=512px"
   end
   def flash_class(level)
     case level

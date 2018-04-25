@@ -9,10 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if params[:id].is_an_integer? @user == current_user
-     @user == current_user
-        redirect_to root_path, :alert => "Access denied or routing error."
-      end
+    # if current_user.id !=  params[:id]
+    #  @user == current_user
+    #     redirect_to root_path, :alert => "Access denied or routing error."
+    #   end
 
   end
 

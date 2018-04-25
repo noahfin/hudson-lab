@@ -25,7 +25,7 @@
 
             <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
             <div class="card-header text-center">
-              <h3 class="card-title">
+              <h3 class="card-title text-white">
                 Edit Your Profile
               </h3>
               <h5 class="card-description">Edit This information if needed, it let us know more about you.</h5>
@@ -151,19 +151,19 @@
                     </div>
                     <div class="col-sm-7 text-light">
                       <div class="form-group text-white">
-                        <label>Street Name</label>
+                        <label class="bmd-label-floating">Street Name</label>
                         <%= f.text_field :street_name, id: :user_street_name, class: 'form-control text-white' %>
                       </div>
                     </div>
                     <div class="col-sm-3 text-light">
                       <div class="form-group text-white">
-                        <label>Street No.</label>
+                        <label class="bmd-label-floating">Street No.</label>
                         <%= f.text_field :street_num, id: :user_street_num, class: 'form-control text-white' %>
                       </div>
                     </div>
                     <div class="col-sm-5 text-light">
                       <div class="form-group text-white">
-                        <label>City</label>
+                        <label class="bmd-label-floating">City</label>
                         <%= f.text_field :city, id: :user_city, class: 'form-control text-white' %>
                       </div>
                     </div>
@@ -179,6 +179,7 @@
                           <option value="Sullivan"> Sullivan </option>
                           <option value="Greene"> Greene </option>
                           <option value="westchester"> westchester </option>
+                           <option value="westchester"> Rockland </option>
                        </select>
                         </div>
                     </div>

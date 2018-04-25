@@ -1,5 +1,7 @@
 <td>
-  <%= link_to user.email, user, class: 'text-info' %>
+  <%= link_to user, class: 'text-info'  do %>
+ <%=  user.first_name + ' | view profile' %>
+<% end %>
 </td>
 <td>
   <%= form_for(user) do |f| %>
