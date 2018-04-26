@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Touches</h1>
+
+<table class="table card-5">
+  <thead>
+    <tr >
+      <th class="p-3  text-muted">Email</th>
+      <th class="p-3  text-muted">Phone</th>
+      <th class="p-3  text-muted">Postcard</th>
+      <th class="p-3  text-muted">Social media</th>
+      <th class="p-3  text-muted">In person</th>
+      <th class="p-3  text-muted">Letter</th>
+      <th class="p-3  text-muted">Description</th>
+      <th class="p-3  text-muted">Contact</th>
+      <th class="p-3  text-muted">Actions</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @touches.each do |touch| %>
+      <tr>
+        <td class="p-3"><%= touch.email %></td>
+        <td class="p-3"><%= touch.phone %></td>
+        <td class="p-3"><%= touch.postcard %></td>
+        <td class="p-3"><%= touch.social_media %></td>
+        <td class="p-3"><%= touch.in_person %></td>
+        <td class="p-3"><%= touch.letter %></td>
+        <td class="p-3"><%= touch.description %></td>
+        <td class="p-3"><%= link_to contact_path(touch.contact.id) do  %>
+          <%= touch.contact.name %>
+          <% end %>
+        </td>
+        <td class="p-3"><%= link_to 'Show', touch %></td>
+        <td class="p-3"> <%= link_to  edit_touch_path(touch), class: 'btn btn-success' do  %>
+           <i class="material-icons">edit</i>
+           <% end %>
+        </td>
+        <td class="p-3"><%= link_to touch, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-round" do %>
+            <i class="material-icons">close</i>
+            <% end %>
+
+        </td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Touch', new_touch_path %>
+
+

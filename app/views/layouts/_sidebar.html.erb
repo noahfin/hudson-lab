@@ -88,6 +88,13 @@
                 <span class="sidebar-normal"> New Contact </span>
               </a>
             </li>
+               <li class="nav-item ">
+                <%= link_to new_touch_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> RT </span>
+                <span class="sidebar-normal"> Record Touch </span>
+             <% end %>
+            </li>
+
              <li class="nav-item ">
               <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
               <%= link_to contacts_path, class: "nav-link #{active}" do %>

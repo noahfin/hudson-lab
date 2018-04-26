@@ -68,12 +68,80 @@
           </div>
 
                         <div class="card  card-1  p-4">
-                            <div class="card__header">
+                            <div class="card-header">
                                 <h2>Contact Notes</h2>
                             </div>
-                            <div class="card__body">
+                            <div class="card-body">
                                 <p><%= @contact.notes %></p>
                             </div>
+                        </div>
+
+                        <div class="card card-1 p-4">
+                            <div class="card-header p-0">
+                                <h4>Contact Touches</h4>
+                            </div>
+                       <% if @touches %>
+                        <% @touches.each do |touch| %>
+                      <p>
+                        <% if touch.email %>
+                        <strong>Email:</strong>
+                        <%= touch.email %>
+                        <% end %>
+                      </p>
+
+                       <% if touch.phone %>
+                      <p>
+                        <strong>Phone:</strong>
+                        <%= touch.phone %>
+                      </p>
+                       <% end %>
+
+                         <% if touch.postcard %>
+                      <p>
+                        <strong>Postcard:</strong>
+                        <%= touch.postcard %>
+                      </p>
+                       <% end %>
+
+                        <% if touch.social_media %>
+                      <p>
+                        <strong>Social media:</strong>
+                        <%= touch.social_media %>
+                      </p>
+                       <% end %>
+
+                        <% if touch.in_person %>
+                      <p>
+                        <strong>In person:</strong>
+                        <%= touch.in_person %>
+                      </p>
+                       <% end %>
+                       <% if touch.letter %>
+                      <p>
+                        <strong>Letter:</strong>
+                        <%= touch.letter %>
+                      </p>
+                        <% end %>
+                        <% if touch.description %>
+                      <p>
+                        <strong>Description:</strong>
+                        <%= touch.description %>
+                      </p>
+                       <% end %>
+                      <p>
+                      <% if touch.contact.name %>
+                        <strong>Contact:</strong>
+                        <%= touch.contact.name %>
+                      </p>
+                       <% end %>
+
+                     <span> <%= link_to 'Edit', edit_touch_path(touch), class: 'text-success' %> |
+                      <%= link_to 'All touches', touches_path, class: 'text-info' %>
+                      </span>
+                      <hr>
+                       <% end %>
+                        <% end %>
+
                         </div>
             </div>
           </div>

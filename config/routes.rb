@@ -1,5 +1,4 @@
   Rails.application.routes.draw do
-  resources :actions
   get 'tasks/index'
 
   get 'tasks/new'
@@ -16,6 +15,7 @@
     resources :users
     resources :groups
     resources :tasks
+    resources :touches
 
     get'/dashboard', to: 'dashboard#index'
 

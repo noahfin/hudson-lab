@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @touch.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @touch.phone %>
+</p>
+
+<p>
+  <strong>Postcard:</strong>
+  <%= @touch.postcard %>
+</p>
+
+<p>
+  <strong>Social media:</strong>
+  <%= @touch.social_media %>
+</p>
+
+<p>
+  <strong>In person:</strong>
+  <%= @touch.in_person %>
+</p>
+
+<p>
+  <strong>Letter:</strong>
+  <%= @touch.letter %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @touch.description %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @touch.contact.name %>
+</p>
+
+<%= link_to 'Edit', edit_touch_path(@touch) %> |
+<%= link_to 'Back', touches_path %>

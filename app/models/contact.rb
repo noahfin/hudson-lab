@@ -5,6 +5,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :user
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
+  has_many :touches, class_name: 'Touch'
   has_many :current_users, -> { users }, class_name: 'User'
   validates :name,  presence: true
   validates :name, length: { minimum: 2}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423125453) do
+ActiveRecord::Schema.define(version: 20180426145513) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -195,6 +195,20 @@ ActiveRecord::Schema.define(version: 20180423125453) do
     t.integer "task_id", null: false
     t.index ["task_id", "user_id"], name: "index_tasks_users_on_task_id_and_user_id"
     t.index ["user_id", "task_id"], name: "index_tasks_users_on_user_id_and_task_id"
+  end
+
+  create_table "touches", force: :cascade do |t|
+    t.boolean "email"
+    t.boolean "phone"
+    t.boolean "postcard"
+    t.boolean "social_media"
+    t.boolean "in_person"
+    t.boolean "letter"
+    t.text "description"
+    t.integer "contact_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_touches_on_contact_id"
   end
 
   create_table "users", force: :cascade do |t|
