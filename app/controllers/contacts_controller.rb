@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
-  before_action :my_contacts, only: [:edit, :new]
+  before_action :my_contacts, only: [:edit  ]
 
   def index
     session[:selected_group_id] = params[:group_id]
@@ -67,11 +67,11 @@ class ContactsController < ApplicationController
             params['contact']['user_id'].each do |u_id|
             next if u_id.to_i == 0
               user = User.find(u_id.to_i)
-            contact_model = ContactsUser.create(contact: @contact, user: user)
+           user.contacts << @contact
 
          end
 
-      user_reltionships(@contact)
+
       flash[:success] = "Contact was successfully created."
       redirect_to contacts_path(previous_query_string)
     else
@@ -96,7 +96,9 @@ class ContactsController < ApplicationController
 
   def my_contacts
       @users = User.all
+      if params[:group_id] && !params[:group_id].empty?
       @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
+      end
   end
 
 end
