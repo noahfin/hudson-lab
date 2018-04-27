@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
-  before_action :my_contacts, only: [:edit, :create]
+  before_action :my_contacts, only: [:edit, :new]
 
   def index
     session[:selected_group_id] = params[:group_id]

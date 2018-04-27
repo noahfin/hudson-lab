@@ -4,13 +4,13 @@ module ContactsHelper
     err = ''
     if params['contact'][:group_id]
     params['contact'][:group_id].each do |group_id|
-       next if group_id ="" || group_id.to_i < 1
+       next if group_id == "" || group_id.to_i < 1
     @group = Group.find(group_id)
      @group.contacts << contact
      if params['contact']['user_id']
     users = params['contact']['user_id'].to_a
     users.each do |user|
-      next if user.to_i < 1
+      next if user == "" ||  user.to_i < 1
       user = User.find(user.to_i)
          group_model = GroupsUser.create(group: @group, user: user) unless Group.exists?(user_id: user.id)
           contact_model = ContactsUser.create(contact: contact, user: user)
