@@ -10,7 +10,8 @@
       <div class="media-body">
         <h4 class="media-heading text-info">
      <%= link_to contact_path(contact.id), class: 'text-info' do %>
-      <%= contact.name %>
+      <%= contact.first_name if contact.first_name %> <%= contact.last_name if contact.first_name %>
+      <%= contact.name if contact.name &&  !contact.first_name %>
       <% end %>
         </h4>
         <address>
