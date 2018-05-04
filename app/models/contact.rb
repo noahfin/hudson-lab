@@ -52,12 +52,27 @@ end
 
 
 
-  def self.user_reltionships(contact, group, users)
+  def self.user_reltionships(contact, groups, users)
+    if groups
+    groups.each do |group_id|
+       next if group_id == "" || group_id.to_i < 1
+    @group = Group.find(group_id)
+    group_contact_model = ContactsGroup.create( contact: contact, group: @group)
+
+     @group.contacts << contact
+   end
     users.each do |user|
       user = User.find(user.to_i)
       contact_model = ContactsUser.create(contact: contact, user: user)
+         if groups
+    groups.each do |group_id|
+       next if group_id == "" || group_id.to_i < 1
+    group = Group.find(group_id)
       group_model = GroupsUser.create(group: group, user: user) unless Group.exists?(user_id: user.id)
     end
+    end
+  end
+
   end
 
     def self.open_spreadsheet(file)

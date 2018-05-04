@@ -19,9 +19,9 @@ class ContactsController < ApplicationController
   end
 
   def inport
-    group = Group.find(params[:group_id])
+    groups = params['contact'][:group_id]
     users = params['input']
-    Contact.inport(params[:file], group, users)
+    Contact.inport(params[:file], groups, users)
     flash[:success] = "Contact data inported!"
     redirect_to contacts_path(previous_query_string)
   end
