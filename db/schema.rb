@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504165001) do
+ActiveRecord::Schema.define(version: 20180504192119) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180504165001) do
     t.string "postion"
     t.string "type"
     t.string "prefix"
+    t.string "total_number_of_employees"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end

@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
   before_action :my_contacts, only: [:edit  ]
 
   def index
+    @contact = Contact.new
     session[:selected_group_id] = params[:group_id]
     if params[:group_id] && !params[:group_id].empty?
       my_contacts
@@ -19,7 +20,7 @@ class ContactsController < ApplicationController
   end
 
   def inport
-    groups = params['contact'][:group_id]
+    groups = params['group_id']
     users = params['input']
     Contact.inport(params[:file], groups, users)
     flash[:success] = "Contact data inported!"

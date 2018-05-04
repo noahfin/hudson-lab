@@ -7,8 +7,6 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :tasks
   has_many :touches, class_name: 'Touch'
   has_many :current_users, -> { users }, class_name: 'User'
-  validates :name,  presence: true
-  validates :name, length: { minimum: 2}
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },
   :s3_credentials => "#{Rails.root}/config/s3.yml",
     :bucket => 'hudson-lab-images',
@@ -43,7 +41,6 @@ def self.inport(file, group, users )
     row = Hash[[header, spreadsheet.row(i)].transpose]
     contact = find_by(id: row["id"]) || new
     row = row.to_hash
-    row['group_id'] = group.id
     contact.attributes = row
     contact.save!
     user_reltionships(contact, group, users)
@@ -61,18 +58,18 @@ end
 
      @group.contacts << contact
    end
+ end
     users.each do |user|
       user = User.find(user.to_i)
       contact_model = ContactsUser.create(contact: contact, user: user)
-         if groups
-    groups.each do |group_id|
-       next if group_id == "" || group_id.to_i < 1
-    group = Group.find(group_id)
-      group_model = GroupsUser.create(group: group, user: user) unless Group.exists?(user_id: user.id)
+      if groups
+        groups.each do |group_id|
+         next if group_id == "" || group_id.to_i < 1
+         group = Group.find(group_id)
+         group_model = GroupsUser.create(group: group, user: user) unless Group.exists?(user_id: user.id)
+        end
+     end
     end
-    end
-  end
-
   end
 
     def self.open_spreadsheet(file)
@@ -80,6 +77,7 @@ end
         when ".csv" then Roo::CSV.new(file.path, nil, :ignore)
         when ".xls" then Roo::Excel.new(file.path, nil, :ignore)
         when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
+        when ".numbers" then Roo::Number.new(file.path, nil, :ignore)
       else raise "Unknown file type: #{file.original_filename}"
       end
   end

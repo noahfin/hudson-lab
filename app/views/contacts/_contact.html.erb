@@ -3,7 +3,8 @@
     <div class="media">
       <div class="media-left thumbnail">
         <a href="#">
-        <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object" %>
+
+        <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object"  unless contact.email == nil%>
         </a>
       </div>
       <div class="media-body">
