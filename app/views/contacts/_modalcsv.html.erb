@@ -21,13 +21,15 @@
             </div>
          </div>
          <div class="col-md-8 ">
-             <div class="btn-group">
+         </div>
+         <div>
+        </div>
                   <span class="mt-0 pt-1"><label class="text-light mt-0 pb-4 ml-4 pl-4"></label> </span>
                   <% Group.all.each do |group| %>
                   <div class="togglebutton form-check-inline pl-2">
                      <label>
                         <ul class="list-inline">
-                           <li class="list-inline-item">    <input type="checkbox" name="group_id[]" checked="true" value=
+                           <li class="list-inline-item">    <input type="checkbox" name="group_id[]"  value=
                               <%="#{group.id}" if group.id %> class="users-for-new-group"/>
                               <span class="toggle"></span>
                               <span class="text-white"><%= group.name %>
@@ -37,15 +39,10 @@
                      <% end %>
                      </ul>
                   </div>
-               </div>
-            <label class=" text-white " >Pick Group<small>(required)</small></label>
-            <select multiple class= "selectpicker mt-3 pt-1" >
-               <% @groups.each do |group| %>
-  <option name="group_id[]" value="<%= group.id.to_s%>" ><%= group.name %></option>
-<% end %>
-</select>
+
+
 </div>
-      </div>
+
       <div class="row">
          <div class="col-md-3">
             <label  class="bmd-label-floating text-white pt-4 ml-2" >Pick users<small>(required)</small></label>
