@@ -1,16 +1,3 @@
-       <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="card card-5" >
-                <div class="card-header card-header-icon ">
-                  <div class="card-icon bg-hudson ">
-                    <i class="material-icons">perm_identity</i>
-                  </div>
-                  <h4 class="card-title text-light">Edit Profile -
-                    <small class="category text-light">Complete contact profile</small>
-                  </h4>
-                </div>
-                <div class="card-body">
 
                    <%= render 'show_form' %>
 
@@ -25,20 +12,22 @@
                     <ul class="">
                       <li class="list-group-item text-muted text-left" contenteditable="false">Profile</li>
 
-                      <li class="profile-list "><span class="pull-left"><strong class="">Created</strong></span> <span class="float-right"> <%= @contact.created_at %></span></li>
-                      <li class=" profile-list"><span class="pull-left"><strong class="">Last contacted</strong></span> <span class="float-right"> <%= @contact.created_at %></span></li>
-                      <li class=" profile-list"><span class="pull-left"><strong class="">Real name</strong></span><span class="float-right"><%= @contact.name %></span></li>
-                      <li class="profile-list "><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email %></span></li>
-                      <li class="profile-list "><span class="pull-left"><strong class="">Company: </strong></span><span class="float-right"><%= @contact.company %></span></li>
-                      <li class=" profile-list"><span class="pull-left"><strong class="">Address: </strong></span><span class="float-right"><%= @contact.address %></span></li>
-                      <li class="profile-list"><span class="pull-left"><strong class="">Street Number: </strong></span><span class="float-right"><%= @contact.street_num %></span></li>
-                      <li class="profile-list"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"><%= @contact.strret_name %></span></li>
-                      <li class="profile-list "><span class="pull-left"><strong class="">Phone: </strong></span><span class="float-right"><%= @contact.phone %></span></li>
-                      <li class="profile-list "><span class="pull-left"><strong class="">County: </strong></span><span class="float-right"><%= @contact.county %></span></li>
-                      <li class="profile-list"><span class="pull-left"><strong class="">Country: </strong></span><span class="float-right"><%= @contact.country %></span></li>
-                      <li class=" profile-list"><span class="pull-left"><strong class="">Postal_code: </strong></span><span class="float-right"><%= @contact.postal_code %></span></li>
-                      <li class="profile-list "><span class="pull-left"><strong class="">City: </strong></span><span class="float-right"><%= @contact.city %></span></li>
-                      <li class="profile-list"><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Created</strong></span> <span class="float-right"> <%= @contact.created_at  if  @contact.created_at  %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Last contacted</strong></span> <span class="float-right"> <%= @contact.created_at if @contact.created_at%></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Name</strong></span><span class="float-right"><%= @contact.name if @contact.name %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Fisrt Name</strong></span><span class="float-right"><%= @contact.first_name if @contact.first_name %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Last Name</strong></span><span class="float-right"><%= @contact.last_name if @contact.last_name %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email if  @contact.email %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Company: </strong></span><span class="float-right"><%= @contact.company if @contact.company %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Address: </strong></span><span class="float-right"><%= @contact.address if  @contact.address %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Street Number: </strong></span><span class="float-right"><%= @contact.street_num if @contact.street_num  %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"><%= @contact.strret_name if @contact.strret_name  %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">Phone: </strong></span><span class="float-right"><%= @contact.phone if  @contact.phone %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">County: </strong></span><span class="float-right"><%= @contact.county if @contact.county  %></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Country: </strong></span><span class="float-right"><%= @contact.country if @contact.country %></span></li>
+                      <li class=" profile-list"><span class="pull-left"><strong class="">Postal_code: </strong></span><span class="float-right"><%= @contact.postal_code if @contact.postal_code %></span></li>
+                      <li class="profile-list "><span class="pull-left"><strong class="">City: </strong></span><span class="float-right"><%= @contact.city if @contact.city%></span></li>
+                      <li class="profile-list"><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email if @contact.email %></span></li>
                   </ul>
                 </div>
               </div>
@@ -53,16 +42,16 @@
                   </a>
                 </div>
                 <div class="card-body">
-                  <h6 class="card-category text-gray"> <%= @contact.company %></h6>
-                  <h4 class="card-title"><%= @contact.name %></h4>
+                  <h6 class="card-category text-gray"> <%= @contact.company  if @contact.company  %></h6>
+                  <h4 class="card-title"> <%= @contact.first_name if @contact.last_name  %> <%= @contact.first_name if @contact.last_name  %> </h4>
                   <p class="card-description">
                     <%= @contact.address %>
                   </p>
-                  <%= link_to 'Go Back', contacts_path, class: 'btn bg-hudson btn-round' %>
+                  <%= link_to 'Go Back', contacts_path, class: 'btn bg-hudson btn-round text-white' %>
                 </div>
               </div>
               <div class="list-group">
-            <a href="#" class="list-group-item bg-hudson">
+            <a href="#" class="list-group-item bg-dark">
               </a>
 
           </div>

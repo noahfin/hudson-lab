@@ -1,4 +1,20 @@
-<%= form_with model: @contact,  :format=> :js, multipart: true, :authenticity_token => true, id: "contact_form"  do |form|%>
+       <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card card-5" >
+               <%= form_with model: @contact,  :format=> :js, multipart: true, :authenticity_token => true, id: "contact_form"  do |form|%>
+
+                <div class="card-header card-header-icon ">
+                  <div class="card-icon bg-hudson ">
+                    <i class="material-icons">perm_identity</i>
+                  </div>
+                  <h4 class="card-title text-light">Edit Profile -
+                    <small class="category text-light">Complete contact profile</small>
+                  <button type="submit" class="btn btn-danger pull-right">Save Changes</button>
+                  </h4>
+                </div>
+                <div class="card-body">
+
          <div class="card-body">
             <div>
                <div class=>
@@ -119,7 +135,7 @@
                      <div class="col-md-4">
                         <div class="form-group text-white">
                            <label class="bmd-label-floating">State</label>
-                           <%= form.text_field :state, id: :contact_state, class: 'form-control text-white' %>
+                           <%= form.text_field :state, id: :contact_state, class: 'form-control text-white ml-2' %>
                         </div>
                      </div>
                      <div class="col-md-4">
@@ -140,8 +156,8 @@
                         <div class="form-group text-white">
                            <label>Contact Notes</label>
                            <div class="form-group">
-                              <label class="bmd-label-floating">Enter important notes for this contact.</label>
-                              <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-white' %>
+                              <label class="bmd-label-floating  ml-2">Enter important notes for this contact.</label>
+                              <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-white ml-1' %>
                            </div>
                         </div>
                      </div>
@@ -317,7 +333,7 @@
                         </div>
                       </div>
                     </div>
-                    <button type="submit" class="btn bg-hudson pull-right">Update Profile</button>
+
                     <div class="clearfix"></div>
 
                 </div>
