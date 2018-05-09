@@ -24,7 +24,7 @@
                </li>
                <li class="nav-item col-md-3 text-light">
                   <a class="nav-link  text-light" href="#account"  id="account_id" data-toggle="tab" role="tab" style="color: white !important">
-                  Users
+                  More
                   </a>
                </li>
                <li class="nav-item col-md-3 text-light" >
@@ -115,44 +115,114 @@
                   </div>
                </div>
                <div class="tab-pane" id="account">
-                  <h5 class="info-text text-white"> Pick users inculding yourself if needed (checkboxes) </h5>
-                  <div class="row justify-content-center" id="circle-users">
-                     <div class="col-lg-10">
-                        <div class="row">
+                     <div class="controls">
+              <div class="row mb-3">
+                  <div class="col-md-3">
+                  <%= form.label :prefix, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :prefix, id: :contacts_prefix, class: 'form-control text-white' %>
+                </div>
+              <div class="col-md-3">
+                  <%= form.label :first_name, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :first_name, id: :contacts_first_name, class: 'form-control text-white' %>
+                </div>
 
-                           <div class="col-sm-4">
-                              <div class="choice" data-toggle="wizard-checkbox">
-                                 <input type="checkbox" checked=false name="adrrian" value="adrrian" class="users-for-new-contact">
-                                 <div class="icon">
-                                    <i class="fa fa-user u-check-box"></i>
-                                 </div>
-                                 <h6><label class="user-lable text-white"  for="">Adrrian</h6>
-                                 </label>
-                              </div>
-                           </div>
-                            <div class="col-sm-4">
-                              <div class="choice" data-toggle="wizard-checkbox">
-                                 <input type="checkbox" checked=false name="sam" class="users-for-new-contact">
-                                 <div class="icon">
-                                    <i class="fa fa-user u-check-box"></i>
-                                 </div>
-                                 <h6><label class="user-lable text-white">Sam</h6>
-                                 </label>
-                              </div>
-                           </div>
-                            <div class="col-sm-4">
-                              <div class="choice" data-toggle="wizard-checkbox">
-                                 <input type="checkbox" checked=false value="noah" class="users-for-new-contact">
-                                 <div class="icon">
-                                    <i class="fa fa-user u-check-box"></i>
-                                 </div>
-                                 <h6><label class="user-lable text-white">Noah</h6>
-                                 </label>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+
+                <div class="col-md-3">
+                  <%= form.label :middle_name, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :middle_name, id: :contacts_suffix, class: 'form-control text-white' %>
+                </div>
+                 <div class="col-md-3">
+                  <%= form.label :last_name, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :last_name, id: :contacts_last_name, class: 'form-control text-white' %>
+                </div>
+
+
+
+
+
+
+
+
+                </div>
+
+                <div class="row mb-3">
+
+
+
+                </div>
+                <div class="row mb-3">
+                 <div class="col-md-3">
+                  <%= form.label :suffix, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :suffix, id: :contacts_suffix, class: 'form-control text-white' %>
+                </div>
+                  <div class="col-md-3">
+                  <label class="bmd-label-floating text-white">Owns or Rents</label>
+
+                  <%= form.text_field :owns_cents, id: :contactnews_owns_cents, class: 'form-control text-white' %>
+                </div>
+
+
+                <div class="col-md-3">
+                  <%= form.label :year_of_Founding, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :year_of_Founding, id: :contactnews_year_of_Founding, class: 'form-control text-white' %>
+                </div>
+
+
+
+                <div class="col-md-3">
+                  <%= form.label :primary_industry, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :primary_industry, id: :contacts_primary_industry, class: 'form-control text-white' %>
+                </div>
+
+
+              </div>
+              <div class="row mb-3">
+
+                 <div class="col-md-3">
+                  <%= form.label :web_address, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :web_address, id: :contacts_web_address, class: 'form-control text-white' %>
+                </div>
+
+
+                  <div class="col-md-3">
+                  <%= form.label :latitude, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :latitude, id: :contacts_latitude, class: 'form-control text-white' %>
+                </div>
+                <div class="col-md-3 ">
+                  <%= form.label :longitude, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :longitude, id: :contacts_longitude, class: 'form-control text-white' %>
+                </div>
+                <div class="col-md-3">
+                  <%= form.label :type, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :type, id: :contacts_type, class: 'form-control' %>
+                </div>
                   </div>
+              <div class="row mb-3">
+                 <div class="col-md-3">
+                  <%= form.label :facility_size, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :facility_size, id: :contactnews_facility_size, class: 'form-control' %>
+                </div>
+
+                <div class="col-md-4 ">
+                  <%= form.label :total_number_of_employees, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :total_number_of_employees, id: :contactnews_total_number_of_employees, class: 'form-control text-white' %>
+                </div>
+                <div class="col-md-3">
+                  <LABEL class= "bmd-label-floating text-white">position</LABEL>
+                  <%= form.text_field :postion, id: :contacts_postion, class: 'form-control text-white' %>
+                </div>
+                  <div class="col-md-2">
+                  <%= form.label :sic, class: 'bmd-label-floating text-white' %>
+                  <%= form.text_field :sic, id: :contacts_sic, class: 'form-control text-white' %>
+                </div>
+            </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 pt-4">
+                <p class="text-muted mt-3"><strong>*</strong> These fields are the extras we added not required.  </p>
+            </div>
+        </div>
+    </div>
                </div>
                <div class="tab-pane" id="address">
                   <div class="row justify-content-center">
@@ -229,42 +299,58 @@
                </div>
                <div class="tab-pane" id="account">
                   <h5 class="info-text text-white"> Pick users inculding yourself if needed (checkboxes) </h5>
-                  <div class="row justify-content-center" id="circle-users">
-                     <div class="col-lg-10">
-                        <div class="row">
-                           <div class="col-sm-4">
-                              <div class="choice" data-toggle="wizard-checkbox">
-                                 <input type="checkbox" checked=false name="adrrian" value="adrrian" class="users-for-new-contact">
-                                 <div class="icon">
-                                    <i class="fa fa-user u-check-box"></i>
-                                 </div>
-                                 <h6><label class="user-lable"  for="">Adrrian</h6>
-                                 </label>
-                              </div>
-                           </div>
-                            <div class="col-sm-4">
-                              <div class="choice" data-toggle="wizard-checkbox">
-                                 <input type="checkbox" checked=false name="sam" class="users-for-new-contact">
-                                 <div class="icon">
-                                    <i class="fa fa-user u-check-box"></i>
-                                 </div>
-                                 <h6><label class="user-lable">Sam</h6>
-                                 </label>
-                              </div>
-                           </div>
-                            <div class="col-sm-4">
-                              <div class="choice" data-toggle="wizard-checkbox">
-                                 <input type="checkbox" checked=false value="noah" class="users-for-new-contact">
-                                 <div class="icon">
-                                    <i class="fa fa-user u-check-box"></i>
-                                 </div>
-                                 <h6><label class="user-lable">Noah</h6>
-                                 </label>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+                     <div class="controls">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_name">Firstname *</label>
+                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_lastname">Lastname *</label>
+                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_email">Email *</label>
+                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="form_phone">Phone</label>
+                    <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Message *</label>
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted"><strong>*</strong> These fields are required. Contact form template by <a href="http://bootstrapious.com" target="_blank">Bootstrapious</a>.</p>
+            </div>
+        </div>
+    </div>
                </div>
                <div class="tab-pane" id="group">
                   <div class="row justify-content-center">
@@ -294,22 +380,35 @@
                      </div>
                      <p class="mt-3"> Pick One Best describes the contact role or leave blank</p>
                         <div class="form-group">
+                        <div class="form-check form-check-inline">
 
-                          <label class="bmd-label-floating mr-2">Broker:</label>
-
+                          <label class="bmd-label-floating mr-2 pt-2">Broker:</label>
                             <%= form.check_box :role, {:class => "employee mr-1", }, "broker", "potential_customer" %> |
-                             <label class="bmd-label-floating mr-1 ml-2">Agent:</label>
+                         </div>
+                             <label class="bmd-label-floating mr-1 ml-2 pt-2">Agent:</label>
+                         <div class="form-check form-check-inline">
                             <%= form.check_box :role, {:class => "employee  mr-1", }, "agent", "potential_customer" %> |
-                              <label class="bmd-label-floating mr-1 ml-2">Owner:</label>
+                         </div>
+                         <div class="form-check form-check-inline">
+                              <label class="bmd-label-floating mr-1 ml-2  pt-2" >Owner:</label>
                             <%= form.check_box :role, {:class => "employee  mr-1", }, "owner", "potential_customer" %> |
-                              <label class="bmd-label-floating mr-1 ml-2">Buyer:</label>
+                         </div>
+                         <div class="form-check form-check-inline">
+                              <label class="bmd-label-floating mr-1 ml-2  pt-2">Buyer:</label>
                             <%= form.check_box :role, {:class => "employee  mr-1", }, "buyer", "potential_customer" %> |
-                              <label class="bmd-label-floating mr-1 ml-2">Employee:</label>
+                         </div>
+                         <div class="form-check form-check-inline">
+                              <label class="bmd-label-floating mr-1 ml-2  pt-2">Employee:</label>
                             <%= form.check_box :role, {:class => "employee  mr-1", }, "employee", "potential_customer" %> |
-                              <label class="bmd-label-floating mr-1 ml-2">Management:</label>
+                         </div>
+                         <div class="form-check form-check-inline">
+                              <label class="bmd-label-floating mr-1 ml-2  pt-2">Management:</label>
                             <%= form.check_box :role, {:class => "employee  mr-1", }, "management", "potential_customer" %> |
-                              <label class="bmd-label-floating mr-1   ml-2">Peronal:</label>
+                         </div>
+                         <div class="form-check form-check-inline">
+                              <label class="bmd-label-floating mr-1   ml-2  pt-2">Peronal:</label>
                             <%= form.check_box :role, {:class => "employee  mr-1", }, "peronal", "potential_customer" %>
+                         </div>
                         </div>
                      <div class="col-md-5 ml-0 pl-0 ">
                         <div class="row">
