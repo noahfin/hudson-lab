@@ -45,7 +45,7 @@
                   <h6 class="card-category text-gray"> <%= @contact.company  if @contact.company  %></h6>
                   <h4 class="card-title"> <%= @contact.first_name if @contact.last_name  %> <%= @contact.first_name if @contact.last_name  %> </h4>
                   <p class="card-description">
-                    <%= @contact.address %>
+                    <%= @contact.address if @contact.address%>
                   </p>
                   <%= link_to 'Go Back', contacts_path, class: 'btn bg-hudson btn-round text-white' %>
                 </div>
