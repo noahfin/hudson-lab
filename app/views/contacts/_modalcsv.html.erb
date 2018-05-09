@@ -31,7 +31,7 @@
                   <input type="checkbox" name="group_id[]"  value=
                      <%="#{group.id}" if group.id %> class="users-for-new-group"/>
                   <span class="toggle"></span>
-                  <span class="text-white"><%= group.name %>
+                  <span class="text-white p-3"><%= group.name %>
                   </span>
                   </label>
                </div>
@@ -43,7 +43,7 @@
       <% end %>
    </div>
    <div class="col-md-12">
-      <hr class="bg-light">
+
       <% User.all.each.each_slice(4) do |user| %>
       <div class="col-md-12">
          <div class="row">
