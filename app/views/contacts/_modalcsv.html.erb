@@ -9,7 +9,7 @@
    <div class="modal-body b-bottom">
       <%= form_tag inport_contacts_path, multipart: true do %>
       <div class="row" style="width 100% !important;">
-         <div class="col-md-4 text-white mb-4">
+         <div class="col-md-12 text-white mb-4">
             <label class=" text-white ml-2" >Choose file<small>(required)</small></label>
             <div class="fileinput fileinput-new input-group pt-3" data-provides="fileinput">
                <span class="input-group-addon btn bg-hudson text-white btn-file ml-2"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span> <%= file_field_tag :file %></span>
@@ -20,121 +20,76 @@
                </div>
             </div>
          </div>
-         <div class="col-md-8 ">
-         </div>
-         <div>
-        </div>
-        <div class="row">
-         <div class="col-md-8">
-            <span class="mt-0 pt-1"><label class="text-light mt-0 pb-4 ml-4 pl-4"></label> </span>
-                  <% Group.all.each do |group| %>
-                  <div class="togglebutton">
-                     <label>
-                        <ul class="list-group">
-                           <li class="list-group-item">    <input type="checkbox" name="group_id[]"  value=
-                              <%="#{group.id}" if group.id %> class="users-for-new-group"/>
-                              <span class="toggle"></span>
-                              <span class="text-white"><%= group.name %>
-                              </span>
-                     </label>
-                     </li>
+
+      </div>
+
+
+<div class="col-md-12">
+
+
+            <% Group.all.each.each_slice(4) do |group| %>
+      <div class="col-md-12">
+  <div class="row">
+
+    <% group.each do |group| %>
+    <div class="col-md-3">
+      <div class="togglebutton">
+         <label>
+                 <input type="checkbox" name="group_id[]"  value=
+                  <%="#{group.id}" if group.id %> class="users-for-new-group"/>
+                  <span class="toggle"></span>
+                  <span class="text-white"><%= group.name %>
+                  </span>
+         </label>
+      </div>
+   </div>
                      <% end %>
-                     </ul>
-                  </div>
-         </div>
 
-           </div>
-
-        </div>
-
-
+</div>
+</div>
+   <% end %>
 
 </div>
 
-      <div class="row">
-         <div class="col-md-3">
-            <label  class="bmd-label-floating text-white pt-4 ml-2" >Pick users<small>(required)</small></label>
-         </div>
-         <div class="col-9">
-            <div class="form-group">
-               <div class="btn-group">
-                  <span class="mt-0 pt-1"><label class="text-light mt-0 pb-4 ml-4 pl-4"></label> </span>
-                  <% User.all.each do |user| %><%  next if !user.first_name  %>
-                  <div class="togglebutton pl-2">
+
+
+
+<div class="col-md-12">
+    <hr class="bg-light">
+<% User.all.each.each_slice(4) do |user| %>
+  <div class="col-md-12">
+  <div class="row">
+
+   <% user.each do |user| %>
+    <%  next if !user.first_name  %>
+    <div class="col-md-3">
+
+
+                  <div class="togglebutton ">
                      <label>
-                        <ul class="list-group">
-                           <li class="list-group-item">    <input type="checkbox" name="input[]" checked="true" value=
+
+                           <input type="checkbox" name="input[]" checked="true" value=
                               <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
                               <span class="toggle"></span>
                               <span class="text-white"><%= user.first_name if user.first_name %>
                               </span>
                      </label>
-                     </li>
-                     <% end %>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
 
-         <div class="row">
-            <div class="col-md-5 ml-4">
-               <div class=" pl-0 mt-4 pr-2 ml-4 pl-3">
-                  <a  class="btn btn-outline-info btn-block text-white mb-4 pr-4 mr-0"  data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">Add Group</a>
-               </div>
-            </div>
-            <div class="col-md-7">
-            </div>
-         </div>
-         <div class="row">
-            <div class="form-group  collapse" id="add-users-group">
-               <div class="row mt-4">
-                  <div class=" col-md-12">
-                     <div class="input-group pl-0">
-                        <div class="col-xl-12">
-                           <div class="row pl-0">
-                              <div class="col-xl-10 pl-3 mb-4">
-                                 <label for="address" class="bmd-label-floating">New Group Name</label>
-                                 <input type="text" name="new_group" id="new_group" class="form-control ml-0 new_group text-white">
-                              </div>
-                              <div class="col-xl-2 ">
-                                 <span class="input-group-btn mr-0 ml-2">
-                                 <button type="button" class="btn btn-fab btn-round btn-info save-new-group" id="save-new-group" data-remote="true">
-                                 <i class="material-icons">input</i>
-                                 </button>
-                                 </span>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div>
-                  <div class="btn-group">
-                     <% User.all.each do |user| %><%  next if !user.first_name  %>
-                     <div class="togglebutton form-check-inline">
-                        <label>
-                        <input type="checkbox" checked="true" value=
-                           <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                        <span class="toggle"></span>
-                        <span class="text-muted"><%= user.first_name if user.first_name %>
-                        </span>
-                        </label>
-                     </div>
+             </div>
+          </div>
                      <% end %>
-                  </div>
-               </div>
-            </div>
-       </div>
-         <div class="row">
-         <div class="col-md-12">
+
+             </div>
+          </div>
+
+    <% end %>
+</div>
+
             <div class="modal-footer b-top">
                <hr>
                <%= submit_tag "Import CSV", class: "btn bg-hudson" %>
             </div>
-          </div>
-         </div>
+
          <% end %>
-      </div>
-   </div>
+
 </div>
