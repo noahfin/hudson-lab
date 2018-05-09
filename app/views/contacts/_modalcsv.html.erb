@@ -21,11 +21,11 @@
       </div>
    </div>
    <div class="col-md-12">
-      <% Group.all.each.each_slice(4) do |group| %>
+      <% Group.all.each.each_slice(3) do |group| %>
       <div class="col-md-12">
          <div class="row">
             <% group.each do |group| %>
-            <div class="col-md-3">
+            <div class="col-md-4">
                <div class="togglebutton">
                   <label>
                   <input type="checkbox" name="group_id[]"  value=
