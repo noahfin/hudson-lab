@@ -1,5 +1,5 @@
 <div id="myModal" class="modal fade  bd-example-modal-lg" role="dialog">
-<div class="modal-dialog modal-lg" >
+<div class="modal-dialog modal-xl" >
 <div class="modal-content modal-lg card-6">
 <div class="modal-header b-bottom pb-4">
    <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -21,17 +21,17 @@
       </div>
    </div>
    <div class="col-md-12">
-      <% Group.all.each.each_slice(3) do |group| %>
+      <% Group.all.each.each_slice(4) do |group| %>
       <div class="col-md-12 mb-3">
          <div class="row">
             <% group.each do |group| %>
-            <div class="col-md-4">
+            <div class="col-md-3">
                <div class="togglebutton p-2">
                   <label>
                   <input type="checkbox" name="group_id[]"  value=
                      <%="#{group.id}" if group.id %> class="users-for-new-group"/>
                   <span class="toggle"></span>
-                  <span class="text-white p-3"><%= group.name %>
+                  <span class="text-white"><%= group.name %>
                   </span>
                   </label>
                </div>
