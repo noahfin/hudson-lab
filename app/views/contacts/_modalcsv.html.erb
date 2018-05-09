@@ -22,11 +22,11 @@
    </div>
    <div class="col-md-12">
       <% Group.all.each.each_slice(3) do |group| %>
-      <div class="col-md-12">
+      <div class="col-md-12 mb-3">
          <div class="row">
             <% group.each do |group| %>
             <div class="col-md-4">
-               <div class="togglebutton">
+               <div class="togglebutton p-2">
                   <label>
                   <input type="checkbox" name="group_id[]"  value=
                      <%="#{group.id}" if group.id %> class="users-for-new-group"/>
@@ -38,6 +38,7 @@
             </div>
             <% end %>
          </div>
+       <hr class="bg-light">
       </div>
       <% end %>
    </div>
