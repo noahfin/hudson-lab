@@ -31,7 +31,14 @@ class Contact < ApplicationRecord
 
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
 
-
+   def self.to_csv(options = {})
+  CSV.generate(options) do |csv|
+    csv << column_names
+    all.each do |product|
+      csv << product.attributes
+    end
+  end
+end
 
 
 def self.inport(file, group, users )

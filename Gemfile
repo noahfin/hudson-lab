@@ -23,7 +23,7 @@ gem "pundit"
 gem 'roo'
 gem 'aws-sdk'
 gem 'emoji'
-
+gem 'csv'
 gem 'simple_form'
 
 

@@ -14,7 +14,7 @@
                               <div class="card-body">
                                   <div class="toolbar">
                                     <p class="category"><%= group.contacts.count %>  contacts in this group</p>
-                                      <!--        Here you can write extra buttons/actions for the toolbar              -->
+                                        Download: <%= link_to "CSV", group_path(group.id, format: "csv") %> |  <%= link_to "Excel", group_path(group.id, format: "xls") %>
                                   </div>
                                   <div class="material-datatables" id="g-name-<%=group.id.to_s%>">
 

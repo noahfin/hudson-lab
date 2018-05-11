@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+  require "csv"
+  require 'roo'
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
@@ -10,7 +12,11 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-
+    respond_to do |format|
+  format.html
+  format.csv { send_data @group.to_csv(@group.contacts) }
+  format.xls
+end
   end
 
   # GET /groups/new
