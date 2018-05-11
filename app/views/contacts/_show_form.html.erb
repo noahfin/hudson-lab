@@ -9,9 +9,9 @@
    </div>
    <h4 class="card-title text-light text-left">Contact / Facts
       <button class="btn btn-success pull-right" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
-      Form
+      Edit Contact
       </button>
-      <button type="submit" class="btn btn-danger pull-right">Save Changes</button>
+
    </h4>
 </div>
 <div class="card-body">
@@ -346,21 +346,25 @@
                            <div class="col-sm-12">
                               <h5 class="info-text text-white">Very important to select group and the Emplyees who need access to the contact</h5>
                            </div>
-                           <div class="col-md-4 ml-3 mr-0 pr-0 pl-0">
+                        </div>
+                           <div class="col-md-12 ml-3 mr-0 pr-0 pl-0">
                               <div class="form-inline ">
                                  <div class="form-group ml-2 mr-0 pr-0 pl-0">
-                                    <a class="btn btn-just-icon btn-round  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
+                                    <a class="btn btn-round btn-outline-info  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
                                     <i class="material-icons">group</i>
+                                    Select Groups
                                     </a>
                                  </div>
                                  <div class="form-group ml-2 mr-0 pr-0 pl-0">
-                                    <button class="btn btn-just-icon btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
+                                    <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
                                     <i class="material-icons">person_add</i>
+                                    Select Users
                                     </button>
                                  </div>
                                  <div class="form-group ml-2 mr-0 pr-0 pl-0">
-                                    <a  class="btn btn-just-icon btn-round  ml-2 mr-0"  data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">
+                                    <a  class="btn btn-outline-info btn-round  ml-2 mr-0"  data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">
                                     <i class="material-icons">group_add</i>
+                                    Create Group
                                     </a>
                                  </div>
                               </div>
@@ -456,7 +460,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+
                <div class="wizard-footer">
                   <div class="pull-right">
                      <input type="button" class="btn btn-next btn-fill btn-success btn-wd" name="next" value="Use tabs to navigate">
@@ -469,6 +473,8 @@
                </div>
             </div>
          </div>
+      </div>
+       </div>
          <!-- wizard container -->
          <% end %>
          <div class="form-check pull-right">
@@ -482,6 +488,7 @@
          </div>
          <div class="clearfix"></div>
       </div>
-   </div>
-</div>
+
+
+
 <% end %>
