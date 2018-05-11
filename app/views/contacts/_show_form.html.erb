@@ -1,23 +1,41 @@
+
+
        <div class="container-fluid">
+
+
+
+
           <div class="row">
             <div class="col-md-8">
               <div class="card card-5" >
                <%= form_with model: @contact,  :format=> :js, multipart: true, :authenticity_token => true, id: "contact_form"  do |form|%>
 
-                <div class="card-header card-header-icon ">
+                      <div class="card-header card-header-icon ">
                   <div class="card-icon bg-hudson ">
                     <i class="material-icons">perm_identity</i>
                   </div>
-                  <h4 class="card-title text-light">Edit Profile -
-                    <small class="category text-light">Complete contact profile</small>
+
+                <h4 class="card-title text-light text-left">Contact / Facts
+
+
+
+
+                                <button class="btn btn-success pull-right" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
+   show and hide contact form
+  </button>
                   <button type="submit" class="btn btn-danger pull-right">Save Changes</button>
                   </h4>
                 </div>
                 <div class="card-body">
 
          <div class="card-body">
+
+
+<div class="collapse" id="form-collapse">
+
+
             <div>
-               <div class=>
+               <div >
                   <div class="row">
                      <div class="col-sm-4">
                      </div>
@@ -248,7 +266,7 @@
          </div>
 
    </div>
-</div>
+
 <!-- wizard container -->
                     <div class="row">
                       <div class="col-md-5">
@@ -323,19 +341,7 @@
                         </div>
                       </div>
                     </div>
-
-                    <div class="clearfix"></div>
-
-                </div>
-              </div>
-              <div class="card card-5  text-right">
-                <div class="card-header card-header-icon ">
-                  <div class="card-icon bg-hudson ">
-                    <i class="material-icons">perm_identity</i>
-                  </div>
-
-                <h4 class="card-title text-light text-left">Contact / Facts
-                  <div class="form-check pull-right">
+                <div class="form-check pull-right">
                   <label class="form-check-label ">
                      <%= form.check_box :verified, id: :contact_verified, class: 'form-check-input text-success ' %>
 
@@ -345,7 +351,12 @@
                  <p class=" mb-3">  <%= @contact.verified ? 'Yes' : 'No' %>, Contact has beeen verified.</p>
                   </label>
                 </div>
-                </span>
+                    <div class="clearfix"></div>
+
                 </div>
-                </h4>
+              </div>
+              </div>
+
+
                  <% end %>
+
