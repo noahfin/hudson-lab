@@ -27,7 +27,7 @@ class Group < ApplicationRecord
  :total_number_of_employees=> "total_number_of_employees",
  :primary_industry=> "primary_industry",
  :year_of_Founding=>  "year_of_Founding",
- :owns_cents=> "owns_cents",
+ :owns_cents=> "owns_rents",
  :email=> "email",
  :company=>  "company",
  :phone=>  "phone",
