@@ -54,8 +54,13 @@ $(document).on('click', '.new-form', function(event) {
 
 
 $(document).on('turbolinks:load', function() {
-
+$('.select_u_picker').attr("data-actions-box", "true");
   var i = 1;
+
+ $('body').on('click', '.btn-finish', function(event) {
+  $('form').prop( "disabled", false );
+  $(this).closest('form').submit();
+ });
 
 $('body').on('click', '#close-form', function(event) {
   document.location.reload(true);
