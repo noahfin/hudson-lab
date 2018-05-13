@@ -388,33 +388,40 @@
 
                             <div class="form-check form-check-inline ">
                               <label class="bmd-label-floating ">Broker:</label>
-                                <%= form.check_box :role, {:class => "employee mr-1", }, "broker", "potential_customer" %> |
+                              <input type="checkbox" name="contact[role]" value="broker">
+                              |
                              </div>
 
                               <div class="form-check form-check-inline">
                                <label class="bmd-label-floating">Agent:</label>
-                                <%= form.check_box :role, {:class => "employee  mr-1", }, "agent", "potential_customer" %> |
+                                  <input type="checkbox" name="contact[role]" value="agent">
+                                 |
                              </div>
 
                              <div class="form-check form-check-inline">
                                   <label class="bmd-label-floating " >Owner:</label>
-                                <%= form.check_box :role, {:class => "employee ", }, "owner", "potential_customer" %> |
+                                  <input type="checkbox" name="contact[role]" value="owner">
+                                 |
                              </div>
                              <div class="form-check form-check-inline">
                                   <label class="bmd-label-floating mr-1 ml-2  pt-2">Buyer:</label>
-                                <%= form.check_box :role, {:class => "employee  mr-1", }, "buyer", "potential_customer" %> |
+                                   <input type="checkbox" name="contact[role]" value="buyer">
+                              |
                              </div>
                              <div class="form-check form-check-inline">
                                   <label class="bmd-label-floating mr-1 ml-2  pt-2">Employee:</label>
-                                <%= form.check_box :role, {:class => "employee  mr-1", }, "employee", "potential_customer" %> |
+                                   <input type="checkbox" name="contact[role]" value="employee">
+                               |
                              </div>
                              <div class="form-check form-check-inline">
                                   <label class="bmd-label-floating mr-1 ml-2  pt-2">Management:</label>
-                                <%= form.check_box :role, {:class => "employee  mr-1", }, "management", "potential_customer" %> |
+                                    <input type="checkbox" name="contact[role]" value="management">
+                              |
                              </div>
                              <div class="form-check form-check-inline">
                                   <label class="bmd-label-floating mr-1   ml-2  pt-2">Peronal:</label>
-                              <%= form.check_box :role, {:class => "employee  mr-1", }, "peronal", "potential_customer" %>
+                                   <input type="checkbox" name="contact[role]" value="peronal">
+
                             </div>
                           </div>
                          </div>
