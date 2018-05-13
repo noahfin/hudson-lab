@@ -1,29 +1,10 @@
-<div class="container-fluid">
-<div class="row">
-<div class="col-md-8">
-<div class="card card-5" >
-
-<div class="card-header card-header-icon ">
-   <div class="card-icon bg-hudson ">
-      <i class="material-icons">perm_identity</i>
-   </div>
-   <h4 class="card-title text-light text-left">Contact / Facts
-      <button class="btn btn-success pull-right" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
-      Edit Contact
-      </button>
-
-   </h4>
-</div>
-<div class="card-body">
-   <div class="card-body">
-      <div class="collapse" id="form-collapse">
 <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
 <%= render 'layouts/messages' if !flash.empty? %>
   <div class="row">
     <div class="col-md-6">
 
             <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Full Name</label>
+              <label for="name" class="cols-sm-2 control-label">Full Name</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -32,7 +13,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">First Name</label>
+              <label for="name" class="cols-sm-2 control-label">First Name</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -41,7 +22,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Middle Name</label>
+              <label for="name" class="cols-sm-2 control-label">Middle Name</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -50,7 +31,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Last Name</label>
+              <label for="name" class="cols-sm-2 control-label">Last Name</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -60,7 +41,7 @@
             </div>
 
             <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Company Name</label>
+              <label for="name" class="cols-sm-2 control-label">Company Name</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -69,7 +50,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Suffix</label>
+              <label for="name" class="cols-sm-2 control-label">Suffix</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -78,7 +59,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Owns Or Rents</label>
+              <label for="name" class="cols-sm-2 control-label">Owns Or Rents</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -87,7 +68,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Year Of Founding</label>
+              <label for="name" class="cols-sm-2 control-label">Year Of Founding</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -96,7 +77,7 @@
               </div>
             </div>
                   <div class="form-group">
-              <label for="name" class="cols-sm-2 control-label pl-4">Primary Industry</label>
+              <label for="name" class="cols-sm-2 control-label">Primary Industry</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -106,7 +87,7 @@
             </div>
 
             <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label pl-4">Web Address</label>
+              <label for="email" class="cols-sm-2 control-label">Web Address</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -116,7 +97,7 @@
             </div>
 
             <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label pl-4">Latitude</label>
+              <label for="username" class="cols-sm-2 control-label">Latitude</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
@@ -126,7 +107,7 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label pl-4">longitude</label>
+              <label for="password" class="cols-sm-2 control-label">longitude</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -141,7 +122,7 @@
 
 
             <div class="form-group">
-              <label for="confirm" class="cols-sm-2 control-label pl-4">Type</label>
+              <label for="confirm" class="cols-sm-2 control-label">Type</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -151,7 +132,7 @@
             </div>
 
             <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label pl-4">Total Number Of Employees</label>
+              <label for="email" class="cols-sm-2 control-label">Total Number Of Employees/label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -162,10 +143,10 @@
             </div>
 
             <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label pl-4">Position</label>
+              <label for="username" class="cols-sm-2 control-label">Position</label>
               <div class="cols-sm-10">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                   <%= form.text_field :postion, id: :contacts_postion, class: 'form-control text-white' %>
 
                 </div>
@@ -173,7 +154,7 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label pl-4">Sic</label>
+              <label for="password" class="cols-sm-2 control-label">Sic</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -183,18 +164,18 @@
             </div>
 
             <div class="form-group">
-              <label for="confirm" class="cols-sm-2 control-label pl-4">Address</label>
+              <label for="confirm" class="cols-sm-2 control-label">Address</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <input type="text" name="contact[address]" id="c-add-hidden" class= "form-control text-white">
+                  <%= form.text_field :address, id: :contact_address, class: 'form-control text-white' %>
 
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label pl-4">Street Number</label>
+              <label for="email" class="cols-sm-2 control-label">Your Email</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -205,7 +186,7 @@
             </div>
 
             <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label pl-4">Strret Nname</label>
+              <label for="username" class="cols-sm-2 control-label">Strret Nname</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
@@ -215,7 +196,7 @@
             </div>
 
             <div class="form-group">
-              <label for="password" class="cols-sm-2 control-label pl-4">City</label>
+              <label for="password" class="cols-sm-2 control-label">City</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -224,11 +205,11 @@
               </div>
             </div>
                 <div class="form-group">
-              <label for="confirm" class="cols-sm-2 control-label  mt-4 pl-4 pt-4">County</label>
+              <label for="confirm" class="cols-sm-2 control-label">County</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                 <select class="selectpicker county-select mt-4 pt-2" name="contact[county]" data-style="select-with-transition" title="Single Select">
+                 <select class="selectpicker county-select " name="contact[county]" data-style="select-with-transition" title="Single Select">
                   <option value="Select County"> Select County </option>
                   <option value="Dutchess"> Dutchess </option>
                   <option value="Ulster"> Ulster </option>
@@ -247,7 +228,7 @@
                </select>
 
             <div class="form-group">
-              <label for="confirm" class="cols-sm-2 control-label pl-4">State</label>
+              <label for="confirm" class="cols-sm-2 control-label">State</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -257,7 +238,7 @@
             </div>
 
             <div class="form-group">
-              <label for="email" class="cols-sm-2 control-label pl-4">Country</label>
+              <label for="email" class="cols-sm-2 control-label">Country</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -267,7 +248,7 @@
             </div>
 
             <div class="form-group">
-              <label for="username" class="cols-sm-2 control-label pl-4">Postal Code</label>
+              <label for="username" class="cols-sm-2 control-label">Postal Code</label>
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
@@ -389,29 +370,5 @@
                               </div>
                            </div>
                         </div>
-
-
-
-
-            </div>
-         </div>
-      </div>
-       </div>
-         <!-- wizard container -->
-
-         <div class="form-check pull-right">
-            <label class="form-check-label ">
-               <%= form.check_box :verified, id: :contact_verified, class: 'form-check-input text-success ' %>
-               <span class="form-check-sign text-success "  style="color:green">
-               <span class="check text-success"></span>
-               </span>
-               <p class=" mb-3">  <%= @contact.verified ? 'Yes' : 'No' %>, Contact has beeen verified.</p>
-            </label>
-         </div>
-         <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd">Save Changes </button>
-         <div class="clearfix"></div>
-      </div>
-
-
-
-<% end %>
+                        <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd">Save Changes </button>
+                  <% end %>

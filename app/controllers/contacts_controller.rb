@@ -40,6 +40,7 @@ class ContactsController < ApplicationController
   def update
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     if @contact.update(contact_params)
+
       user_reltionships(@contact)
       flash[:success] = "Contact was successfully updated."
       redirect_to contacts_path(previous_query_string)

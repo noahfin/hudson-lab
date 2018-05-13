@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504192119) do
+ActiveRecord::Schema.define(version: 20180511201435) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -137,6 +137,27 @@ ActiveRecord::Schema.define(version: 20180504192119) do
     t.index ["deal_id"], name: "index_issues_on_deal_id"
     t.index ["property_id"], name: "index_issues_on_property_id"
     t.index ["user_id"], name: "index_issues_on_user_id"
+  end
+
+  create_table "leads", force: :cascade do |t|
+    t.string "name"
+    t.string "business"
+    t.string "address"
+    t.string "email"
+    t.string "date"
+    t.string "phone"
+    t.string "number"
+    t.string "size_requirement"
+    t.string "location_need"
+    t.string "time_requirement"
+    t.text "notes"
+    t.boolean "active"
+    t.integer "contact_id"
+    t.integer "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_leads_on_contact_id"
+    t.index ["property_id"], name: "index_leads_on_property_id"
   end
 
   create_table "personal_messages", force: :cascade do |t|
