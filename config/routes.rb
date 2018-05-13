@@ -16,6 +16,7 @@
     resources :groups
     resources :tasks
     resources :touches
+    resources :leads
 
     get'/dashboard', to: 'dashboard#index'
 

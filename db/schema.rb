@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180511201435) do
+ActiveRecord::Schema.define(version: 20180513135143) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20180511201435) do
     t.integer "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["contact_id"], name: "index_leads_on_contact_id"
     t.index ["property_id"], name: "index_leads_on_property_id"
   end

@@ -6,6 +6,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
   has_many :touches, class_name: 'Touch'
+  has_many :leads, class_name: 'Lead'
   has_many :current_users, -> { users }, class_name: 'User'
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },
   :s3_credentials => "#{Rails.root}/config/s3.yml",

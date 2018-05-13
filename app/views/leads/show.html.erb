@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lead.name %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @lead.business %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @lead.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @lead.email %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @lead.date %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @lead.phone %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @lead.number %>
+</p>
+
+<p>
+  <strong>Size requirement:</strong>
+  <%= @lead.size_requirement %>
+</p>
+
+<p>
+  <strong>Location need:</strong>
+  <%= @lead.location_need %>
+</p>
+
+<p>
+  <strong>Time requirement:</strong>
+  <%= @lead.time_requirement %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @lead.notes %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @lead.contact %>
+</p>
+
+<%= link_to 'Edit', edit_lead_path(@lead) %> |
+<%= link_to 'Back', leads_path %>
