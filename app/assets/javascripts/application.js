@@ -37,7 +37,11 @@ $(window).resize(function() {
     }
 
 })
+
 $(document).on('click', '#property-submit', function(event) {
+  $(this).closest('form').submit();
+  });
+$(document).on('click', '.submit', function(event) {
   $(this).closest('form').submit();
   });
   var i = 1;

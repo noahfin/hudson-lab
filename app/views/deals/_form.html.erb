@@ -19,7 +19,7 @@
      <div class="cols-sm-10">
         <div class="input-group">
            <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-              <%= form.text_field :name, id: :deal_name, class: 'form-control' %>
+              <%= form.text_field :name, id: :deal_name, class: 'form-control text-white' %>
         </div>
      </div>
   </div>
@@ -30,7 +30,7 @@
      <div class="cols-sm-10">
         <div class="input-group">
            <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-      <%= form.text_field :code, id: :deal_code, class: 'form-control' %>        </div>
+      <%= form.text_field :code, id: :deal_code, class: 'form-control text-white' %>        </div>
      </div>
   </div>
 
@@ -39,7 +39,7 @@
      <div class="cols-sm-10">
         <div class="input-group">
            <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-          <%= form.text_field :category, id: :deal_category, class: 'form-control' %>
+          <%= form.text_field :category, id: :deal_category, class: 'form-control text-white' %>
         </div>
      </div>
   </div>
@@ -53,7 +53,7 @@
            <div class="form-check mr-auto">
                 <label class="form-check-label mt-1">
                   <%= form.check_box :active, id: :deal_active, class: 'form-check-input' %>
-                  <input class="form-check-input ml-" type="checkbox" value="" required="" aria-required="true"> Is the deal active?
+                  <input class="form-check-input text-white" type="checkbox" value="" required="" aria-required="true"> Is the deal active?
                   <span class="form-check-sign">
                     <span class="check"></span>
                   </span>
@@ -69,7 +69,7 @@
      <div class="cols-sm-10">
         <div class="input-group">
            <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-        <%= form.text_field :potential_commission, id: :deal_potential_commission, class: 'form-control' %>
+        <%= form.text_field :potential_commission, id: :deal_potential_commission, class: 'form-control text-white' %>
 
         </div>
      </div>
@@ -81,7 +81,7 @@
      <div class="cols-sm-10">
         <div class="input-group">
            <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-      <%= form.text_field :lead_id, id: :deal_lead_id, class: 'form-control' %>        </div>
+      <%= form.text_field :lead_id, id: :deal_lead_id, class: 'form-control text-white' %>        </div>
      </div>
   </div>
 
@@ -170,7 +170,7 @@
                             </div>
                         </div>
   <div class="form-group">
-    <%= form.submit class: 'btn btn-info' %>
+    <%= form.submit class: 'btn btn-info submit' %>
   </div>
 <% end %>
 </div>
