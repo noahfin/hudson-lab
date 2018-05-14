@@ -4,7 +4,7 @@ class DealsController < ApplicationController
     @deals = Deal.all.order(created_at: :desc).page(params[:page])
    end
    def new
-     @property = Deal.new
+     @deal = Deal.new
 
    end
    def edit
