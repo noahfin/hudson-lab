@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
   before_action :find_property, only: [:edit, :update, :destroy, :show]
    def index
-    @properties = Deal.all.order(created_at: :desc).page(params[:page])
+    @deals = Deal.all.order(created_at: :desc).page(params[:page])
    end
    def new
      @property = Deal.new
