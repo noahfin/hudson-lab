@@ -1,13 +1,76 @@
-<div class="col-md-10 col-md-offset-1">
-  <div class="jumbotron text-center card-5">
-    <h2 class="display-3 text-light">Hello <%= current_user.first_name %></h2>
-    <p class="lead text-light">Welcom to the Hudson Commercial Contact Manger App</p>
+<div class="col-md-12">
 
-    <p class="lead">
-      <%= link_to "mange your Contacts ", contacts_path, class: "btn bg-gray-dark btn-lg" %>
-    </p>
-  </div>
-  <h1>Your conversations</h1>
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <div class="card-icon">
+               <i class="material-icons">business</i>
+              </div>
+              <p class="card-category">Lead</p>
+              <h3 class="card-title"><%= Lead.count %></h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="/leads/" >View all Leads</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-rose card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">equalizer</i>
+              </div>
+              <p class="card-category">Deals</p>
+              <h3 class="card-title"><%= Deal.count %></h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                  <%= link_to deals_path do %>
+                    <i class="material-icons pb-2"">local_offer</i> View All Deals
+                  <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">store</i>
+              </div>
+              <p class="card-category">Revenue</p>
+              <h3 class="card-title">$34,245</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons pb-2">date_range</i> Last 24 Hours
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">person</i>
+              </div>
+              <p class="card-category">Contacs</p>
+              <h3 class="card-title">+<%= Contact.count %></h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <%= link_to contacts_path do %>
+                    <i class="material-icons pb-2">update</i> View Contacts
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="conversations">
 

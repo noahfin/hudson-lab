@@ -1,49 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <p id="notice"><%= notice %></p>
 
-<h1>Leads</h1>
+  <h1>Leads</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Business</th>
-      <th>Address</th>
-      <th>Email</th>
-      <th>Date</th>
-      <th>Phone</th>
-      <th>Number</th>
-      <th>Size requirement</th>
-      <th>Location need</th>
-      <th>Time requirement</th>
-      <th>Notes</th>
-      <th>Contact</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table class="table">
+      <thead>
+          <tr>
 
-  <tbody>
-    <% @leads.each do |lead| %>
-      <tr>
-        <td><%= lead.name %></td>
-        <td><%= lead.business %></td>
-        <td><%= lead.address %></td>
-        <td><%= lead.email %></td>
-        <td><%= lead.date %></td>
-        <td><%= lead.phone %></td>
-        <td><%= lead.number %></td>
-        <td><%= lead.size_requirement %></td>
-        <td><%= lead.location_need %></td>
-        <td><%= lead.time_requirement %></td>
-        <td><%= lead.notes %></td>
-        <td><%= lead.contact %></td>
-        <td><%= link_to 'Show', lead %></td>
-        <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
-        <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <th class="text-center">Name</th>
+              <th class="text-center">Business</th>
+              <th class="text-center">Address</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Date</th>
+              <th class="text-center">Phone</th>
+              <th class="text-center">Number</th>
+              <th class="text-center">Size requirement</th>
+              <th class="text-center">Location need</th>
+              <th class="text-center">Time requirement</th>
+              <th class="text-center">Notes</th>
+              <th class="text-center">Contact</th>
 
-<br>
+              <th class="text-right">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @leads.each do |lead| %>
+          <tr>
 
-<%= link_to 'New Lead', new_lead_path %>
+          <td class="text-center"><%= lead.name %></td>
+          <td class="text-center"><%= lead.business %></td>
+          <td class="text-center"><%= lead.address %></td>
+          <td class="text-center"><%= lead.email %></td>
+          <td class="text-center"><%= lead.date %></td>
+          <td class="text-center"><%= lead.phone %></td>
+          <td class="text-center"><%= lead.number %></td>
+          <td class="text-center"><%= lead.size_requirement %></td>
+          <td class="text-center"><%= lead.location_need %></td>
+          <td class="text-center"><%= lead.time_requirement %></td>
+          <td class="text-center"><%= lead.notes %></td>
+          <td class="text-center"><%= lead.contact.first_name if lead.contact.first_name %> <%= lead.contact.last_name  if  lead.contact.last_name %></td>
+
+              <td class="td-actions text-right">
+                  <%= link_to lead, class: 'btn btn-info', rel: 'tooltip', title: 'View' do %>
+                      <i class="material-icons">person</i>
+                  <% end %>
+
+                  <%= link_to edit_lead_path(lead), class: 'btn btn-success', rel: 'tooltip', title: 'Edit' do %>
+                      <i class="material-icons">edit</i>
+                  <% end %>
+
+                    <%= link_to lead, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", rel: 'tooltip', title: 'Delete' do %>
+                      <i class="material-icons">close</i>
+                   <% end %>
+              </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+  <br>
+
+  <%= link_to 'New Lead', new_lead_path, class: 'btn-info' %>
+</div>
+

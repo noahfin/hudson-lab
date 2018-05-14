@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513135143) do
+ActiveRecord::Schema.define(version: 20180514134008) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20180513135143) do
     t.string "total_number_of_employees"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "contacts_deals", id: false, force: :cascade do |t|
+    t.integer "deal_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "deal_id"], name: "index_contacts_deals_on_contact_id_and_deal_id"
+    t.index ["deal_id", "contact_id"], name: "index_contacts_deals_on_deal_id_and_contact_id"
   end
 
   create_table "contacts_groups", id: false, force: :cascade do |t|

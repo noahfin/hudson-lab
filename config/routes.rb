@@ -17,7 +17,7 @@
     resources :tasks
     resources :touches
     resources :leads
-
+    resources :deals
     get'/dashboard', to: 'dashboard#index'
 
     resources :properties do
