@@ -19,7 +19,7 @@
     resources :leads
     resources :deals
     get'/dashboard', to: 'dashboard#index'
-
+    match "touches/contact/:id" => "touches#contact", as: :contact_touches, via: [:get, :post]
     resources :properties do
      get 'category', on: :collection
      resources :posts

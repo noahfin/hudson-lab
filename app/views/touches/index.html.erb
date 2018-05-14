@@ -5,15 +5,15 @@
 <table class="table card-5">
   <thead>
     <tr >
-      <th class="p-3  text-muted">Email</th>
-      <th class="p-3  text-muted">Phone</th>
-      <th class="p-3  text-muted">Postcard</th>
-      <th class="p-3  text-muted">Social media</th>
-      <th class="p-3  text-muted">In person</th>
-      <th class="p-3  text-muted">Letter</th>
-      <th class="p-3  text-muted">Description</th>
-      <th class="p-3  text-muted">Contact</th>
-      <th class="p-3  text-muted">Actions</th>
+      <th class="p-3  text-white">Email</th>
+      <th class="p-3  text-white">Phone</th>
+      <th class="p-3  text-white">Postcard</th>
+      <th class="p-3  text-white">Social media</th>
+      <th class="p-3  text-white">In person</th>
+      <th class="p-3  text-white">Letter</th>
+      <th class="p-3  text-white">Description</th>
+      <th class="p-3  text-white">Contact</th>
+      <th class="p-3  text-white">Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,11 +28,11 @@
         <td class="p-3"><%= touch.in_person %></td>
         <td class="p-3"><%= touch.letter %></td>
         <td class="p-3"><%= touch.description %></td>
-        <td class="p-3"><%= link_to contact_path(touch.contact.id) do  %>
+        <td class="p-3"><%= link_to contact_path(touch.contact.id), class: 'text-info' do  %>
           <%= touch.contact.name %>
           <% end %>
         </td>
-        <td class="p-3"><%= link_to 'Show', touch %></td>
+        <td class="p-3"><%= link_to 'Show', touch, class: "text-white" %></td>
         <td class="p-3"> <%= link_to  edit_touch_path(touch), class: 'btn btn-success' do  %>
            <i class="material-icons">edit</i>
            <% end %>
@@ -50,6 +50,6 @@
 
 <br>
 
-<%= link_to 'New Touch', new_touch_path %>
+<%= link_to 'New Touch', new_touch_path, class: 'text-white' %>
 
 
