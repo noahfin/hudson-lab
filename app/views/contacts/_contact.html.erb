@@ -15,10 +15,13 @@
       <div class="media-body">
         <h4 class="media-heading text-info">
      <%= link_to contact_path(contact.id), class: 'text-info' do %>
-        <%= contact.first_name if contact.first_name %> <%= contact.last_name if contact.first_name %>
-        <% if contact.name &&  !contact.first_name %>
-          <%= contact.name %>
-        <% else %>
+
+        <% if contact.first_name || contact.last_name %>
+          <%= contact.first_name if contact.first_name %>
+          <%= contact.last_name if contact.last_name %>
+        <% elsif contact.name %>
+          <%= contact.name  %>
+           <% else contact.name %>
           No Name
         <% end %>
       <% end %>
