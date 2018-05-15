@@ -15,7 +15,7 @@ class TouchesController < ApplicationController
  def contact
 
  @contact = Contact.find(params[:id])
- @touches = @contact.touches
+ @touches = @contact.contact_touches
  render :index
  end
   # GET /touches/new
