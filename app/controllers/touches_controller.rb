@@ -34,6 +34,13 @@ class TouchesController < ApplicationController
 
     respond_to do |format|
       if @touch.save
+
+        params['contact_ids'].each_with_index do |c_id, i|
+          next if c_id.to_i == 0
+         contact = Contact.find(c_id.to_i)
+
+          @touch.contacts << contact
+         end
         format.html { redirect_to @touch, notice: 'Touch was successfully created.' }
         format.json { render :show, status: :created, location: @touch }
       else

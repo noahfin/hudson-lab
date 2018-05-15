@@ -5,7 +5,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :user
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
-  has_many :touches
+  has_and_belongs_to_many  :contact_touches, -> { touches }, class_name: 'Touch'
   has_many :leads
   has_many :current_users, -> { users }, class_name: 'User'
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },

@@ -146,13 +146,22 @@
          <%= touch.description %>
       </p>
       <% end %>
-      <p>
-         <% if touch.contact.name %>
+
+      <% if @touch.contacts %>
+          <% @touch.contacts.each do |contact| %>
+       <p>
          <strong>Contact:</strong>
-         <%= touch.contact.name %>
+         <% if contact.name %>
+            <%= contact.name %>
+           <% elsif contact.first_name %>
+             <%= contact.first_name %>
+            <%= contact.last_name if contact.last_name   %>
+          <% else %>
+             <%= contact.company if contact.company   %>
+          <% end %>
       </p>
       <% end %>
-      contact_touches
+       <% end %>
 
       <span> <%= link_to 'Edit', edit_touch_path(touch), class: 'text-success' %>
 
@@ -160,7 +169,15 @@
       <hr>
       <% end %>
       <% end %>
-            <%= link_to 'All touches', touches_path, class: 'text-info' %>
+      <div class="row">
+         <div class="col-md-6">
+             <%= link_to 'All touches', touches_path, class: 'text-info' %>
+          </div>
+          <div class="col-md-6">
+             <%= link_to 'New Touch', new_touch_path, class: 'text-info pull-right pt-1' %>
+          </div>
+      </div>
+
    </div>
 </div>
 </div>

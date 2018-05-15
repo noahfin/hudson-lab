@@ -1,3 +1,3 @@
 class Touch < ApplicationRecord
-  belongs_to :contact
+   has_and_belongs_to_many  :contacts
 end

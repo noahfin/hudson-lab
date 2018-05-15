@@ -35,10 +35,26 @@
   <%= @touch.description %>
 </p>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @touch.contact.name %>
-</p>
+      <% if @touch.contacts %>
+          <% @touch.contacts.each do |contact| %>
+       <p>
+         <strong>Contact:</strong>
+         <% if contact.name %>
+            <%= contact.name %>
+           <% elsif contact.first_name %>
+             <%= contact.first_name %>
+            <%= contact.last_name if contact.last_name   %>
+          <% else %>
+             <%= contact.company if contact.company   %>
+          <% end %>
+      </p>
+      <% end %>
+       <% end %>
+
+
+
+      <hr>
+
 
 <%= link_to 'Edit', edit_touch_path(@touch) %> |
 <%= link_to 'Back', touches_path %>
