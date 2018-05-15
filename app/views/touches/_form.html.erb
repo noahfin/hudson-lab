@@ -104,6 +104,16 @@
       </label>
    </div>
   </div>
+    <div class="form-group">
+     <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Select contacts by group</label>
+     <div class="cols-sm-10">
+        <div class="input-group">
+           <span class="input-group-addon"><i class="material-icons pr-4">group</i></span>
+         <%= collection_select(:group, :id, Group.all, :id, :name, prompt: true) %>
+
+        </div>
+     </div>
+  </div>
 
   <div class="form-group">
     <%= form.label :description, class: 'bmd-label-floating' %>

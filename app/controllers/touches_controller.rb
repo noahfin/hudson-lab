@@ -21,6 +21,7 @@ class TouchesController < ApplicationController
   # GET /touches/new
   def new
     @touch = Touch.new
+    @groups = Group.all
   end
 
   # GET /touches/1/edit
@@ -30,12 +31,22 @@ class TouchesController < ApplicationController
   # POST /touches
   # POST /touches.json
   def create
+    group = Group.find(params['group']['id'])
+    contact_id = []
+     group.contacts.each do |contact|
+      contact_id << contact.id.to_s
+    end
     @touch = Touch.new(touch_params)
 
     respond_to do |format|
       if @touch.save
+        if  params['group']
+             contact_array = contact_id
+         else
 
-        params['contact_ids'].each_with_index do |c_id, i|
+        contact_array = params['contact_ids']
+      end
+        contact_array.each_with_index do |c_id, i|
           next if c_id.to_i == 0
          contact = Contact.find(c_id.to_i)
 
