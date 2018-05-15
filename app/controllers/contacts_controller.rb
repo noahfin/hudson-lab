@@ -61,12 +61,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      @contact.group_ids = params['contact'][:group_id]
 
-        params['contact'][:group_id].each do |g_id|
-          next if g_id.to_i == 0
-         group = Group.find(g_id.to_i)
-          @contact.groups << group
-         end
 
             params['contact']['user_id'].each do |u_id|
             next if u_id.to_i == 0
