@@ -220,7 +220,7 @@ $('.get-contacts').autocomplete({
 
     $('#term').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 3,
+        minLength: 4,
         select: function(event, ui) {
             $('#term').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString();
