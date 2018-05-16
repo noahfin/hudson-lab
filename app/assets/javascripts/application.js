@@ -187,6 +187,10 @@ event.preventDefault();
 
     });
 
+  //send contact search form
+ $(document).on('click', '#send-search', function() {
+  $(this).closest('form').submit();
+ })
 
     $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function() {
         history.pushState({}, '', $(this).attr('href'));
