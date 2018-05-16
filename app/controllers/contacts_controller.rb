@@ -43,6 +43,7 @@ class ContactsController < ApplicationController
     if @contact.update(contact_params)
 
       user_reltionships(@contact)
+
       flash[:success] = "Contact was successfully updated."
       redirect_to contacts_path(previous_query_string)
     else
@@ -91,6 +92,9 @@ class ContactsController < ApplicationController
   end
 
   def previous_query_string
+    if params[:group_id]
+       session[:selected_group_id] = params[:group_id]
+    end
     session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
   end
 

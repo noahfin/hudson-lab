@@ -211,7 +211,9 @@ $('.get-contacts').autocomplete({
         minLength: 2,
         select: function(event, ui) {
             $('#term').val(ui.item.value);
-            $('#send-search').click();
+            var uri = '/contacts/'+ui.item.id.toString();
+            $('.c-s-form').attr('action', uri).submit();
+
         }
     });
 
