@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
     else
       @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
     end
-    render 'index', turbolinks: true, change: 'contacts'
+
   end
 
   def autocomplete

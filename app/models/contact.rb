@@ -25,7 +25,7 @@ class Contact < ApplicationRecord
   end
 
   scope :search, -> (term) do
-    where('name like :term or first_name like :term or last_name like :term or company like :term or email like :term', term: "%#{term.downcase}%") if term.present?
+    where('name like :term or first_name like :term or last_name like :term or company like :term or email like :term', term: "%#{term}%") if term.present?
 
   end
 

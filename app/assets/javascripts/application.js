@@ -39,7 +39,7 @@ $(window).resize(function() {
 })
 
 $(document).on('click', '#property-submit', function(event) {
-  $(this).closest('form').submit();
+
   });
 $(document).on('click', '.submit', function(event) {
   $(this).closest('form').submit();
@@ -220,7 +220,7 @@ $('.get-contacts').autocomplete({
 
     $('#term').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 4,
+        minLength: 2,
         select: function(event, ui) {
             $('#term').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString();
