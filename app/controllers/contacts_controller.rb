@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
   def autocomplete
     session[:selected_group_id] = params[:group_id]
-    @contacts = current_user.contacts.search(params[:term]).order
+    @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page
   end
 
   def inport
