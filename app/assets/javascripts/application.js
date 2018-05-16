@@ -58,6 +58,13 @@ $(document).on('click', '.new-form', function(event) {
 
 
 $(document).on('turbolinks:load', function() {
+
+ $('body').on('click', '.btn-back', function(event) {
+  window.history.back();
+ });
+
+
+
 $('.select_u_picker').attr("data-actions-box", "true");
   var i = 1;
 
@@ -205,6 +212,7 @@ $('.get-contacts').autocomplete({
            contact_ids_prop_i ++;
         }
     });
+
 
     $('#term').autocomplete({
         source: '/contacts/autocomplete',

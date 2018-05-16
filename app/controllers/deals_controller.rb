@@ -24,6 +24,7 @@ class DealsController < ApplicationController
 
    end
    def create
+
       @deal = Deal.new(deal_params)
       if @deal.save
 
@@ -60,7 +61,7 @@ class DealsController < ApplicationController
    private
 
     def deal_params
-      params.require(:property).permit(:name, :code, :category, :active, :potential_commission, :contact_ids)
+      params.require(:deal).permit(:name, :code, :category, :active, :potential_commission, :contact_ids)
     end
     def find_property
       @deal = Deal.find params[:id]

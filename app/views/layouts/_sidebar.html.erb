@@ -180,14 +180,39 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item text-white ">
+        <li class="nav-item text-white ">
         <a class="nav-link" data-toggle="collapse" href="#properties">
+          <i class="material-icons">how_to_reg</i>
+          <p>  Touches
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="properties">
+          <ul class="nav">
+            <li class="nav-item ">
+               <%= link_to touches_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> AT </span>
+                <span class="sidebar-normal"> All Touches</span>
+               <% end %>
+            </li>
+            <li class="nav-item ">
+               <%= link_to new_touch_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> NT </span>
+                <span class="sidebar-normal"> New Touch </span>
+              <% end %>
+            </li>
+
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#touches">
           <i class="material-icons">store</i>
           <p>  Properties
             <b class="caret"></b>
           </p>
         </a>
-        <div class="collapse" id="properties">
+        <div class="collapse" id="touches">
           <ul class="nav">
             <li class="nav-item ">
                <%= link_to properties_path, class: 'nav-link'  do %>
@@ -207,6 +232,56 @@
                 <span class="sidebar-normal"> Vector Map </span>
               </a>
             </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#deals">
+          <i class="material-icons">contact_phone</i>
+          <p>  Deals
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="deals">
+          <ul class="nav">
+            <li class="nav-item ">
+               <%= link_to deals_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> AD </span>
+                <span class="sidebar-normal"> All Deals</span>
+               <% end %>
+            </li>
+            <li class="nav-item ">
+               <%= link_to new_deal_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> ND </span>
+                <span class="sidebar-normal"> New Deal </span>
+              <% end %>
+            </li>
+
+          </ul>
+        </div>
+      </li>
+        <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#leads">
+          <i class="material-icons">business</i>
+          <p>  Leads
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="leads">
+          <ul class="nav">
+            <li class="nav-item ">
+               <%= link_to leads_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> AL </span>
+                <span class="sidebar-normal"> All Leads</span>
+               <% end %>
+            </li>
+            <li class="nav-item ">
+               <%= link_to new_lead_path, class: 'nav-link'  do %>
+                <span class="sidebar-mini"> NL </span>
+                <span class="sidebar-normal"> New Lead </span>
+              <% end %>
+            </li>
+
           </ul>
         </div>
       </li>

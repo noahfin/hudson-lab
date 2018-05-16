@@ -1,7 +1,7 @@
 class Deal < ApplicationRecord
   has_many :posts
   has_many :issues
-
+   has_and_belongs_to_many :contacts
   has_many :complaining_users, through: :issues,  source: :user
   def average_ratings
    return 0 if posts.empty?
