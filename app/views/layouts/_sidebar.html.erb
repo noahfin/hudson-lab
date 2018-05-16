@@ -22,16 +22,16 @@
         <div class="collapse " id="collapseExample">
           <ul class="nav text-white">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+                <%= link_to current_user, class: 'nav-link'  do %>
                 <span class="sidebar-mini"> MP </span>
                 <span class="sidebar-normal"> My Profile </span>
-              </a>
-            </li>
+              <% end %>
+             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <%= link_to  edit_user_registration_path, class: 'nav-link'   do %>
                 <span class="sidebar-mini"> EP </span>
                 <span class="sidebar-normal"> Edit Profile </span>
-              </a>
+              <% end %>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
