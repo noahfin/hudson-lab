@@ -2,14 +2,21 @@ class ContactsController < ApplicationController
   include ContactsHelper
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
   before_action :my_contacts, only: [:edit  ]
-
+   protect_from_forgery except: :index
   def index
     @contact = Contact.new
     session[:selected_group_id] = params[:group_id]
     if params[:group_id] && !params[:group_id].empty?
       my_contacts
+
     else
+
       @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
+
+
+
+
+
     end
 
   end
@@ -84,7 +91,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :group_id, :contact_id, :role, :verified, :avatar,{:user_id => []}, {:group_id => []})
+    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :group_id, :contact_id, :role, :verified, :avatar,{:user_id => []}, {:group_id => []})
   end
 
   def find_contact
@@ -104,5 +111,6 @@ class ContactsController < ApplicationController
       @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
       end
   end
+
 
 end
