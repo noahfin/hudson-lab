@@ -24,9 +24,9 @@ class Contact < ApplicationRecord
 
   end
 
-  scope :search, -> (term) do
+  def self.search(term)
+    where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
 
-    Contact.where('name like :term or first_name like :term or last_name like :term or company like :term or email like :term', term: term) if term.present?
 
   end
 
