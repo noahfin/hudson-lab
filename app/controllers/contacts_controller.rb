@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def index
     @contact = Contact.new
     session[:selected_group_id] = params[:group_id]
-    if params[:group_id] && !params[:group_id].empty?
+    if !params[:term] && !params[:group_id].empty?
       my_contacts
     else
       @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page(params[:page])
