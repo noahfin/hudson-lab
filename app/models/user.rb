@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
   has_many :personal_messages, dependent: :destroy
-  enum role: [:user, :customer, :employee, :admin]
+  enum role: [:user, :customer, :employee, :agent, :broker, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
