@@ -2,6 +2,7 @@
 
 <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6">
+         <a href="/leads/" >
         <div class="card card-stats">
             <div class="card-header card-header-warning card-header-icon">
               <div class="card-icon">
@@ -12,13 +13,15 @@
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
-                    <a href="/leads/" >View all Leads</a>
+                    <i class="material-icons text-warning">warning</i>
+                    View all Leads
                 </div>
             </div>
         </div>
+         </a>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
+      <%= link_to deals_path do %>
         <div class="card card-stats">
             <div class="card-header card-header-rose card-header-icon">
               <div class="card-icon">
@@ -29,12 +32,13 @@
             </div>
             <div class="card-footer">
                 <div class="stats">
-                  <%= link_to deals_path do %>
-                    <i class="material-icons pb-2"">local_offer</i> View All Deals
-                  <% end %>
+
+                    <i class="material-icons pb-2 text-danger">local_offer</i> View All Deals
+
                 </div>
             </div>
         </div>
+      <% end %>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
@@ -47,12 +51,13 @@
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i class="material-icons pb-2">date_range</i> Last 24 Hours
+                    <i class="material-icons pb-2 text-success">date_range</i> Last 24 Hours
                 </div>
             </div>
         </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
+       <%= link_to contacts_path do %>
         <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
@@ -63,13 +68,14 @@
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <%= link_to contacts_path do %>
-                    <i class="material-icons pb-2">update</i> View Contacts
-                    <% end %>
+
+                    <i class="material-icons pb-2 text-info">update</i> View Contacts
+
                 </div>
             </div>
         </div>
     </div>
+   <% end %>
 </div>
 
 <div id="conversations">
