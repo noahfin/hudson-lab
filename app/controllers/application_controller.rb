@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation])
   end
   def get_groups
-    @groups = current_user.groups.uniq if current_user
+    @groups = current_user.groups.order('name ASC').uniq if current_user
     @contacts = current_user.contacts.uniq if current_user
   end
 end

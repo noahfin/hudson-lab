@@ -83,10 +83,10 @@
         <div class="collapse" id="componentsExamples">
           <ul class="nav text-white ">
             <li class="nav-item ">
-              <a class="nav-link" href="/contacts/new/">
+              <%= link_to new_contact_path, class: "text-info  mt-4" do %>
                 <span class="sidebar-mini"> NC </span>
                 <span class="sidebar-normal"> New Contact </span>
-              </a>
+              <% end %>
             </li>
                <li class="nav-item ">
                 <%= link_to new_touch_path, class: "nav-link" do %>

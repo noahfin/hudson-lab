@@ -2,23 +2,16 @@ class ContactsController < ApplicationController
   include ContactsHelper
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
   before_action :my_contacts, only: [:edit  ]
-   protect_from_forgery except: :index
+  protect_from_forgery except: :index
+
   def index
     @contact = Contact.new
     session[:selected_group_id] = params[:group_id]
-    if params[:group_id] && !params[:group_id].empty?
-      my_contacts
-
+    if params[:term] && !params[:term].empty?
+     @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page
     else
-
-      @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page
-
-
-
-
-
+      my_contacts
     end
-
   end
 
   def autocomplete
@@ -109,6 +102,10 @@ class ContactsController < ApplicationController
       @users = User.all
       if params[:group_id] && !params[:group_id].empty?
       @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
+    else
+
+            @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
+
       end
   end
 
