@@ -24,11 +24,13 @@ class Contact < ApplicationRecord
 
   end
 
-  def self.search(term)
-    where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
-
-
+ def self.search(term)
+  if term
+    where('name LIKE ?', "%#{term}%")
+  else
+    all
   end
+end
 
 
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
