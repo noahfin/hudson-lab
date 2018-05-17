@@ -23,13 +23,12 @@ class Contact < ApplicationRecord
     self.role ||= :potential_customer
 
   end
-
- def self.search(term)
-  if term
-    where('name LIKE ?', "%#{term}%")
-  else
-    all
-  end
+def self.search(search)
+  search_condition = "%" + search + "%"
+  SELECT * from plants
+  WHERE common_name ILIKE '?%'
+    OR latin_name ILIKE '?%';
+  where("name ILIKE ? OR first_name ILIKE ? OR last_name ILIKE ? OR company ILIKE ?", search_condition, search_condition, search_condition, search_condition)
 end
 
 
