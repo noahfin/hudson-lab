@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
   require 'roo'
+  include PgSearch
   include ContactsHelper
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :user
@@ -19,12 +20,15 @@ class Contact < ApplicationRecord
   enum role: [:broker, :agent, :owner, :buyer, :lessor, :employee, :management, :peronal, :potential_customer]
   after_initialize :set_default_role, :if => :new_record?
 
+ pg_search_scope :search, against: [:name, :first_name, :last_name, :company, :email]
+
   def set_default_role
     self.role ||= :potential_customer
 
   end
 
   def self.search(term)
+
     where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
 
 

@@ -18,6 +18,7 @@
     resources :touches
     resources :leads
     resources :deals
+    resources :search, only: [:index]
     get'/dashboard', to: 'dashboard#index'
     match "touches/contact/:id" => "touches#contact", as: :contact_touches, via: [:get, :post]
     resources :properties do

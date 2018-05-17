@@ -25,7 +25,7 @@ gem 'aws-sdk'
 gem 'emoji'
 gem 'csv'
 gem 'simple_form'
-
+gem 'pg_search'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

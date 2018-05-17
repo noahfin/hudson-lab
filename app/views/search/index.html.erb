@@ -1,0 +1,39 @@
+<div class="container-fluid pt-0">
+   <div class="row pt-0">
+      <div class="col-md-3" id="sidenav"><%= render 'layouts/sidenav' %>
+      </div>
+      <div class="col-md-9   ">
+         <div class="card card-5 mt-4 pt-0">
+            <div class="card-header card-header-icon ">
+               <span>
+                  <H3 class="pl-3 pb-4 ">Contacts<a data-toggle="modal" data-target="#myModal" class="" title="">&nbsp;<i class="fa fa-file-excel-o text-info"></i></a></H3>
+               </span>
+            </div>
+            <div class="panel panel-default mt-3 card-5">
+               <table class="table" id="contacts"><%= render  @contacts %>
+               </table>
+               <% if @contacts.blank? %>
+               <div class="panel-footer message">
+                  <div class="alert alert-warning">
+                     <strong>Record not found</strong>
+                  </div>
+                  <% end %>
+               </div>
+               <div class="text-center p-3" id="pagin">
+                  <nav>
+                  </nav>
+               </div>
+               <div class="modal fade" id="form-modal"  >
+                  <div class="container">
+                     <div class="col-md-9 mr-auto ml-auto">
+                        <div class="modal-body" id="form-modal-body"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Modal -->
+<%= render 'modalcsv' %>

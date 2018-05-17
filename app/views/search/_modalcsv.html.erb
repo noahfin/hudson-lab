@@ -1,0 +1,73 @@
+<div id="myModal" class="modal fade  bd-example-modal-lg  modal-size-xl" role="dialog">
+<div class="modal-dialog  modal-size-xl" >
+<div class="modal-content modal-size-xl card-6">
+<div class="modal-header b-bottom pb-4">
+   <button type="button" class="close" data-dismiss="modal">&times;</button>
+   <h4 class="modal-title text-left text-light">Import CSV for Contacts</h4>
+</div>
+<div class="modal-body b-bottom">
+   <%= form_tag inport_contacts_path, multipart: true do %>
+   <div class="row" style="width 100% !important;">
+      <div class="col-md-12 text-white mb-4">
+         <label class=" text-white ml-2" >Choose file<small>(required)</small></label>
+         <div class="fileinput fileinput-new input-group pt-3" data-provides="fileinput">
+            <span class="input-group-addon btn bg-hudson text-white btn-file ml-2"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span> <%= file_field_tag :file %></span>
+            <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
+            <br> <br>
+            <div class="col-md-12 ">
+               <div class="form-control ml-0 text-white" data-trigger="fileinput"><i class="fa fa-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-12">
+      <% Group.all.each.each_slice(4) do |group| %>
+      <div class="col-md-12 mb-3">
+         <div class="row">
+            <% group.each do |group| %>
+            <div class="col-md-3">
+               <div class="togglebutton p-2">
+                  <label>
+                  <input type="checkbox" name="group_id[]"  value=
+                     <%="#{group.id}" if group.id %> class="users-for-new-group"/>
+                  <span class="toggle"></span>
+                  <span class="text-white"><%= group.name %>
+                  </span>
+                  </label>
+               </div>
+            </div>
+            <% end %>
+         </div>
+       <hr class="bg-light">
+      </div>
+      <% end %>
+   </div>
+   <div class="col-md-12">
+
+      <% User.all.each.each_slice(6) do |user| %>
+      <div class="col-md-12">
+         <div class="row">
+            <% user.each do |user| %>
+            <%  next if !user.first_name  %>
+            <div class="col-md-2">
+               <div class="togglebutton ">
+                  <label>
+                  <input type="checkbox" name="input[]" checked="true" value=
+                     <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                  <span class="toggle"></span>
+                  <span class="text-white"><%= user.first_name if user.first_name %>
+                  </span>
+                  </label>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+      <% end %>
+   </div>
+   <div class="modal-footer b-top">
+      <hr>
+      <%= submit_tag "Import CSV", class: "btn bg-hudson" %>
+   </div>
+   <% end %>
+</div>
