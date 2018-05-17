@@ -25,10 +25,7 @@ class Contact < ApplicationRecord
   end
 def self.search(search)
   search_condition = "%" + search + "%"
-  SELECT * from plants
-  WHERE common_name ILIKE '?%'
-    OR latin_name ILIKE '?%';
-  where("name ILIKE ? OR first_name ILIKE ? OR last_name ILIKE ? OR company ILIKE ?", search_condition, search_condition, search_condition, search_condition)
+  where("name LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_condition, search_condition, search_condition)
 end
 
 
