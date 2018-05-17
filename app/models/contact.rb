@@ -23,10 +23,12 @@ class Contact < ApplicationRecord
     self.role ||= :potential_customer
 
   end
-def self.search(search)
-  search_condition = "%" + search + "%"
-  where("name LIKE ? OR first_name LIKE ? OR last_name LIKE ?", search_condition, search_condition, search_condition)
-end
+
+  def self.search(term)
+    where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
+
+
+  end
 
 
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
