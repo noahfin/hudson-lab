@@ -3,6 +3,6 @@ json.array!(@contacts) do |contact|
   if contact.first_name
   json.value contact.first_name + ' ' + contact.last_name
   else
-     json.value contact.name + ' ' + contact.company
+     json.value contact.name
    end
 end
