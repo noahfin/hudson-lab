@@ -188,9 +188,7 @@ event.preventDefault();
     });
 
   //send contact search form
- $(document).on('click', '#send-search', function() {
-  $(this).closest('form').submit();
- })
+
 
     $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function() {
         history.pushState({}, '', $(this).attr('href'));
@@ -218,11 +216,11 @@ $('.get-contacts').autocomplete({
     });
 
 
-    $('#term').autocomplete({
+    $('#query').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 2,
         select: function(event, ui) {
-            $('#term').val(ui.item.value);
+            $('#query').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString();
             $('.c-s-form').attr('action', uri).submit();
 

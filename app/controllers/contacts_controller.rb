@@ -7,16 +7,20 @@ class ContactsController < ApplicationController
   def index
     @contact = Contact.new
     session[:selected_group_id] = params[:group_id]
-    if params[:query]
-     @contacts = Contact.search(params[:query]).page(params[:page])
+    if params[:query].present?
+       @contacts = Contact.search(params[:query]).order('name ASC').page(params[:page])
     else
       my_contacts
     end
+    respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   def autocomplete
     session[:selected_group_id] = params[:group_id]
-    @contacts = current_user.contacts.search(params[:term]).order(created_at: :desc).page
+    @contacts = Contact.contact_search(params[:query])
   end
 
   def inport
