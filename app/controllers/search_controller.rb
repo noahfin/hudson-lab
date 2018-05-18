@@ -1,10 +1,12 @@
 class SearchController < ApplicationController
-def index
-   if params[:query].present?
-     @contacts = Contact.search(params[:query])
+def create
+     if params[:query].present?
+       @contacts = Contact.search(params[:query]).order('name ASC').page(params[:page])
 
-   else
-     @Contacts = Contact.all
-   end
- end
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    end
+  end
 end

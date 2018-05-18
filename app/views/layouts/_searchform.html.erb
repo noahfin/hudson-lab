@@ -1,7 +1,9 @@
-<%= form_with url: search_index_path,   format: 'js', :method=> 'get', remote:  true, :class=> 'form-inline navbar-form my-2 my-lg-0 c-s-form',
- :authenticity_token => true do |form|%><%= hidden_field_tag :group_id, params[:group_id] %>
-<%= text_field_tag :query, params[:query], class: "form-control form-control-lg mr-sm-2 ", placeholder: "Name" %>
-<button type="submit" class="btn btn-outline-info btn-round btn-just-icon" id="send-search">
+
+
+
+<%= form_for(@search, remote: true, authenticity_token: true) do |f| %>
+  <%= text_field_tag :query, params[:query], class: "form-control form-control-lg mr-sm-2 ", placeholder: "Name" %>
+<button type="submit" class="btn btn-outline-info btn-round btn-just-icon" >
   <i class="material-icons">search</i>
   <div class="ripple-container"></div>
 </button>

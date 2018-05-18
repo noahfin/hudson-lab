@@ -1,1 +1,5 @@
-<%= render 'table' %>
+$('#contacts').html('<%= escape_javascript render(@contacts, ajax_true: true) %>').fadeIn(250);
+$('#pagin').html('<%= escape_javascript paginate(@contacts, remote: true) %>');
+$('#sidenav').html('<%= escape_javascript render("layouts/sidenav") %>');
+
+$('#group_id').val('<%= params[:group] %>');

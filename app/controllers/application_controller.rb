@@ -34,5 +34,6 @@ class ApplicationController < ActionController::Base
   def get_groups
     @groups = current_user.groups.order('name ASC').uniq if current_user
     @contacts = current_user.contacts.uniq if current_user
+    @search = Search.new
   end
 end
