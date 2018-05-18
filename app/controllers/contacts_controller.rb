@@ -20,7 +20,9 @@ class ContactsController < ApplicationController
 
   def autocomplete
     session[:selected_group_id] = params[:group_id]
-    @contacts = Contact.contact_search(params[:query])
+    query = params[:query]
+    @contacts = Contact.where('name LIKE ? OR first_name LIKE ? OR last_name LIKE ? OR company LIKE ? OR email LIKE ?', "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")
+
   end
 
   def inport

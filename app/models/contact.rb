@@ -27,11 +27,9 @@ class Contact < ApplicationRecord
 
   end
 
-  def self.contact_search(term)
-    find_by_sql("
-  SELECT * FROM contacts
-  WHERE name LIKE '%#{term}%' or  first_name LIKE '%#{term}%' or  last_name LIKE '%#{term}%' or  company LIKE '%#{term}%' or  email LIKE '%#{term}%';
-")
+  def self.search(term)
+
+    where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
 
 
   end
