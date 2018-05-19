@@ -126,6 +126,19 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
      background-size: cover;
      -o-background-size: cover;
 }
+.page-header-2  {
+  height: 100%;
+  margin-top: 0px;
+  background:
+    linear-gradient(
+rgba(0,0,0,.5), rgba(0, 0, 0,1)
+    ),
+    image-url('purple-1.jpg') no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     background-size: cover;
+     -o-background-size: cover;
+}
 .property-card {
    background-image:  no-repeat center center fixed;
      -webkit-background-size: cover;
@@ -286,7 +299,10 @@ html,body, .content {
 }
 .login-form {
     width: 340px;
-    margin: 50px auto;
+    margin: 200px auto;
     z-index: 99999;
+    position: relative;
+    margin-top: -10%;
+
 
 }
