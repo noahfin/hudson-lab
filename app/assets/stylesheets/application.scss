@@ -30,6 +30,9 @@
 .bg-tree {
   background-color: #3e474f !important;
 }
+.bg-footer{
+  background-color: #242424 !important;
+}
 .card-5 {
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   background-color: #000 !important;
@@ -81,7 +84,9 @@
 }
 .bg-dark-secondary {
   background-color:  #232526 !important;
-
+}
+.bg-grey.bg-darken-3 {
+    background-color: #424242 !important;
 }
 .bg-trans {
   background: transparent !important;
@@ -102,7 +107,11 @@
 .dark {
   color: #5bc0de !important;
 }
-
+.white-box {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 15px;
+}
 .input-group input{
   min-width: 100% !important;
 }
@@ -260,4 +269,24 @@ html,body, .content {
 }
 .contact-flow-height {
   height: 100px !important;
+}
+.rounded-0 {
+  border-radius: 0px !important;
+}
+
+// dark form section
+.dark-form-control {
+    border-radius: 0;
+    box-shadow: none;
+    height: 40px;
+    background-color: #353535;
+    border: 1px solid #353535;
+    color: #5c5c5c;
+    width: 100%;
+}
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+    z-index: 99999;
+
 }
