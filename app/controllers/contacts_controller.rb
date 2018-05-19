@@ -71,7 +71,7 @@ class ContactsController < ApplicationController
       @contact.group_ids = params['contact'][:group_id]
 
 
-            params['contact']['user_id'].each do |u_id|
+            params['user_id'].each do |u_id|
             next if u_id.to_i == 0
               user = User.find(u_id.to_i)
            user.contacts << @contact

@@ -367,7 +367,7 @@
                                  <div class="form-group ml-2 mr-0 pr-0 pl-0">
                                     <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
                                     <i class="material-icons">person_add</i>
-                                    Select Users
+                                    Unselect Users
                                     </button>
                                  </div>
                                  <div class="form-group ml-2 mr-0 pr-0 pl-0">
@@ -477,7 +477,29 @@
                            </div>
                            <div class="form-group  pl-3">
                               <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected] = current_user.id.to_i if current_user.id %>
-                                 <label for="cell" class="bmd-label-floating text-light" >Pick users<small>(required)</small></label><%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
+                                   <div class="col-md-12">
+
+                        <% User.all.each.each_slice(6) do |user| %>
+                        <div class="col-md-12">
+                           <div class="row">
+                              <% user.each do |user| %>
+                              <%  next if !user.first_name  %>
+                              <div class="col-md-2">
+                                 <div class="togglebutton pr-4">
+                                    <label>
+                                    <input type="checkbox" name="user_id[]" checked="true" value=
+                                       <%="#{user.id}" if user.first_name %> class="users-for-new-group mr-3"/>
+                                    <span class="toggle"></span>
+                                    <span class="text-white"><%= user.first_name if user.first_name %>
+                                    </span>
+                                    </label>
+                                 </div>
+                              </div>
+                              <% end %>
+                           </div>
+                        </div>
+                        <% end %>
+                     </div>
                               </div>
                            </div>
                         </div>
