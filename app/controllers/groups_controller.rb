@@ -52,11 +52,7 @@ end
   end
   def update
      if @group.update(group_params)
-      params['group']['user_id'].each_with_index do |user, i |
-       user = User.find(user.to_i)
-       main_model = GroupsUser.update(group: @group, user: user)
-      end
-      flash[:warring] = "Group user relationships was successfully created."
+
       flash[:info] = "Group was successfully updated."
       redirect_to group_path(@group)
 
