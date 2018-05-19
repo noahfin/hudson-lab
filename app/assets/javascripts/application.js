@@ -227,7 +227,14 @@ $('.get-contacts').autocomplete({
         }
     });
 
-
+keyUpArray = 0
+$("#query").keyup(function(){
+   keyUpArray++
+   if (keyUpArray > 4) {
+    $('#send-search').trigger( "click" );
+    keyUpArray = 0
+    }
+});
  $('body').on('click', '.save-new-group', function(event) {
         console.log('button clicked')
         var inputs = document.querySelectorAll('ul input[type=checkbox]');
