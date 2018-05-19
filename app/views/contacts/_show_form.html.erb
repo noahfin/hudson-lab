@@ -19,6 +19,17 @@
                     <%= render 'layouts/messages' if !flash.empty? %>
                     <div class="row">
                        <div class="col-md-6">
+
+
+                        <div class="form-group">
+                             <label for="name" class="cols-sm-2 control-label pl-4">Prefix </label>
+                             <div class="cols-sm-10">
+                                <div class="input-group">
+                                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                   <%= form.text_field :prefix, id: :contacts_prefix, class: 'form-control text-white' %>
+                                </div>
+                             </div>
+                          </div>
                           <div class="form-group">
                              <label for="name" class="cols-sm-2 control-label pl-4">Full Name</label>
                              <div class="cols-sm-10">
@@ -69,7 +80,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :suffix, id: :contacts_suffix, class: 'form-control text-white' %>
+                                   <%= form.text_field :suffix, id: :contact_suffix, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -78,7 +89,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :owns_cents, id: :contactnews_owns_cents, class: 'form-control text-white' %>
+                                   <%= form.text_field :owns_cents, id: :contact_owns_cents, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -87,7 +98,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :year_of_Founding, id: :contactnews_year_of_Founding, class: 'form-control text-white' %>
+                                   <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -96,7 +107,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :primary_industry, id: :contacts_primary_industry, class: 'form-control text-white' %>
+                                   <%= form.text_field :primary_industry, id: :contact_primary_industry, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -105,7 +116,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :web_address, id: :contacts_web_address, class: 'form-control text-white' %>
+                                   <%= form.text_field :web_address, id: :contact_web_address, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -114,7 +125,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :latitude, id: :contacts_latitude, class: 'form-control text-white' %>
+                                   <%= form.text_field :latitude, id: :contact_latitude, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -123,7 +134,7 @@
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :longitude, id: :contacts_longitude, class: 'form-control text-white' %>
+                                   <%= form.text_field :longitude, id: :contact_longitude, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -146,12 +157,21 @@
                     </div>
                        </div>
                        <div class="col-md-6">
+                            <div class="form-group">
+                             <label for="name" class="cols-sm-2 control-label pl-4">Email </label>
+                             <div class="cols-sm-10">
+                                <div class="input-group">
+                                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                   <%= form.text_field :email, id: :contact_email, class: 'form-control text-white' %>
+                                </div>
+                             </div>
+                          </div>
                           <div class="form-group">
                              <label for="confirm" class="cols-sm-2 control-label pl-4">Type</label>
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :type, id: :contacts_type, class: 'form-control' %>
+                                   <%= form.text_field :type, id: :contact_type, class: 'form-control' %>
                                 </div>
                              </div>
                           </div>
