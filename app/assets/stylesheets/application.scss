@@ -47,6 +47,16 @@
   min-width: 100% !important;
 }
 }
+@media only screen and (max-width: 750px) {
+.login-form {
+    width: 90%;
+    margin: 200px auto;
+    z-index: 99999;
+    position: relative;
+    margin-top: -10%;
+    left: 0px;
+  }
+}
 .card-6 {
   background: #232526  !important;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
