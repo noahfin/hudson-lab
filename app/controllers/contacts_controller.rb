@@ -110,7 +110,7 @@ class ContactsController < ApplicationController
       @contacts = Group.find(params[:group_id]).contacts.order(created_at: :desc).page(params[:page])
     else
 
-            @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
+            @contacts = current_user.contacts.order(name: :desc).page(params[:page])
 
       end
   end

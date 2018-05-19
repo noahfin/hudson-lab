@@ -10,7 +10,8 @@ module ContactsHelper
        end
 
      if params['contact']['user_id']
-    users = params['contact']['user_id'].to_a
+
+      users = params['contact']['user_id'].to_a
 
     users.each do |user|
       next if user == "" ||  user.to_i < 1
