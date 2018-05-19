@@ -2,7 +2,8 @@ module ContactsHelper
   def user_reltionships(contact)
 
     err = ''
-    if params['contact'][:group_id]
+    group_id = params['contact'][:group_id] if params['contact'][:group_id]
+    if group_id[1].to_i > 0 || group_id[0] != ''
 
 
      contact.group_ids = params['contact'][:group_id]

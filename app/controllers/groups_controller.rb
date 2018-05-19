@@ -51,8 +51,19 @@ end
     params.require(:group).permit(:name, :user_id => [])
   end
   def update
-     if @group.update(group_params)
 
+    contacts = @group.contacts
+    params['group']['user_id'] = contacts.to_a
+     if @group.update(group_params)
+      params['group']['user_id'].each_with_index do |user, i |
+       user = User.find(user.to_i)
+       main_model = GroupsUser.update(group: @group, user: user)
+      end
+
+
+      @group.contacts = contacts
+
+      flash[:warring] = "Group user relationships was successfully created."
       flash[:info] = "Group was successfully updated."
       redirect_to group_path(@group)
 
@@ -81,7 +92,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def group_params
-    params.require(:group).permit(:name,  :contact_id, :user_id => [])
+    params.require(:group).permit(:name,  :contact_id => [], :user_id => [])
   end
 
 end
