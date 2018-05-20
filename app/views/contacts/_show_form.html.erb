@@ -7,7 +7,7 @@
                  <i class="material-icons">perm_identity</i>
               </div>
               <h4 class="card-title text-light text-left">Contact / Facts
-              <%= form_with model: @contact, id: "contact_form_show"  do |form|%>
+              <%= form_with model: @contact, id: "contact_form_show", remote: true  do |form|%>
                  <button class="btn bg-hudson pull-right toggle-contact" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
                  Edit Contact
                  </button>

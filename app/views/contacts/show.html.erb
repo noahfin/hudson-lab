@@ -1,10 +1,12 @@
-<%= render 'show_form' %>
+
+   <%= render 'show_form' %>
+
 <div class="card-body">
    <div class="panel panel-default">
       <div class="panel-heading">
       </div>
       <div class="panel-body col-md-12">
-         <ul class="">
+         <ul id="contact-info">
             <li class="list-group-item text-muted text-left" contenteditable="false">Profile</li>
             <li class="profile-list "><span class="pull-left"><strong class="">Prefix</strong></span> <span class="float-right"> <%= @contact.prefix  if  @contact.prefix  %></span></li>
             <li class="profile-list "><span class="pull-left"><strong class="">First Name</strong></span> <span class="float-right"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
