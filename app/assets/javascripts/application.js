@@ -117,7 +117,10 @@ $('body').on('click', '#close-form', function(event) {
     $(this).text('Save Contact');
   }else {
      u_s = false
-     $('#contact_form_show').submit();
+
+     $(".toggle-contact").prop("type", "submit");
+     $(".toggle-contact").trigger( "click" );
+
 
   }
 
