@@ -1,4 +1,4 @@
-$('#form-modal-body').html('<%= j render("show_form", ajax_true: true) %>' );
+$('#main-c-wrap').html('<%= escape_javascript render(@contat) %>');
 
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box', 'true');
