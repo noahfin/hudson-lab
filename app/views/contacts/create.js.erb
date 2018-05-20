@@ -1,1 +1,5 @@
-<%= render 'table' %>
+$('#contacts').html('<%= escape_javascript render(@contacts) %>');
+$('#sidenav').html('<%= escape_javascript render(@contacts) %>');
+
+$('#pagin').html('<%= escape_javascript paginate(@contacts, remote: true) %>');
+
