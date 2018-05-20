@@ -17,7 +17,7 @@
               <div class="card-body">
                  <div class="collapse bg-footer" id="form-collapse">
                     <%= render 'layouts/messages' if !flash.empty? %>
-
+                     <%=  hidden_field(:contact, :id, :value => @contact.id.to_s, id: 'contact_id_hidden') %>
 
             <div class="row bg-footer">
             <div class="col-lg-3">

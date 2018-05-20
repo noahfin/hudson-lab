@@ -116,9 +116,13 @@ $('body').on('click', '#close-form', function(event) {
       color: '#fff'
 
     });
-      $(this).text('Edit Contact');
-     $(".toggle-contact").prop("type", "submit");
-     $(".toggle-contact").trigger( "click" );
+
+
+
+        $(this).text('Edit Contact');
+
+     showFormSend();
+
       u_s = true
 
   }else {
@@ -132,6 +136,42 @@ $('body').on('click', '#close-form', function(event) {
   }
 
 });
+
+
+
+var showFormSend = function(){
+  var url =  "/contacts/"+$('#contact_id_hidden').val()+"/";
+ $.ajax({
+            url: url,
+            method: "patch",
+            data:  $('#contact_form_show').serialize(),
+            success: function(contact) {
+
+
+
+
+
+            },
+            error: function(err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+}
 
 
 
