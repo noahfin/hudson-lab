@@ -7,7 +7,7 @@
                  <i class="material-icons">perm_identity</i>
               </div>
               <h4 class="card-title text-light text-left">Contact / Facts
-              <%= form_with model: @contact,  :format=> :js, multipart: true, remote: true, :authenticity_token => true, id: "contact_form_show"  do |form|%>
+              <%= form_with model: @contact, id: "contact_form_show"  do |form|%>
                  <button class="btn bg-hudson pull-right toggle-contact" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
                  Edit Contact
                  </button>
@@ -21,47 +21,51 @@
 
             <div class="row bg-footer">
             <div class="col-lg-3">
+              <label class="text-white">Company Name <span class="text-danger">*</span></label>
                <div class="form-group">
-                  <label class="text-white">Company Name <span class="text-danger">*</span></label>
+
                       <div class="">
                         <div class="input-group">
 
-                           <%= form.text_field :company, id: :contact_company, class: 'dark-form-control text-white'%>
+                           <%= form.text_field :company, id: :contact_company, class: 'dark-form-control text-white form-control'%>
                         </div>
                      </div>
 
                </div>
             </div>
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Prefix </label>
                <div class="form-group">
-                  <label class="text-white">Prefix </label>
+
                       <div class="c">
                         <div class="input-group">
 
-                          <%= form.text_field :prefix, id: :contacts_prefix, class: 'dark-form-control text-white' %>
+                          <%= form.text_field :prefix, id: :contacts_prefix, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
                </div>
             </div>
             <div class="col-lg-3">
+               <label class="text-white  bmd-label-floating">First Name</label>
                <div class="form-group">
-                  <label class="text-white">First Name</label>
+
                     <div class="">
                       <div class="input-group">
 
-                        <%= form.text_field :first_name, id: :contact_first_name, class: 'dark-form-control text-white' %>
+                        <%= form.text_field :first_name, id: :contact_first_name, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
 
                </div>
             </div>
             <div class=" col-lg-3">
+              <label class="text-white  bmd-label-floating">Middle Name</label>
                <div class="form-group">
-                  <label class="text-white">Middle Name</label>
+
                   <div class="">
                       <div class="input-group">
 
-                   <%= form.text_field :middle_name, id: :contacts_suffix, class: 'dark-form-control text-white' %>
+                   <%= form.text_field :middle_name, id: :contacts_suffix, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
@@ -71,46 +75,50 @@
 
           <div class="row bg-footer">
               <div class="col-lg-3">
+                 <label class="text-white  bmd-label-floating">Last Name</label>
                <div class="form-group">
-                  <label class="text-white">Last Name</label>
+
                   <div class="">
                       <div class="input-group">
 
-                          <%= form.text_field :last_name, id: :contacts_last_name, class: 'dark-form-control text-white' %>
+                          <%= form.text_field :last_name, id: :contacts_last_name, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
             </div>
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Suffix</label>
                <div class="form-group">
-                  <label class="text-white">Suffix</label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                            <%= form.text_field :suffix, id: :contact_suffix, class: 'dark-form-control text-white' %>
+                            <%= form.text_field :suffix, id: :contact_suffix, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
 
                </div>
             </div>
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Owns Or Rents </label>
                <div class="form-group">
-                  <label class="text-white">Owns Or Rents </label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                           <%= form.text_field :owns_cents, id: :contact_owns_cents, class: 'dark-form-control text-white' %>
+                           <%= form.text_field :owns_cents, id: :contact_owns_cents, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
                </div>
             </div>
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Year Of Founding</label>
                <div class="form-group">
-                  <label class="text-white">Year Of Founding</label>
+
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                        <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: 'dark-form-control text-white' %>
+                        <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
 
@@ -122,46 +130,50 @@
 
           <div class="row bg-footer">
             <div class="col-lg-3">
+               <label class="text-white  bmd-label-floating">Primary Industry</label>
                <div class="form-group">
-                  <label class="text-white">Primary Industry</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                    <%= form.text_field :primary_industry, id: :contact_primary_industry, class: 'dark-form-control text-white' %>
+                    <%= form.text_field :primary_industry, id: :contact_primary_industry, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
             </div>
             <div class="col-lg-3">
+               <label class="text-white  bmd-label-floating">Web Address</label>
                <div class="form-group">
-                  <label class="text-white">Web Address</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                          <%= form.text_field :web_address, id: :contact_web_address, class: 'dark-form-control text-white' %>
+                          <%= form.text_field :web_address, id: :contact_web_address, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
             </div>
             <div class=" col-lg-3">
+              <label class="text-white  bmd-label-floating">Latitude </label>
                <div class="form-group">
-                  <label class="text-white">Latitude </label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                            <%= form.text_field :latitude, id: :contact_latitude, class: 'dark-form-control text-white' %>
+                            <%= form.text_field :latitude, id: :contact_latitude, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
 
                </div>
             </div>
             <div class="col-lg-3">
+                 <label class="text-white  bmd-label-floating">Longitude </label>
                <div class="form-group">
-                  <label class="text-white">Longitude </label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                           <%= form.text_field :longitude, id: :contact_longitude, class: 'dark-form-control text-white' %>
+                           <%= form.text_field :longitude, id: :contact_longitude, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
                </div>
@@ -171,35 +183,38 @@
 
 
             <div class=" col-lg-3">
+              <label class="text-white  bmd-label-floating">Email</label>
                <div class="form-group">
-                  <label class="text-white">Email</label>
+
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                         <%= form.text_field :email, id: :contact_email, class: 'dark-form-control text-white' %>
+                         <%= form.text_field :email, id: :contact_email, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
 
                </div>
             </div>
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Type</label>
                <div class="form-group">
-                  <label class="text-white">Type</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                      <%= form.text_field :type, id: :contact_type, class: 'dark-form-control text-white ' %>
+                      <%= form.text_field :type, id: :contact_type, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
             </div>
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Total Employees</label>
                <div class="form-group">
-                  <label class="text-white">Total Employees</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                         <%= form.text_field :total_number_of_employees, id: :contactnews_total_number_of_employees, class: 'dark-form-control text-white' %>
+                         <%= form.text_field :total_number_of_employees, id: :contactnews_total_number_of_employees, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
@@ -207,12 +222,13 @@
 
 
             <div class="col-lg-3">
+              <label class="text-white  bmd-label-floating">Position </label>
                <div class="form-group">
-                  <label class="text-white">Position </label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                            <%= form.text_field :postion, id: :contacts_postion, class: 'dark-form-control text-white' %>
+                            <%= form.text_field :postion, id: :contacts_postion, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
 
@@ -221,46 +237,50 @@
          </div>
          <div class="row bg-footer">
             <div class="col-sm-6 col-md-6 col-lg-3">
+               <label class="text-white  bmd-label-floating">SIC </label>
                <div class="form-group">
-                  <label class="text-white">SIC </label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                          <%= form.text_field :sic, id: :contacts_sic, class: 'dark-form-control text-white' %>
+                          <%= form.text_field :sic, id: :contacts_sic, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
                </div>
             </div>
             <div class=" col-lg-3">
+              <label class="text-white  bmd-label-floating">Address</label>
                <div class="form-group">
-                  <label class="text-white">Address</label>
+
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                          <input type="text" name="contact[address]" id="c-add-hidden" class= "dark-form-control text-white">
+                          <input type="text" name="contact[address]" id="c-add-hidden" class= "dark-form-control text-white form-control">
                       </div>
                    </div>
 
                </div>
             </div>
             <div class="col-lg-3">
+              <labe class="text-white bmd-label-floating">Street Number</label>
                <div class="form-group">
-                  <labe class="text-white"l>Street Number</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                      <%= form.text_field :street_num, id: :contact_street_num, class: 'dark-form-control text-white' %>
+                      <%= form.text_field :street_num, id: :contact_street_num, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
             </div>
             <div class=" col-lg-3">
+              <labe class="text-white  bmd-label-floating">Street Name</label>
                <div class="form-group">
-                  <labe class="text-white"l>Street Name</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                         <%= form.text_field :strret_name, id: :contact_strret_name, class: 'dark-form-control text-white' %>
+                         <%= form.text_field :strret_name, id: :contact_strret_name, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
@@ -269,24 +289,26 @@
 
           <div class="row bg-footer ">
             <div class="col-lg-3">
+                 <label class="text-white  bmd-label-floating">City <span class="text-danger">*</span></label>
                <div class="form-group">
-                  <label class="text-white">City <span class="text-danger">*</span></label>
+
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                            <%= form.text_field :city, id: :contact_city, class: 'dark-form-control text-white' %>
+                            <%= form.text_field :city, id: :contact_city, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
 
                </div>
             </div>
              <div class=" col-lg-3">
+              <label class="text-white  bmd-label-floating">County</label>
                <div class="form-group">
-                  <label class="text-white">County</label>
+
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                          <input type="text" name="contact[county]" class="dark-form-control text-white">
+                          <input type="text" name="contact[county]" class="dark-form-control text-white form-control">
                       </div>
                    </div>
 
@@ -294,24 +316,26 @@
             </div>
 
             <div class=" col-lg-3">
+              <label class="text-white  bmd-label-floating">state</label>
                <div class="form-group">
-                  <label class="text-white">state</label>
+
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                          <%= form.text_field :state, id: :contact_state, class: 'dark-form-control text-white' %>
+                          <%= form.text_field :state, id: :contact_state, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
 
                </div>
             </div>
-              <div class="col-lg-3"">
+              <div class="col-lg-3">
+                <label class=" bmd-label-floating text-white">Postal Code</label>
              <div class="form-group">
-                <label class="text-white">Postal Code</label>
+
                 <div class="cols-sm-10">
                     <div class="input-group">
 
-                       <%= form.text_field :postal_code, id: :contact_postal_code, class: 'dark-form-control text-white' %>
+                       <%= form.text_field :postal_code, id: :contact_postal_code, class: 'dark-form-control text-white form-control' %>
                     </div>
                  </div>
              </div>
@@ -332,7 +356,7 @@
 
               <label>Users</label>
               <% attr = {prompt: "Select related users"} %>
-                 <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker  " } %>
+                 <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker  " } %>
 
 
 
@@ -343,23 +367,24 @@
             <% group_ids = [] %>
             <%  @group_ids.each_with_index do |group, index| %>
 
-                         <% group_ids[index] = group.group_id %>/>
+                         <% group_ids[index] = group.group_id %>
 
               <% end %>
 
               <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
 
-               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", required: true, class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
+               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
 
            </div>
          </div>
              <div class="col-lg-3">
+              <label class="text-white">Country</label>
              <div class="form-group">
-                  <label class="text-white">Country</label>
+
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                      <%= form.text_field :country, id: :contact_country, class: 'dark-form-control text-white' %>
+                      <%= form.text_field :country, id: :contact_country, class: 'dark-form-control text-white form-control'  %>
                       </div>
                    </div>
                </div>
