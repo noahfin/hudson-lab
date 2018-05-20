@@ -15,11 +15,11 @@
            </div>
 
               <div class="card-body">
-                 <div class="collapse bg-footer" id="form-collapse">
+                 <div class="collapse " id="form-collapse">
                     <%= render 'layouts/messages' if !flash.empty? %>
                      <%=  hidden_field(:contact, :id, :value => @contact.id.to_s, id: 'contact_id_hidden') %>
 
-            <div class="row bg-footer">
+            <div class="row">
             <div class="col-lg-3">
               <label class="text-white">Company Name <span class="text-danger">*</span></label>
                <div class="form-group">
@@ -73,7 +73,7 @@
 
          </div>
 
-          <div class="row bg-footer">
+          <div class="row ">
               <div class="col-lg-3">
                  <label class="text-white  bmd-label-floating">Last Name</label>
                <div class="form-group">
@@ -128,7 +128,7 @@
          </div>
 
 
-          <div class="row bg-footer">
+          <div class="row">
             <div class="col-lg-3">
                <label class="text-white  bmd-label-floating">Primary Industry</label>
                <div class="form-group">
@@ -179,7 +179,7 @@
                </div>
             </div>
           </div>
-          <div class="row bg-footer">
+          <div class="row ">
 
 
             <div class=" col-lg-3">
@@ -235,7 +235,7 @@
                </div>
             </div>
          </div>
-         <div class="row bg-footer">
+         <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-3">
                <label class="text-white  bmd-label-floating">SIC </label>
                <div class="form-group">
@@ -287,7 +287,7 @@
             </div>
          </div>
 
-          <div class="row bg-footer ">
+          <div class="row">
             <div class="col-lg-3">
                  <label class="text-white  bmd-label-floating">City <span class="text-danger">*</span></label>
                <div class="form-group">
@@ -347,7 +347,7 @@
 
 
 
-         <div class="row bg-footer">
+         <div class="row ">
           <div class="col-md-3">
             <label class="text-white">Role</label>
             <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker' }  )%>

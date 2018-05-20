@@ -300,7 +300,9 @@ html,body, .content {
     color: #5c5c5c;
     width: 100%;
 }
-
+.dark-form-control > .form-control{
+  border-bottom: 1px solid #353535 !important;
+}
 .cool-form {
   margin: auto !important;
  width: 340px !important;
