@@ -92,7 +92,7 @@ $('body').on('click', '#close-form', function(event) {
       var address_str =  '';
       if (jQuery.type($('#contact_street_num').val()) === "string")  address_str += $('#contact_street_num').val();
       if (jQuery.type($('#contact_strret_name').val()) === "string")  address_str += ' ' + $('#contact_strret_name').val();
-      if (jQuery.type($('#contact_city').val() === "string")) address_str += ' ' + $('#contact_city').val();
+      if (jQuery.type($('#contact_city').val() === "string")) address_str += ' ' + $('#contact_city').val() + ',';
        if (jQuery.type($('#contact_state').val() === "string")) address_str += ' ' + $('#contact_state').val();
       if (jQuery.type($('#contact_postal_code').val() === "string")) address_str += ' ' +  $('#contact_postal_code').val();
       if (jQuery.type($('#contact_country').val() === "string"))  address_str += ' ' +  $('#contact_country').val();
