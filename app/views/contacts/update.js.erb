@@ -1,1 +1,14 @@
-edit.js.erb
+$('#main-c-wrap').html('<%= escape_javascript render(@contact) %>');
+
+$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
+$('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box', 'true');
+$('.county-select').selectpicker('val', ['Select County','Dutchess','Ulster','Orange','Columbia','Mustard','Sullivan','Greene','westchester']);
+$('.select_u_picker').attr("data-actions-box", "true");
+$(function() {
+        $.notify({
+      title: '<strong>Heads up!</strong>',
+      message: 'Contact Got Updated'
+    },{
+      type: 'info'
+    });
+    });
