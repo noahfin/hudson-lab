@@ -64,7 +64,6 @@ $(document).on('turbolinks:load', function() {
  });
 
 
-
 $('.select_u_picker').attr("data-actions-box", "true");
   var i = 1;
 
@@ -108,18 +107,18 @@ $('body').on('click', '#close-form', function(event) {
 
 
   var u_s = false;
- $(document).on('click', '.u-check-box, .users-for-new-contact', function(event) {
+ $(document).on('click', '.toggle-contact ', function(event) {
 
   if (u_s === false) {
     u_s = true
     $(this).css({
       color: '#4caf50'
     });
+    $(this).text('Save Contact');
   }else {
      u_s = false
-      $(this).css({
-      color: '#6c757d'
-    });
+     $(this).closest('form').submit();
+
   }
 
 });
@@ -134,57 +133,8 @@ event.preventDefault();
         });
 });
     $('body').on('click', '.update_group', function(event) {
-       event.preventDefault();
-        var user_ids = []
 
-        $('.users-for-new-group').each(function(i) {
-            user_ids[i] = $(this).val();
-        });
-
-
-        var newGroup = $('#group_name').val();
-        $.ajax({
-            url: "/groups",
-            method: "post",
-            data: {group: { name: newGroup, user_id: user_ids }},
-            success: function(group) {
-                console.log(group);
-                if (group.id != null) {
-                    var newOption = $('<option selected="true" value="' + group.id.toString() + '">' + group.name + '</option></select>');
-                   if ( $(' p .text-danger'))
-                    {$(' p .text-danger').detach();}
-                    $('#group_name').addClass('has-success')
-
-
-                    $.notify({
-                        title: "New Group Added:",
-                        message: 'The Group: ' + '"' + group.name + '"' + ' was successfuly updated'
-                    });
-
-                    $('#contact_group_id').append(newOption);
-                    $('.selectpicker').selectpicker('render');
-
-                }
-            },
-            error: function(err) {
-
-                var errors = err.responseJSON;
-                var error = errors.join(", ");
-
-                if (error) {
-                    newGroup.next('.text-danger').detach();
-                    $('#new_group').addClass('has-error')
-                        .after('<p class="text-danger pt-2 mb-0">' + error + '</p>');
-                    $.notify({
-                        title: '<strong>Heads up!</strong>',
-                        message: error
-                    }, {
-                        type: 'danger'
-                    });
-                }
-            }
-        })
-
+      $('#edit-group-id').submit();
     });
 
   //send contact search form

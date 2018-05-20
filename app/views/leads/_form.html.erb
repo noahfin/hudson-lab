@@ -1,235 +1,109 @@
 <div class="container">
-
-
-
-
 <%= form_with(model: lead, local: true) do |form| %>
-  <% if lead.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
-
-      <ul>
+<% if lead.errors.any? %>
+<div id="error_explanation">
+   <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+   <ul>
       <% lead.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="row">
-  <div class="col-md-6">
-  <div class="form-group">
-    <%= form.label :name, class: 'bmd-label-floating' %>
-    <%= form.text_field :name, id: :lead_name, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :business, class: 'bmd-label-floating' %>
-    <%= form.text_field :business, id: :lead_business, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :address, class: 'bmd-label-floating' %>
-    <%= form.text_field :address, id: :lead_address, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :email, class: 'bmd-label-floating' %>
-    <%= form.text_field :email, id: :lead_email, class: 'form-control text-white' %>
-  </div>
-
-
-  <div class="form-group">
-    <%= form.label :date, class: 'bmd-label-floating' %>
-    <%= form.text_field :date, id: :lead_date, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :phone, class: 'bmd-label-floating' %>
-    <%= form.text_field :phone, id: :lead_phone, class: 'form-control text-white' %>
-  </div>
-    <div class="form-group">
-    <%= form.label :type, class: 'bmb-floating-lable' %>
-    <%= form.text_field :type, id: :lead_type, class: 'form-control text-white' %>
-  </div>
-
+   </ul>
 </div>
- <div class="col-md-6">
-  <div class="form-group">
-    <label class="bmd-label-floating">Cell Number</label>
-    <%= form.text_field :number, id: :lead_number, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :size_requirement, class: 'bmd-label-floating'  %>
-    <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :location_need, class: 'bmd-label-floating' %>
-    <%= form.text_field :location_need, id: :lead_location_need, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :time_requirement, class: 'bmd-label-floating' %>
-    <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :notes, class: 'bmd-label-floating' %>
-    <%= form.text_area :notes, id: :lead_notes, class: 'form-control text-white' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :contact_id, class: 'bmd-label-floating' %>
-    <%= form.text_field :contact_id, id: :lead_contact_id, class: 'form-control text-white' %>
-  </div>
-          <div class="form-group ml-0 pr-2 pl-0 mt-0">
-        <div class=" mr-0 pl-3">
-            <div class="card-collapse">
-                <div class="card-header  ml-0 mr-0  p3 bg-tree" role="tab" id="headingTwo">
-                    <div class="row">
-
-                        <input class="form-control get-contacts text-white ml-3 mr-2 pl-2" type="text" placeholder="Search" aria-label="Search" id="search-contat-task">
-
-                    </div>
-                    <h5 class="mb-0">
-      <a class="collapsed  pl-2 text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Find the contact
-        <i class="material-icons">keyboard_arrow_down</i>
-      </a>
-    </h5>
-                </div>
-                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body" id="form-contact">
-
-                        <ul class="list-inline p-0">
-                            <li class="list-inline-item">
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                         <%= form.text_field :contact_id, id: :touch_contact_id, class: 'contact1' %>
-
-                                        <p class="c1  text-white">contact 1</p>
-                                        <span class="form-check-sign">
-              <span class="check"></span>
-                                        </span>
-                                    </label>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-   </div>
-  <div class="actions">
-    <%= form.submit class: 'btn btn-info' %>
-  </div>
 <% end %>
-  </div>
-</div>
-
 <div class="row">
-                    <div class="col-md-8 col-md-offset-2 bg-footer">
-                        <form>
-                            <h3 class="page-title">Company Settings</h3>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Company Name <span class="text-danger">*</span></label>
-                                        <input class="dark-form-control" type="text" value="Preadmin">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Contact Person</label>
-                                        <input class="dark-form-control" value="Daniel Porter" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input class="dark-form-control" value="3864 Quiet Valley Lane, Sherman Oaks, CA, 91403" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                        <label>Country</label>
-                                        <select class="dark-form-control select select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                            <option>USA</option>
-                                            <option>United Kingdom</option>
-                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-bt3d-container"><span class="select2-selection__rendered" id="select2-bt3d-container" title="USA">USA</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                        <label>City</label>
-                                        <input class="form-control" value="Sherman Oaks" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                        <label>State/Province</label>
-                                        <select class="dark-form-control select select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                            <option>California</option>
-                                            <option>Alaska</option>
-                                            <option>Alabama</option>
-                                        </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-10ix-container"><span class="select2-selection__rendered" id="select2-10ix-container" title="California">California</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                        <label>Postal Code</label>
-                                        <input class="dark-form-control" value="91403" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input class="dark-form-control" value="danielporter@example.com" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input class="dark-form-control" value="818-978-7102" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Mobile Number</label>
-                                        <input class="dark-form-control" value="818-635-5579" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Fax</label>
-                                        <input class="dark-form-control" value="818-978-7102" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label>Website Url</label>
-                                        <input class="form-control" value="https://www.example.com" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 text-center m-t-20">
-                                    <button type="button" class="btn btn-primary btn-lg">Save &amp; update</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+   <div class="col-md-8 col-md-offset-2 bg-footer">
+      <div class="ml-1">
+         <h3 class="page-title">Lead Form</h3>
+         <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>Company Name <span class="text-danger">*</span></label>
+                  <%= form.text_field :business, id: :lead_business, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>Contact Person</label>
+                  <%= form.text_field :name, id: :lead_name, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="form-group">
+                  <label>Address</label>
+                  <%= form.text_field :address, id: :lead_address, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+               <div class="form-group">
+                  <label>Size Requirement</label>
+                  <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+               <div class="form-group">
+                  <label>Contact Id</label>
+                  <input class="dark-form-control  text-white" type="text" name=lead[contact_id]>
+               </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+               <div class="form-group">
+                  <label>Location Need</label>
+                  <%= form.text_field :location_need, id: :lead_location_need, class: 'dark-form-control text-white' %>
+               </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+               <div class="form-group">
+                  <label>Postal Code</label>
+                  <input class="dark-form-control  text-white"  type="text">
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>Email</label>
+                  <%= form.text_field :email, id: :lead_email, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>Phone Number</label>
+                  <%= form.text_field :phone, id: :lead_phone, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>Mobile Number</label>
+                  <%= form.text_field :number, id: :lead_number, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>Time Requirement</label>
+                  <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="form-group">
+                  <label>Notes</label>
+                  <%= form.text_area :notes, id: :lead_notes, class: 'dark-form-control  text-white' %>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12 text-center m-t-20">
+               <div class="actions">
+                  <%= form.submit class: 'btn btn-info btn-lg' %>
+               </div>
+               <% end %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
