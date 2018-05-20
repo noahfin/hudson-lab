@@ -110,7 +110,7 @@ $('body').on('click', '#close-form', function(event) {
  $(document).on('click', '.toggle-contact ', function(event) {
 
   if (u_s === false) {
-         u_s = true
+
   $(this).css({
       color: '#fff'
 
@@ -118,9 +118,10 @@ $('body').on('click', '#close-form', function(event) {
       $(this).text('Edit Contact');
      $(".toggle-contact").prop("type", "submit");
      $(".toggle-contact").trigger( "click" );
+      u_s = true
 
   }else {
-    u_s = false
+
     $(this).css({
       color: '#4caf50'
     });
