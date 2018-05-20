@@ -106,7 +106,7 @@ $('body').on('click', '#close-form', function(event) {
 });
 
 
-  var u_s = false;
+  var u_s = true;
  $(document).on('click', '.toggle-contact ', function(event) {
 
   if (u_s === false) {
