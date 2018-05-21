@@ -17,8 +17,9 @@
 
       <% @groups.each do |group| %>
         <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'bg-dark' : ''  %>
-          <%= link_to contacts_path(group_id: group.id ), class: "list-group-item text-info #{active}", remote: true do %>
+          <%= link_to contacts_path(group_id: group.id ), class: "list-group-item text-info get-group #{active}", remote: true do %>
             <%= group.name %><span class="badge text-info "><%= group.contacts.count %></span>
+           <%= hidden_field(:contact, :group_id, :value => group.id.to_s, class: 'get-group-id') %>
           <% end %>
       <% end %>
     </div>

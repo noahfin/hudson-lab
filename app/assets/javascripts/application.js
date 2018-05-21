@@ -188,8 +188,25 @@ event.preventDefault();
       $('#edit-group-id').submit();
     });
 
-  //send contact search form
+  //sort contact sub group
+var groupGetId = '';
+  $(document).on('click', '.get-group', function() {
+     groupGetId = $('.get-group-id').val();
+     $('#list-county').find('a.sub-group-link').each(function(){
+       $(this).attr("href", "/contacts?group_id="+groupGetId+"?county="+$(this).attr("value"));
+    })
+  });
 
+
+
+  $(document).on('click', '#contact_sort_btn', function() {
+
+"/contacts?group_id=11"
+
+   $('.send-group-id').val(groupGetId);
+   $('#contact_sort_btn').prop("type", "submit");
+   ('#contact_sort_btn').trigger( "click" );
+  })
 
     $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function() {
         history.pushState({}, '', $(this).attr('href'));
