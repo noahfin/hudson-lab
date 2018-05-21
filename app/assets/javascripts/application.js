@@ -240,7 +240,7 @@ var groupGetId = '';
 
   $(document).on('click', '#contact_sort_btn', function() {
 
-"/contacts?group_id=11"
+
 
    $('.send-group-id').val(groupGetId);
    $('#contact_sort_btn').prop("type", "submit");

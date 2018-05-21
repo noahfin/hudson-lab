@@ -118,7 +118,7 @@ class ContactsController < ApplicationController
         if params['county']
           county = params['county']
           group = Group.find(params[:group_id])
-            @contacts = group.contacts.where('county LIKE ?', "%#{county}%").order('last_name ASC').page(params[:page])
+            @contacts = group.contacts.by_county(county).order('last_name ASC').page(params[:page])
         else
          @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
        end

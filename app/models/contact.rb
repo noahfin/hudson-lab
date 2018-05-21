@@ -21,7 +21,7 @@ class Contact < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
 
  pg_search_scope :search, against: [:name, :first_name, :last_name, :company, :email]
-
+ pg_search_scope :by_county, against: [:county]
   def set_default_role
     self.role ||= :potential_customer
 
