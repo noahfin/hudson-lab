@@ -119,6 +119,7 @@ class ContactsController < ApplicationController
           county = params['county']
           group = Group.find(params[:group_id])
             @contacts = group.contacts.by_county(county).order('last_name ASC').page(params[:page])
+            session[:selected_group_id] = params[:group_id]
         else
          @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
        end
