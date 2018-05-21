@@ -192,9 +192,7 @@ event.preventDefault();
 var groupGetId = '';
   $(document).on('click', '.get-group', function() {
      groupGetId = $('.get-group-id').val();
-     $('#list-county').find('a.sub-group-link').each(function(){
-       $(this).attr("href", "/contacts?group_id="+groupGetId+"?county="+$(this).attr("value"));
-    })
+
   });
 
 

@@ -24,22 +24,24 @@
    <hr>
 
 <ul class="list-group" id="list-county">
-  <li class="list-group-item">  <a class="list-group-item text-info sub-group-link " value="Westchester" data-remote="true" href="">
-                            Westchester
-                           </a></li>
-  <li class="list-group-item">    <a class="list-group-item text-info sub-group-link " value="Dutchess" data-remote="true" href="">
-                            Dutchess
-                           </a></li>
   <li class="list-group-item">
-                            <a class="list-group-item text-info sub-group-link "  value="Ulster" data-remote="true" href="">
-                            Ulster
-                           </a></li>
-  <li class="list-group-item">  <a class="list-group-item text-info sub-group-link "  value="Orange" data-remote="true" href="">
-                            Orange
-                           </a></li>
-  <li class="list-group-item">  <a class="list-group-item text-info sub-group-link" value="Rockland" data-remote="true" href="">
-                            Rockland
-                           </a></li>
+            <%= link_to "Westchester", contacts_path(:group_id => session[:selected_group_id], :county => "Westchester"), class: " text-info", remote: true %>
+ </li>
+  <li class="list-group-item">
+   <%= link_to "Dutchess", contacts_path(:group_id => session[:selected_group_id], :county => "Dutchess"), class: "text-info", remote: true %>
+
+                          </li>
+  <li class="list-group-item">
+                            <%= link_to "Ulster", contacts_path(:group_id => session[:selected_group_id], :county => "Ulster"), class: " text-info", remote: true %>
+
+                           </li>
+                            <%= link_to "Orange", contacts_path(:group_id => session[:selected_group_id], :county => "Orange"), class: " text-info", remote: true %>
+  <li class="list-group-item">
+
+                          </li>
+  <li class="list-group-item">    <%= link_to "Rockland", contacts_path(:group_id => session[:selected_group_id], :county => "Rockland"), class: " text-info", remote: true %>
+
+                       </li>
 </ul>
 
 
