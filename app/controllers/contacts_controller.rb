@@ -48,7 +48,7 @@ class ContactsController < ApplicationController
  end
   def edit
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
-
+  @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
   end
 
   def update
