@@ -112,12 +112,11 @@ $('body').on('click', '#close-form', function(event) {
 
   if (u_s === false) {
 
-  $(this).css({
-      color: '#fff'
-
-    });
 
 
+    var color = $(this).css("color");
+    console.log(color);
+    if (color === 'rgb(76, 175, 80)'){
         var formData = { contact: {
             'name'              :   $('#contact_name').val(),
             'email'             :   $('#contact_email').val(),
@@ -160,7 +159,11 @@ $('body').on('click', '#close-form', function(event) {
 
 
      showFormSend(formData);
+     }
+       $(this).css({
+      color: '#fff'
 
+    });
       u_s = true
 
   }else {
