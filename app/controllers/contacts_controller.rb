@@ -97,7 +97,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :group_id, :contact_id, :role, :verified, :avatar,{:user_id => []}, {:group_id => []})
+    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :group_id, :contact_id, :role, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
   end
 
   def find_contact
@@ -116,7 +116,9 @@ class ContactsController < ApplicationController
       if params[:group_id] && !params[:group_id].empty?
 
         if params['county']
-            @contacts = Group.find(params[:group_id]).contacts.where('county LIKE ?', "%#{ params['county']}%").order('last_name ASC').page(params[:page])
+          county = params['county']
+          group = Group.find(params[:group_id])
+            @contacts = group.contacts.where('county LIKE ?', "%#{county}%").order('last_name ASC').page(params[:page])
         else
          @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
        end

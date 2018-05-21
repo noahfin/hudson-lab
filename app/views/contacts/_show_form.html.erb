@@ -40,7 +40,7 @@
                       <div class="c">
                         <div class="input-group">
 
-                          <%= form.text_field :prefix, id: :contacts_prefix, class: 'dark-form-control text-white form-control' %>
+                          <%= form.text_field :prefix, id: :contact_prefix, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
                </div>
@@ -65,7 +65,7 @@
                   <div class="">
                       <div class="input-group">
 
-                   <%= form.text_field :middle_name, id: :contacts_suffix, class: 'dark-form-control text-white form-control' %>
+                   <%= form.text_field :middle_name, id: :contact_suffix, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
@@ -81,7 +81,7 @@
                   <div class="">
                       <div class="input-group">
 
-                          <%= form.text_field :last_name, id: :contacts_last_name, class: 'dark-form-control text-white form-control' %>
+                          <%= form.text_field :last_name, id: :contact_last_name, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
@@ -214,7 +214,7 @@
                   <div class="cols-sm-10">
                       <div class="input-group">
 
-                         <%= form.text_field :total_number_of_employees, id: :contactnews_total_number_of_employees, class: 'dark-form-control text-white form-control' %>
+                         <%= form.text_field :total_number_of_employees, id: :contact_total_number_of_employees, class: 'dark-form-control text-white form-control' %>
                       </div>
                    </div>
                </div>
@@ -228,7 +228,7 @@
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                            <%= form.text_field :postion, id: :contacts_postion, class: 'dark-form-control text-white form-control' %>
+                            <%= form.text_field :postion, id: :contact_postion, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
 
@@ -243,7 +243,7 @@
                       <div class="cols-sm-10">
                         <div class="input-group">
 
-                          <%= form.text_field :sic, id: :contacts_sic, class: 'dark-form-control text-white form-control' %>
+                          <%= form.text_field :sic, id: :contact_sic, class: 'dark-form-control text-white form-control' %>
                         </div>
                      </div>
                </div>
@@ -255,7 +255,7 @@
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                          <input type="text" name="contact[address]" id="c-add-hidden" class= "dark-form-control text-white form-control">
+                          <input type="text" name="contact[address]" id="contact_address" class= "dark-form-control text-white form-control">
                       </div>
                    </div>
 
@@ -308,7 +308,7 @@
                     <div class="cols-sm-10">
                       <div class="input-group">
 
-                          <input type="text" name="contact[county]" class="dark-form-control text-white form-control">
+                          <input type="text" name="contact[county]" class="dark-form-control text-white form-control" id="contact_county">
                       </div>
                    </div>
 
@@ -356,7 +356,7 @@
 
               <label>Users</label>
               <% attr = {prompt: "Select related users"} %>
-                 <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker  " } %>
+                 <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_users "  }  %>
 
 
 

@@ -118,10 +118,48 @@ $('body').on('click', '#close-form', function(event) {
     });
 
 
+        var formData = { contact: {
+            'name'              :   $('#contact_name').val(),
+            'email'             :   $('#contact_email').val(),
+            'company'           :   $('#contact_company').val(),
+             'address'          :   $('#contact_address').val(),
+            'cell'              :   $('#contact_cell').val(),
+            'county'            :   $('#contact_county').val(),
+             'state'            :   $('#contact_state').val(),
+            'country'           :   $('#contact_country').val(),
+            'postal_code'       :   $('#contact_postal_code').val(),
+             'notes'            :   $('#contact_notes').val(),
+            'city'              :   $('#contact_city').val(),
+            'street_num'        :   $('#contact_street_num').val(),
+             'strret_name'      :   $('#contact_strret_name').val(),
+            'prefix'            :   $('#contact_prefix').val(),
+            'first_name'        :   $('#contact_first_name').val(),
+             'middle_name'      :   $('#contact_middle_name').val(),
+            'last_name'         :   $('#contact_last_name').val(),
+            'suffix'            :   $('#contact_suffix').val(),
+             'owns_cents'       :   $('#contact_owns_cents').val(),
+            'year_of_Founding'  :   $('#contact_year_of_Founding').val(),
+            'primary_industry'  :   $('#contact_primary_industry').val(),
+             'web_address'      :   $('#contact_web_address').val(),
+            'latitude'          :   $('#contact_latitude').val(),
+            'longitude'         :   $('#contact_longitude').val(),
+            'type'              :   $('#contact_type').val(),
+            'facility_size'     :   $('#contact_facility_size').val(),
+            'total_number_of_employees' :   $('#contact_facility_size').val(),
+            'postion'           :   $('#contact_postion').val(),
+            'sic'               :   $('#contact_sic').val(),
+            'role'              :   $('#contact_role').val(),
+           'group_id'           :   $('#contact_group_id').val(),
+            'user_id'           :   $('.select_users').val(),
+            'verified'          :   $('#contact_verified').val()
 
-        $(this).text('Edit Contact');
 
-     showFormSend();
+        }
+
+      }
+
+
+     showFormSend(formData);
 
       u_s = true
 
@@ -139,12 +177,12 @@ $('body').on('click', '#close-form', function(event) {
 
 
 
-var showFormSend = function(){
+var showFormSend = function(data){
   var url =  "/contacts/"+$('#contact_id_hidden').val()+"/";
  $.ajax({
             url: url,
             method: "patch",
-            data:  $('#contact_form_show').serialize(),
+            data: data,
             success: function(contact) {
 
 
