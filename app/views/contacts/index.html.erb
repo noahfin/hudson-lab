@@ -25,21 +25,21 @@
 
 <ul class="list-group" id="list-county">
   <li class="list-group-item">
-            <%= link_to "Westchester", contacts_path(:group_id => params[:group_id] ||= session[:selected_group_id], :county => "Westchester County"), class: " text-info", remote: true %>
+            <%= link_to "Westchester", contacts_path(:group_id => params[:group_id], :county => "Westchester County"), class: " text-info", remote: true %>
  </li>
   <li class="list-group-item">
-   <%= link_to "Dutchess", contacts_path(:group_id => params[:group_id] ||= session[:selected_group_id], :county => "Dutchess County"), class: "text-info", remote: true %>
+   <%= link_to "Dutchess", contacts_path(:group_id => params[:group_id] , :county => "Dutchess"), class: "text-info", remote: true %>
 
                           </li>
   <li class="list-group-item">
-                            <%= link_to "Ulster", contacts_path(:group_id => params[:group_id] ||= session[:selected_group_id], :county => "Ulster County"), class: " text-info", remote: true %>
+                            <%= link_to "Ulster", contacts_path(:group_id => params[:group_id], :county => "Ulster County"), class: " text-info", remote: true %>
 
                            </li>
-                            <%= link_to "Orange", contacts_path(:group_id => params[:group_id] ||= session[:selected_group_id], :county => "Orange County"), class: " text-info", remote: true %>
+                            <%= link_to "Orange", contacts_path(:group_id => params[:group_id], :county => "Orange County"), class: " text-info", remote: true %>
   <li class="list-group-item">
 
                           </li>
-  <li class="list-group-item">    <%= link_to "Rockland", contacts_path(:group_id => params[:group_id] ||= session[:selected_group_id], :county => "Rockland County"), class: " text-info", remote: true %>
+  <li class="list-group-item">    <%= link_to "Rockland", contacts_path(:group_id => params[:group_id], :county => "Rockland County"), class: " text-info", remote: true %>
 
                        </li>
 </ul>
