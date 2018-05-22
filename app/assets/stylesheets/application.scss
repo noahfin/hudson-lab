@@ -51,6 +51,15 @@
 }
 }
 @media only screen and (max-width: 650px) {
+  .main-container {
+    padding: 5px !important;
+  }
+  .main-contact-panel {
+    overflow: hidden;
+  }
+  table {
+    overflow: scroll;
+  }
 .cool-form  {
     width: 90%;
     margin: auto !important;
