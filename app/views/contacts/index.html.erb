@@ -4,7 +4,7 @@
       </div>
       <div class="col-md-9   ">
          <div class="card card-5 mt-4 pt-0">
-            <div class="card-header card-header-icon ">
+            <div class="card-header card-header-icon r-padding-card">
                <span>
                   <H3 class="pl-3 pb-4 ">
                      Contacts<a data-toggle="modal" data-target="#myModal" class="" title="">&nbsp;<i class="fa fa-file-excel-o text-info"></i></a>
@@ -43,6 +43,24 @@
                      </div>
                   </H3>
                </span>
+               <div class="hide-form">
+                <div class="col-md-12 ">
+
+              <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline') do |f| %>
+
+<ul class="list-inline float-right">
+   <li class="list-inline-item"><%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %></li>
+   <li class="list-inline-item">     <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button></li>
+
+</ul>
+
+        <% end %>
+
+         </div>
+               </div>
             </div>
             <div class="panel panel-default mt-3 card-5 main-contact-panel">
                <table class="table" id="contacts"><%= render  @contacts %>

@@ -123,7 +123,12 @@
 .r-full-width {
    width: 80vw;
 }
-
+.hide-form {
+  display: block !important;
+}
+#r-search {
+  width: 230px !important;
+}
 }
 .card-6 {
   background: #232526  !important;
@@ -395,4 +400,7 @@ html,body, .content {
 }
 .outer-list {
   width: 100%;
+}
+.hide-form {
+  display: none;
 }
