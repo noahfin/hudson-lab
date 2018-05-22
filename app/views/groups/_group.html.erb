@@ -3,17 +3,17 @@
 
 
   <div class="row">
-     <div class="col-md-4">
-       <span class=""><h5 class="text-info "><i class="fa fa-users"></i><%= link_to group_path(group.id),class: 'text-info' do %>
-           <%= group.name %></h5><% end %> </span>
+     <div class="col-md-4 r-full-width">
+       <h5 class="text-info r-full-width"><span class="group-float r-full-width"><i class="fa fa-users"></i><%= link_to group_path(group.id),class: 'text-info r-full-width' do %>
+           <%= group.name %><% end %> </span></h5>
   </div>
      <div class="col-md-3">
-      <h3>
-        <span class="badge float-right pull-right">Download: <%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-warning' %> </span>
+      <h3 >
+        <span class="badge group-float float-right pull-right">Download: <%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-warning' %> </span>
       </h3>
  </div>
      <div class="col-md-3">
-<h3 class="pull-right text-right">
+<h3 class="pull-right text-right group-float">
       <%=  group.contacts.count.to_s %>
   </h3>
   </div>

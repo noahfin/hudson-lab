@@ -70,7 +70,7 @@
     margin: auto !important;
     margin-top: 10%;
   }
-.contact-main-image, .group-sidenav {
+.contact-main-image, .group-sidenav, .group-head {
     display: none;
   }
   .main-contact-panel{
@@ -101,6 +101,19 @@
   margin: auto !important;
   text-align: center;
 }
+
+.group-float {
+
+  padding-left: 0px !important;
+  margin-left: 0px !important;
+}
+.r-edit-group, .group-float {
+ float: left !important;
+}
+.r-full-width {
+   width: 80vw;
+}
+
 }
 .card-6 {
   background: #232526  !important;
