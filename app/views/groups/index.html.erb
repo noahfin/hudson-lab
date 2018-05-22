@@ -3,12 +3,21 @@
 <span>
 <%   @groups.each_with_index do |g, i| %>
 
-<a href="<%= '#g-name-' + g.id.to_s %>" title=""><span class="badge badge-default"><%= g.name %></span></a>
+<%= link_to group_path(g.id),class: 'text-info' do %>
+<span class="badge badge-default m-2"><%= g.name %></span>
 </span>
+<% end %>
 <% end %>
 <%= link_to 'New Group', new_group_path, class: "text-info" %>
 <div id="groups">
+  <div class="container-fluid">
+   <div class="bs-example ">
+      <div class="list-group card-1 outer-list">
+
   <%= render  @groups %>
+       </div>
+   </div>
+</div>
 </div>
 <div class="container">
   <div class="col-md-8 mr-auto ml-auto">
