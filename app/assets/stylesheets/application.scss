@@ -56,9 +56,37 @@
     margin: auto !important;
     margin-top: 10%;
   }
-  #sidenav {
+.contact-main-image, .group-sidenav {
     display: none;
   }
+  .main-contact-panel{
+     width: 100%;
+     margin: auto !important;
+  }
+  #main-c-wrap {
+    padding: 0px !important;
+  }
+  .outer-contact-show , .first-show-card{
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
+  .first-show-card {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .profile-list,  .left-c-text {
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.first-show-card > ul {
+   margin: 0px !important;
+  padding: 3px !important;
+}
+.add-task, .p-task {
+  margin: auto !important;
+  text-align: center;
+}
 }
 .card-6 {
   background: #232526  !important;
@@ -250,11 +278,13 @@ html,body, .content {
 .float-right {
   float-right: !important;
 }
-.profile-list {
-  padding: 8px 3px 6px;
-  border-bottom: 1px solid #232526;
-  list-style-type: square;
-}
+// .profile-list {
+//   padding: 8px 3px 6px;
+//   border-bottom: 1px solid #232526;
+//   list-style-type: none;
+//   display: block;
+//   float: left;
+// }
 .list-unstyled {
   list-style-type: none;
 }
@@ -313,4 +343,13 @@ html,body, .content {
   position: relative;
 
 
+}
+.profile-list {
+  width: 100%;
+ margin-right: 0px;
+ padding-right: 0px;
+}
+.profile-list .float-right, .c-info-text-right{
+  position: absolute;
+  right: 0px !important;
 }

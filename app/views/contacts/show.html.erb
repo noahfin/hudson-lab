@@ -1,45 +1,45 @@
 
    <%= render 'show_form' %>
 
-<div class="card-body " >
-   <div class="panel panel-default">
+<div class="card-body  first-show-card" >
+   <div class="panel panel-default first-show-card">
       <div class="panel-heading">
       </div>
-      <div class="panel-body col-md-12">
-         <ul id="contact-info">
+      <div class="panel-body col-md-12 first-show-card">
+         <ul id="contact-info list-group first-show-card">
             <li class="list-group-item text-muted text-left" contenteditable="false">Profile</li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Prefix</strong></span> <span class="float-right"> <%= @contact.prefix  if  @contact.prefix  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">First Name</strong></span> <span class="float-right"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Middle Name</strong></span> <span class="float-right"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Last Name</strong></span> <span class="float-right"> <%= @contact.last_name  if  @contact.last_name  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Suffix</strong></span> <span class="float-right"> <%= @contact.suffix  if  @contact.suffix  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Position</strong></span> <span class="float-right"> <%= @contact.postion  if  @contact.first_name  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Web Address</strong></span> <span class="float-right"> <%= @contact.web_address  if  @contact.web_address  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Latitude</strong></span> <span class="float-right"> <%= @contact.latitude  if  @contact.latitude  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Longitude</strong></span> <span class="float-right"> <%= @contact.longitude  if  @contact.longitude  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Type</strong></span> <span class="float-right"> <%= @contact.type  if  @contact.type  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Facility Size</strong></span> <span class="float-right"> <%= @contact.facility_size  if  @contact.facility_size  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Total Number Of Employees</strong></span> <span class="float-right"> <%= @contact.total_number_of_employees  if  @contact.total_number_of_employees  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Sic</strong></span> <span class="float-right"> <%= @contact.sic  if  @contact.sic  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Primary Industry</strong></span> <span class="float-right"> <%= @contact.primary_industry  if  @contact.primary_industry  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Year Of Founding</strong></span> <span class="float-right"> <%= @contact.year_of_Founding  if  @contact.year_of_Founding  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Owns or Rents</strong></span> <span class="float-right"> <%= @contact.owns_cents  if  @contact.owns_cents  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Created</strong></span> <span class="float-right"> <%= @contact.created_at  if  @contact.created_at  %></span></li>
-            <li class=" profile-list"><span class="pull-left"><strong class="">Last contacted</strong></span> <span class="float-right"> <%= @contact.created_at if @contact.created_at%></span></li>
-            <li class=" profile-list"><span class="pull-left"><strong class="">Name</strong></span><span class="float-right"><%= @contact.name if @contact.name %></span></li>
-            <li class=" profile-list"><span class="pull-left"><strong class="">Fisrt Name</strong></span><span class="float-right"><%= @contact.first_name if @contact.first_name %></span></li>
-            <li class=" profile-list"><span class="pull-left"><strong class="">Last Name</strong></span><span class="float-right"><%= @contact.last_name if @contact.last_name %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email if  @contact.email %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Company: </strong></span><span class="float-right"><%= @contact.company if @contact.company %></span></li>
-            <li class=" profile-list"><span class="pull-left"><strong class="">Address: </strong></span><span class="float-right"><%= @contact.address if  @contact.address %></span></li>
-            <li class="profile-list"><span class="pull-left"><strong class="">Street Number: </strong></span><span class="float-right"><%= @contact.street_num if @contact.street_num  %></span></li>
-            <li class="profile-list"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"><%= @contact.strret_name if @contact.strret_name  %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">Phone: </strong></span><span class="float-right"><%= @contact.phone if  @contact.phone %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">County: </strong></span><span class="float-right"><%= @contact.county if @contact.county  %></span></li>
-            <li class="profile-list"><span class="pull-left"><strong class="">Country: </strong></span><span class="float-right"><%= @contact.country if @contact.country %></span></li>
-            <li class=" profile-list"><span class="pull-left"><strong class="">Postal_code: </strong></span><span class="float-right"><%= @contact.postal_code if @contact.postal_code %></span></li>
-            <li class="profile-list "><span class="pull-left"><strong class="">City: </strong></span><span class="float-right"><%= @contact.city if @contact.city%></span></li>
-            <li class="profile-list"><span class="pull-left"><strong class="">Email: </strong></span><span class="float-right"><%= @contact.email if @contact.email %></span></li>
+            <li class="profile-list  list-group-item"><span class="pull-left"><strong class="left-c-text">Prefix</strong></span> <span class="float-right c-info-text-right"> <%= @contact.prefix  if  @contact.prefix  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">First Name</strong></span> <span class="float-right c-info-text-right"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Middle Name</strong></span> <span class="float-right c-info-text-right"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Last Name</strong></span> <span class="float-right c-info-text-right"> <%= @contact.last_name  if  @contact.last_name  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Suffix</strong></span> <span class="float-right c-info-text-right"> <%= @contact.suffix  if  @contact.suffix  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Position</strong></span> <span class="float-right c-info-text-right"> <%= @contact.postion  if  @contact.first_name  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Web Address</strong></span> <span class="float-right c-info-text-right"> <%= @contact.web_address  if  @contact.web_address  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Latitude</strong></span> <span class="float-right c-info-text-right"> <%= @contact.latitude  if  @contact.latitude  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Longitude</strong></span> <span class="float-right c-info-text-right"> <%= @contact.longitude  if  @contact.longitude  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Type</strong></span> <span class="float-right c-info-text-right"> <%= @contact.type  if  @contact.type  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Facility Size</strong></span> <span class="float-right c-info-text-right"> <%= @contact.facility_size  if  @contact.facility_size  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Total Number Of Employees</strong></span> <span class="float-right c-info-text-right"> <%= @contact.total_number_of_employees  if  @contact.total_number_of_employees  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Sic</strong></span> <span class="float-right c-info-text-right"> <%= @contact.sic  if  @contact.sic  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Primary Industry</strong></span> <span class="float-right c-info-text-right"> <%= @contact.primary_industry  if  @contact.primary_industry  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Year Of Founding</strong></span> <span class="float-right c-info-text-right"> <%= @contact.year_of_Founding  if  @contact.year_of_Founding  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Owns or Rents</strong></span> <span class="float-right c-info-text-right"> <%= @contact.owns_cents  if  @contact.owns_cents  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Created</strong></span> <span class="float-right c-info-text-right"> <%= @contact.created_at.strftime("%d %b. %Y")   if  @contact.created_at  %></span></li>
+            <li class=" profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Last contacted</strong></span> <span class="float-right c-info-text-right"> </span></li>
+            <li class=" profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Name</strong></span><span class="float-right c-info-text-right"><%= @contact.name if @contact.name %></span></li>
+            <li class=" profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Fisrt Name</strong></span><span class="float-right c-info-text-right"><%= @contact.first_name if @contact.first_name %></span></li>
+            <li class=" profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Last Name</strong></span><span class="float-right c-info-text-right"><%= @contact.last_name if @contact.last_name %></span></li>
+            <li class="profile-list  list-group-item"><span class="pull-left"><strong class="left-c-text">Email: </strong></span><span class="float-right c-info-text-right"><%= @contact.email if  @contact.email %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Company: </strong></span><span class="float-right c-info-text-right"><%= @contact.company if @contact.company %></span></li>
+            <li class=" profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Address: </strong></span><span class="float-right c-info-text-rightt"><%= @contact.address if  @contact.address %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Street Number: </strong></span><span class="float-right c-info-text-right"><%= @contact.street_num if @contact.street_num  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Street Name: </strong></span><span class="float-right c-info-text-right"><%= @contact.strret_name if @contact.strret_name  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Phone: </strong></span><span class="float-right c-info-text-right"><%= @contact.phone if  @contact.phone %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">County: </strong></span><span class="float-rightc-info-text-right"><%= @contact.county if @contact.county  %></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Country: </strong></span><span class="float-right c-info-text-right"><%= @contact.country if @contact.country %></span></li>
+            <li class=" profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Postal_code: </strong></span><span class="float-right c-info-text-right"><%= @contact.postal_code if @contact.postal_code %></span></li>
+            <li class="profile-list  list-group-item"><span class="pull-left"><strong class="left-c-text">City: </strong></span><span class="float-right c-info-text-right"><%= @contact.city if @contact.city%></span></li>
+            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text">Email: </strong></span><span class="float-right c-info-text-right"><%= @contact.email if @contact.email %></span></li>
          </ul>
       </div>
    </div>
@@ -68,7 +68,7 @@
       </a>
    </div>
    <div class="card card-5 p-3">
-      <div class="card-header">
+      <div class="card-header first-show-card">
          <h5>Contact Basic Info <span>     <%= link_to edit_contact_path(@contact.id), class: "text-info pull-right", title: 'edit', rel: "tooltip"  do %>
       <i class=" fa fa-edit e-contact"></i>
       <% end %></span></h5>
