@@ -6,56 +6,42 @@
          <div class="card card-5 mt-4 pt-0">
             <div class="card-header card-header-icon ">
                <span>
-                  <H3 class="pl-3 pb-4 ">Contacts<a data-toggle="modal" data-target="#myModal" class="" title="">&nbsp;<i class="fa fa-file-excel-o text-info"></i></a><div class="pull-right">
-
-            <a  class="mb-4" id="sort_contacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="material-icons">view_module</i>
-
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sort_contacts">
-
-    <div class="card">
-<article class="card-body">
-
-   <h4 class="card-title mb-4 mt-1">Sort Into Sub Group</h4>
-   <p>
-
-   </p>
-   <hr>
-
-<ul class="list-group" id="list-county">
-  <li class="list-group-item">
-            <%= link_to "Westchester", contacts_path(:group_id => params[:group_id], :county => "Westchester County"), class: " text-info", remote: true %>
- </li>
-  <li class="list-group-item">
-   <%= link_to "Dutchess", contacts_path(:group_id => params[:group_id] , :county => "Dutchess"), class: "text-info", remote: true %>
-
-                          </li>
-  <li class="list-group-item">
-                            <%= link_to "Ulster", contacts_path(:group_id => params[:group_id], :county => "Ulster County"), class: " text-info", remote: true %>
-
-                           </li>
-                            <%= link_to "Orange", contacts_path(:group_id => params[:group_id], :county => "Orange County"), class: " text-info", remote: true %>
-  <li class="list-group-item">
-
-                          </li>
-  <li class="list-group-item">    <%= link_to "Rockland", contacts_path(:group_id => params[:group_id], :county => "Rockland County"), class: " text-info", remote: true %>
-
-                       </li>
-</ul>
-
-
-
-     </article>
-
-</div> <!-- card.// -->
-
- <!-- col.// -->
-
-            </div>
-
-                  </div></H3>
-
+                  <H3 class="pl-3 pb-4 ">
+                     Contacts<a data-toggle="modal" data-target="#myModal" class="" title="">&nbsp;<i class="fa fa-file-excel-o text-info"></i></a>
+                     <div class="pull-right">
+                        <a  class="mb-4" id="sort_contacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="material-icons">view_module</i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sort_contacts">
+                           <div class="card">
+                              <article class="card-body">
+                                 <h4 class="card-title mb-4 mt-1">Sort Into Sub Group</h4>
+                                 <p>
+                                 </p>
+                                 <hr>
+                                 <ul class="list-group" id="list-county">
+                                    <li class="list-group-item">
+                                       <%= link_to "Westchester", contacts_path(:group_id => params[:group_id], :county => "Westchester "), class: " text-info send-county" %>
+                                    </li>
+                                    <li class="list-group-item">
+                                       <%= link_to "Dutchess", contacts_path(:group_id => params[:group_id] , :county => "Dutchess"), class: "text-info send-county" %>
+                                    </li>
+                                    <li class="list-group-item">
+                                       <%= link_to "Ulster", contacts_path(:group_id => params[:group_id], :county => "Ulster "), class: " text-info send-county" %>
+                                    </li>
+                                    <li class="list-group-item">
+                                       <%= link_to "Orange", contacts_path(:group_id => params[:group_id], :county => "Orange "), class: " text-info send-county"%>
+                                    </li>
+                                    <li class="list-group-item">    <%= link_to "Rockland", contacts_path(:group_id => params[:group_id], :county => "Rockland "), class: " text-info send-county"%>
+                                    </li>
+                                 </ul>
+                              </article>
+                           </div>
+                           <!-- card.// -->
+                           <!-- col.// -->
+                        </div>
+                     </div>
+                  </H3>
                </span>
             </div>
             <div class="panel panel-default mt-3 card-5 main-contact-panel">

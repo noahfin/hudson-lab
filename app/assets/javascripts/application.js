@@ -238,13 +238,19 @@ var groupGetId = '';
 
 
 
-  $(document).on('click', '#contact_sort_btn', function() {
+  $(document).on('click', '.send-county', function() {
 
+     var formData = {
+            'group_id'              :   groupGetId ,
+            'county'             :   $(this).text(),
+          }
 
+    $.ajax({
+        type: 'get',
+        url: 'contacts',
+        data: formData
 
-   $('.send-group-id').val(groupGetId);
-   $('#contact_sort_btn').prop("type", "submit");
-   ('#contact_sort_btn').trigger( "click" );
+    });
   })
 
     $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function() {
