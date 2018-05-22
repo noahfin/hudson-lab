@@ -33,13 +33,13 @@
         </div>
 
       </div>
-
+  <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
+            <th class="d-">Name </th>
             <th class="d-">Phone </th>
-            <th class="d-">Email</th>
-            <th class="d-">Cell </th>
+            <th class="d-">Email </th>
             <th class="d-">Company </th>
             <th class="d-">Address</th>
              <th> Actions</th>
@@ -48,10 +48,14 @@
          <% @group.contacts.each do |contact| %>
         <tbody>
             <tr>
-
+             <td class="d-">
+              <%= link_to contact_path(contact.id), class: "btn-info", title: 'view profile', rel: "tooltip"  do %>
+                <%= contact.name %>
+              <% end %>
+            </td>
             <td class="d-"><%= contact.phone %></td>
             <td class="d-"><%= contact.email %></td>
-            <td class="d-"><%= contact.cell %></td>
+
             <td class="d-"><%= contact.company %></td>
             <td class="d-"><%= contact.address %></td>
             <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
@@ -61,6 +65,7 @@
                 <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
           <% end %>
           </div>
+        </div>
         </div>
         <% end %></td>
 
