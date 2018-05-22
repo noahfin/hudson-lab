@@ -64,14 +64,14 @@ end
 
   def self.user_reltionships(contact, groups, users)
     groups = groups.to_a
-    group_id = params['contact'][:group_id] if params['contact'][:group_id]
+
       if groups[1].to_i > 0 || groups[0] != ''
        contact.group_ids =  groups
       end
-     if  groups != nil
+     if  groups != nil?
        users = users.to_a
        users.each do |user|
-        next if user == "" ||  user.nill?
+        next if user == "" ||  user.nil?
         user = User.find(user)
            contact_model = ContactsUser.create(contact: contact, user: user) unless ContactsUser.where(contact: contact, user: user).exists?
        end
