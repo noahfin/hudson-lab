@@ -67,22 +67,22 @@
       <a href="#" class="list-group-item bg-dark">
       </a>
    </div>
-   <div class="card card-5 p-3">
+   <div class="card card-5 p-3 irst-show-card">
       <div class="card-header first-show-card">
          <h5>Contact Basic Info <span>     <%= link_to edit_contact_path(@contact.id), class: "text-info pull-right", title: 'edit', rel: "tooltip"  do %>
       <i class=" fa fa-edit e-contact"></i>
       <% end %></span></h5>
       </div>
-      <div class="list-group">
-         <li class="profile-list "><span class="pull-left pr-2"><strong class="">First Name</strong></span> <span class="float-right"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
-         <li class="profile-list "><span class="pull-left"><strong class="pr-2">Middle Name</strong></span> <span class="float-right"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
-         <li class="profile-list "><span class="pull-left"><strong class="pr-2">Last Name</strong></span> <span class="float-right"> <%= @contact.last_name  if  @contact.last_name  %></span></li>
-         <li class="profile-list "><span class="pull-left"><strong class="pr-2">Position</strong></span> <span class="float-right"> <%= @contact.postion  if  @contact.first_name  %></span></li>
-         <li class="profile-list "><span class="pull-left"><strong class="pr-2">Web Address</strong></span> <span class="float-right"> <%= @contact.web_address  if  @contact.web_address  %></span></li>
-         <li class="profile-list "><span class="pull-left"><strong class="pr-2">Phone: </strong></span><span class="float-right"><%= @contact.phone if  @contact.phone %></span></li>
-         <li class="profile-list "><span class="pull-left"><strong class="pr-2">Cell: </strong></span><span class="float-right"><%= @contact.cell if  @contact.cell %></span></li>
-         <li class="profile-list"><span class="pull-left"><strong class="pr-2">Email: </strong></span><span class="float-right"><%= @contact.email if @contact.email %></span></li>
-      </div>
+      <ul class="list-group">
+         <li class="profile-list list-group-item"><span class="pull-left "><strong class="">First Name</strong></span> <span class="float-right"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
+         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2">Middle Name</strong></span> <span class="float-right"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
+         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2">Last Name</strong></span> <span class="float-right"> <%= @contact.last_name  if  @contact.last_name  %></span></li>
+         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2">Position</strong></span> <span class="float-right"> <%= @contact.postion  if  @contact.first_name  %></span></li>
+         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2">Web Address</strong></span> <span class="float-right"> <%= @contact.web_address  if  @contact.web_address  %></span></li>
+         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2">Phone: </strong></span><span class="float-right"><%= @contact.phone if  @contact.phone %></span></li>
+         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2">Cell: </strong></span><span class="float-right"><%= @contact.cell if  @contact.cell %></span></li>
+         <li class="profile-listlist-group-item"><span class="pull-left"><strong class="pr-2">Email: </strong></span><span class="float-right"><%= @contact.email if @contact.email %></span></li>
+      </ul>
    </div>
    <div class="card  card-1  p-4">
       <div class="card-header">
