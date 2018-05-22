@@ -51,15 +51,13 @@
 }
 }
 @media only screen and (max-width: 650px) {
-.login-form {
+.cool-form  {
     width: 90%;
     margin: auto !important;
-    z-index: 99999;
-    position: absolute;
     margin-top: 10%;
-    right: 70% !important;
-
-
+  }
+  #sidenav {
+    display: none;
   }
 }
 .card-6 {

@@ -63,27 +63,21 @@ end
 
 
   def self.user_reltionships(contact, groups, users)
-    if groups
-    groups.each do |group_id|
-       next if group_id == "" || group_id.to_i < 1
-    @group = Group.find(group_id)
-    group_contact_model = ContactsGroup.create( contact: contact, group: @group)
-
-     @group.contacts << contact
-   end
- end
-    users.each do |user|
-      user = User.find(user.to_i)
-      contact_model = ContactsUser.create(contact: contact, user: user)
-      if groups
-        groups.each do |group_id|
-         next if group_id == "" || group_id.to_i < 1
-         group = Group.find(group_id)
-         group_model = GroupsUser.create(group: group, user: user) unless Group.exists?(user_id: user.id)
-        end
+    groups = groups.to_a
+    group_id = params['contact'][:group_id] if params['contact'][:group_id]
+      if groups[1].to_i > 0 || groups[0] != ''
+       contact.group_ids =  groups
+      end
+     if  groups != nil
+       users = users.to_a
+       users.each do |user|
+        next if user == "" ||  user.nill?
+        user = User.find(user)
+           contact_model = ContactsUser.create(contact: contact, user: user) unless ContactsUser.where(contact: contact, user: user).exists?
+       end
      end
-    end
   end
+
 
     def self.open_spreadsheet(file)
       case File.extname(file.original_filename)
