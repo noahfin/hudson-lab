@@ -35,6 +35,7 @@ end
     if @group.save
       params['group']['user_id'].each_with_index do |user, i |
       user = User.find(user.to_i)
+      next if GroupsUser.exists?(group: @group, user: user)
       main_model = GroupsUser.create(group: @group, user: user)
       flash[:warring] = "Group user relationships was successfully created."
     end
@@ -50,15 +51,6 @@ end
 
   def update
 
-     if @group.update(name: params['group']['name'])
-
-      flash[:info] = "Group was successfully updated."
-      redirect_to group_path(@group)
-
-    else
-      flash[:info] = "Error group was not successfully updated."
-      redirect_to edit_group_path(@group)
-    end
 
   end
 
