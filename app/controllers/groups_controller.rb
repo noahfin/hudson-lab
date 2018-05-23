@@ -34,16 +34,22 @@ end
     @group = Group.new(group_params)
     if @group.save
       params['group']['user_id'].each_with_index do |user, i |
-      user = User.find(user.to_i)
-      next if GroupsUser.exists?(group: @group, user: user)
-      main_model = GroupsUser.create(group: @group, user: user)
+       next if user == "" ||  user.to_i < 1
+       next if !User.exists?(:id => user)
+      @user = User.find(user.to_i)
+
+      main_model = GroupsUser.create(group: @group, user: @user)
+
+
       flash[:warring] = "Group user relationships was successfully created."
     end
 
       render json: @group, status: :created
     else
+
       render json: @group.errors.full_messages, status:  :unprocessable_entity
     end
+
   end
 
   private
