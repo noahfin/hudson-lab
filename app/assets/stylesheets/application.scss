@@ -67,7 +67,7 @@
   }
 .cool-form  {
     width: 90%;
-    margin-top: 20% !important;
+    margin-top: 22% !important;
 
   }
   .mainlogin {
@@ -221,10 +221,10 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
      -o-background-size: cover;
 }
 .text-white {
-  color: white !important
+  color: white !important;
 }
 .text-white a{
-  color: white !important
+  color: white !important;
 }
 .table tbody>tr>td.middle {
   vertical-align: middle;
@@ -240,7 +240,10 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
 .media-left {
   padding: 0 20px;
 }
-
+.float-left  {
+  position: absolute;
+  left: 0px !important;
+}
 .media-heading {
   color: #dd5638;
   margin-bottom: 10px;

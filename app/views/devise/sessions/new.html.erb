@@ -60,7 +60,7 @@
          <div class=" ml-auto mr-auto">
 
             <div class="mask ml-auto mr-auto ">
-               <div class="ml-auto mr-auto mainlogin">
+               <div class="ml-auto mr-auto">
                      <div >
 
                       <div class=" cool-form ml-auto mr-auto bg-footer  p-4">
@@ -80,9 +80,18 @@
                         <div class="clearfix">
                             <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
                             <a href="#" class="pull-right text-muted">Forgot Password?</a>
+                             <div class="col-md-12">
+
+                             </div>
+                            <div class="clearfix mt-4 ">
+                               <div class="col-md-12 mt-4 mb-4">
+                             <%= link_to "Create an Account".html_safe, new_user_registration_path, class: 'text-muted float-left text-left ' %>
+
+                             </div>
                         </div>
+                           </div>
                     <% end %>
-                    <p class="text-center"><%= link_to "Create an Account".html_safe, new_user_registration_path, class: 'text-muted' %></p>
+
                 </div>
 
 
