@@ -25,9 +25,8 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      params['group']['user_id'].each_with_index do |user, i |
-       next if user == "" ||  user.to_i < 1
-       next if !User.exists?(:id => user)
+      params['user_ids'].each_with_index do |user, i |
+
       @user = User.find(user.to_i)
       main_model = GroupsUser.create(group: @group, user: @user)
       flash[:warring] = "Group user relationships was successfully created."
@@ -58,7 +57,7 @@ class GroupsController < ApplicationController
     end
 
   def group_params
-    params.require(:group).permit(:name,  :contact_id => [], :user_id => [])
+    params.require(:group).permit(:name, :id, :contact_id => [], :user_ids => [])
   end
 
 end
