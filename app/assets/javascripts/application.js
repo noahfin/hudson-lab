@@ -329,7 +329,7 @@ $("#query").keyup(function(){
         $.ajax({
             url: "/groups",
             method: "post",
-            data: {group: { name: newGroup, user_id: user_ids }},
+            data: {group: { name: newGroup, user_ids: user_ids }},
             success: function(group) {
                 console.log(group);
                 if (group.id != null) {
