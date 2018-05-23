@@ -26,6 +26,7 @@
 
 
 //= require vendorapps
+//= require jquery-smooth-scroll
 //= require rails-ujs
 //= require turbolinks
 
