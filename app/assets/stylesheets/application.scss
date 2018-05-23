@@ -442,11 +442,25 @@ html,body, .content {
   width: 90% !important;
   float: left;
 }
+.long-input-div #r-search{
+
+  width: 100% !important;
+
+}
 .list-inline-item-custom {
   list-style: none;
 }
 .small-input-div {
   float: left;
   padding: 3px !important;
-  width: 10% !important;
+  width: 5% !important;
+
+}
+.small-search-form-container {
+  margin: auto !important;
+  padding: 0px !important;
+  width: 95% !important;
+}
+.span-out {
+  max-width: 100%;
 }
