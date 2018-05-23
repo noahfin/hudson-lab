@@ -5,6 +5,10 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+       respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   def show
@@ -17,6 +21,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @users = User.all
   end
 
   def edit
