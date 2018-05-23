@@ -48,11 +48,11 @@
 
               <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline') do |f| %>
 
-<ul class="list-inline float-right">
-   <li class="list-inline-item"><%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %></li>
-   <li class="list-inline-item">     <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search">
+<%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %></li>
+    <button type="submit" class="btn btn-outline-info btn-round  " id="send-search">
+                  Search Contacts
                   <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
+
                 </button></li>
 
 </ul>

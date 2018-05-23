@@ -21,12 +21,8 @@
 //= require jquery-ui/widgets/menu
 //= require jquery-ui/widgets/selectmenu
 //= require jquery-ui/core
-
 //= require conversations
-
-
 //= require vendorapps
-//= require jquery-smooth-scroll
 //= require rails-ujs
 //= require turbolinks
 
