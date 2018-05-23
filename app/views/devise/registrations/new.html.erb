@@ -14,6 +14,9 @@
    }
    .card-reg { z-index: 99999999; }
 </style>
+
+
+
 <body class="presentation-page ">
    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
       <div class="container">
@@ -51,7 +54,7 @@
       </div>
    </nav>
    <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<%= asset_url("purple-1.jpg") %>')";>
-      <section class="view intro-2">
+      <section class="view intro-2 ">
          <div class="full-bg-img">
 
             <div class="mask rgba-indigo-light  flex-center">
@@ -59,7 +62,7 @@
                      <div style="padding-top: 2%; ">
 
 
-      <div class="wizard-container">
+      <div class="wizard-container reg-intro">
         <div class="card card-wizard card-reg" data-color="purple" id="wizardProfile">
            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
@@ -273,11 +276,56 @@
     </div>
       <!-- wizard container -->
     </div>
+          <div class="mainlogin  reg-intro-form" >
+
+                      <div class=" cool-form ml-auto mr-auto bg-footer  p-4">
+                      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+                        <h2 class="text-center">Log in</h2>
+                        <div class="form-group mr-auto ml-auto  mt-2">
+
+                           <%= f.text_field :first_name, class: "form-control  pl-2 text-white", placeholder: "Enter First Name", required: true%>
+                        </div>
+                        <div class="form-group mr-auto ml-auto mt-2">
+
+                           <%= f.text_field :last_name, class: "form-control  pl-2 text-white", placeholder: "Enter Last Name", required: true%>
+                       </div>
+
+                        <div class="form-group mr-auto ml-auto  mt-2">
+
+                          <%= f.email_field :email, class: "form-control long-input pl-2 text-white", placeholder: "Enter Email", required: true %>
+                        </div>
+                     <span class="bmd-form-group mr-auto ml-auto  mt-2">
+                  <div class="input-group mr-auto ml-auto   mt-3">
+
+                    <%= f.password_field :password, class: "form-control  pl-2 text-white", placeholder: "Enter Password", required: true  %>
+
+                  </div>
+                </span>
+                  <span class="bmd-form-group mr-auto ml-auto  mt-3">
+                  <div class="input-group mr-auto ml-auto  mt-3">
+
+                    <%= f.password_field :password_confirmation, class: "form-control  pl-2 text-white", placeholder: "Enter Password confirmation", required: true  %>
+
+                  </div>
+                </span>
+
+                              <div class="form-group mr-auto ml-auto mt-3">
+                            <button type="submit" class="btn btn-info btn-block">Get Started</button>
+                        </div>
+
+                    <% end %>
+
+                </div>
+
             </div>
          </div>
      </div>
+
+
+
       </section>
    </div>
+
 </body>
 
 

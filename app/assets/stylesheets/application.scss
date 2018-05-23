@@ -42,6 +42,10 @@
   border-radius: 0px !important;
   color: white !important;
 }
+   .reg-intro-form {
+
+        display: none;
+    }
 #show-input {
   min-width: 200% !important;
 }
@@ -51,7 +55,15 @@
 }
 }
 @media only screen and (max-width: 700px) {
-  .main-container {
+  .reg-intro {
+    display: none !important;
+  }
+    .reg-intro-form {
+        display: block;
+        position: relative;
+        bottom: 4rem !important;
+    }
+    .main-container {
     padding: 5px !important;
   }
   .main-contact-panel {
@@ -417,4 +429,7 @@ html,body, .content {
 }
 .hide-form {
   display: none;
+}
+.pull-right {
+  float: right !important;
 }
