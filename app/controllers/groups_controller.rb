@@ -56,8 +56,7 @@ class GroupsController < ApplicationController
 
 
   def update
-
-
+    @group.update_attribute(:name, params['group']['name'])
   end
 
   def destroy
