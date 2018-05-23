@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
-  before_action :my_contacts, only: [:edit  ]
+  after_action :my_contacts, only: [:update  ]
   protect_from_forgery except: :index
 
   def index

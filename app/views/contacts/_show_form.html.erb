@@ -349,33 +349,16 @@
 
          <div class="row ">
           <div class="col-md-3">
-            <label class="text-muted">Role</label>
-            <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker' }  )%>
+
          </div>
           <div class="col-md-3">
 
-              <label>Users</label>
-              <% attr = {prompt: "Select related users"} %>
-                 <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker  " } %>
 
 
 
          </div>
                 <div class="col-md-3">
-          <label class="text-muted">Select Groups</label>
-          <div class="">
-            <% group_ids = [] %>
-            <%  @group_ids.each_with_index do |group, index| %>
 
-                         <% group_ids[index] = group.group_id %>
-
-              <% end %>
-
-              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-
-               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
-
-           </div>
          </div>
              <div class="col-lg-3">
               <label class="text-muted">Country</label>
