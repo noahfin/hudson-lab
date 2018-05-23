@@ -13,10 +13,10 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     respond_to do |format|
-  format.html
-  format.csv { send_data @group.to_csv(@group.contacts) }
-  format.xls
-end
+    format.html
+    format.csv { send_data @group.to_csv(@group.contacts) }
+    format.xls
+    end
   end
 
   # GET /groups/new
@@ -52,7 +52,7 @@ end
 
   end
 
-  private
+
 
 
   def update
@@ -60,8 +60,6 @@ end
 
   end
 
-  # DELETE /groups/1
-  # DELETE /groups/1.json
   def destroy
     @group.destroy
     respond_to do |format|
