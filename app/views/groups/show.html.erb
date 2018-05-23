@@ -4,6 +4,9 @@
           <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group' do %>
            Edit <%= @group.name %>
            <% end %>
+           <%= link_to group_path(@group.id), method: :delete, class: ' text-danger', remote: true, data: { confirm: "Are you sure you want delete this Group?"}  do %>
+      <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
+      <% end %>
            <%= link_to 'Back', groups_path %>
         </h4>
         <h1 class="border-bottom border-gray group-head pb-2 mb-0"><%= @group.name %> </h1>
