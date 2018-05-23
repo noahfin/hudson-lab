@@ -1,7 +1,7 @@
 <div class="bs-example">
 <div class="my-3 p-3 bg-white rounded box-shadow card card-5">
     <h4 class="d-block text-right  mt-3">
-          <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group', remote: true, do %>
+          <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group', remote: true do %>
            Edit <%= @group.name %>
            <% end %>
            <%= link_to group_path(@group.id), method: :delete, class: ' text-danger', remote: true, data: { confirm: "Are you sure you want delete this Group?"}  do %>
@@ -52,7 +52,7 @@
         <tbody>
             <tr>
              <td class="d-">
-              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
+              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip", remote: true  do %>
                 <%= contact.name %>
               <% end %>
             </td>
