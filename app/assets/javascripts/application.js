@@ -110,17 +110,6 @@ $('body').on('click', '#close-form', function(event) {
         i = 0;
       $('.btn_next').hide()
       $('.btn-finish').show()
-      var address_str =  '';
-      if (jQuery.type($('#contact_street_num').val()) === "string")  address_str += $('#contact_street_num').val();
-      if (jQuery.type($('#contact_strret_name').val()) === "string")  address_str += ' ' + $('#contact_strret_name').val();
-      if (jQuery.type($('#contact_city').val() === "string")) address_str += ' ' + $('#contact_city').val() + ',';
-       if (jQuery.type($('#contact_state').val() === "string")) address_str += ' ' + $('#contact_state').val();
-      if (jQuery.type($('#contact_postal_code').val() === "string")) address_str += ' ' +  $('#contact_postal_code').val();
-      if (jQuery.type($('#contact_country').val() === "string"))  address_str += ' ' +  $('#contact_country').val();
-
-      $('#c-add-hidden').val(address_str);
-
-
       $('body').on('click', '.btn-finish', function(event) {
       $('#new_contact').submit();
     })
