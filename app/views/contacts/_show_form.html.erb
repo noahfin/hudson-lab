@@ -6,11 +6,15 @@
               <div class="card-icon bg-hudson ">
                  <i class="material-icons">perm_identity</i>
               </div>
-              <h4 class="card-title text-light text-left">Contact / Facts
-              <%= form_with model: @contact, id: "contact_form_show" do |form|%>
-                 <button class="btn bg-hudson pull-right toggle-contact" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
+               <%= form_with model: @contact, id: "contact_form_show" do |form|%>
+              <h4 class="card-title text-light text-left">Contact / Facts <span class="hide-btn  pull-right ">    <button class=" btn-link btn-outline-info toggle-contact " type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
+                 <i class=" fa fa-edit text-info"></i>
+                 </button> </span>
+              <span>
+                 <button class="btn bg-hudson pull-right toggle-contact show-btn" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
                  Edit Contact
                  </button>
+                 </span>
               </h4>
            </div>
 

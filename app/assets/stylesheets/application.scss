@@ -59,6 +59,12 @@
       overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
   }
+  .hide-btn {
+      display: block !important;
+  }
+   .show-btn {
+      visibility: hidden;
+  }
   .reg-intro {
     display: none !important;
   }
@@ -348,6 +354,7 @@ html,body, .content {
   box-sizing: border-box;
   width: 100%;
  height: 100% !important;
+
 }
 
 .image-content {
@@ -451,7 +458,7 @@ html,body, .content {
 .outer-list {
   width: 100%;
 }
-.hide-form {
+.hide-form , .hide-btn{
   display: none;
 }
 .pull-right {
@@ -484,4 +491,10 @@ html,body, .content {
 }
 .span-out {
   max-width: 100%;
+}
+@media only screen and (max-width: 990px) {
+html,body, .content {
+    overflow:  visible !important;
+
+}
 }
