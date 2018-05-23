@@ -83,8 +83,6 @@
   }
 .cool-form  {
     width: 90%;
-
-
   }
   .mainlogin {
      margin-top: 11rem !important;
@@ -93,11 +91,34 @@
     width: 100% !important;
   }
   .wizard-container {
-   width: 98% !important;
-    margin-top: 5%  auto !important;
+   width: 100% !important;
+   margin-left: 0px !important;
+   margin-right: 0px !important;
+  }
+  .card-wizard {
+   width: 100%;
+   margin: 0px !important;
+   padding: 0px !important;
+  }
+
+  .l-less-r {
+    margin: 0px !important;
+    padding: 0px !important;
 
   }
-.contact-main-image, .group-sidenav, .group-head {
+  #col-x-6-phone {
+   margin: 0px !important;
+    padding: 0px !important;
+      width: 100% !important;
+  }
+    #contact_phone, .r-r-input, #contact_cell{
+       float: left;
+       width: 100% !important;
+       margin: auto !important;
+     }
+
+
+.contact-main-image, .group-sidenav, .group-head,  .r-r  {
     display: none;
   }
   .main-contact-panel{
