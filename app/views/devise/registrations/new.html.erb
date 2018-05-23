@@ -316,22 +316,12 @@
                     <% end %>
 
                 </div>
-                <div class="container mt-4 pt-4">
+                <div class="container mt-4 ">
                   <ul class="navbar-nav text-white text-center ml-auto mr-auto mt-4 pt-4">
-                        <li class="nav-item ">
-                           <a href="/" class="nav-link">
-                           <i class="material-icons">dashboard</i> Dashboard
-                           </a>
-                        </li>
-                        <li class="nav-item active">
-                           <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
-                        </li>
-                        <li class="nav-item ">
+                         <li class="nav-item ">
                            <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
                         </li>
-                        <li>
-                           <%= link_to "<i class='material-icons'>lock_open</i>Locked".html_safe,  new_user_password_path, class: 'nav-link' %>
-                        </li>
+
                      </ul>
                 </div>
             </div>
