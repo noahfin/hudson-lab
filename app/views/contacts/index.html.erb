@@ -37,43 +37,32 @@
                                  </ul>
                               </article>
                            </div>
-                           <!-- card.// -->
-                           <!-- col.// -->
                         </div>
                      </div>
                   </H3>
                </span>
                <div class="hide-form">
-                <div class="col-md-12 ">
-
-              <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline') do |f| %>
-<span>
-  <ul class="list-inline">
-     <li class="list-inline-item">
-    <div class="long-input-div">
-         <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %>
-
-    </div>
-</li>
- <li class="list-inline-item">
-    <div class="small-input-div">
-<button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-                </div>
-              </li>
-
-
-</span>
-
-
-
-</ul>
-
-        <% end %>
-
-         </div>
+                  <div class="col-md-12 ">
+                     <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline') do |f| %>
+                     <span>
+                        <ul class="list-inline">
+                           <li class="list-inline-item">
+                              <div class="long-input-div">
+                                 <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %>
+                              </div>
+                           </li>
+                           <li class="list-inline-item">
+                              <div class="small-input-div">
+                                 <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search">
+                                    <i class="material-icons">search</i>
+                                    <div class="ripple-container"></div>
+                                 </button>
+                              </div>
+                           </li>
+                     </span>
+                     </ul>
+                     <% end %>
+                  </div>
                </div>
             </div>
             <div class="panel panel-default mt-3 card-5 main-contact-panel">
