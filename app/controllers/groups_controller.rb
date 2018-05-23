@@ -3,14 +3,10 @@ class GroupsController < ApplicationController
   require 'roo'
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
-  # GET /groups
-  # GET /groups.json
   def index
     @groups = Group.all
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
   def show
     respond_to do |format|
     format.html
@@ -19,17 +15,13 @@ class GroupsController < ApplicationController
     end
   end
 
-  # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
   def edit
   end
 
-  # POST /groups
-  # POST /groups.json
   def create
     @group = Group.new(group_params)
     if @group.save
@@ -37,23 +29,15 @@ class GroupsController < ApplicationController
        next if user == "" ||  user.to_i < 1
        next if !User.exists?(:id => user)
       @user = User.find(user.to_i)
-
       main_model = GroupsUser.create(group: @group, user: @user)
-
-
       flash[:warring] = "Group user relationships was successfully created."
     end
-
       render json: @group, status: :created
     else
-
       render json: @group.errors.full_messages, status:  :unprocessable_entity
     end
 
   end
-
-
-
 
   def update
     @group.update_attribute(:name, params['group']['name'])
@@ -68,12 +52,11 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_group
       @group = Group.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
   def group_params
     params.require(:group).permit(:name,  :contact_id => [], :user_id => [])
   end
