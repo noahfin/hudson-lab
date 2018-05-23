@@ -1,6 +1,6 @@
 
 
-<%= form_for @group do |form| %>
+<%= form_for @group, remote: true do |form| %>
 
   <% if group.errors.any? %>
     <div id="error_explanation">

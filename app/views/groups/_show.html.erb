@@ -1,0 +1,80 @@
+<div class="bs-example">
+<div class="my-3 p-3 bg-white rounded box-shadow card card-5">
+    <h4 class="d-block text-right  mt-3">
+          <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group' do %>
+           Edit <%= @group.name %>
+           <% end %>
+           <%= link_to group_path(@group.id), method: :delete, class: ' text-danger', remote: true, data: { confirm: "Are you sure you want delete this Group?"}  do %>
+      <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
+      <% end %>
+           <%= link_to 'Back', groups_path %>
+        </h4>
+        <h1 class="border-bottom border-gray group-head pb-2 mb-0"><%= @group.name %> </h1>
+
+        <div class="media text-muted pt-3">
+
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"> Name:</strong>
+            <%= @group.name %>
+          </p>
+        </div>
+        <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">Total Contacts:</strong>
+              <%= @group.contacts.count %>
+          </p>
+        </div>
+        <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">Users:</strong>
+          <span>
+          <% @group.users.uniq.each do |user| %>
+          <span><%= user.first_name %></span>
+          </span>
+         <% end %>
+       </p>
+        </div>
+
+      </div>
+  <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+            <th class="d-">Name </th>
+            <th class="d-">Phone </th>
+            <th class="d-">Email </th>
+            <th class="d-">Company </th>
+            <th class="d-">Address</th>
+             <th> Actions</th>
+            </tr>
+        </thead>
+         <% @group.contacts.each do |contact| %>
+        <tbody>
+            <tr>
+             <td class="d-">
+              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
+                <%= contact.name %>
+              <% end %>
+            </td>
+            <td class="d-"><%= contact.phone %></td>
+            <td class="d-"><%= contact.email %></td>
+
+            <td class="d-"><%= contact.company %></td>
+            <td class="d-"><%= contact.address %></td>
+            <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
+          <i class=" fa fa-edit e-contact"></i>
+          <% end %>
+         <%= link_to contact_path(contact.id), method: :delete, class: 'btn btn-circle btn btn-outline-info  ', data: { confirm: "Are you sure you want delete this contact?"}  do %>
+                <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
+          <% end %>
+          </div>
+        </div>
+        </div>
+        <% end %></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
