@@ -23,9 +23,10 @@
 //= require jquery-ui/core
 //= require conversations
 //= require vendorapps
+//= require smoothscroll.min.js
 //= require rails-ujs
 //= require turbolinks
-
+//= require smoothscroll.min.js
 $(window).resize(function() {
     if ($(window).width() > 991) {
         // removes all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
@@ -55,6 +56,29 @@ $(document).on('click', '.new-form', function(event) {
 
 
 $(document).on('turbolinks:load', function() {
+
+$('[href*="#section_"]').on('click', function() {
+
+        // Close collapsed navbar on click
+        navbarCollapse.collapse('hide');
+
+        // Smooths scroll to anchor
+        if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 80
+                }, 1000);
+                return false;
+            }
+
+        }
+    });
+
+
 
  $('body').on('click', '.btn-back', function(event) {
   window.history.back();
