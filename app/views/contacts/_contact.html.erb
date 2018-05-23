@@ -15,14 +15,14 @@
       </div>
       <div class="media-body">
         <h4 class="media-heading text-info">
-     <%= link_to contact_path(contact.id), class: 'text-info' do %>
+     <%= link_to contact_path(contact.id), class: 'text-info', , remote: true  do %>
 
         <% if contact.first_name || contact.last_name %>
           <%= contact.first_name if contact.first_name %>
           <%= contact.last_name if contact.last_name %>
         <% elsif contact.name %>
           <%= contact.name  %>
-           <% else contact.name %>
+           <% else %>
           No Name
         <% end %>
       <% end %>
@@ -30,8 +30,8 @@
 
         <address>
 
-          <strong>  <%= link_to contact_path(contact.id), class: 'text-white' do %><%= contact.company %> <% end %></strong><br>
-          <%= link_to contact_path(contact.id), class: 'text-white' do %><%= contact.email %>  <% end %>
+          <strong>  <%= link_to contact_path(contact.id), class: 'text-white', , remote: true  do %><%= contact.company %> <% end %></strong><br>
+          <%= link_to contact_path(contact.id), class: 'text-white', , remote: true  do %><%= contact.email %>  <% end %>
         </address>
       </div>
     </div>
