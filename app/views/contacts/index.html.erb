@@ -45,13 +45,13 @@
                   <div class="col-md-12 ">
                      <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline') do |f| %>
                      <span>
-                        <ul class="list-inline">
-                           <li class="list-inline-item">
+                        <ul class="list-inline-custom">
+                           <li class="list-inline-item-custom">
                               <div class="long-input-div">
                                  <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %>
                               </div>
                            </li>
-                           <li class="list-inline-item">
+                           <li class="list-inline-item-custom">
                               <div class="small-input-div">
                                  <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search">
                                     <i class="material-icons">search</i>

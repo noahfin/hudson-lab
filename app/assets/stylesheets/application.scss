@@ -440,8 +440,13 @@ html,body, .content {
 .long-input-div {
   padding: 3px !important;
   width: 90% !important;
+  float: left;
+}
+.list-inline-item-custom {
+  list-style: none;
 }
 .small-input-div {
+  float: left;
   padding: 3px !important;
   width: 10% !important;
 }
