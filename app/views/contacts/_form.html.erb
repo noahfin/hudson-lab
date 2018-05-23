@@ -530,13 +530,13 @@
                          </div>
                         <div class="form-group ml-0 pr-2 pl-0 mt-0">
                            <div class=" mr-0 pl-3">
-                              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
+                              <% attr = {prompt: "Select Groups"} %><% attr[:selected] %>
                               <div class="collapse " id="collapseGroup">
-                                 <label for="cell" class="bmd-label-floating text-light ">Pick Groups<small>(required)</small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", required: true, class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
+                                 <label for="cell" class="bmd-label-floating text-light ">Pick Groups<small></small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
                               </div>
                            </div>
                            <div class="form-group  pl-3">
-                              <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected] = current_user.id.to_i if current_user.id %>
+                              <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected]  %>
                                    <div class="col-md-12">
 
                         <% User.all.each.each_slice(6) do |user| %>
