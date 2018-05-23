@@ -25,17 +25,16 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      params['user_ids'].each_with_index do |user, i |
 
-      @user = User.find(user.to_i)
-      main_model = GroupsUser.create(group: @group, user: @user)
-      flash[:warring] = "Group user relationships was successfully created."
-    end
-      render json: @group, status: :created
+
+
+      flash[:info] = "Group with the slected users was successfully created."
     else
-      render json: @group.errors.full_messages, status:  :unprocessable_entity
+       flash[:danger] = @group.errors.full_messages.to_s
+
     end
 
+   render 'show'
   end
 
   def update
