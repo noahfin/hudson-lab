@@ -1,8 +1,8 @@
 class Deal < ApplicationRecord
-  has_many :posts
-  has_many :issues
-   has_and_belongs_to_many :contacts
-  has_many :complaining_users, through: :issues,  source: :user
+  has_many :posts, dependent: :destroy
+  has_many :issues, dependent: :destroy
+  has_and_belongs_to_many :contacts
+  has_many :complaining_users, through: :issues,  source: :user, dependent: :destroy
   def average_ratings
    return 0 if posts.empty?
    posts.map{|p| p.rating}.inject(:+) / posts.size

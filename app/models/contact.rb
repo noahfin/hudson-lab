@@ -2,13 +2,15 @@ class Contact < ApplicationRecord
   require 'roo'
   include PgSearch
   include ContactsHelper
+   self.inheritance_column = :_type_disabled
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :user
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many  :contact_touches, class_name: 'Touch'
-  has_many :leads
-  has_many :current_users, -> { users }, class_name: 'User'
+  has_many :leads, dependent: :destroy
+
+  has_many :current_users, -> { users }, class_name: 'User', dependent: :destroy
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },
   :s3_credentials => "#{Rails.root}/config/s3.yml",
     :bucket => 'hudson-lab-images',
