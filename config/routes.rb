@@ -7,7 +7,7 @@
 
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { registrations: 'registrations', confirmations: 'confirmations' }
 
-  authenticated do
+
 
     root 'home#index'
     resources :personal_messages, only: [:create, :new]
@@ -35,6 +35,6 @@
       get 'sort', on: :collection
       post 'inport', on: :collection
     end
-   end
+
   end
 

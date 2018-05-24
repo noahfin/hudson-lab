@@ -181,7 +181,9 @@ $('body').on('click', '#close-form', function(event) {
     $(this).css({
       color: '#4caf50'
     });
-    $(this).text('Save Contact');
+    $(this).text('Save');
+    $(this).css( "position", "relative");
+    $(this).css( "right", "20px");
       u_s = false
 
   }
@@ -234,10 +236,7 @@ event.preventDefault();
             user_ids[i] = $(this).val();
         });
 });
-    $('body').on('click', '.update_group', function(event) {
 
-      $('#edit-group-id').submit();
-    });
 
   //sort contact sub group
 var groupGetId = '';
