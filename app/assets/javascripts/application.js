@@ -181,9 +181,9 @@ $('body').on('click', '#close-form', function(event) {
     $(this).css({
       color: '#4caf50'
     });
-    $(this).text('Save');
-    $(this).css( "position", "relative");
-    $(this).css( "right", "20px");
+    $(this).text('Save    Contact');
+    $(this).css( "padding-right", "60px");
+
       u_s = false
 
   }
@@ -261,8 +261,11 @@ var groupGetId = '';
 
     });
   })
-
-    $(document).on('click', '.pagination a[data-remote=true], a.list-group-item', function() {
+  var dataTable = $('.data-table').DataTable();
+  document.addEventListener("turbolinks:before-cache", function() {
+  dataTable.destroy();
+});
+    $(document).on('click', '.pagination a[data-remote=true], a.list-group-item, .show-contact', function() {
         history.pushState({}, '', $(this).attr('href'));
     });
     $(window).on('popstate', function() {

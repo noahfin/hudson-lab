@@ -57,6 +57,8 @@ class ContactsController < ApplicationController
       flash[:danger] = @contact.errors.full_messages.to_s
       render 'edit'
     end
+    session[:last_contact_page] = request.env['HTTP_REFERER']
+    redirect_to contact_url
   end
 
   def destroy
