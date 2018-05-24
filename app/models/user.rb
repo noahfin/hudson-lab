@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :groups, dependent: :destroy
-  has_and_belongs_to_many :contacts, :through => :groups, :source => :user, dependent: :destroy
-  has_and_belongs_to_many :tasks, dependent: :destroy
+  has_and_belongs_to_many :groups
+  has_and_belongs_to_many :contacts, :through => :groups, :source => :user
+  has_and_belongs_to_many :tasks
   has_many :posts, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :posted_properties, through: :posts,  source: :property, dependent: :destroy

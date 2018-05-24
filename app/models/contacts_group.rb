@@ -1,6 +1,6 @@
 class ContactsGroup < ActiveRecord::Base
 
-  belongs_to :contact, optional: true
-  belongs_to :group, optional: true
+  belongs_to :contact
+  belongs_to :group
 
 end
