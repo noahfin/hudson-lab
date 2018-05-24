@@ -42,6 +42,7 @@
          <div class="card-body">
             <div class="tab-content">
                <div class="tab-pane active" id="about">
+                  <input id="check-wiz" name="prodId" type="hidden" value="befor-submit">
                   <div class="row ">
                               <div class="col-md-6">
                         <div class="input-group form-control-lg text-white">
@@ -51,7 +52,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="prefix" class="bmd-label-floating text-white">phone</label>
+                              <label  class="bmd-label-floating text-white">phone</label>
                             <%= form.text_field :phone, id: :contact_phone, class: 'form-control text-white' %>
                            </div>
                         </div>
@@ -64,7 +65,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="prefix" class="bmd-label-floating text-white">Contact Cell</label>
+                              <label  class="bmd-label-floating text-white">Contact Cell</label>
                              <%= form.text_field :cell, id: :contact_cell, class: 'form-control text-white' %>
                            </div>
                         </div>
@@ -85,8 +86,8 @@
                               </span>
                            </div>
                            <div class="form-group">
-                              <label for="exampleInput1" class="bmd-label-floating text-white">Contact Name</label>
-                              <%= form.text_field :name, id: :contact_name, class: 'form-control text-white r-r-input', required: true %>
+                              <label  class="bmd-label-floating text-white">Contact Name</label>
+                              <%= form.text_field :name, id: :contact_name, class: 'form-control text-white r-r-input' %>
                            </div>
                         </div>
                          </div>
@@ -98,7 +99,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="exampleInput11" class="bmd-label-floating text-white">Company Name</label>
+                              <label  class="bmd-label-floating text-white">Company Name</label>
                               <%= form.text_field :company, id: :contact_company, class: 'form-control text-white r-r-input'%>
                            </div>
                         </div>
@@ -113,7 +114,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="prefix" class="bmd-label-floating text-white">Prefix</label>
+                              <label  class="bmd-label-floating text-white">Prefix</label>
                             <%= form.text_field :prefix, id: :contacts_prefix, class: 'form-control text-white ' %>
                            </div>
                         </div>
@@ -126,7 +127,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="first_name" class="bmd-label-floating text-white">First Name</label>
+                              <label  class="bmd-label-floating text-white">First Name</label>
                              <%= form.text_field :first_name, id: :contacts_first_name, class: 'form-control text-white' %>
 
                            </div>
@@ -145,7 +146,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="first_name" class="bmd-label-floating text-white">Middle Name</label>
+                              <label  class="bmd-label-floating text-white">Middle Name</label>
                               <%= form.text_field :middle_name, id: :contact_middle_name, class: 'form-control text-white' %>
 
                            </div>
@@ -160,7 +161,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="first_name" class="bmd-label-floating text-white">Last Name</label>
+                              <label  class="bmd-label-floating text-white">Last Name</label>
                               <%= form.text_field :last_name, id: :contact_last_name, class: 'form-control text-white' %>
 
                            </div>
@@ -181,7 +182,7 @@
                               </span>
                            </div>
                            <div class="form-group text-white">
-                              <label for="first_name" class="bmd-label-floating text-white">Email</label>
+                              <label class="bmd-label-floating text-white">Email</label>
                               <%= form.email_field :email, id: :contact_email, class: 'form-control  col-md-12 mr-0 text-white' %>
 
                            </div>
@@ -194,11 +195,12 @@
                <div class="tab-pane" id="account">
                      <div class="controls">
 
-                <div class="row mb-3">
+                  <div class="row justify-content-center">
+                     <div class="col-sm-12">
+                        <h5 class="info-text text-white">Fill out the more section for the contact </h5>
 
-
-
-                </div>
+                     </div>
+                     </div>
                 <div class="row mb-3">
                  <div class="col-md-3">
                   <%= form.label :suffix, class: 'bmd-label-floating text-white' %>
@@ -262,11 +264,7 @@
                 </div>
             </div>
 
-        <div class="row mt-4">
-            <div class="col-md-12 pt-4">
-                <p class="text-muted mt-3"><strong>*</strong> These fields are the extras we added not required.  </p>
-            </div>
-        </div>
+
     </div>
                </div>
                <div class="tab-pane" id="address">
@@ -362,61 +360,7 @@
                      </div>
                   </div>
                </div>
-               <div class="tab-pane" id="account">
-                  <h5 class="info-text text-white"> Pick users inculding yourself if needed (checkboxes) </h5>
-                     <div class="controls">
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="form_name">Firstname *</label>
-                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="form_lastname">Lastname *</label>
-                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="form_email">Email *</label>
-                    <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="form_phone">Phone</label>
-                    <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="form_message">Message *</label>
-                    <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-                    <div class="help-block with-errors"></div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <input type="submit" class="btn btn-success btn-send" value="Send message">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <p class="text-muted"><strong>*</strong> These fields are required. Contact form template by <a href="http://bootstrapious.com" target="_blank">Bootstrapious</a>.</p>
-            </div>
-        </div>
-    </div>
-               </div>
                <div class="tab-pane" id="group">
                   <div class="row justify-content-center">
                      <div class="col-sm-12">

@@ -52,13 +52,15 @@ class ContactsController < ApplicationController
       user_reltionships(@contact)
 
       flash[:success] = "Contact was successfully updated."
+
       redirect_to contacts_path(previous_query_string)
     else
       flash[:danger] = @contact.errors.full_messages.to_s
+
       render 'edit'
     end
     session[:last_contact_page] = request.env['HTTP_REFERER']
-    redirect_to contact_url
+
   end
 
   def destroy

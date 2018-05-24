@@ -57,27 +57,26 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
-$('[href*="#section_"]').on('click', function() {
+// $('[href*="#section_"]').on('click', function() {
 
-        // Close collapsed navbar on click
-        navbarCollapse.collapse('hide');
+//         // Close collapsed navbar on click
+//         navbarCollapse.collapse('hide');
 
-        // Smooths scroll to anchor
-        if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
+//         // Smooths scroll to anchor
+//         if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
 
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+//             var target = $(this.hash);
+//             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 80
-                }, 1000);
-                return false;
-            }
+//             if (target.length) {
+//                 $('html, body').animate({
+//                     scrollTop: target.offset().top - 80
+//                 }, 1000);
+//                 return false;
+//             }
 
-        }
-    });
-
+//         }
+//     });
 
 
  $('body').on('click', '.btn-back', function(event) {
@@ -98,21 +97,43 @@ $('body').on('click', '#close-form', function(event) {
 });
    $('#contact_address').hide();
 
+ var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
+ var wizIndex = 1;
   $('body').on('click', '#btn_next', 'btn-form', function(event) {
-    var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
+
 
 
     $('#contact_form').removeAttr("disabled");
     console.log('button clicked')
-    $(formArray[i]).trigger( "click" );
-    i++
-    if (i === 4 ) {
-        i = 0;
+    moveToNext();
+});
+
+var moveToNext = function(){
+   $(formArray[wizIndex]).trigger( "click" );
+
+    if (formArray[wizIndex] === 'a[href="#group"]' ) {
+        wizIndex = 1;
       $('.btn_next').hide()
       $('.btn-finish').show()
-      $('body').on('click', '.btn-finish', function(event) {
-      $('#new_contact').submit();
-    })
+      $('#contact_form').removeAttr("disabled");
+      $('.btn-finish').trigger( "click" );
+    //   $('body').on('click', '.btn-finish', function(event) {
+    //   $('#new_contact').submit();
+    //   $(this).closest('form').submit();
+    // });
+   }
+  wizIndex++
+}
+
+
+$(document).keypress(function(e) {
+   e.preventDefault();
+    if(e.which == 13) {
+      moveToNext();
+       if (formArray[wizIndex] === 'a[href="#group"]' ){
+
+            $('#new_contact').submit();
+        }
     }
 });
 
