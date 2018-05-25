@@ -254,36 +254,9 @@
 
                        </div>
                     </div>
-
-
-
-
-                    <div class="form-group ml-0 pr-2 pl-0 mt-0">
-                       <div class=" mr-0 pl-3">
- <% group_ids = [] %>
-            <%  @group_ids.each_with_index do |group, index| %>
-
-                         <% group_ids[index] = group.group_id %>
-
-              <% end %>
-
-              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-
-               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
-                       <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker' }  )%>
-                       </div>
-                       <div class="form-group  pl-3">
-                          <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %>
-                            <div class="form-group ml-0 pr-2 pl-0 mt-0">
-                              <div class=" mr-0 pl-3">
-                                  <label for="cell" class="bmd-label-floating text-light" >Pick users<small>(required)</small></label><%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
-                                </div>
-                            </div>
-                          </div>
-                       </div>
-                    </div>
-                    <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd pull-right">Save Changes </button>
-            <div class="form-check pull-left mt-3 ml-4">
+                    <div class="row">
+                  <div class="col-md-6 ">
+                         <div class="form-check pull-left mt-3 ">
            <label class="form-check-label ">
               <%= form.check_box :verified, id: :contact_verified, class: 'form-check-input text-success ' %>
               <span class="form-check-sign text-success "  style="color:green">
@@ -292,6 +265,31 @@
               <p class=" mb-3">  <%= @contact.verified ? 'Yes' : 'No' %>, Contact has beeen verified.</p>
            </label>
         </div>
+                  </div>
+
+                    <div class="col-md-6 pull-right ml-0 pr-2 pl-0 mt-0">
+                       <div class=" form-group mr-0 pl-3">
+             <% group_ids = [] %>
+             <% if !@group_ids.nil? %>
+                <%  @group_ids.each_with_index do |group, index| %>
+                         <% group_ids[index] = group.group_id %>
+                <% end %>
+              <% end %>
+              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+
+               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
+                       <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker' }  )%>
+                      <% attr = {prompt: "Select related users"} %>
+                      <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
+                       </div>
+
+                    </div>
+                    </div>
+                    <div class="clearfix">
+                          <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd float-right">Save Changes </button>
+                    </div>
+
+
                  </div>
               </div>
            </div>

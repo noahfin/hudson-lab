@@ -128,17 +128,16 @@ $('body').on('click', '#close-form', function(event) {
 
 var moveToNext = function(){
    $(formArray[wizIndex]).trigger( "click" );
-
+  if (formArray[wizIndex] === 'a[href="#account"]' ) {
+     $('#contacts_suffix').focus();
+   } else if (formArray[wizIndex] === 'a[href="#address"]' ) {
+       $('#contact_address').focus();
+   }
     if (formArray[wizIndex] === 'a[href="#group"]' ) {
         wizIndex = 1;
       $('.btn_next').hide()
       $('.btn-finish').show()
-      $('#contact_form').removeAttr("disabled");
-      $('.btn-finish').trigger( "click" );
-    //   $('body').on('click', '.btn-finish', function(event) {
-    //   $('#new_contact').submit();
-    //   $(this).closest('form').submit();
-    // });
+     return true;
    }
   wizIndex++
 }
@@ -147,10 +146,11 @@ var moveToNext = function(){
 $(document).keypress(function(e) {
    e.preventDefault();
     if(e.which == 13) {
-      moveToNext();
-       if (formArray[wizIndex] === 'a[href="#group"]' ){
 
-            $('#new_contact').submit();
+       if (moveToNext() === true ){
+
+      $('#contact_form').removeAttr("disabled");
+      $('.btn-finish').trigger( "click" );
         }
     }
 });

@@ -73,15 +73,16 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      if params['contact'][:group_id]
       @contact.group_ids = params['contact'][:group_id]
-
-
-            params['user_id'].each do |u_id|
-            next if u_id.to_i == 0
-              user = User.find(u_id.to_i)
-           user.contacts << @contact
-
-         end
+    end
+    if  params['user_id']
+        params['user_id'].each do |u_id|
+        next if u_id.to_i == 0
+          user = User.find(u_id.to_i)
+       user.contacts << @contact
+       end
+    end
 
 
       flash[:success] = "Contact was successfully created."
@@ -95,7 +96,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :suite, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :group_id, :contact_id, :role, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
+    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :suite, :county, :state,:country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
   end
 
   def find_contact
