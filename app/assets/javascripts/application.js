@@ -400,7 +400,7 @@ var contact_ids_prop = [];
 
 $('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 3,
+        minLength: 4,
         select: function(event, ui) {
            contact_ids_prop[contact_ids_prop.length] = ui.item.id
            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
@@ -414,7 +414,7 @@ $('.get-contacts').autocomplete({
 
     $('#query').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 3,
+        minLength: 2,
         select: function(event, ui) {
             $('#query').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString();
@@ -426,7 +426,7 @@ $('.get-contacts').autocomplete({
 keyUpArray = 0
 $("#query").keyup(function(){
    keyUpArray++
-   if (keyUpArray > 3) {
+   if (keyUpArray > 1) {
     $('#send-search').trigger( "click" );
     keyUpArray = 0
     }
