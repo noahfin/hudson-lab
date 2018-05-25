@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
   def autocomplete
     session[:selected_group_id] = params[:group_id]
     query = params[:query]
-    @contacts = Contact.where('name LIKE ? OR first_name LIKE ? OR last_name LIKE ?', "%#{query}%", "%#{query}%", "%#{query}%")
+    @contacts = Contact.where('name LIKE ? ', "%#{query}%")
 
   end
  def
