@@ -98,7 +98,7 @@ if (history && history.pushState) {
 
  $('body').on('click', '.btn-back', function(event) {
   window.history.back();
-   window.history.back();
+
  });
 
 
