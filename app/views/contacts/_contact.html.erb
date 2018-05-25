@@ -3,7 +3,7 @@
   <td class="middle">
     <div class="media">
       <div class="media-left thumbnail contact-main-image">
-        <%= link_to contact_path(contact.id) do %>
+        <%= link_to contact_path(contact.id), remote: true do %>
 
           <% if contact.email  == nil %>
           <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object small-image" %>

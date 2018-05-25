@@ -36,6 +36,7 @@ $(window).resize(function() {
 
 })
 
+
 $(document).on('click', '#property-submit', function(event) {
 
   });
@@ -57,6 +58,22 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
+
+
+if (history && history.pushState) {
+  $(function() {
+     $(document).on('click', 'a[data-remote=true], .pagination a', function(e) {
+      $.getScript(this.href);
+      history.pushState(null, document.title, this.href);
+      e.preventDefault();
+    });
+
+    $(window).bind("popstate", function() {
+      $.getScript(location.href);
+
+})
+     });
+}
 // $('[href*="#section_"]').on('click', function() {
 
 //         // Close collapsed navbar on click
@@ -283,15 +300,11 @@ var groupGetId = '';
     });
   })
   var dataTable = $('.data-table').DataTable();
+  var lastUrl = ''
   document.addEventListener("turbolinks:before-cache", function() {
   dataTable.destroy();
 });
-    $(document).on('click', '.pagination a[data-remote=true], a.list-group-item, .show-contact', function() {
-        history.pushState({}, '', $(this).attr('href'));
-    });
-    $(window).on('popstate', function() {
-        $.get(document.location.href);
-    });
+
 var contact_ids_prop_i  = 0;
 var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];
 

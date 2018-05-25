@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <div class="wrapper" style="min-width: 100vw;">
+  <div class="wrapper" style="min-width: 100vw;" id="content">
     <%if user_signed_in? %><%= render 'layouts/sidebar' %>
     <div style="width: 100%;">
       <%= render 'layouts/navbar' %>
