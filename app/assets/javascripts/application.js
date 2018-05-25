@@ -63,16 +63,18 @@ $(document).on('turbolinks:load', function() {
   });
 
 var clsoeWiz = function(){
+             // $("[data-dismiss=modal]").trigger({ type: "click" });
               $('#contact-form-wiz').hide();
-              // $("[data-dismiss=modal]").trigger({ type: "click" });
-              $('#form-modal').modal('hide');
 
-              $('#modal').modal('hide');
+              $('#form-modal').modal('hide');
+               $('#form-modal').removeClass('modal');
+
+
 //hide the modal
 
 $('body').removeClass('modal-open');
 //modal-open class is added on body so it has to be removed
-
+$('body').removeClass('modal-backdrop');
 $('.modal-backdrop').remove();
 }
 
@@ -285,17 +287,7 @@ var createFormSend = function(data){
             method: "post",
             data: data,
             success: function(contact) {
-              $('#contact-form-wiz').hide();
-              $("[data-dismiss=modal]").trigger({ type: "click" });
-              $('#form-modal').modal('hide');
-
-              $('#modal').modal('hide');
-//hide the modal
-
-$('body').removeClass('modal-open');
-//modal-open class is added on body so it has to be removed
-
-$('.modal-backdrop').remove();
+           clsoeWiz();
                  $.notify({
                         title: "New Contact Added:",
                         message: contact.first_name + '"' + ' was successfuly added to the database'
