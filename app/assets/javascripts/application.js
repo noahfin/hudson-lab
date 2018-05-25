@@ -58,7 +58,23 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
+  $(document).on('click', '.wiz-close', function(event) {
+    clsoeWiz();
+  });
 
+var clsoeWiz = function(){
+              $('#contact-form-wiz').hide();
+              // $("[data-dismiss=modal]").trigger({ type: "click" });
+              $('#form-modal').modal('hide');
+
+              $('#modal').modal('hide');
+//hide the modal
+
+$('body').removeClass('modal-open');
+//modal-open class is added on body so it has to be removed
+
+$('.modal-backdrop').remove();
+}
 
 if (history && history.pushState) {
   $(function() {
@@ -74,31 +90,32 @@ if (history && history.pushState) {
 })
      });
 }
-// $('[href*="#section_"]').on('click', function() {
+$('[href*="#section_"]').on('click', function() {
 
-//         // Close collapsed navbar on click
-//         navbarCollapse.collapse('hide');
+        // Close collapsed navbar on click
+        navbarCollapse.collapse('hide');
 
-//         // Smooths scroll to anchor
-//         if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
+        // Smooths scroll to anchor
+        if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
 
-//             var target = $(this.hash);
-//             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
-//             if (target.length) {
-//                 $('html, body').animate({
-//                     scrollTop: target.offset().top - 80
-//                 }, 1000);
-//                 return false;
-//             }
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 80
+                }, 1000);
+                return false;
+            }
 
-//         }
-//     });
+        }
+    });
 
 
  $('body').on('click', '.btn-back', function(event) {
-  window.history.back();
-   window.history.back();
+     event.preventDefault();
+    window.history.back();
+     window.history.back();
 
  });
 
@@ -165,26 +182,7 @@ $(document).keypress(function(e) {
     }
 });
 
-// var selected_users = [];
-// $('.select_u_picker').selectpicker({
-//     selectAllValue: 'selectAll',
-//     onChange: function(element, checked) {
-//         var users = $('.select_u_picker option:selected');
-//         $(users).each(function(index, user){
-//             selected_users.push([$(this).val()]);
-//         });
-//     }
-// });
-// var selected_groups = [];
-// $('.select_g_picker').selectpicker({
-//     selectAllValue: 'selectAll',
-//     onChange: function(element, checked) {
-//         var groups = $('.select_g_picker option:selected');
-//         $(groups).each(function(index, group){
-//             selected_users.push([$(this).val()]);
-//         });
-//     }
-// });
+
 
 
 var getContactInputs = function(){
