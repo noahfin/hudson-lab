@@ -21,8 +21,8 @@ class ContactsController < ApplicationController
 
   def autocomplete
     session[:selected_group_id] = params[:group_id]
-    query = params[:query]
-    @contacts = Contact.where('name LIKE ? ', "%#{query}%")
+    criteria = params[:query]
+    @contacts = Contact.good_search(criteria)
 
   end
  def

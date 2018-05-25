@@ -37,6 +37,12 @@ class Contact < ApplicationRecord
 
   end
 
+def self.good_search(criteria)
+  regexp = /#{criteria}/i; # case-insensitive regexp based on your string
+
+  result = order(:name).where("name ILIKE ?", "%#{criteria}%").limit(10)
+  result.sort{|x, y| (x =~ regexp) <=> (y =~ regexp) }
+end
 
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
 
