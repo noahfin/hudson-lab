@@ -426,7 +426,7 @@ $('.get-contacts').autocomplete({
 keyUpArray = 0
 $("#query").keyup(function(){
    keyUpArray++
-   if (keyUpArray > 4) {
+   if (keyUpArray > 3) {
     $('#send-search').trigger( "click" );
     keyUpArray = 0
     }
