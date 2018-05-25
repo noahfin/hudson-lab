@@ -7,5 +7,6 @@
 <% end %>
 <% if user_signed_in? %>
 <div class="dropdown-divider"></div>
+<%= link_to 'Concat first and last name', prepareshearch_path, class: 'dropdown-item' %>
 <%= link_to 'Users', users_path, class: 'dropdown-item' %>
 <% end %>

@@ -19,6 +19,7 @@
     resources :leads
     resources :deals
     match "search" => "search#create", as: :searches, via: [:get, :post]
+    match "search/prepare" => "search#prepare", as: :prepareshearch, via: :get
     get'/dashboard', to: 'dashboard#index'
     match "touches/contact/:id" => "touches#contact", as: :contact_touches, via: [:get, :post]
     resources :properties do

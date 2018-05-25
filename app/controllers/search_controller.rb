@@ -10,4 +10,14 @@ def create
 
     end
   end
+  def prepare
+    prepared_contacts = Contact.all
+    prepared_contacts.each do  |contact|
+      if contact.first_name && contact.last_name
+        name = contact.first_name + ' ' + contact.last_name
+        contact.update_attribute(:name, name)
+      end
+    end
+    redirect_to contacts_path
+  end
 end
