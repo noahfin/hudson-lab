@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
   def autocomplete
     session[:selected_group_id] = params[:group_id]
     criteria = params[:query]
-    @contacts = Contact.good_search(criteria)
+    @contacts = Contact.good_search(criteria).order(:first_name).page(params[:page])
 
   end
  def

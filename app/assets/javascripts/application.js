@@ -86,6 +86,10 @@ if (history && history.pushState) {
       e.preventDefault();
     });
 
+     $("#c-s-form input").keyup(function() {
+      $.get($("#c-s-form").attr("action"), $("#c-s-form").serialize(), null, "script");
+      history.replaceState(null, document.title, $("#c-s-form").attr("action") + "?" + $("#c-s-form").serialize());
+    });
     $(window).bind("popstate", function() {
       $.getScript(location.href);
 
@@ -130,9 +134,7 @@ $('.select_u_picker').attr("data-actions-box", "true");
   $(this).closest('form').submit();
  });
 
-$('body').on('click', '#close-form', function(event) {
-  document.location.reload(true);
-});
+
    $('#contact_address').hide();
 
  var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
