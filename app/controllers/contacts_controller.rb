@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
         format.html
         format.js
       end
+       session[:last_contact_page] = request.env['HTTP_REFERER']
   end
 
   def autocomplete
@@ -91,7 +92,7 @@ class ContactsController < ApplicationController
       flash[:danger] = @contact.errors.full_messages.to_s
 
     end
-
+     redirect_to contacts_path(previous_query_string)
  end
 
   private

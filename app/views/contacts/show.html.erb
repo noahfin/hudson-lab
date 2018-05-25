@@ -57,14 +57,11 @@
          <p class="card-description">
             <%= @contact.address if @contact.address%>
          </p>
-         <% if  session[:last_contact_page] %>
-         <%= link_to  session[:last_contact_page], class: 'btn-back btn bg-hudson btn-round text-white' do %>
-         Go Back
-         <% end %>
-         <% else %>
-         <%= link_to "Go Back", :back, class: 'btn-back btn bg-hudson btn-round text-white' %>
 
-         <% end %>
+         <button type="button" class="btn-back btn bg-hudson btn-round text-white">Go Back</button>
+
+
+
 
       </div>
    </div>

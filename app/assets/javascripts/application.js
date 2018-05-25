@@ -96,10 +96,11 @@ if (history && history.pushState) {
 //     });
 
 
- // $('body').on('click', '.btn-back', function(event) {
- //  window.history.back();
+ $('body').on('click', '.btn-back', function(event) {
+  window.history.back();
+   window.history.back();
 
- // });
+ });
 
 
 $('.select_u_picker').attr("data-actions-box", "true");
