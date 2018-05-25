@@ -48,7 +48,7 @@ class Contact < ApplicationRecord
 def self.good_search(criteria)
   regexp = /#{criteria}/i; # case-insensitive regexp based on your string
 
-  where("name LIKE ? or first_name LIKE ? or last_name LIKE ?", "%#{criteria}%",  "%#{criteria}%",  "%#{criteria}%").limit(30)
+  where("first_name LIKE ? or name LIKE ?", "%#{criteria}%",  "%#{criteria}%").limit(30) if criteria.present?
 
 end
 
