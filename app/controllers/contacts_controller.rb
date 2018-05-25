@@ -76,9 +76,9 @@ class ContactsController < ApplicationController
       if params['contact'][:group_id]
       @contact.group_ids = params['contact'][:group_id]
     end
-    if  params['user_id']
-        params['user_id'].each do |u_id|
-        next if u_id.to_i == 0
+    if  params['contact']['user_id']
+        params['contact']['user_id'].each do |u_id|
+        next if u_id.to_i == 0 || u_id == "" || u_id.to_i < 1
           user = User.find(u_id.to_i)
        user.contacts << @contact
        end
@@ -86,21 +86,18 @@ class ContactsController < ApplicationController
 
 
       flash[:success] = "Contact was successfully created."
-      render 'show'
+
     else
       flash[:danger] = @contact.errors.full_messages.to_s
-      render 'new'
+
     end
-      respond_to do |format|
-        format.html
-        format.js
-      end
+
  end
 
   private
 
   def contact_params
-    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :suite, :county, :state, :country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
+    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :suite, :county, :state, :country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
   end
 
   def find_contact

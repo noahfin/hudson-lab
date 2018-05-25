@@ -164,8 +164,43 @@ $(document).keypress(function(e) {
     }
 });
 
+// var selected_users = [];
+// $('.select_u_picker').selectpicker({
+//     selectAllValue: 'selectAll',
+//     onChange: function(element, checked) {
+//         var users = $('.select_u_picker option:selected');
+//         $(users).each(function(index, user){
+//             selected_users.push([$(this).val()]);
+//         });
+//     }
+// });
+// var selected_groups = [];
+// $('.select_g_picker').selectpicker({
+//     selectAllValue: 'selectAll',
+//     onChange: function(element, checked) {
+//         var groups = $('.select_g_picker option:selected');
+//         $(groups).each(function(index, group){
+//             selected_users.push([$(this).val()]);
+//         });
+//     }
+// });
+
 
 var getContactInputs = function(){
+   var user_ids = []
+
+        $('.users-for-new-group').each(function(i) {
+          if ($(this).is(':checked') &&  $(this).val() !== "") {
+            user_ids[i] = $(this).val();
+          }
+        });
+          var group_ids = []
+
+        $('.groups-for-new-group').each(function(i) {
+           if ($(this).is(':checked') &&  $(this).val() !== ""){
+            group_ids[i] = $(this).val();
+          }
+        });
   var formData = { contact: {
             'name'              :   $('#contact_name').val(),
             'email'             :   $('#contact_email').val(),
@@ -197,8 +232,9 @@ var getContactInputs = function(){
             'postion'           :   $('#contact_postion').val(),
             'sic'               :   $('#contact_sic').val(),
             'role'              :   $('#contact_role').val(),
-           'group_id'           :   $('#contact_group_id').val(),
-            'user_id'           :   $('.users').val(),
+
+           'group_id'           :     group_ids,
+            'user_id'           :  user_ids,
             'verified'          :   $('#contact_verified').val()
 
 

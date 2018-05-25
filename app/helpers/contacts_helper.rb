@@ -11,8 +11,8 @@ module ContactsHelper
        end
   end
 
-     if  params['contact'][:group_id] != nil
-     if params['contact']['user_id'] &&  params['contact']['user_id'][0] != nil
+     if  params['contact']['user_id'] != nil
+
 
       users = params['contact']['user_id'].to_a
 
@@ -24,7 +24,7 @@ module ContactsHelper
 
 
            end
-          end
+
          end
 
       end

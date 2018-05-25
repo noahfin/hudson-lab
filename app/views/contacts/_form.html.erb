@@ -468,30 +468,79 @@
                                  </div>
                               </div>
                               <div>
-
+                                 </div>
                               </div>
                            </div>
                          </div>
+                         <div class="row">
+
+
                         <div class="form-group ml-0 pr-2 pl-0 mt-0">
                            <div class=" mr-0 pl-3">
-                              <% attr = {prompt: "Select Groups"} %><% attr[:selected] %>
-                              <div class="collapse " id="collapseGroup">
-                                 <label for="cell" class="bmd-label-floating text-light ">Pick Groups<small></small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
+
+                     <div class="collapse " id="collapseGroup">
+                     <div class="col-md-12">
+                        <% Group.all.each.each_slice(4) do |group| %>
+                        <div class="col-md-12 mb-3">
+                           <div class="row">
+                              <% group.each do |group| %>
+                              <div class="col-md-3">
+                                 <div class=" p-2">
+                                    <label>
+                                    <input type="checkbox" name="group_id[]"  value=
+                                       <%="#{group.id}" if group.id %> class="groups-for-new-group" />
+                                    <span class=""></span>
+                                    <span class="text-white"><%= group.name %>
+                                    </span>
+                                    </label>
+                                 </div>
                               </div>
+                              <% end %>
                            </div>
+                         <hr class="bg-light">
+                        </div>
+                        <% end %>
+                          </div>
+                        </div>
+                             </div>
+                                </div>
+                                   </div>
+                                   <div class="row">
+
+
                            <div class="form-group  pl-3">
-                              <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected] = User.all %>
+
+                              <div class="collapse " id="pickUsers">
                                    <div class="col-md-12">
+                                          <% User.all.each.each_slice(6) do |user| %>
+      <div class="col-md-12">
+         <div class="row">
+            <% user.each do |user| %>
+            <%  next if !user.first_name  %>
+            <div class="col-md-2">
+               <div class="togglebutton ">
+                  <label>
+                  <input type="checkbox" name="user_id[]" checked="true" value=
+                     <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                  <span class="toggle"></span>
+                  <span class="text-white"><%= user.first_name if user.first_name %>
+                  </span>
+                  </label>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+      <% end %>
 
-                            <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
-
+  </div>
                               </div>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-5">
                      </div>
-                  </div>
+
                </div>
             </div>
          </div>
