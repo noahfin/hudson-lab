@@ -86,10 +86,10 @@ if (history && history.pushState) {
       e.preventDefault();
     });
 
-     $("#c-s-form input").keyup(function() {
-      $.get($("#c-s-form").attr("action"), $("#c-s-form").serialize(), null, "script");
-      history.replaceState(null, document.title, $("#c-s-form").attr("action") + "?" + $("#c-s-form").serialize());
-    });
+    //  $("#products_search input").keyup(function() {
+    //   $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+    //   history.replaceState(null, document.title, $("#products_search").attr("action") + "?" + $("#products_search").serialize());
+    // });
     $(window).bind("popstate", function() {
       $.getScript(location.href);
 
