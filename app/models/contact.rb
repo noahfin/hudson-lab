@@ -1,7 +1,12 @@
 class Contact < ApplicationRecord
+
   require 'roo'
   include PgSearch
   include ContactsHelper
+  after_save :concat_full_name
+
+
+
    self.inheritance_column = :_type_disabled
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :user
@@ -25,6 +30,9 @@ class Contact < ApplicationRecord
  pg_search_scope :search, against: [:name, :first_name, :last_name, :company, :email]
 
  pg_search_scope :by_county, against: [:county]
+
+
+
   def set_default_role
     self.role ||= :potential_customer
 
@@ -96,5 +104,12 @@ end
         when ".numbers" then Roo::Number.new(file.path, nil, :ignore)
       else raise "Unknown file type: #{file.original_filename}"
       end
+  end
+  private
+  def concat_full_name
+     if self.last_name && self.first_name
+      fullname = self.last_name + " " + self.first_name
+       self.name = fullname
+     end
   end
 end

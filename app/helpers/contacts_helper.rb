@@ -28,6 +28,7 @@ module ContactsHelper
          end
 
       end
+
      end
 
 

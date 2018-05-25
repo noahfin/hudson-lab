@@ -75,7 +75,9 @@ class ContactsController < ApplicationController
   end
 
   def create
+
     @contact = Contact.new(contact_params)
+
     if @contact.save
       if params['contact'][:group_id]
       @contact.group_ids = params['contact'][:group_id]
