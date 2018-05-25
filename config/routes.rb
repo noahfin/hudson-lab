@@ -32,7 +32,7 @@
 
     resources :contacts do
       get 'autocomplete', on: :collection
-      get 'sort', on: :collection
+      get 'searchname', on: :collection
       post 'inport', on: :collection
     end
 
