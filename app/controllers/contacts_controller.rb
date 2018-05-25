@@ -40,10 +40,12 @@ class ContactsController < ApplicationController
   end
  def show
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
+     render :template => 'contacts/show.js.erb', turbolinks: true
  end
   def edit
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
+
   end
 
   def update

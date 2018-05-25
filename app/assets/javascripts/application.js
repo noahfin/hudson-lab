@@ -418,10 +418,19 @@ $('.get-contacts').autocomplete({
         select: function(event, ui) {
             $('#query').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString();
-            $('.c-s-form').attr('action', uri)
-             $('#send-search').trigger( "click" );
+            $('#c-s-form').attr('action', uri)
+             getProfile(uri,ui.item.id);
         }
     });
+var getProfile = function(uri, id){
+  $.ajax({
+    url:  uri,
+    success: function(data) {
+        // decode data to get your js array object
+        // step 6
+    }
+});
+}
 
 keyUpArray = 0
 $("#query").keyup(function(){
