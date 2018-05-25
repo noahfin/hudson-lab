@@ -1,4 +1,4 @@
-$('#main-wrap').html('<%= escape_javascript render("groups/edit") %>');
+$('#main-content').html('<%= escape_javascript render("groups/edit") %>');
 
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 
