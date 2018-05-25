@@ -4,11 +4,6 @@
 <div class="card-body  first-show-card" >
    <div class="panel panel-default first-show-card">
       <div class="panel-heading">
-         <% if @contact_groups %>
-         <% @contact_groups.each do |group| %>
-         <a href="" title="Group Name" class=" btn btn-outline-info btn-small m-2"><%= group.name %></a>
-         <% end %>
-         <% end %>
       </div>
       <div class="panel-body col-md-12 first-show-card">
          <ul id="contact-info list-group first-show-card">
@@ -62,7 +57,11 @@
          <p class="card-description">
             <%= @contact.address if @contact.address%>
          </p>
-         <button type="" class="btn-back btn bg-hudson btn-round text-white">Go Back</button>
+
+         <button type="button" class="btn-back btn bg-hudson btn-round text-white">Go Back</button>
+
+
+
 
       </div>
    </div>

@@ -80,7 +80,7 @@ $('.modal-backdrop').remove();
 
 if (history && history.pushState) {
   $(function() {
-     $(document).on('click', 'a[data-remote=true], .pagination a', function(e) {
+     $(document).on('click', 'a[data-remote="true"], .pagination a', function(e) {
       $.getScript(this.href);
       history.pushState(null, document.title, this.href);
       e.preventDefault();
@@ -121,7 +121,7 @@ $('[href*="#section_"]').on('click', function() {
  $('body').on('click', '.btn-back', function(event) {
      event.preventDefault();
     window.history.back();
-     window.history.back();
+
 
  });
 
