@@ -1,3 +1,6 @@
+<div class="plan-form">
+
+
       <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
                     <%= render 'layouts/messages' if !flash.empty? %>
                     <div class="row">
@@ -110,35 +113,7 @@
                                 </div>
                              </div>
                           </div>
-                      <div class="col-md-12 ml-3 mr-0 pr-0 pl-0">
-                       <div class="form-inline ">
-                          <div class="form-group ml-2 mr-0 pr-0 pl-0">
-                             <a class="btn btn-round btn-outline-info  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
-                             <i class="material-icons">group</i>
-                             Select Groups
-                             </a>
-                          </div>
-                          <div class="form-group ml-2 mr-0 pr-0 pl-0">
-                             <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
-                             <i class="material-icons">person_add</i>
-                             Select Users
-                             </button>
-                          </div>
-
-                       </div>
-                    </div>
-                       </div>
-                       <div class="col-md-6">
-                          <div class="form-group">
-                             <label for="confirm" class="cols-sm-2 control-label pl-4">Type</label>
-                             <div class="cols-sm-10">
-                                <div class="input-group">
-                                   <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :type, id: :contacts_type, class: 'form-control' %>
-                                </div>
-                             </div>
-                          </div>
-                          <div class="form-group">
+                                <div class="form-group">
                              <label for="email" class="cols-sm-2 control-label pl-4">Total Number Of Employees</label>
                              <div class="cols-sm-10">
                                 <div class="input-group">
@@ -147,15 +122,9 @@
                                 </div>
                              </div>
                           </div>
-                          <div class="form-group">
-                             <label for="username" class="cols-sm-2 control-label pl-4">Position</label>
-                             <div class="cols-sm-10">
-                                <div class="input-group">
-                                   <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <%= form.text_field :postion, id: :contacts_postion, class: 'form-control text-white' %>
-                                </div>
-                             </div>
-                          </div>
+
+                       </div>
+                       <div class="col-md-6">
                           <div class="form-group">
                              <label for="password" class="cols-sm-2 control-label pl-4">Sic</label>
                              <div class="cols-sm-10">
@@ -165,12 +134,42 @@
                                 </div>
                              </div>
                           </div>
+
                           <div class="form-group">
-                             <label for="confirm" class="cols-sm-2 control-label pl-4">Address</label>
+                             <label for="username" class="cols-sm-2 control-label pl-4">Position</label>
                              <div class="cols-sm-10">
                                 <div class="input-group">
                                    <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
-                                   <input type="text" name="contact[address]" id="c-add-hidden" class= "form-control text-white">
+                                   <%= form.text_field :postion, id: :contacts_postion, class: 'form-control text-white' %>
+                                </div>
+                             </div>
+                          </div>
+
+                              <div class="form-group ">
+                             <label for="username" class="cols-sm-2 control-label ml-3 pl-4">Postal Code</label>
+                             <div class="cols-sm-10">
+                                <div class="input-group">
+                                   <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
+                                   <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white' %>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="form-group">
+                             <label for="address" class="cols-sm-2 control-label pl-4">Address</label>
+                             <div class="cols-sm-10">
+                                <div class="input-group">
+                                   <span class="input-group-addon"><i  class="fa fa-user fa"  aria-hidden="true"></i></span>
+                                   <input type="text" class="form-control text-white" name="contact[address]" value=<%="#{@contact.address if @contact.address}"%> >
+
+                                </div>
+                             </div>
+                          </div>
+                             <div class="form-group">
+                             <label for="email" class="cols-sm-2 control-label pl-4">Suite</label>
+                             <div class="cols-sm-10">
+                                <div class="input-group">
+                                   <span class="input-group-addon"><i  class="fa fa-user fa" aria-hidden="true"></i></span>
+                              <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
@@ -183,6 +182,9 @@
                                 </div>
                              </div>
                           </div>
+
+
+
                           <div class="form-group">
                              <label for="username" class="cols-sm-2 control-label pl-4">Strret Nname</label>
                              <div class="cols-sm-10">
@@ -201,28 +203,19 @@
                                 </div>
                              </div>
                           </div>
-
-                          <div class="form-group">
-
-                             <div class="col-md-12">
+                                 <div class="form-group">
+                             <label for="username" class="cols-sm-2 control-label pl-4">County</label>
+                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                   <span class="input-group-addon"><i  class="fa fa-user fa pl-3 "  aria-hidden="true"></i><label for="confirm" class="cols-sm-2 control-label  pl-4 ">County</label></span>
-                                   <select class="selectpicker county-select col-md-12  " name="contact[county]" data-style="select-with-transition" title="Single Select">
-                                      <option value="Select County"> Select County </option>
-                                      <option value="Dutchess"> Dutchess </option>
-                                      <option value="Ulster"> Ulster </option>
-                                      <option value="Putnam"> Putnam </option>
-                                      <option value="Orange"> Orange </option>
-                                      <option value="Columbia"> Columbia </option>
-                                      <option value="Sullivan"> Sullivan </option>
-                                      <option value="Greene"> Greene </option>
-                                      <option value="westchester"> westchester </option>
-                                      <option value="westchester"> Rockland </option>
+                                   <span class="input-group-addon"><i class="fa fa-user fa"  aria-hidden="true"></i></span>
+                                   <%= form.text_field :county, id: :contact_county, class: 'form-control text-white' %>
                                 </div>
                              </div>
                           </div>
-                          </select>
-                          <div class="form-group col-md-12">
+
+
+
+                          <div class="form-group ">
                              <label for="confirm" class="cols-sm-2 control-label ml-3 pl-4">State</label>
                              <div class="cols-sm-10">
                                 <div class="input-group">
@@ -231,7 +224,7 @@
                                 </div>
                              </div>
                           </div>
-                          <div class="form-group col-md-12">
+                          <div class="form-group ">
                              <label for="email" class="cols-sm-2 control-label ml-3 pl-4">Country</label>
                              <div class="cols-sm-10">
                                 <div class="input-group">
@@ -240,7 +233,7 @@
                                 </div>
                              </div>
                           </div>
-                          <div class="form-group col-md-12">
+                          <div class="form-group">
                              <label for="username" class="cols-sm-2 control-label ml-3 pl-4">Postal Code</label>
                              <div class="cols-sm-10">
                                 <div class="input-group">
@@ -249,32 +242,21 @@
                                 </div>
                              </div>
                           </div>
+                          <div class="form-group">
+                             <label for="password" class="cols-sm-2 control-label pl-4">Zip Code Ext</label>
+                             <div class="cols-sm-10">
+                                <div class="input-group">
+                                   <span class="input-group-addon"><i class="fa fa-user fa"  aria-hidden="true"></i></span>
+                                   <%= form.text_field :zip_code_ext, id: :contacts_zip_code_ext, class: 'form-control text-white' %>
+                                </div>
+                             </div>
+                          </div>
+
                        </div>
                     </div>
-
-
-                    <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker' }  )%>
-
-                    <div class="form-group ml-0 pr-2 pl-0 mt-0">
-                       <div class=" mr-0 pl-3">
-                          <% attr = {prompt: "Select Groups"} %><% attr[:selected] = session[:selected_group_id].to_i if session[:selected_group_id] %>
-                          <div class="collapse " id="collapseGroup">
-                             <label for="cell" class="bmd-label-floating text-light ">Pick Groups<small>(required)</small></label><%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", required: true, class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
-                          </div>
-                       </div>
-                       <div class="form-group  pl-3">
-                          <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected] = current_user.id.to_i if current_user.id %>
-                             <label for="cell" class="bmd-label-floating text-light" >Pick users<small>(required)</small></label><%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
-                          </div>
-                       </div>
-                    </div>
-                    <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd pull-right">Save Changes </button>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <!-- wizard container -->
-        <div class="form-check pull-right">
+                    <div class="row">
+                  <div class="col-md-6 ">
+                         <div class="form-check pull-left mt-3 ">
            <label class="form-check-label ">
               <%= form.check_box :verified, id: :contact_verified, class: 'form-check-input text-success ' %>
               <span class="form-check-sign text-success "  style="color:green">
@@ -283,8 +265,39 @@
               <p class=" mb-3">  <%= @contact.verified ? 'Yes' : 'No' %>, Contact has beeen verified.</p>
            </label>
         </div>
+                  </div>
+
+                    <div class="col-md-6 pull-right ml-0 pr-2 pl-0 mt-0">
+                       <div class=" form-group mr-0 pl-3">
+             <% group_ids = [] %>
+             <% if !@group_ids.nil? %>
+                <%  @group_ids.each_with_index do |group, index| %>
+                         <% group_ids[index] = group.group_id %>
+                <% end %>
+              <% end %>
+              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+
+               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
+                       <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker' }  )%>
+                      <% attr = {prompt: "Select related users"} %>
+                      <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
+                       </div>
+
+                    </div>
+                    </div>
+                    <div class="clearfix">
+                          <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd float-right">Save Changes </button>
+                    </div>
+
+
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!-- wizard container -->
+
         <div class="clearfix"></div>
      </div>
   </div>
 <% end %>
-
+</div>

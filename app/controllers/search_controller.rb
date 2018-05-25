@@ -7,7 +7,7 @@ def create
         format.html
         format.js
       end
-       redirect_to contacts_path
+
     end
   end
 end
