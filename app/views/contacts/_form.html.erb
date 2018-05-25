@@ -1,13 +1,15 @@
+
+
+<!--      Wizard container        -->
+<div class="wizard-container" id="contact-form-wiz">
 <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
 <%= render 'layouts/messages' if !flash.empty? %>
-<!--      Wizard container        -->
-<div class="wizard-container">
    <div class="card card-wizard card-6" data-color="green" id="wizardProfile" >
 
 
          <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
          <div class="card-header text-center">
-         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="close-form">
+         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" >
           <span aria-hidden="true">&times;</span>
         </button>
             <h3 class="card-title text-white">
@@ -115,7 +117,7 @@
                            </div>
                            <div class="form-group text-white">
                               <label  class="bmd-label-floating text-white">Prefix</label>
-                            <%= form.text_field :prefix, id: :contacts_prefix, class: 'form-control text-white ' %>
+                            <%= form.text_field :prefix, id: :contact_prefix, class: 'form-control text-white ' %>
                            </div>
                         </div>
                 </div>
@@ -128,7 +130,7 @@
                            </div>
                            <div class="form-group text-white">
                               <label  class="bmd-label-floating text-white">First Name</label>
-                             <%= form.text_field :first_name, id: :contacts_first_name, class: 'form-control text-white' %>
+                             <%= form.text_field :first_name, id: :contact_first_name, class: 'form-control text-white' %>
 
                            </div>
                         </div>
@@ -204,25 +206,25 @@
                 <div class="row mb-3">
                  <div class="col-md-3">
                   <%= form.label :suffix, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :suffix, id: :contacts_suffix, class: 'form-control text-white' %>
+                  <%= form.text_field :suffix, id: :contact_suffix, class: 'form-control text-white',  autofocus: true %>
                 </div>
                   <div class="col-md-3">
                   <label class="bmd-label-floating text-white">Owns or Rents</label>
 
-                  <%= form.text_field :owns_cents, id: :contactnews_owns_cents, class: 'form-control text-white' %>
+                  <%= form.text_field :owns_cents, id: :contact_owns_cents, class: 'form-control text-white' %>
                 </div>
 
 
                 <div class="col-md-3">
                   <%= form.label :year_of_Founding, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :year_of_Founding, id: :contactnews_year_of_Founding, class: 'form-control text-white' %>
+                  <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: 'form-control text-white' %>
                 </div>
 
 
 
                 <div class="col-md-3">
                   <%= form.label :primary_industry, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :primary_industry, id: :contacts_primary_industry, class: 'form-control text-white' %>
+                  <%= form.text_field :primary_industry, id: :contact_primary_industry, class: 'form-control text-white' %>
                 </div>
 
 
@@ -231,36 +233,36 @@
 
                  <div class="col-md-4">
                   <%= form.label :web_address, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :web_address, id: :contacts_web_address, class: 'form-control text-white' %>
+                  <%= form.text_field :web_address, id: :contact_web_address, class: 'form-control text-white' %>
                 </div>
 
                   <div class="col-md-4">
                   <%= form.label :latitude, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :latitude, id: :contacts_latitude, class: 'form-control text-white' %>
+                  <%= form.text_field :latitude, id: :contact_latitude, class: 'form-control text-white' %>
                 </div>
                 <div class="col-md-4 ">
                   <%= form.label :longitude, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :longitude, id: :contacts_longitude, class: 'form-control text-white' %>
+                  <%= form.text_field :longitude, id: :contact_longitude, class: 'form-control text-white' %>
                 </div>
 
                   </div>
               <div class="row mb-3">
                  <div class="col-md-3">
                   <%= form.label :facility_size, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :facility_size, id: :contactnews_facility_size, class: 'form-control' %>
+                  <%= form.text_field :facility_size, id: :contact_facility_size, class: 'form-control' %>
                 </div>
 
                 <div class="col-md-4 ">
                   <%= form.label :total_number_of_employees, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :total_number_of_employees, id: :contactnews_total_number_of_employees, class: 'form-control text-white' %>
+                  <%= form.text_field :total_number_of_employees, id: :contact_total_number_of_employees, class: 'form-control text-white' %>
                 </div>
                 <div class="col-md-3">
                   <LABEL class= "bmd-label-floating text-white">position</LABEL>
-                  <%= form.text_field :postion, id: :contacts_postion, class: 'form-control text-white' %>
+                  <%= form.text_field :postion, id: :contact_postion, class: 'form-control text-white' %>
                 </div>
                   <div class="col-md-2">
                   <%= form.label :sic, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :sic, id: :contacts_sic, class: 'form-control text-white' %>
+                  <%= form.text_field :sic, id: :contact_sic, class: 'form-control text-white' %>
                 </div>
             </div>
 
@@ -278,7 +280,7 @@
                      <div class="col-sm-7">
                         <div class="form-group text-white">
                            <label class="bmd-label-floating  text-white">Address</label>
-                           <%= form.text_field :address, id: :contact_address, class: 'form-control text-white' %>
+                           <%= form.text_field :address, id: :contact_address, class: 'form-control text-white',  autofocus: true %>
                         </div>
                      </div>
                      <div class="col-sm-5">
@@ -397,19 +399,19 @@
                         <div class="form-group">
 
                             <div class="form-check form-check-inline ">
-                              <label class="bmd-label-floating mr-1   ml-2  pt-2"">Broker:</label>
+                              <label class="bmd-label-floating mr-1   ml-2  pt-2">Broker:</label>
                               <input type="checkbox" name="contact[role]" value="broker">
 
                              </div>
 
                               <div class="form-check form-check-inline">
-                               <label class="bmd-label-floating mr-1   ml-2  pt-2"">Agent:</label>
+                               <label class="bmd-label-floating mr-1   ml-2  pt-2">Agent:</label>
                                   <input type="checkbox" name="contact[role]" value="agent">
 
                              </div>
 
                              <div class="form-check form-check-inline">
-                                  <label class="bmd-label-floating mr-1   ml-2  pt-2"" >Owner:</label>
+                                  <label class="bmd-label-floating mr-1   ml-2  pt-2">Owner:</label>
                                   <input type="checkbox" name="contact[role]" value="owner">
 
                              </div>
@@ -478,30 +480,11 @@
                               </div>
                            </div>
                            <div class="form-group  pl-3">
-                              <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected]  %>
+                              <div class="collapse " id="pickUsers"><% attr = {prompt: "Select related users"} %><% attr[:selected] = User.all %>
                                    <div class="col-md-12">
 
-                        <% User.all.each.each_slice(6) do |user| %>
-                        <div class="col-md-12">
-                           <div class="row">
-                              <% user.each do |user| %>
-                              <%  next if !user.first_name  %>
-                              <div class="col-md-2">
-                                 <div class="togglebutton pr-4">
-                                    <label>
-                                    <input type="checkbox" name="user_ids[]" checked="true" value=
-                                       <%="#{user.id}" if user.first_name %> class=" mr-3"/>
-                                    <span class="toggle"></span>
-                                    <span class="text-white"><%= user.first_name if user.first_name %>
-                                    </span>
-                                    </label>
-                                 </div>
-                              </div>
-                              <% end %>
-                           </div>
-                        </div>
-                        <% end %>
-                     </div>
+                            <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
+
                               </div>
                            </div>
                         </div>
@@ -519,15 +502,15 @@
             <div class="ml-auto c-form-foot">
                <% if local_assigns[:ajax_true] %>
                <a class="btn btn_next btn-fill bg-hudson" id="btn_next">Next</a>
-               <button type="submit" class="btn btn-finish btn-fill bg-hudson btn-wd"  style="display: none;">Finish</button>
+               <button type="button" class="btn btn-finish btn-fill bg-hudson btn-wd"  style="display: none;">Finish</button>
                <% else %>
-                <button type="submit"  class="btn btn-finish btn-fill btn-rose btn-wd" style="display: none;">finish </button>
+                <button type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" style="display: none;">finish </button>
                <% end %>
             </div>
             <div class="clearfix"></div>
          </div>
-      </form>
    </div>
+   <% end %>
 </div>
 <!-- wizard container -->
-<% end %>
+

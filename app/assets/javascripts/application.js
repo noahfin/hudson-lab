@@ -96,10 +96,10 @@ if (history && history.pushState) {
 //     });
 
 
- $('body').on('click', '.btn-back', function(event) {
-  window.history.back();
+ // $('body').on('click', '.btn-back', function(event) {
+ //  window.history.back();
 
- });
+ // });
 
 
 $('.select_u_picker').attr("data-actions-box", "true");
@@ -118,12 +118,15 @@ $('body').on('click', '#close-form', function(event) {
  var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
  var wizIndex = 1;
   $('body').on('click', '#btn_next', 'btn-form', function(event) {
-
+    event.preventDefault();
 
 
     $('#contact_form').removeAttr("disabled");
     console.log('button clicked')
-    moveToNext();
+   if( moveToNext() === true) {
+      var formData = getContactInputs();
+     createFormSend(formData);
+   }
 });
 
 var moveToNext = function(){
@@ -144,33 +147,30 @@ var moveToNext = function(){
 
 
 $(document).keypress(function(e) {
-   e.preventDefault();
+
     if(e.which == 13) {
 
        if (moveToNext() === true ){
+        $(document).keypress(function(e) {
 
+    if(e.which == 13) {
       $('#contact_form').removeAttr("disabled");
-      $('.btn-finish').trigger( "click" );
+        var formData = getContactInputs();
+     createFormSend(formData);
+
+         }
+});
         }
     }
 });
 
 
-  var u_s = true;
- $(document).on('click', '.toggle-contact ', function(event) {
-
-  if (u_s === false) {
-
-
-
-    var color = $(this).css("color");
-    console.log(color);
-    if (color === 'rgb(76, 175, 80)'){
-        var formData = { contact: {
+var getContactInputs = function(){
+  var formData = { contact: {
             'name'              :   $('#contact_name').val(),
             'email'             :   $('#contact_email').val(),
             'company'           :   $('#contact_company').val(),
-             'address'          :   $('#c-add-hidden').val(),
+             'address'          :   $('#contact_address').val(),
             'cell'              :   $('#contact_cell').val(),
             'county'            :   $('#contact_county').val(),
              'state'            :   $('#contact_state').val(),
@@ -198,15 +198,29 @@ $(document).keypress(function(e) {
             'sic'               :   $('#contact_sic').val(),
             'role'              :   $('#contact_role').val(),
            'group_id'           :   $('#contact_group_id').val(),
-            'user_id'           :   $('.select_users').val(),
+            'user_id'           :   $('.users').val(),
             'verified'          :   $('#contact_verified').val()
 
 
         }
 
       }
+      return formData;
+
+}
+
+  var u_s = true;
+ $(document).on('click', '.toggle-contact ', function(event) {
+
+  if (u_s === false) {
 
 
+
+    var color = $(this).css("color");
+    console.log(color);
+    if (color === 'rgb(76, 175, 80)'){
+
+     var formData = getContactInputs();
      showFormSend(formData);
      }
        $(this).css({
@@ -229,7 +243,52 @@ $(document).keypress(function(e) {
 
 });
 
+var createFormSend = function(data){
+  var url =  "/contacts/";
+ $.ajax({
+            url: url,
+            method: "post",
+            data: data,
+            success: function(contact) {
+              $('#contact-form-wiz').hide();
+              $("[data-dismiss=modal]").trigger({ type: "click" });
+              $('#form-modal').modal('hide');
 
+              $('#modal').modal('hide');
+//hide the modal
+
+$('body').removeClass('modal-open');
+//modal-open class is added on body so it has to be removed
+
+$('.modal-backdrop').remove();
+                 $.notify({
+                        title: "New Contact Added:",
+                        message: contact.first_name + '"' + ' was successfuly added to the database'
+                    });
+
+
+
+            },
+            error: function(err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+}
 
 var showFormSend = function(data){
   var url =  "/contacts/"+$('#contact_id_hidden').val()+"/";
