@@ -40,7 +40,7 @@ class Contact < ApplicationRecord
 def self.good_search(criteria)
   regexp = /#{criteria}/i; # case-insensitive regexp based on your string
 
-  result = order(:name).where("name ILIKE ?", "%#{criteria}%").limit(10)
+  result = order(:name).where("name LIKE ? or first_name LIKE ? or last_name LIKE ?", "%#{criteria}%",  "%#{criteria}%",  "%#{criteria}%").limit(20)
   result.sort{|x, y| (x =~ regexp) <=> (y =~ regexp) }
 end
 
