@@ -16,18 +16,16 @@ class ContactsController < ApplicationController
         format.html
         format.js
       end
-
+       session[:last_contact_page] = request.env['HTTP_REFERER']
   end
 
   def autocomplete
     session[:selected_group_id] = params[:group_id]
     query = params[:query]
-    @contacts = Contact.auto_search(query).page(params[:page])
+    @contacts = Contact.where('name LIKE ? OR first_name LIKE ? OR last_name LIKE ?', "%#{query}%", "%#{query}%", "%#{query}%")
 
   end
- def searchname
-
- end
+ def
 
   def inport
     groups = params['group_id']
