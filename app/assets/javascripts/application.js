@@ -414,7 +414,7 @@ $('.get-contacts').autocomplete({
 
     $('#query').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 2,
+        minLength: 4,
         select: function(event, ui) {
             $('#query').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString();
