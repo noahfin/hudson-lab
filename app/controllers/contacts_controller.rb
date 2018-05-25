@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
   end
  def show
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
-  @contact_groups = Group.find(@group_ids)
+
      render :template => 'contacts/show.js.erb', turbolinks: true
  end
   def edit

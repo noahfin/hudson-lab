@@ -417,19 +417,13 @@ $('.get-contacts').autocomplete({
         minLength: 4,
         select: function(event, ui) {
             $('#query').val(ui.item.value);
-            var uri = '/contacts/'+ui.item.id.toString();
-            $('#c-s-form').attr('action', uri)
-             getProfile(uri,ui.item.id);
+            var uri = '/contacts/'+ui.item.id.toString()+'/';
+
+             getProfile(uri);
         }
     });
-var getProfile = function(uri, id){
-  $.ajax({
-    url:  uri,
-    success: function(data) {
-        // decode data to get your js array object
-        // step 6
-    }
-});
+var getProfile = function(uri){
+$.getScript(uri);
 }
 
 keyUpArray = 0
