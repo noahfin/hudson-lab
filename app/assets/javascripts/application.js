@@ -453,7 +453,7 @@ var getProfile = function(uri){
 $.getScript(uri);
 }
 
-keyUpArray = 0
+var keyUpArray = 0
 $("#query").keyup(function(){
    keyUpArray++
    if (keyUpArray > 1) {
@@ -461,6 +461,14 @@ $("#query").keyup(function(){
     keyUpArray = 0
     }
 });
+$("#r-search").keyup(function(){
+   keyUpArray++
+   if (keyUpArray > 1) {
+    $('#send-search-r').trigger( "click" );
+    keyUpArray = 0
+    }
+});
+
  $('body').on('click', '.save-new-group', function(event) {
         console.log('button clicked')
         var inputs = document.querySelectorAll('ul input[type=checkbox]');
@@ -899,7 +907,7 @@ $(document).on('turbolinks:load', function() {
 
                 nav_content = '<ul class="nav navbar-nav nav-mobile-menu">' + nav_content + '</ul>';
 
-                navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
+                navbar_form = $('#navigation').find('.navbar-form').outerHTML;
 
                 $sidebar_nav = $sidebar_wrapper.find(' > .nav');
 
