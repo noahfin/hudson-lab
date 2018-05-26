@@ -283,25 +283,25 @@ rgba(0,0,0,.5), rgba(0, 0, 0,1)
 }
 
 .btn-circle {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   text-align: center;
-  padding: 10px 0;
+  padding: 15px 0px;
   font-size: 12px;
   line-height: 1.428571429;
-  border-radius: 15px;
+  border-radius: 50%;
 }
 .btn-circle i{
   position: absolute !important;
-   left: .43rem !important;
+   left: .7rem !important;
 }
 .e-contact {
-  top: 1.6rem !important;
+  top: 1.8rem !important;
 
 }
 .d-contact {
 
-   top: 1.5rem !important;
+   top: 1.8rem !important;
 }
 .card-signup {
   margin-left: auto;
@@ -483,4 +483,7 @@ input.btn {
 .get-group{
     font-size: 1.1rem !important;
 
+}
+.navbar-brand {
+  font-size: 1.5rem !important;
 }
