@@ -1,0 +1,42 @@
+.info-color-dark {
+    background-color: #09C!important;
+}
+.pt-3, .py-3 {
+    padding-top: 1rem!important;
+}
+.card.card-cascade .view, .colorful-select .dropdown-content li a:hover, .colorful-select .dropdown-content li span:hover, .comments-list img, .modal-dialog.cascading-modal.modal-avatar .modal-header img, .reply-form img, .testimonial-carousel .testimonial .avatar img, .z-depth-2 {
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2), 0 6px 20px 0 rgba(0,0,0,.19);
+}
+.card.card-cascade.narrower .view {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: -20px;
+}
+.card.card-cascade .view.gradient-card-header {
+    padding: 1.6rem 1rem;
+    text-align: center;
+}
+.view {
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+}
+.waves-effect {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.btn-rounded {
+    border-radius: 10em;
+}
+
+.btn-outline-white {
+    border: 2px solid #fff;
+    color: #fff!important;
+    background-color: transparent;
+}

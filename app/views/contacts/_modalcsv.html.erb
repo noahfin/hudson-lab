@@ -21,12 +21,23 @@
       </div>
    </div>
    <div class="col-md-12">
-      <% Group.all.each.each_slice(4) do |group| %>
+      <% Group.all.each.each_slice(3) do |group| %>
       <div class="col-md-12 mb-3">
-         <div class="row">
-            <% group.each do |group| %>
-            <div class="col-md-3">
-               <div class="togglebutton p-2">
+<div class="row">
+   <% group.each do |group| %>
+   <div class=" col-md-4 ">
+      <div class="card" >
+         <div class="card-header card-header-info">
+            <h4 class="card-title"><%= group.name %> </h4>
+         </div>
+         <div class=" card-body">
+            <!-- Default panel contents -->
+            <!-- List group -->
+            <ul class="list-group list-group-flush">
+               <li class="list-group-item">
+                 <p class="text-left"> <%= group.name %></p>
+                  <div class="  float-right-switch">
+                      <div class="togglebutton p-2">
                   <label>
                   <input type="checkbox" name="group_id[]"  value=
                      <%="#{group.id}" if group.id %> class="users-for-new-group"/>
@@ -35,12 +46,23 @@
                   </span>
                   </label>
                </div>
-            </div>
+                  </div>
+               </li>
+
+         </ul>
+      </div>
+   </div>
+</div>
+
+
             <% end %>
          </div>
        <hr class="bg-light">
       </div>
       <% end %>
+
+
+
    </div>
    <div class="col-md-12">
 

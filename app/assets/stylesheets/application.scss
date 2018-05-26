@@ -513,10 +513,27 @@ hyphens: auto;
 }
 
 
-.table-scroll table{
-  white-space:nowrap  !important;
-  width:100% !important;
+.page-content {
+  color: white !important;
+
 }
-.table-scroll th {
-    text-align: center  !important;
+.page-content table{
+  color: white !important;
+  display: block !important;
+  border: 1px solid
+
 }
+.page-content td {
+  color: white !important;
+  display: block !important;
+  border: 1px solid #ddd;
+
+}
+ .float-right-switch {
+  position: absolute;
+  right: 5px !important;
+  float: right;
+  width: 10%;
+  margin: 0px;
+  padding:  0px;
+ }
