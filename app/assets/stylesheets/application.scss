@@ -82,12 +82,21 @@
   table {
     overflow: scroll;
   }
-.cool-form   {
+.cool-form  .bg-footer {
     width: 90% !important;
     margin-top: 4rem !important;
+    background: none !important;
 
   }
+.cool-form  form{
+   padding-left: .5rem !important;
+   padding-right: .5rem !important;
+   padding-top: .3rem !important;
 
+  }
+  .lb-responsive, .br-responsive {
+    display: none;
+  }
   .mainlogin {
      margin-top: 14rem !important;
      width: 90%;
