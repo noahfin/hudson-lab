@@ -11,14 +11,14 @@
     <div class="list-group border-0 pt-0  mt-0">
       <% user_contact = current_user.contacts %>
       <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'bg-dark' : '' %>
-      <%= link_to contacts_path, class: "list-group-item text-white get-group #{active}", remote: true do %>
-          All Contacts <span class="badge text-white"><%= user_contact.count %></span>
+        <%= link_to( contacts_path, class: "list-group-item text-white get-group custom-tip #{active}", data: { data_toggle: 'tooltip', placement: 'top', remote: true },  'aria-expanded': 'false',:title => user_contact.count.to_s + ' Contacts in this Group', rel: 'tooltip'  ) do %>
+          All Contacts
       <% end %>
 
       <% @groups.each do |group| %>
         <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'bg-dark' : ''  %>
-          <%= link_to contacts_path(group_id: group.id ), class: "list-group-item text-white get-group #{active}", remote: true do %>
-            <%= group.name %><span class="badge text-white"><%= group.contacts.count %></span>
+        <%= link_to( contacts_path(group_id: group.id), class: "list-group-item text-white get-group custom-tip #{active}", data: { data_toggle: 'tooltip', placement: 'top', remote: true },  'aria-expanded': 'false',:title => group.contacts.count.to_s + ' Contacts in this Group', rel: 'tooltip' ) do %>
+            <%= group.name %>
            <%= hidden_field(:contact, :group_id, :value => group.id.to_s, class: 'get-group-id') %>
           <% end %>
       <% end %>

@@ -58,6 +58,16 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
+   // $(".custom-tip").each(function(index){
+
+   //       $(this).attr('data-toggle','tooltip');
+   //      });
+
+
+$(document).on('click', '.custom-tip', function(event) {
+  $(this).tooltip('toggleEnabled');
+  });
+
   $(document).on('click', '.wiz-close', function(event) {
     clsoeWiz();
   });
