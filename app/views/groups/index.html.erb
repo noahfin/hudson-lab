@@ -1,21 +1,24 @@
 <div id="main-wrap">
 <p id="notice"><%= notice %></p>
+<div class="container-fluid">
+
 
 <span>
 <%   @groups.each_with_index do |g, i| %>
 
 <%= link_to group_path(g.id),class: 'text-info' do %>
-<span class="badge badge-default m-2"><%= g.name %></span>
+<span class="badge badge-info m-2 pt-3"><h5><%= g.name %></h5></span>
 </span>
 <% end %>
 <% end %>
 <%= link_to 'New Group', new_group_path, class: "text-info" %>
+</div>
 <div id="groups">
   <div class="container-fluid first-show-card">
    <div class="bs-example first-show-card">
       <div class="list-group card-1 outer-list">
 
-  <%= render  @groups %>
+  <%= render  'group' %>
        </div>
    </div>
 </div>

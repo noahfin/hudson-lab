@@ -1,51 +1,61 @@
-<div class="bs-example">
-<div class="my-3 p-3 bg-white rounded box-shadow card card-5">
-    <h4 class="d-block text-right  mt-3">
-          <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group' do %>
-           Edit <%= @group.name %>
-           <% end %>
-           <%= link_to group_path(@group.id), method: :delete, class: ' text-danger', remote: true, data: { confirm: "Are you sure you want delete this Group?"}  do %>
-      <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
-      <% end %>
-           <%= link_to 'Back', groups_path %>
-        </h4>
-        <h1 class="border-bottom border-gray group-head pb-2 mb-0"><%= @group.name %> </h1>
 
-        <div class="media text-muted pt-3">
 
-          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong class="d-block text-gray-dark"> Name:</strong>
-            <%= @group.name %>
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong class="d-block text-gray-dark">Total Contacts:</strong>
-              <%= @group.contacts.count %>
-          </p>
-        </div>
-        <div class="media text-muted pt-3">
-          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+<div class="col-md-12">
+                            <div class="card bg-black text-white">
+                                <div class="card-header  ">
+                                    <h4 class="card-title ">    <%= @group.name %> <span> <%= @group.contacts.count %></span>
+                                             <ul class="nav navbar-nav navbar-right pull-right mt-4 text-white list-inline">
+                                              <span>
+                  <li class="active list-inline-item text-white">
+                                     <%= link_to  edit_group_path(@group), class: 'text-white' do %>
+                                 <span>  <i class="material-icons pr-2">
+                                  create
+                                  </i>Edit</span>
+
+                                  <% end %>
+                                </li>
+                                <li class="list-inline-item">
+                                    <%= link_to group_path(@group.id), method: :delete, class: ' text-white', remote: true, data: { confirm: "Are you sure you want delete this Group?"}  do %>
+                                      <span>
+                     <i class="material-icons">
+                                delete_forever
+                                </i>
+                                        Delete
+                                        </span>
+                                  <% end %>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a  class="text-white">
+                                      <span>
+                      <i class="material-icons">settings</i>
+                      Settings
+                      </span>
+                      </h4>
+                                    </a>
+                                </li>
+                                </span>
+                </ul>
+
+                                     <h4 class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark">Users:</strong>
           <span>
           <% @group.users.uniq.each do |user| %>
           <span><%= user.first_name %></span>
           </span>
          <% end %>
-       </p>
-        </div>
+       </h4>
+       </div>
+                                <div class="card-body">
+                                 <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class=" text-white">
 
-      </div>
-
-  <div class="table-responsive search-table-outter"  id="table-scroll">
-   <table class="table" >
-        <thead class="table-scroll">
             <tr class="table-scroll">
             <th class="d-">Edit </th>
             <th class="d-">Name </th>
             <th class="d-">Prefix </th>
             <th class="d-">First Name </th>
-            <th class="d-">Middle name </th>
+            <th class="d-">Middle </th>
             <th class="d-">Last Name </th>
             <th class="d-">Suffix </th>
             <th class="d-">Phone </th>
@@ -86,10 +96,11 @@
 
              <th> Actions</th>
             </tr>
-        </thead>
-         <% @group.contacts.each do |contact| %>
-        <tbody class="table-scroll">
-            <tr>
+
+                                            </thead>
+                                            <tbody>
+          <% @group.contacts.each do |contact| %>
+          <tr>
                <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
           <i class=" fa fa-edit e-contact"></i>
           <% end %></td>
@@ -143,14 +154,14 @@
          <%= link_to contact_path(contact.id), method: :delete, class: 'btn btn-circle btn btn-outline-info  ', data: { confirm: "Are you sure you want delete this contact?"}  do %>
                 <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
           <% end %>
+        </td>
+        </tr>
+          <% end %>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
           </div>
-        </div>
-        </div>
-        <% end %></td>
+      </div>
 
-            </tr>
-
-        </tbody>
-    </table>
-</div>
 
