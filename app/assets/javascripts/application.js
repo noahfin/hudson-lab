@@ -402,7 +402,7 @@ var contact_ids_prop = [];
 
 $('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 4,
+        minLength: 3,
         select: function(event, ui) {
            contact_ids_prop[contact_ids_prop.length] = ui.item.id
            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
@@ -416,7 +416,7 @@ $('.get-contacts').autocomplete({
 
     $('#query').autocomplete({
         source: '/contacts/autocomplete',
-        minLength: 4,
+        minLength: 3,
         select: function(event, ui) {
             $('#query').val(ui.item.value);
             var uri = '/contacts/'+ui.item.id.toString()+'/';
