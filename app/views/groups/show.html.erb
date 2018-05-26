@@ -36,10 +36,11 @@
         </div>
 
       </div>
-  <div class="table-responsive search-table-outter">
-    <table class="table  search-table-outter">
-        <thead>
-            <tr>
+
+  <div class="table-responsive search-table-outter"  id="table-scroll">
+   <table class="table" >
+        <thead class="table-scroll">
+            <tr class="table-scroll">
             <th class="d-">Edit </th>
             <th class="d-">Name </th>
             <th class="d-">Prefix </th>
@@ -87,7 +88,7 @@
             </tr>
         </thead>
          <% @group.contacts.each do |contact| %>
-        <tbody>
+        <tbody class="table-scroll">
             <tr>
                <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
           <i class=" fa fa-edit e-contact"></i>

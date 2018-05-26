@@ -1,13 +1,13 @@
 <div class="bs-example">
 <div class="my-3 p-3 bg-white rounded box-shadow card card-5">
     <h4 class="d-block text-right  mt-3">
-          <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group', remote: true do %>
+          <%= link_to  edit_group_path(@group), class: 'text-success r-edit-group' do %>
            Edit <%= @group.name %>
            <% end %>
            <%= link_to group_path(@group.id), method: :delete, class: ' text-danger', remote: true, data: { confirm: "Are you sure you want delete this Group?"}  do %>
       <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
       <% end %>
-           <%= link_to 'Back', groups_path, remote: true, %>
+           <%= link_to 'Back', groups_path %>
         </h4>
         <h1 class="border-bottom border-gray group-head pb-2 mb-0"><%= @group.name %> </h1>
 
@@ -36,31 +36,107 @@
         </div>
 
       </div>
-  <div class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
+
+  <div class="table-responsive search-table-outter"  id="table-scroll">
+   <table class="table" >
+        <thead class="table-scroll">
+            <tr class="table-scroll">
+            <th class="d-">Edit </th>
             <th class="d-">Name </th>
+            <th class="d-">Prefix </th>
+            <th class="d-">First Name </th>
+            <th class="d-">Middle name </th>
+            <th class="d-">Last Name </th>
+            <th class="d-">Suffix </th>
             <th class="d-">Phone </th>
+            <th class="d-">Cell Phone </th>
             <th class="d-">Email </th>
             <th class="d-">Company </th>
+            <th class="d-">Web Address</th>
             <th class="d-">Address</th>
+
+
+            <th class="d-">Suite</th>
+            <th class="d-">Street Number</th>
+            <th class="d-">Strret Name </th>
+            <th class="d-">City</th>
+            <th class="d-">State </th>
+             <th class="d-">County </th>
+             <th class="d-">Country </th>
+
+
+
+            <th class="d-">Postal Code </th>
+            <th class="d-">Zip Code Ext</th>
+
+              <th class="d-">Latitude </th>
+            <th class="d-">Longitude </th>
+
+            <th class="d-">Owns or Rents </th>
+            <th class="d-">year_of_Founding </th>
+            <th class="d-">Primary Industry </th>
+            <th class="d-">Facility Size</th>
+            <th class="d-">Total Employees </th>
+
+            <th class="d-">Position </th>
+            <th class="d-">SIC </th>
+
+            <th class="d-">Notes</th>
+
+
              <th> Actions</th>
             </tr>
         </thead>
          <% @group.contacts.each do |contact| %>
-        <tbody>
+        <tbody class="table-scroll">
             <tr>
+               <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
+          <i class=" fa fa-edit e-contact"></i>
+          <% end %></td>
              <td class="d-">
-              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip", remote: true  do %>
+              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
                 <%= contact.name %>
               <% end %>
             </td>
+            <td class="d-"><%= contact.prefix %></td>
+            <td class="d-"><%= contact.first_name %></td>
+            <td class="d-"><%= contact.middle_name %></td>
+            <td class="d-"><%= contact.last_name %></td>
+            <td class="d-"><%= contact.suffix %></td>
             <td class="d-"><%= contact.phone %></td>
+            <td class="d-"><%= contact.cell %></td>
             <td class="d-"><%= contact.email %></td>
 
             <td class="d-"><%= contact.company %></td>
+            <td class="d-"><%= contact.web_address %></td>
             <td class="d-"><%= contact.address %></td>
+
+            <td class="d-"><%= contact.suite %></td>
+
+            <td class="d-"><%= contact.street_num %></td>
+            <td class="d-"><%= contact.strret_name %></td>
+            <td class="d-"><%= contact.city %></td>
+            <td class="d-"><%= contact.state %></td>
+
+            <td class="d-"><%= contact.county %></td>
+            <td class="d-"><%= contact.country %></td>
+            <td class="d-"><%= contact.postal_code %></td>
+            <td class="d-"><%= contact.zip_code_ext %></td>
+
+            <td class="d-"><%= contact.latitude %></td>
+            <td class="d-"><%= contact.longitude %></td>
+            <td class="d-"><%= contact.owns_cents %></td>
+            <td class="d-"><%= contact.year_of_Founding %></td>
+
+            <td class="d-"><%= contact.primary_industry %></td>
+            <td class="d-"><%= contact.facility_size %></td>
+            <td class="d-"><%= contact.total_number_of_employees %></td>
+            <td class="d-"><%= contact.postion %></td>
+            <td class="d-"><%= contact.sic %></td>
+            <td class="d-"><%= contact.notes %></td>
+
+
+
             <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
           <i class=" fa fa-edit e-contact"></i>
           <% end %>

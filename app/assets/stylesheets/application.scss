@@ -36,6 +36,7 @@
   border-radius: 0px !important;
 
 }
+
    .reg-intro-form {
 
         display: none;
@@ -457,7 +458,7 @@ html,body {
 
 }
 }
-.search-table-outter { overflow-x: scroll !important;}
+#table-scroll .search-table-outter { overflow-x: auto !important;}
 .search-table-outter th, .search-table-outter td { min-width: 200px; }
 input.btn {
   -webkit-user-select: initial;
@@ -490,4 +491,13 @@ input.btn {
 
 .head-underline {
    border-bottom: 1px solid #fff !important;
+}
+
+
+.table-scroll table{
+  white-space:nowrap  !important;
+  width:100% !important;
+}
+.table-scroll th {
+    text-align: center  !important;
 }
