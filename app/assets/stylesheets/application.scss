@@ -483,11 +483,16 @@ input.btn {
 }
 .get-group{
     font-size: 1.1rem !important;
-    overflow-wrap: break-word !important;
+     word-wrap: break-word !important;
 
 }
 .sidenav-section {
   overflow-wrap: break-word !important;
+
+     word-wrap: break-word !important;
+}
+#body-sidnav {
+hyphens: auto;
 }
 .navbar-brand {
   font-size: 1.5rem !important;

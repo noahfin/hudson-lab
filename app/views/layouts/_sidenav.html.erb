@@ -7,7 +7,7 @@
       <%= link_to 'Groups ','/groups/', class: "text-info mt-4"%> | <%= link_to '+ Contact', new_contact_path, class: "text-info  mt-4", remote: true %>
     </div>
   </div>
-  <div class="card-body sidnav-section">
+  <div class="card-body sidnav-section" id="body-sidnav">
     <div class="list-group border-0 pt-0  mt-0">
       <% user_contact = current_user.contacts %>
       <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'bg-dark' : '' %>
