@@ -36,8 +36,11 @@ $(window).resize(function() {
     }
 
 })
+$(document).on('click', '.tooltip-inner', function(event) {
    $('.tooltip-inner').hide();
    $('.tooltip .arrow').hide();
+  });
+
 
 $(document).on('click', '#property-submit', function(event) {
 
