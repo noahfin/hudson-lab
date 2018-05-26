@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523172242) do
+ActiveRecord::Schema.define(version: 20180525213705) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -319,6 +319,7 @@ ActiveRecord::Schema.define(version: 20180523172242) do
     t.string "city"
     t.string "county"
     t.string "username"
+    t.string "theme"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"

@@ -1,5 +1,5 @@
-$('#main-content').html('<%= escape_javascript render("index") %>');
-$('#form-modal-body').html('<%= j render("form", ajax_true: true) %>' );
+
+$('#form-modal-body').html('<%= j render("contacts/form", ajax_true: true) %>' );
 $('#form-modal').modal('show')
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box="true"', 'true');

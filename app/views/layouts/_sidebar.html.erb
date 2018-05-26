@@ -106,7 +106,7 @@
               <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
               <%= link_to contacts_path, class: "nav-link #{active}" do %>
                 <span class="sidebar-mini">  A</span>
-                 <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%= Contact.count %></span></span>
+                 <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%=  current_user.contacts.count %></span></span>
               <% end %>
             </li>
             <%  @groups.each do |group| %>

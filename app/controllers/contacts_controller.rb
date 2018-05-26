@@ -1,8 +1,10 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
-  after_action :my_contacts, only: [:update  ]
-  protect_from_forgery except: :index
+
+  after_action :my_contacts, only: [:edit, :update  ]
+  protect_from_forgery except: [:index, :show  ]
+
 
   def index
     @contact = Contact.new
@@ -45,6 +47,7 @@ class ContactsController < ApplicationController
  end
   def edit
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
+  my_contacts
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
 
   end

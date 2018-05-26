@@ -7,6 +7,7 @@
 <% end %>
 <% if user_signed_in? %>
 <div class="dropdown-divider"></div>
+<%= link_to 'Change to a light theme', :controller => "user", :action => "set_theme", :theme => "light" %>
 <%= link_to 'Concat first and last name', prepareshearch_path, class: 'dropdown-item' %>
 <%= link_to 'Users', users_path, class: 'dropdown-item' %>
 <% end %>

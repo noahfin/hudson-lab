@@ -58,7 +58,7 @@
             <%= @contact.address if @contact.address%>
          </p>
 
-         <button type="button" class="btn-back btn bg-hudson btn-round text-white">Go Back</button>
+         <button type="button" class="btn-back btn card-1  btn-round text-white">Go Back</button>
 
 
 
@@ -101,7 +101,7 @@
                <h4>Contact Touches</h4>
          </div>
           <div class="col-md-7">
-            <span class="pull-right"> <%= link_to  contact_touches_path(@contact.id), class: 'text-danger' do %>
+            <span class="pull-right"> <%= link_to  contact_touches_path(@contact.id), class: 'text-danger remote-link', remote: true do %>
                 View <%= @contact.name %> touches
             <% end %>
             </span>
@@ -156,7 +156,7 @@
 
 
 
-      <span> <%= link_to 'Edit', edit_touch_path(touch), class: 'text-success' %>
+      <span> <%= link_to 'Edit', edit_touch_path(touch), class: 'text-success remote-link', remote: true %>
 
       </span>
       <hr>
@@ -164,10 +164,10 @@
       <% end %>
       <div class="row">
          <div class="col-md-6">
-             <%= link_to 'All touches', touches_path, class: 'text-info' %>
+             <%= link_to 'All touches', touches_path, class: 'text-info remote-link', remote: true %>
           </div>
           <div class="col-md-6">
-             <%= link_to 'New Touch', new_touch_path, class: 'text-info pull-right pt-1' %>
+             <%= link_to 'New Touch', new_touch_path, class: 'text-info pull-right pt-1 remote-link', remote: true%>
           </div>
       </div>
 

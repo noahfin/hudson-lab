@@ -39,6 +39,13 @@ class UsersController < ApplicationController
     redirect_to users_path, :notice => "User deleted."
   end
 
+  def set_theme
+
+  current_user.update_attributes :theme => params[:theme] unless params[:theme].nil? || params[:theme] == ""
+
+
+  end
+
   private
 
   def admin_only
@@ -48,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:first_name, :last_name, :email, :customer, :employee, :role, :street_name, :street_num, :city, :username, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :customer, :employee, :theme, :role, :street_name, :street_num, :city, :username, :password, :password_confirmation)
 
   end
 

@@ -13,11 +13,14 @@
     resources :personal_messages, only: [:create, :new]
     resources :conversations, only: [:index, :show]
     resources :users
-    resources :groups
+
+
+   resources :groups
     resources :tasks
     resources :touches
     resources :leads
     resources :deals
+    match "users/settheme" => "user#set_theme", as: :set_theme, via: :get
     match "search" => "search#create", as: :searches, via: [:get, :post]
     match "search/prepare" => "search#prepare", as: :prepareshearch, via: :get
     get'/dashboard', to: 'dashboard#index'
