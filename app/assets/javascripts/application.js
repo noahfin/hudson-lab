@@ -27,6 +27,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require smoothscroll.min.js
+//= search.coffee
 $(window).resize(function() {
     if ($(window).width() > 991) {
         // removes all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
@@ -35,7 +36,8 @@ $(window).resize(function() {
     }
 
 })
-
+   $('.tooltip-inner').hide();
+   $('.tooltip .arrow').hide();
 
 $(document).on('click', '#property-submit', function(event) {
 
@@ -377,10 +379,20 @@ event.preventDefault();
 
   //sort contact sub group
 var groupGetId = '';
-  $(document).on('click', '.get-group', function() {
-     groupGetId = $('.get-group-id').val();
+var toolTipLinks = []
+$(document).on('click', '.get-group', function() {
+  $('.custom-tip').tooltip('update');
+     groupGetId = $(this).find('.get-group-id').val();
+      if (typeof toolTipLinks[0] !== 'undefined' && toolTipLinks[0] !== null) {
+      var inputStr = "input[href$='"+toolTipLinks[0]+"']";
+      $(inputStr).tooltip('hide');
+       toolTipLinks[0] = this.href;
 
-  });
+     } else {
+       toolTipLinks[0] = this.href;
+          }
+   });
+
 
 
 
