@@ -288,8 +288,8 @@ var getContactInputs = function(){
     $(this).css({
       color: '#4caf50'
     });
-    $(this).text('Save    Contact');
-    $(this).css( "padding-right", "60px");
+    $(this).text('Save Contact');
+
 
       u_s = false
 
