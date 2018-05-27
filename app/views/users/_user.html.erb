@@ -13,4 +13,4 @@
   <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'text-danger button-xs') unless user == current_user %>
 </td>
 
-<td> <%= user.first_name %> | <%= link_to 'send message', new_personal_message_path(receiver_id: user) %></td>
+<td class="text-white"> <%= user.first_name %> | <%= link_to 'send message', new_personal_message_path(receiver_id: user) %></td>
