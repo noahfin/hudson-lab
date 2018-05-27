@@ -554,3 +554,9 @@ div.dataTables_wrapper {
 .table-custom th, .table-custom  td{
   min-width: 200px;
 }
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: black !important;
+}
+.table-striped a {
+  color:  #09C!important;
+}
