@@ -1,407 +1,123 @@
-<div class="container-fluid outer-contact-show">
-  <div class="row">
-     <div class="col-md-8">
-        <div class="card card-5 r-s-p" >
-           <div class="card-header card-header-icon ">
-              <div class="card-icon bg-dark ">
-                 <i class="material-icons">perm_identity</i>
-              </div>
-               <%= form_with model: @contact, id: "contact_form_show" do |form|%>
-              <h4 class="card-title text-light text-left main-size-text"><span class="hide-btn  pull-right ">    <button class=" btn-link btn btn-just-icon toggle-contact " type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
-                 <i class=" fa fa-edit text-info"></i>
-                 </button> </span>
-              <span>
-                 <button class="btn bg-dark pull-right toggle-contact show-btn" type="button" data-toggle="collapse" data-target="#form-collapse" aria-expanded="false" aria-controls="form-collapse">
-                 Edit Contact
-                 </button>
-                 </span>
-              </h4>
-           </div>
+<div class="container-fluid pt-3">
+  <div class="col-md-10 ml-auto mr-auto">
 
-              <div class="card-body first-show-card">
-                 <div class="collapse " id="form-collapse">
-                    <%= render 'layouts/messages' if !flash.empty? %>
-                     <%=  hidden_field(:contact, :id, :value => @contact.id.to_s, id: 'contact_id_hidden') %>
+<div class="row">
 
-            <div class="row">
-            <div class="col-lg-3">
-              <label class="text-white">Company Name <span class="text-danger">*</span></label>
-               <div class="form-group">
 
-                      <div class="">
-                        <div class="input-group">
+    <h3 class="text-white"><%= @group.name %> / <%= @group.contacts.count %></h3>
+    <h5>Horizontal Scrolling Layout</h5>
+    </div>
+         <div class="table-responsive mt-0 pt-0"">
+            <table class="table table-custom mt-0 pt-0" >
+              <div class="col-md-12">
 
-                           <%= form.text_field :company, id: :contact_company, class: ' text-white form-control'%>
-                        </div>
-                     </div>
 
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <label class="text-white bmd-label-floating">Prefix </label>
-               <div class="form-group">
+              <div class="row">
 
-                      <div class="c">
-                        <div class="input-group">
 
-                          <%= form.text_field :prefix, id: :contact_prefix, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-               </div>
-            </div>
-            <div class="col-lg-3">
-               <label class="text-white bmd-label-floating">First Name</label>
-               <div class="form-group">
+                 <div class="col-md-2">
+            <th class="d-">Edit </th></div>
+           <div class="col-md-2"> <th class="d-">Name </th></div>
+          <div class="col-md-2">  <th class="d-">Prefix </th></div>
+          <div class="col-md-2">  <th class="d-">First Name </th></div>
+           <div class="col-md-2"> <th class="d-">Middle </th></div>
+         <div class="col-md-2">   <th class="d-">Last Name </th></div>
+          <div class="col-md-2">  <th class="d-">Suffix </th></div>
+        <div class="col-md-2">    <th class="d-">Phone </th></div>
+         <div class="col-md-2">   <th class="d-">Cell Phone </th></div>
+         <div class="col-md-2">   <th class="d-">Email </th></div>
+           <div class="col-md-2"> <th class="d-">Company </th></div>
+           <div class="col-md-2"> <th class="d-">Web Address</th></div>
+           <div class="col-md-2"> <th class="d-">Address</th></div>
 
-                    <div class="">
-                      <div class="input-group">
 
-                        <%= form.text_field :first_name, id: :contact_first_name, class: ' text-white form-control' %>
-                      </div>
-                   </div>
+         <div class="col-md-2">   <th class="d-">Suite</th></div>
+           <div class="col-md-2"> <th class="d-">Street Number</th></div>
+          <div class="col-md-2">  <th class="d-">Strret Name </th></div>
+          <div class="col-md-2">  <th class="d-">City</th></div>
+           <div class="col-md-2"> <th class="d-">State </th></div>
+          <div class="col-md-2">   <th class="d-">County </th></div>
+           <div class="col-md-2">  <th class="d-">Country </th></div>
 
-               </div>
-            </div>
-            <div class=" col-lg-3">
-              <label class="text-white  bmd-label-floating">Middle Name</label>
-               <div class="form-group">
 
-                  <div class="">
-                      <div class="input-group">
 
-                   <%= form.text_field :middle_name, id: :contact_suffix, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
+         <div class="col-md-2">   <th class="d-">Postal Code </th></div>
+          <div class="col-md-2">  <th class="d-">Zip Code Ext</th></div>
 
-         </div>
+            <div class="col-md-2">  <th class="d-">Latitude </th></div>
+         <div class="col-md-2">   <th class="d-">Longitude </th></div>
 
-          <div class="row ">
-              <div class="col-lg-3">
-                 <label class="text-white  bmd-label-floating">Last Name</label>
-               <div class="form-group">
+          <div class="col-md-2">  <th class="d-">Owns or Rents </th></div>
+          <div class="col-md-2">  <th class="d-">year_of_Founding </th></div>
+         <div class="col-md-2">   <th class="d-">Primary Industry </th></div>
+           <div class="col-md-2"> <th class="d-">Facility Size</th></div>
+           <div class="col-md-2"> <th class="d-">Total Employees </th></div>
 
-                  <div class="">
-                      <div class="input-group">
+           <div class="col-md-2"> <th class="d-">Position </th></div>
+           <div class="col-md-2"> <th class="d-">SIC </th></div>
 
-                          <%= form.text_field :last_name, id: :contact_last_name, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <label class="text-white bmd-label-floating">Suffix</label>
-               <div class="form-group">
+           <div class="col-md-2"> <th class="d-">Notes</th></div>
 
-                      <div class="cols-sm-10">
-                        <div class="input-group">
+   </div>
 
-                            <%= form.text_field :suffix, id: :contact_suffix, class: ' text-white form-control' %>
-                        </div>
-                     </div>
+ </div>
 
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <label class="text-white  bmd-label-floating">Owns Or Rents </label>
-               <div class="form-group">
 
-                      <div class="cols-sm-10">
-                        <div class="input-group">
 
-                           <%= form.text_field :owns_cents, id: :contact_owns_cents, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <label class="text-white  bmd-label-floating">Year Of Founding</label>
-               <div class="form-group">
 
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-
-                        <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-
-               </div>
-            </div>
-
-         </div>
+          <% @group.contacts.each do |contact| %>
+<div class="col-md-12">
 
 
           <div class="row">
-            <div class="col-lg-3">
-               <label class="text-white  bmd-label-floating">Primary Industry</label>
-               <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                    <%= form.text_field :primary_industry, id: :contact_primary_industry, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-            <div class="col-lg-3">
-               <label class="text-white  bmd-label-floating">Web Address</label>
-               <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                          <%= form.text_field :web_address, id: :contact_web_address, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-            <div class=" col-lg-3">
-              <label class="text-white bmd-label-floating">Latitude </label>
-               <div class="form-group">
-
-                      <div class="cols-sm-10">
-                        <div class="input-group">
-
-                            <%= form.text_field :latitude, id: :contact_latitude, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-
-               </div>
-            </div>
-            <div class="col-lg-3">
-                 <label class="text-white bmd-label-floating">Longitude </label>
-               <div class="form-group">
-
-                      <div class="cols-sm-10">
-                        <div class="input-group">
-
-                           <%= form.text_field :longitude, id: :contact_longitude, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-               </div>
-            </div>
-          </div>
-          <div class="row ">
-
-
-            <div class=" col-lg-3">
-              <label class="text-white  bmd-label-floating">Email</label>
-               <div class="form-group">
-
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-
-                         <%= form.text_field :email, id: :contact_email, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <label class="text-white bmd-label-floating">Type</label>
-               <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                      <%= form.text_field :type, id: :contact_type, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <label class="text-white  bmd-label-floating">Total Employees</label>
-               <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                         <%= form.text_field :total_number_of_employees, id: :contact_total_number_of_employees, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-
-
-            <div class="col-lg-3">
-              <label class="text-white bmd-label-floating">Position </label>
-               <div class="form-group">
-
-                      <div class="cols-sm-10">
-                        <div class="input-group">
-
-                            <%= form.text_field :postion, id: :contact_postion, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-
-               </div>
-            </div>
-         </div>
-         <div class="row ">
-            <div class="col-sm-6 col-md-6 col-lg-3">
-               <label class="text-white bmd-label-floating">SIC </label>
-               <div class="form-group">
-
-                      <div class="cols-sm-10">
-                        <div class="input-group">
-
-                          <%= form.text_field :sic, id: :contact_sic, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-               </div>
-            </div>
-            <div class=" col-lg-3">
-              <label class="text-white bmd-label-floating">Address</label>
-               <div class="form-group">
-
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-
-                          <input type="text" name="contact[address]" id="c-add-hidden" class= " text-white form-control">
-                      </div>
-                   </div>
-
-               </div>
-            </div>
-            <div class="col-lg-3">
-              <labe class="text-white bmd-label-floating">Street Number</label>
-               <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                      <%= form.text_field :street_num, id: :contact_street_num, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-            <div class=" col-lg-3">
-              <labe class="text-white bmd-label-floating">Street Name</label>
-               <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                         <%= form.text_field :strret_name, id: :contact_strret_name, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-               </div>
-            </div>
-         </div>
-
-          <div class="row">
-            <div class="col-lg-3">
-                 <label class="text-white bmd-label-floating">City </label>
-               <div class="form-group">
-
-                      <div class="cols-sm-10">
-                        <div class="input-group">
-
-                            <%= form.text_field :city, id: :contact_city, class: ' text-white form-control' %>
-                        </div>
-                     </div>
-
-               </div>
-            </div>
-             <div class=" col-lg-3">
-              <label class="text-white bmd-label-floating">County</label>
-               <div class="form-group">
-
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-
-                          <input type="text" name="contact[county]" class=" text-white form-control" id="contact_county">
-                      </div>
-                   </div>
-
-               </div>
-            </div>
-
-            <div class=" col-lg-3">
-              <label class="text-white bmd-label-floating">state</label>
-               <div class="form-group">
-
-                    <div class="cols-sm-10">
-                      <div class="input-group">
-
-                          <%= form.text_field :state, id: :contact_state, class: ' text-white form-control' %>
-                      </div>
-                   </div>
-
-               </div>
-            </div>
-              <div class="col-lg-3">
-                <label class=" bmd-label-floating text-white">Postal Code</label>
-             <div class="form-group">
-
-                <div class="cols-sm-10">
-                    <div class="input-group">
-
-                       <%= form.text_field :postal_code, id: :contact_postal_code, class: ' text-white form-control' %>
-                    </div>
-                 </div>
-             </div>
-
-</div>
-
-          </div>
-
-
-
-
-         <div class="row ">
-          <div class="col-md-3">
-
-         </div>
-          <div class="col-md-3">
-
-
-
-
-         </div>
-                <div class="col-md-3">
-
-         </div>
-             <div class="col-lg-3">
-              <label class="text-white">Country</label>
-             <div class="form-group">
-
-                  <div class="cols-sm-10">
-                      <div class="input-group">
-
-                      <%= form.text_field :country, id: :contact_country, class: ' text-white form-control'  %>
-                      </div>
-                   </div>
-               </div>
-
-
-
-         </div>
-
-
-
-         </div>
-
-
-
-     <!-- wizard container -->
-       <div class="form-check pull-right p-2">
-           <label class="form-check-label ">
-              <%= form.check_box :verified, id: :contact_verified, class: 'form-check-input text-success ' %>
-              <span class="form-check-sign text-success "  style="color:green">
-              <span class="check text-success"></span>
-              </span>
-              <p class=" mb-3">            <i class="material-icons">
-how_to_reg
-</i> <%= @contact.verified ? 'Yes' : 'No' %>, Contact is <%= 'not' if !@contact.verified %>  verified.</p>
-           </label>
-        </div><!-- wizard container -->
+           <div class="col-md-2">    <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
+          <i class=" fa fa-edit e-contact"></i>
+          <% end %></td></div>
+         <div class="col-md-2">    <td class="d-">
+              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
+                <%= contact.name %>
+              <% end %>
+            </td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.prefix %></td></div>
+          <div class="col-md-2">  <td class="d-"><%= contact.first_name %></td></div>
+            <div class="col-md-2"><td class="d-"><%= contact.middle_name %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.last_name %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.suffix %></td></div>
+          <div class="col-md-2">  <td class="d-"><%= contact.phone %></td></div>
+            <div class="col-md-2"><td class="d-"><%= contact.cell %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.email %></td></div>
+
+           <div class="col-md-2"> <td class="d-"><%= contact.company %></td></div>
+            <div class="col-md-2"><td class="d-"><%= contact.web_address %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.address %></td></div>
+
+            <div class="col-md-2"><td class="d-"><%= contact.suite %></td></div>
+
+           <div class="col-md-2"> <td class="d-"><%= contact.street_num %></td></div>
+            <div class="col-md-2"><td class="d-"><%= contact.strret_name %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.city %></td></div>
+          <div class="col-md-2">  <td class="d-"><%= contact.state %></td></div>
+
+           <div class="col-md-2"> <td class="d-"><%= contact.county %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.country %></td></div>
+          <div class="col-md-2">  <td class="d-"><%= contact.postal_code %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.zip_code_ext %></td></div>
+
+         <div class="col-md-2">   <td class="d-"><%= contact.latitude %></td></div>
+          <div class="col-md-2">  <td class="d-"><%= contact.longitude %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.owns_cents %></td></div>
+          <div class="col-md-2">  <td class="d-"><%= contact.year_of_Founding %></td></div>
+
+         <div class="col-md-2">   <td class="d-"><%= contact.primary_industry %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.facility_size %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.total_number_of_employees %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.postion %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.sic %></td></div>
+           <div class="col-md-2"> <td class="d-"><%= contact.notes %></td></div>
 
   </div>
-
-      </div>
-
+  </div>
+</div>
+ </div>
+  </div>
 <% end %>
-

@@ -1,37 +1,70 @@
+<style type="text/css">
 
-<div class="col-md-12">
+.user-l {
+  padding-right: 6px;
+}
+.user-r {
+  padding-left: 6px;
+}
+.user-l >img,
+.user-r >img {
+  width: 150px;
+}
+.redes >ul li a {
+  width: 42px;
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  border-radius: 10em;
+  border: #EEE 1px solid;
+}
+.redes >ul li span {
+  color: #CCC;
+  font-size: 18px;
+}
+.footer {
+    padding: 16px 0;
+}
+.pro-card {
+    min-height: 400px;
+}
+</style>
+
   <div class="row">
-<div class="col-md-3">
+<div class="col-sm-6">
+    <div class="card pro-card reounded-0" >
+      <h4 class="card-header bg-dark text-white"><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>
+      <div class="float-right small">
+        <a class="btn btn-raised btn-danger" href="#" title="Ver perfil de Miguel92" data-toggle="tooltip" data-placement="top">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-raised btn-danger" href="#" title="Enviar mensaje">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-raised btn-danger" href="#" title="Seguir usuario">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+          </a>
+      </div>
+      </h4>
+      <div class="card-body">
+        <div class="row">
 
-            <!--Section: Basic Info-->
-            <section class="card card-5  card-avatar mb-4 rounded-0"  >
-              <div class="image-content" >
-               <%= image_tag large_gravatar_url(@user.email), class: 'avatar ' %>
-             </div>
-           <div class="card ">
+        <div class="col-md-8">
+          <div class="image float-left user-l">
+            <img src="http://31.media.tumblr.com/tumblr_lw2lhqjrel1qfmi03o9_r1_500.gif" class="img-thumbnail" alt="avatar">
+          </div>
+          </div>
+          <div class="col-md-4">
 
 
-            <div class="card-body card-1 ">
-                <!--Title-->
-                <h4 class="card-title">
-                <strong><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></strong>
-                </h4>
-                <h5>                <a rel="nofollow" href="?utm_source=mdbootstrap.com" target="_blank"></a>
-                </h5>
-                <p class="grey-text"></p>
-
-                <!-- Social -->
-
-                <!--Text-->
-                <p class="card-text mt-3"></p>
-                <h3><%= @user.role %></h3>
-                <p>Name: <%= @user.first_name if @user.first_name %></p>
-                <p>Email: <%= @user.email if @user.email %></p>
-
-              </div>
-            </div>
-
-            </section>
+        <h4 class="card-title"><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %> </h4>
+          <p class="card-text"> Name: <%= @user.first_name if @user.first_name %></p>
+         <p class="card-text"> Email: <%= @user.email if @user.email %></p>
+           </div>
+      </div>
+    </div>
+  </div>
+</div>
             <!--Section: Basic Info-->
 
 
@@ -40,10 +73,9 @@
 
             <!--Section: Experience-->
 
-        </div>
         <div class="col-md-4">
                       <!--Section: Experience-->
-            <section class="card card-1 mb-4">
+            <section class="card bg-dark mb-4 rounded-0">
             <div class="card-body">
 
                 <h5 class=" text-center">
@@ -99,9 +131,9 @@
                             </div>
             </section>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
                       <!--Section: Achievements-->
-            <section class="card mb-4 card-1">
+            <section class="card mb-4 bg-dark rounded-0">
             <div class="card-body text-center">
 
                 <h5>
@@ -109,12 +141,12 @@
                 </h5>
 
                 <hr class="my-3">
-                <%= link_to edit_user_registration_path, class: 'btn btn-black' do %>
+                <%= link_to edit_user_registration_path, class: 'btn btn-black btn btn-block' do %>
                 Edit Profile <i class="fa fa-pencil ml-2 text-success"></i>
                 <% end %>
 
                 </a>
-                <%= link_to destroy_user_session_path, :method=>'delete', class: 'btn btn-danger  btn-black' do %>
+                <%= link_to destroy_user_session_path, :method=>'delete', class: 'btn btn-danger btn btn-block btn-black' do %>
                    Log out <i class="fa fa-sign-out ml-2"></i>
                 <% end %>
 
@@ -122,4 +154,4 @@
             </section>
         </div>
   </div>
-</div>
+

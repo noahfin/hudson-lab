@@ -540,3 +540,14 @@ hyphens: auto;
  .select-group-item {
   height: 200px !important;
  }
+
+div.dataTables_wrapper {
+        width: 800px;
+        margin: 0 auto;
+         overflow-x: auto;
+    }
+
+.table-responsive {
+    max-height: 150px;
+    overflow: scroll;
+}

@@ -63,6 +63,10 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
+
+    $('#example').DataTable( {
+        "scrollX": true
+    } );
    // $(".custom-tip").each(function(index){
 
    //       $(this).attr('data-toggle','tooltip');
