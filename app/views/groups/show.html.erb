@@ -1,123 +1,97 @@
 <div class="container-fluid pt-3">
-  <div class="col-md-10 ml-auto mr-auto">
-
-<div class="row">
 
 
-    <h3 class="text-white"><%= @group.name %> / <%= @group.contacts.count %></h3>
-    <h5>Horizontal Scrolling Layout</h5>
+    <div class="col-lg-11 mr-auto ml-auto">
+        <h3 class="text-white pl-2"><%= @group.name %> / <%= @group.contacts.count %> <span class="pull-right" >  <button type="button" class="btn-back btn btn-link text-white"><i class="material-icons">keyboard_backspace</i></button></span></strong></h3>
+        <div class="table-responsive">
+            <table class="table table-custom">
+                <thead>
+                    <tr>
+                        <th class="d-">Edit </th>
+                        <th class="d-">Name </th>
+                        <th class="d-">Prefix </th>
+                        <th class="d-">First Name </th>
+                        <th class="d-">Middle </th>
+                        <th class="d-">Last Name </th>
+                        <th class="d-">Suffix </th>
+                        <th class="d-">Phone </th></div>
+                        <th class="d-">Cell Phone </th>
+                        <th class="d-">Email </th>
+                        <th class="d-">Company </th>
+                        <th class="d-">Web Address</th>
+                        <th class="d-">Address</th>
+                        <th class="d-">Suite</th>
+                        <th class="d-">Street Number</th>
+                        <th class="d-">Strret Name </th>
+                        <th class="d-">City</th>
+                        <th class="d-">State </th>
+                        <th class="d-">County </th>
+                        <th class="d-">Country </th>
+                        <th class="d-">Postal Code </th>
+                        <th class="d-">Zip Code Ext</th>
+                        <th class="d-">Latitude </th>
+                        <th class="d-">Longitude </th>
+                        <th class="d-">Owns or Rents </th>
+                        <th class="d-">year_of_Founding </th>
+                        <th class="d-">Primary Industry </th>
+                        <th class="d-">Facility Size</th>
+                        <th class="d-">Total Employees </th>
+                        <th class="d-">Position </th>
+                        <th class="d-">SIC </th>
+                        <th class="d-">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <% @group.contacts.each do |contact| %>
+                    <tr>
+                        <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
+                        <i class=" fa fa-edit e-contact"></i>
+                        <% end %></td>
+                        <td class="d-">
+                        <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
+                        <%= contact.name %>
+                        <% end %>
+                        </td>
+                        <td class="d-"><%= contact.prefix %></td>
+                        <td class="d-"><%= contact.first_name %></td>
+                        <td class="d-"><%= contact.middle_name %></td>
+                        <td class="d-"><%= contact.last_name %></td>
+                        <td class="d-"><%= contact.suffix %></td>
+                        <td class="d-"><%= contact.phone %></td>
+                        <td class="d-"><%= contact.cell %></td>
+                        <td class="d-"><%= contact.email %></td>
+                        <td class="d-"><%= contact.company %></td>
+                        <td class="d-"><%= contact.web_address %></td>
+                        <td class="d-"><%= contact.address %></td>
+
+                        <td class="d-"><%= contact.suite %></td>
+
+                        <td class="d-"><%= contact.street_num %></td>
+                        <td class="d-"><%= contact.strret_name %></td>
+                        <td class="d-"><%= contact.city %></td>
+                        <td class="d-"><%= contact.state %></td>
+
+                        <td class="d-"><%= contact.county %></td>
+                        <td class="d-"><%= contact.country %></td>
+                        <td class="d-"><%= contact.postal_code %></td>
+                        <td class="d-"><%= contact.zip_code_ext %></td>
+
+                        <td class="d-"><%= contact.latitude %></td>
+                        <td class="d-"><%= contact.longitude %></td>
+                        <td class="d-"><%= contact.owns_cents %></td>
+                        <td class="d-"><%= contact.year_of_Founding %></td>
+
+                        <td class="d-"><%= contact.primary_industry %></td>
+                        <td class="d-"><%= contact.facility_size %></td>
+                        <td class="d-"><%= contact.total_number_of_employees %></td>
+                        <td class="d-"><%= contact.postion %></td>
+                        <td class="d-"><%= contact.sic %></td>
+                        <td class="d-"><%= contact.notes %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
     </div>
-         <div class="table-responsive mt-0 pt-0"">
-            <table class="table table-custom mt-0 pt-0" >
-              <div class="col-md-12">
-
-
-              <div class="row">
-
-
-                 <div class="col-md-2">
-            <th class="d-">Edit </th></div>
-           <div class="col-md-2"> <th class="d-">Name </th></div>
-          <div class="col-md-2">  <th class="d-">Prefix </th></div>
-          <div class="col-md-2">  <th class="d-">First Name </th></div>
-           <div class="col-md-2"> <th class="d-">Middle </th></div>
-         <div class="col-md-2">   <th class="d-">Last Name </th></div>
-          <div class="col-md-2">  <th class="d-">Suffix </th></div>
-        <div class="col-md-2">    <th class="d-">Phone </th></div>
-         <div class="col-md-2">   <th class="d-">Cell Phone </th></div>
-         <div class="col-md-2">   <th class="d-">Email </th></div>
-           <div class="col-md-2"> <th class="d-">Company </th></div>
-           <div class="col-md-2"> <th class="d-">Web Address</th></div>
-           <div class="col-md-2"> <th class="d-">Address</th></div>
-
-
-         <div class="col-md-2">   <th class="d-">Suite</th></div>
-           <div class="col-md-2"> <th class="d-">Street Number</th></div>
-          <div class="col-md-2">  <th class="d-">Strret Name </th></div>
-          <div class="col-md-2">  <th class="d-">City</th></div>
-           <div class="col-md-2"> <th class="d-">State </th></div>
-          <div class="col-md-2">   <th class="d-">County </th></div>
-           <div class="col-md-2">  <th class="d-">Country </th></div>
-
-
-
-         <div class="col-md-2">   <th class="d-">Postal Code </th></div>
-          <div class="col-md-2">  <th class="d-">Zip Code Ext</th></div>
-
-            <div class="col-md-2">  <th class="d-">Latitude </th></div>
-         <div class="col-md-2">   <th class="d-">Longitude </th></div>
-
-          <div class="col-md-2">  <th class="d-">Owns or Rents </th></div>
-          <div class="col-md-2">  <th class="d-">year_of_Founding </th></div>
-         <div class="col-md-2">   <th class="d-">Primary Industry </th></div>
-           <div class="col-md-2"> <th class="d-">Facility Size</th></div>
-           <div class="col-md-2"> <th class="d-">Total Employees </th></div>
-
-           <div class="col-md-2"> <th class="d-">Position </th></div>
-           <div class="col-md-2"> <th class="d-">SIC </th></div>
-
-           <div class="col-md-2"> <th class="d-">Notes</th></div>
-
-   </div>
-
- </div>
-
-
-
-
-          <% @group.contacts.each do |contact| %>
-<div class="col-md-12">
-
-
-          <div class="row">
-           <div class="col-md-2">    <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
-          <i class=" fa fa-edit e-contact"></i>
-          <% end %></td></div>
-         <div class="col-md-2">    <td class="d-">
-              <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
-                <%= contact.name %>
-              <% end %>
-            </td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.prefix %></td></div>
-          <div class="col-md-2">  <td class="d-"><%= contact.first_name %></td></div>
-            <div class="col-md-2"><td class="d-"><%= contact.middle_name %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.last_name %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.suffix %></td></div>
-          <div class="col-md-2">  <td class="d-"><%= contact.phone %></td></div>
-            <div class="col-md-2"><td class="d-"><%= contact.cell %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.email %></td></div>
-
-           <div class="col-md-2"> <td class="d-"><%= contact.company %></td></div>
-            <div class="col-md-2"><td class="d-"><%= contact.web_address %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.address %></td></div>
-
-            <div class="col-md-2"><td class="d-"><%= contact.suite %></td></div>
-
-           <div class="col-md-2"> <td class="d-"><%= contact.street_num %></td></div>
-            <div class="col-md-2"><td class="d-"><%= contact.strret_name %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.city %></td></div>
-          <div class="col-md-2">  <td class="d-"><%= contact.state %></td></div>
-
-           <div class="col-md-2"> <td class="d-"><%= contact.county %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.country %></td></div>
-          <div class="col-md-2">  <td class="d-"><%= contact.postal_code %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.zip_code_ext %></td></div>
-
-         <div class="col-md-2">   <td class="d-"><%= contact.latitude %></td></div>
-          <div class="col-md-2">  <td class="d-"><%= contact.longitude %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.owns_cents %></td></div>
-          <div class="col-md-2">  <td class="d-"><%= contact.year_of_Founding %></td></div>
-
-         <div class="col-md-2">   <td class="d-"><%= contact.primary_industry %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.facility_size %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.total_number_of_employees %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.postion %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.sic %></td></div>
-           <div class="col-md-2"> <td class="d-"><%= contact.notes %></td></div>
-
-  </div>
-  </div>
 </div>
- </div>
-  </div>
-<% end %>
+

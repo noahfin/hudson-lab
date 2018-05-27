@@ -5,7 +5,7 @@
 <div class="row">
    <% group.each do |group| %>
    <div class=" col-md-4 ">
-   <div class="card card-raised bg-info" >
+   <div class="card card-raised  bg-black" >
                                 <div class="card-body">
                                     <h2 class="card-category text-white"><%= group.name %></h2>
                                     <a href="#pablo">
@@ -14,7 +14,7 @@
                                     <p class="card-description">
                                         <%= group.name %> has <%= group.contacts.count %> contact stored
                                         </p>
-                                        <%= link_to group_path(group.id), class: "btn btn-danger btn-round" do %>
+                                        <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round" do %>
 
                                         <i class="material-icons">content_copy</i> View Group
                                    <% end %>

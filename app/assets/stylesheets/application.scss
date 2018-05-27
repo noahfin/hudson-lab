@@ -548,6 +548,9 @@ div.dataTables_wrapper {
     }
 
 .table-responsive {
-    max-height: 150px;
+    max-height: 550px;
     overflow: scroll;
+}
+.table-custom th, .table-custom  td{
+  min-width: 200px;
 }
