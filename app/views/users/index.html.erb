@@ -51,14 +51,23 @@
       <div class="card-body padding-top-10 padding-bottom-10">
          <div class="table-responsive">
             <table class="table table-indent-rows margin-bottom-0">
-                            <tr><th class="text-gray">Select</th> <th><a href="c">Username</a></th> <th><a class="text-gray">Groups</a></th>
 
+                            <tr><th class="text-gray">Select</th> <th><a href="c">Username</a></th> <th><a class="text-gray">Groups</a></th>
+ <%= form_tag({controller: "users", action: "sharegroups"}, method: "post") do |form| %>
  <% @users.each do |user| %>
                <tbody>
                   <tr>
-                      <%= form_for User.create  do |form| %>
+
                      <td width="40">
-                        <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="t1_checkbox_0"><label class="custom-control-label" for="t1_checkbox_0"></label></div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+
+                            <input type="checkbox" class="form-check-input" value=<%="#{user.id}"%> name="user[user_id]">
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                        </label>
+                    </div>
                      </td>
                      <td width="200">
                         <div class="user mt-3">
@@ -68,17 +77,19 @@
                            </div>
                         </div>
                      </td>
-                       <% group_ids = [] %>
 
-                <%  Group.all.ids.each_with_index do |group, index| %>
-                         <% group_ids[index] = group %>
-                <% end %>
 
-              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-                     <td class="text-dark">      <%= form.collection_select :group_id, Group.all, :id, :name, attr,{ remote: true, multiple: "true", class: "selectpicker  text-dark", id: 'userS_share' } %>
-</td>
 
-                    <% end %>
+
+                     <td class="text-dark">
+                      <%= collection_select(:group, :id, Group.all, :id, :name, {}, {multiple: true, :class=>"selectpicker"}) %>
+
+
+
+
+                    </td>
+
+
                   </tr>
 
                </tbody>
@@ -91,9 +102,9 @@
 
          <div class="form-row margin-top-20">
             <div class="col-6 col-lg-3">
-               <select class="form-control text-white select-simple">
-                  <option>Share with selected</option>
-                  <option>Remove form selected</option>
+               <select class="form-control text-white select-simple" name="option">
+                  <option value="Share with selected">Share with selected</option>
+                  <option value="Remove form selected">Remove form selected</option>
 
                </select>
             </div>
@@ -105,7 +116,7 @@
  </div>
         </div>
 
-
+  <% end %>
 
 
   <% end %>

@@ -20,7 +20,8 @@
     resources :touches
     resources :leads
     resources :deals
-    match "users/settheme" => "user#set_theme", as: :set_theme, via: :get
+    match "users/settheme" => "users#set_theme", as: :set_theme, via: :get
+    match "users/sharegroups" => "users#sharegroups", as: :sharegroups, via: :post
     match "search" => "search#create", as: :searches, via: [:get, :post]
     match "search/prepare" => "search#prepare", as: :prepareshearch, via: :get
     get'/dashboard', to: 'dashboard#index'
