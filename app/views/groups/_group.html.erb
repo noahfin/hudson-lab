@@ -1,35 +1,27 @@
-
-   <div class="col-md-12">
-      <% @groups.each.each_slice(3) do |group| %>
-      <div class="col-md-12 mb-3">
-<div class="row">
-   <% group.each do |group| %>
-   <div class=" col-md-4 ">
-   <div class="card card-raised  bg-black" >
-                                <div class="card-body">
-                                    <h2 class="card-category text-white"><%= group.name %></h2>
-                                    <a href="#pablo">
-                                        <h4 class="card-title">Download this group as a  <%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-danger' %></h4>
-                                    </a>
-                                    <p class="card-description">
-                                        <%= group.name %> has <%= group.contacts.count %> contact stored
-                                        </p>
-                                        <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round" do %>
-
-                                        <i class="material-icons">content_copy</i> View Group
-                                   <% end %>
-                                </div>
-                            </div>
-
-</div>
-
-
-            <% end %>
+<div class="col-md-12">
+   <% @groups.each.each_slice(3) do |group| %>
+   <div class="col-md-12 mb-3">
+      <div class="row">
+         <% group.each do |group| %>
+         <div class=" col-md-4 ">
+            <div class="card card-raised  bg-black" >
+               <div class="card-body">
+                  <h2 class="card-category text-white"><%= group.name %> <span class="pull-right text-danger"><%= group.contacts.count %></span></h2>
+                  <a href="#pablo">
+                     <h4 class="card-title">Download this group as a  <%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-danger' %></h4>
+                  </a>
+                  <p class="card-description">
+                     <%= group.name %> has <%= group.contacts.count %> contact stored
+                  </p>
+                  <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round" do %>
+                  <i class="material-icons">content_copy</i> View Group
+                  <% end %>
+               </div>
+            </div>
          </div>
-       <hr class="bg-light">
+         <% end %>
       </div>
-      <% end %>
-
-
-    </div>
-
+      <hr class="bg-light">
+   </div>
+   <% end %>
+</div>
