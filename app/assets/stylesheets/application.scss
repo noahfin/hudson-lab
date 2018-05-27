@@ -555,8 +555,16 @@ div.dataTables_wrapper {
   min-width: 200px;
 }
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: black !important;
+   background-color: #09C !important;
 }
 .table-striped a {
-  color:  #09C!important;
+  color:  black !important;
+}
+.custom-striped {
+  color:  black !important;
+}
+.position-right {
+  position: absolute;
+  right: 0px;
+  margin-top: -.4rem;
 }

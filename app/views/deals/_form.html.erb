@@ -27,7 +27,7 @@
   <div class="col-md-9 pr-4 ">
 
 
-<select name="data[Deal][contact_id]" class="form-control input-xlarge" id="contacts"><!--   style="display: none; -->
+<select name="deal[contact_id]" class="form-control input-xlarge" id="deal_contacts"><!--   style="display: none; -->
 <option value="3003">CP VIRGEN DEL CARMEN DE ALMODOVAR DEL CAMPO M  </option>
 <option value="3004">CP VIRGEN DEL SALIDO DE CARRIZOSA MEC  </option>
 <option value="3005">CP VIRGEN DEL SOCORRO DE ARGAMASILLA DE CALAT  </option>
@@ -39,15 +39,15 @@
     <label class="control-label col-md-4">Deal Status</label>
     <div class="controls col-md-8">
       <div class="btn-group" data-toggle="buttons-radio" data-toggle-name="deal_status_id">
-                      <button type="button" class="btn btn-warning" value="4">
+                      <button type="button" class="btn btn-warning" value="Process">
         Process       </button>
-                        <button type="button" class="btn btn-success" value="5">
+                        <button type="button" class="btn btn-success" value="Closed">
         Accepted        </button>
-                        <button type="button" class="btn btn-danger" value="6">
+                        <button type="button" class="btn btn-danger" value="Rejected">
         Rejected        </button>
               </div>
     </div>
-      <input type="hidden" name="data[Deal][deal_status_id]" class="form-control" id="DealDealStatusId">
+      <input type="hidden" name="[deal][status]" class="form-control" id="DealDealStatusId">
 
         <div class="form-group ml-3">
      <label for="name" class="cols-sm-2 control-label ml-2  pl-4"></label>
