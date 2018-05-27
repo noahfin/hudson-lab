@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525213705) do
+ActiveRecord::Schema.define(version: 20180527163613) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180525213705) do
     t.boolean "active"
     t.decimal "potential_commission"
     t.integer "lead_id"
+    t.string "status"
     t.index ["lead_id"], name: "index_deals_on_lead_id"
   end
 
