@@ -1,7 +1,14 @@
-<div class="col-xl-6">
+
+<div class="container">
+      <div class="card gray-dark rounded-0">
+
+  <div><h3 class="text-white ml-3">Add New Deal</h3></div>
+     <div class="row">
 
 
-<%= form_with(model: deal, local: true) do |form| %>
+<div class="col-md-6">
+
+
   <% if deal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
@@ -14,44 +21,41 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-     <label for="name" class="cols-sm-2 control-label ml-2 pl-4">name</label>
-     <div class="cols-sm-10">
-        <div class="input-group">
-           <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-              <%= form.text_field :name, id: :deal_name, class: 'form-control text-white' %>
-        </div>
-     </div>
+ <%= form_with(model: deal, local: true) do |form| %><fieldset>
+
+    <div class="form-group pr-4"><label for="contacts" class="col col-md-4 control-label">Contact</label>
+  <div class="col-md-9 pr-4 ">
+
+
+<select name="data[Deal][contact_id]" class="form-control input-xlarge" id="contacts"><!--   style="display: none; -->
+<option value="3003">CP VIRGEN DEL CARMEN DE ALMODOVAR DEL CAMPO M  </option>
+<option value="3004">CP VIRGEN DEL SALIDO DE CARRIZOSA MEC  </option>
+<option value="3005">CP VIRGEN DEL SOCORRO DE ARGAMASILLA DE CALAT  </option>
+<option value="3006">CR CONSTRUCCION PROMOCION INNOVA SL  </option>
+<option value="3007">CREACIONES CONFEPOLIS S.L.  </option>
+</select>
   </div>
+</div>
+    <label class="control-label col-md-4">Deal Status</label>
+    <div class="controls col-md-8">
+      <div class="btn-group" data-toggle="buttons-radio" data-toggle-name="deal_status_id">
+                      <button type="button" class="btn btn-warning" value="4">
+        Process       </button>
+                        <button type="button" class="btn btn-success" value="5">
+        Accepted        </button>
+                        <button type="button" class="btn btn-danger" value="6">
+        Rejected        </button>
+              </div>
+    </div>
+      <input type="hidden" name="data[Deal][deal_status_id]" class="form-control" id="DealDealStatusId">
 
-
-  <div class="form-group">
-     <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Code</label>
-     <div class="cols-sm-10">
-        <div class="input-group">
-           <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-      <%= form.text_field :code, id: :deal_code, class: 'form-control text-white' %>        </div>
-     </div>
-  </div>
-
-  <div class="form-group">
-     <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Category</label>
-     <div class="cols-sm-10">
-        <div class="input-group">
-           <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
-          <%= form.text_field :category, id: :deal_category, class: 'form-control text-white' %>
-        </div>
-     </div>
-  </div>
-
-
-  <div class="form-group">
+        <div class="form-group ml-3">
      <label for="name" class="cols-sm-2 control-label ml-2  pl-4"></label>
      <div class="cols-sm-10">
         <div class="input-group">
-           <span class="input-group-addon"><i class="material-icons mr-3">account_balance</i></span>
+           <span class="input-group-addon"></span>
            <div class="form-check mr-auto">
-                <label class="form-check-label mt-1">
+                <label class="form-check-label pt-0 mt-0 pb-4">
                   <%= form.check_box :active, id: :deal_active, class: 'form-check-input' %>
                   <input class="form-check-input text-white" type="checkbox" value="" required="" aria-required="true"> Is the deal active?
                   <span class="form-check-sign">
@@ -64,11 +68,50 @@
      </div>
   </div>
 
+  </fieldset>
+  </div>
+
+  <div class="col-md-6">
+
+
+    <div class="form-group">
+     <label for="name" class="cols-sm-2 control-label ml-2 pl-4">name</label>
+     <div class="cols-sm-10">
+        <div class="input-group">
+           <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
+              <%= form.text_field :name, id: :deal_name, class: 'form-control text-white' %>
+        </div>
+     </div>
+  </div>
+
+
+  <div class="form-group">
+     <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Code</label>
+     <div class="cols-sm-10">
+        <div class="input-group">
+           <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
+      <%= form.text_field :code, id: :deal_code, class: 'form-control text-white' %>        </div>
+     </div>
+  </div>
+
+  <div class="form-group">
+     <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Category</label>
+     <div class="cols-sm-10">
+        <div class="input-group">
+           <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
+          <%= form.text_field :category, id: :deal_category, class: 'form-control text-white' %>
+        </div>
+     </div>
+  </div>
+
+
+
+
   <div class="form-group">
      <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Potential Commission</label>
      <div class="cols-sm-10">
         <div class="input-group">
-           <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
+           <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
         <%= form.text_field :potential_commission, id: :deal_potential_commission, class: 'form-control text-white' %>
 
         </div>
@@ -80,97 +123,22 @@
 
      <div class="cols-sm-10">
         <div class="input-group">
-           <span class="input-group-addon"><i class="material-icons  pr-3">account_balance</i></span>
+           <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
       <%= form.text_field :lead_id, id: :deal_lead_id, class: 'form-control text-white' %>        </div>
      </div>
   </div>
+  </div>
 
 
-                          <div class="form-group ml-0 pr-2 pl-0 mt-0">
-                            <div class=" mr-0 pl-3">
-                                <div class="card-collapse">
-                                    <div class="card-header  ml-0 mr-0  p3 card-1" role="tab" id="headingTwo">
-                                        <div class="row">
 
-                                            <input class="form-control get-contacts  ml-3 mr-2 pl-2" type="text" placeholder="Search" aria-label="Search" id="search-contat-task">
-
-                                        </div>
-                                        <h5 class="mb-0">
-                          <a class="collapsed  pl-2 text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              connect contacts
-                            <i class="material-icons">keyboard_arrow_down</i>
-                          </a>
-                        </h5>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                                        <div class="card-body" id="form-contact">
-
-                                            <ul class="list-inline p-0">
-                                                <li class="list-inline-item">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
-                                                            <p class="c1  text-white">contact 1</p>
-                                                            <span class="form-check-sign">
-                                  <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
-                                                            <p class="c2  text-white">contact 2 </p>
-                                                            <span class="form-check-sign">
-                                  <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
-                                                            <p class="c3  text-white"> contact 3 </p>
-                                                            <span class="form-check-sign">
-                                  <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
-                                                            <p class="c4  text-white">contact 4</p>
-                                                            <span class="form-check-sign">
-                                  <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
-                                                            <p class="c5  text-white"> contact 5 </p>
-                                                            <span class="form-check-sign">
-                                  <span class="check"></span>
-                                                            </span>
-                                                        </label>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-  <div class="form-group">
+  <div class="form-group ml-4 ml-3">
+    <span>
     <%= form.submit class: 'btn btn-info submit' %>
+
+  <button class="btn btn-info ml-2"  type="submit"><i class="fa fa-save"></i> Add</button>  &nbsp;<a href="/crm/deals" class="btn btn-primary"><i class="fa fa-reply"></i>&nbsp;Cancel</a>
+</span>
   </div>
 <% end %>
 </div>
+  </div>
+      </div>

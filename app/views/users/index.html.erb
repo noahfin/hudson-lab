@@ -1,5 +1,522 @@
 <div class="container">
-
+<div class="container">
+                                    <div class="row">
+    <div class="col-md-8">
+        <h3>
+            <div class="col-md-1" style="padding: 5px 0 0 0;">
+                Users            </div>
+                        <div class="col-md-2">
+                <a class="btn btn-success" href="/crm/users/add"><i class="fa fa-plus"></i> Add User</a>
+            </div>
+            <div class="col-md-2" style="padding: 0;">
+                <form action="/crm/users/import" id="import-form" class="form-inline" enctype="multipart/form-data" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>                <button type="button" class="btn btn-info" id="import"><i class="fa fa-upload"></i>Import Users</button>
+                <input type="file" name="data[User][csv_file]" id="file" style="width: 118px; cursor: pointer; margin-top: -35px; opacity: 0;">                </form>            </div>
+            <div class="col-md-2" style="padding: 0;">
+                <a class="btn btn-info" style="z-index:0;" href="/crm/users/index/users.csv"><i class="fa fa-download"></i> Export Users</a>
+            </div>
+                    </h3>
+    </div>
+    <div class="col-md-4">
+        <form action="/crm/users" id="user-search" class="well form-inline pull-right" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>        <input name="data[User][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+        <a class="btn btn-primary" id="more"><i class="fa fa-caret-down"></i> More </a>
+        <div id="hints" class="hints-search"></div>
+        </form>    </div>
+    <div class="col-md-12">
+                <div class="filter-box" style="display:none;">
+            <form action="/crm/users" class="well form-inline" id="UserIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>            <fieldset>
+                <legend>Filters</legend>
+                <table>
+                    <tbody><tr>
+                        <td class="col-md-2">Username</td>
+                        <td class="col-md-2" style="padding-bottom: 5px;"><div class="form-group"><input name="data[User][search_username]" class="form-control" placeholder="Username" type="text" id="UserSearchUsername"></div></td>
+                        <td class="col-md-2">Name</td>
+                        <td class="col-md-2" style="padding-bottom: 5px;"><div class="form-group"><input name="data[User][search_name]" class="form-control" placeholder="Name" type="text" id="UserSearchName"></div></td>
+                        <td class="col-md-2">Group</td>
+                        <td class="col-md-2" style="padding-bottom: 5px;"><div class="form-group"><select name="data[User][search_group]" class="form-control" id="UserSearchGroup">
+<option value="">(Select Group)</option>
+<option value="1">Administrator</option>
+<option value="2">Employee</option>
+</select></div></td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">Email</td>
+                        <td class="col-md-2" style="padding-bottom: 3px;"><div class="form-group"><input name="data[User][search_email]" class="form-control" placeholder="Email" type="text" id="UserSearchEmail"></div></td>
+                        <td colspan="8" class="col-md-4"><button class="btn btn-info btn-sm" type="submit">Filter</button></td>
+                    </tr>
+                </tbody></table>
+            </fieldset>
+            </form>        </div>
+    </div>
+    <div class="col-md-12">
+        <div style="width: 100%; display: inline-block;">
+    </div>
+  <table class="table table-bordered table-hover table-striped table-striped-success">
+            <thead class="warning">
+                <tr><th>Action</th> <th><a href="/crm/users/index/sort:User.username/direction:asc">Username</a></th> <th><a href="/crm/users/index/sort:Group.name/direction:asc">Group</a></th> <th><a href="/crm/users/index/sort:User.first_name/direction:asc">Name</a></th> <th><a href="/crm/users/index/sort:User.email/direction:asc">Email</a></th> <th><a href="/crm/users/index/sort:User.active/direction:asc">Active</a></th></tr>            </thead>
+            <tbody>
+                                                <tr>
+                    <td><a href="/crm/users/edit/1"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/../files/user/photo/1/view_htt.php" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/1">admin</a>                    </td>
+                    <td>Administrator</td>
+                    <td>TEST TEST 2</td>
+                    <td>support@telerim.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/5"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/5">rashed</a>                    </td>
+                    <td>Employee</td>
+                    <td>rashed hasan</td>
+                    <td>rashed@123.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/6"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/6">boss99</a>                    </td>
+                    <td>Employee</td>
+                    <td> </td>
+                    <td></td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/7"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/7">boss9999</a>                    </td>
+                    <td>Employee</td>
+                    <td>boss99 boss99</td>
+                    <td>boss99@boss.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/8"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/8">sleman</a>                    </td>
+                    <td>Employee</td>
+                    <td>rwer wrwerwer</td>
+                    <td>sleman@ssdf4.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/9"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/9">Tester23</a>                    </td>
+                    <td>Employee</td>
+                    <td>tester23 24</td>
+                    <td>sengar.vishal@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/10"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/10">q</a>                    </td>
+                    <td>Employee</td>
+                    <td>a a</td>
+                    <td>aaa@aa.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/11"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/11">testlogin</a>                    </td>
+                    <td>Employee</td>
+                    <td>hasan osman</td>
+                    <td>hasanosman@xx.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/12"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/12">parv</a>                    </td>
+                    <td>Employee</td>
+                    <td>parv kh</td>
+                    <td>parv@gm.cm</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/13"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/13">JamesIsaac</a>                    </td>
+                    <td>Employee</td>
+                    <td>james isaak</td>
+                    <td>liranrobin@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/14"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/14">Cornina</a>                    </td>
+                    <td>Employee</td>
+                    <td>Henry Sams</td>
+                    <td>henry@sams.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/15"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/15">xyz</a>                    </td>
+                    <td>Employee</td>
+                    <td>able jim</td>
+                    <td>able@jim.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/16"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/16">Niaristest</a>                    </td>
+                    <td>Employee</td>
+                    <td>testing testing</td>
+                    <td>niaristest@mail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/17"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/17">Kumar</a>                    </td>
+                    <td>Employee</td>
+                    <td>Kumar R</td>
+                    <td>kumar@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/18"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/18">naf</a>                    </td>
+                    <td>Employee</td>
+                    <td>naf aha</td>
+                    <td>naf@naf.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/19"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/19">siva</a>                    </td>
+                    <td>Employee</td>
+                    <td>siva s</td>
+                    <td>ksgdkjg@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/20"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/20">Angelica</a>                    </td>
+                    <td>Employee</td>
+                    <td>Angelica Vazquez</td>
+                    <td>avazquez@bennettcrone.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/21"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/21">nanosim</a>                    </td>
+                    <td>Employee</td>
+                    <td>daniel sh</td>
+                    <td>daniel@daniel.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/22"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/22">asas</a>                    </td>
+                    <td>Employee</td>
+                    <td>aaaaa ssss</td>
+                    <td>ewrsrs@gijd.ivh</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/23"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/23">Ton</a>                    </td>
+                    <td>Employee</td>
+                    <td>TOn Hernandez</td>
+                    <td>rommel@waters.com.ph</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/24"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/24">datpham</a>                    </td>
+                    <td>Employee</td>
+                    <td>Dat Pham</td>
+                    <td>dat@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/25"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/25">adacrm</a>                    </td>
+                    <td>Employee</td>
+                    <td>Ada CRM</td>
+                    <td>adacrm@adacrm.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/26"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/26">toddy</a>                    </td>
+                    <td>Employee</td>
+                    <td>Todd Boy</td>
+                    <td>tod@gone.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/27"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/27">admin1</a>                    </td>
+                    <td>Employee</td>
+                    <td>dss ssss</td>
+                    <td>ssss@jfjdf.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/28"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/28">adminjaz</a>                    </td>
+                    <td>Employee</td>
+                    <td>Jas Jagorin</td>
+                    <td>jas.jagorin@worldarenagroup.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/29"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/29">hafeez</a>                    </td>
+                    <td>Employee</td>
+                    <td>hafeez hae</td>
+                    <td>hafeez@example.vom</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/30"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/../files/user/photo/30/view_einstein_icon.gif" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/30">bijan</a>                    </td>
+                    <td>Employee</td>
+                    <td>Bijan Joon</td>
+                    <td>bijan@bija7.jco</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/31"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/31">nurhsanah</a>                    </td>
+                    <td>Employee</td>
+                    <td> </td>
+                    <td>nur@yopmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/32"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/../files/user/photo/32/view_xBj-MyF2.jpeg" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/32">Widi</a>                    </td>
+                    <td>Administrator</td>
+                    <td>Syam Widi</td>
+                    <td>fswidianto@yahoo.co.id</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/33"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/33">Gia</a>                    </td>
+                    <td>Employee</td>
+                    <td>Gia Cinta</td>
+                    <td>gia@halojasa.id</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/34"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/34">Hana</a>                    </td>
+                    <td>Employee</td>
+                    <td>Hana Saputri</td>
+                    <td>hana@halojasa.id</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/35"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/35">Riri</a>                    </td>
+                    <td>Employee</td>
+                    <td>Riri Riyanti</td>
+                    <td>riri@halojasa.id</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/36"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/36">claudia</a>                    </td>
+                    <td>Employee</td>
+                    <td>claudia manik</td>
+                    <td>claudia@halojasa.id</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/37"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/37">riko</a>                    </td>
+                    <td>Employee</td>
+                    <td>Riko Tampati</td>
+                    <td>riko@halojasa.id</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/38"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/38">sara</a>                    </td>
+                    <td>Employee</td>
+                    <td>sarakj  shiuuhj</td>
+                    <td>sara@demo.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/39"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/39">teste</a>                    </td>
+                    <td>Employee</td>
+                    <td>teste teste</td>
+                    <td>teste@teste.com.br</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/40"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/40">pradeeptest</a>                    </td>
+                    <td>Employee</td>
+                    <td>Pradeep Test</td>
+                    <td>pradeep@pradeep.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/41"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/41">max</a>                    </td>
+                    <td>Employee</td>
+                    <td>max max</td>
+                    <td>max@max.max</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/42"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/42">Deepika.mathur</a>                    </td>
+                    <td>Employee</td>
+                    <td>Deepika Mathur</td>
+                    <td>deepika@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/43"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/43">kikiuser</a>                    </td>
+                    <td>Employee</td>
+                    <td>Kiki User</td>
+                    <td>dellmontparker@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/44"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/44">test</a>                    </td>
+                    <td>Administrator</td>
+                    <td>ddd ddd</td>
+                    <td>ddd@sfdffd.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/45"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/45">Luisvital</a>                    </td>
+                    <td>Employee</td>
+                    <td>Luis Vital</td>
+                    <td>luis.vital@outlook.es</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/46"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/46">denemecik</a>                    </td>
+                    <td>Employee</td>
+                    <td>denemecik denemecik</td>
+                    <td>denemecik@d.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/47"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/../files/user/photo/47/view_dreamstime_xxl_25260329.jpg" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/47">carlos</a>                    </td>
+                    <td>Employee</td>
+                    <td>carlos chnl</td>
+                    <td>carlo@gmail.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/48"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/48">asdasd</a>                    </td>
+                    <td>Employee</td>
+                    <td>fgdfg dfgdfg</td>
+                    <td>dfgdf@adad.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/49"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/49">testlk</a>                    </td>
+                    <td>Employee</td>
+                    <td>Test LK</td>
+                    <td>testlk@mailinator.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/50"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/50">111111111</a>                    </td>
+                    <td>Employee</td>
+                    <td>111111111 111111111</td>
+                    <td>111111111@111111111.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/51"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/51">Ramesh</a>                    </td>
+                    <td>Employee</td>
+                    <td>Ramesh Sharma</td>
+                    <td>ramesh19662966@yahoo.com</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                                <tr>
+                    <td><a href="/crm/users/edit/52"><i class="fa fa-edit"></i></a></td>
+                    <td>
+                        <img src="/crm/img/noimage.png" class="img-circle" width="32px" height="32px" alt="">                        &nbsp;<a href="/crm/users/view/52">supergrafika</a>                    </td>
+                    <td>Employee</td>
+                    <td>test test</td>
+                    <td>kontakt@supergrafika.sk</td>
+                    <td><i class="fa fa-check user-active"></i></td>
+                </tr>
+                            </tbody>
+  </table>
+  <div style="width: 100%; display: inline-block;">
+    </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#file').css({'width':'118px', 'cursor':'pointer', 'margin-top':'-35px', 'opacity' : '0.0', 'filter' : 'alpha(opacity=0)', '-ms-filter' : "alpha(opacity=0)", '-khtml-opacity' : '0.0', '-moz-opacity' : '0.0'});
+        $('#file').change(function() {
+            $('#import-form').submit();
+        });
+     });
+    jQuery(function($) {
+        $("#more").click(function() {
+            $(".filter-box").toggle('fold');
+        });
+        $('#filter-result-close').click(function() {
+            window.location.href = "/crm/users";
+        });
+    });
+</script>        </div>
 <% unless current_user.admin? %>
 
 
