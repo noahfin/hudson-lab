@@ -410,8 +410,6 @@ html,body, .content {
   margin: auto !important;
   z-index: 999999999999  !important;
   position: relative;
-
-
 }
 .profile-list {
   width: 100%;
@@ -571,4 +569,7 @@ div.dataTables_wrapper {
 .share-g {
   position: absolute !important;
   top: 8rem !important;
+}
+.group-card {
+  min-height: 403px !important;
 }
