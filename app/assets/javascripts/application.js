@@ -432,7 +432,6 @@ event.preventDefault();
 var groupGetId = '';
 var toolTipLinks = []
 $(document).on('click', '.get-group', function() {
-  $('#back_up')[0].click();
   $('.custom-tip').tooltip('update');
      groupGetId = $(this).find('.get-group-id').val();
       if (typeof toolTipLinks[0] !== 'undefined' && toolTipLinks[0] !== null) {
