@@ -12,8 +12,6 @@
 //= require jquery
 //= require popper
 //= require jquery.turbolinks
-
-
 //= require jasny-bootstrap.min
 //= require jquery-ui/widget
 //= require jquery-ui/position
@@ -125,19 +123,23 @@ $('body').removeClass('modal-open');
 $('body').removeClass('modal-backdrop');
 $('.modal-backdrop').remove();
 }
-
+var pageParams;
+var pageUrl;
 if (history && history.pushState) {
   $(function() {
      $(document).on('click', 'a[data-remote="true"], .pagination a, .remote-link a', function(e) {
-
       history.pushState(null, document.title, this.href);
+        var web_address = location.href;
+  var pramsPageaArray = web_address.split("&page=");
+  if (pramsPageaArray[1] !== null &&  pramsPageaArray[1] > 0) {
+    pageParams = pramsPageaArray[1];
+    pageUrl = this.href;
+      console.log(pramsPageaArray);
+  }
+
       e.preventDefault();
     });
 
-    //  $("#products_search input").keyup(function() {
-    //   $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
-    //   history.replaceState(null, document.title, $("#products_search").attr("action") + "?" + $("#products_search").serialize());
-    // });
     $(window).bind("popstate", function() {
       $.getScript(location.href);
 
@@ -304,7 +306,9 @@ var getContactInputs = function(){
             'verified'          :   $('#contact_verified').val()
 
 
-        }
+
+        },
+           'page'              :   pageParams
 
       }
       return formData;
@@ -384,16 +388,13 @@ var createFormSend = function(data){
 
 var showFormSend = function(data){
   var url =  "/contacts/"+$('#contact_id_hidden').val()+"/";
+   data.page = pageParams;
  $.ajax({
             url: url,
             method: "patch",
             data: data,
             success: function(contact) {
-
-
-
-
-
+              $.getScript(pageUrl);
             },
             error: function(err) {
 

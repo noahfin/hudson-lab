@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
   end
  def show
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
-
+   session[:last_contact_page] = request.env['HTTP_REFERER']
      render :template => 'contacts/show.js.erb', turbolinks: true
  end
   def edit
@@ -60,13 +60,13 @@ class ContactsController < ApplicationController
 
       flash[:success] = "Contact was successfully updated."
 
-      redirect_to contacts_path(previous_query_string)
+      render 'show'
     else
       flash[:danger] = @contact.errors.full_messages.to_s
 
       render 'edit'
     end
-    session[:last_contact_page] = request.env['HTTP_REFERER']
+
 
 
   end
@@ -75,7 +75,7 @@ class ContactsController < ApplicationController
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     @contact = @contact.destroy
     flash[:success] = "Contact was successfully deleted."
-    redirect_to contacts_path
+    redirect_to contacts_path(previous_query_string)
   end
 
   def create
@@ -107,7 +107,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :suite, :county, :state, :country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
+    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :page, :suite, :county, :state, :country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
   end
 
   def find_contact
@@ -117,10 +117,10 @@ class ContactsController < ApplicationController
   def previous_query_string
     if params[:group_id]
        session[:selected_group_id] = params[:group_id]
-       params =   Rack::Utils.parse_query URI(request.env['HTTP_REFERER'])
 
-       session[:selected_page] = params[:page] if params[:page]
-
+        if params[:page]
+         session[:selected_page] = params[:page]
+       end
     end
     session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
   end
@@ -135,12 +135,17 @@ class ContactsController < ApplicationController
             @contacts = group.contacts.by_county(county).order('last_name ASC').page(params[:page])
             session[:selected_group_id] = params[:group_id]
         else
-         @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
-          end
+
+            @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
+            session[:selected_page] = params[:page] if params[:page]
+
+
+         end
+
          session[:selected_group_id] = params[:group_id]
     else
-      if session[:selected_page] && session[:selected_group_id]
-             @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(session[:selected_page])
+      if session[:selected_page] && !session[:selected_group_id].nil?
+             @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(params[:selected_page])
       elsif session[:selected_group_id]
              @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
      else
