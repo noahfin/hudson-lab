@@ -68,6 +68,7 @@ class ContactsController < ApplicationController
     end
     session[:last_contact_page] = request.env['HTTP_REFERER']
 
+
   end
 
   def destroy
@@ -116,6 +117,10 @@ class ContactsController < ApplicationController
   def previous_query_string
     if params[:group_id]
        session[:selected_group_id] = params[:group_id]
+       params =   Rack::Utils.parse_query URI(request.env['HTTP_REFERER'])
+
+       session[:selected_page] = params[:page] if params[:page]
+
     end
     session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
   end
@@ -131,12 +136,19 @@ class ContactsController < ApplicationController
             session[:selected_group_id] = params[:group_id]
         else
          @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
-       end
-        session[:selected_group_id] = params[:group_id]
+          end
+         session[:selected_group_id] = params[:group_id]
     else
-        @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
+      if session[:selected_page] && session[:selected_group_id]
+             @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(session[:selected_page])
+      elsif session[:selected_group_id]
+             @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
+     else
+         @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
       end
-  end
+
+    end
+end
 
 
 end
