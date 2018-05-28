@@ -111,6 +111,11 @@ $(document).on('click', '.custom-tip', function(event) {
     clsoeWiz();
   });
 
+  $(document).on('click', '.update-c-only', function(event){
+       e.preventDefault();
+       getGroupPage();
+  });
+
 var clsoeWiz = function(){
 // $("[data-dismiss=modal]").trigger({ type: "click" });
 $('#contact-form-wiz').hide();
@@ -134,7 +139,7 @@ if (history && history.pushState) {
   if (pramsPageaArray[1] !== null &&  pramsPageaArray[1] > 0) {
     pageParams = pramsPageaArray[1];
     pageUrl = this.href;
-      console.log(pramsPageaArray);
+
   }
 
       e.preventDefault();
@@ -146,6 +151,21 @@ if (history && history.pushState) {
 })
      });
 }
+
+
+var getGroupPage = function(){
+
+    var web_address = location.href;
+   var pramsPageaArray2 = web_address.split("group_id=");
+  if (pramsPageaArray2[1]) {
+
+   $('#wiz_update_h').val(web_address.href);
+}
+}
+
+
+
+
 $('[href*="#section_"]').on('click', function() {
 
         // Close collapsed navbar on click
@@ -234,13 +254,16 @@ $(document).keypress(function(e) {
       $('#contact_form').removeAttr("disabled");
         var formData = getContactInputs();
         if ( $('#hidden_update') ){
+          getGroupPage();
           $('.btn-finish').attr({
             type: 'submit'
           });
-          $('.btn-finish').parents('form').eq(0).submit();
+          $('.btn-finish').trigger( "click" );
+          // .parents('form').eq(0).submit();
 
         } else {
           createFormSend(formData);
+
         }
 
 
@@ -308,7 +331,7 @@ var getContactInputs = function(){
 
 
         },
-           'page'              :   pageParams
+           'pageUrl'              :   pageUrl
 
       }
       return formData;

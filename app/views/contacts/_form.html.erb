@@ -469,12 +469,14 @@
             <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
          </div>
          <div class="ml-auto c-form-foot">
+          <input type="hidden" name="update-wiz" value="" >
             <% if local_assigns[:ajax_true] %>
 
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
-            <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
+            <button type="button"  class="btn btn-finish btn-fill btn-rose btn-wd update-c-only" value="finish" style="display: none;">
             <% if @contact.persisted? %>
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+
             <% end %>
             <% else %>
             <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">

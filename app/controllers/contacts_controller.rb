@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
+  require 'uri'
+
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
 
   after_action :my_contacts, only: [:edit, :update  ]
@@ -18,7 +20,7 @@ class ContactsController < ApplicationController
         format.html
         format.js
       end
-       session[:last_contact_page] = request.env['HTTP_REFERER']
+
   end
 
   def autocomplete
@@ -38,14 +40,23 @@ class ContactsController < ApplicationController
   end
 
   def new
+
     @contact = Contact.new
+    respond_to do |format|
+        format.html
+        format.js
+      end
   end
  def show
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
-   session[:last_contact_page] = request.env['HTTP_REFERER']
-     render :template => 'contacts/show.js.erb', turbolinks: true
+
+     respond_to do |format|
+        format.html
+        format.js
+      end
  end
   def edit
+
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   my_contacts
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
@@ -59,7 +70,6 @@ class ContactsController < ApplicationController
       user_reltionships(@contact)
 
       flash[:success] = "Contact was successfully updated."
-
       render 'show'
     else
       flash[:danger] = @contact.errors.full_messages.to_s
@@ -68,7 +78,10 @@ class ContactsController < ApplicationController
     end
 
 
-
+    respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   def destroy
@@ -92,6 +105,9 @@ class ContactsController < ApplicationController
           user = User.find(u_id.to_i)
        user.contacts << @contact
        end
+       if params['pageUrl']
+         render 'show'
+      end
     end
 
 
@@ -102,6 +118,10 @@ class ContactsController < ApplicationController
 
     end
      redirect_to contacts_path(previous_query_string)
+        respond_to do |format|
+        format.html
+        format.js
+      end
  end
 
   private
