@@ -167,7 +167,7 @@ $('[href*="#section_"]').on('click', function() {
 
 
  $('body').on('click', '.btn-back', function(event) {
-
+     event.preventDefault();
     window.history.back();
 
 
@@ -195,7 +195,12 @@ $('.select_u_picker').attr("data-actions-box", "true");
     console.log('button clicked')
    if( moveToNext() === true) {
       var formData = getContactInputs();
-     createFormSend(formData);
+   if ( $('#hidden_update')) {
+           showFormSend(formData);
+        } else {
+          createFormSend(formData);
+        }
+
    }
 });
 
@@ -226,7 +231,12 @@ $(document).keypress(function(e) {
     if(e.which == 13) {
       $('#contact_form').removeAttr("disabled");
         var formData = getContactInputs();
-     createFormSend(formData);
+        if ( $('#hidden_update') ){
+           showFormSend(formData);
+        } else {
+          createFormSend(formData);
+        }
+
 
          }
 });
@@ -253,6 +263,7 @@ var getContactInputs = function(){
           }
         });
   var formData = { contact: {
+            'id'                :   $('#hidden_update').val(),
             'name'              :   $('#contact_name').val(),
             'email'             :   $('#contact_email').val(),
             'company'           :   $('#contact_company').val(),

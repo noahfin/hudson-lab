@@ -33,12 +33,13 @@ class Group < ApplicationRecord
  :phone=>  "phone",
  :address=>  "address",
  :street_num=> "street_num",
- :grand_total=> "street_num",
+ :strret_name=> "strret_name",
  :city=> "city",
  :state=> "state",
  :county=> "county",
  :country=> "country",
- :postal_code=> "postal_code"
+ :postal_code=> "postal_code",
+ :zip_code_ext=> "zip_code_ext"
 }
     csv << header.values
     contacts.each do |contact|
@@ -65,12 +66,13 @@ class Group < ApplicationRecord
  :phone=> contact.phone.to_s,
  :address=> contact.address.to_s,
  :street_num=>contact.street_num.to_s,
- :grand_total=>contact.street_num.to_s,
+ :strret_name:=>contact.strret_name.to_s,
  :city=> contact.city.to_s,
  :state=> contact.state.to_s,
  :county=>contact.county.to_s,
  :country=> contact.country.to_s,
- :postal_code=>contact.postal_code.to_s
+ :postal_code=>contact.postal_code.to_s,
+  :zip_code_ext=> contact.zip_code_ext.to_s
 }
        csv << h.values
 

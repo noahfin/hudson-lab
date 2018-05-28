@@ -550,10 +550,15 @@
             </div>
             <div class="ml-auto c-form-foot">
                <% if local_assigns[:ajax_true] %>
-               <a class="btn btn_next btn-fill bg-hudson" id="btn_next">Next</a>
-               <button type="button" class="btn btn-finish btn-fill bg-hudson btn-wd"  style="display: none;">Finish</button>
+               <a class="btn btn_next btn-fill bg-hudson" >Next</a>
+                  <input type="button"  class="btn btn-next btn-fill btn-rose btn-wd" value="Next" id="btn_next">
+                 <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
+                 <% if @contact.persisted? %>
+                <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+
+                <% end %>
                <% else %>
-                <button type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" style="display: none;">finish </button>
+                <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
                <% end %>
             </div>
             <div class="clearfix"></div>
