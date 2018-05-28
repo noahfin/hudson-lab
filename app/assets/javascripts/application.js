@@ -183,7 +183,7 @@ $('.select_u_picker').attr("data-actions-box", "true");
  });
 
 
-   $('#contact_address').hide();
+
 
  var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
  var wizIndex = 1;
@@ -432,6 +432,7 @@ event.preventDefault();
 var groupGetId = '';
 var toolTipLinks = []
 $(document).on('click', '.get-group', function() {
+  $('#back_up')[0].click();
   $('.custom-tip').tooltip('update');
      groupGetId = $(this).find('.get-group-id').val();
       if (typeof toolTipLinks[0] !== 'undefined' && toolTipLinks[0] !== null) {
