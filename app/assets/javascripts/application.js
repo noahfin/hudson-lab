@@ -196,7 +196,7 @@ $('.select_u_picker').attr("data-actions-box", "true");
    if( moveToNext() === true) {
       var formData = getContactInputs();
    if ( $('#hidden_update')) {
-           showFormSend(formData);
+           $('.btn-finish').parents('form').eq(0).submit();
         } else {
           createFormSend(formData);
         }
@@ -232,7 +232,11 @@ $(document).keypress(function(e) {
       $('#contact_form').removeAttr("disabled");
         var formData = getContactInputs();
         if ( $('#hidden_update') ){
-           showFormSend(formData);
+          $('.btn-finish').attr({
+            type: 'submit'
+          });
+          $('.btn-finish').parents('form').eq(0).submit();
+
         } else {
           createFormSend(formData);
         }

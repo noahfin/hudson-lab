@@ -1,559 +1,488 @@
-
-
 <!--      Wizard container        -->
 <div class="wizard-container" id="contact-form-wiz">
-<%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
-<%= render 'layouts/messages' if !flash.empty? %>
+   <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
+   <%= render 'layouts/messages' if !flash.empty? %>
    <div class="card card-wizard card-6" data-color="green" id="wizardProfile" >
-
-
-         <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-         <div class="card-header text-center">
+      <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+      <div class="card-header text-center">
          <button type="button" class="close text-white wiz-close" data-dismiss="modal" aria-label="Close" >
-          <span aria-hidden="true">&times;</span>
-        </button>
-            <h3 class="card-title text-white">
-               Build The Contact Profile
-            </h3>
-            <h5 class="card-description text-white">This information will store what we need for the contact or customer.</h5>
-         </div>
-         <div class="wizard-navigation" >
-            <ul class="nav nav-pills text-light">
-               <li class="nav-item col-md-3" text-light>
-                  <a class="nav-link active text-light" href="#about" id="about_id" data-toggle="tab" role="tab" style="color: white !important">
-                  Account
-                  </a>
-               </li>
-               <li class="nav-item col-md-3 text-light">
-                  <a class="nav-link  text-light" href="#account"  id="account_id" data-toggle="tab" role="tab" style="color: white !important">
-                  More
-                  </a>
-               </li>
-               <li class="nav-item col-md-3 text-light" >
-                  <a class="nav-link  text-light" href="#address" id="address_id" data-toggle="tab" role="tab" style="color: white !important">
-                  Address
-                  </a>
-               </li>
-               <li class="nav-item col-md-3 text-light" >
-                  <a class="nav-link  text-light" href="#group" id="link_group_id" data-toggle="tab" role="tab" style="color: white !important">
-                  Group
-                  </a>
-               </li>
-            </ul>
-         </div>
-         <div class="card-body">
-            <div class="tab-content">
-               <div class="tab-pane active" id="about">
-                  <input id="check-wiz" name="prodId" type="hidden" value="befor-submit">
-                  <div class="row ">
-                              <div class="col-md-6">
-                        <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white ">phone</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">phone</label>
-                            <%= form.text_field :phone, id: :contact_phone, class: 'form-control text-white',  autofocus: true %>
-                           </div>
-                        </div>
-                     </div>
-                                <div class="col-md-6">
-                        <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white ">phone</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">Contact Cell</label>
-                             <%= form.text_field :cell, id: :contact_cell, class: 'form-control text-white' %>
-                           </div>
-                        </div>
-                     </div>
-
-
-
-                  </div>
-                  <div class="row ">
-
-                      <div class="col-md-6">
-
-
-                        <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend ">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white ">face</i>
-                              </span>
-                           </div>
-                           <div class="form-group">
-                              <label  class="bmd-label-floating text-white">Contact Name</label>
-                              <%= form.text_field :name, id: :contact_name, class: 'form-control text-white r-r-input' %>
-                           </div>
-                        </div>
-                         </div>
-                          <div class="col-md-6">
-                        <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend ">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white " text-white>record_voice_over</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">Company Name</label>
-                              <%= form.text_field :company, id: :contact_company, class: 'form-control text-white r-r-input'%>
-                           </div>
-                        </div>
-                          </div>
-                        </div>
-                 <div class="row ">
+         <span aria-hidden="true">&times;</span>
+         </button>
+         <h3 class="card-title text-white">
+            Build The Contact Profile
+         </h3>
+         <h5 class="card-description text-white">This information will store what we need for the contact or customer.</h5>
+      </div>
+      <div class="wizard-navigation" >
+         <ul class="nav nav-pills text-light">
+            <li class="nav-item col-md-3" text-light>
+               <a class="nav-link active text-light" href="#about" id="about_id" data-toggle="tab" role="tab" style="color: white !important">
+               Account
+               </a>
+            </li>
+            <li class="nav-item col-md-3 text-light">
+               <a class="nav-link  text-light" href="#account"  id="account_id" data-toggle="tab" role="tab" style="color: white !important">
+               More
+               </a>
+            </li>
+            <li class="nav-item col-md-3 text-light" >
+               <a class="nav-link  text-light" href="#address" id="address_id" data-toggle="tab" role="tab" style="color: white !important">
+               Address
+               </a>
+            </li>
+            <li class="nav-item col-md-3 text-light" >
+               <a class="nav-link  text-light" href="#group" id="link_group_id" data-toggle="tab" role="tab" style="color: white !important">
+               Group
+               </a>
+            </li>
+         </ul>
+      </div>
+      <div class="card-body">
+         <div class="tab-content">
+            <div class="tab-pane active" id="about">
+               <input id="check-wiz" name="prodId" type="hidden" value="befor-submit">
+               <div class="row ">
                   <div class="col-md-6">
-                        <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white" text-white>record_voice_over</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">Prefix</label>
-                            <%= form.text_field :prefix, id: :contact_prefix, class: 'form-control text-white ' %>
-                           </div>
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white ">phone</i>
+                           </span>
                         </div>
-                </div>
-              <div class="col-md-6">
-                  <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white" text-white>record_voice_over</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">First Name</label>
-                             <%= form.text_field :first_name, id: :contact_first_name, class: 'form-control text-white' %>
-
-                           </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">phone</label>
+                           <%= form.text_field :phone, id: :contact_phone, class: 'form-control text-white',  autofocus: true %>
                         </div>
-
-                </div>
-              </div>
-              <div class="row">
-
-
-                <div class="col-md-6">
-                                 <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white" text-white>record_voice_over</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">Middle Name</label>
-                              <%= form.text_field :middle_name, id: :contact_middle_name, class: 'form-control text-white' %>
-
-                           </div>
-                        </div>
-
-                </div>
-                 <div class="col-md-6">
-                            <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white" text-white>record_voice_over</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label  class="bmd-label-floating text-white">Last Name</label>
-                              <%= form.text_field :last_name, id: :contact_last_name, class: 'form-control text-white' %>
-
-                           </div>
-                        </div>
-
-
-                </div>
-                </div>
-
-                <div class="row ">
-
-
-                     <div class="col-md-12 text-white">
-                            <div class="input-group form-control-lg text-white">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text">
-                              <i class="material-icons text-white">email</i>
-                              </span>
-                           </div>
-                           <div class="form-group text-white">
-                              <label class="bmd-label-floating text-white">Email</label>
-                              <%= form.email_field :email, id: :contact_email, class: 'form-control  col-md-12 mr-0 text-white' %>
-
-                           </div>
-                        </div>
-
-
                      </div>
                   </div>
-                </div>
-               <div class="tab-pane" id="account">
-                     <div class="controls">
-
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white ">phone</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">Contact Cell</label>
+                           <%= form.text_field :cell, id: :contact_cell, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row ">
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend ">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white ">face</i>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label  class="bmd-label-floating text-white">Contact Name</label>
+                           <%= form.text_field :name, id: :contact_name, class: 'form-control text-white r-r-input' %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend ">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white " text-white>record_voice_over</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">Company Name</label>
+                           <%= form.text_field :company, id: :contact_company, class: 'form-control text-white r-r-input'%>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row ">
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white" text-white>record_voice_over</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">Prefix</label>
+                           <%= form.text_field :prefix, id: :contact_prefix, class: 'form-control text-white ' %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white" text-white>record_voice_over</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">First Name</label>
+                           <%= form.text_field :first_name, id: :contact_first_name, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white" text-white>record_voice_over</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">Middle Name</label>
+                           <%= form.text_field :middle_name, id: :contact_middle_name, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white" text-white>record_voice_over</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label  class="bmd-label-floating text-white">Last Name</label>
+                           <%= form.text_field :last_name, id: :contact_last_name, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row ">
+                  <div class="col-md-12 text-white">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white">email</i>
+                           </span>
+                        </div>
+                        <div class="form-group text-white">
+                           <label class="bmd-label-floating text-white">Email</label>
+                           <%= form.email_field :email, id: :contact_email, class: 'form-control  col-md-12 mr-0 text-white' %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab-pane" id="account">
+               <div class="controls">
                   <div class="row justify-content-center">
                      <div class="col-sm-12">
                         <h5 class="info-text text-white">Fill out the more section for the contact </h5>
-
                      </div>
-                     </div>
-                <div class="row mb-3">
-                 <div class="col-md-3">
-                  <%= form.label :suffix, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :suffix, id: :contact_suffix, class: 'form-control text-white',  autofocus: true %>
-                </div>
-                  <div class="col-md-3">
-                  <label class="bmd-label-floating text-white">Owns or Rents</label>
-
-                  <%= form.text_field :owns_cents, id: :contact_owns_cents, class: 'form-control text-white' %>
-                </div>
-
-
-                <div class="col-md-3">
-                  <%= form.label :year_of_Founding, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: 'form-control text-white' %>
-                </div>
-
-
-
-                <div class="col-md-3">
-                  <%= form.label :primary_industry, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :primary_industry, id: :contact_primary_industry, class: 'form-control text-white' %>
-                </div>
-
-
-              </div>
-              <div class="row mb-3">
-
-                 <div class="col-md-4">
-                  <%= form.label :web_address, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :web_address, id: :contact_web_address, class: 'form-control text-white' %>
-                </div>
-
-                  <div class="col-md-4">
-                  <%= form.label :latitude, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :latitude, id: :contact_latitude, class: 'form-control text-white' %>
-                </div>
-                <div class="col-md-4 ">
-                  <%= form.label :longitude, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :longitude, id: :contact_longitude, class: 'form-control text-white' %>
-                </div>
-
                   </div>
-              <div class="row mb-3">
-                 <div class="col-md-3">
-                  <%= form.label :facility_size, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :facility_size, id: :contact_facility_size, class: 'form-control' %>
-                </div>
-
-                <div class="col-md-4 ">
-                  <%= form.label :total_number_of_employees, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :total_number_of_employees, id: :contact_total_number_of_employees, class: 'form-control text-white' %>
-                </div>
-                <div class="col-md-3">
-                  <LABEL class= "bmd-label-floating text-white">position</LABEL>
-                  <%= form.text_field :postion, id: :contact_postion, class: 'form-control text-white' %>
-                </div>
-                  <div class="col-md-2">
-                  <%= form.label :sic, class: 'bmd-label-floating text-white' %>
-                  <%= form.text_field :sic, id: :contact_sic, class: 'form-control text-white' %>
-                </div>
+                  <div class="row mb-3">
+                     <div class="col-md-3">
+                        <%= form.label :suffix, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :suffix, id: :contact_suffix, class: 'form-control text-white',  autofocus: true %>
+                     </div>
+                     <div class="col-md-3">
+                        <label class="bmd-label-floating text-white">Owns or Rents</label>
+                        <%= form.text_field :owns_cents, id: :contact_owns_cents, class: 'form-control text-white' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :year_of_Founding, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :year_of_Founding, id: :contact_year_of_Founding, class: 'form-control text-white' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :primary_industry, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :primary_industry, id: :contact_primary_industry, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+                  <div class="row mb-3">
+                     <div class="col-md-4">
+                        <%= form.label :web_address, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :web_address, id: :contact_web_address, class: 'form-control text-white' %>
+                     </div>
+                     <div class="col-md-4">
+                        <%= form.label :latitude, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :latitude, id: :contact_latitude, class: 'form-control text-white' %>
+                     </div>
+                     <div class="col-md-4 ">
+                        <%= form.label :longitude, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :longitude, id: :contact_longitude, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+                  <div class="row mb-3">
+                     <div class="col-md-3">
+                        <%= form.label :facility_size, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :facility_size, id: :contact_facility_size, class: 'form-control' %>
+                     </div>
+                     <div class="col-md-4 ">
+                        <%= form.label :total_number_of_employees, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :total_number_of_employees, id: :contact_total_number_of_employees, class: 'form-control text-white' %>
+                     </div>
+                     <div class="col-md-3">
+                        <LABEL class= "bmd-label-floating text-white">position</LABEL>
+                        <%= form.text_field :postion, id: :contact_postion, class: 'form-control text-white' %>
+                     </div>
+                     <div class="col-md-2">
+                        <%= form.label :sic, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :sic, id: :contact_sic, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+               </div>
             </div>
-
-
-    </div>
+            <div class="tab-pane" id="address">
+               <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                     <h5 class="info-text text-white">Fill out the current address for contact </h5>
+                  </div>
                </div>
-               <div class="tab-pane" id="address">
-                  <div class="row justify-content-center">
-                     <div class="col-sm-12">
-                        <h5 class="info-text text-white">Fill out the current address for contact </h5>
-
+               <div class="row justify-content-center">
+                  <div class="col-sm-7">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">Address</label>
+                        <%= form.text_field :address, id: :contact_address, class: 'form-control text-white',  autofocus: true %>
                      </div>
-                     </div>
-                     <div class="row justify-content-center">
-                     <div class="col-sm-7">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">Address</label>
-                           <%= form.text_field :address, id: :contact_address, class: 'form-control text-white',  autofocus: true %>
-                        </div>
-                     </div>
-                     <div class="col-sm-5">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">Street No.</label>
-                           <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white' %>
-                        </div>
-                     </div>
-                   </div>
-                     <div class="row justify-content-center">
-                        <div class="col-sm-4">
-                         <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">Street Name</label>
-                            <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white' %>
-
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">City</label>
-                           <%= form.text_field :city, id: :contact_city, class: 'form-control text-white' %>
-                        </div>
-                     </div>
-                     <div class="col-sm-4">
-                         <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">County</label>
-                            <%= form.text_field :county, id: :contact_county, class: 'form-control text-white' %>
-
-
-                        </div>
-                     </div>
-
                   </div>
-                  <div class="row justify-content-center">
-                       <div class="col-md-3">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">Suite</label>
-                           <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white' %>
-                        </div>
+                  <div class="col-sm-5">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">Street No.</label>
+                        <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white' %>
                      </div>
-                     <div class="col-md-3">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">State</label>
-                           <%= form.text_field :state, id: :contact_state, class: 'form-control text-white' %>
-                        </div>
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-sm-4">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">Street Name</label>
+                        <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white' %>
                      </div>
-                     <div class="col-md-3">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">Country</label>
-                           <%= form.text_field :country, id: :contact_country, class: 'form-control text-white' %>
-                        </div>
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">City</label>
+                        <%= form.text_field :city, id: :contact_city, class: 'form-control text-white' %>
                      </div>
-                     <div class="col-md-3">
-                        <div class="form-group text-white">
-                           <label class="bmd-label-floating  text-white">Postal Code</label>
-                           <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white' %>
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">County</label>
+                        <%= form.text_field :county, id: :contact_county, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-md-3">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">Suite</label>
+                        <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">State</label>
+                        <%= form.text_field :state, id: :contact_state, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">Country</label>
+                        <%= form.text_field :country, id: :contact_country, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="form-group text-white">
+                        <label class="bmd-label-floating  text-white">Postal Code</label>
+                        <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+               </div>
+               <div class="row justify-content-center">
+                  <div class="col-md-8">
+                     <div class="form-group text-white">
+                        <label class="text-white">Contact Notes</label>
+                        <div class="form-group">
+                           <label class="bmd-label-floating  text-white">Enter important notes for this contact.</label>
+                           <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-white' %>
                         </div>
                      </div>
                   </div>
-                  <div class="row justify-content-center">
-                     <div class="col-md-8">
-                        <div class="form-group text-white">
-                           <label class="text-white">Contact Notes</label>
-                           <div class="form-group">
-                              <label class="bmd-label-floating  text-white">Enter important notes for this contact.</label>
-                              <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-white' %>
-                           </div>
-                        </div>
-                     </div>
-                      <div class="col-md-4">
-                        <div class="form-group text-white">
-                           <label class=" text-white"></label>
-                           <div class="form-group">
-                              <label class="bmd-label-floating  text-white">Zip Code Extention</label>
-                              <%= form.text_area :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
-                           </div>
+                  <div class="col-md-4">
+                     <div class="form-group text-white">
+                        <label class=" text-white"></label>
+                        <div class="form-group">
+                           <label class="bmd-label-floating  text-white">Zip Code Extention</label>
+                           <%= form.text_area :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
                         </div>
                      </div>
                   </div>
                </div>
-
-               <div class="tab-pane" id="group">
-                  <div class="row justify-content-center">
-                     <div class="col-sm-12">
-                        <h5 class="info-text text-white">Very important to select group and the Emplyees who need access to the contact</h5>
+            </div>
+            <div class="tab-pane" id="group">
+               <div class="row justify-content-center">
+                  <div class="col-sm-12">
+                     <h5 class="info-text text-white">Very important to select group and the Emplyees who need access to the contact</h5>
+                  </div>
+                  <div class="col-md-12  ml-auto mr-auto">
+                     <div class="form-inline ml-auto mr-auto justify-content-center">
+                        <div class="form-group ">
+                           <a class="btn btn-round btn-outline-info  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
+                           <i class="material-icons">group</i>
+                           Select Groups
+                           </a>
+                        </div>
+                        <div class="form-group">
+                           <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
+                           <i class="material-icons">person_add</i>
+                           Unselect Users
+                           </button>
+                        </div>
+                        <div class="form-group ">
+                           <a  class="btn btn-outline-info btn-round  ml-2 mr-0"  data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">
+                           <i class="material-icons">account_circle</i>
+                           Upload Image
+                           </a>
+                        </div>
                      </div>
-                      <div class="col-md-12  ml-auto mr-auto">
-                              <div class="form-inline ml-auto mr-auto justify-content-center">
-                                 <div class="form-group ">
-                                    <a class="btn btn-round btn-outline-info  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
-                                    <i class="material-icons">group</i>
-                                    Select Groups
-                                    </a>
-                                 </div>
-                                 <div class="form-group">
-                                    <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
-                                    <i class="material-icons">person_add</i>
-                                    Unselect Users
-                                    </button>
-                                 </div>
-                                 <div class="form-group ">
-                                    <a  class="btn btn-outline-info btn-round  ml-2 mr-0"  data-toggle="collapse" href="#add-users-group" aria-expanded="false" aria-controls="add-users-group">
-                                    <i class="material-icons">account_circle</i>
-                                    Upload Image
-                                    </a>
-                                 </div>
+                  </div>
+                  <p class="mt-3"> Pick One Best describes the contact role or leave blank</p>
+                  <div class="col-md-12">
+                     <div class="row m-0">
+                        <div class="col-md-12">
+                           <div class="form-group">
+                              <div class="form-check form-check-inline ">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Broker:</label>
+                                 <input type="checkbox" name="contact[role]" value="broker">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Agent:</label>
+                                 <input type="checkbox" name="contact[role]" value="agent">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Owner:</label>
+                                 <input type="checkbox" name="contact[role]" value="owner">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1 ml-2  pt-2">Buyer:</label>
+                                 <input type="checkbox" name="contact[role]" value="buyer">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1 ml-2  pt-2">Employee:</label>
+                                 <input type="checkbox" name="contact[role]" value="employee">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1 ml-2  pt-2">Management:</label>
+                                 <input type="checkbox" name="contact[role]" value="management">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Peronal:</label>
+                                 <input type="checkbox" name="contact[role]" value="peronal">
                               </div>
                            </div>
-                     <p class="mt-3"> Pick One Best describes the contact role or leave blank</p>
-                     <div class="col-md-12">
-
-
-                     <div class="row m-0">
-                       <div class="col-md-12">
-                        <div class="form-group">
-
-                            <div class="form-check form-check-inline ">
-                              <label class="bmd-label-floating mr-1   ml-2  pt-2">Broker:</label>
-                              <input type="checkbox" name="contact[role]" value="broker">
-
-                             </div>
-
-                              <div class="form-check form-check-inline">
-                               <label class="bmd-label-floating mr-1   ml-2  pt-2">Agent:</label>
-                                  <input type="checkbox" name="contact[role]" value="agent">
-
-                             </div>
-
-                             <div class="form-check form-check-inline">
-                                  <label class="bmd-label-floating mr-1   ml-2  pt-2">Owner:</label>
-                                  <input type="checkbox" name="contact[role]" value="owner">
-
-                             </div>
-                             <div class="form-check form-check-inline">
-                                  <label class="bmd-label-floating mr-1 ml-2  pt-2">Buyer:</label>
-                                   <input type="checkbox" name="contact[role]" value="buyer">
-
-                             </div>
-                             <div class="form-check form-check-inline">
-                                  <label class="bmd-label-floating mr-1 ml-2  pt-2">Employee:</label>
-                                   <input type="checkbox" name="contact[role]" value="employee">
-
-                             </div>
-                             <div class="form-check form-check-inline">
-                                  <label class="bmd-label-floating mr-1 ml-2  pt-2">Management:</label>
-                                    <input type="checkbox" name="contact[role]" value="management">
-
-                             </div>
-                             <div class="form-check form-check-inline">
-                                  <label class="bmd-label-floating mr-1   ml-2  pt-2">Peronal:</label>
-                                   <input type="checkbox" name="contact[role]" value="peronal">
-
-                            </div>
-                          </div>
-                         </div>
-                       </div>
-                      </div>
-                     <div class="col-md-5 ml-0 pl-0 ">
-                        <div class="row">
-                           <div class="form-group  collapse" id="add-users-group">
-                              <div class="row mt-4">
-                                 <div class=" col-md-12">
-                                    <div class="input-group pl-0">
-                                       <div class="col-xl-12">
-                                          <div class="row pl-0">
-                                                    <div class="col-sm-4">
-                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                       <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
-                                                       </div>
-                                                       <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
-                                                       </div>
-                                                       <div class="text-center">
-                                                          <span class="btn btn-default btn-file">
-                                                          <span class="fileinput-new text-white">Choose Photo</span>
-                                                          <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
-                                                          </span>
-                                                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                                                       </div>
-                                                    </div>
-                                                 </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-5 ml-0 pl-0 ">
+                     <div class="row">
+                        <div class="form-group  collapse" id="add-users-group">
+                           <div class="row mt-4">
+                              <div class=" col-md-12">
+                                 <div class="input-group pl-0">
+                                    <div class="col-xl-12">
+                                       <div class="row pl-0">
+                                          <div class="col-sm-4">
+                                             <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                                                </div>
+                                                <div class="text-center">
+                                                   <span class="btn btn-default btn-file">
+                                                   <span class="fileinput-new text-white">Choose Photo</span>
+                                                   <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
+                                                   </span>
+                                                   <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                </div>
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
                                  </div>
                               </div>
-                              <div>
+                           </div>
+                           <div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="form-group ml-0 pr-2 pl-0 mt-0">
+                        <div class=" mr-0 pl-3">
+                           <div class="collapse " id="collapseGroup">
+                              <div class="col-md-12">
+                                 <% group_ids = [] %>
+                                 <% if !@group_ids.nil? %>
+                                 <%  @group_ids.each_with_index do |group, index| %>
+                                 <% group_ids[index] = group.group_id %>
+                                 <% end %>
+                                 <% end %>
+                                 <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker form-control", id: 'contact_group_id' } %>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="form-group  pl-3">
+                        <div class="collapse " id="pickUsers">
+                           <div class="col-md-12">
+                              <% User.all.each.each_slice(6) do |user| %>
+                              <div class="col-md-12">
+                                 <div class="row">
+                                    <% user.each do |user| %>
+                                    <%  next if !user.first_name  %>
+                                    <div class="col-md-2">
+                                       <div class="togglebutton ">
+                                          <label>
+                                          <input type="checkbox" name="user_id[]" checked="true" value=
+                                             <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                                          <span class="toggle"></span>
+                                          <span class="text-white"><%= user.first_name if user.first_name %>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <% end %>
                                  </div>
                               </div>
+                              <% end %>
                            </div>
-                         </div>
-                         <div class="row">
-
-
-                        <div class="form-group ml-0 pr-2 pl-0 mt-0">
-                           <div class=" mr-0 pl-3">
-
-                     <div class="collapse " id="collapseGroup">
-                     <div class="col-md-12">
-             <% group_ids = [] %>
-             <% if !@group_ids.nil? %>
-                <%  @group_ids.each_with_index do |group, index| %>
-                         <% group_ids[index] = group.group_id %>
-                <% end %>
-              <% end %>
-              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-
-               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
-                          </div>
                         </div>
-                             </div>
-                                </div>
-                                   </div>
-                                   <div class="row">
-
-
-                           <div class="form-group  pl-3">
-
-                              <div class="collapse " id="pickUsers">
-                                   <div class="col-md-12">
-                                          <% User.all.each.each_slice(6) do |user| %>
-      <div class="col-md-12">
-         <div class="row">
-            <% user.each do |user| %>
-            <%  next if !user.first_name  %>
-            <div class="col-md-2">
-               <div class="togglebutton ">
-                  <label>
-                  <input type="checkbox" name="user_id[]" checked="true" value=
-                     <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                  <span class="toggle"></span>
-                  <span class="text-white"><%= user.first_name if user.first_name %>
-                  </span>
-                  </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-5">
                </div>
             </div>
-            <% end %>
          </div>
       </div>
-      <% end %>
-
-  </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-5">
-                     </div>
-
-               </div>
-            </div>
+      <div class="card-footer">
+         <div class="mr-auto">
+            <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
          </div>
-         <div class="card-footer">
-            <div class="mr-auto">
-               <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
-            </div>
-            <div class="ml-auto c-form-foot">
-               <% if local_assigns[:ajax_true] %>
-               <a class="btn btn_next btn-fill bg-hudson" >Next</a>
-                  <input type="button"  class="btn btn-next btn-fill btn-rose btn-wd" value="Next" id="btn_next">
-                 <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
-                 <% if @contact.persisted? %>
-                <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+         <div class="ml-auto c-form-foot">
+            <% if local_assigns[:ajax_true] %>
 
-                <% end %>
-               <% else %>
-                <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
-               <% end %>
-            </div>
-            <div class="clearfix"></div>
+            <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
+            <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
+            <% if @contact.persisted? %>
+            <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+            <% end %>
+            <% else %>
+            <input type="button"  class="btn btn-finish btn-fill btn-rose btn-wd" value="finish" style="display: none;">
+            <% end %>
          </div>
+         <div class="clearfix"></div>
+      </div>
    </div>
    <% end %>
 </div>
 <!-- wizard container -->
-
