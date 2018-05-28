@@ -571,5 +571,9 @@ div.dataTables_wrapper {
   top: 8rem !important;
 }
 .group-card {
-  min-height: 403px !important;
+  min-height: 380px !important;
+}
+.group-view-link {
+    position: absolute;
+  bottom: 10px;
 }
