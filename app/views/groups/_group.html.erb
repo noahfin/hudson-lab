@@ -13,7 +13,7 @@
                   <p class="card-description">
                      <%= group.name %> has <%= group.contacts.count %> contact stored
                   </p>
-                  <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round group-view-link" do %>
+                  <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round group-view-link", remote: true do %>
                   <i class="material-icons">content_copy</i> View Group
                   <% end %>
                </div>

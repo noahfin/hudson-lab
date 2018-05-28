@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
     format.html
     format.csv { send_data @group.to_csv(@group.contacts) }
     format.xls
+    format.js
     end
   end
 
