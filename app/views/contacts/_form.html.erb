@@ -480,26 +480,15 @@
 
                      <div class="collapse " id="collapseGroup">
                      <div class="col-md-12">
-                        <% Group.all.each.each_slice(4) do |group| %>
-                        <div class="col-md-12 mb-3">
-                           <div class="row">
-                              <% group.each do |group| %>
-                              <div class="col-md-3">
-                                 <div class=" p-2">
-                                    <label>
-                                    <input type="checkbox" name="group_id[]"  value=
-                                       <%="#{group.id}" if group.id %> class="groups-for-new-group" />
-                                    <span class=""></span>
-                                    <span class="text-white"><%= group.name %>
-                                    </span>
-                                    </label>
-                                 </div>
-                              </div>
-                              <% end %>
-                           </div>
-                         <hr class="bg-light">
-                        </div>
-                        <% end %>
+             % group_ids = [] %>
+             <% if !@group_ids.nil? %>
+                <%  @group_ids.each_with_index do |group, index| %>
+                         <% group_ids[index] = group.group_id %>
+                <% end %>
+              <% end %>
+              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+
+               <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker", id: 'contact_group_id' } %>
                           </div>
                         </div>
                              </div>
