@@ -43,7 +43,8 @@ $(document).on('click', '.tooltip-inner', function(event) {
 
 
 $(document).on('click', '#property-submit', function(event) {
-
+    $('.form-check-input')
+ $(this).closest('form').submit();
   });
 $(document).on('click', '.submit', function(event) {
   $(this).closest('form').submit();
@@ -63,6 +64,37 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
+ $(document).on('click', '.select-allgroups', function(event) {
+
+   var ul = $(this).closest('ul')
+    var groupsHiiden = ul.find('input[type=hidden]');
+  console.log(groupsHiiden);
+  var groupArrayShare = []
+ var groupLitItems = $(this).closest('ul').children();
+ groupLitItems.each(function(i, el) {
+  var groupinput = $(this).find('input');
+groupinput
+    groupinput.attr( 'checked', 'checked' )
+    groupArrayShare.push(groupinput.val());
+    groupsHiiden.val(groupArrayShare);
+     console.log(groupsHiiden.val());
+
+
+
+  });
+
+ });
+$(document).on('click', '#share-group-2-users', function(event) {
+  $('.the-selected-user').each(function(i) {
+           if ($(this).is(':checked') ){
+           var option = $('.select-simple').val();
+          $('.option_value').each(function(i) {
+             $(this).attr('value', option)
+          });
+            $(this).closest('form').submit();
+           }
+        });
+  });
 
     $('#example').DataTable( {
         "scrollX": true
@@ -82,15 +114,12 @@ $(document).on('click', '.custom-tip', function(event) {
   });
 
 var clsoeWiz = function(){
-             // $("[data-dismiss=modal]").trigger({ type: "click" });
-              $('#contact-form-wiz').hide();
-
-              $('#form-modal').modal('hide');
-               $('#form-modal').removeClass('modal');
-
+// $("[data-dismiss=modal]").trigger({ type: "click" });
+$('#contact-form-wiz').hide();
+$('#form-modal').modal('hide');
+$('#form-modal').removeClass('modal');
 
 //hide the modal
-
 $('body').removeClass('modal-open');
 //modal-open class is added on body so it has to be removed
 $('body').removeClass('modal-backdrop');
@@ -138,7 +167,7 @@ $('[href*="#section_"]').on('click', function() {
 
 
  $('body').on('click', '.btn-back', function(event) {
-     event.preventDefault();
+
     window.history.back();
 
 

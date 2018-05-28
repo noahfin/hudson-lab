@@ -3,14 +3,14 @@ module UsersHelper
 
     err = ''
     if  !user.nil? && !groups.nil?
-      group_ids = groups
-      if group_ids[1].to_i > 0 || group_ids[0] != ''
-       user.group_ids = group_id
+      g_ids = groups.to_a
+      if g_ids[1].to_i > 0 || g_ids[0] != ''
+       user.group_ids = g_ids
      end
 
       groups_with_contacts = []
 
-      group_ids.each do |group_id|
+      g_ids.each do |group_id|
         contacts = Group.find(group_id).contacts.to_a
         groups_with_contacts.push(contacts)
       end

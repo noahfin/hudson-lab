@@ -8,12 +8,14 @@ class UsersController < ApplicationController
 
   end
      def sharegroups
-    if params['user']['option']
-      if params['user']['option'] == "Share with selected"
+
+    if params['option']
+      if params['option'] == "Share with selected"
        user_to_share_with = User.find params['user']['user_id']
 
-       if params['user']['group_id'] && params['user_id']
-        group_share(user_to_share_with,  params['user']['group_id'])
+       if params['groups'] && params['user']['user_id']
+
+        group_share(user_to_share_with,   params['groups'])
          flash[:success] = "The selected Groups and Contacts where successfully shared"
        else
          flash[:danger] = "Error the selected Groups where not able to be shared"
@@ -23,7 +25,7 @@ class UsersController < ApplicationController
          flash[:info] = "This function is still in the procces of being built"
 
       end
-       redirect_to users_path
+
    end
    render 'index'
  end
@@ -37,12 +39,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(secure_params)
-      redirect_to users_path, :notice => "User updated."
-    else
-      redirect_to users_path, :alert => "Unable to update user."
-    end
+     if params['option']
+      sharegroups
+      else
+        @user = User.find(params[:id])
+        if @user.update_attributes(secure_params)
+          redirect_to users_path, :notice => "User updated."
+        else
+          redirect_to users_path, :alert => "Unable to update user."
+        end
+     end
   end
   def create
     @user = User.new(secure_params)
@@ -76,7 +82,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:first_name, :last_name, :email,  :customer, :employee, :theme, :role, :street_name, :street_num, :city, :username, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :group,  :customer, :employee, :theme, :role, :street_name, :street_num, :city, :username, :password, :password_confirmation)
 
   end
 

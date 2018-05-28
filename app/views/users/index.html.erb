@@ -53,47 +53,103 @@
             <table class="table table-indent-rows margin-bottom-0">
 
                             <tr><th class="text-gray">Select</th> <th><a href="c">Username</a></th> <th><a class="text-gray">Groups</a></th>
- <%= form_tag({controller: "users", action: "sharegroups"}, method: "post") do |form| %>
- <% @users.each do |user| %>
+
+
+
                <tbody>
+                   <% @users.each do |user| %>
                   <tr>
 
                      <td width="40">
+
+
                       <div class="form-check">
                         <label class="form-check-label">
 
-                            <input type="checkbox" class="form-check-input" value=<%="#{user.id}"%> name="user[user_id]">
-                            <span class="form-check-sign">
+
+                          <%= form_with model: user,  url: sharegroups_url, action: "sharegroups", method: 'post', :format=> :js, remote: true, :authenticity_token => true, id: "sharegroup_form"  do |form|%>
+
+                            <input type="checkbox" class="form-check-input the-selected-user  mt-0 " value=<%="#{user.id}"%> name="user[user_id]">
+                            <span class="form-check-sign pb-4" >
                                 <span class="check"></span>
                             </span>
+
                         </label>
                     </div>
                      </td>
                      <td width="200">
+
                         <div class="user mt-3">
                             <%= image_tag small_gravatar_url(user.email), class: 'user-image' %>
                            <div class="user__name">
                               <strong><% user.first_name + ' ' + user.last_name %></strong><br>
                            </div>
                         </div>
+
                      </td>
 
+                     <td></td>
+
+
+                     <td class="text-white">
+                                           <% group_ids = [[]] %>
+
+                 <%   Group.all.each_with_index do |group, index| %>
+
+                         <% group_ids.push([group.id.to_s,group.name ])  %>
+
+                  <% end %>
+
+
+                    <% attr = {prompt: "Select Groups"} %>
+                    <p>
+  <a class="btn btn-primary col-md-12" data-toggle="collapse" href=<%="#dropdown#{user.id}"%> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
+   Select Groups to share thier contacts to useres
+  </a>
+
+</p>
+<div class="collapse" id=<%="dropdown#{user.id}"%>>
+  <div class="card card-body">
+
+<ul class="list-group">
+ <input type="hidden"  value="groups[]" class="groups-hiiden">
+   <button type="button" class="btn btn-info select-allgroups pull-right">Select All Groups</button>
+     <% group_ids.each_with_index do |group, index| %>
+
+     <% next if group[1].nil? || group[1] == '' %>
+
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
 
 
 
-                     <td class="text-dark">
-                      <%= collection_select(:group, :id, Group.all, :id, :name, {}, {multiple: true, :class=>"selectpicker"}) %>
 
+      <%= group[1] %>
+        <span class="badge badge-pill badge-dark rounded-0 pl-4">      <div class="form-check pl-4">
+    <label class="form-check-label">
 
+        <input class="form-check-input" name="groups[]" type="checkbox" value=<%="#{group[0]}"%>>
+
+        <span class="form-check-sign">
+            <span class="check"></span>
+        </span>
+    </label>
+</div> </span>
+    </li>
+    <% end %>
+</ul>
+</div>
+</div>
 
 
                     </td>
+                    <td>   <input type="hidden" class="option_value" name="option"  value="">  <%= submit_tag "", :class => 'Scomit', :style => "visibility: hidden;" %></td>
 
-
-                  </tr>
-
-               </tbody>
                <% end %>
+                  </tr>
+              <% end %>
+               </tbody>
+
             </table>
          </div>
       </div>
@@ -110,13 +166,13 @@
             </div>
             <div class="col-6 col-lg-2"><button class="btn btn-info btn-block btn-outline-info">Confirm</button></div>
             <div class="col-12 col-lg-5">&nbsp;</div>
-            <div class="col-12 col-lg-2"><button type="submit" class="btn btn-outline-info btn-block ">Chnage </button></div>
+            <div class="col-12 col-lg-2"><button type="submit" class="btn btn-outline-info btn-block" id="share-group-2-users">Chnage </button></div>
          </div>
       </div>
  </div>
         </div>
 
-  <% end %>
+
 
 
   <% end %>
