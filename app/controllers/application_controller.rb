@@ -3,20 +3,28 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   before_action :public_profile
-
+  helper_method :previous_query_string
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :get_groups
   before_action :authenticate_user!
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :show_404
 
-  def public_profile
-  if current_user
-  @theme = 'default'
-  user = User.find(current_user.id) # profile's owner
-  @theme ||= user.theme # overriding default theme to custom one
+   def previous_query_string
+    if params[:group_id]
+       session[:selected_group_id] = params[:group_id]
+    end
+    session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
   end
-end
+
+  def public_profile
+    if current_user
+      @theme = 'default'
+      user = User.find(current_user.id) # profile's owner
+     @theme ||= user.theme # overriding default theme to custom one
+    end
+  end
+
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || dashboard_path
   end
@@ -27,17 +35,15 @@ end
 
   private
 
-
   def user_not_authorized
     flash[:danger] = "You are not authorized to perform this action"
     redirect_to action: index
   end
 
   def show_404
-
     render template: "errors/404", status: 404 if current_user
-
   end
+
   protected
 
 
@@ -51,4 +57,5 @@ end
     @users = User.all
     @search = Search.new
   end
+
 end

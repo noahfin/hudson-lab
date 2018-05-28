@@ -1,8 +1,9 @@
 
 $('#form-modal-body').html('<%= j render("form", ajax_true: true) %>' );
+$('#form-modal').modal('show');
 $('#contact-form-wiz').show();
 
-$('#form-modal').modal('show');
+
     $('#form-modal').addClass('modal');
 
 
@@ -12,7 +13,6 @@ $('body').addClass('modal-open');
 //modal-open class is added on body so it has to be removed
 $('body').addClass('modal-backdrop');
 
-$('#contact-form-wiz').show();
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box', 'true');
 
