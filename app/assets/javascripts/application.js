@@ -129,7 +129,7 @@ $('.modal-backdrop').remove();
 if (history && history.pushState) {
   $(function() {
      $(document).on('click', 'a[data-remote="true"], .pagination a, .remote-link a', function(e) {
-      $.getScript(this.href);
+
       history.pushState(null, document.title, this.href);
       e.preventDefault();
     });
