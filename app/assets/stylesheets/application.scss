@@ -487,6 +487,10 @@ input.btn {
   font-weight: 300 !important;
   font-size: 1.1rem !important;
 }
+.scondary-smaller-text {
+  font-weight: 300 !important;
+  font-size: 1rem !important;
+}
 .main-size-text {
    font-weight: 300 !important;
    font-size: 1.4rem !important;
@@ -494,12 +498,10 @@ input.btn {
 .get-group{
     font-size: 1.1rem !important;
      word-wrap: break-word !important;
-
 }
 .sidenav-section {
   overflow-wrap: break-word !important;
-
-     word-wrap: break-word !important;
+  word-wrap: break-word !important;
 }
 #body-sidnav {
 hyphens: auto;
@@ -530,13 +532,12 @@ hyphens: auto;
 
 }
  .float-right-switch {
-
   right: 5px !important;
-
   width: 10%;
   margin: 0px;
   padding:  0px;
  }
+
  .select-group-item {
   height: 200px !important;
  }
@@ -577,7 +578,7 @@ div.dataTables_wrapper {
 }
 .group-view-link {
     position: absolute;
-  bottom: 10px;
+   bottom: 10px;
 }
 
 #hudson-lab {

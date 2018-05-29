@@ -38,7 +38,6 @@
           <td class="text-center"><%= lead.location_need %></td>
           <td class="text-center"><%= lead.time_requirement %></td>
           <td class="text-center"><%= lead.notes %></td>
-          <td class="text-center"><%= lead.contact.first_name if lead.contact.first_name %> <%= lead.contact.last_name  if  lead.contact.last_name %></td>
 
               <td class="td-actions text-right">
                   <%= link_to lead, class: 'btn btn-info', rel: 'tooltip', title: 'View' do %>
