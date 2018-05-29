@@ -1,4 +1,7 @@
 $('#main-content').html('<%= escape_javascript render("index") %>');
+$('#contact-form-wiz').hide();
+$('#form-modal').modal('hide');
+$('#form-modal').removeClass('modal');
 $('#group_id').val('<%= params[:group] %>');
    $('.tooltip-inner').hide();
    $('.tooltip .arrow').hide();
