@@ -2,11 +2,11 @@
 <div class="card-body  first-show-card" >
    <div class="panel panel-default first-show-card">
       <div class="panel-heading mb-0 pl-4 pb-0">
-          <h4 class="card-title text-light main-size-text pl-4 ml-4"><span class="r-r head-underline">Contact / Profile </span>
+         <h4 class="card-title text-light main-size-text pl-4 ml-4">
+         <span class="r-r head-underline">Contact / Profile </span>
       </div>
       <div class="panel-body col-md-12 first-show-card">
          <ul id="contact-info list-group first-show-card mt-2">
-
             <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Name</strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.name if @contact.name %></span></li>
             <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Phone: </strong></span><span class="float-right c-info-text-right scondary-size-text text-white""><%= tel_to @contact.phone %></span></li>
             <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Cell Phone: </strong></span><span class="float-right c-info-text-right scondary-size-text text-white"><%= tel_to @contact.cell %></span></li>
@@ -56,12 +56,7 @@
          <p class="card-description scondary-size-text">
             <%= @contact.address if @contact.address%>
          </p>
-
          <button type="button" class="btn-back btn bg-hudson btn-round text-white scondary-size-text">Go Back</button>
-
-
-
-
       </div>
    </div>
    <div class="list-group">
@@ -71,8 +66,9 @@
    <div class="card card-5  p-3 irst-show-card">
       <div class="card-header first-show-card">
          <h5>Contact Basic Info <span>     <%= link_to edit_contact_path(@contact.id), class: "text-info pull-right", title: 'edit', rel: "tooltip"  do %>
-      <i class=" fa fa-edit e-contact"></i>
-      <% end %></span></h5>
+            <i class=" fa fa-edit e-contact"></i>
+            <% end %></span>
+         </h5>
       </div>
       <ul class="list-group">
          <li class="profile-list list-group-item"><span class="pull-left "><strong class="pr-2  main-size-text">First Name</strong></span> <span class="float-right scondary-size-text"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
@@ -98,15 +94,14 @@
          <div class="row">
             <div class="col-md-5">
                <h4>Contact Touches</h4>
+            </div>
+            <div class="col-md-7">
+               <span class="pull-right"> <%= link_to  contact_touches_path(@contact.id), class: 'text-danger' do %>
+               View <%= @contact.first_name %> touches
+               <% end %>
+               </span>
+            </div>
          </div>
-          <div class="col-md-7">
-            <span class="pull-right"> <%= link_to  contact_touches_path(@contact.id), class: 'text-danger' do %>
-                View <%= @contact.first_name %> touches
-            <% end %>
-            </span>
-         </div>
-         </div>
-
       </div>
       <% if @contact.contact_touches %>
       <% @contact.contact_touches.each do |touch| %>
@@ -152,24 +147,19 @@
          <%= touch.description %>
       </p>
       <% end %>
-
-
-
       <span> <%= link_to 'Edit', edit_touch_path(touch), class: 'text-success' %>
-
       </span>
       <hr>
       <% end %>
       <% end %>
       <div class="row">
          <div class="col-md-6">
-             <%= link_to 'All touches', touches_path, class: 'text-info' %>
-          </div>
-          <div class="col-md-6">
-             <%= link_to 'New Touch', new_touch_path, class: 'text-info pull-right pt-1' %>
-          </div>
+            <%= link_to 'All touches', touches_path, class: 'text-info' %>
+         </div>
+         <div class="col-md-6">
+            <%= link_to 'New Touch', new_touch_path, class: 'text-info pull-right pt-1' %>
+         </div>
       </div>
-
    </div>
 </div>
 </div>

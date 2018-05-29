@@ -555,7 +555,7 @@ div.dataTables_wrapper {
 .table-custom th, .table-custom  td{
   min-width: 200px;
 }
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+.table-striped-info-dark > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #09C !important;
 }
 .table-striped a {
@@ -584,5 +584,21 @@ div.dataTables_wrapper {
 #hudson-lab {
   font-weight: 300 !important;
 }
-
-
+#leads  th {
+ color: white !important;
+ font-size: 1.4 rem !important;
+}
+#leads.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: black !important;
+   color: white !important;
+}
+.btn-group {
+  white-space: nowrap;
+  .btn {
+    float: none;
+    display: inline-block;
+  }
+}
+#leads.header-no-line, #leads.header-no-line tr{
+  border: transparent !important;
+}

@@ -13,11 +13,13 @@
     <div style="width: 100%;">
       <%= render 'layouts/navbar' %>
       <div class="content" style="width: 100%;">
-        <div class="container-fluid main-container" id="main-content">
-          <%= render 'layouts/messages' if !flash.empty? %><% end %><%= yield %>
+        <div class="container-fluid main-container" >
+          <%= render 'layouts/messages' if !flash.empty? %><% end %>
+          <div id="main-content">
+            <%= yield %>
 
 
-
+           </div>
         </div>
             <div class="modal fade" id="form-modal"  >
                   <div class="container">

@@ -77,7 +77,7 @@
                   <li class="list-group-item">
                      <p class="scondary-size-text">
                         <strong class="mb-3">Contact:</strong>
-                  <span> <%= @lead.contact %></span>
+                  <span> <%= @lead.contact.name if  @lead.contact &&  @lead.contact.name %></span>
                      </p>
                   </li>
                   <li class="list-group-item">

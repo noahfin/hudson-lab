@@ -62,6 +62,9 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
+
+
+
  $(document).on('click', '.select-allgroups', function(event) {
 
    var ul = $(this).closest('ul')

@@ -34,13 +34,13 @@
          <div class="row">
             <div class="col-md-6 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Company Name <span class="text-danger">*</span></label>
+                  <label  class="bmd-label-floating text-white">Company Name <span class="text-danger">*</span></label>
                   <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white' %>
                </div>
             </div>
             <div class="col-md-6 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Contact Person</label>
+                  <label  class="bmd-label-floating text-white">Contact Person</label>
                   <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white' %>
                </div>
             </div>
@@ -50,31 +50,38 @@
          <div class="row">
             <div class="col-sm-12 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Address</label>
+                  <label  class="bmd-label-floating text-white">Address</label>
                   <%= form.text_field :address, id: :lead_address, class: 'form-control  text-white' %>
                </div>
             </div>
             <div class=" col-sm-3 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Size Requirement</label>
+                  <label  class="bmd-label-floating text-white">Size Requirement</label>
                   <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control  text-white' %>
                </div>
             </div>
             <div class="col-sm-3 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Contact Id</label>
-                  <input class="form-control  text-white" type="text" name=lead[contact_id]>
+                  <label  class="bmd-label-floating text-white">Assign To</label>
+                                    <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="lead[contact_id]" >
+
+                                   <% User.all.each do |user| %>
+
+                                        <option class="text-dark" value=<%= "#{user.id}"%>><%= "#{user.first_name}"%></option>
+                                    <% end %>
+                                    </select>
+
                </div>
             </div>
             <div class="col-sm-3 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Location Need</label>
+                  <label  class="bmd-label-floating text-white">Location Need</label>
                   <%= form.text_field :location_need, id: :lead_location_need, class: 'form-control text-white' %>
                </div>
             </div>
             <div class="col-sm-3 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Postal Code</label>
+                  <label  class="bmd-label-floating text-white">Postal Code</label>
                   <input class="form-control  text-white"  type="text">
                </div>
             </div>
@@ -84,13 +91,13 @@
          <div class="row">
             <div class="col-sm-6 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Email</label>
+                  <label  class="bmd-label-floating text-white">Email</label>
                   <%= form.text_field :email, id: :lead_email, class: 'form-control  text-white' %>
                </div>
             </div>
             <div class="col-sm-6 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Phone Number</label>
+                  <label  class="bmd-label-floating text-white">Phone Number</label>
                   <%= form.text_field :phone, id: :lead_phone, class: 'form-control  text-white' %>
                </div>
             </div>
@@ -98,13 +105,13 @@
          <div class="row">
             <div class="col-sm-6 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Mobile Number</label>
+                  <label  class="bmd-label-floating text-white">Mobile Number</label>
                   <%= form.text_field :number, id: :lead_number, class: 'form-control  text-white' %>
                </div>
             </div>
             <div class="col-sm-6 mt-4">
                <div class="form-group">
-                  <label  class="bmd-label-floating">Time Requirement</label>
+                  <label  class="bmd-label-floating text-white">Time Requirement</label>
                   <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white' %>
                </div>
             </div>
