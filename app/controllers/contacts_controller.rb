@@ -69,9 +69,7 @@ class ContactsController < ApplicationController
        flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
        respond_to do |format|
        if params['update-wiz']
-
         format.js { redirect_to contacts_path(previous_query_string)}
-
         elsif params['pageUrl']
            format.json { render json: @contact }
         end
