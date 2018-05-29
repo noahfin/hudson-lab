@@ -26,6 +26,7 @@
 //= require turbolinks
 //= require smoothscroll.min.js
 //= search.coffee
+
 $(window).resize(function() {
     if ($(window).width() > 991) {
         // removes all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
@@ -62,8 +63,7 @@ $(document).on('click', '.new-form', function(event) {
 
 $(document).on('turbolinks:load', function() {
 
-
-
+$('.selectpicker').selectpicker('mobile');
 
  $(document).on('click', '.select-allgroups', function(event) {
 

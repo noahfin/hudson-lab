@@ -43,8 +43,8 @@
                     <div class="col-md-5">
 
                         <!--Panel Header-->
-                        <div class="view py-3 gradient-card-header info-color-dark">
-                            <h5 class="mb-0">Sales</h5>
+                        <div class="view py-3 gradient-card-header bg-black">
+                            <h5 class="mb-0 text-white">Sales</h5>
                         </div>
                         <!--/Panel Header-->
 
@@ -59,7 +59,7 @@
 
                                     <!--Date select-->
                                     <p class="lead">
-                                        <span class="badge info-color-dark p-2">Date range</span>
+                                        <span class="badge bg-black p-2">Date range</span>
                                     </p>
                                     <select class="selectpicker " data-style="select-with-transition" title="Single Select" data-size="8" data-style="btn-outline-info">
                                         <option value="" disabled selected>Choose time period</option>
@@ -75,7 +75,7 @@
 
                                     <!--Date pickers-->
                                     <p class="lead my-4">
-                                        <span class="badge info-color-dark p-2">Custom date</span>
+                                        <span class="badge bg-black p-2">Custom date</span>
                                     </p>
                                     <div class="md-form">
                                         <input placeholder="Selected date" type="text" id="from" class="form-control datepicker">
@@ -95,13 +95,13 @@
                                     <!--Summary-->
                                     <p>Total sales:
                                         <strong>2000$</strong>
-                                        <button type="button" class="btn btn-info btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Total sales in the given period">
+                                        <button type="button" class="btn bg-black btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Total sales in the given period">
                                                <i class="material-icons text-white">monetization_on</i>
                                         </button>
                                     </p>
                                     <p>Average sales:
                                         <strong>100$</strong>
-                                        <button type="button" class="btn btn-info btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Average daily sales in the given period">
+                                        <button type="button" class="btn bg-black btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Average daily sales in the given period">
                                            <i class="material-icons text-white ">monetization_on</i>
                                         </button>
                                     </p>
@@ -114,7 +114,7 @@
             <tbody>
                                 <tr>
                     <td class="dashboard" style="text-align: left;">
-                        <a href="/crm/contacts/view" class="text-info-dark">
+                        <a href="/crm/contacts/view" class="text-muted">
 
                                                   2319      </a>
                     </td>
@@ -126,7 +126,7 @@
                 </tr>
                                 <tr>
                     <td class="dashboard" style="text-align: left;">
-                        <a href="/crm/contacts/view" class="text-info-dark">
+                        <a href="/crm/contacts/view" class="text-muted">
                              2319
                                                      </a>
                     </td>
@@ -138,7 +138,7 @@
                 </tr>
                                 <tr>
                     <td class="dashboard" style="text-align: left;">
-                        <a href="/crm/contacts/view/4941" class="text-info-dark">
+                        <a href="/crm/contacts/view/4941" class="text-muted">
                             1129                         </a>
                     </td>
                     <td>
@@ -149,7 +149,7 @@
                 </tr>
                                 <tr>
                     <td class="dashboard" style="text-align: left;">
-                        <a href="/crm/contacts/view/4941" class="text-info-dark">
+                        <a href="/crm/contacts/view/4941" class="text-muted">
                             1829                        </a>
                     </td>
                     <td>
@@ -184,11 +184,11 @@
                     <div class="col-md-7">
 
                         <!--Panel Header-->
-                        <div class="view py-3 gradient-card-header info-color-dark mb-4">
+                        <div class="view py-3 gradient-card-header bg-black mb-4">
 
                             <div class="card">
-                  <div class="card-header card-header-icon card-header-info">
-                    <div class="card-icon">
+                  <div class="card-header card-header-icon ">
+                    <div class="card-icon bg-footer">
                       <i class="material-icons">timeline</i>
                     </div>
                     <h4 class="card-title">Coloured Line Chart
@@ -225,19 +225,19 @@
     <div class="col-md-8">
         <h2>
 
-             <span>   Deals                   <a class="btn btn-just-icon btn-round info-color-dark ml-3" href="/crm/deals/add"><i class="fa fa-plus"></i></a>  <span class="ml-4 pl-3">
-                <a class="btn info-color-dark  btn-left-margin" href="/crm/deals/index/deals-05-27-2018-080059-AM.csv"><i class="fa fa-file-text"></i> Download Excel/CSV</a>
+             <span>   Deals            <%= link_to  new_deal_path, class: 'btn btn-just-icon btn-round bg-black ml-3' do %><i class="fa fa-plus"></i><% end %> <span class="ml-4 pl-3">
+                <a class="btn bg-black  btn-left-margin" href=""><i class="fa fa-file-text"></i> Download Excel/CSV</a>
             </span> </span>
 
 
         </h2>
     </div>
     <div class="col-md-4">
-        <form action="/crm/deals" id="user-search" class="well form-inline pull-right" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>        <input name="data[Deal][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">          <button type="submit" class="btn info-color-dark btn-round btn-just-icon mr-3" id="send-search">
+        <form action="/crm/deals" id="user-search" class="well form-inline pull-right" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>        <input name="data[Deal][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">          <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
           <i class="material-icons">search</i>
           <div class="ripple-container"></div>
         </button>
-        <a class="btn info-color-dark" id="more"><i class="fa fa-caret-down"></i> More </a>
+        <a class="btn bg-black text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
         <div id="hints" class="hints-search"></div>
         </form>    </div>
     <div class="col-md-12">
@@ -271,559 +271,25 @@
 
     <table   class="table table-bordered table-hover table-striped custom-striped table-striped-info-dark">
         <thead class="warning">
-        <tr><th>Action</th> <th><a href="/crm/deals/index/sort:Deal.amount/direction:asc">Amount</a></th> <th><a href="/crm/deals/index/sort:Contact.first_name/direction:asc">Contact Name</a></th> <th><a href="/crm/deals/index/sort:DealStatus.name/direction:asc">Status</a></th> <th><a href="/crm/deals/index/sort:User.full_name/direction:asc">User's Name</a></th> <th><a href="/crm/deals/index/sort:Deal.date/direction:asc">Date</a></th></tr>     </thead>
+        <tr><th>Action</th> <th><a href="/crm/deals/index/sort:Deal.amount/direction:asc">Company</a></th> <th><a href="/crm/deals/index/sort:Contact.first_name/direction:asc">Contact Name</a></th> <th><a href="/crm/deals/index/sort:DealStatus.name/direction:asc">Status</a></th> <th><a href="/crm/deals/index/sort:User.full_name/direction:asc">User's Name</a></th> <th><a href="/crm/deals/index/sort:Deal.date/direction:asc">Date</a></th></tr>     </thead>
 
         <tbody>
+             <% @deals.each do |deal| %>
                         <tr>
+
         <td>
-                <a href="/crm/deals/edit/3"><i class="fa fa-edit"></i></a>
+                <%= link_to  edit_deal_path(deal) do %><i class="fa fa-edit"></i><% end %>
             </td>
-            <td><a href="/crm/deals/view/3">CCID1,572.00</a></td>
-            <td>Lauren Duke</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2017-07-29 14:58:00</td>
+            <%= link_to deal_path(deal.id)  do %>
+            <td><%= deal.name %></a></td>
+            <td>deal.contacts.first.name %></td>
+            <td><span class="label label-success"><%= deal.active %></span></td>
+            <td><% deal.users.each do |user| %> <span><%= user.first_name + ' ,' %> <% end %></span></td>
+            <td><%= deal.created_at.strftime("%d %b. %Y") %></ %></td>
+            <% end %>
 
         </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/4"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/4">CCID600.00</a></td>
-            <td>Tom C. Tysohn</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2015-10-09 00:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/5"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/5">CCID15,000.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-danger">Rejected</span></td>
-            <td></td>
-            <td>2017-06-19 17:44:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/8"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/8">CCID45,673.00</a></td>
-            <td>Melissa Ranch</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2015-10-08 20:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/9"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/9">CCID92,344.00</a></td>
-            <td>John Doe</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2017-07-21 11:37:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/10"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/10">CCID10,000.00</a></td>
-            <td>Si Huan</td>
-            <td><span class="label label-danger">Rejected</span></td>
-            <td></td>
-            <td>2015-10-08 18:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/11"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/11">CCID56,744.00</a></td>
-            <td>Melissa Ranch</td>
-            <td><span class="label label-danger">Rejected</span></td>
-            <td></td>
-            <td>2015-10-08 17:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/12"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/12">CCID1,134,400.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2015-10-08 15:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/13"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/13">CCID34,520.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2015-10-08 14:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/14"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/14">CCID500.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-danger">Rejected</span></td>
-            <td></td>
-            <td>2015-10-08 13:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/15"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/15">CCID50,000.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2015-10-08 12:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/16"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/16">CCID2,500.00</a></td>
-            <td>Tony West</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2015-10-08 11:24:57</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/17"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/17">CCID1,000.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-10-01 22:52:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/18"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/18">CCID0.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-10-06 15:30:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/19"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/19">CCID5,000.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-10-07 11:30:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/20"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/20">CCID23.00</a></td>
-            <td>West </td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-10-15 15:56:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/21"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/21">CCID200.00</a></td>
-            <td>Duke Cliente</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-10-21 17:10:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/22"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/22">CCID232.00</a></td>
-            <td>Si Huan</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-10-10 00:24:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/23"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/23">CCID500.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/24"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/24">CCID20,002.00</a></td>
-            <td>Huan Oportunidade</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-10-21 07:23:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/25"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/25">CCID0.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/26"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/26">CCID455.00</a></td>
-            <td>Melissa Ranch</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-10-20 23:39:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/27"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/27">CCID124.00</a></td>
-            <td>Sweeny Hunt</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-10-31 02:25:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/28"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/28">CCID0.00</a></td>
-            <td>test test</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-10-27 16:22:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/29"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/29">CCID1.00</a></td>
-            <td>Karl </td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-10-27 16:28:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/30"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/30">CCID0.00</a></td>
-            <td> </td>
-            <td><span class="label label-danger">Rejected</span></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/31"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/31">CCID0.00</a></td>
-            <td> </td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/32"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/32">CCID0.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-09-25 19:42:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/33"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/33">CCID4,502,589.00</a></td>
-            <td>Melissa Ranch</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-11-03 17:49:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/34"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/34">CCID35.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-05 00:28:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/35"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/35">CCID23,300.00</a></td>
-            <td>Doe </td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-11 00:29:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/36"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/36">CCID120.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-10-31 11:02:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/37"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/37">CCID1,500.00</a></td>
-            <td>Tony West</td>
-            <td></td>
-            <td></td>
-            <td>2016-11-09 09:57:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/38"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/38">CCID0.00</a></td>
-            <td>Ed Test</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-11 00:41:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/39"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/39">CCID0.00</a></td>
-            <td>Ed Test</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-11 00:41:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/40"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/40">CCID0.00</a></td>
-            <td>Ed Test</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-11 00:41:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/41"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/41">CCID1,000.00</a></td>
-            <td> </td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-11-17 23:01:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/42"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/42">CCID0.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-11-19 15:40:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/43"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/43">CCID100.00</a></td>
-            <td>Si Huan</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-11-21 15:28:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/44"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/44">CCID15.50</a></td>
-            <td>Si Huan</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-22 18:36:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/45"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/45">CCID2.00</a></td>
-            <td>Ed Test</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-23 15:33:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/46"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/46">CCID0.00</a></td>
-            <td> </td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/47"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/47">CCID150.00</a></td>
-            <td>Tom C. Tysohn</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-25 01:11:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/48"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/48">CCID23.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-25 20:53:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/49"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/49">CCID32.00</a></td>
-            <td>TEst kkak</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-14 21:28:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/50"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/50">CCID32.00</a></td>
-            <td>TEst kkak</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-14 21:28:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/51"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/51">CCID32.00</a></td>
-            <td>TEst kkak</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-14 21:28:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/52"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/52">CCID0.00</a></td>
-            <td>TEst kkak</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-11-26 21:39:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/53"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/53">CCID40.00</a></td>
-            <td>Dwayne Karl</td>
-            <td><span class="label label-success">Accepted</span></td>
-            <td></td>
-            <td>2016-11-16 15:40:00</td>
-
-        </tr>
-                <tr>
-        <td>
-                <a href="/crm/deals/edit/54"><i class="fa fa-edit"></i></a>
-            </td>
-            <td><a href="/crm/deals/view/54">CCID3,600.00</a></td>
-            <td>Karim Hamidi</td>
-            <td><span class="label label-warning">Process</span></td>
-            <td></td>
-            <td>2016-11-26 21:30:00</td>
-
-        </tr>
+<% end %>
                 </tbody>
     </table>
 
@@ -849,7 +315,7 @@ jQuery(function($) {
 
 
                                     <div class=" col-md-4">
-                                        <div class="card info-color-dark ">
+                                        <div class="card bg-black ">
                                             <div class="card-body  ">
                                                 <h5 class="card-category card-category-social text-white">
                                                      <i class="material-icons text-white">monetization_on</i> TechCrunch
@@ -867,7 +333,7 @@ jQuery(function($) {
                                         </div>
                                     </div>
                                              <div class=" col-md-4">
-                                        <div class="card info-color-dark ">
+                                        <div class="card bg-black ">
                                             <div class="card-body" >
                                                 <h5 class="card-category card-category-social text-white">
                                                      <i class="material-icons text-white">monetization_on</i> TechCrunch
@@ -885,7 +351,7 @@ jQuery(function($) {
                                         </div>
                                     </div>
          <div class="col-md-4">
-                                        <div class="card info-color-dark ">
+                                        <div class="card bg-black ">
                                             <div class="card-body  ">
                                                 <h5 class="card-category card-category-social text-white">
                                                      <i class="material-icons text-white">monetization_on</i> TechCrunch
@@ -907,7 +373,7 @@ jQuery(function($) {
 
 
          <div class=" col-md-4">
-                                        <div class="card info-color-dark ">
+                                        <div class="card bg-black ">
                                             <div class="card-body">
                                                 <h5 class="card-category card-category-social text-white">
                                                     <i class="material-icons text-white">monetization_on</i>TechCrunch
@@ -925,7 +391,7 @@ jQuery(function($) {
                                         </div>
                                     </div>
                                           <div class=" col-md-4">
-                                        <div class="card info-color-dark ">
+                                        <div class="card bg-black ">
                                             <div class="card-body">
                                                 <h5 class="card-category card-category-social text-white">
                                                      <i class="material-icons">monetization_on</i> TechCrunch
@@ -943,7 +409,7 @@ jQuery(function($) {
                                         </div>
                                     </div>
                                                  <div class=" col-md-4">
-                                        <div class="card info-color-dark ">
+                                        <div class="card bg-black ">
                                             <div class="card-body">
                                                 <h5 class="card-category card-category-social text-white">
                                                     <i class="material-icons text-white">monetization_on</i> TechCrunch
@@ -1001,8 +467,52 @@ jQuery(function($) {
             <!--Section: Modals-->
 
 
+<div class="row">
+    <div class="col-md-6">
+        <div class="card p-4 rounded-0 ">
+                                <table class="table">
 
-<div class="col-xs-12 col-sm-8">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Login</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Mcneil, Burke Q.</td>
+                                        <td><span class="badge badge-primary rounded-0 ">Emery_Mullen</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Burris, Lesley T.</td>
+                                        <td><span class="badge badge-info rounded-0">Eleanor_Cole</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Sears, Drew G.</td>
+                                        <td><span class="badge badge-danger rounded-0">Pandora_Bender</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Oconnor, Jocelyn A.</td>
+                                        <td><span class="badge badge-primary rounded-0">Abdul_Logan</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Stewart, Anika M.</td>
+                                        <td><span class="badge badge-secondary rounded-0">Eaton_Morris</span></td>
+                                    </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+
+<div class="col-md-6">
 
                     <ul class="list-dot">
                         <li class="list-dot-item">
@@ -1038,50 +548,7 @@ jQuery(function($) {
                     </ul>
 
                 </div>
-
-<p id="notice"><%= notice %></p>
-
-<h1>Deals</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Category</th>
-      <th>Contact ids</th>
-      <th>Active</th>
-      <th>Potential commission</th>
-      <th>Lead</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @deals.each do |deal| %>
-      <tr>
-        <td><%= deal.name %></td>
-        <td><%= deal.code %></td>
-        <td><%= deal.category %></td>
-        <td><%= deal.contact_ids %></td>
-        <td><%= deal.active %></td>
-        <td><%= deal.potential_commission %></td>
-        <td><%= deal. lead_id %></td>
-        <td><%= link_to 'Show', deal %></td>
-        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-  <%= link_to 'New Deal', new_deal_path, class: 'btn-info  btn btn-round ' %>
-  <button type="" class="btn-back btn bg-hudson btn-round text-white pull-right">Go Back</button>
-
-
-  <div class="fw-body">
-      <div class="content">
+</div>
 
 
 

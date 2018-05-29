@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups
   has_and_belongs_to_many :contacts, :through => :groups, :source => :user
   has_and_belongs_to_many :tasks
+  has_and_belongs_to_many :deals
   has_many :posts, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :posted_properties, through: :posts,  source: :property, dependent: :destroy
@@ -19,8 +20,6 @@ class User < ApplicationRecord
 
   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 end
