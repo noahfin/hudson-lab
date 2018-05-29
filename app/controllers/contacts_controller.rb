@@ -66,26 +66,24 @@ class ContactsController < ApplicationController
   def update
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     if @contact.update(contact_params)
+       user_reltionships(@contact)
+       flash[:success] = "Contact was successfully updated."
+       if params['update-wiz']
+        respond_to do |format|
+        format.js { redirect_to contacts_path(previous_query_string), turbolinks: false}
+          end
+        end
 
-      user_reltionships(@contact)
 
-      flash[:success] = "Contact was successfully updated."
-      if params['update-wiz']
-        redirect_to contacts_path(previous_query_string)
+
       end
-    else
-      flash[:danger] = @contact.errors.full_messages.to_s
 
-      render 'edit'
-       respond_to do |format|
-        format.html
-        format.js
-      end
-    end
+ end
 
 
 
-  end
+
+
 
   def destroy
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
@@ -108,17 +106,21 @@ class ContactsController < ApplicationController
           user = User.find(u_id.to_i)
        user.contacts << @contact
        end
+     end
 
+   else
+    flash[:danger] =@contact.errors.to_s
+  end
+       respond_to do |format|
+
+        format.js { redirect_to contacts_path(previous_query_string), turbolinks: false}
+        #or
+        #redirect_to post_comments_path(@post), status: 303, turbolinks: false
+
+        format.html { render :new }
+        format.json { render json: @contact.errors, status: :unprocessable_entity }
     end
 
-
-      flash[:success] = "Contact was successfully created."
-
-    else
-      flash[:danger] = @contact.errors.full_messages.to_s
-
-    end
-     redirect_to contacts_path(previous_query_string)
 
  end
 

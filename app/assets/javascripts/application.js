@@ -212,20 +212,18 @@ $('.select_u_picker').attr("data-actions-box", "true");
   $('body').on('click', '#btn_next', 'btn-form', function(event) {
     event.preventDefault();
 
-
-    $('#contact_form').removeAttr("disabled");
     console.log('button clicked')
    if( moveToNext() === true) {
       var formData = getContactInputs();
    if ( $('#hidden_update')) {
-           $('.btn-finish').parents('form').eq(0).submit();
+          $('.b-finsh').trigger( "click" );
         } else {
           createFormSend(formData);
         }
 
    }
 });
-
+ $('.b-finsh').hide()
 var moveToNext = function(){
    $(formArray[wizIndex]).trigger( "click" );
   if (formArray[wizIndex] === 'a[href="#account"]' ) {
@@ -236,7 +234,7 @@ var moveToNext = function(){
     if (formArray[wizIndex] === 'a[href="#group"]' ) {
         wizIndex = 1;
       $('.btn_next').hide()
-      $('.btn-finish').show()
+      $('.b-finsh').show()
      return true;
    }
   wizIndex++
@@ -251,21 +249,22 @@ $(document).keypress(function(e) {
         $(document).keypress(function(e) {
 
     if(e.which == 13) {
-      $('#contact_form').removeAttr("disabled");
+
         var formData = getContactInputs();
         if ( $('#hidden_update') ){
-          getGroupPage();
-          $('.btn-finish').attr({
-            type: 'submit'
-          });
-          $('.btn-finish').trigger( "click" );
+
+
+           $('.b-finsh').trigger( "click" );
           // .parents('form').eq(0).submit();
 
         } else {
           createFormSend(formData);
 
         }
-
+            $.notify({
+                        title: "New Contact Added:",
+                        message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
+                    });
 
          }
 });
@@ -382,7 +381,7 @@ var createFormSend = function(data){
            clsoeWiz();
                  $.notify({
                         title: "New Contact Added:",
-                        message: contact.first_name + '"' + ' was successfuly added to the database'
+                        message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
                     });
 
 

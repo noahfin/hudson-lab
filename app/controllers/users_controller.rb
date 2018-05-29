@@ -7,28 +7,27 @@ class UsersController < ApplicationController
 
 
   end
-     def sharegroups
+ def sharegroups
+      admin_only
+      if params['option']
+        if params['option'] == "Share with selected"
+         user_to_share_with = User.find params['user']['user_id']
 
-    if params['option']
-      if params['option'] == "Share with selected"
-       user_to_share_with = User.find params['user']['user_id']
+         if params['groups'] && params['user']['user_id']
 
-       if params['groups'] && params['user']['user_id']
+          group_share(user_to_share_with,   params['groups'])
+           flash[:success] = "The selected Groups and Contacts where successfully shared"
+         else
+           flash[:danger] = "Error the selected Groups where not able to be shared"
+         end
 
-        group_share(user_to_share_with,   params['groups'])
-         flash[:success] = "The selected Groups and Contacts where successfully shared"
-       else
-         flash[:danger] = "Error the selected Groups where not able to be shared"
-       end
-
-      elsif params['option'] = "Remove form selected"
-         flash[:info] = "This function is still in the procces of being built"
-
-      end
-
-   end
-   render 'index'
+        elsif params['option'] = "Remove form selected"
+           flash[:info] = "This function is still in the procces of being built"
+        end
+     end
+    render 'index'
  end
+
   def show
     @user = User.find(params[:id])
     # if current_user.id !=  params[:id]
@@ -50,6 +49,7 @@ class UsersController < ApplicationController
         end
      end
   end
+
   def create
     @user = User.new(secure_params)
     if @user.save

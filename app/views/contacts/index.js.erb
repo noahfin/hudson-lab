@@ -10,3 +10,18 @@ $(document).on('click', '.get-group', function() {
 
    });
 
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+  <% name = "info" if !name %>
+
+      $(function() {
+        $.notify({
+      title: '<strong>Heads up!</strong>',
+      message: '<%= msg.to_s %>'
+    },{
+      type: '<%= name.to_s %>'
+    });
+    });
+
+  <% end %>
+<% end %>
