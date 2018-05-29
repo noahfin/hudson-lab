@@ -71,6 +71,8 @@ class ContactsController < ApplicationController
         respond_to do |format|
         format.js { redirect_to contacts_path(previous_query_string)}
           end
+        else
+          render 'show'
         end
       end
   end
