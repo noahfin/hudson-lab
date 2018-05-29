@@ -70,18 +70,21 @@ class ContactsController < ApplicationController
       user_reltionships(@contact)
 
       flash[:success] = "Contact was successfully updated."
-      render 'show'
+      if params['update-wiz']
+        redirect_to contacts_path(previous_query_string)
+      end
     else
       flash[:danger] = @contact.errors.full_messages.to_s
 
       render 'edit'
-    end
-
-
-    respond_to do |format|
+       respond_to do |format|
         format.html
         format.js
       end
+    end
+
+
+
   end
 
   def destroy
@@ -105,9 +108,7 @@ class ContactsController < ApplicationController
           user = User.find(u_id.to_i)
        user.contacts << @contact
        end
-       if params['pageUrl']
-         render 'show'
-      end
+
     end
 
 
@@ -118,10 +119,7 @@ class ContactsController < ApplicationController
 
     end
      redirect_to contacts_path(previous_query_string)
-        respond_to do |format|
-        format.html
-        format.js
-      end
+
  end
 
   private

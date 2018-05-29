@@ -1,5 +1,4 @@
-$('#main-content').html('<%= escape_javascript render(@contact) %>');
-$.getScript(pageUrl);
+$('#main-content').html('<%= escape_javascript render(@contacts) %>');
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box', 'true');
 $('.county-select').selectpicker('val', ['Select County','Dutchess','Ulster','Orange','Columbia','Mustard','Sullivan','Greene','westchester']);

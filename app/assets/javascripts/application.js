@@ -129,7 +129,7 @@ $('body').removeClass('modal-backdrop');
 $('.modal-backdrop').remove();
 }
 var pageParams;
-var pageUrl;
+var pageUrl =  location.href;
 if (history && history.pushState) {
   $(function() {
      $(document).on('click', 'a[data-remote="true"], .pagination a, .remote-link a', function(e) {
@@ -155,12 +155,12 @@ if (history && history.pushState) {
 
 var getGroupPage = function(){
 
-    var web_address = location.href;
-   var pramsPageaArray2 = web_address.split("group_id=");
-  if (pramsPageaArray2[1]) {
+//     var web_address = location.href;
+//    var pramsPageaArray2 = web_address.split("group_id=");
+//   if (pramsPageaArray2[1]) {
 
-   $('#wiz_update_h').val(web_address.href);
-}
+//    $('#wiz_update_h').val(web_address.href);
+// }
 }
 
 
