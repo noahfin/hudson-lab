@@ -473,14 +473,16 @@
             <% if local_assigns[:ajax_true] %>
 
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
-            <%= submit_tag 'Go' %>
+
             <% if @contact.persisted? %>
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
 
             <% end %>
+
             <% else %>
-        <%= submit_tag 'finshed', class: "btn btn-fill b-finsh btn-rose"%>
+
             <% end %>
+             <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose', id: "btn_finshed" %>
          </div>
          <div class="clearfix"></div>
       </div>

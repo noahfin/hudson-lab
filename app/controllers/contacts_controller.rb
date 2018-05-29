@@ -56,7 +56,6 @@ class ContactsController < ApplicationController
       end
  end
   def edit
-
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   my_contacts
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
@@ -74,7 +73,7 @@ class ContactsController < ApplicationController
           end
         end
       end
- end
+  end
 
 
   def destroy
@@ -85,9 +84,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-
     @contact = Contact.new(contact_params)
-
     if @contact.save
       if params['contact'][:group_id]
       @contact.group_ids = params['contact'][:group_id]
@@ -99,21 +96,15 @@ class ContactsController < ApplicationController
        user.contacts << @contact
        end
      end
-
    else
     flash[:danger] =@contact.errors.to_s
   end
        respond_to do |format|
-
         format.js { redirect_to contacts_path(previous_query_string)}
-        #or
         #redirect_to post_comments_path(@post), status: 303, turbolinks: false
-
         format.html { render :new }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
     end
-
-
  end
 
   private

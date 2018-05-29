@@ -4,7 +4,7 @@ $('#form-modal').modal('show');
 $('#contact-form-wiz').show();
 $('#form-modal').addClass('modal');
 $('body').addClass('modal-open');
-//modal-open class is added on body so it has to be removed
+$('#btn_finshed').hide();
 $('body').addClass('modal-backdrop');
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box="true"', 'true');

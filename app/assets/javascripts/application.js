@@ -216,14 +216,14 @@ $('.select_u_picker').attr("data-actions-box", "true");
    if( moveToNext() === true) {
       var formData = getContactInputs();
    if ( $('#hidden_update')) {
-          $('.b-finsh').trigger( "click" );
+
         } else {
-          createFormSend(formData);
+
         }
 
    }
 });
- $('.b-finsh').hide()
+
 var moveToNext = function(){
    $(formArray[wizIndex]).trigger( "click" );
   if (formArray[wizIndex] === 'a[href="#account"]' ) {
@@ -233,8 +233,9 @@ var moveToNext = function(){
    }
     if (formArray[wizIndex] === 'a[href="#group"]' ) {
         wizIndex = 1;
-      $('.btn_next').hide()
-      $('.b-finsh').show()
+
+       $('.b-finsh').show();
+
      return true;
    }
   wizIndex++
@@ -250,21 +251,13 @@ $(document).keypress(function(e) {
 
     if(e.which == 13) {
 
-        var formData = getContactInputs();
-        if ( $('#hidden_update') ){
+        // var formData = getContactInputs();
+
+        $('.b-finsh').trigger( "click" );
 
 
-           $('.b-finsh').trigger( "click" );
           // .parents('form').eq(0).submit();
 
-        } else {
-          createFormSend(formData);
-
-        }
-            $.notify({
-                        title: "New Contact Added:",
-                        message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
-                    });
 
          }
 });

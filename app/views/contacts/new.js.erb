@@ -1,26 +1,13 @@
-
 $('#form-modal-body').html('<%= j render("form", ajax_true: true) %>' );
 $('#form-modal').modal('show');
 $('#contact-form-wiz').show();
-
-
-    $('#form-modal').addClass('modal');
-
-
-//hide the modal
-
+$('#form-modal').addClass('modal');
 $('body').addClass('modal-open');
-//modal-open class is added on body so it has to be removed
 $('body').addClass('modal-backdrop');
-
+$('#btn_finshed').hide();
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info', 'data-actions-box', 'true');
-
-
 $('.county-select').selectpicker('val', ['Select County','Dutchess','Ulster','Orange','Columbia','Mustard','Sullivan','Greene','westchester']);
 $('.select_u_picker').attr("data-actions-box", "true");
 $('.select_u_picker').selectpicker('selectAll');
-
-
-$('.info-feedback').hide();
 $('#wizardProfile').bootstrapWizard();
