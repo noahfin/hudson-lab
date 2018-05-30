@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :traceable
+         :recoverable, :rememberable, :trackable, :validatable
 
   Warden::Manager.after_set_user do|record, warden, opts|
     logger.info("sign in at: #{record.current_sign_in_at}, #{record.current_sign_in_ip}")
