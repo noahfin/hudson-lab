@@ -24,9 +24,6 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  Warden::Manager.after_set_user do|record, warden, opts|
-    logger.info("sign in at: #{record.current_sign_in_at}, #{record.current_sign_in_ip}")
-    record.account_logins.create!(ipAddress: record.current_sign_in_ip, loginTime: record.current_sign_in_at)
-  end
+
 end
 
