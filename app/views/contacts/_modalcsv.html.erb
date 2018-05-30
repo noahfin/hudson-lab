@@ -8,10 +8,10 @@
 <div class="modal-body b-bottom">
    <%= form_tag inport_contacts_path, multipart: true do %>
    <div class="row" style="width 100% !important;">
-      <div class="col-md-12 text-white mb-4">
+      <div class="col-md-6 text-white mb-4">
          <label class=" text-white ml-2" >Choose file<small>(required)</small></label>
          <div class="fileinput fileinput-new input-group pt-3" data-provides="fileinput">
-            <span class="input-group-addon btn bg-hudson text-white btn-file ml-2"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span> <%= file_field_tag :file %></span>
+            <span class="input-group-addon btn bg-black text-white btn-file ml-2"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span> <%= file_field_tag :file %></span>
             <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
             <br> <br>
             <div class="col-md-12 ">
@@ -19,53 +19,35 @@
             </div>
          </div>
       </div>
-   </div>
-   <div class="col-md-12">
-      <% Group.all.each.each_slice(3) do |group| %>
-      <div class="col-md-12 mb-3">
-<div class="row">
-   <% group.each do |group| %>
-   <div class=" col-md-4 ">
-      <div class="card" >
-         <div class="card-header card-header-info">
-            <h4 class="card-title"><%= group.name %> </h4>
-         </div>
-         <div class=" card-body">
-            <!-- Default panel contents -->
-            <!-- List group -->
-            <ul class="list-group list-group-flush">
-               <li class="list-group-item select-group-item">
-                 <p class="text-left"> <%= group.name %></p>
-                  <div class="  pull-right mr-0 ml-0 pl-0 pr-0">
-                      <div class="togglebutton p-2">
-                  <label>
-                  <input type="checkbox" name="group_id[]"  value=
-                     <%="#{group.id}" if group.id %> class="users-for-new-group"/>
-                  <span class="toggle"></span>
-                  <span class="text-white"><%= group.name %>
-                  </span>
-                  </label>
-               </div>
-                  </div>
-               </li>
+            <div class="col-md-6">
+                            <label class=" text-white ml-2" >Select Groups and Employees <small>(required)</small></label>
+                            <!-- Tabs with icons on Card -->
+                            <div class="card card-nav-tabs">
+                                <div class="card-header bg-black">
+                                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                                    <div class="nav-tabs-navigation">
+                                        <div class="nav-tabs-wrapper">
+                                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#users" data-toggle="tab">
+                                                        <i class="material-icons">face</i> Users
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#group" data-toggle="tab">
+                                                        <i class="material-icons">group</i> Group
+                                                    <div class="ripple-container"></div></a>
+                                                </li>
 
-         </ul>
-      </div>
-   </div>
-</div>
-
-
-            <% end %>
-         </div>
-       <hr class="bg-light">
-      </div>
-      <% end %>
-
-
-
-   </div>
-   <div class="col-md-12">
-      <h4 class="ml-4 ml-3"><i class="material-icons">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body gray-dark rounded-0 ">
+                                    <div class="tab-content text-center">
+                                        <div class="tab-pane" id="users">
+                                             <div class="col-md-12">
+      <h4 class="ml-4 ml-3 pull-right"><i class="material-icons text-white">
 folder_shared
 </i></h4>
       <% User.all.each.each_slice(6) do |user| %>
@@ -89,6 +71,52 @@ folder_shared
       </div>
       <% end %>
    </div>
+                                        </div>
+                                        <div class="tab-pane" id="group">
+                                                     <div class="card    gray-dark rounded-0 text-white card-body">
+                              <ul class="list-group  gray-dark text-white">
+                                 <input type="hidden"  value="groups[]" class="groups-hiiden">
+
+                                 <% Group.all.each_with_index do |group, index| %>
+                                 <% next if group.nil? || group.name.empty? %>
+                                 <li class="list-group-item d-flex justify-content-between align-items-center text-muted">
+                                   <h5 class="text-wheight-light text-white"><%= group.name %></h5>
+                                <nav class="navbar  bg-footer  justify-content-between align-items-center" id="group-check-nav">
+                                  <span class="ml-auto mr-auto text-center">
+                                            <div class="form-check ml-auto mr-auto  pl-3 mb-4 ">
+                                              <div class="form-check ml-auto mr-auto  pl-4 mb-0 pt-0 pb-0 ">
+
+
+                                          <label class="form-check-label ">
+                                          <input class="form-check-input " name="groups[]" type="checkbox" value=<%="#{group.id}"%>>
+                                          <span class="form-check-sign ">
+                                          <span class="check"></span>
+                                          </span>
+                                          </label>
+                                           </div>
+                                       </div>
+                                       </span>
+                                  </nav>
+                                 </li>
+                                 <% end %>
+                              </ul>
+                           </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Tabs with icons on Card -->
+                        </div>
+
+   </div>
+   <div class="col-md-12">
+
+
+
+
+   </div>
+
    <div class="modal-footer b-top">
       <hr>
       <%= submit_tag "Import CSV", class: "btn bg-hudson" %>

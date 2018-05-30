@@ -27,7 +27,7 @@
 //= require smoothscroll.min.js
 //= search.coffee
 
-$(window).resize(function() {
+$(window).resize(function () {
     if ($(window).width() > 991) {
         // removes all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
         $('.sidebar-wrapper').find($('#side-search')).remove();
@@ -35,150 +35,142 @@ $(window).resize(function() {
     }
 
 })
-$(document).on('click', '.tooltip-inner', function(event) {
-   $('.tooltip-inner').hide();
-   $('.tooltip .arrow').hide();
-  });
+$(document).on('click', '.tooltip-inner', function (event) {
+    $('.tooltip-inner').hide();
+    $('.tooltip .arrow').hide();
+});
 
 
-$(document).on('click', '#property-submit', function(event) {
+$(document).on('click', '#property-submit', function (event) {
     $('.form-check-input')
- $(this).closest('form').submit();
-  });
-$(document).on('click', '.submit', function(event) {
-  $(this).closest('form').submit();
-  });
-  var i = 1;
-$(document).on('click', '.new-form', function(event) {
+    $(this).closest('form').submit();
+});
+$(document).on('click', '.submit', function (event) {
+    $(this).closest('form').submit();
+});
+var i = 1;
+$(document).on('click', '.new-form', function (event) {
     event.preventDefault();
-    var formArray = ['#about_id',  '#account_id', '#address_id', '#link_group_id'];
-    var linkArray = ['<a href="#about"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>',  '<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '#link_group_id<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#group"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>'];
+    var formArray = ['#about_id', '#account_id', '#address_id', '#link_group_id'];
+    var linkArray = ['<a href="#about"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '#link_group_id<a href="#account"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>', '<a href="#group"  class="btn btn-finish btn-fill bg-hudson btn-wd"  >Next</a>'];
     var link = $(formArray[i]).click();
     $(this).remove();
-     $('.c-form-foot').append(formArray[i]);
-       $(formArray[i]).click();
+    $('.c-form-foot').append(formArray[i]);
+    $(formArray[i]).click();
     i++
-  });
+});
 
 
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
 
-$('.selectpicker').selectpicker('mobile');
+    $('.selectpicker').selectpicker('mobile');
 
- $(document).on('click', '.select-allgroups', function(event) {
+    $(document).on('click', '.select-allgroups', function (event) {
 
-   var ul = $(this).closest('ul')
-    var groupsHiiden = ul.find('input[type=hidden]');
-  console.log(groupsHiiden);
-  var groupArrayShare = []
- var groupLitItems = $(this).closest('ul').children();
- groupLitItems.each(function(i, el) {
-  var groupinput = $(this).find('input');
-groupinput
-    groupinput.attr( 'checked', 'checked' )
-    groupArrayShare.push(groupinput.val());
-    groupsHiiden.val(groupArrayShare);
-     console.log(groupsHiiden.val());
+        var ul = $(this).closest('ul')
+        var groupsHiiden = ul.find('input[type=hidden]');
+        console.log(groupsHiiden);
+        var groupArrayShare = []
+        var groupLitItems = $(this).closest('ul').children();
+        groupLitItems.each(function (i, el) {
+            var groupinput = $(this).find('input');
+            groupinput
+            groupinput.attr('checked', 'checked')
+            groupArrayShare.push(groupinput.val());
+            groupsHiiden.val(groupArrayShare);
+            console.log(groupsHiiden.val());
 
 
-
-  });
-
- });
-$(document).on('click', '#share-group-2-users', function(event) {
-  $('.the-selected-user').each(function(i) {
-           if ($(this).is(':checked') ){
-           var option = $('.select-simple').val();
-          $('.option_value').each(function(i) {
-             $(this).attr('value', option)
-          });
-            $(this).closest('form').submit();
-           }
         });
-  });
 
-    $('#example').DataTable( {
-        "scrollX": true
-    } );
-   // $(".custom-tip").each(function(index){
-
-   //       $(this).attr('data-toggle','tooltip');
-   //      });
-
-
-$(document).on('click', '.custom-tip', function(event) {
-  $(this).tooltip('toggleEnabled');
-  });
-
-  $(document).on('click', '.wiz-close', function(event) {
-    clsoeWiz();
-  });
-
-  $(document).on('click', '.update-c-only', function(event){
-       e.preventDefault();
-       getGroupPage();
-  });
-
-var clsoeWiz = function(){
-// $("[data-dismiss=modal]").trigger({ type: "click" });
-$('#contact-form-wiz').hide();
-$('#form-modal').modal('hide');
-$('#form-modal').removeClass('modal');
-
-//hide the modal
-$('body').removeClass('modal-open');
-//modal-open class is added on body so it has to be removed
-$('body').removeClass('modal-backdrop');
-$('.modal-backdrop').remove();
-}
-var pageParams;
-var pageUrl =  location.href;
-if (history && history.pushState) {
-  $(function() {
-     $(document).on('click', 'a[data-remote="true"], .pagination a, .remote-link a', function(e) {
-      history.pushState(null, document.title, this.href);
-        var web_address = location.href;
-  var pramsPageaArray = web_address.split("&page=");
-  if (pramsPageaArray[1] !== null &&  pramsPageaArray[1] > 0) {
-    pageParams = pramsPageaArray[1];
-    pageUrl = this.href;
-
-  }
-
-      e.preventDefault();
+    });
+    $(document).on('click', '#share-group-2-users', function (event) {
+        $('.the-selected-user').each(function (i) {
+            if ($(this).is(':checked')) {
+                var option = $('.select-simple').val();
+                $('.option_value').each(function (i) {
+                    $(this).attr('value', option)
+                });
+                $(this).closest('form').submit();
+            }
+        });
     });
 
-    $(window).bind("popstate", function() {
-      $.getScript(location.href);
+    $('#example').DataTable({
+        "scrollX": true
+    });
 
-})
-     });
-}
+    $(document).on('click', '.custom-tip', function (event) {
+        $(this).tooltip('toggleEnabled');
+    });
+
+    $(document).on('click', '.wiz-close', function (event) {
+        clsoeWiz();
+    });
+
+    $(document).on('click', '.update-c-only', function (event) {
+        e.preventDefault();
+        getGroupPage();
+    });
+
+    var clsoeWiz = function () {
+        // $("[data-dismiss=modal]").trigger({ type: "click" });
+        $('#contact-form-wiz').hide();
+        $('#form-modal').modal('hide');
+        $('#form-modal').removeClass('modal');
+
+        //hide the modal
+        $('body').removeClass('modal-open');
+        //modal-open class is added on body so it has to be removed
+        $('body').removeClass('modal-backdrop');
+        $('.modal-backdrop').remove();
+    }
+    var pageParams;
+    var pageUrl = location.href;
+    if (history && history.pushState) {
+        $(function () {
+            $(document).on('click', 'a[data-remote="true"], .pagination a, .remote-link a', function (e) {
+                history.pushState(null, document.title, this.href);
+                var web_address = location.href;
+                var pramsPageaArray = web_address.split("&page=");
+                if (pramsPageaArray[1] !== null && pramsPageaArray[1] > 0) {
+                    pageParams = pramsPageaArray[1];
+                    pageUrl = this.href;
+
+                }
+
+                e.preventDefault();
+            });
+
+            $(window).bind("popstate", function () {
+                $.getScript(location.href);
+
+            })
+        });
+    }
 
 
-var getGroupPage = function(){
+    var getGroupPage = function () {
 
-//     var web_address = location.href;
-//    var pramsPageaArray2 = web_address.split("group_id=");
-//   if (pramsPageaArray2[1]) {
+        //     var web_address = location.href;
+        //    var pramsPageaArray2 = web_address.split("group_id=");
+        //   if (pramsPageaArray2[1]) {
 
-//    $('#wiz_update_h').val(web_address.href);
-// }
-}
-
-
+        //    $('#wiz_update_h').val(web_address.href);
+        // }
+    }
 
 
-$('[href*="#section_"]').on('click', function() {
+    $('[href*="#section_"]').on('click', function () {
 
         // Close collapsed navbar on click
         navbarCollapse.collapse('hide');
 
         // Smooths scroll to anchor
-        if ( location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname ) {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 
             var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
             if (target.length) {
                 $('html, body').animate({
@@ -191,199 +183,193 @@ $('[href*="#section_"]').on('click', function() {
     });
 
 
- $('body').on('click', '.btn-back', function(event) {
-     event.preventDefault();
-    window.history.back();
+    $('body').on('click', '.btn-back', function (event) {
+        event.preventDefault();
+        window.history.back();
 
 
- });
+    });
 
 
-$('.select_u_picker').attr("data-actions-box", "true");
-  var i = 1;
+    $('.select_u_picker').attr("data-actions-box", "true");
+    var i = 1;
 
- $('body').on('click', '.btn-finish', function(event) {
-  $('form').prop( "disabled", false );
-  $(this).closest('form').submit();
- });
-
-
+    $('body').on('click', '.btn-finish', function (event) {
+        $('form').prop("disabled", false);
+        $(this).closest('form').submit();
+    });
 
 
- var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
- var wizIndex = 1;
-  $('body').on('click', '#btn_next', 'btn-form', function(event) {
-    event.preventDefault();
+    var formArray = ['a[href="#about"]', 'a[href="#account"]', 'a[href="#address"]', 'a[href="#group"]'];
+    var wizIndex = 1;
+    $('body').on('click', '#btn_next', 'btn-form', function (event) {
+        event.preventDefault();
 
-    console.log('button clicked')
-   if( moveToNext() === true) {
-      var formData = getContactInputs();
-   if ( $('#hidden_update')) {
+        console.log('button clicked')
+        if (moveToNext() === true) {
+            var formData = getContactInputs();
+            if ($('#hidden_update')) {
+
+            } else {
+
+            }
+
+        }
+    });
+
+    var moveToNext = function () {
+        $(formArray[wizIndex]).trigger("click");
+        if (formArray[wizIndex] === 'a[href="#account"]') {
+            $('#contacts_suffix').focus();
+        } else if (formArray[wizIndex] === 'a[href="#address"]') {
+            $('#contact_address').focus();
+        }
+        if (formArray[wizIndex] === 'a[href="#group"]') {
+            wizIndex = 1;
+
+            $('.b-finsh').show();
+
+            return true;
+        }
+        wizIndex++
+    }
+
+
+    $(document).keypress(function (e) {
+
+        if (e.which == 13) {
+
+            if (moveToNext() === true) {
+                $(document).keypress(function (e) {
+
+                    if (e.which == 13) {
+
+                        // var formData = getContactInputs();
+
+                        $('.b-finsh').trigger("click");
+
+
+                        // .parents('form').eq(0).submit();
+
+
+                    }
+                });
+            }
+        }
+    });
+
+
+    var getContactInputs = function () {
+        var user_ids = []
+
+        $('.users-for-new-group').each(function (i) {
+            if ($(this).is(':checked') && $(this).val() !== "") {
+                user_ids[i] = $(this).val();
+            }
+        });
+        var group_ids = []
+
+        $('.groups-for-new-group').each(function (i) {
+            if ($(this).is(':checked') && $(this).val() !== "") {
+                group_ids[i] = $(this).val();
+            }
+        });
+        var formData = {
+            contact: {
+                'id': $('#hidden_update').val(),
+                'name': $('#contact_name').val(),
+                'email': $('#contact_email').val(),
+                'company': $('#contact_company').val(),
+                'address': $('#contact_address').val(),
+                'cell': $('#contact_cell').val(),
+                'county': $('#contact_county').val(),
+                'state': $('#contact_state').val(),
+                'country': $('#contact_county').val(),
+                'postal_code': $('#contact_postal_code').val(),
+                'notes': $('#contact_notes').val(),
+                'city': $('#contact_city').val(),
+                'street_num': $('#contact_street_num').val(),
+                'strret_name': $('#contact_strret_name').val(),
+                'prefix': $('#contact_prefix').val(),
+                'first_name': $('#contact_first_name').val(),
+                'middle_name': $('#contact_middle_name').val(),
+                'last_name': $('#contact_last_name').val(),
+                'suffix': $('#contact_suffix').val(),
+                'owns_cents': $('#contact_owns_cents').val(),
+                'year_of_Founding': $('#contact_year_of_Founding').val(),
+                'primary_industry': $('#contact_primary_industry').val(),
+                'web_address': $('#contact_web_address').val(),
+                'latitude': $('#contact_latitude').val(),
+                'longitude': $('#contact_longitude').val(),
+                'type': $('#contact_type').val(),
+                'facility_size': $('#contact_facility_size').val(),
+                'total_number_of_employees': $('#contact_facility_size').val(),
+                'postion': $('#contact_postion').val(),
+                'sic': $('#contact_sic').val(),
+                'role': $('#contact_role').val(),
+
+                'group_id': group_ids,
+                'user_id': user_ids,
+                'verified': $('#contact_verified').val()
+
+
+            },
+            'pageUrl': pageUrl
+
+        }
+        return formData;
+
+    }
+
+    var u_s = true;
+    $(document).on('click', '.toggle-contact ', function (event) {
+
+        if (u_s === false) {
+
+
+            var color = $(this).css("color");
+            console.log(color);
+            if (color === 'rgb(76, 175, 80)') {
+
+                var formData = getContactInputs();
+                showFormSend(formData);
+            }
+            $(this).css({
+                color: '#fff'
+
+            });
+            u_s = true
 
         } else {
 
+            $(this).css({
+                color: '#4caf50'
+            });
+            $(this).text('Save Contact');
+
+
+            u_s = false
+
         }
 
-   }
-});
-
-var moveToNext = function(){
-   $(formArray[wizIndex]).trigger( "click" );
-  if (formArray[wizIndex] === 'a[href="#account"]' ) {
-     $('#contacts_suffix').focus();
-   } else if (formArray[wizIndex] === 'a[href="#address"]' ) {
-       $('#contact_address').focus();
-   }
-    if (formArray[wizIndex] === 'a[href="#group"]' ) {
-        wizIndex = 1;
-
-       $('.b-finsh').show();
-
-     return true;
-   }
-  wizIndex++
-}
-
-
-$(document).keypress(function(e) {
-
-    if(e.which == 13) {
-
-       if (moveToNext() === true ){
-        $(document).keypress(function(e) {
-
-    if(e.which == 13) {
-
-        // var formData = getContactInputs();
-
-        $('.b-finsh').trigger( "click" );
-
-
-          // .parents('form').eq(0).submit();
-
-
-         }
-});
-        }
-    }
-});
-
-
-
-
-var getContactInputs = function(){
-   var user_ids = []
-
-        $('.users-for-new-group').each(function(i) {
-          if ($(this).is(':checked') &&  $(this).val() !== "") {
-            user_ids[i] = $(this).val();
-          }
-        });
-          var group_ids = []
-
-        $('.groups-for-new-group').each(function(i) {
-           if ($(this).is(':checked') &&  $(this).val() !== ""){
-            group_ids[i] = $(this).val();
-          }
-        });
-  var formData = { contact: {
-            'id'                :   $('#hidden_update').val(),
-            'name'              :   $('#contact_name').val(),
-            'email'             :   $('#contact_email').val(),
-            'company'           :   $('#contact_company').val(),
-             'address'          :   $('#contact_address').val(),
-            'cell'              :   $('#contact_cell').val(),
-            'county'            :   $('#contact_county').val(),
-             'state'            :   $('#contact_state').val(),
-            'country'           :   $('#contact_county').val(),
-            'postal_code'       :   $('#contact_postal_code').val(),
-             'notes'            :   $('#contact_notes').val(),
-            'city'              :   $('#contact_city').val(),
-            'street_num'        :   $('#contact_street_num').val(),
-             'strret_name'      :   $('#contact_strret_name').val(),
-            'prefix'            :   $('#contact_prefix').val(),
-            'first_name'        :   $('#contact_first_name').val(),
-             'middle_name'      :   $('#contact_middle_name').val(),
-            'last_name'         :   $('#contact_last_name').val(),
-            'suffix'            :   $('#contact_suffix').val(),
-             'owns_cents'       :   $('#contact_owns_cents').val(),
-            'year_of_Founding'  :   $('#contact_year_of_Founding').val(),
-            'primary_industry'  :   $('#contact_primary_industry').val(),
-             'web_address'      :   $('#contact_web_address').val(),
-            'latitude'          :   $('#contact_latitude').val(),
-            'longitude'         :   $('#contact_longitude').val(),
-            'type'              :   $('#contact_type').val(),
-            'facility_size'     :   $('#contact_facility_size').val(),
-            'total_number_of_employees' :   $('#contact_facility_size').val(),
-            'postion'           :   $('#contact_postion').val(),
-            'sic'               :   $('#contact_sic').val(),
-            'role'              :   $('#contact_role').val(),
-
-           'group_id'           :     group_ids,
-            'user_id'           :  user_ids,
-            'verified'          :   $('#contact_verified').val()
-
-
-
-        },
-           'pageUrl'              :   pageUrl
-
-      }
-      return formData;
-
-}
-
-  var u_s = true;
- $(document).on('click', '.toggle-contact ', function(event) {
-
-  if (u_s === false) {
-
-
-
-    var color = $(this).css("color");
-    console.log(color);
-    if (color === 'rgb(76, 175, 80)'){
-
-     var formData = getContactInputs();
-     showFormSend(formData);
-     }
-       $(this).css({
-      color: '#fff'
-
     });
-      u_s = true
 
-  }else {
-
-    $(this).css({
-      color: '#4caf50'
-    });
-    $(this).text('Save Contact');
-
-
-      u_s = false
-
-  }
-
-});
-
-var createFormSend = function(data){
-  var url =  "/contacts/";
- $.ajax({
+    var createFormSend = function (data) {
+        var url = "/contacts/";
+        $.ajax({
             url: url,
             method: "post",
             data: data,
-            success: function(contact) {
-           clsoeWiz();
-                 $.notify({
-                        title: "New Contact Added:",
-                        message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
-                    });
-
+            success: function (contact) {
+                clsoeWiz();
+                $.notify({
+                    title: "New Contact Added:",
+                    message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
+                });
 
 
             },
-            error: function(err) {
+            error: function (err) {
 
                 var errors = err.responseJSON;
                 var error = errors.join(", ");
@@ -402,19 +388,19 @@ var createFormSend = function(data){
         })
 
 
-}
+    }
 
-var showFormSend = function(data){
-  var url =  "/contacts/"+$('#contact_id_hidden').val()+"/";
-   data.page = pageParams;
- $.ajax({
+    var showFormSend = function (data) {
+        var url = "/contacts/" + $('#contact_id_hidden').val() + "/";
+        data.page = pageParams;
+        $.ajax({
             url: url,
             method: "patch",
             data: data,
-            success: function(contact) {
-              $.getScript(pageUrl);
+            success: function (contact) {
+                $.getScript(pageUrl);
             },
-            error: function(err) {
+            error: function (err) {
 
                 var errors = err.responseJSON;
                 var error = errors.join(", ");
@@ -433,75 +419,72 @@ var showFormSend = function(data){
         })
 
 
-}
+    }
 
 
-
-$('body').on('click', '#pick-users-csv', function(event) {
-event.preventDefault();
+    $('body').on('click', '#pick-users-csv', function (event) {
+        event.preventDefault();
         var user_ids = []
 
-        $('.users-for-new-group').each(function(i) {
+        $('.users-for-new-group').each(function (i) {
             user_ids[i] = $(this).val();
         });
-});
-
-
-  //sort contact sub group
-var groupGetId = '';
-var toolTipLinks = []
-$(document).on('click', '.get-group', function() {
-  $('.custom-tip').tooltip('update');
-     groupGetId = $(this).find('.get-group-id').val();
-      if (typeof toolTipLinks[0] !== 'undefined' && toolTipLinks[0] !== null) {
-      var inputStr = "input[href$='"+toolTipLinks[0]+"']";
-      $(inputStr).tooltip('hide');
-       toolTipLinks[0] = this.href;
-
-     } else {
-       toolTipLinks[0] = this.href;
-          }
-   });
-
-
-
-
-  $(document).on('click', '.send-county', function() {
-
-     var formData = {
-            'group_id'              :   groupGetId ,
-            'county'             :   $(this).text(),
-          }
-
-    $.ajax({
-        type: 'get',
-        url: 'contacts',
-        data: formData
-
     });
-  })
-  var dataTable = $('.data-table').DataTable();
-  var lastUrl = ''
-  document.addEventListener("turbolinks:before-cache", function() {
-  dataTable.destroy();
-});
 
-var contact_ids_prop_i  = 0;
-var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];
 
-var contact_class_prop = ['.contact1','.contact2','.contact3','.contact4','.contact5','.contact6','.contact7','.contact8','.contact9','.contact10'];
-var contact_ids_prop = [];
+    //sort contact sub group
+    var groupGetId = '';
+    var toolTipLinks = []
+    $(document).on('click', '.get-group', function () {
+        $('.custom-tip').tooltip('update');
+        groupGetId = $(this).find('.get-group-id').val();
+        if (typeof toolTipLinks[0] !== 'undefined' && toolTipLinks[0] !== null) {
+            var inputStr = "input[href$='" + toolTipLinks[0] + "']";
+            $(inputStr).tooltip('hide');
+            toolTipLinks[0] = this.href;
 
-$('.get-contacts').autocomplete({
+        } else {
+            toolTipLinks[0] = this.href;
+        }
+    });
+
+
+    $(document).on('click', '.send-county', function () {
+
+        var formData = {
+            'group_id': groupGetId,
+            'county': $(this).text(),
+        }
+
+        $.ajax({
+            type: 'get',
+            url: 'contacts',
+            data: formData
+
+        });
+    })
+    var dataTable = $('.data-table').DataTable();
+    var lastUrl = ''
+    document.addEventListener("turbolinks:before-cache", function () {
+        dataTable.destroy();
+    });
+
+    var contact_ids_prop_i = 0;
+    var contact_class_p_name = ['.c1', '.c2', '.c3', '.c4', '.c5', '.c6', '.c7', '.c8', '.c9', '.c10'];
+
+    var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
+    var contact_ids_prop = [];
+
+    $('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
-        select: function(event, ui) {
-           contact_ids_prop[contact_ids_prop.length] = ui.item.id
-           $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
+        select: function (event, ui) {
+            contact_ids_prop[contact_ids_prop.length] = ui.item.id
+            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
 
 
-           $(contact_class_p_name[contact_ids_prop_i]).html( ui.item.value);
-           contact_ids_prop_i ++;
+            $(contact_class_p_name[contact_ids_prop_i]).html(ui.item.value);
+            contact_ids_prop_i++;
         }
     });
 
@@ -509,61 +492,67 @@ $('.get-contacts').autocomplete({
     $('#query').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
-        select: function(event, ui) {
+        select: function (event, ui) {
             $('#query').val(ui.item.value);
-            var uri = '/contacts/'+ui.item.id.toString()+'/';
+            var uri = '/contacts/' + ui.item.id.toString() + '/';
 
-             getProfile(uri);
+            getProfile(uri);
         }
     });
-var getProfile = function(uri){
-$.getScript(uri);
-}
-
-var keyUpArray = 0
-$("#query").keyup(function(){
-   keyUpArray++
-   if (keyUpArray > 1) {
-    $('#send-search').trigger( "click" );
-    keyUpArray = 0
+    var getProfile = function (uri) {
+        $.getScript(uri);
     }
-});
-$("#r-search").keyup(function(){
-   keyUpArray++
-   if (keyUpArray > 1) {
-    $('#send-search-r').trigger( "click" );
-    keyUpArray = 0
-    }
-});
 
- $('body').on('click', '.save-new-group', function(event) {
+    var keyUpArray = 0
+    $("#query").keyup(function () {
+        keyUpArray++
+        if (keyUpArray > 1) {
+            $('#send-search').trigger("click");
+            keyUpArray = 0
+        }
+    });
+    $("#r-search").keyup(function () {
+        keyUpArray++
+        if (keyUpArray > 1) {
+            $('#send-search-r').trigger("click");
+            keyUpArray = 0
+        }
+    });
+
+    $('body').on('click', '.save-new-group', function (event) {
         console.log('button clicked')
         var inputs = document.querySelectorAll('ul input[type=checkbox]');
         var user_ids = []
         var i = 0;
 
-        $('.users-for-new-group').each(function(i) {
+        $('.users-for-new-group').each(function (i) {
             user_ids[i] = $(this).val();
         });
 
 
         var newGroup = $('input[name=new_group').val();
         console.log(newGroup);
-        if ( newGroup === undefined || newGroup === '') {
-           console.log(newGroup + "is in the block");
-          newGroup = $('.g-name').val();
+        if (newGroup === undefined || newGroup === '') {
+            console.log(newGroup + "is in the block");
+            newGroup = $('.g-name').val();
         }
         event.preventDefault();
         $.ajax({
             url: "/groups",
             method: "post",
-            data: {group: { name: newGroup, user_ids: user_ids }},
-            success: function(group) {
+            data: {
+                group: {
+                    name: newGroup,
+                    user_ids: user_ids
+                }
+            },
+            success: function (group) {
                 console.log(group);
                 if (group.id != null) {
                     var newOption = $('<option selected="true" value="' + group.id.toString() + '">' + group.name + '</option></select>');
-                   if ( $(' p .text-danger'))
-                    {$(' p .text-danger').detach();}
+                    if ($(' p .text-danger')) {
+                        $(' p .text-danger').detach();
+                    }
                     $('#new_group').addClass('has-success')
 
 
@@ -577,7 +566,7 @@ $("#r-search").keyup(function(){
                     $('input[name=new_group').val("");
                 }
             },
-            error: function(err) {
+            error: function (err) {
 
                 var errors = err.responseJSON;
                 var error = errors.join(", ");
@@ -600,9 +589,7 @@ $("#r-search").keyup(function(){
 });
 
 
-
-
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
     /*! =========================================================
      *
      * Material Dashboard PRO - V1.2.1
@@ -637,7 +624,7 @@ $(document).on('turbolinks:load', function() {
      *
      * ========================================================= */
 
-    (function() {
+    (function () {
         isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
         if (isWindows && !$('body').hasClass('sidebar-mini')) {
@@ -671,7 +658,7 @@ $(document).on('turbolinks:load', function() {
         durations2 = 500;
 
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $('body').bootstrapMaterialDesign();
 
@@ -714,20 +701,20 @@ $(document).on('turbolinks:load', function() {
             "optionClass": ""
         });
 
-        $('.form-control').on("focus", function() {
+        $('.form-control').on("focus", function () {
             $(this).parent('.input-group').addClass("input-group-focus");
-        }).on("blur", function() {
+        }).on("blur", function () {
             $(this).parent(".input-group").removeClass("input-group-focus");
         });
 
 
         if (breakCards == true) {
             // We break the cards headers if there is too much stress on them :-)
-            $('[data-header-animation="true"]').each(function() {
+            $('[data-header-animation="true"]').each(function () {
                 var $fix_button = $(this)
                 var $card = $(this).parent('.card');
 
-                $card.find('.fix-broken-card').click(function() {
+                $card.find('.fix-broken-card').click(function () {
                     console.log(this);
                     var $header = $(this).parent().parent().siblings('.card-header, .card-header-image');
 
@@ -735,12 +722,12 @@ $(document).on('turbolinks:load', function() {
 
                     $card.attr('data-count', 0);
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $header.removeClass('fadeInDown animate');
                     }, 480);
                 });
 
-                $card.mouseenter(function() {
+                $card.mouseenter(function () {
                     var $this = $(this);
                     hover_count = parseInt($this.attr('data-count'), 10) + 1 || 0;
                     $this.attr("data-count", hover_count);
@@ -753,7 +740,7 @@ $(document).on('turbolinks:load', function() {
         }
 
         // remove class has-error for checkbox validation
-        $('input[type="checkbox"][required="true"], input[type="radio"][required="true"]').on('click', function() {
+        $('input[type="checkbox"][required="true"], input[type="radio"][required="true"]').on('click', function () {
             if ($(this).hasClass('error')) {
                 $(this).closest('div').removeClass('has-error');
             }
@@ -761,20 +748,20 @@ $(document).on('turbolinks:load', function() {
 
     });
 
-    $(document).on('click', '.navbar-toggler', function() {
+    $(document).on('click', '.navbar-toggler', function () {
         $toggle = $(this);
 
         if (mobile_menu_visible == 1) {
             $('html').removeClass('nav-open');
 
             $('.close-layer').remove();
-            setTimeout(function() {
+            setTimeout(function () {
                 $toggle.removeClass('toggled');
             }, 400);
 
             mobile_menu_visible = 0;
         } else {
-            setTimeout(function() {
+            setTimeout(function () {
                 $toggle.addClass('toggled');
             }, 430);
 
@@ -787,17 +774,17 @@ $(document).on('turbolinks:load', function() {
                 $layer.appendTo(".wrapper-full-page");
             }
 
-            setTimeout(function() {
+            setTimeout(function () {
                 $layer.addClass('visible');
             }, 100);
 
-            $layer.click(function() {
+            $layer.click(function () {
                 $('html').removeClass('nav-open');
                 mobile_menu_visible = 0;
 
                 $layer.removeClass('visible');
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $layer.remove();
                     $toggle.removeClass('toggled');
 
@@ -812,13 +799,13 @@ $(document).on('turbolinks:load', function() {
     });
 
     // activate collapse right menu when the windows is resized
-    $(window).resize(function() {
+    $(window).resize(function () {
         md.initSidebarsCheck();
 
         // reset the seq for charts drawing animations
         seq = seq2 = 0;
 
-        setTimeout(function() {
+        setTimeout(function () {
             demo.initDashboardPageCharts();
         }, 500);
     });
@@ -830,7 +817,7 @@ $(document).on('turbolinks:load', function() {
             disabled_collapse_init: 0,
         },
 
-        checkSidebarImage: function() {
+        checkSidebarImage: function () {
             $sidebar = $('.sidebar');
             image_src = $sidebar.data('image');
 
@@ -840,7 +827,7 @@ $(document).on('turbolinks:load', function() {
             }
         },
 
-        initFormExtendedDatetimepickers: function() {
+        initFormExtendedDatetimepickers: function () {
             $('.datetimepicker').datetimepicker({
                 icons: {
                     time: "fa fa-clock-o",
@@ -889,7 +876,7 @@ $(document).on('turbolinks:load', function() {
         },
 
 
-        initSliders: function() {
+        initSliders: function () {
             // Sliders for demo purpose
             var slider = document.getElementById('sliderRegular');
 
@@ -914,7 +901,7 @@ $(document).on('turbolinks:load', function() {
             });
         },
 
-        initSidebarsCheck: function() {
+        initSidebarsCheck: function () {
             if ($(window).width() <= 991) {
                 if ($sidebar.length != 0) {
                     md.initRightMenu();
@@ -922,9 +909,9 @@ $(document).on('turbolinks:load', function() {
             }
         },
 
-        initMinimizeSidebar: function() {
+        initMinimizeSidebar: function () {
 
-            $('#minimizeSidebar').click(function() {
+            $('#minimizeSidebar').click(function () {
                 var $btn = $(this);
 
                 if (md.misc.sidebar_mini_active == true) {
@@ -936,18 +923,18 @@ $(document).on('turbolinks:load', function() {
                 }
 
                 // we simulate the window Resize so the charts will get updated in realtime.
-                var simulateWindowResize = setInterval(function() {
+                var simulateWindowResize = setInterval(function () {
                     window.dispatchEvent(new Event('resize'));
                 }, 180);
 
                 // we stop the simulation of Window Resize after the animations are completed
-                setTimeout(function() {
+                setTimeout(function () {
                     clearInterval(simulateWindowResize);
                 }, 1000);
             });
         },
 
-        checkScrollForTransparentNavbar: debounce(function() {
+        checkScrollForTransparentNavbar: debounce(function () {
             if ($(document).scrollTop() > 260) {
                 if (transparent) {
                     transparent = false;
@@ -962,7 +949,7 @@ $(document).on('turbolinks:load', function() {
         }, 17),
 
 
-        initRightMenu: debounce(function() {
+        initRightMenu: debounce(function () {
             $sidebar_wrapper = $('.sidebar-wrapper');
 
             if (!mobile_menu_initialized) {
@@ -984,7 +971,7 @@ $(document).on('turbolinks:load', function() {
                 $nav_content.insertBefore($sidebar_nav);
                 $navbar_form.insertBefore($nav_content);
 
-                $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
+                $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function (event) {
                     event.stopPropagation();
 
                 });
@@ -1005,41 +992,41 @@ $(document).on('turbolinks:load', function() {
         }, 200),
 
 
-        // initBootstrapNavbarMenu: debounce(function(){
-        //
-        //     if(!bootstrap_nav_initialized){
-        //         $navbar = $('nav').find('.navbar-collapse').first().clone(true);
-        //
-        //         nav_content = '';
-        //         mobile_menu_content = '';
-        //
-        //         //add the content from the regular header to the mobile menu
-        //         $navbar.children('ul').each(function(){
-        //             content_buff = $(this).html();
-        //             nav_content = nav_content + content_buff;
-        //         });
-        //
-        //         nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
-        //
-        //         $navbar.html(nav_content);
-        //         $navbar.addClass('off-canvas-sidebar');
-        //
-        //         // append it to the body, so it will come from the right side of the screen
-        //         $('body').append($navbar);
-        //
-        //         $toggle = $('.navbar-toggle');
-        //
-        //         $navbar.find('a').removeClass('btn btn-round btn-default');
-        //         $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
-        //         $navbar.find('button').addClass('btn-simple btn-block');
-        //
-        //         bootstrap_nav_initialized = true;
-        //     }
-        // }, 500),
+        initBootstrapNavbarMenu: debounce(function(){
 
-        startAnimationForLineChart: function(chart) {
+            if(!bootstrap_nav_initialized){
+                $navbar = $('nav').find('.navbar-collapse').first().clone(true);
 
-            chart.on('draw', function(data) {
+                nav_content = '';
+                mobile_menu_content = '';
+
+                //add the content from the regular header to the mobile menu
+                $navbar.children('ul').each(function(){
+                    content_buff = $(this).html();
+                    nav_content = nav_content + content_buff;
+                });
+
+                nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
+
+                $navbar.html(nav_content);
+                $navbar.addClass('off-canvas-sidebar');
+
+                // append it to the body, so it will come from the right side of the screen
+                $('body').append($navbar);
+
+                $toggle = $('.navbar-toggle');
+
+                $navbar.find('a').removeClass('btn btn-round btn-default');
+                $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
+                $navbar.find('button').addClass('btn-simple btn-block');
+
+                bootstrap_nav_initialized = true;
+            }
+        }, 500),
+
+        startAnimationForLineChart: function (chart) {
+
+            chart.on('draw', function (data) {
                 if (data.type === 'line' || data.type === 'area') {
                     data.element.animate({
                         d: {
@@ -1066,9 +1053,9 @@ $(document).on('turbolinks:load', function() {
 
             seq = 0;
         },
-        startAnimationForBarChart: function(chart) {
+        startAnimationForBarChart: function (chart) {
 
-            chart.on('draw', function(data) {
+            chart.on('draw', function (data) {
                 if (data.type === 'bar') {
                     seq2++;
                     data.element.animate({
@@ -1095,18 +1082,18 @@ $(document).on('turbolinks:load', function() {
 
     function debounce(func, wait, immediate) {
         var timeout;
-        return function() {
+        return function () {
             var context = this,
                 args = arguments;
             clearTimeout(timeout);
-            timeout = setTimeout(function() {
+            timeout = setTimeout(function () {
                 timeout = null;
                 if (!immediate) func.apply(context, args);
             }, wait);
             if (immediate && !timeout) func.apply(context, args);
         };
     };
-    $().ready(function() {
+    $().ready(function () {
         $sidebar = $('.sidebar');
         $sidebar_img_container = $sidebar.find('.sidebar-background');
 
@@ -1125,7 +1112,7 @@ $(document).on('turbolinks:load', function() {
 
         }
 
-        $('.fixed-plugin a').click(function(event) {
+        $('.fixed-plugin a').click(function (event) {
             // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
             if ($(this).hasClass('switch-trigger')) {
                 if (event.stopPropagation) {
@@ -1136,7 +1123,7 @@ $(document).on('turbolinks:load', function() {
             }
         });
 
-        $('.fixed-plugin .active-color span').click(function() {
+        $('.fixed-plugin .active-color span').click(function () {
             $full_page_background = $('.full-page-background');
 
             $(this).siblings().removeClass('active');
@@ -1157,7 +1144,7 @@ $(document).on('turbolinks:load', function() {
             }
         });
 
-        $('.fixed-plugin .background-color span').click(function() {
+        $('.fixed-plugin .background-color span').click(function () {
             $(this).siblings().removeClass('active');
             $(this).addClass('active');
 
@@ -1168,7 +1155,7 @@ $(document).on('turbolinks:load', function() {
             }
         });
 
-        $('.fixed-plugin .img-holder').click(function() {
+        $('.fixed-plugin .img-holder').click(function () {
             $full_page_background = $('.full-page-background');
 
             $(this).parent('li').siblings().removeClass('active');
@@ -1178,7 +1165,7 @@ $(document).on('turbolinks:load', function() {
             var new_image = $(this).find("img").attr('src');
 
             if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-                $sidebar_img_container.fadeOut('fast', function() {
+                $sidebar_img_container.fadeOut('fast', function () {
                     $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
                     $sidebar_img_container.fadeIn('fast');
                 });
@@ -1187,7 +1174,7 @@ $(document).on('turbolinks:load', function() {
             if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
                 var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
 
-                $full_page_background.fadeOut('fast', function() {
+                $full_page_background.fadeOut('fast', function () {
                     $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
                     $full_page_background.fadeIn('fast');
                 });
@@ -1206,7 +1193,7 @@ $(document).on('turbolinks:load', function() {
             }
         });
 
-        $('.switch-sidebar-image input').change(function() {
+        $('.switch-sidebar-image input').change(function () {
             $full_page_background = $('.full-page-background');
 
             $input = $(this);
@@ -1238,7 +1225,7 @@ $(document).on('turbolinks:load', function() {
             }
         });
 
-        $('.switch-sidebar-mini input').change(function() {
+        $('.switch-sidebar-mini input').change(function () {
             $body = $('body');
 
             $input = $(this);
@@ -1253,7 +1240,7 @@ $(document).on('turbolinks:load', function() {
 
                 $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
 
-                setTimeout(function() {
+                setTimeout(function () {
                     $('body').addClass('sidebar-mini');
 
                     md.misc.sidebar_mini_active = true;
@@ -1261,12 +1248,12 @@ $(document).on('turbolinks:load', function() {
             }
 
             // we simulate the window Resize so the charts will get updated in realtime.
-            var simulateWindowResize = setInterval(function() {
+            var simulateWindowResize = setInterval(function () {
                 window.dispatchEvent(new Event('resize'));
             }, 180);
 
             // we stop the simulation of Window Resize after the animations are completed
-            setTimeout(function() {
+            setTimeout(function () {
                 clearInterval(simulateWindowResize);
             }, 1000);
 
@@ -1277,7 +1264,7 @@ $(document).on('turbolinks:load', function() {
 
     var demo = {
 
-        initContactUsMap: function() {
+        initContactUsMap: function () {
             var myLatlng = new google.maps.LatLng(44.433530, 26.093928);
             var mapOptions = {
                 zoom: 14,
@@ -1378,7 +1365,7 @@ $(document).on('turbolinks:load', function() {
             marker.setMap(map);
         },
 
-        initContactUs2Map: function() {
+        initContactUs2Map: function () {
             var lat = 44.433530;
             var long = 26.093928;
 
@@ -1486,8 +1473,8 @@ $(document).on('turbolinks:load', function() {
             marker.setMap(map);
         },
 
-        presentationAnimations: function() {
-            $(function() {
+        presentationAnimations: function () {
+            $(function () {
 
                 var $window = $(window),
                     isTouch = Modernizr.touch;
@@ -1500,7 +1487,7 @@ $(document).on('turbolinks:load', function() {
 
                 function revealAnimation() {
                     // Showed...
-                    $(".add-animation:not(.animated)").each(function() {
+                    $(".add-animation:not(.animated)").each(function () {
                         var $this = $(this),
                             offsetTop = $this.offset().top,
                             scrolled = $window.scrollTop(),
@@ -1510,7 +1497,7 @@ $(document).on('turbolinks:load', function() {
                         }
                     });
                     // Hidden...
-                    $(".add-animation.animated").each(function(index) {
+                    $(".add-animation.animated").each(function (index) {
                         var $this = $(this),
                             offsetTop = $this.offset().top;
                         scrolled = $window.scrollTop(),
@@ -1529,8 +1516,8 @@ $(document).on('turbolinks:load', function() {
         },
 
 
-        initPickColor: function() {
-            $('.pick-class-label').click(function() {
+        initPickColor: function () {
+            $('.pick-class-label').click(function () {
                 var new_class = $(this).attr('new-class');
                 var old_class = $('#display-buttons').attr('data-class');
                 var display_div = $('#display-buttons');
@@ -1543,7 +1530,7 @@ $(document).on('turbolinks:load', function() {
             });
         },
 
-        checkFullPageBackgroundImage: function() {
+        checkFullPageBackgroundImage: function () {
             $page = $('.full-page');
             image_src = $page.data('image');
 
@@ -1553,7 +1540,7 @@ $(document).on('turbolinks:load', function() {
             }
         },
 
-        initMaterialWizard: function() {
+        initMaterialWizard: function () {
             // Code for the Validator
             var $validator = $('.card-wizard form').validate({
                 rules: {
@@ -1571,7 +1558,7 @@ $(document).on('turbolinks:load', function() {
                     }
                 },
 
-                errorPlacement: function(error, element) {
+                errorPlacement: function (error, element) {
                     $(element).parent('div').addClass('has-danger');
                 }
             });
@@ -1582,7 +1569,7 @@ $(document).on('turbolinks:load', function() {
                 'nextSelector': '.btn-next',
                 'previousSelector': '.btn-previous',
 
-                onNext: function(tab, navigation, index) {
+                onNext: function (tab, navigation, index) {
                     var $valid = $('.card-wizard form').valid();
                     if (!$valid) {
                         $validator.focusInvalid();
@@ -1590,7 +1577,7 @@ $(document).on('turbolinks:load', function() {
                     }
                 },
 
-                onInit: function(tab, navigation, index) {
+                onInit: function (tab, navigation, index) {
                     //check number of tabs and fill the entire row
                     var $total = navigation.find('li').length;
                     var $wizard = navigation.closest('.card-wizard');
@@ -1604,7 +1591,7 @@ $(document).on('turbolinks:load', function() {
                     $('.moving-tab').css('transition', 'transform 0s');
                 },
 
-                onTabClick: function(tab, navigation, index) {
+                onTabClick: function (tab, navigation, index) {
                     var $valid = $('.card-wizard form').valid();
 
                     if (!$valid) {
@@ -1614,7 +1601,7 @@ $(document).on('turbolinks:load', function() {
                     }
                 },
 
-                onTabShow: function(tab, navigation, index) {
+                onTabShow: function (tab, navigation, index) {
                     var $total = navigation.find('li').length;
                     var $current = index + 1;
 
@@ -1631,7 +1618,7 @@ $(document).on('turbolinks:load', function() {
 
                     button_text = navigation.find('li:nth-child(' + $current + ') a').html();
 
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('.moving-tab').text(button_text);
                     }, 150);
 
@@ -1656,11 +1643,11 @@ $(document).on('turbolinks:load', function() {
 
 
             // Prepare the preview for profile picture
-            $("#wizard-picture").change(function() {
+            $("#wizard-picture").change(function () {
                 readURL(this);
             });
 
-            $('[data-toggle="wizard-radio"]').click(function() {
+            $('[data-toggle="wizard-radio"]').click(function () {
                 wizard = $(this).closest('.card-wizard');
                 wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
                 $(this).addClass('active');
@@ -1668,7 +1655,7 @@ $(document).on('turbolinks:load', function() {
                 $(this).find('[type="radio"]').attr('checked', 'true');
             });
 
-            $('[data-toggle="wizard-checkbox"]').click(function() {
+            $('[data-toggle="wizard-checkbox"]').click(function () {
                 if ($(this).hasClass('active')) {
                     $(this).removeClass('active');
                     $(this).find('[type="checkbox"]').removeAttr('checked');
@@ -1686,15 +1673,15 @@ $(document).on('turbolinks:load', function() {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
 
-                    reader.onload = function(e) {
+                    reader.onload = function (e) {
                         $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
                     }
                     reader.readAsDataURL(input.files[0]);
                 }
             }
 
-            $(window).resize(function() {
-                $('.card-wizard').each(function() {
+            $(window).resize(function () {
+                $('.card-wizard').each(function () {
                     $wizard = $(this);
 
                     index = $wizard.bootstrapWizard('currentIndex');
@@ -1751,7 +1738,7 @@ $(document).on('turbolinks:load', function() {
         },
 
 
-        initDocumentationCharts: function() {
+        initDocumentationCharts: function () {
             if ($('#dailySalesChart').length != 0 && $('#websiteViewsChart').length != 0) {
                 /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
@@ -1782,7 +1769,7 @@ $(document).on('turbolinks:load', function() {
             }
         },
 
-        initCharts: function() {
+        initCharts: function () {
             if ($('#roundedLineChart').length != 0 && $('#straightLinesChart').length != 0 && $('#colouredRoundedLineChart').length != 0 && $('#colouredBarsChart').length != 0 && $('#simpleBarChart').length != 0 && $('#multipleBarsChart').length != 0) {
                 /* ----------==========    Rounded Line Chart initialization    ==========---------- */
 
@@ -1916,7 +1903,6 @@ $(document).on('turbolinks:load', function() {
                 md.startAnimationForLineChart(colouredBarsChart);
 
 
-
                 /*  **************** Public Preferences - Pie Chart ******************** */
 
                 var dataPreferences = {
@@ -1950,7 +1936,7 @@ $(document).on('turbolinks:load', function() {
                     ['screen and (max-width: 640px)', {
                         seriesBarDistance: 5,
                         axisX: {
-                            labelInterpolationFnc: function(value) {
+                            labelInterpolationFnc: function (value) {
                                 return value[0];
                             }
                         }
@@ -1983,7 +1969,7 @@ $(document).on('turbolinks:load', function() {
                     ['screen and (max-width: 640px)', {
                         seriesBarDistance: 5,
                         axisX: {
-                            labelInterpolationFnc: function(value) {
+                            labelInterpolationFnc: function (value) {
                                 return value[0];
                             }
                         }
@@ -1998,7 +1984,7 @@ $(document).on('turbolinks:load', function() {
 
         },
 
-        initDashboardPageCharts: function() {
+        initDashboardPageCharts: function () {
 
             if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
                 /* ----------==========     Daily Sales Chart initialization    ==========---------- */
@@ -2027,7 +2013,6 @@ $(document).on('turbolinks:load', function() {
                 var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
 
                 md.startAnimationForLineChart(dailySalesChart);
-
 
 
                 /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
@@ -2085,7 +2070,7 @@ $(document).on('turbolinks:load', function() {
                     ['screen and (max-width: 640px)', {
                         seriesBarDistance: 5,
                         axisX: {
-                            labelInterpolationFnc: function(value) {
+                            labelInterpolationFnc: function (value) {
                                 return value[0];
                             }
                         }
@@ -2098,7 +2083,7 @@ $(document).on('turbolinks:load', function() {
             }
         },
 
-        showSwal: function(type) {
+        showSwal: function (type) {
             if (type == 'basic') {
                 swal({
                     title: "Here's a message!",
@@ -2133,7 +2118,7 @@ $(document).on('turbolinks:load', function() {
                     cancelButtonClass: 'btn btn-danger',
                     confirmButtonText: 'Yes, delete it!',
                     buttonsStyling: false
-                }).then(function() {
+                }).then(function () {
                     swal({
                         title: 'Deleted!',
                         text: 'Your file has been deleted.',
@@ -2153,7 +2138,7 @@ $(document).on('turbolinks:load', function() {
                     confirmButtonClass: "btn btn-success",
                     cancelButtonClass: "btn btn-danger",
                     buttonsStyling: false
-                }).then(function() {
+                }).then(function () {
                     swal({
                         title: 'Deleted!',
                         text: 'Your imaginary file has been deleted.',
@@ -2161,7 +2146,7 @@ $(document).on('turbolinks:load', function() {
                         confirmButtonClass: "btn btn-success",
                         buttonsStyling: false
                     }).catch(swal.noop)
-                }, function(dismiss) {
+                }, function (dismiss) {
                     // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
                     if (dismiss === 'cancel') {
                         swal({
@@ -2201,7 +2186,7 @@ $(document).on('turbolinks:load', function() {
                     confirmButtonClass: 'btn btn-success',
                     cancelButtonClass: 'btn btn-danger',
                     buttonsStyling: false
-                }).then(function(result) {
+                }).then(function (result) {
                     swal({
                         type: 'success',
                         html: 'You entered: <strong>' +
@@ -2215,7 +2200,7 @@ $(document).on('turbolinks:load', function() {
             }
         },
 
-        initVectorMap: function() {
+        initVectorMap: function () {
             var mapData = {
                 "AU": 760,
                 "BR": 550,
@@ -2254,7 +2239,7 @@ $(document).on('turbolinks:load', function() {
             });
         },
 
-        initGoogleMaps: function() {
+        initGoogleMaps: function () {
             var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
             var mapOptions = {
                 zoom: 13,
@@ -2358,7 +2343,7 @@ $(document).on('turbolinks:load', function() {
             marker.setMap(map);
         },
 
-        initSmallGoogleMaps: function() {
+        initSmallGoogleMaps: function () {
 
             // Regular Map
             var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
@@ -2484,7 +2469,6 @@ $(document).on('turbolinks:load', function() {
             marker.setMap(map);
 
 
-
             // Satellite Map
             var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
             var mapOptions = {
@@ -2506,7 +2490,7 @@ $(document).on('turbolinks:load', function() {
 
         },
 
-        initFullCalendar: function() {
+        initFullCalendar: function () {
             $calendar = $('#fullCalendar');
 
             today = new Date();
@@ -2515,7 +2499,7 @@ $(document).on('turbolinks:load', function() {
             d = today.getDate();
 
             $calendar.fullCalendar({
-                viewRender: function(view, element) {
+                viewRender: function (view, element) {
                     // We make sure that we activate the perfect scrollbar when the view isn't on Month
                     if (view.name != 'month') {
                         $(element).find('.fc-scroller').perfectScrollbar();
@@ -2532,7 +2516,7 @@ $(document).on('turbolinks:load', function() {
                 views: {
                     month: { // name of view
                         titleFormat: 'MMMM YYYY'
-                            // other view-specific options here
+                        // other view-specific options here
                     },
                     week: {
                         titleFormat: " MMMM D YYYY"
@@ -2542,7 +2526,7 @@ $(document).on('turbolinks:load', function() {
                     }
                 },
 
-                select: function(start, end) {
+                select: function (start, end) {
 
                     // on select we show the Sweet Alert modal with an input
                     swal({
@@ -2554,7 +2538,7 @@ $(document).on('turbolinks:load', function() {
                         confirmButtonClass: 'btn btn-success',
                         cancelButtonClass: 'btn btn-danger',
                         buttonsStyling: false
-                    }).then(function(result) {
+                    }).then(function (result) {
 
                         var eventData;
                         event_title = $('#input-field').val();
@@ -2631,7 +2615,7 @@ $(document).on('turbolinks:load', function() {
             });
         },
 
-        showNotification: function(from, align) {
+        showNotification: function (from, align) {
             type = ['', 'info', 'success', 'warning', 'danger', 'rose', 'primary'];
 
             color = Math.floor((Math.random() * 6) + 1);
@@ -2652,8 +2636,7 @@ $(document).on('turbolinks:load', function() {
 
     }
 
- demo.initMaterialWizard();
-
+    demo.initMaterialWizard();
 
 
 });

@@ -1,4 +1,5 @@
 class DealsController < ApplicationController
+  include DealsHelper
   before_action :find_property, only: [:edit, :update, :destroy, :show]
    def index
     @deals = Deal.all.order(created_at: :desc).page(params[:page])
@@ -44,24 +45,19 @@ class DealsController < ApplicationController
    end
 
  def update
-@deal = Deal.find(params[:id])
-
+  @deal = Deal.find(params[:id])
     @deal.update_attributes(deal_params)
+       if  params['contact_ids']
+            deal_reltionships( @deal)
+       end
        flash[:info] = "Deal Was Updated."
-        params['contact_ids'].each_with_index do |c_id, i|
-          next if c_id.to_i == 0
-         contact = Contact.find(c_id.to_i)
-
-          @Deal.contacts << contact
-         end
        redirect_to deal_path(params[:id])
-
   end
 
    private
 
     def deal_params
-      params.require(:deal).permit(:name, :code, :category, :active, :potential_commission, :contact_ids)
+      params.require(:deal).permit(:name, :code, :category, :active, :lead_id, :user_ids,  :status, :potential_commission, :contact_ids)
     end
     def find_property
       @deal = Deal.find params[:id]
