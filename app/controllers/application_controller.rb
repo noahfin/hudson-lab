@@ -21,16 +21,18 @@ class ApplicationController < ActionController::Base
     if current_user
       @theme = 'default'
       user = User.find(current_user.id) # profile's owner
-     @theme ||= user.theme # overriding default theme to custom one
+      @theme ||= user.theme # overriding default theme to custom one
     end
   end
 
-  def after_sign_in_path_for(resource)
-    stored_location_for(resource) || dashboard_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   stored_location_for(resource) || dashboard_path
+
+  # end
 
     def after_sign_up_path_for(resource)
       after_sign_in_path_for(resource)
+      store_login_time
     end
 
   private
