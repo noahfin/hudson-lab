@@ -50,8 +50,8 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation, :last_seen_at, :account_logins])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation, :last_seen_at, :account_logins])
   end
   def get_groups
     @groups = current_user.groups.order('name ASC').uniq if current_user

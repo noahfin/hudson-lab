@@ -133,35 +133,47 @@
 <div class=" col-md-12   p-4 mdl-color--grey-900">
    <hr>
    <div class="row">
-
       <div class="borderd-list-group  col-md-4 ">
          <h4> User Last Seen With Cookies</h4>
          <div class="list-group">
             <% @users.each do |user| %>
             <%= link_to user_path user, class: "list-group-item pt-4" do %>
             <div class="col-md-12 pt-3">
-
-                  </div>
+            </div>
             <div class="row">
                <div class=" col-md-6" >
-
-               <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
-
+                  <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
                </div>
-                <div class=" col-md-6" >
-               <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_sign_in_at.strftime("%B %e, %Y at %I:%M %p")  if !user.last_sign_in_at.nil? %></span>
-
+               <div class=" col-md-6" >
+                  <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_sign_in_at.strftime("%B %e, %Y at %I:%M %p")  if !user.last_sign_in_at.nil? %></span>
                </div>
             </div>
-
-          <% end %>
+            <% end %>
             <% end %>
          </div>
          <a href="#" class="list-group-item">More login sessions</a>
       </div>
-
       <div class="col-md-4">
-
+         <div class="borderd-list-group  ">
+            <h4>User Last Seen IP address</h4>
+            <div class="list-group">
+               <% @users.each do |user| %>
+               <%= link_to user_path user, class: "list-group-item pt-4" do %>
+               <div class="col-md-12 pt-3">
+               </div>
+               <div class="row">
+                  <div class=" col-md-6" >
+                     <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
+                  </div>
+                  <div class=" col-md-6" >
+                     <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_sign_in_ip  if user.last_sign_in_ip %></span>
+                  </div>
+               </div>
+               <% end %>
+               <% end %>
+            </div>
+            <a href="#" class="list-group-item">More login sessions</a>
+         </div>
       </div>
       <div class="borderd-list-group  col-md-4 ">
          <h4>User's last login stored in the database</h4>
@@ -169,24 +181,44 @@
             <% @users.each do |user| %>
             <%= link_to user_path user, class: "list-group-item pt-4" do %>
             <div class="col-md-12 pt-3">
-
-                  </div>
+            </div>
             <div class="row">
                <div class=" col-md-6" >
-
-               <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
-
+                  <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
                </div>
-                <div class=" col-md-6" >
-               <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_seen_at.strftime("%B %e, %Y at %I:%M %p")  if user.last_seen_at %></span>
-
+               <div class=" col-md-6" >
+                  <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_seen_at.strftime("%B %e, %Y at %I:%M %p")  if user.last_seen_at %></span>
                </div>
             </div>
-
-          <% end %>
+            <% end %>
             <% end %>
          </div>
          <a href="#" class="list-group-item">More login sessions</a>
       </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-12 mb-3">
+      <% @users.each.each_slice(3) do |user| %>
+      <div class="col-md-12 mb-3">
+         <div class="row">
+            <% user.each do |user| %>
+            <div class=" col-md-4">
+               <div class="borderd-list-group  ">
+                  <h4>User's loddged ip address</h4>
+                  <div class="list-group">
+                     <% user.account_logins.each do |account_login| %>
+                     <a href="" title="" class="list-group-item pt-4">
+                     <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
+                     <span class="pull-right mr-0 pr-2 text-info " ><%= account_login.ipAddress if account_login.ipAddress %></span>
+                     </a>
+                     <% end %>
+                  </div>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+      <% end %>
    </div>
 </div>

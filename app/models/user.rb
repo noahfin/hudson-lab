@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id', dependent: :destroy
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id', dependent: :destroy
   has_many :personal_messages, dependent: :destroy
+  has_many :account_logins, dependent: :destroy
   enum role: [:user, :customer, :employee, :agent, :broker, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -21,5 +22,11 @@ class User < ApplicationRecord
   end
 
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :traceable
+
+  Warden::Manager.after_set_user do|record, warden, opts|
+    logger.info("sign in at: #{record.current_sign_in_at}, #{record.current_sign_in_ip}")
+    record.account_logins.create!(ipAddress: record.current_sign_in_ip)
+  end
 end
+
