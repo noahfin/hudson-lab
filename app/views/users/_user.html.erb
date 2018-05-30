@@ -3,10 +3,14 @@
  <%=  user.first_name + ' | view profile' %>
 <% end %>
 </td>
-<td>
+<td class="mt-4 pt-4">
   <%= form_for(user) do |f| %>
-    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker col-md-6' }  )%>
-    <%= f.submit 'Change Role', :class => 'btn btn-info' %>
+
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'custom-select col-md-6 bg-black rounded-0 border-0 text-white', id: 'inputGroupSelectrole' }  )%>
+
+
+
+    <%= f.submit 'Change Role', :class => 'btn btn-outline-info rounded-0' %>
   <% end %>
 </td>
 <td>

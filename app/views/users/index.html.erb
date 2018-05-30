@@ -1,11 +1,11 @@
 <% unless current_user.admin? %>
-<div class="col-md-12 gray-dark">
-   <div class="  gray-dark pt-4 ">
+<div class="col-md-12  mdl-color--grey-900">
+   <div class="   mdl-color--grey-900 pt-4 ">
       <h3 class="text-white ml-3">Users</h3>
-      <div class="row gray-dark">
-         <div class="col-md-12 gray-dark">
-            <div class="column gray-dark">
-               <table class="table gray-dark">
+      <div class="row  mdl-color--grey-900">
+         <div class="col-md-12  mdl-color--grey-900">
+            <div class="column  mdl-color--grey-900">
+               <table class="table  mdl-color--grey-900">
                   <tbody>
                      <% @users.each do |user| %>
                      <tr>
@@ -19,70 +19,68 @@
       </div>
    </div>
 </div>
-<div class="col-md-12 gray-dark">
-   <div class="  gray-dark pt-4  rounded-0">
-      <div class="card-body gray-dark">
-         <div class="row  gray-dark  rounded-0">
+<div class="col-md-12  mdl-color--grey-900">
+   <div class="   mdl-color--grey-900 pt-4  rounded-0">
+      <div class="card-body  mdl-color--grey-900">
+         <div class="row   mdl-color--grey-900  rounded-0">
             <div class="col-9">
                <h4 class="text-white">Give Access to Groups and Contacts for Users</h4>
-               <p class="subtitle margin-bottom-0 text-white">You can also remove access to certain groups</p>
+               <p class=" text-white">You can also remove access to certain groups</p>
             </div>
-
          </div>
       </div>
-
-      <div class="gray-dark pt-4 rounded-0 ">
+      <div class=" mdl-color--grey-900 pt-4 rounded-0 ">
          <div class="table-responsive">
-            <table class="table  gray-dark">
-               <tr>
-                  <th>Select</th>
-                  <th colspan="2" ></th>
-                  <th>Username</th>
-
-                  <th colspan="3" align="right" class="ml-4 pl-4"><span class="ml-4 "></span>Groups</th>
-                   <th colspan="1" align="left"> <th
+            <table class="table   mdl-color--grey-900">
                <tbody>
+                  <tr>
+                     <th>Select</th>
+                     <th colspan="2"></th>
+                     <th>Username</th>
+                     <th colspan="3" align="right" class="ml-4 pl-4"><span class="ml-4 "></span>Groups</th>
+                     <th colspan="2" align="left"> </th>
+                     <th colspan="2" align="left"> </th>
+                  </tr>
                   <% @users.each do |user| %>
                   <tr>
                      <td width="60">
                         <div class="form-check pt-4">
                            <label class="form-check-label">
                            <%= form_with model: user,  url: sharegroups_url, action: "sharegroups", method: 'post', :format=> :js, remote: true, :authenticity_token => true, id: "sharegroup_form"  do |form|%>
-                           <input type="checkbox" class="form-check-input the-selected-user  mt-0 " value=<%="#{user.id}"%> name="user[user_id]">
-                           <span class="form-check-sign pb-4" >
+                           <input type="checkbox" class="form-check-input the-selected-user  mt-0 " value=<%="#{user.id}" %> name="user[user_id]">
+                           <span class="form-check-sign pb-4">
                            <span class="check"></span>
                            </span>
                            </label>
                         </div>
                      </td>
-                     <td colspan="2" ></td>
-
+                     <td colspan="2"></td>
                      <td width="30" class="pl-4">
                         <div class="user mt-3">
                            <%= image_tag small_gravatar_url(user.email), class: 'user-image' %>
-                           <div class="user__name">
-                              <strong><% user.first_name + ' ' + user.last_name %></strong><br>
+                           <div class="">
+                              <strong></strong>
+                              <br>
                            </div>
                         </div>
                      </td>
-
                      <td></td>
-                     <td class="text-white">
+                     <td class="text-white" colspan="3">
                         <% group_ids = [[]] %>
                         <%   Group.all.each_with_index do |group, index| %>
                         <% group_ids.push([group.id.to_s,group.name ])  %>
                         <% end %>
                         <% attr = {prompt: "Select Groups"} %>
                         <p>
-                           <a class="btn bg-black col-md-12" data-toggle="collapse" href=<%="#dropdown#{user.id}"%> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
+                           <a class="btn  bg-black col-md-12" data-toggle="collapse" href=<%="#dropdown#{user.id}" %> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
                            Select Groups to share thier contacts to useres
                            </a>
                         </p>
-                        <div class="collapse" id=<%="dropdown#{user.id}"%>>
-                           <div class="  dark-gray card ">
+                        <div class="collapse" id=<%="dropdown#{user.id}" %>>
+                           <div class="   mdl-color--grey-900 card ">
                               <ul class="list-group">
-                                 <input type="hidden"  value="groups[]" class="groups-hiiden">
-                                 <button type="button" class="btn btn-info select-allgroups pull-right">Select All Groups</button>
+                                 <input type="hidden" value="groups[]" class="groups-hiiden">
+                                 <button type="button" class="btn  mdl-color--grey-900  select-allgroups pull-right">Select All Groups</button>
                                  <% group_ids.each_with_index do |group, index| %>
                                  <% next if group[1].nil? || group[1] == '' %>
                                  <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -103,8 +101,11 @@
                            </div>
                         </div>
                      </td>
-                      <td colspan="2" ></td>
-                     <td>   <input type="hidden" class="option_value" name="option"  value="">  <%= submit_tag "", :class => 'Scomit', :style => "visibility: hidden;" %></td>
+                     <td colspan="2"></td>
+                     <td>
+                        <input type="hidden" class="option_value" name="option" value="">
+                        <%= submit_tag "", :class => 'Scomit', :style => "visibility: hidden;" %>
+                     </td>
                      <% end %>
                   </tr>
                   <% end %>
@@ -112,7 +113,6 @@
             </table>
          </div>
       </div>
-
       <div class="card-body padding-top-10">
          <div class="form-row margin-top-20">
             <div class="col-6 col-lg-3">
@@ -121,11 +121,28 @@
                   <option value="Remove form selected">Remove form selected</option>
                </select>
             </div>
-            <div class="col-6 col-lg-2"><button class="btn btn-info btn-block btn-outline-info">Confirm</button></div>
-            <div class="col-12 col-lg-5">&nbsp;</div>
-            <div class="col-12 col-lg-2"><button type="submit" class="btn btn-outline-info btn-block" id="share-group-2-users">Chnage </button></div>
+            <div class="col-12 col-lg-6">&nbsp;</div>
+            <div class="col-12 col-lg-2">
+               <button type="submit" class="btn btn-outline-info btn-block" id="share-group-2-users">Chnage </button>
+            </div>
          </div>
       </div>
    </div>
 </div>
 <% end %>
+<div class=" col-md-12   mdl-color--grey-900">
+   <div class="row">
+      <div class="borderd-list-group  col-md-4 ">
+         <div class="list-group">
+            <% @users.each do |user| %>
+            <a class="list-group-item" href="#">
+            <span class=""></span>
+            <%= user.first_name + ' ' + user.last_name %>
+            <span class=" ">62.4%</span>
+            </a>
+            <% end %>
+         </div>
+         <a href="#" class="list-group-item">More login sessions</a>
+      </div>
+   </div>
+</div>
