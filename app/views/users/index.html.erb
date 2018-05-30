@@ -130,16 +130,31 @@
    </div>
 </div>
 <% end %>
-<div class=" col-md-12   mdl-color--grey-900">
+<div class=" col-md-12   p-4 mdl-color--grey-900">
+   <hr>
    <div class="row">
+
       <div class="borderd-list-group  col-md-4 ">
+         <h4> User Last Seen At Times</h4>
          <div class="list-group">
             <% @users.each do |user| %>
-            <a class="list-group-item" href="#">
-            <span class=""></span>
-            <%= user.first_name + ' ' + user.last_name %>
-            <span class=" ">62.4%</span>
-            </a>
+            <%= link_to user_path user, class: "list-group-item pt-4" do %>
+            <div class="col-md-12 pt-3">
+
+                  </div>
+            <div class="row">
+               <div class=" col-md-6" >
+
+               <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
+
+               </div>
+                <div class=" col-md-6" >
+               <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_sign_in_at.strftime("%B %e, %Y at %I:%M %p")  if !user.last_sign_in_at.nil? %></span>
+
+               </div>
+            </div>
+
+          <% end %>
             <% end %>
          </div>
          <a href="#" class="list-group-item">More login sessions</a>
