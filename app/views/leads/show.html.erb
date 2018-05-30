@@ -80,15 +80,16 @@
                   <span> <%= @lead.contact.name if  @lead.contact &&  @lead.contact.name %></span>
                      </p>
                   </li>
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3">Notes:</strong>
-                 <span> <%= @lead.notes %> </span>
-                     </p>
-                  </li>
+
                </ul>
             </div>
-      </ul>
+
+                     <h5 class="scondary-size-text">
+                        <strong class="mb-3">Notes: </strong>
+                 <span> <%= @lead.notes %> </span>
+                     </h5>
+
+
      <span class="pl-3"> <%= link_to 'Edit', edit_lead_path(@lead), class: 'pl-4  ml-3 text-info' %> <%= link_to 'Back', leads_path, class: 'pr-4 pull-right text-info mr-4' %> </span>
       </div>
    </div>
