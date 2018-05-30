@@ -1,157 +1,182 @@
 <style type="text/css">
-
-.user-l {
-  padding-right: 6px;
-}
-.user-r {
-  padding-left: 6px;
-}
-.user-l >img,
-.user-r >img {
-  width: 150px;
-}
-.redes >ul li a {
-  width: 42px;
-  margin-left: 5px;
-  margin-right: 5px;
-  text-align: center;
-  border-radius: 10em;
-  border: #EEE 1px solid;
-}
-.redes >ul li span {
-  color: #CCC;
-  font-size: 18px;
-}
-.footer {
-    padding: 16px 0;
-}
-.pro-card {
-    min-height: 400px;
-}
+   .user-l {
+   padding-right: 6px;
+   }
+   .user-r {
+   padding-left: 6px;
+   }
+   .user-l >img,
+   .user-r >img {
+   width: 150px;
+   }
+   .redes >ul li a {
+   width: 42px;
+   margin-left: 5px;
+   margin-right: 5px;
+   text-align: center;
+   border-radius: 10em;
+   border: #EEE 1px solid;
+   }
+   .redes >ul li span {
+   color: #CCC;
+   font-size: 18px;
+   }
+   .footer {
+   padding: 16px 0;
+   }
+   .pro-card {
+   min-height: 450px !important;
+   }
 </style>
-
-  <div class="row">
-<div class="col-sm-6">
-    <div class="card pro-card reounded-0" >
-      <h4 class="card-header bg-dark text-white"><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>
-      <div class="float-right small">
-        <a class="btn btn-raised btn-danger" href="#" title="Ver perfil de Miguel92" data-toggle="tooltip" data-placement="top">
-            <i class="fa fa-user-circle" aria-hidden="true"></i>
-          </a>
-          <a class="btn btn-raised btn-danger" href="#" title="Enviar mensaje">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-          </a>
-          <a class="btn btn-raised btn-danger" href="#" title="Seguir usuario">
-            <i class="fa fa-eye" aria-hidden="true"></i>
-          </a>
-      </div>
-      </h4>
-      <div class="card-body">
-        <div class="row">
-
-        <div class="col-md-8">
-          <div class="image float-left user-l">
-            <img src="http://31.media.tumblr.com/tumblr_lw2lhqjrel1qfmi03o9_r1_500.gif" class="img-thumbnail" alt="avatar">
-          </div>
-          </div>
-          <div class="col-md-4">
-
-
-        <h4 class="card-title"><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %> </h4>
-          <p class="card-text"> Name: <%= @user.first_name if @user.first_name %></p>
-         <p class="card-text"> Email: <%= @user.email if @user.email %></p>
-           </div>
-      </div>
-    </div>
-  </div>
-</div>
-            <!--Section: Basic Info-->
-
-
-            <!--Section: Achievements-->
-
-
-            <!--Section: Experience-->
-
-        <div class="col-md-4">
-                      <!--Section: Experience-->
-            <section class="card bg-dark mb-4 rounded-0">
-            <div class="card-body">
-
-                <h5 class=" text-center">
-                <strong><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>'s Contributions </strong>
-                </h5>
-
-                <hr class="my-3">
-
-                <ul class="list-unstyled pt-4">
-                <li>
-                    <p>First Name
-                    <span class="badge badge-secondary pull-right"><%= @user.first_name %></span>
-                    </p>
-                </li>
-                <hr>
-                <li>
-                    <p>Last Name
-                    <span class="badge badge-secondary  pull-right"><%= @user.last_name %></span>
-                    </p>
-                </li>
-                <hr>
-                <li>
-                    <p>Email
-                    <span class="badge badge-secondary  pull-right"><%= @user.email %></span>
-                    </p>
-                </li>
-                <li>
-                    <p>Street Name
-                    <span class="badge badge-secondary  pull-right"><%= @user.street_name %></span>
-                    </p>
-                </li>
-                <li>
-                    <p>Street Number
-                    <span class="badge badge-secondary  pull-right"><%= @user.street_num %></span>
-                    </p>
-                </li>
-                 <li>
-                    <p>City
-                    <span class="badge badge-secondary  pull-right"><%= @user.city %></span>
-                    </p>
-                </li>
-                <li>
-                    <p>County
-                    <span class="badge badge-secondary  pull-right"><%= @user.county %></span>
-                    </p>
-                </li>
-              </ul>
-
-                                    <p class="text-center" style="color:#797979;"><small><%= @user.role %></small></p>
-                                    <%= link_to users_path, class: 'btn btn-block' do %>
-                                    Chnage user role <i class="fa fa-user"></i>
-                                    <% end %>
-                            </div>
-            </section>
-        </div>
-        <div class="col-md-2">
-                      <!--Section: Achievements-->
-            <section class="card mb-4 bg-dark rounded-0">
-            <div class="card-body text-center">
-
-                <h5>
-                <strong><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>'s Accoount</strong>
-                </h5>
-
-                <hr class="my-3">
-                <%= link_to edit_user_registration_path, class: 'btn btn-black btn btn-block' do %>
-                Edit Profile <i class="fa fa-pencil ml-2 text-success"></i>
-                <% end %>
-
-                </a>
-                <%= link_to destroy_user_session_path, :method=>'delete', class: 'btn btn-danger btn btn-block btn-black' do %>
-                   Log out <i class="fa fa-sign-out ml-2"></i>
-                <% end %>
-
+<div class="row mb-0">
+   <div class="col-sm-6">
+      <div class="card pro-card reounded-0" >
+         <h4 class="card-header bg-dark text-white">
+            <%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>
+            <div class="float-right small">
+               <a class="btn btn-raised mdl-color--grey-900" href="#" title="Ver perfil de Miguel92" data-toggle="tooltip" data-placement="top">
+               <i class="fa fa-user-circle" aria-hidden="true"></i>
+               </a>
+               <a class="btn btn-raised mdl-color--grey-900" href="#" title="Enviar mensaje">
+               <i class="fa fa-envelope" aria-hidden="true"></i>
+               </a>
+               <a class="btn btn-raised mdl-color--grey-900" href="#" title="Seguir usuario">
+               <i class="fa fa-eye" aria-hidden="true"></i>
+               </a>
             </div>
-            </section>
-        </div>
-  </div>
+         </h4>
+         <div class=" mdl-color--grey-900 rounded-0 card-body  pro-card-body rounded-0">
+            <div class="row" >
+               <div class="col-md-8">
+                  <div class="image float-left user-l p-4">
+                     <img src="http://31.media.tumblr.com/tumblr_lw2lhqjrel1qfmi03o9_r1_500.gif" class="img-thumbnail" alt="avatar">
+                  </div>
+               </div>
+               <div class="col-md-4 mt-4 text-white">
+                  <h4 class="card-title text-white"><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %> </h4>
+                  <p class="card-text text-white"> Name: <%= @user.first_name if @user.first_name %></p>
+                  <p class="card-text text-white"> Email: <%= @user.email if @user.email %></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-4">
+      <!--Section: Experience-->
+      <section class="card text-white mb-4 rounded-0">
+         <div class="card-body p-0  ">
+            <h5 class="bg-dark  text-center p-4 mb-0 text-white">
+               <strong><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>'s Contributions </strong>
+            </h5>
+            <div class="mdl-color--grey-900 mt-0 p-4">
+               <hr class="mt-1 mb-1 pt-0 pb-0 mdl-color--grey-900">
+               <ul class="list-unstyled pt-0 mdl-color--grey-900">
 
+                  <li>
+                     <p>First Name
+                        <span class="badge badge-secondary pull-right rounded-0"><%= @user.first_name %></span>
+                     </p>
+                  </li>
+
+                  <li>
+                     <p>Last Name
+                        <span class="badge badge-secondary  pull-right rounded-0"><%= @user.last_name %></span>
+                     </p>
+                  </li>
+
+                  <li>
+                     <p>Email
+                        <span class="badge badge-secondary  pull-right rounded-0"><%= @user.email %></span>
+                     </p>
+                  </li>
+                  <li>
+                     <p>Street Name
+                        <span class="badge badge-secondary  pull-right rounded-0"><%= @user.street_name %></span>
+                     </p>
+                  </li>
+                  <li>
+                     <p>Street Number
+                        <span class="badge badge-secondary  pull-right rounded-0"><%= @user.street_num %></span>
+                     </p>
+                  </li>
+                  <li>
+                     <p>City
+                        <span class="badge badge-secondary  pull-right rounded-0"><%= @user.city %></span>
+                     </p>
+                  </li>
+                  <li>
+                     <p>County
+                        <span class="badge badge-secondary  pull-right rounded-0"><%= @user.county %></span>
+                     </p>
+                  </li>
+               </ul>
+               <p class="text-center" style="color:#797979;"><small><%= @user.role %></small></p>
+               <%= link_to users_path, class: 'btn btn-block bg-dark rounded-0' do %>
+               Chnage user role <i class="fa fa-user"></i>
+               <% end %>
+            </div>
+         </div>
+      </section>
+   </div>
+   <div class="col-md-2">
+      <!--Section: Achievements-->
+      <section class="card p-0 rounded-0">
+         <div class="card-body mdl-color--grey-900 p-0 text-center  text-white">
+            <h5 class=" bg-dark  text-center p-0 mb-0 text-white">
+               <p class="col-md-12 mt-1"></p>
+               <strong class=""><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>'s Accoount</strong>
+                 <p class="col-md-12 mt-1 "></p>
+            </h5>
+
+            <div class=" mdl-color--grey-900 p-4">
+               <%= link_to edit_user_registration_path, class: 'btn btn-black btn btn-block rounded-0' do %>
+               Edit Profile <i class="fa fa-pencil ml-2 text-success"></i>
+               <% end %>
+               </a>
+               <%= link_to destroy_user_session_path, :method=>'delete', class: 'btn btn-danger btn btn-block btn-black rounded-0' do %>
+               Log out <i class="fa fa-sign-out ml-2"></i>
+               <% end %>
+            </div>
+         </div>
+      </section>
+   </div>
+</div>
+
+<div class="row">
+   <div class="col-md-12">
+      <div class="col-md-6">
+         <div class="card card-plain mdl-color--grey-900">
+            <div class="card-header bg-dark text-white">
+               <h4 class="card-title mt-0 text-white"> Table on Plain Background</h4>
+               <p class="card-category text-white"> Here is a subtitle for this table</p>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-dark table-ip">
+                     <thead>
+                        <tr>
+                           <th>Id</th>
+                           <th>Name</th>
+                           <th>Time</th>
+                           <th>IP Address</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <% @user.account_logins.each do |account_login| %>
+                        <tr>
+                           <td>1</td>
+                           <td><%=  @user.first_name + ' ' if  @user.first_name %> <%=  @user.last_name + ' ' if  @user.last_name %> </td>
+                           <td> <%= account_login.loginTime if account_login.loginTime %></td>
+                           <td><span class="badge badge-danger rounded-0 "><%= account_login.ipAddress if account_login.ipAddress %></span></td>
+                        </tr>
+                        <% end %>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
