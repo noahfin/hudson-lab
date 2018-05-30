@@ -1,14 +1,11 @@
-
-
-
-
-<!-- Your custom styles (optional) -->
 <style>
    .intro-2 {
    margin: auto;
    width: 42%;
    }
-
+   .mainlogin {
+   margin-top: 15%;
+   }
    .card-creds-form { margin-top: 15% !important; margin: auto !important; }
    h6 {
    line-height: 1.7;
@@ -19,7 +16,7 @@
    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
       <div class="container">
          <div class="navbar-translate">
-            <a class="navbar-brand text-white" href="/">Hudon Commercial Lab </a>
+            <a class="navbar-brand text-white" href="/">Hudson Commercial Lab  </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             <span class="navbar-toggler-icon"></span>
@@ -51,60 +48,44 @@
          </div>
       </div>
    </nav>
-
    <div class="page-header mdl-color--grey-900">
-
       <section class=" ml-auto mr-auto">
          <div class=" ml-auto mr-auto">
-
             <div class="mask ml-auto mr-auto ">
                <div class="ml-auto mr-auto">
-                     <div class="mainlogin " >
-
-                      <div class=" cool-form ml-auto mr-auto bg-footer  p-4">
-                      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
+                  <div class="mainlogin " >
+                     <div class=" cool-form ml-auto mr-auto bg-footer  p-4">
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
                         <h2 class="text-center">Log in</h2>
                         <div class="form-group mr-auto ml-auto">
-                          <label class="lb-responsive">Enter Email</label> <br class="br-responsive">
-                            <%= f.email_field :email, class: "dark-form-control pl-2 text-light", required: true, placeholder: 'Email'  %>
+                           <label class="lb-responsive">Enter Email</label> <br class="br-responsive">
+                           <%= f.email_field :email, class: "dark-form-control pl-2 text-light", required: true, placeholder: 'Email'  %>
                         </div>
                         <div class="form-group">
-                          <label class="lb-responsive">Enter Password</label> <br class="br-responsive">
-                            <%= f.password_field :password, class: "dark-form-control  pl-2 text-light", required: true, placeholder: 'Password'  %>
+                           <label class="lb-responsive">Enter Password</label> <br class="br-responsive">
+                           <%= f.password_field :password, class: "dark-form-control  pl-2 text-light", required: true, placeholder: 'Password'  %>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-info btn-block">Log in</button>
+                           <button type="submit" class="btn btn-info btn-block">Log in</button>
                         </div>
                         <div class="clearfix">
-                            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-                            <a href="#" class="pull-right text-muted">Forgot Password?</a>
-                             <div class="col-md-12">
-
-                             </div>
-                            <div class="clearfix mt-4 ">
-                               <div class="col-md-12 mt-4 mb-4">
-                             <%= link_to "Create an Account".html_safe, new_user_registration_path, class: 'text-muted float-left text-left ' %>
-
-                             </div>
-                        </div>
+                           <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                           <a href="#" class="pull-right text-muted">Forgot Password?</a>
+                           <div class="col-md-12">
                            </div>
-                    <% end %>
-
-                </div>
-
-
-
-    </div>
-
-    </div>
+                           <div class="clearfix mt-4 ">
+                              <div class="col-md-12 mt-4 mb-4">
+                                 <%= link_to "Create an Account".html_safe, new_user_registration_path, class: 'text-muted float-left text-left ' %>
+                              </div>
+                           </div>
+                        </div>
+                        <% end %>
+                     </div>
+                  </div>
+               </div>
             </div>
-
          </div>
-     </div>
-      </section>
-
+   </div>
+   </section>
    </div>
 </body>
-
-
-
