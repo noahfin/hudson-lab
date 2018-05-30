@@ -6,16 +6,21 @@
          <div class=" col-md-4 ">
             <div class="card card-raised  bg-black group-card" >
                <div class="card-body">
-                  <h2 class="card-category text-white"><%= group.name %> <span class="pull-right text-danger"><%= group.contacts.count %></span></h2>
+                  <h2 class="card-category text-white"><%= group.name %> <span class="pull-right text-danger"><%= group.contacts.count %></span>
+                     </h2>
                   <a href="#pablo">
                      <h4 class="card-title">Download this group as a  <%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-danger' %></h4>
                   </a>
                   <p class="card-description">
                      <%= group.name %> has <%= group.contacts.count %> contact stored
                   </p>
-                  <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round group-view-link", remote: true do %>
+                 <h6> <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round group-view-link", remote: true do %>
                   <i class="material-icons">content_copy</i> View Group
                   <% end %>
+                  <span class="pull-right delete-group-link">   <%= link_to group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
+                      <i class="material-icons text-danger">delete</i>
+                   <% end %></span>
+                 </h6>
                </div>
             </div>
          </div>
