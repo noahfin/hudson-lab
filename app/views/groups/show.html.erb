@@ -2,7 +2,9 @@
 
 
     <div class="col-lg-11 mr-auto ml-auto">
-        <h3 class="text-white pl-2"><%= @group.name %> / <%= @group.contacts.count %> <span class="pull-right" >  <button type="button" class="btn-back btn btn-link text-white"><i class="material-icons">keyboard_backspace</i></button></span></strong></h3>
+        <h3 class="text-white pl-2"><%= @group.name %> / <%= @group.contacts.count %> <span class="pull-right" > <span class="pull-right delete-group-link">   <%= link_to group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", rel: 'tooltip', title: 'Delete' do %>
+                      <i class="material-icons text-danger">delete</i>
+                   <% end %></span>  <button type="button" class="btn-back btn btn-link text-white"><i class="material-icons">keyboard_backspace</i></button> </span></strong></h3>
         <div class="table-responsive">
             <table class="table table-custom">
                 <thead>
