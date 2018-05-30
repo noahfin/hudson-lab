@@ -176,7 +176,7 @@
          </div>
       </div>
       <div class="borderd-list-group  col-md-4 ">
-         <h4>User's last login stored in the database</h4>
+         <h4>User's Actions Steps Not Complete</h4>
          <div class="list-group">
             <% @users.each do |user| %>
             <%= link_to user_path user, class: "list-group-item pt-4" do %>
@@ -187,32 +187,54 @@
                   <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' + user.last_name %></span>
                </div>
                <div class=" col-md-6" >
-                  <span class="pull-right mr-0 pr-2 text-info " ><%= user.last_seen_at.strftime("%B %e, %Y at %I:%M %p")  if user.last_seen_at %></span>
+
+                  <span class="pull-right mr-0 pr-2 text-info " ><%= user.tasks.count  if user.tasks %></span>
                </div>
             </div>
             <% end %>
             <% end %>
          </div>
-         <a href="#" class="list-group-item">More login sessions</a>
+           <%= link_to tasks_path, class: "list-group-item p-4" do %>
+          <span class="pl-1"> See All Action Steps
+           </span><% end %>
       </div>
    </div>
 </div>
-<div class="row">
-   <div class="col-md-12 mb-3">
+<div class="row  p-3">
+   <div class="col-md-12 mb-3  mdl-color--grey-900">
       <% @users.each.each_slice(3) do |user| %>
-      <div class="col-md-12 mb-3">
+      <div class="col-md-12 mb-3  mdl-color--grey-900">
          <div class="row">
             <% user.each do |user| %>
             <div class=" col-md-4">
-               <div class="borderd-list-group  ">
-                  <h4>User's loddged ip address</h4>
-                  <div class="list-group">
-                     <% user.account_logins.each do |account_login| %>
-                     <a href="" title="" class="list-group-item pt-4">
-                     <span class=" mb-0 pb-0 text-white pl-1"> <%= user.first_name + ' ' if user.first_name %>   <%= account_login.loginTime if account_login.loginTime %></span>
-                     <span class="  float-right-switch mr-0 pr-2 text-info " ><%= account_login.ipAddress if account_login.ipAddress %></span>
-                     </a>
-                     <% end %>
+               <div class="card card-plain mdl-color--grey-900">
+                  <div class="card-header bg-dark text-white">
+                     <h4 class="card-title mt-0 text-white"> <%=  user.first_name + ' ' if  user.first_name %> <%=  user.last_name + ' ' if  user.last_name %></h4>
+                     <p class="card-category text-white"> Table to Display Users Login Time Save to the Db</p>
+                  </div>
+                  <div class="card-body">
+                     <div class="table-responsive">
+                        <table class="table table-bordered table-dark table-ip">
+                           <thead>
+                              <tr>
+                                 <th>Id</th>
+                                 <th>Name</th>
+                                 <th>Time</th>
+                                 <th>IP Address</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <% user.account_logins.each do |account_login| %>
+                              <tr>
+                                 <td>1</td>
+                                 <td><%=  user.first_name + ' ' if  user.first_name %> <%=  user.last_name + ' ' if  user.last_name %> </td>
+                                 <td> <%= account_login.loginTime if account_login.loginTime %></td>
+                                 <td><span class="badge badge-danger rounded-0 "><%= account_login.ipAddress if account_login.ipAddress %></span></td>
+                              </tr>
+                              <% end %>
+                           </tbody>
+                        </table>
+                     </div>
                   </div>
                </div>
             </div>
