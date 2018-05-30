@@ -1,11 +1,11 @@
 <% unless current_user.admin? %>
-<div class="col-md-12">
-   <div class="  card gray-dark margin-bottom-0">
+<div class="col-md-12 gray-dark">
+   <div class="  gray-dark pt-4 ">
       <h3 class="text-white ml-3">Users</h3>
-      <div class="row">
-         <div class="col-md-12">
-            <div class="column">
-               <table class="table">
+      <div class="row gray-dark">
+         <div class="col-md-12 gray-dark">
+            <div class="column gray-dark">
+               <table class="table gray-dark">
                   <tbody>
                      <% @users.each do |user| %>
                      <tr>
@@ -19,41 +19,33 @@
       </div>
    </div>
 </div>
-<div class="col-md-12">
-   <div class="  card gray-dark margin-bottom-0">
-      <div class="card-body">
-         <div class="row">
+<div class="col-md-12 gray-dark">
+   <div class="  gray-dark pt-4  rounded-0">
+      <div class="card-body gray-dark">
+         <div class="row  gray-dark  rounded-0">
             <div class="col-9">
                <h4 class="text-white">Give Access to Groups and Contacts for Users</h4>
                <p class="subtitle margin-bottom-0 text-white">You can also remove access to certain groups</p>
             </div>
-            <div class="col-3">
-               <div class="dropdown float-right">
-                  <div class="rw-btn rw-btn--card rw-btn--lg" data-toggle="dropdown">
-                     <div></div>
-                  </div>
-                  <div class="dropdown-menu dropdown-menu-right">
-                     <a href="#" class="dropdown-item" data-demo-action="update">Update</a> <a href="#" class="dropdown-item" data-demo-action="expand">Expand</a> <a href="#" class="dropdown-item" data-demo-action="invert">Invert style</a>
-                     <div class="dropdown-divider"></div>
-                     <a href="#" class="dropdown-item" data-demo-action="remove">Remove card</a>
-                  </div>
-               </div>
-            </div>
+
          </div>
       </div>
-      <div class="divider-text divider-text--xs">Recent</div>
-      <div class="card-body padding-top-10 padding-bottom-10">
+
+      <div class="gray-dark pt-4 rounded-0 ">
          <div class="table-responsive">
-            <table class="table table-indent-rows margin-bottom-0">
+            <table class="table  gray-dark">
                <tr>
-                  <th class="text-gray">Select</th>
-                  <th><a href="c">Username</a></th>
-                  <th><a class="text-gray">Groups</a></th>
+                  <th>Select</th>
+                  <th colspan="2" ></th>
+                  <th>Username</th>
+
+                  <th colspan="3" align="right" class="ml-4 pl-4"><span class="ml-4 "></span>Groups</th>
+                   <th colspan="1" align="left"> <th
                <tbody>
                   <% @users.each do |user| %>
                   <tr>
-                     <td width="40">
-                        <div class="form-check">
+                     <td width="60">
+                        <div class="form-check pt-4">
                            <label class="form-check-label">
                            <%= form_with model: user,  url: sharegroups_url, action: "sharegroups", method: 'post', :format=> :js, remote: true, :authenticity_token => true, id: "sharegroup_form"  do |form|%>
                            <input type="checkbox" class="form-check-input the-selected-user  mt-0 " value=<%="#{user.id}"%> name="user[user_id]">
@@ -63,7 +55,9 @@
                            </label>
                         </div>
                      </td>
-                     <td width="200">
+                     <td colspan="2" ></td>
+
+                     <td width="30" class="pl-4">
                         <div class="user mt-3">
                            <%= image_tag small_gravatar_url(user.email), class: 'user-image' %>
                            <div class="user__name">
@@ -71,6 +65,7 @@
                            </div>
                         </div>
                      </td>
+
                      <td></td>
                      <td class="text-white">
                         <% group_ids = [[]] %>
@@ -79,12 +74,12 @@
                         <% end %>
                         <% attr = {prompt: "Select Groups"} %>
                         <p>
-                           <a class="btn btn-primary col-md-12" data-toggle="collapse" href=<%="#dropdown#{user.id}"%> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
+                           <a class="btn bg-black col-md-12" data-toggle="collapse" href=<%="#dropdown#{user.id}"%> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
                            Select Groups to share thier contacts to useres
                            </a>
                         </p>
                         <div class="collapse" id=<%="dropdown#{user.id}"%>>
-                           <div class="card card-body">
+                           <div class="  dark-gray card ">
                               <ul class="list-group">
                                  <input type="hidden"  value="groups[]" class="groups-hiiden">
                                  <button type="button" class="btn btn-info select-allgroups pull-right">Select All Groups</button>
@@ -116,7 +111,7 @@
             </table>
          </div>
       </div>
-      <div class="divider-text divider-text--xs">Canceled</div>
+
       <div class="card-body padding-top-10">
          <div class="form-row margin-top-20">
             <div class="col-6 col-lg-3">
