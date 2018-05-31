@@ -2626,7 +2626,7 @@ $(document).on('turbolinks:load', function () {
 
             }, {
                 type: type[color],
-                timer: 3000,
+                timer: 2000,
                 placement: {
                     from: from,
                     align: align
@@ -2638,5 +2638,24 @@ $(document).on('turbolinks:load', function () {
 
     demo.initMaterialWizard();
 
+$.notifyDefaults({
+  placement: {
+    from: "bottom"
+  },
+  animate:{
+    enter: "animated fadeInUp",
+    exit: "animated fadeOutDown"
+  }
+});
+for (var iLoop = 0; iLoop < arrayAlign.length; iLoop++) {
+  $.notify('Bottom ' + arrayAlign[iLoop], {
+    placement: {
+      align: arrayAlign[iLoop]
+    }
+  });
+}
+setTimeout(function() {
+  $.notifyClose();
+}, 3000);
 
 });
