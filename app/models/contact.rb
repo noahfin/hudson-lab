@@ -21,7 +21,10 @@ class Contact < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   enum role: [:broker, :agent, :owner, :buyer, :lessor, :employee, :management, :peronal, :potential_customer]
   after_initialize :set_default_role, :if => :new_record?
-  pg_search_scope :search, against: [:name, :first_name, :last_name, :company, :email]
+  pg_search_scope :search, against: [:name, :first_name, :last_name, :company, :email],
+  using: {tsearch: {dictionary: "english"}},
+  associated_against: {author: :name, comments: [:name, :content]},
+  ignoring: :accents
   pg_search_scope :by_county, against: [:county]
 
   def set_default_role
