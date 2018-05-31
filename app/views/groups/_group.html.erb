@@ -17,7 +17,7 @@
                  <h6> <%= link_to group_path(group.id), class: "btn  bg-info text-white btn-round group-view-link", remote: true do %>
                   <i class="material-icons">content_copy</i> View Group
                   <% end %>
-                  <span class="pull-right delete-group-link">   <%= link_to group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
+                  <span class="pull-right delete-group-link"> <%= link_to group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger delete_group", rel: 'tooltip', title: 'Delete', remote: true do %>
                       <i class="material-icons text-danger">delete</i>
                    <% end %></span>
                  </h6>

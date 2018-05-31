@@ -13,7 +13,7 @@
 
 
     <span >
-<%   @groups.each_with_index do |g, i| %>
+<% @groups.each_with_index do |g, i| %>
 
 <%= link_to group_path(g.id) do %>
 <span class="badge rounded-0 bg-black m-2 pt-3"><h5><%= g.name %></h5></span>
@@ -22,7 +22,7 @@
 <% end %>
  </div>
    <div class="bs-example first-show-card">
-      <div class="list-group outer-list">
+      <div class="list-group outer-list" id="render-groups">
 
   <%= render  'group' %>
        </div>

@@ -1,10 +1,11 @@
-<div class="container-fluid pt-3">
 
 
+    <% delete_string =  "Delete " + @group.name %>
     <div class="col-lg-11 mr-auto ml-auto">
-        <h3 class="text-white pl-2"><%= @group.name %> / <%= @group.contacts.count %> <span class="pull-right" > <span class="pull-right delete-group-link">   <%= link_to group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", rel: 'tooltip', title: 'Delete' do %>
-                      <i class="material-icons text-danger">delete</i>
-                   <% end %></span>  <button type="button" class="btn-back btn btn-link text-white"><i class="material-icons">keyboard_backspace</i></button> </span></strong></h3>
+        <h3 class="text-white pl-2">  <span> <%= @group.name %> / <%= @group.contacts.count %> <% edit_string =  "Edit " + @group.name %> <%= link_to edit_group_path(@group.id), class: "btn btn-link remote-link", remote: true, title: edit_string, rel: "tooltip"  do %>
+      <i class=" fa fa-edit e-contact pb-4 mb-3"></i>    <% end %></span><span class="pull-right" > <span class="pull-right ">   <%= link_to @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", remote: true, title: delete_string, rel: "tooltip" do %>
+                      <i class="material-icons text-danger pt-4">delete</i>
+                   <% end %></span>  <button type="button" class="btn-back btn btn-link text-white pt-4"><i class="material-icons">keyboard_backspace</i></button> </span></strong></h3>
         <div class="table-responsive">
             <table class="table table-custom">
                 <thead>
@@ -95,5 +96,33 @@
             </table>
         </div>
     </div>
-</div>
+        <div class="col-lg-11 mr-auto ml-auto  pt-3">
+            <hr>
+        <div class="container-fluid mt-3" >
+            <div  class="row pl-3">
+                <div class="col-md-1"> <i class="material-icons text-info mt-2 text-right pl-4 pb-3 mt-0">group</i>
+            </div>
+                <div class="col-md-4">
+                     <span class="text-left pull-left pl-0 ml-0">  <h4 class="pt-2">Users That have Access to this Group  </h4></span>
+
+                </div>
+            </div>
+
+                  <div class="m-4">
+
+
+    <span >
+<% @group.users.each_with_index do |u, i| %>
+
+<%= link_to user_path(u.id) do %>
+<span class="badge rounded-0 bg-black m-2 pt-3"><h5><%= u.first_name %></h5></span>
+</span>
+<% end %>
+<% end %>
+  </div>
+ </div>
+
+
+    </div>
+
 
