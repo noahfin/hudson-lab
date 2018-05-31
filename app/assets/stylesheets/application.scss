@@ -154,6 +154,18 @@
         margin-left: 0px !important;
         padding-left: 0px !important;
     }
+    .left-p-text {
+      position: relative !important;
+      right: -2px !important;
+
+    }
+    .list-left {
+      position: relative !important;
+      left: -20px !important;
+      margin-left: 0px !important;
+      padding-left:  0px !important;
+      list-style: none;
+    }
     .first-show-card > ul {
         margin: 0px !important;
         padding: 3px !important;

@@ -22,8 +22,6 @@ class Property < ApplicationRecord
   paginates_per 12
    max_paginates_per 24
 
- validates :name, length: {minimum: 6 }
- validates :code, length: {is: 4}
  accepts_nested_attributes_for :posts
  def average_ratings
    return 0 if posts.empty?

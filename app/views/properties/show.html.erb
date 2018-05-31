@@ -301,49 +301,73 @@
                </div>
             </div>
          </div>
-         <div class="card  card-1 p-4 ">
-            <div class="card__header">
+         <div class="card  card-1 pl-4 pr-4 pt-4 pb-3  ">
+            <div class="card-header">
                <h2>Highlights</h2>
             </div>
             <div class="card-body">
-               <ul class="">
-                  <li class="list-group-item text-muted text-left ml-0 pl-0" contenteditable="false">
-                     <h5>Profile</h5>
-                  </li>
-                  <li class="profile-list text-white" contenteditable="false"><span class="pull-left"><strong class="">price:</strong></span><span class="float-right"><%= @property.price %></span> </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">year built:</strong></span><span class="float-right">  <%= @property.year_built %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">building class:</strong></span><span class="float-right"> <%= @property.building_class %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">lease type:</strong></span><span class="float-right"> <%= @property.lease_type %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">overhead doors: </strong></span><span class="float-right"> <%= @property.overhead_doors %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">loading docks: </strong></span><span class="float-right"> <%= @property.loading_docks %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">min divisible: </strong></span><span class="float-right"> <%= @property.min_divisible %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">space use: </strong></span><span class="float-right"> <%= @property.space_use %></li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">Street Name: </strong></span><span class="float-right"> <%= @property.space_available %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">property type: </strong></span><span class="float-right"> <%= @property.property_type %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">date available: </strong></span><span class="float-right"> <%= @property.date_available %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">for lease: </strong></span><span class="float-right"> <%= @property.for_lease %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">for sale: </strong></span><span class="float-right"> <%= @property.for_sale %></span></li>
-                  </li>
-                  <li class="profile-list text-white"><span class="pull-left"><strong class="">owner_name: </strong></span><span class="float-right"> <%= @property.owner_name %></span></li>
-                  </li>
-               </ul>
+               <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    price:
+    <span class="badge bg-dark badge-pill"><%= @property.price %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    year built:
+    <span class="badge bg-dark badge-pill"><%= @property.year_built %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+   building class:
+    <span class="badgebg-dark badge-pill"><%= @property.building_class %></span>
+  </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+   lease type:
+    <span class="badge bg-dark badge-pill"><%= @property.lease_type %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    overhead doors:
+    <span class="badge bg-dark badge-pill"><%= @property.overhead_doors %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+ loading docks:
+    <span class="badgebg-dark badge-pill"><%= @property.loading_docks%></span>
+  </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+  space use:
+    <span class="badge bg-dark badge-pill"><%= @property.space_use %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+   Space Available:
+    <span class="badge bg-dark badge-pill"><%= @property.space_available %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+ property type:
+    <span class="badgebg-dark badge-pill"><%= @property.property_type %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+ min divisible:
+    <span class="badgebg-dark badge-pill"><%= @property.min_divisible %></span>
+  </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+for lease:
+    <span class="badge bg-dark badge-pill"><%= @property.for_lease %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+  for sale:
+    <span class="badge bg-dark badge-pill"><%= @property.for_sale %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+owner_name:
+    <span class="badgebg-dark badge-pill"><%= @property.owner_name %></span>
+  </li>
+</ul>
+
             </div>
          </div>
          <div class="card  card-1  p-4">
-            <div class="card__header">
+            <div class="card-header">
                <h2>Property Overview</h2>
             </div>
-            <div class="card__body">
+            <div class="card-body">
                <p><%=  @property.description %></p>
             </div>
          </div>
@@ -401,9 +425,10 @@
                      </div>
                      <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" style="">
                         <div class="card-body">
-                           <%= @property.owner_name + ', ' if @property.owner_name  %>
+                           <% contact_owner_str = ', ' if  !@property.owner_name.nil? || !@property.owner_name.empty? %>
+                           <%= @property.owner_name + contact_owner_str  if !@property.owner_name.nil? && !@property.owner_name.empty?  %>
                            <% @property.contacts.each do |contact | %>
-                           <%= contact.name  if contact.owner?  %>
+                           <%= contact.name + contact_owner_str if contact.owner?  %>
                            <% end %>
                         </div>
                      </div>
@@ -504,7 +529,8 @@
                      <div id="brokerOne" class="collapse show" role="tabpanel" aria-labelledby="heading-b-One" data-parent="#accordion" style="">
                         <div class="card-body">
                            <% @property.contacts.each do |contact | %>
-                           <%= contact.name + ', ' if contact.broker? || contact.agent? %>
+                           <% contact_string = contact.name + ', ' if  @property.contacts %>
+                           <%= contact_string if contact.broker? || contact.agent? %>
                            <% end %>
                         </div>
                      </div>
@@ -548,7 +574,7 @@
          </div>
          <div class="card hidden-xs hidden-sm hidden-print  card-1">
             <div class="card__header  p-4">
-               <h2>You may also like...</h2>
+               <h2>Also Related...</h2>
                <small>Smimliar properties that are in the category <%= @property.category %></small>
             </div>
             <div class="col-md-12">
