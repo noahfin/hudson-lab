@@ -27,7 +27,7 @@ gem 'csv'
 gem 'simple_form'
 gem 'pg_search'
 gem 'warden'
-gem 'devise_traceable'
+
 
 
 group :development, :test do
