@@ -47,7 +47,12 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group.update_attribute(:name, params['group']['name'])
+     if  @group.update(group_params)
+          flash[:info] = "Group with the slected users was successfully updated."
+    else
+       flash[:danger] = @group.errors.full_messages.to_s
+
+    end
   end
 
   def destroy
