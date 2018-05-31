@@ -1,299 +1,240 @@
 <div class="container">
-  <div class="col-md-12">
-    <div class="card card-1" >
-      <div class="card-header  card-header-icon">
-        <div class="card-icon card-1 ">
-          <i class="material-icons text-white">mail_outline</i>
-        </div>
-        <h4 class="card-title  text-white">Property form</h4>
-      </div>
-      <div class="card-body ">
-        <div class="row">
-
-        <div class="col-md-3">
-
-
-        <%= form_for(@property, multipart: true) do |form| %>
-          <h4 class="title text-white">Property Image</h4>
-          <div class="fileinput fileinput-new text-center " data-provides="fileinput">
-            <div class="fileinput-new thumbnail square-image">
-              <%= image_tag("image_placeholder.jpg") %>
+   <div class="col-md-12">
+      <div class="card card-1" >
+         <div class="card-header  card-header-icon">
+            <div class="card-icon card-1 ">
+               <i class="material-icons text-white">mail_outline</i>
             </div>
-
-            <div class="fileinput-preview fileinput-exists thumbnail"></div>
-            <div>
-              <span class="btn btn-round btn-file text-white">
-                <span class="fileinput-new  text-white">Select image</span>
-                <span class="fileinput-exists text-white">Change</span>
-                <%= form.file_field :avatar %>
-              </span>
-              <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-            </div>
-          </div>
-
-        <div class="col-md-12 ml-0 pl-0 mr-0 pr-0 ">
-              <div class="card card-5 ml-0 pl-0 mr-0 pr-0">
-                <div class="card-header bg-white rounded-0">
-                  <h4 class="card-title text-muted">Connect The contacts</h4>
-                </div>
-                <div class="card-body p-1 card-1">
-                  <div id="accordion" role="tablist">
-
-                    <div class="card-collapse">
-                      <div class="card-header  ml-0 mr-0  card-1" role="tab" id="headingTwo">
-                        <div class="row">
-
-
-
-                          <div class="col-md-2 mr-0">
-                            <i class="fa fa-search mt-2 pt-1  pr-0 mr-0" aria-hidden="true" id="little-search"></i>
-
-                          </div>
-                          <div class="col-md-10 ml-0 pl-0">
-                        <input class="form-control get-contacts " type="text" placeholder="Search" aria-label="Search" id="search-contat-check">
-
-                          </div>
-
-                         </div>
-                        <h5 class="mb-0">
-                          <a class="collapsed  text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                             Owners, Brokers, Tennants
-                            <i class="material-icons">keyboard_arrow_down</i>
-                          </a>
-                        </h5>
-                      </div>
-                      <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body" id="form-contact">
-
-
-                <ul class="list-group list-group-flush p-0">
-                  <li class="list-group-item" ">
-                        <div class="form-check">
-                          <label class="form-check-label">
-                              <input type="checkbox" name="contact_ids[]" value="0"  checked="true" class="contact1">
-                             <p class="c1  text-white">contact 1</p>
-                              <span class="form-check-sign">
-                                  <span class="check"></span>
-                              </span>
-                          </label>
-                        </div>
-                       </li>
-                       <li class="list-group-item">
-                            <div class="form-check">
-                          <label class="form-check-label">
-                              <input type="checkbox" name="contact_ids[]" value="0" checked="true"  class="contact2">
-                              <p class="c2  text-white">contact 2 </p>
-                              <span class="form-check-sign">
-                                  <span class="check"></span>
-                              </span>
-                          </label>
-                        </div>
-                       </li>
-                       <li class="list-group-item" >
-                            <div class="form-check">
-                          <label class="form-check-label">
-                              <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
-                             <p class="c3  text-white"> contact 3 </p>
-                              <span class="form-check-sign">
-                                  <span class="check"></span>
-                              </span>
-                          </label>
-                        </div>
-                       </li>
-                       <li class="list-group-item" >
-                            <div class="form-check">
-                          <label class="form-check-label">
-                              <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
-                              <p class="c4  text-white">contact 4</p>
-                              <span class="form-check-sign">
-                                  <span class="check"></span>
-                              </span>
-                          </label>
-                        </div>
-                       </li>
-                       <li class="list-group-item">
-                        <div class="form-check">
-                          <label class="form-check-label">
-                              <input type="checkbox" name="contact_ids[]" value="0"  checked="true" class="contact5">
-                            <p class="c5  text-white">  contact 5 </p>
-                              <span class="form-check-sign">
-                                  <span class="check"></span>
-                              </span>
-                          </label>
-                        </div>
-                       </li>
-
-
-                   </ul>
-                        </div>
-                      </div>
-                    </div>
-
+            <h4 class="card-title  text-white">Property form</h4>
+         </div>
+         <div class="card-body ">
+            <div class="row">
+               <div class="col-md-3">
+                  <%= form_for(@property, multipart: true, remote: true) do |form| %>
+                  <h4 class="title text-white">Property Image</h4>
+                  <div class="fileinput fileinput-new text-center " data-provides="fileinput">
+                     <div class="fileinput-new thumbnail square-image">
+                        <%= image_tag("image_placeholder.jpg") %>
+                     </div>
+                     <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                     <div>
+                        <span class="btn btn-round btn-file text-white">
+                        <span class="fileinput-new  text-white">Select image</span>
+                        <span class="fileinput-exists text-white">Change</span>
+                        <%= form.file_field :avatar %>
+                        </span>
+                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                     </div>
                   </div>
-                </div>
-              </div>
+                  <div class="col-md-12 ml-0 pl-0 mr-0 pr-0 ">
+                     <div class="card card-5 ml-0 pl-0 mr-0 pr-0">
+                        <div class="card-header bg-white rounded-0">
+                           <h4 class="card-title text-muted">Connect The contacts</h4>
+                        </div>
+                        <div class="card-body p-1 card-1">
+                           <div id="accordion" role="tablist">
+                              <div class="card-collapse">
+                                 <div class="card-header  ml-0 mr-0  card-1" role="tab" id="headingTwo">
+                                    <div class="row">
+                                       <div class="col-md-2 mr-0">
+                                          <i class="fa fa-search mt-2 pt-1  pr-0 mr-0" aria-hidden="true" id="little-search"></i>
+                                       </div>
+                                       <div class="col-md-10 ml-0 pl-0">
+                                          <input class="form-control get-contacts " type="text" placeholder="Search" aria-label="Search" id="search-contat-check">
+                                       </div>
+                                    </div>
+                                    <h5 class="mb-0">
+                                       <a class="collapsed  text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                       Owners, Brokers, Tennants
+                                       <i class="material-icons">keyboard_arrow_down</i>
+                                       </a>
+                                    </h5>
+                                 </div>
+                                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body" id="form-contact">
+                                       <ul class="list-group list-group-flush p-0">
+                                          <li class="list-group-item" ">
+                                             <div class="form-check">
+                                                <label class="form-check-label">
+                                                   <input type="checkbox" name="contact_ids[]" value="0"  checked="true" class="contact1">
+                                                   <p class="c1  text-white">contact 1</p>
+                                                   <span class="form-check-sign">
+                                                   <span class="check"></span>
+                                                   </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                             <div class="form-check">
+                                                <label class="form-check-label">
+                                                   <input type="checkbox" name="contact_ids[]" value="0" checked="true"  class="contact2">
+                                                   <p class="c2  text-white">contact 2 </p>
+                                                   <span class="form-check-sign">
+                                                   <span class="check"></span>
+                                                   </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-group-item" >
+                                             <div class="form-check">
+                                                <label class="form-check-label">
+                                                   <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                                   <p class="c3  text-white"> contact 3 </p>
+                                                   <span class="form-check-sign">
+                                                   <span class="check"></span>
+                                                   </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-group-item" >
+                                             <div class="form-check">
+                                                <label class="form-check-label">
+                                                   <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                                   <p class="c4  text-white">contact 4</p>
+                                                   <span class="form-check-sign">
+                                                   <span class="check"></span>
+                                                   </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                             <div class="form-check">
+                                                <label class="form-check-label">
+                                                   <input type="checkbox" name="contact_ids[]" value="0"  checked="true" class="contact5">
+                                                   <p class="c5  text-white">  contact 5 </p>
+                                                   <span class="form-check-sign">
+                                                   <span class="check"></span>
+                                                   </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="form-group bmd-form-group text-white">
+                     <label for="exampleEmail" class="bmd-label-floating  text-white">Property Name</label>
+                     <%= form.text_field :name, class: 'form-control text-white ' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <label for="examplePass" class="bmd-label-floating text-white ">Property Code</label>
+                     <%= form.text_field :code, class: 'form-control text-white ' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <label for="examplePass" class="bmd-label-floating text-white">Property category</label>
+                     <%= form.text_field :category, class: 'form-control text-white ' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :rental_rate, class: 'bmd-label-floating text-white' %>
+                     <%= form.text_field :rental_rate, id: :property_rental_rate, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :price, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :price, id: :property_price, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :year_built, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :year_built, id: :property_year_built, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :building_class, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :building_class, id: :property_building_class, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :lease_type, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :lease_type, id: :property_lease_type, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :overhead_doors, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :overhead_doors, id: :property_overhead_doors, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :owner_name, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :owner_name, id: :property_owner_name, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group">
+                     <select class="selectpicker county-select" name="county" data-style="select-with-transition" title="Single Select">
+                        <option value="Select County" class="tex-mute"> Select County </option>
+                        <option value="Dutchess"> Dutchess </option>
+                        <option value="Ulster"> Ulster </option>
+                        <option value="Putnam"> Putnam </option>
+                        <option value="Orange"> Orange </option>
+                        <option value="Columbia"> Columbia </option>
+                        <option value="Sullivan"> Sullivan </option>
+                        <option value="Greene"> Greene </option>
+                        <option value="westchester"> westchester </option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :zip_code, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :zip_code, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :loading_docks, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :loading_docks, id: :property_loading_docks, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :min_divisible, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :min_divisible, id: :property_min_divisible, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space_use, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space_use, id: :property_space_use, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space_available, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space_available, id: :property_space_available, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :date_available, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :date_available, id: :property_date_available, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :property_type, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :property_type, id: :property_property_type, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :address, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :address, id: :property_address, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :description, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_area :description, id: :property_description, class: 'form-control text-white' %>
+                  </div>
+                  <div class="col-sm-12">
+                     <div class="form-check form-check-inline">
+                        <label class="form-check-label text-white">
+                        <%= form.check_box :for_lease, id: :property_for_lease, class: 'form-check-input text-white ' %> For Lease
+                        <span class="form-check-sign">
+                        <span class="check"></span>
+                        </span>
+                        </label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <label class="form-check-label text-white">
+                        <%= form.check_box :for_sale, id: :property_for_sale, class: 'form-check-input text-white b-white' %> For Sale
+                        <span class="form-check-sign text-white">
+                        <span class="check"></span>
+                        </span>
+                        </label>
+                     </div>
+                  </div>
+               </div>
             </div>
-
-          </div>
-
-          <div class="col-md-4">
-
-
-
-        <div class="form-group bmd-form-group text-white">
-          <label for="exampleEmail" class="bmd-label-floating  text-white">Property Name</label>
-          <%= form.text_field :name, class: 'form-control text-white ' %>
-        </div>
-        <div class="form-group bmd-form-group text-white">
-          <label for="examplePass" class="bmd-label-floating text-white ">Property Code</label>
-           <%= form.text_field :code, class: 'form-control text-white ' %>
-        </div>
-         <div class="form-group bmd-form-group text-white">
-          <label for="examplePass" class="bmd-label-floating text-white">Property category</label>
-            <%= form.text_field :category, class: 'form-control text-white ' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :rental_rate, class: 'bmd-label-floating text-white' %>
-          <%= form.text_field :rental_rate, id: :property_rental_rate, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :price, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :price, id: :property_price, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :year_built, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :year_built, id: :property_year_built, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :building_class, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :building_class, id: :property_building_class, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :lease_type, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :lease_type, id: :property_lease_type, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :overhead_doors, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :overhead_doors, id: :property_overhead_doors, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :owner_name, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :owner_name, id: :property_owner_name, class: 'form-control text-white' %>
-        </div>
-           <div class="form-group">
-            <select class="selectpicker county-select" name="county" data-style="select-with-transition" title="Single Select">
-            <option value="Select County" class="tex-mute"> Select County </option>
-            <option value="Dutchess"> Dutchess </option>
-            <option value="Ulster"> Ulster </option>
-            <option value="Putnam"> Putnam </option>
-            <option value="Orange"> Orange </option>
-            <option value="Columbia"> Columbia </option>
-            <option value="Sullivan"> Sullivan </option>
-            <option value="Greene"> Greene </option>
-            <option value="westchester"> westchester </option>
-         </select>
-          </div>
-
-        </div>
-
-        <div class="col-md-4">
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :zip_code, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :zip_code, id: :property_zip_code, class: 'form-control text-white' %>
-        </div>
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :loading_docks, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :loading_docks, id: :property_loading_docks, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :min_divisible, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :min_divisible, id: :property_min_divisible, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :space_use, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :space_use, id: :property_space_use, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :space_available, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :space_available, id: :property_space_available, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :date_available, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :date_available, id: :property_date_available, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :property_type, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :property_type, id: :property_property_type, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :address, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_field :address, id: :property_address, class: 'form-control text-white' %>
-        </div>
-
-        <div class="form-group bmd-form-group text-white">
-          <%= form.label :description, class: 'bmd-label-floating text-white'  %>
-          <%= form.text_area :description, id: :property_description, class: 'form-control text-white' %>
-        </div>
-
-        <div class="col-sm-12">
-          <div class="form-check form-check-inline">
-            <label class="form-check-label text-white">
-              <%= form.check_box :for_lease, id: :property_for_lease, class: 'form-check-input text-white ' %> For Lease
-              <span class="form-check-sign">
-                <span class="check"></span>
-              </span>
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <label class="form-check-label text-white">
-              <%= form.check_box :for_sale, id: :property_for_sale, class: 'form-check-input text-white b-white' %> For Sale
-              <span class="form-check-sign text-white">
-                <span class="check"></span>
-              </span>
-            </label>
-          </div>
-
-        </div>
-
-
-
-
-
+         </div>
+         <div class="card-footer ">
+            <%= form.submit @property.new_record? ? "New Property" : "Update Property", class: "btn btn-outline-success "  %>
+            <%= link_to 'Nevermind', properties_path, class: ' text-white' %>
+            <% end %>
+         </div>
       </div>
-
-
-
-
-
-      </div>
-      </div>
-
-
-
-      <div class="card-footer ">
-        <%= form.submit @property.new_record? ? "New Property" : "Update Property", class: "btn btn-outline-success ", id: "property-submit"  %>
-        <%= link_to 'Nevermind', properties_path, class: ' text-white' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+   </div>
 </div>
-
-
-
-
-</script>

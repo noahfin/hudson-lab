@@ -1,61 +1,46 @@
-
 <% @properties.each_slice(3) do |property| %>
-  <div class="row">
-    <% property.each do |property| %>
-
-<div class="col-md-4">
-    <div class="card text-center property-card card-background"  style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object") %>')";>
-  <div class="card-header">
-    <ul class="nav nav-pills card-header-pills">
-      <li class="nav-item">
-         <%= link_to  property_issues_path(property), class: 'btn btn-outline-danger text-danger nav-link ' do %>
-                                  Fix issue!
-                                   <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to  new_property_issue_path(property), class: 'btn btn-outline-success text-success nav-link fix-broken-card ml-0 pl-3' do %>
-                                   New Issue
-                                   <% end %>
-      </li>
-      <li class="nav-item">
-
-
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-
-                              <%= link_to  property_posts_path(property), class: 'text-info', title: 'View Activty', rel: "tooltip"  do %>
-
-                                <h6 class="card-category text-info"><%= property.name %></h6>
-                                <% end %>
-
-                                <p class="card-description">
-
-                                </p>
-                                <div class="row">
-                                  <div class="col-md-6">
-                                     <%= link_to property_path(property.id), class: ' btn-outline-info nav-link btn-round', title: 'View property', rel: "tooltip" do %>
-
-                                    <i class="material-icons">subject</i> view
-                                  <% end %>
-                                </div>
-                                  <div class="col-md-6">
-                                   <%= link_to edit_property_path( property.id), class: " btn-outline-info  nav-link btn-round", title: 'edit property', rel: "tooltip"  do %>
-                                  <i class="material-icons text-info">edit</i>
-                                    <p >edit</p>
-
-                                <% end %>
-                                </div>
-
-                                </div>
-
-
-  </div>
+<div class="row">
+   <% property.each do |property| %>
+   <div class="col-md-4">
+      <div class="card text-center property-card card-background"  style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object") %>')";>
+         <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+               <li class="nav-item">
+                  <%= link_to  property_issues_path(property), class: 'btn btn-outline-danger text-danger nav-link ' do %>
+                  Fix issue!
+                  <% end %>
+               </li>
+               <li class="nav-item">
+                  <%= link_to  new_property_issue_path(property), class: 'btn btn-outline-success text-success nav-link fix-broken-card ml-0 pl-3' do %>
+                  New Issue
+                  <% end %>
+               </li>
+               <li class="nav-item">
+               </li>
+            </ul>
+         </div>
+         <div class="card-body">
+            <%= link_to  property_posts_path(property), class: 'text-info', title: 'View Activty', rel: "tooltip"  do %>
+            <h6 class="card-category text-info"><%= property.name %></h6>
+            <% end %>
+            <p class="card-description">
+            </p>
+            <div class="row">
+               <div class="col-md-6">
+                  <%= link_to property_path(property.id), class: ' btn-outline-info nav-link btn-round', title: 'View property', rel: "tooltip" do %>
+                  <i class="material-icons">subject</i> view
+                  <% end %>
+               </div>
+               <div class="col-md-6">
+                  <%= link_to edit_property_path( property.id), class: " btn-outline-info  nav-link btn-round", title: 'edit property', rel: "tooltip"  do %>
+                  <i class="material-icons text-info">edit</i>
+                  <p >edit</p>
+                  <% end %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <% end %>
 </div>
-</div>
-
-
-<% end %>
-  </div>
 <% end %>

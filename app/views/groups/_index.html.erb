@@ -1,43 +1,31 @@
 <div id="main-wrap">
-<p id="notice"><%= notice %></p>
-<div class="container-fluid">
-
-
-
-
-</div>
-<div id="groups">
-  <div class="container-fluid   card-1 pt-4 first-show-card">
-    <%= link_to 'New Group', new_group_path, class: "text-info pull-right mr-4 " %>
-    <div class="m-4">
-
-
-    <span >
-<%   @groups.each_with_index do |g, i| %>
-
-<%= link_to group_path(g.id) do %>
-<span class="badge rounded-0 bg-black m-2 pt-3"><h5><%= g.name %></h5></span>
-</span>
-<% end %>
-<% end %>
- </div>
-   <div class="bs-example first-show-card">
-      <div class="list-group outer-list">
-
-  <%= render  'group' %>
-       </div>
+   <p id="notice"><%= notice %></p>
+   <div class="container-fluid">
+   </div>
+   <div id="groups">
+      <div class="container-fluid   card-1 pt-4 first-show-card">
+         <%= link_to 'New Group', new_group_path, class: "text-info pull-right mr-4 " %>
+         <div class="m-4">
+            <span >
+               <% @groups.each_with_index do |g, i| %>
+               <%= link_to group_path(g.id) do %>
+               <span class="badge rounded-0 bg-black m-2 pt-3">
+                  <h5><%= g.name %></h5>
+               </span>
+            </span>
+            <% end %>
+            <% end %>
+         </div>
+         <div class="bs-example first-show-card">
+            <div class="list-group outer-list" id="render-groups">
+               <%= render  'group' %>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="col-md-8 mr-auto ml-auto">
+         <div class="modal-body" id="form-modal-body"></div>
+      </div>
    </div>
 </div>
-</div>
-<div class="container">
-  <div class="col-md-8 mr-auto ml-auto">
-
-
-  <div class="modal-body" id="form-modal-body"></div>
-  </div>
-</div>
-
-</div>
-
-
-

@@ -1,39 +1,27 @@
-
-
 <%= form_for @group, remote: true do |form| %>
-
-  <% if group.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
-
-      <ul>
+<% if group.errors.any? %>
+<div id="error_explanation">
+   <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+   <ul>
       <% group.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%=  hidden_field(:group, :id, :value => @group.id.to_s, id: 'group_id') %>
-
-    <%= form.text_field :name, id: :group_name, class: 'form-control g-name text-white', placeholder: 'Enter new group name new_group' %>
-  </div>
-
-  <div class="form-group">
-
-
- <% attr = {prompt: "Select related users"} %>
-  <% user_ids = [] %>
- <% User.all.each do |user| %>
- <% user_ids.push(user.id.to_s) %>
-  <% end %>
-  <% attr[:selected] = user_ids %>
-    <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
-    <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker  " } %>
-
-
-
+   </ul>
+</div>
+<% end %>
+<div class="form-group">
+   <%=  hidden_field(:group, :id, :value => @group.id.to_s, id: 'group_id') %>
+   <%= form.text_field :name, id: :group_name, class: 'form-control g-name text-white', placeholder: 'Enter new group name new_group' %>
+</div>
+<div class="form-group">
+<% attr = {prompt: "Select related users"} %>
+<% user_ids = [] %>
+<% User.all.each do |user| %>
+<% user_ids.push(user.id.to_s) %>
+<% end %>
+<% attr[:selected] = user_ids %>
+<label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
+<%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
 <% end %>
 
 

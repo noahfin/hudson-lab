@@ -1,128 +1,118 @@
-
-
-    <% delete_string =  "Delete " + @group.name %>
-    <div class="col-lg-11 mr-auto ml-auto">
-        <h3 class="text-white pl-2">  <span> <%= @group.name %> / <%= @group.contacts.count %> <% edit_string =  "Edit " + @group.name %> <%= link_to edit_group_path(@group.id), class: "btn btn-link remote-link", remote: true, title: edit_string, rel: "tooltip"  do %>
+<% delete_string =  "Delete " + @group.name %>
+<div class="col-lg-11 mr-auto ml-auto">
+   <h3 class="text-white pl-2">  <span> <%= @group.name %> / <%= @group.contacts.count %> <% edit_string =  "Edit " + @group.name %> <%= link_to edit_group_path(@group.id), class: "btn btn-link remote-link", remote: true, title: edit_string, rel: "tooltip"  do %>
       <i class=" fa fa-edit e-contact pb-4 mb-3"></i>    <% end %></span><span class="pull-right" > <span class="pull-right ">   <%= link_to @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", remote: true, title: delete_string, rel: "tooltip" do %>
-                      <i class="material-icons text-danger pt-4">delete</i>
-                   <% end %></span>  <button type="button" class="btn-back btn btn-link text-white pt-4"><i class="material-icons">keyboard_backspace</i></button> </span></strong></h3>
-        <div class="table-responsive">
-            <table class="table table-custom">
-                <thead>
-                    <tr>
-                        <th class="d-">Edit </th>
-                        <th class="d-">Name </th>
-                        <th class="d-">Prefix </th>
-                        <th class="d-">First Name </th>
-                        <th class="d-">Middle </th>
-                        <th class="d-">Last Name </th>
-                        <th class="d-">Suffix </th>
-                        <th class="d-">Phone </th></div>
-                        <th class="d-">Cell Phone </th>
-                        <th class="d-">Email </th>
-                        <th class="d-">Company </th>
-                        <th class="d-">Web Address</th>
-                        <th class="d-">Address</th>
-                        <th class="d-">Suite</th>
-                        <th class="d-">Street Number</th>
-                        <th class="d-">Strret Name </th>
-                        <th class="d-">City</th>
-                        <th class="d-">State </th>
-                        <th class="d-">County </th>
-                        <th class="d-">Country </th>
-                        <th class="d-">Postal Code </th>
-                        <th class="d-">Zip Code Ext</th>
-                        <th class="d-">Latitude </th>
-                        <th class="d-">Longitude </th>
-                        <th class="d-">Owns or Rents </th>
-                        <th class="d-">year_of_Founding </th>
-                        <th class="d-">Primary Industry </th>
-                        <th class="d-">Facility Size</th>
-                        <th class="d-">Total Employees </th>
-                        <th class="d-">Position </th>
-                        <th class="d-">SIC </th>
-                        <th class="d-">Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   <% @group.contacts.each do |contact| %>
-                    <tr>
-                        <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
-                        <i class=" fa fa-edit e-contact"></i>
-                        <% end %></td>
-                        <td class="d-">
-                        <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
-                        <%= contact.name %>
-                        <% end %>
-                        </td>
-                        <td class="d-"><%= contact.prefix %></td>
-                        <td class="d-"><%= contact.first_name %></td>
-                        <td class="d-"><%= contact.middle_name %></td>
-                        <td class="d-"><%= contact.last_name %></td>
-                        <td class="d-"><%= contact.suffix %></td>
-                        <td class="d-"><%= contact.phone %></td>
-                        <td class="d-"><%= contact.cell %></td>
-                        <td class="d-"><%= contact.email %></td>
-                        <td class="d-"><%= contact.company %></td>
-                        <td class="d-"><%= contact.web_address %></td>
-                        <td class="d-"><%= contact.address %></td>
-
-                        <td class="d-"><%= contact.suite %></td>
-
-                        <td class="d-"><%= contact.street_num %></td>
-                        <td class="d-"><%= contact.strret_name %></td>
-                        <td class="d-"><%= contact.city %></td>
-                        <td class="d-"><%= contact.state %></td>
-
-                        <td class="d-"><%= contact.county %></td>
-                        <td class="d-"><%= contact.country %></td>
-                        <td class="d-"><%= contact.postal_code %></td>
-                        <td class="d-"><%= contact.zip_code_ext %></td>
-
-                        <td class="d-"><%= contact.latitude %></td>
-                        <td class="d-"><%= contact.longitude %></td>
-                        <td class="d-"><%= contact.owns_cents %></td>
-                        <td class="d-"><%= contact.year_of_Founding %></td>
-
-                        <td class="d-"><%= contact.primary_industry %></td>
-                        <td class="d-"><%= contact.facility_size %></td>
-                        <td class="d-"><%= contact.total_number_of_employees %></td>
-                        <td class="d-"><%= contact.postion %></td>
-                        <td class="d-"><%= contact.sic %></td>
-                        <td class="d-"><%= contact.notes %></td>
-                    </tr>
-                    <% end %>
-                </tbody>
-            </table>
-        </div>
-    </div>
-        <div class="col-lg-11 mr-auto ml-auto  pt-3">
-            <hr>
-        <div class="container-fluid mt-3" >
-            <div  class="row pl-3">
-                <div class="col-md-1"> <i class="material-icons text-info mt-2 text-right pl-4 pb-3 mt-0">group</i>
-            </div>
-                <div class="col-md-4">
-                     <span class="text-left pull-left pl-0 ml-0">  <h4 class="pt-2">Users That have Access to this Group  </h4></span>
-
-                </div>
-            </div>
-
-                  <div class="m-4">
-
-
-    <span >
-<% @group.users.each_with_index do |u, i| %>
-
-<%= link_to user_path(u.id) do %>
-<span class="badge rounded-0 bg-black m-2 pt-3"><h5><%= u.first_name %></h5></span>
-</span>
-<% end %>
-<% end %>
-  </div>
- </div>
-
-
-    </div>
-
-
+      <i class="material-icons text-danger pt-4">delete</i>
+      <% end %></span>  <button type="button" class="btn-back btn btn-link text-white pt-4"><i class="material-icons">keyboard_backspace</i></button> </span></strong>
+   </h3>
+   <div class="table-responsive">
+      <table class="table table-custom">
+         <thead>
+            <tr>
+               <th class="d-">Edit </th>
+               <th class="d-">Name </th>
+               <th class="d-">Prefix </th>
+               <th class="d-">First Name </th>
+               <th class="d-">Middle </th>
+               <th class="d-">Last Name </th>
+               <th class="d-">Suffix </th>
+               <th class="d-">Phone </th>
+               <th class="d-">Cell Phone </th>
+               <th class="d-">Email </th>
+               <th class="d-">Company </th>
+               <th class="d-">Web Address</th>
+               <th class="d-">Address</th>
+               <th class="d-">Suite</th>
+               <th class="d-">Street Number</th>
+               <th class="d-">Strret Name </th>
+               <th class="d-">City</th>
+               <th class="d-">State </th>
+               <th class="d-">County </th>
+               <th class="d-">Country </th>
+               <th class="d-">Postal Code </th>
+               <th class="d-">Zip Code Ext</th>
+               <th class="d-">Latitude </th>
+               <th class="d-">Longitude </th>
+               <th class="d-">Owns or Rents </th>
+               <th class="d-">year_of_Founding </th>
+               <th class="d-">Primary Industry </th>
+               <th class="d-">Facility Size</th>
+               <th class="d-">Total Employees </th>
+               <th class="d-">Position </th>
+               <th class="d-">SIC </th>
+               <th class="d-">Notes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <% @group.contacts.each do |contact| %>
+            <tr>
+               <td>  <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info", title: 'edit', rel: "tooltip"  do %>
+                  <i class=" fa fa-edit e-contact"></i>
+                  <% end %>
+               </td>
+               <td class="d-">
+                  <%= link_to contact_path(contact.id), class: "text-info", title: 'view profile', rel: "tooltip"  do %>
+                  <%= contact.name %>
+                  <% end %>
+               </td>
+               <td class="d-"><%= contact.prefix %></td>
+               <td class="d-"><%= contact.first_name %></td>
+               <td class="d-"><%= contact.middle_name %></td>
+               <td class="d-"><%= contact.last_name %></td>
+               <td class="d-"><%= contact.suffix %></td>
+               <td class="d-"><%= contact.phone %></td>
+               <td class="d-"><%= contact.cell %></td>
+               <td class="d-"><%= contact.email %></td>
+               <td class="d-"><%= contact.company %></td>
+               <td class="d-"><%= contact.web_address %></td>
+               <td class="d-"><%= contact.address %></td>
+               <td class="d-"><%= contact.suite %></td>
+               <td class="d-"><%= contact.street_num %></td>
+               <td class="d-"><%= contact.strret_name %></td>
+               <td class="d-"><%= contact.city %></td>
+               <td class="d-"><%= contact.state %></td>
+               <td class="d-"><%= contact.county %></td>
+               <td class="d-"><%= contact.country %></td>
+               <td class="d-"><%= contact.postal_code %></td>
+               <td class="d-"><%= contact.zip_code_ext %></td>
+               <td class="d-"><%= contact.latitude %></td>
+               <td class="d-"><%= contact.longitude %></td>
+               <td class="d-"><%= contact.owns_cents %></td>
+               <td class="d-"><%= contact.year_of_Founding %></td>
+               <td class="d-"><%= contact.primary_industry %></td>
+               <td class="d-"><%= contact.facility_size %></td>
+               <td class="d-"><%= contact.total_number_of_employees %></td>
+               <td class="d-"><%= contact.postion %></td>
+               <td class="d-"><%= contact.sic %></td>
+               <td class="d-"><%= contact.notes %></td>
+            </tr>
+            <% end %>
+         </tbody>
+      </table>
+   </div>
+</div>
+<div class="col-lg-11 mr-auto ml-auto  pt-3">
+   <hr>
+   <div class="container-fluid mt-3" >
+      <div  class="row pl-3">
+         <div class="col-md-1"> <i class="material-icons text-info mt-2 text-right pl-4 pb-3 mt-0">group</i>
+         </div>
+         <div class="col-md-4">
+            <span class="text-left pull-left pl-0 ml-0">
+               <h4 class="pt-2">Users That have Access to this Group  </h4>
+            </span>
+         </div>
+      </div>
+      <div class="m-4">
+         <span >
+            <% @group.users.each_with_index do |u, i| %>
+            <%= link_to user_path(u.id) do %>
+            <span class="badge rounded-0 bg-black m-2 pt-3">
+               <h5><%= u.first_name %></h5>
+            </span>
+         </span>
+         <% end %>
+         <% end %>
+      </div>
+   </div>
+</div>
