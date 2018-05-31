@@ -171,10 +171,11 @@
                 <span class="sidebar-normal"> View Groups </span>
               </a></li>
               <li class="nav-item text-white ">
-              <a class="nav-link" href="/groups/new/">
+
+              <%= link_to new_group_path, class: "nav-link text-white" do %>
                 <span class="sidebar-mini"> AG</span>
                 <span class="sidebar-normal"> Add Group </span>
-              </a></li>
+              <% end %></li>
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
