@@ -225,7 +225,7 @@ $(document).on('turbolinks:load', function () {
             $('#contact_address').focus();
         }
         if (formArray[wizIndex] === 'a[href="#group"]') {
-            wizIndex = 1;
+            wizIndex = 0;
 
             $('.b-finsh').show();
 
@@ -284,7 +284,7 @@ $(document).on('turbolinks:load', function () {
                 'cell': $('#contact_cell').val(),
                 'county': $('#contact_county').val(),
                 'state': $('#contact_state').val(),
-                'country': $('#contact_county').val(),
+                'country': $('#contact_country').val(),
                 'postal_code': $('#contact_postal_code').val(),
                 'notes': $('#contact_notes').val(),
                 'city': $('#contact_city').val(),
