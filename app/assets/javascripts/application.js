@@ -62,6 +62,12 @@ $(document).on('click', '.new-form', function (event) {
 
 
 $(document).on('turbolinks:load', function () {
+      jQuery(function($) {
+       $("#more").click(function(){
+           $(".filter-box").toggle('fold');
+       });
+
+   });
 
     $('.selectpicker').selectpicker('mobile');
 
