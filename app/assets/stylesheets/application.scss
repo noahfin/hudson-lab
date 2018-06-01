@@ -521,9 +521,7 @@ div.dataTables_wrapper {
     position: absolute;
     bottom: 10px;
 }
-#hudson-lab {
-    font-weight: 300 !important;
-}
+
 #leadsth {
     color: white !important;
     font-size: 1.4 rem !important;
@@ -572,5 +570,18 @@ div.dataTables_wrapper {
 .link-tabs {
   position: absolute;
   bottom: -24px;
-
 }
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+#hudson-lab, .get-group, .main-size-text, .scondary-size-text{
+    font-family: 'Roboto', sans-serif !important;
+}
+#hudson-lab, {
+
+   font-weight: 100 !important;
+}
+.get-group, .main-size-text, .scondary-size-text  {
+
+   font-weight: 300 !important;
+}
+
