@@ -590,25 +590,20 @@ div.dataTables_wrapper {
   top: .7rem !important;
 
 }
-.c-webaddress {
-    position: absolute !important;
-  right: -10rem !important;
-  padding-right:  0px !important;
-  margin-right: 0px !important;
 
-}
- #c-cell  {
+ #c-cell, #c-phone , .c-webaddress  {
   position: absolute !important;
   right: -2.1rem !important;
 }
 
- #c-phone  {
-  position: absolute !important;
-  right: -2.1rem !important;
+.c-webaddress-basic  {
+  min-width: 20rem;
+  position: relative !important;
+  right: -2rem !important;
+
+}
+.c-webaddress  {
+  min-width: 40rem;
 
 }
 
-#contat-info .list-group-item :first-child {
- padding-right:  0px !important;
-  margin-right: 0px !important;
-}
