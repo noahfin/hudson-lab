@@ -7,9 +7,10 @@
 .profile-picture {
    position: absolute;
    bottom: 56px !important;
+   max-width: 100%;
    }
   .profile-picture img {
-   float: right;
+
    -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
    -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
@@ -487,10 +488,10 @@
    display: block;
    }
    .profile-env > header .profile-picture img {
-   width: auto;
+
    float: none;
    display: inline-block;
-   margin-bottom: 15px;
+
    }
    .profile-env section.profile-feed .profile-stories article.story .user-thumb {
    width: 18%;
@@ -534,55 +535,69 @@
    .user-comment-thumb img{
    border-radius: 50% !important;
    }
-   #more {
+   #more, #load-more-deal {
        color:  #fff !important;
    }
-   .profile-feed a{ color:  #666 !important;
+   #deal-company-logo {
+      margin: auto !important;
+   }
+   .profile-feed a, .text-hudson-ornage{ color:  #be7e45 !important; }
+
 </style>
 <p id="notice"><%= notice %></p>
 <div class="container">
    <div class="container-fluid">
-      <div class="row">
+      <div class="row ">
          <div class="col-md-4 pb-0">
-            <div class="profile-env ">
-               <div class="profile-picture pb-0">
-                  <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23783458_979746265497126_5846339006839652540_o.png?_nc_cat=0&oh=9b16a0a61a3c340661b956c9277a9971&oe=5B802ECA" alt="Raised Image" class="img-raised rounded img-fluid">
-               </div>
+            <div class="profile-env img-thumbnail table-reponsive bg-black " style="height:400px;">
+               <table class="profile-picture pb-0 image-content" style="height:400px; width: 200px !important;" id="deal-company-logo">
+                 <td  class="align-self-center"> <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23783458_979746265497126_5846339006839652540_o.png?_nc_cat=0&oh=9b16a0a61a3c340661b956c9277a9971&oe=5B802ECA" class=""></td>
+               </table>
             </div>
          </div>
          <div class="col-md-8">
-            <section class="profile-info-tabs mt-4">
+            <section class="profile-info-tabs  mt-4">
                <div class="row mt-4 pt-4">
                   <div class="col-sm-offset-2 col-sm-10 mt-4 pt-4">
-                     <ul class="nav nav-pills nav-pills-icons mt-2  nav-pills-dark" role="tablist" id="deal-nav-pills">
-                        <!--
-                           color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                           -->
-                        <li class="nav-item nav-pills-dark">
-                           <a class="nav-link active" href="#dashboard-1" role="tab" data-toggle="tab">
-                           <i class="material-icons">dashboard</i>
-                           Deals
-                           </a>
-                        </li>
-                        <li class="nav-item nav-pills-dark">
-                           <a class="nav-link " href="#schedule-1" role="tab" data-toggle="tab">
-                           <i class="material-icons">schedule</i>
-                           Schedule
-                           </a>
-                        </li>
-                        <li class="nav-item nav-pills-dark">
-                           <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab">
-                           <i class="material-icons">list</i>
-                           Tasks
-                           </a>
-                        </li>
-                        <li class="nav-item link-tabs" >
-                           <div class="  mr-4 mt-4 pt-4 pr-4">
-         <span class=" pt-4 ">
-         <%= link_to 'Edit', edit_deal_path(@deal), class: " pb-4 text-gray" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-gray"  %>
-         </span>
-      </div></li>
-                     </ul>
+                     <div class="card card-nav-tabs bg-transparent">
+                        <div class="card-header ">
+                           <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                           <div class="nav-tabs-navigation">
+                              <div class="nav-tabs-wrapper">
+                                 <ul class="nav nav-pills nav-pills-icons mt-2  nav-pills-dark" role="tablist" id="deal-nav-pills">
+                                    <!--
+                                       color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                       -->
+                                    <li class="nav-item nav-pills-dark">
+                                       <a class="nav-link active" href="#dashboard-1" role="tab" data-toggle="tab">
+                                       <i class="material-icons">dashboard</i>
+                                       Deals
+                                       </a>
+                                    </li>
+                                    <li class="nav-item nav-pills-dark">
+                                       <a class="nav-link " href="#schedule-1" role="tab" data-toggle="tab">
+                                       <i class="material-icons">schedule</i>
+                                       Schedule
+                                       </a>
+                                    </li>
+                                    <li class="nav-item nav-pills-dark">
+                                       <a class="nav-link" href="#tasks-1" role="tab" data-toggle="tab">
+                                       <i class="material-icons">list</i>
+                                       Tasks
+                                       </a>
+                                    </li>
+                                    <li class="nav-item link-tabs" >
+                                       <div class="  mr-4 mt-4 pt-4 pr-4">
+                                 <span class=" pt-4 ">
+                                 <%= link_to 'Edit', edit_deal_path(@deal), class: " pb-4 text-white" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-white"  %>
+                                 </span>
+                                    </div></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="card-content bg-transparent">
+
                      <div class="tab-content tab-space">
                         <div class="tab-pane active" id="dashboard-1">
                            <div class="row">
@@ -626,6 +641,9 @@
                            <br><br>Dynamically innovate resource-leveling customer service for state of the art customer service.
                         </div>
                      </div>
+                        </div>
+                     </div>
+
                   </div>
                </div>
             </section>
@@ -638,7 +656,7 @@
                   <section class="profile-info-tabs mt-3 ">
                      <ul class="user-details">
                         <li> <a href="#"> <i class="entypo-location"></i> Prishtina </a></li>
-                        <li> <a href="#"> <i class="entypo-suitcase"></i> Works as <span>Laborator</span> </a></li>
+                        <li> <a href="#"> <i class="entypo-suitcase"></i> Works as <span class="text-hudson-ornage">Laborator</span> </a></li>
                         <li> <a href="#"> <i class="entypo-calendar"></i> 16 October </a></li>
                      </ul>
                   </section>
@@ -743,7 +761,7 @@
                                  <label for="exampleFormControlTextarea6" class="text-white label-floating"></label>
                                  <textarea class="form-control z-depth-1 text-white" id="exampleFormControlTextarea6" rows="4" ></textarea>
                               </div>
-                              <button class="btn btn-danger"> <i class="entypo-chat"></i>Add Comment </button>
+                              <button class="btn mdl-grey-900-btn"> <i class="entypo-chat"></i>Add Comment </button>
                            </div>
                         </li>
                      </ul>
@@ -751,7 +769,7 @@
                   <hr>
                </div>
             </article>
-            <div class="text-center"> <a href="#" class="btn btn-default mdl-grey-900-btn btn-icon icon-left"> <i class="entypo-hourglass"></i> Load More … </a></div>
+            <div class="text-center"> <a href="#" class="btn text-white mdl-grey-900-btn btn-icon icon-left" id="load-more-deal"> <i class="entypo-hourglass"></i> Load More … </a></div>
          </div>
       </section>
    </div>

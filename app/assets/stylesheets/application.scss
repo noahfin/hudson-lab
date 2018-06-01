@@ -561,11 +561,16 @@ div.dataTables_wrapper {
 #main-content a:hover {
   background-color: transparent !important;
 }
+#deal-nav-pills .nav-pills-dark a{
+  color: #be7e45 !important;
+}
 #deal-nav-pills .nav-pills-dark > .active, .mdl-grey-900-btn  {
-   background-color: #212121 !important;
+   background-color: #000 !important;
+   color: #fff !important;
    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 33, 33, 0.4);
 }
 .link-tabs {
   position: absolute;
   bottom: -24px;
+
 }
