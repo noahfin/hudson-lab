@@ -14,8 +14,8 @@
       <% end %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading text-info">
-     <%= link_to contact_path(contact.id), class: 'text-info remote-link main-size-text',  remote: true  do %>
+        <h4 class="media-heading ">
+     <%= link_to contact_path(contact.id), class: 'text-white remote-link main-size-text',  remote: true  do %>
 
         <% if contact.first_name || contact.last_name %>
           <%= contact.first_name if contact.first_name %>
@@ -31,7 +31,7 @@
         <address>
 
           <strong>  <%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></strong><br>
-          <%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text',  remote: true  do %><%= contact.email %>  <% end %>
+
         </address>
       </div>
     </div>
