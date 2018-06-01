@@ -553,8 +553,8 @@ div.dataTables_wrapper {
    bottom: 20px !important;
 }
 .contact-title-i {
-  position: relative;
-  top: 21px !important;
+  position: relative !important;
+
 }
 #main-content a:hover {
   background-color: transparent !important;
@@ -584,4 +584,9 @@ div.dataTables_wrapper {
 
    font-weight: 300 !important;
 }
+.pull-right-absolute {
+  position: relative !important;
+  left: 10.3rem !important;
+  top: .7rem !important;
 
+}
