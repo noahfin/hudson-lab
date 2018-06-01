@@ -223,7 +223,7 @@ $(document).on('turbolinks:load', function () {
             $('#contacts_suffix').focus();
         } else if (formArray[wizIndex] === 'a[href="#address"]') {
             $('#contact_address').focus();
-        }
+        }else{
         if (formArray[wizIndex] === 'a[href="#group"]') {
             wizIndex = 0;
 
@@ -231,6 +231,7 @@ $(document).on('turbolinks:load', function () {
 
             return true;
         }
+      }
         wizIndex++
     }
 
@@ -238,13 +239,13 @@ $(document).on('turbolinks:load', function () {
     $(document).keypress(function (e) {
 
         if (e.which == 13) {
-
+           e.preventDefault();
             if (moveToNext() === true) {
                 $(document).keypress(function (e) {
-
+                   wizIndex = 2;
                     if (e.which == 13) {
 
-                        // var formData = getContactInputs();
+                         clsoeWiz();
 
                         $('.b-finsh').trigger("click");
 

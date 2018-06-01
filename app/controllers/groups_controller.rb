@@ -31,13 +31,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-
-
-
       flash[:info] = "Group with the slected users was successfully created."
     else
        flash[:danger] = @group.errors.full_messages.to_s
-
     end
 
     respond_to do |format|
@@ -51,7 +47,6 @@ class GroupsController < ApplicationController
           flash[:info] = "Group with the slected users was successfully updated."
     else
        flash[:danger] = @group.errors.full_messages.to_s
-
     end
   end
 
@@ -65,10 +60,9 @@ class GroupsController < ApplicationController
 
   private
 
-    def set_group
-      @group = Group.find(params[:id])
-    end
-
+  def set_group
+    @group = Group.find(params[:id])
+  end
   def group_params
     params.require(:group).permit(:name, :id, :contact_id => [], :user_ids => [])
   end
