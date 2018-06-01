@@ -121,7 +121,7 @@
         width: 100% !important;
         margin: auto !important;
     }
-    .contact-main-image, .group-sidenav, .group-head, .r-r {
+    .contact-main-image, .group-sidenav, .group-head, .r-r, #c-profile-big-hr {
         display: none;
     }
     .main-contact-panel {
@@ -180,7 +180,11 @@
         display: block !important;
     }
     .r-s-p {
-        padding: 4px !important;
+        padding-left: .5rem !important;
+        padding-right: 0rem !important;
+    }
+       .r-s-p  > #form-collapse  {
+        padding: 3rem !important;
     }
     .content {
         width: 100% !important;
@@ -190,8 +194,60 @@
         padding-right: 0px !important;
     }
     .card-5 {
-        width: 100% !important;
+        max-width: 100vw !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        overflow: hidden;
     }
+    .pull-right-absolute {
+        position: absolute !important;
+        right: 1px !important;
+    }
+    html, body, .content {
+      max-width: 100vw !important;
+         padding: 0px !important;
+      margin: 0px !important;
+      overflow: hidden;
+
+    }
+    .col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{
+      padding: 0px !important;
+      margin: 0px !important;
+      overflow: hidden;
+      max-width: 98% !important;
+    }
+    #main-content {
+      margin-top: 4% !important;
+      padding-top: 5px !important;
+    }
+    .card-icon {
+      position: absolute !important;
+      top: -10rem  !important;
+      margin-bottom: 1rem;
+    }
+    .card-avatar {
+      position: static !important;
+      width: 100% !important;
+      margin-top: 2rem !important;
+    }
+    .scondary-size-text {
+    font-weight: 300 !important;
+    font-size: .7rem !important;
+    }
+.scondary-smaller-text {
+    font-weight: 300 !important;
+    font-size: .8rem !important;
+  }
+.main-size-text {
+    font-weight: 300 !important;
+    font-size: .9rem !important;
+  }
+  #contact-info span {
+    padding-left: 4px !important
+  }
+  .c-basic-h4 {
+    padding: 1rem !important;
+  }
 }
 .card-6 {
     box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14),0 6px 30px 5px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,0,0,0.2);
@@ -578,8 +634,8 @@ div.dataTables_wrapper {
 }
 .pull-right-absolute {
   position: relative !important;
-  left: 10.3rem !important;
-  top: .7rem !important;
+  left: 10.3rem;
+  top: .7rem;
 
 }
 
