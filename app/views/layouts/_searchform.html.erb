@@ -1,7 +1,7 @@
  <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline md-form  c-s-form navbar-form form-sm active mr-2', id: 'c-s-form') do |f| %>
     <span>
-         <%= text_field_tag :query, params[:query], class: "form-control form-control-lg  mr-3 text-white query-c", placeholder: "Name" %>
-        <button type="submit" class="btn btn-outline-info btn-round btn-just-icon" id="send-search">
+         <%= text_field_tag :query, params[:query], class: "form-control form-control-lg  form-control-gray bg-gray  mr-3 text-white query-c", placeholder: "Name" %>
+        <button type="submit" class="btn btn-outline-gray btn-round btn-just-icon" id="send-search">
           <i class="material-icons">search</i>
           <div class="ripple-container"></div>
         </button>

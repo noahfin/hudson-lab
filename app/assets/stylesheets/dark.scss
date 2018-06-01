@@ -125,4 +125,22 @@ padding-left: 2px !important;
 .mdl-color--grey-900 {
     background-color: #212121 !important;
 }
+.text-black {
+  color: black !important;
+}
+.btn-outline-black {
+  color: black !important;
+  background-color: transparent  !important;
+  border: 2px solid black  !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 33, 33, 0.4) !important;
+}
+.btn-outline-gray {
+  color: #666 !important;
+  background-color: transparent  !important;
+  border: 1px solid #666  !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(02,102,102, 0.4) !important;
+}
+.form-control-gray {
+  background-image: linear-gradient(to top, #666 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #666 1px, rgba(2,102,102, 0) 1px) !important;
+}
 
