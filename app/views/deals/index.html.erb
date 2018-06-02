@@ -26,7 +26,7 @@
 </section>
 <!--Section: Modals-->
 <!--Section: Main panel-->
-<section class="card card-cascade narrower mb-5">
+<section class="card card-cascade narrower mb-5 text-white card-1">
    <!--Grid row-->
    <div class="row">
       <!--Grid column-->
@@ -41,13 +41,13 @@
             <!--Grid row-->
             <div class="row">
                <!--Grid column-->
-               <div class="col-md-6 mb-4">
+               <div class="col-md-6 mb-4 text-white mt-4">
                   <!--Date select-->
                   <p class="lead">
                      <span class="badge bg-black p-2">Date range</span>
                   </p>
-                  <select class="selectpicker " data-style="select-with-transition" title="Single Select" data-size="8" data-style="btn-outline-info">
-                     <option value="" disabled selected>Choose time period</option>
+                  <select class="selectpicker text-white" data-style="select-with-transition" title="Single Select" data-size="8" data-style="btn-outline-info">
+                     <option value="" disabled selected class="text-white">Choose time period</option>
                      <option value="1">Today</option>
                      <option value="2">Yesterday</option>
                      <option value="3">Last 7 days</option>
@@ -58,23 +58,23 @@
                      <option value="7">last year</option>
                   </select>
                   <!--Date pickers-->
-                  <p class="lead my-4">
-                     <span class="badge bg-black p-2">Custom date</span>
+                  <p class="lead my-4 text-white">
+                     <span class="badge bg-black p-2 text-white">Custom date</span>
                   </p>
-                  <div class="md-form">
-                     <input placeholder="Selected date" type="text" id="from" class="form-control  datetimepicker">
-                     <label for="date-picker-example">From</label>
+                  <div class="md-form text-white">
+                     <input placeholder="Selected date" type="text" id="from" class="form-control text-white datetimepicker">
+                     <label for="date-picker-example text-white">From</label>
                   </div>
-                  <div class="md-form">
-                     <input placeholder="Selected date" type="text" id="to" class="form-control  datetimepicker">
-                     <label for="date-picker-example">To</label>
+                  <div class="md-form text-white">
+                     <input placeholder="Selected date" type="text" id="to" class="form-control text-white  datetimepicker">
+                     <label for="date-picker-example text-white">To</label>
                   </div>
                </div>
                <!--Grid column-->
                <!--Grid column-->
-               <div class="col-md-6 mb-4 text-center">
+               <div class="col-md-6 mb-4 text-center text-gray">
                   <!--Summary-->
-                  <p>Total sales:
+                  <p class="text-gray">Total sales:
                      <strong>2000$</strong>
                      <button type="button" class="btn bg-black btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Total sales in the given period">
                      <i class="material-icons text-white">monetization_on</i>
@@ -86,74 +86,21 @@
                      <i class="material-icons text-white ">monetization_on</i>
                      </button>
                   </p>
-                  <!--Change chart-->
-                  <span class="min-chart my-4" id="chart-sales" >
-                     <table class="table table-bordered ">
-                        <thead class="info">
-                           <tr>
-                              <th>Deal</th>
-                              <th>Date</th>
-                              <th>Amount</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td class="dashboard" style="text-align: left;">
-                                 <a href="" class="text-muted">
-                                 2319      </a>
-                              </td>
-                              <td>
-                                 May, 22 20017
-                              </td>
-                              <td>
-                                $22,340
-                              </td>
-                           </tr>
-                           <tr>
-                              <td class="dashboard" style="text-align: left;">
-                                 <a href="" class="text-muted">
-                                 2319
-                                 </a>
-                              </td>
-                              <td>
-                                 November, 12 20017
-                              </td>
-                              <td>
-                               $12,340
-                              </td>
-                           </tr>
-                           <tr>
-                              <td class="dashboard" style="text-align: left;">
-                                 <a href="" class="text-muted">
-                                 1129                         </a>
-                              </td>
-                              <td>
-                                 June, 22 20018
-                              </td>
-                              <td>
-                               &nbsp;$41,340
-                              </td>
-                           </tr>
-                           <tr>
-                              <td class="dashboard" style="text-align: left;">
-                                 <a href="" class="text-muted">
-                                 1829                        </a>
-                              </td>
-                              <td>
-                                 December, 12 20018
-                              </td>
-                              <td>
-                              $102,190
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </span>
-                  <h5>
-                     <span class="badge green p-2">Change
-                     <i class="fa fa-arrow-circle-up ml-1"></i>
-                     </span>
-                  </h5>
+
+                  <div class="card card-chart card-1">
+                                <div class="card-header mdl-color--grey-900 text-white ">
+                                    <div class="ct-chart" id="websiteViewsChart"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-bar" style="width: 100%; height: 100%;"><g class="ct-grids"><line y1="120" y2="120" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="96" y2="96" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="72" y2="72" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="48" y2="48" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="24" y2="24" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="0" y2="0" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><line x1="53.680338541666664" x2="53.680338541666664" y1="120" y2="54.959999999999994" class="ct-bar" ct:value="542" opacity="1"></line><line x1="81.041015625" x2="81.041015625" y1="120" y2="66.84" class="ct-bar" ct:value="443" opacity="1"></line><line x1="108.40169270833333" x2="108.40169270833333" y1="120" y2="81.6" class="ct-bar" ct:value="320" opacity="1"></line><line x1="135.76236979166666" x2="135.76236979166666" y1="120" y2="26.400000000000006" class="ct-bar" ct:value="780" opacity="1"></line><line x1="163.12304687499997" x2="163.12304687499997" y1="120" y2="53.64" class="ct-bar" ct:value="553" opacity="1"></line><line x1="190.48372395833331" x2="190.48372395833331" y1="120" y2="65.64" class="ct-bar" ct:value="453" opacity="1"></line><line x1="217.84440104166666" x2="217.84440104166666" y1="120" y2="80.88" class="ct-bar" ct:value="326" opacity="1"></line><line x1="245.20507812499997" x2="245.20507812499997" y1="120" y2="67.92" class="ct-bar" ct:value="434" opacity="1"></line><line x1="272.5657552083333" x2="272.5657552083333" y1="120" y2="51.84" class="ct-bar" ct:value="568" opacity="1"></line><line x1="299.9264322916667" x2="299.9264322916667" y1="120" y2="46.8" class="ct-bar" ct:value="610" opacity="1"></line><line x1="327.287109375" x2="327.287109375" y1="120" y2="29.28" class="ct-bar" ct:value="756" opacity="1"></line><line x1="354.6477864583333" x2="354.6477864583333" y1="120" y2="12.599999999999994" class="ct-bar" ct:value="895" opacity="1"></line></g></g><g class="ct-labels"><foreignObject style="overflow: visible;" x="40" y="125" width="27.360677083333332" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">J</span></foreignObject><foreignObject style="overflow: visible;" x="67.36067708333333" y="125" width="27.360677083333332" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">F</span></foreignObject><foreignObject style="overflow: visible;" x="94.72135416666666" y="125" width="27.360677083333336" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">M</span></foreignObject><foreignObject style="overflow: visible;" x="122.08203125" y="125" width="27.36067708333333" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">A</span></foreignObject><foreignObject style="overflow: visible;" x="149.44270833333331" y="125" width="27.36067708333333" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">M</span></foreignObject><foreignObject style="overflow: visible;" x="176.80338541666666" y="125" width="27.360677083333343" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">J</span></foreignObject><foreignObject style="overflow: visible;" x="204.1640625" y="125" width="27.360677083333314" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">J</span></foreignObject><foreignObject style="overflow: visible;" x="231.52473958333331" y="125" width="27.360677083333343" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">A</span></foreignObject><foreignObject style="overflow: visible;" x="258.88541666666663" y="125" width="27.360677083333343" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">S</span></foreignObject><foreignObject style="overflow: visible;" x="286.24609375" y="125" width="27.360677083333314" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">O</span></foreignObject><foreignObject style="overflow: visible;" x="313.6067708333333" y="125" width="27.360677083333314" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">N</span></foreignObject><foreignObject style="overflow: visible;" x="340.96744791666663" y="125" width="30" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 30px; height: 20px;">D</span></foreignObject><foreignObject style="overflow: visible;" y="96" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">0</span></foreignObject><foreignObject style="overflow: visible;" y="72" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">200</span></foreignObject><foreignObject style="overflow: visible;" y="48" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">400</span></foreignObject><foreignObject style="overflow: visible;" y="24" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">600</span></foreignObject><foreignObject style="overflow: visible;" y="0" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">800</span></foreignObject><foreignObject style="overflow: visible;" y="-30" x="0" height="30" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 30px; width: 30px;">1000</span></foreignObject></g></svg></div>
+                                </div>
+                                <div class="card-body ">
+                                    <h4 class="card-title"></h4>
+                                    <p class="card-category"></p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+
+                                    </div>
+                                </div>
+                            </div>
                </div>
                <!--Grid column-->
             </div>
@@ -166,12 +113,12 @@
       <div class="col-md-7">
          <!--Panel Header-->
          <div class="view py-3 gradient-card-header bg-black mb-4">
-            <div class="card">
+            <div class="card mdl-color--grey-900">
                <div class="card-header card-header-icon ">
-                  <div class="card-icon bg-footer">
+                  <div class="card-icon bg-black">
                      <i class="material-icons">timeline</i>
                   </div>
-                  <h4 class="card-title">Coloured Line Chart
+                  <h4 class="card-title text-white">Coloured Line Chart
                      <small> - Rounded</small>
                   </h4>
                </div>
@@ -243,10 +190,14 @@
    <!--Grid row-->
 </section>
 <!--Section: Main panel-->
-<div class="card rounded-0 pt-4">
+<div class="card rounded-0 pt-4 card-1 text-white">
    <div class="col-md-12">
       <!-- start of deal borderd table in container -->
       <div class="container">
+
+<div class="collapse" id="deals-header">
+
+
          <div class="row">
             <div class="col-md-8">
                <h2>
@@ -308,177 +259,60 @@
             <div class="col-md-12">
             </div>
          </div>
+         </div>
       </div>
-      <table   class="table table-bordered table-hover table-striped custom-striped table-striped-info-dark">
-         <thead class="warning">
+      <div class="card card-1">
+                  <div class="card-header card-header-icon card-1">
+                    <div class="card-icon bg-black">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title text-white">Deals          <span>
+  <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#deals-header" aria-expanded="false" aria-controls="deals-header">
+   <i class="material-icons">whatshot</i>
+  </a>
+
+</span></h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class=" text-primary">
+                            <tr>
+               <th class="text-white">Action</th>
+               <th class="text-white"><a href="text-white">Company</a></th>
+               <th class="text-white"><a href="text-white">Contact Name</a></th>
+               <th class="text-white"><a href="text-white">Status</a></th>
+               <th class="text-white"><a href="text-white">User's Name</a></th>
+               <th class="text-white"><a href="text-white">Date</a></th>
+
+                        </tr></thead>
+                        <tbody>
+                                    <% @deals.each do |deal| %>
             <tr>
-               <th>Action</th>
-               <th><a href="">Company</a></th>
-               <th><a href="">Contact Name</a></th>
-               <th><a href="">Status</a></th>
-               <th><a href="">User's Name</a></th>
-               <th><a href="">Date</a></th>
-            </tr>
-         </thead>
-         <tbody>
-            <% @deals.each do |deal| %>
-            <tr>
-               <td>
+               <td class="text-white">
                   <%= link_to  edit_deal_path(deal) do %><i class="fa fa-edit"></i><% end %>
                </td>
 
-               <td> <%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
+               <td class="text-white"> <%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
 
-               <td>deal.contacts.first.name %></td>
-               <td><span class="label label-success"><%= deal.active %></span></td>
-               <td><% deal.users.each do |user| %> <span><%= user.first_name + ' ,' %> <% end %></span></td>
-               <td><%= deal.created_at.strftime("%d %b. %Y") %></td>
+               <td class="text-white">deal.contacts.first.name %></td>
+               <td class="text-white"><span class="label label-success"><%= deal.active %></span></td>
+               <td class="text-white"><% deal.users.each do |user| %> <span><%= user.first_name + ' ,' %> <% end %></span></td>
+               <td class="text-white"><%= deal.created_at.strftime("%d %b. %Y") %></td>
 
                   <% end %>
             </tr>
 
-         </tbody>
-      </table>
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
    </div>
 </div>
 
 </div>
 <!-- end of deal borderd table  -->
-<div class="row">
-   <div class="col-md-12">
-      <% @deals.each.each_slice(3) do |deal| %>
-      <div class="col-md-12 mb-3">
-         <div class="row">
-            <% deal.each do |deal| %>
-            <div class=" col-md-4">
-               <div class="card bg-black ">
-                  <div class="card-body  ">
-                     <h5 class="card-category card-category-social text-white">
-                        <i class="material-icons text-white">monetization_on</i><%= deal.category %>
-                     </h5>
-                     <h4 class="card-title text-white">
-                        <%= deal.category %>
-                     </h4>
-                     <p class="card-description text-white">
-                        <% deal.contacts.each do |contact| %> <span><%= contact.first_name + ' ,' %> <% end %>
-                     </p>
-                     <div class="card-stats justify-content-center text-dark">
-                        <%= link_to deal, class: 'btn btn-white btn-round text-dark' do %>
-                        View Deal<% end %>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <% end %>
-         </div>
-         <hr class="bg-light">
-      </div>
-      <% end %>
-   </div>
-</div>
-<!--Main layout-->
-<main>
-<div class="container-fluid">
-<!--Section: Modals-->
-<section>
-   <!--Modal: modalConfirmDelete-->
-   <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-         <!--Content-->
-         <div class="modal-content text-center">
-            <!--Header-->
-            <div class="modal-header d-flex justify-content-center">
-               <p class="heading">Are you sure?</p>
-            </div>
-            <!--Body-->
-            <div class="modal-body">
-               <i class="fa fa-times fa-4x animated rotateIn"></i>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer flex-center">
-               <a href="https://mdbootstrap.com/product/material-design-for-bootstrap-pro/" class="btn  btn-outline-secondary-modal">Yes</a>
-               <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">No</a>
-            </div>
-         </div>
-         <!--/.Content-->
-      </div>
-   </div>
-   <!--Modal: modalConfirmDelete-->
-</section>
-<!--Section: Modals-->
-<div class="row">
-   <div class="col-md-6">
-      <div class="card p-4 rounded-0 ">
-         <table class="table">
-            <thead>
-               <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Login</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td>1</td>
-                  <td>Mcneil, Burke Q.</td>
-                  <td><span class="badge badge-primary rounded-0 ">Emery_Mullen</span></td>
-               </tr>
-               <tr>
-                  <td>2</td>
-                  <td>Burris, Lesley T.</td>
-                  <td><span class="badge badge-info rounded-0">Eleanor_Cole</span></td>
-               </tr>
-               <tr>
-                  <td>3</td>
-                  <td>Sears, Drew G.</td>
-                  <td><span class="badge badge-danger rounded-0">Pandora_Bender</span></td>
-               </tr>
-               <tr>
-                  <td>4</td>
-                  <td>Oconnor, Jocelyn A.</td>
-                  <td><span class="badge badge-primary rounded-0">Abdul_Logan</span></td>
-               </tr>
-               <tr>
-                  <td>5</td>
-                  <td>Stewart, Anika M.</td>
-                  <td><span class="badge badge-secondary rounded-0">Eaton_Morris</span></td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </div>
-   <div class="col-md-6">
-      <ul class="list-dot">
-         <li class="list-dot-item">
-            <div class="title">Clean design</div>
-            <div class="text">
-               It is a long established fact that a reader
-            </div>
-         </li>
-         <li class="list-dot-item">
-            <div class="title">Mobile friendly</div>
-            <div class="text">
-               Will be distracted by the readable content of a page
-            </div>
-         </li>
-         <li class="list-dot-item">
-            <div class="title">Well documented</div>
-            <div class="text">
-               When looking at its layout
-            </div>
-         </li>
-         <li class="list-dot-item">
-            <div class="title">24/7 support</div>
-            <div class="text">
-               The point of using Lorem Ipsum is that it has a more-or-less
-            </div>
-         </li>
-         <li class="list-dot-item">
-            <div class="title">Made width L<i class="fa fa-heart-o text-danger"></i>VE</div>
-            <div class="text">
-               Is that it has a more-or-less
-            </div>
-         </li>
-      </ul>
-   </div>
-</div>

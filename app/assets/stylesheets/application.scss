@@ -655,14 +655,8 @@ div.dataTables_wrapper {
   min-width: 200px;
 }
 
-.table-striped-black>tbody>tr:nth-child(2n+1)>td,
-.table-striped>tbody>tr:nth-child(2n+1)>th {
-  background-color: #09C !important;
-}
 
-.table-striped a {
-  color: black !important;
-}
+
 
 .custom-striped {
   color: black !important;
@@ -791,4 +785,9 @@ div.dataTables_wrapper {
 
 .c-webaddress {
   min-width: 40rem;
+}
+
+#deal-company-logo {
+  position: relative;
+  left: 0% !important;
 }
