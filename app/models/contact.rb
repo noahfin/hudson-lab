@@ -23,9 +23,11 @@ class Contact < ApplicationRecord
   after_initialize :set_default_role, :if => :new_record?
   pg_search_scope :search, against: [:name, :first_name, :last_name, :company, :email],
   using: {tsearch: {dictionary: "english"}},
-  associated_against: {author: :name, comments: [:name, :content]},
+  associated_against: {group: :name, comments: [:name, :content]},
   ignoring: :accents
   pg_search_scope :by_county, against: [:county]
+
+ pg_search_scope :in_group, against: [:name, :first_name, :last_name, :company, :email]
 
   def set_default_role
     self.role ||= :potential_customer

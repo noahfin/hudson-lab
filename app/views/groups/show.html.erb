@@ -1,7 +1,5 @@
-<!--Section: Main panel-->
 <div class="card rounded-0 pt-4 card-1 text-white">
 <div class="col-md-12">
-   <!-- start of contact borderd table in container -->
    <div class="">
       <div class="collapse" id="contacts-header">
          <div class="row">
@@ -19,9 +17,9 @@
                </h2>
             </div>
             <div class="col-md-4">
-               <form action="/groups/" id="user-search" class="well form-inline pull-right" method="get" accept-charset="utf-8">
-                  <div style="display:none;"><input type="hidden" name="_method" value="get"></div>
-                  <input name="data[contact][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">
+               <form action="/contacts/" id="user-search" class="well form-inline pull-right" method="get" accept-charset="utf-8">
+                  <div style="display:none;"><input type="hidden" name="group_id" value=<%= "#{@group.id}" %>></div>
+                  <input name="term" class="form-control" placeholder="Search this group" id="search" autocomplete="off" type="text">
                   <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
                      <i class="material-icons">search</i>
                      <div class="ripple-container"></div>

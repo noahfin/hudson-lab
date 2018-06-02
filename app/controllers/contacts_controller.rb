@@ -111,54 +111,52 @@ class ContactsController < ApplicationController
 
   private
 
-  def contact_params
-    params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :page, :suite, :county, :state, :country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
-  end
-
-  def find_contact
-     @contact = Contact.find(params[:id].to_i)
-  end
-
-  def previous_query_string
-    if params[:group_id]
-       session[:selected_group_id] = params[:group_id]
-
-        if params[:page]
-         session[:selected_page] = params[:page]
-       end
+    def contact_params
+      params.require(:contact).permit(:name,  :email, :company, :address, :phone, :cell, :page, :suite, :county, :state, :country, :postal_code, :notes, :city, :street_num, :strret_name, :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [])
     end
-    session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
-  end
 
-  def my_contacts
-      @users = User.all
-      if params[:group_id] && !params[:group_id].empty?
+    def find_contact
+       @contact = Contact.find(params[:id].to_i)
+    end
 
-        if params['county']
-          county = params['county']
-          group = Group.find(params[:group_id])
-            @contacts = group.contacts.by_county(county).order('last_name ASC').page(params[:page])
-            session[:selected_group_id] = params[:group_id]
-        else
-
-            @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
-            session[:selected_page] = params[:page] if params[:page]
-
-
-         end
-
+    def previous_query_string
+      if params[:group_id]
          session[:selected_group_id] = params[:group_id]
-    else
-      if session[:selected_page] && !session[:selected_group_id].nil?
-             @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(params[:selected_page])
-      elsif session[:selected_group_id]
-             @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
-     else
-         @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
+
+          if params[:page]
+           session[:selected_page] = params[:page]
+         end
       end
-
+      session[:selected_group_id] ? {group_id: session[:selected_group_id]} : {}
     end
-end
 
+    def my_contacts
+        @users = User.all
+        if params[:group_id] && !params[:group_id].empty?
 
+          if params['county']
+            county = params['county']
+            group = Group.find(params[:group_id])
+              @contacts = group.contacts.by_county(county).order('last_name ASC').page(params[:page])
+
+          else
+            if params['term']
+              term = params['term'].split.map(&:capitalize)*' '
+              group = Group.find(params[:group_id])
+              @contacts = group.contacts.in_group(term).order('last_name ASC').page(params[:page])
+            else
+              @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
+            end
+         end
+      else
+        if session[:selected_page] && !session[:selected_group_id].nil?
+               @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(params[:selected_page])
+        elsif session[:selected_group_id]
+               @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
+       else
+           @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
+       end
+         previous_query_string()
+      end
+  end
 end
