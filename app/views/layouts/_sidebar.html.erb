@@ -112,9 +112,9 @@
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
-                <%= link_to group_path(group.id), class: "nav-link text-white #{active}" do %>
+                <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
                 <span class="sidebar-mini">  <%= group.name[0] %> </span>
-                <span class="sidebar-normal">  <%= group.name %> <span class=" text-white">  <%= group.contacts.count %></span></span>
+                <span class="sidebar-normal">  <%= group.name %> <span class=" text-text-white">  <%= group.contacts.count %></span></span>
                 <% end %>
             <% end %>
             </li>
@@ -179,7 +179,7 @@
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
-                <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
+                <%= link_to group_path(group), class: "nav-link #{active}" do %>
                 <span class="sidebar-mini">  <%= group.name[0] %> </span>
                 <span class="sidebar-normal">  <%= group.name %> <span class=" text-text-white">  <%= group.contacts.count %></span></span>
                 <% end %>

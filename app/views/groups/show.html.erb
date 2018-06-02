@@ -1,176 +1,150 @@
-<%= render 'show_form' %>
-<div class="card-body  first-show-card" >
-   <div class="panel panel-default first-show-card">
-      <div class="panel-heading mb-0 pl-4 pb-0">
-          <h4 class="card-title text-light main-size-text pl-4 ml-4"><span class="r-r head-underline">Contact / Profile </span>
-      </div>
-      <div class="panel-body col-md-12 first-show-card">
-         <ul id="contact-info list-group first-show-card mt-2">
-
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Name</strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.name if @contact.name %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Phone: </strong></span><span class="float-right c-info-text-right scondary-size-text text-white""><%= tel_to @contact.phone %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Cell Phone: </strong></span><span class="float-right c-info-text-right scondary-size-text text-white"><%= tel_to @contact.cell %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Address: </strong></span><span class="float-right c-info-text-rightt scondary-size-text"><%= @contact.address if  @contact.address %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Email: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.email if @contact.email %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Company: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.company if @contact.company %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Web Address</strong></span> <span class="float-right scondary-size-text"> <a class="text-info scondary-size-text" rel="external" href=<%= "https://#{@contact.web_address}" %>><%= @contact.web_address %></a></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Owns or Rents</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.owns_cents  if  @contact.owns_cents  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Prefix</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.prefix  if  @contact.prefix  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">First Name</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Middle Name</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Last Name</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.last_name  if  @contact.last_name  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Suffix</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.suffix  if  @contact.suffix  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Position</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.postion  if  @contact.first_name  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Latitude</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.latitude  if  @contact.latitude  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Longitude</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.longitude  if  @contact.longitude  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Type</strong></span> <span class="float-right c-info-text-right"> <%= @contact.type  if  @contact.type  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Facility Size</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.facility_size  if  @contact.facility_size  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Total Number Of Employees</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.total_number_of_employees  if  @contact.total_number_of_employees  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Sic</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.sic  if  @contact.sic  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Primary Industry</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.primary_industry  if  @contact.primary_industry  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Year Of Founding</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.year_of_Founding  if  @contact.year_of_Founding  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Created</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.created_at.strftime("%d %b. %Y")   if  @contact.created_at  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Last contacted</strong></span> <span class="float-right c-info-text-right scondary-size-text"> </span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Street Number: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.street_num if @contact.street_num  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Street Name: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.strret_name if @contact.strret_name  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">County: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.county if @contact.county  %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Country: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.country if @contact.country %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text  main-size-text">Postal_code: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.postal_code if @contact.postal_code %></span></li>
-            <li class="profile-list list-group-item"><span class="pull-left"><strong class="left-c-text main-size-text">City: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.city if @contact.city%></span></li>
-         </ul>
-      </div>
-   </div>
-</div>
-</div>
-</div>
-<div class="col-md-4">
-   <div class="card card-profile card-5 bg-black">
-      <div class="card-avatar">
-         <a href="">
-         <%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object" %>
-         </a>
-      </div>
-      <div class="card-body">
-         <h6 class="card-category text-gray scondary-size-text"> <%= @contact.company  if @contact.company  %></h6>
-         <h4 class="card-title scondary-size-text"> <%= @contact.first_name if @contact.last_name  %> <%= @contact.first_name if @contact.last_name  %> </h4>
-         <p class="card-description scondary-size-text">
-            <%= @contact.address if @contact.address%>
-         </p>
-
-         <button type="button" class="btn-back btn bg-hudson btn-round text-white scondary-size-text">Go Back</button>
-
-
-
-
-      </div>
-   </div>
-   <div class="list-group">
-      <a href="#" class="list-group-item bg-black">
-      </a>
-   </div>
-   <div class="card card-5  p-3 irst-show-card">
-      <div class="card-header first-show-card">
-         <h5>Contact Basic Info <span>     <%= link_to edit_contact_path(@contact.id), class: "text-info pull-right", title: 'edit', rel: "tooltip"  do %>
-      <i class=" fa fa-edit e-contact"></i>
-      <% end %></span></h5>
-      </div>
-      <ul class="list-group">
-         <li class="profile-list list-group-item"><span class="pull-left "><strong class="pr-2  main-size-text"><i class="material-icons">face</i></strong></span> <span class="float-right scondary-size-text"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2  main-size-text"><i class="material-icons">perm_identity</i></strong></span> <span class="float-right scondary-size-text"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2  main-size-text"><i class="material-icons">account_circle</i></strong></span> <span class="float-right scondary-size-text"> <%= @contact.last_name  if  @contact.last_name  %></span></li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2 pb-0 mb-0 main-size-text"><i class="material-icons contact-title-i">account_box</i></strong></span><p class=" pull-right-absolute  scondary-size-text"><%= @contact.postion  if  @contact.postion  %> </p> </li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2  main-size-text"><i class="material-icons">code</i></strong></span> <span class="float-right scondary-size-text"> <a class="text-info scondary-size-text" rel="external" href=<%= "https://#{@contact.web_address}" %>><%= @contact.web_address %></a></span></li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2  main-size-text"><i class="material-icons">contact_phone</i> </strong></span><span class="float-right scondary-size-text text-white""><%= @contact.phone if  @contact.phone %></span></li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2  main-size-text"><i class="material-icons">settings_cell</i> </strong></span><span class="float-right scondary-size-text text-white""><%= @contact.cell if  @contact.cell %></span></li>
-         <li class="profile-list list-group-item"><span class="pull-left"><strong class="pr-2  main-size-text"><i class="material-icons">contact_mail</i></strong></span><span class="float-right scondary-size-text"><%= @contact.email if @contact.email %></span></li>
-      </ul>
-   </div>
-   <div class="card card-5  p-4 bg-black rounded-0" style="background-color: black !important;">
-      <div class="card-header bg-black rounded-0">
-         <h2>Contact Notes</h2>
-      </div>
-      <div class="card-body bg-black">
-         <p><%= @contact.notes %></p>
-      </div>
-   </div>
-   <div class="card card-5  p-4 bg-black rounded-0">
-      <div class="card-header p-0 bg-black rounded-0">
+<!--Section: Main panel-->
+<div class="card rounded-0 pt-4 card-1 text-white">
+<div class="col-md-12">
+   <!-- start of contact borderd table in container -->
+   <div class="">
+      <div class="collapse" id="contacts-header">
          <div class="row">
-            <div class="col-md-5">
-               <h4>Contact Touches</h4>
+            <div class="col-md-8">
+               <h2>
+                  <span><%= @group.name %> <%= link_to  new_group_path, class: 'btn btn-just-icon btn-round bg-black ml-3' do %>
+                  <i class="fa fa-plus"></i>
+                  <% end %>
+                  <span class="ml-4 pl-3">
+                  <%= link_to  group_path(@group.id, format: "csv"), class: 'btn bg-black  btn-left-margin' do %>
+                  <i class="fa fa-file-text"></i> Download Excel/CSV
+                  <% end %>
+                  </span>
+                  </span>
+               </h2>
+            </div>
+            <div class="col-md-4">
+               <form action="/groups/" id="user-search" class="well form-inline pull-right" method="get" accept-charset="utf-8">
+                  <div style="display:none;"><input type="hidden" name="_method" value="get"></div>
+                  <input name="data[contact][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">
+                  <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
+                     <i class="material-icons">search</i>
+                     <div class="ripple-container"></div>
+                  </button>
+                  <a class="btn bg-black text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
+                  <div id="hints" class="hints-search"></div>
+               </form>
+            </div>
+            <div class="col-md-12">
+               <div class="filter-box" style="display:none;">
+                  <% delete_string =  "Delete " + @group.name %>
+                  <div class="col-lg-11 mr-auto ml-auto">
+                     <h3 class=" pl-2">  <span> <%= @group.name %> / <%= @group.contacts.count %> <% edit_string =  "Edit " + @group.name %> <%= link_to edit_group_path(@group.id), class: "btn btn-link remote-link btn-success text-success", remote: true, title: edit_string, rel: "tooltip"  do %>
+                        <i class=" fa fa-edit e-contact pb-4 mb-3"></i>    <% end %></span><span class="pull-right" > <span class="pull-right ">   <%= link_to @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", remote: true, title: delete_string, rel: "tooltip" do %>
+                        <i class="material-icons text-danger pt-4">delete</i>
+                        <% end %></span>  <button type="button" class="btn-back btn btn-link text-white pt-4"><i class="material-icons">keyboard_backspace</i></button> </span></strong>
+                     </h3>
+                  </div>
+               </div>
+               <div class="col-md-12">
+               </div>
+            </div>
          </div>
-          <div class="col-md-7">
-            <span class="pull-right"> <%= link_to  contact_touches_path(@contact.id), class: 'text-danger' do %>
-                View <%= @contact.name %> touches
-            <% end %>
-            </span>
-         </div>
-         </div>
-
       </div>
-      <% if @contact.contact_touches %>
-      <% @contact.contact_touches.each do |touch| %>
-      <p>
-         <% if touch.email %>
-         <strong>Email:</strong>
-         <%= touch.email %>
-         <% end %>
-      </p>
-      <% if touch.phone %>
-      <p>
-         <strong>Phone:</strong>
-         <%= touch.phone %>
-      </p>
-      <% end %>
-      <% if touch.postcard %>
-      <p>
-         <strong>Postcard:</strong>
-         <%= touch.postcard %>
-      </p>
-      <% end %>
-      <% if touch.social_media %>
-      <p>
-         <strong>Social media:</strong>
-         <%= touch.social_media %>
-      </p>
-      <% end %>
-      <% if touch.in_person %>
-      <p>
-         <strong>In person:</strong>
-         <%= touch.in_person %>
-      </p>
-      <% end %>
-      <% if touch.letter %>
-      <p>
-         <strong>Letter:</strong>
-         <%= touch.letter %>
-      </p>
-      <% end %>
-      <% if touch.description %>
-      <p>
-         <strong>Description:</strong>
-         <%= touch.description %>
-      </p>
-      <% end %>
-
-
-
-      <span> <%= link_to 'Edit', edit_touch_path(touch), class: 'text-success' %>
-
-      </span>
-      <hr>
-      <% end %>
-      <% end %>
-      <div class="row">
-         <div class="col-md-6">
-             <%= link_to 'All touches', touches_path, class: 'text-info' %>
-          </div>
-          <div class="col-md-6">
-             <%= link_to 'New Touch', new_touch_path, class: 'text-info pull-right pt-1' %>
-          </div>
+      <div class="card card-1">
+         <div class="card-header card-header-icon card-1">
+            <div class="card-icon bg-black">
+               <i class="material-icons">group</i>
+            </div>
+            <h4 class="card-title text-white"><%= @group.name %>
+               <span>
+               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#contacts-header" aria-expanded="false" aria-controls="contacts-header">
+               <i class="material-icons">whatshot</i>
+               </a>
+               </span>
+            </h4>
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class="">
+                     <tr>
+                        <th class="d- text-info">Edit </th>
+                        <th class="d- text-info">Name </th>
+                        <th class="d- text-info">Prefix </th>
+                        <th class="d- text-info">First Name </th>
+                        <th class="d- text-info">Middle </th>
+                        <th class="d- text-info">Last Name </th>
+                        <th class="d- text-info">Suffix </th>
+                        <th class="d- text-info">Phone </th>
+                        <th class="d- text-info">Cell Phone </th>
+                        <th class="d- text-info">Email </th>
+                        <th class="d- text-info">Company </th>
+                        <th class="d- text-info">Web Address</th>
+                        <th class="d- text-info">Address</th>
+                        <th class="d- text-info">Suite</th>
+                        <th class="d- text-info">Street Number</th>
+                        <th class="d- text-info">Strret Name </th>
+                        <th class="d- text-info">City</th>
+                        <th class="d- text-info">State </th>
+                        <th class="d- text-info">County </th>
+                        <th class="d- text-info">Country </th>
+                        <th class="d- text-info">Postal Code </th>
+                        <th class="d- text-info">Zip Code Ext</th>
+                        <th class="d- text-info">Latitude </th>
+                        <th class="d- text-info">Longitude </th>
+                        <th class="d- text-info">Owns or Rents </th>
+                        <th class="d- text-info">year_of_Founding </th>
+                        <th class="d- text-info">Primary Industry </th>
+                        <th class="d- text-info">Facility Size</th>
+                        <th class="d- text-info">Total Employees </th>
+                        <th class="d- text-info">Position </th>
+                        <th class="d- text-info">SIC </th>
+                        <th class="d- text-info">Notes</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%  @group.contacts.each do |contact| %>
+                     <tr>
+                        <td class="text-white">
+                           <%= link_to  edit_contact_path(contact) do %><i class="fa fa-edit"></i><% end %>
+                        </td>
+                        <td class="d-">
+                           <%= link_to contact_path(contact.id), class: "text-black", title: 'view profile', rel: "tooltip"  do %>
+                           <%= contact.name %>
+                           <% end %>
+                        </td>
+                        <td class="d-"><%= contact.prefix %></td>
+                        <td class="d-"><%= contact.first_name %></td>
+                        <td class="d-"><%= contact.middle_name %></td>
+                        <td class="d-"><%= contact.last_name %></td>
+                        <td class="d-"><%= contact.suffix %></td>
+                        <td class="d-"><%= contact.phone %></td>
+                        <td class="d-"><%= contact.cell %></td>
+                        <td class="d-"><%= contact.email %></td>
+                        <td class="d-"><%= contact.company %></td>
+                        <td class="d-"><%= contact.web_address %></td>
+                        <td class="d-"><%= contact.address %></td>
+                        <td class="d-"><%= contact.suite %></td>
+                        <td class="d-"><%= contact.street_num %></td>
+                        <td class="d-"><%= contact.strret_name %></td>
+                        <td class="d-"><%= contact.city %></td>
+                        <td class="d-"><%= contact.state %></td>
+                        <td class="d-"><%= contact.county %></td>
+                        <td class="d-"><%= contact.country %></td>
+                        <td class="d-"><%= contact.postal_code %></td>
+                        <td class="d-"><%= contact.zip_code_ext %></td>
+                        <td class="d-"><%= contact.latitude %></td>
+                        <td class="d-"><%= contact.longitude %></td>
+                        <td class="d-"><%= contact.owns_cents %></td>
+                        <td class="d-"><%= contact.year_of_Founding %></td>
+                        <td class="d-"><%= contact.primary_industry %></td>
+                        <td class="d-"><%= contact.facility_size %></td>
+                        <td class="d-"><%= contact.total_number_of_employees %></td>
+                        <td class="d-"><%= contact.postion %></td>
+                        <td class="d-"><%= contact.sic %></td>
+                        <td class="d-"><%= contact.notes %></td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+               </table>
+            </div>
+         </div>
       </div>
-
    </div>
-</div>
-</div>
 </div>
