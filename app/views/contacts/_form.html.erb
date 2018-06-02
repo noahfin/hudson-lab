@@ -306,7 +306,7 @@
                   </div>
                   <div class="col-md-4">
                      <div class="form-group text-white">
-                        <label class=" text-white"></label>
+                        <label class=" text-white">Postal Code Ext</label>
                         <div class="form-group">
                            <label class="bmd-label-floating  text-white">Zip Code Extention</label>
                            <%= form.text_area :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
@@ -379,15 +379,16 @@
                         </div>
                      </div>
                   </div>
+
                   <div class="col-md-5 ml-0 pl-0 ">
                      <div class="row">
                         <div class="form-group  collapse" id="add-users-group">
-                           <div class="row mt-4">
+                           <div class="row mt-1">
                               <div class=" col-md-12">
-                                 <div class="input-group pl-0">
+                                 <div class="input-group ">
                                     <div class="col-xl-12">
-                                       <div class="row pl-0">
-                                          <div class="col-sm-4">
+                                       <div class="row ">
+                                          <div class="col-sm-4 ml-auto mr-auto">
                                              <div class="fileinput fileinput-new" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
                                                 </div>
@@ -412,11 +413,12 @@
                         </div>
                      </div>
                   </div>
+               </div><!--  end of main row justify center -->
                   <div class="row">
-                     <div class="form-group ml-0 pr-2 pl-0 mt-0">
-                        <div class=" mr-0 pl-3">
+                     <div class="form-group ">
+                        <div class=" ">
                            <div class="collapse " id="collapseGroup">
-                              <div class="col-md-12">
+                              <div class="col-md-12 ml-auto mr-auto">
                                  <% group_ids = [] %>
                                  <% if !@group_ids.nil? %>
                                  <%  @group_ids.each_with_index do |group, index| %>
@@ -424,14 +426,14 @@
                                  <% end %>
                                  <% end %>
                                  <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker form-control", id: 'contact_group_id' } %>
+                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker form-control pull-left", id: 'contact_group_id' } %>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="row">
-                     <div class="form-group  pl-3">
+                     <div class="form-group ">
                         <div class="collapse " id="pickUsers">
                            <div class="col-md-12">
                               <% User.all.each.each_slice(6) do |user| %>
@@ -458,7 +460,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+
                <div class="col-md-5">
                </div>
             </div>

@@ -62,6 +62,7 @@ $(document).on('click', '.new-form', function (event) {
 
 
 $(document).on('turbolinks:load', function () {
+  $('.selectpicker').attr("dropupAuto", "false");
       jQuery(function($) {
        $("#more").click(function(){
            $(".filter-box").toggle('fold');

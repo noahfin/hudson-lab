@@ -1,3 +1,8 @@
 $('#main-content').html('<%= escape_javascript render("groups/edit") %>');
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
-
+$('.select_u_picker').attr("data-actions-box", "true");
+$('.select_u_picker').selectpicker('selectAll');
+$('.select_u_picker').attr("dropupAuto", "false");
+$('.select_u_picker').attr("selectOnTabr", "true");
+$('.select_u_picker').attr("data-divider", "true");
+$('.selectpicker').selectpicker('toggle');

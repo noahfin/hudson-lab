@@ -20,6 +20,7 @@
 <% user_ids.push(user.id.to_s) %>
 <% end %>
 <% attr[:selected] = user_ids %>
+
 <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
 <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
 <% end %>
