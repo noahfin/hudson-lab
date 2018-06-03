@@ -1,11 +1,14 @@
 <div class="row">
-   <div class="col-md-12 mt-3 pt-2 mb-3">
+   <div class="col-md-12 mt-0 pt-0 pb-0 mb-0">
+      <h2 class="text-info pt-3"><%="Touch #{touch.id }"%></h2>
+         <hr class="pt-2 pb-2">
+  <h6 class="text-gray"> <%=" A Touch with the ID of #{touch.id } created at #{touch.created_at.strftime("%B %e, %Y at %I:%M %p") }" %> <span> <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm pull-right pt-0 mt-0 mr-2' , title: 'delete contact', rel: "tooltip"  do %>
+             <i class="material-icons">delete_sweep</i>
+               <% end %></span></h6>
 
-   <%=" A Touch with the ID of #{touch.id } created at #{touch.created_at.strftime("%B %e, %Y at %I:%M %p") }" %>
-     <hr>
    </div>
 </div>
-<div class="table-responsive table-sales">
+<div class="table-responsive table-sales mt-3">
    <table class="table">
       <tbody id="task-table-1">
          <% touch.contacts.each do |contact| %>
@@ -81,11 +84,11 @@
                <% end %>
             </td>
             <td class="text-right">
-               <%= link_to edit_touch_path(touch.id), class: "btn btn-info btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+               <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
                <i class="material-icons">how_to_reg</i>
                <% end %>
             </td>
-            <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm', title: 'delete contact', rel: "tooltip"  do %>
+            <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
