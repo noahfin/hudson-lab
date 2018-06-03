@@ -1,134 +1,122 @@
 <style type="text/css" media="screen">
-/*the container must be positioned relative:*/
-
-
-@import url("https://fonts.googleapis.com/css?family=Lato");
-
-
-h1 {
-  font-weight: normal;
-  font-size: 40px;
-  font-weight: normal;
-  text-transform: uppercase;
-}
-h1 span {
-  font-size: 13px;
-  display: block;
-  padding-left: 4px;
-}
-
-p {
-  margin-top: 200px;
-}
-p a {
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  color: #fff;
-  padding: 5px 10px;
-  margin: 0 5px;
-  background-color: #b83729;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-p a:hover {
-  background-color: #ab3326;
-}
-
-.select-hidden {
-  display: none;
-  visibility: hidden;
-  padding-right: 10px;
-}
-
-.select {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  font-size: 16px;
-  color: #fff;
-  width: 220px;
-  height: 40px;
-}
-
-.select-styled {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #c0392b;
-  padding: 8px 15px;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-}
-.select-styled:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
-  border-color: #fff transparent transparent transparent;
-  position: absolute;
-  top: 16px;
-  right: 10px;
-}
-.select-styled:hover {
-  background-color: #b83729;
-}
-.select-styled:active, .select-styled.active {
-  background-color: #ab3326;
-}
-.select-styled:active:after, .select-styled.active:after {
-  top: 9px;
-  border-color: transparent transparent #fff transparent;
-}
-
-.select-options {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  z-index: 999;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: #ab3326;
-}
-.select-options li {
-  margin: 0;
-  padding: 12px 0;
-  text-indent: 15px;
-  border-top: 1px solid #962d22;
-  -moz-transition: all 0.15s ease-in;
-  -o-transition: all 0.15s ease-in;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
-}
-.select-options li:hover {
-  color: #c0392b;
-  background: #fff;
-}
-.select-options li[rel="hide"] {
-  display: none;
-}
-
+   /*the container must be positioned relative:*/
+   @import url("https://fonts.googleapis.com/css?family=Lato");
+   h1 {
+   font-weight: normal;
+   font-size: 40px;
+   font-weight: normal;
+   text-transform: uppercase;
+   }
+   h1 span {
+   font-size: 13px;
+   display: block;
+   padding-left: 4px;
+   }
+   p {
+   margin-top: 200px;
+   }
+   p a {
+   text-transform: uppercase;
+   text-decoration: none;
+   display: inline-block;
+   color: #fff;
+   padding: 5px 10px;
+   margin: 0 5px;
+   background-color: #b83729;
+   -moz-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
+   -webkit-transition: all 0.2s ease-in;
+   transition: all 0.2s ease-in;
+   }
+   p a:hover {
+   background-color: #ab3326;
+   }
+   .select-hidden {
+   display: none;
+   visibility: hidden;
+   padding-right: 10px;
+   }
+   .select {
+   cursor: pointer;
+   display: inline-block;
+   position: relative;
+   font-size: 16px;
+   color: #fff;
+   width: 220px;
+   height: 40px;
+   }
+   .select-styled {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: #c0392b;
+   padding: 8px 15px;
+   -moz-transition: all 0.2s ease-in;
+   -o-transition: all 0.2s ease-in;
+   -webkit-transition: all 0.2s ease-in;
+   transition: all 0.2s ease-in;
+   }
+   .select-styled:after {
+   content: "";
+   width: 0;
+   height: 0;
+   border: 7px solid transparent;
+   border-color: #fff transparent transparent transparent;
+   position: absolute;
+   top: 16px;
+   right: 10px;
+   }
+   .select-styled:hover {
+   background-color: #b83729;
+   }
+   .select-styled:active, .select-styled.active {
+   background-color: #ab3326;
+   }
+   .select-styled:active:after, .select-styled.active:after {
+   top: 9px;
+   border-color: transparent transparent #fff transparent;
+   }
+   .select-options {
+   display: none;
+   position: absolute;
+   top: 100%;
+   right: 0;
+   left: 0;
+   z-index: 999;
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   background-color: #ab3326;
+   }
+   .select-options li {
+   margin: 0;
+   padding: 12px 0;
+   text-indent: 15px;
+   border-top: 1px solid #962d22;
+   -moz-transition: all 0.15s ease-in;
+   -o-transition: all 0.15s ease-in;
+   -webkit-transition: all 0.15s ease-in;
+   transition: all 0.15s ease-in;
+   }
+   .select-options li:hover {
+   color: #c0392b;
+   background: #fff;
+   }
+   .select-options li[rel="hide"] {
+   display: none;
+   }
 </style>
 <div class="col-md-12">
-   <div class="card bg-dark">
-      <div class="card-header  card-header-text">
-         <div class="card-text bg-black">
-            <i class='material-icons'>fingerprint</i>
-         </div>
+<div class="card bg-dark">
+   <div class="card-header  card-header-text">
+      <div class="card-text bg-black">
+         <i class='material-icons'>fingerprint</i>
       </div>
-      <div class="card-body ">
-         <div class="container-fluid pl-4 pr-4">
-
-
+   </div>
+   <div class="card-body ">
+      <div class="container-fluid pl-4 pr-4">
          <%= form_with(model: @touch, remote: true, class: 'form-horizontal') do |form| %>
          <% if @touch.errors.any? %>
          <div id="error_explanation">
@@ -140,9 +128,8 @@ p a:hover {
             </ul>
          </div>
          <% end %>
-<div>
-
-</div>
+         <div>
+         </div>
          <div class="row mb-4 pb-3">
             <div class="col-md-6">
                <div class="row mt-3">
@@ -151,174 +138,163 @@ p a:hover {
                      <div class="form-group">
                         <div class="input-group">
                            <span class="input-group-addon"><i class="material-icons pr-4">group</i></span>
-                              <% attr = {prompt: "Select Groups"} %><% attr[:selected] =   session[:selected_group_id] %>
+                           <% attr = {prompt: "Select Groups"} %><% attr[:selected] =   session[:selected_group_id] %>
+                           <% group_ids = [[]] %>
+                           <% Group.all.each_with_index do |group, index| %>
+                           <% group_ids.push([group.id.to_s,group.name ])  %>
+                           <% end %>
+                           <div class="ml-4 pl-4">
+                              <select id="mounth">
+                                 <option value="hide"> Add Group </option>
+                                 <% group_ids.each_with_index do |group, index| %>
+                                 <% next if group[1].nil? || group[1] == '' %>
+                                 <option value=<%="#{group[0]}"%>><%= group[1] %></option>
+                                 <% end %>
+                              </select>
+                           </div>
+                           <script>
+                              $('select').each(function(){
+                                  var $this = $(this), numberOfOptions = $(this).children('option').length;
 
-                <% group_ids = [[]] %>
-                        <% Group.all.each_with_index do |group, index| %>
+                                  $this.addClass('select-hidden');
+                                  $this.wrap('<div class="select"></div>');
+                                  $this.after('<div class="select-styled"></div>');
 
-                        <% group_ids.push([group.id.to_s,group.name ])  %>
-                        <% end %>
+                                  var $styledSelect = $this.next('div.select-styled');
+                                  $styledSelect.text($this.children('option').eq(0).text());
 
+                                  var $list = $('<ul />', {
+                                      'class': 'select-options'
+                                  }).insertAfter($styledSelect);
 
-<div class="ml-4 pl-4">
-<select id="mounth">
-    <option value="hide">-- Group --</option>
-     <% group_ids.each_with_index do |group, index| %>
-                         <% next if group[1].nil? || group[1] == '' %>
-    <option value=<%="#{group[0]}"%>><%= group[1] %></option>
+                                  for (var i = 0; i < numberOfOptions; i++) {
+                                      $('<li />', {
+                                          text: $this.children('option').eq(i).text(),
+                                          rel: $this.children('option').eq(i).val()
+                                      }).appendTo($list);
+                                  }
 
-     <% end %>
-  </select>
-</div>
+                                  var $listItems = $list.children('li');
 
-<script>
+                                  $styledSelect.click(function(e) {
+                                      e.stopPropagation();
 
-$('select').each(function(){
-    var $this = $(this), numberOfOptions = $(this).children('option').length;
+                                      console.log($(this).attr('rel'));
+                                      $('#group-id-touch').val($(this).attr('rel'));
+                                      $('div.select-styled.active').not(this).each(function(){
+                                          $(this).removeClass('active').next('ul.select-options').hide();
+                                      });
+                                      $(this).toggleClass('active').next('ul.select-options').toggle();
+                                  });
 
-    $this.addClass('select-hidden');
-    $this.wrap('<div class="select"></div>');
-    $this.after('<div class="select-styled"></div>');
+                                  $listItems.click(function(e) {
+                                      e.stopPropagation();
+                                      $styledSelect.text($(this).text()).removeClass('active');
+                                         console.log($(this).attr('rel'));
+                                     $('#group-id-touch').val($(this).attr('rel'));
+                                      $list.hide();
+                                      //console.log($this.val());
+                                  });
 
-    var $styledSelect = $this.next('div.select-styled');
-    $styledSelect.text($this.children('option').eq(0).text());
+                                  $(document).click(function() {
+                                      $styledSelect.removeClass('active');
+                                      $list.hide();
+                                  });
 
-    var $list = $('<ul />', {
-        'class': 'select-options'
-    }).insertAfter($styledSelect);
-
-    for (var i = 0; i < numberOfOptions; i++) {
-        $('<li />', {
-            text: $this.children('option').eq(i).text(),
-            rel: $this.children('option').eq(i).val()
-        }).appendTo($list);
-    }
-
-    var $listItems = $list.children('li');
-
-    $styledSelect.click(function(e) {
-        e.stopPropagation();
-
-        console.log($(this).attr('rel'));
-        $('#group-id-touch').val($(this).attr('rel'));
-        $('div.select-styled.active').not(this).each(function(){
-            $(this).removeClass('active').next('ul.select-options').hide();
-        });
-        $(this).toggleClass('active').next('ul.select-options').toggle();
-    });
-
-    $listItems.click(function(e) {
-        e.stopPropagation();
-        $styledSelect.text($(this).text()).removeClass('active');
-           console.log($(this).attr('rel'));
-       $('#group-id-touch').val($(this).attr('rel'));
-        $list.hide();
-        //console.log($this.val());
-    });
-
-    $(document).click(function() {
-        $styledSelect.removeClass('active');
-        $list.hide();
-    });
-
-});
-</script>
-
-
-                       </div>
+                              });
+                           </script>
+                        </div>
                      </div>
                   </div>
                </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="form-group  pt-0 mt-0  ">
-                     <div class=" pt-0 mt-0  ">
-                        <div class="card-collapse  pt-0 mt-0 ">
-                           <div class="card-header pt-0 " role="tab" id="headingTwo">
-                              <div class="row">
-                                 <input class="form-control get-contacts ml-3 mr-2 mt-0 pt-0" type="text" placeholder="Search" aria-label="Search" id="search-contat-task">
-                              </div>
-                              <h5 class="mb-0">
-                                 <a class="collapsed  pl-2 text-white" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                 Create task for contacts
-                                 <i class="material-icons">keyboard_arrow_down</i>
-                                 </a>
-                              </h5>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group  pt-0 mt-0  ">
+                  <div class=" pt-0 mt-0  ">
+                     <div class="card-collapse  pt-0 mt-0 ">
+                        <div class="card-header pt-0 " role="tab" id="headingTwo">
+                           <div class="row">
+                              <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-0" type="text" placeholder="Find Contacts" aria-label="Search" id="search-contat-task">
                            </div>
-                           <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                              <div class="card-body" id="form-contact">
-                                 <ul class="list-inline p-0">
-                                    <li class="list-inline-item">
-                                       <div class="form-check">
-                                          <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
-                                             <p class="c1  text-white">contact 1</p>
-                                             <span class="form-check-sign">
-                                             <span class="check"></span>
-                                             </span>
-                                          </label>
-                                       </div>
-                                    </li>
-                                    <li class="list-inline-item">
-                                       <div class="form-check">
-                                          <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
-                                             <p class="c2  text-white">contact 2 </p>
-                                             <span class="form-check-sign">
-                                             <span class="check"></span>
-                                             </span>
-                                          </label>
-                                       </div>
-                                    </li>
-                                    <li class="list-inline-item">
-                                       <div class="form-check">
-                                          <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
-                                             <p class="c3  text-white"> contact 3 </p>
-                                             <span class="form-check-sign">
-                                             <span class="check"></span>
-                                             </span>
-                                          </label>
-                                       </div>
-                                    </li>
-                                    <li class="list-inline-item">
-                                       <div class="form-check">
-                                          <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
-                                             <p class="c4  text-white">contact 4</p>
-                                             <span class="form-check-sign">
-                                             <span class="check"></span>
-                                             </span>
-                                          </label>
-                                       </div>
-                                    </li>
-                                    <li class="list-inline-item">
-                                       <div class="form-check">
-                                          <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
-                                             <p class="c5  text-white"> contact 5 </p>
-                                             <span class="form-check-sign">
-                                             <span class="check"></span>
-                                             </span>
-                                          </label>
-                                       </div>
-                                    </li>
-                                 </ul>
-                              </div>
+                           <h5 class="mb-0">
+                              <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              click to see who got added
+                              <i class="material-icons text-muted">keyboard_arrow_down</i>
+                              </a>
+                           </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                           <div class="card-body" id="form-contact">
+                              <ul class="list-inline p-3">
+                                 <li class="list-inline-item m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                       <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                       <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                       <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                       <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                       <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                              </ul>
                            </div>
                         </div>
                      </div>
                   </div>
-                  <label class="form-check-label">Description</label>
-                   <%= form.text_field :description, id: :touch_description, class: 'form-control' %>
-                  </div>
-                  </div>
-
-
+               </div>
+               <label class="form-check-label">Description</label>
+               <%= form.text_field :description, id: :touch_description, class: 'form-control' %>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6">
                <div class="row">
                   <div class="col-md-6">
-                     <div class="row">
-                        <div class="col-md-6">
                      <div class="form-group">
                         <div class="form-check">
                            <label class="form-check-label">
@@ -352,9 +328,8 @@ $('select').each(function(){
                            </label>
                         </div>
                      </div>
-
-                        </div>
-                                          <div class="col-md-6 pl-3">
+                  </div>
+                  <div class="col-md-6 pl-3">
                      <div class="form-group">
                         <div class="form-check">
                            <label class="form-check-label">
@@ -390,36 +365,22 @@ $('select').each(function(){
                      </div>
                   </div>
                </div>
-
-
-               </div>
-               <div class=" text-muted">
+            </div>
+            <div class=" text-muted">
                <div class="row">
                   <hr>
-               <div class="col-md-8">
-                    </div>
-                      <div class="col-md-4">
-                          <input type="hidden" name="group[id]" value="" id="group-id-touch">
-
-                           <%= form.submit remote: true, class: 'btn btn-lg bg-black pull-right border-0 btn-social btn-fill btn-github' do %>
-                           <div class="ripple-container"></div>
-                           <% end %>
-
-                    </div>
-
-
-
-
-
+                  <div class="col-md-8">
                   </div>
-
+                  <div class="col-md-4">
+                     <input type="hidden" name="group[id]" value="" id="group-id-touch">
+                     <%= form.submit remote: true, class: 'btn btn-lg bg-black pull-right border-0 btn-social btn-fill btn-github' do %>
+                     <div class="ripple-container"></div>
+                     <% end %>
+                  </div>
                </div>
-
-             <% end %>
-             </div>
             </div>
+            <% end %>
          </div>
       </div>
-
-
-
+   </div>
+</div>
