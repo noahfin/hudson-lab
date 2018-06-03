@@ -30,11 +30,13 @@ class TouchesController < ApplicationController
   # POST /touches
   # POST /touches.json
   def create
-    group = Group.find(params['group']['id'])
+
+    group = Group.find(params['group']['id']) if params['group']['id']
     contact_id = []
-     group.contacts.each do |contact|
+    group.contacts.each do |contact|
       contact_id << contact.id.to_s
     end
+
     @touch = Touch.new(touch_params)
 
     respond_to do |format|

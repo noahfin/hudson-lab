@@ -81,11 +81,11 @@
                <% end %>
             </td>
             <td class="text-right">
-               <%= link_to edit_touch_path(touch.id), class: "btn btn-info btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <%= link_to edit_touch_path(touch.id), class: "btn btn-info btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
                <i class="material-icons">how_to_reg</i>
                <% end %>
             </td>
-            <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+            <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm', title: 'delete contact', rel: "tooltip"  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
