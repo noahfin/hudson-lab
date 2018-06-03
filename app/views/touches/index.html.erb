@@ -1,156 +1,68 @@
-
-
-<h1>Touches</h1>
-
-<table class="table card-5">
-  <thead>
-    <tr >
-      <th class="p-3  text-white">Email</th>
-      <th class="p-3  text-white">Phone</th>
-      <th class="p-3  text-white">Postcard</th>
-      <th class="p-3  text-white">Social media</th>
-      <th class="p-3  text-white">In person</th>
-      <th class="p-3  text-white">Letter</th>
-      <th class="p-3  text-white">Description</th>
-      <th class="p-3  text-white contact-over-flow">Contact</th>
-      <th class="p-3  text-white">Actions</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @touches.each do |touch| %>
-      <tr>
-        <td class="p-3"><%= touch.email %></td>
-        <td class="p-3"><%= touch.phone %></td>
-        <td class="p-3"><%= touch.postcard %></td>
-        <td class="p-3"><%= touch.social_media %></td>
-        <td class="p-3"><%= touch.in_person %></td>
-        <td class="p-3"><%= touch.letter %></td>
-        <td class="p-3"><%= touch.description %></td>
-          <div class=" contact-over-flow">
-             <td class="p-3 contact-flow-height">
-
-           <% if touch.contacts %>
-          <% touch.contacts.each do |contact| %>
-
-
-
-
-           <% if contact.first_name %>
-           <%= link_to contact_path(contact.id), class: 'text-info' do  %>
-          <%= contact.first_name %>
-            <%= contact.last_name if contact.last_name   %>
-          <% end %>
-
-          <% else %>
-            <% if contact.company %>
-               <%= link_to contact_path(contact.id), class: 'text-info' do  %>
-          <%= contact.company   %>
-          <% end %>
-
-
-          <% end %>
-
-
-
-         <% end %>
-       <% end %>
-        <% end %>
-        </td>
-         </div>
-        <td class="p-3"><%= link_to 'Show', touch, class: "text-white" %></td>
-        <td class="p-3"> <%= link_to  edit_touch_path(touch), class: 'btn btn-success' do  %>
-           <i class="material-icons">edit</i>
-           <% end %>
-        </td>
-        <td class="p-3"><%= link_to touch, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-round" do %>
-            <i class="material-icons">close</i>
-            <% end %>
-
-        </td>
-      </tr>
-
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Touch', new_touch_path, class: 'text-white pl-4' %>
-
 <div class="container-fluid first-show-card">
-
-
 <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="tasks-form-modal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content bg-black" id="f-body">
-
-    </div>
-  </div>
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content bg-black" id="f-body">
+      </div>
+   </div>
 </div>
-
-         <div class="card card-1">
-            <div class="card-header card-header-tabs  bg-black">
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-
-                        <ul class="nav nav-tabs" data-tabs="tabs">
-                            <li class="nav-item">
-                                <a class="nav-link active  " href="#profile" data-toggle="tab">
-                                    <i class="material-icons">bug_report</i>
-                                     Phone
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                    <i class="material-icons">code</i>
-                                   Email
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#profile" data-toggle="tab">
-                                    <i class="material-icons">bug_report</i>
-                                  Letter
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                    <i class="material-icons">code</i>
-                                    In Person
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#profile" data-toggle="tab">
-                                    <i class="material-icons">bug_report</i>
-                                   Social Media
-                                <div class="ripple-container"></div></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#messages" data-toggle="tab">
-                                    <i class="material-icons">code</i>
-                                    Postcard
-                                <div class="ripple-container"></div></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="profile">
-                        <table class="table">
-                              <tbody id="task-table-1">
-                       <%= render @touches %>
-
-                      </tbody>
-                      </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+<div class="card card-1">
+<div class="card-header card-header-tabs  bg-black">
+   <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+         <ul class="nav nav-tabs" data-tabs="tabs">
+            <li class="nav-item">
+               <a class="nav-link active  " href="#profile" data-toggle="tab">
+                  <i class="material-icons">contact_phone</i>
+                  Phone
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#messages" data-toggle="tab">
+                  <i class="material-icons">email</i>
+                  Email
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link " href="#profile" data-toggle="tab">
+                  <i class="material-icons">contact_mail</i>
+                  Letter
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#messages" data-toggle="tab">
+                  <i class="material-icons">face</i>
+                  In Person
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link " href="#profile" data-toggle="tab">
+                  <i class="material-icons">web</i>
+                  Social Media
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#messages" data-toggle="tab">
+                  <i class="material-icons">note</i>
+                  Postcard
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <h4 class="display-5 pb-3 pull-right  far-right-touch "><small><%= link_to 'New Touch', new_touch_path, class: 'text-white 5 pb-4 ' %></small></h4>
 </div>
-
+<div class="card-body">
+   <div class="tab-content">
+      <div class="tab-pane active" id="profile">
+         <div class="col-md-12">
+            <%= render @touches %>
+         </div>
+      </div>
+   </div>
+</div>

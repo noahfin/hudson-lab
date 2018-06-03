@@ -1,30 +1,96 @@
-<tr id="edit_touch_<%= touch.id %>">
- <td class="text-white">
-<%= link_to  touch_path(touch) do %><i class="fa fa-eye"></i><% end %>
-</td>
-        <td class="text-white">
-<% case true
-when touch.phone
-  touch.phone
-when touch.email
-  touch.email
-when touch.postcard
-  touch.postcard
-  when touch.social_media
-  touch.social_media
-  when touch.in_person
-  touch.in_person
-else
-  touch.letter
-end
-%>
-    </td>
-    <td class="td-actions text-right">
-       <%= link_to edit_touch_path(touch.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-            <i class="material-icons">edit</i>
-       <% end %>
-        <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
-            <i class="material-icons">close</i>
-        <% end %>
-    </td>
-</tr>
+<div class="row">
+   <div class="col-md-12 mt-3 pt-2 mb-3">
+
+   <%=" A Touch with the ID of #{touch.id } created at #{touch.created_at.strftime("%B %e, %Y at %I:%M %p") }" %>
+     <hr>
+   </div>
+</div>
+<div class="table-responsive table-sales">
+   <table class="table">
+      <tbody id="task-table-1">
+         <% touch.contacts.each do |contact| %>
+         <tr id="edit_touch_<%= touch.id %>">
+            <td>
+               <div class="flag">
+                  <%= link_to  touch_path(touch), class: 'text-info' do %>
+                  <i class="material-icons">touch_app</i>
+                  <% end %>
+               </div>
+            </td>
+            <td > <% if touch.email %>
+               <p class="text-white">
+                Touched via Email
+               </p>
+               <% end %>
+               <% if touch.phone %>
+               <p class="text-white">
+                   Touched via Phone
+               </p>
+               <% end %>
+               <% if touch.postcard %>
+               <p class="text-white">
+                  Touched via Phone
+               </p>
+               <% end %>
+               <% if touch.social_media %>
+               <p class=" text-white">
+                    Touched via Social Media
+               </p>
+               <% end %>
+               <% if touch.in_person %>
+               <p class="text-white">
+                 Touched face to face
+               </p>
+               <% end %>
+               <% if touch.letter %>
+               <p class=" text-white">
+                Touched via letter sent
+               </p>
+               <% end %></td>
+            <td> <%= contact.name  %></td>
+            <td class="text-right">
+               <% if touch.email %>
+               <p class=" text-white">
+                  <%= contact.email  %>
+               </p>
+               <% end %>
+               <% if touch.phone %>
+               <p class="text-white">
+                  <%= contact.phone   %>
+               </p>
+               <% end %>
+               <% if touch.postcard %>
+               <p class="text-white">
+                  <%= @touch.Postcard  %>
+               </p>
+               <% end %>
+               <% if touch.social_media %>
+               <p class=" text-white">
+                 Touched base over social_media
+               </p>
+               <% end %>
+               <% if touch.in_person %>
+               <p class="text-white">
+                  <%= contact.address %>
+               </p>
+               <% end %>
+               <% if touch.letter %>
+               <p class=" text-white">
+                  <%= contact.letter  %>
+               </p>
+               <% end %>
+            </td>
+            <td class="text-right">
+               <%= link_to edit_touch_path(touch.id), class: "btn btn-info btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons">how_to_reg</i>
+               <% end %>
+            </td>
+            <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <i class="material-icons">close</i>
+               <% end %>
+            </td>
+         </tr>
+         <% end %>
+      </tbody>
+   </table>
+</div>
