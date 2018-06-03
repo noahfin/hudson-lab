@@ -1,11 +1,11 @@
 <div class="col-md-6">
-   <div class="card text-muted rounded-0">
+   <div class="card card-1 rounded-0">
       <div class="card-header ">
-         <h4 class="card-title">Touch Show Page -
+         <h4 class="card-title text-white">Touch Show Page -
             <small class="description">Touch Info</small>
          </h4>
       </div>
-      <div class="card-body  text-muted"">
+      <div class="card-body  text-white"">
          <div class="row">
             <div class="col-lg-4 col-md-6">
                <!--
@@ -13,12 +13,12 @@
                   -->
                <ul class="nav nav-pills nav-pills-info nav-pills-icons flex-column" role="tablist">
                   <li class="nav-item">
-                     <a class="nav-link active text-muted" data-toggle="tab" href="#link10" role="tablist">
+                     <a class="nav-link active text-white" data-toggle="tab" href="#link10" role="tablist">
                      <i class='material-icons'>fingerprint</i> Touch Type
                      </a>
                   </li>
-                  <li class="nav-item text-muted">
-                     <a class="nav-link text-muted" data-toggle="tab" href="#link11" role="tablist">
+                  <li class="nav-item text-white">
+                     <a class="nav-link text-white" data-toggle="tab" href="#link11" role="tablist">
                      <i class="material-icons">account_circle</i> Contacts
                      </a>
                   </li>
@@ -33,51 +33,51 @@
                         </div>
                      </div>
                      <% if @touch.email %>
-                     <p class=" text-muted">
+                     <p class=" text-white">
                         <strong>Email:</strong>
                         <%= @touch.email  %>
                      </p>
                      <% end %>
                      <% if @touch.phone %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Phone:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Phone:</strong>
                         <%= @touch.phone   %>
                      </p>
                      <% end %>
                      <% if @touch.postcard %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Postcard:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Postcard:</strong>
                         <%= @touch.Postcard  %>
                      </p>
                      <% end %>
                      <% if @touch.social_media %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Social media:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Social media:</strong>
                         <%= @touch.social_media  %>
                      </p>
                      <% end %>
                      <% if @touch.in_person %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">In person:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">In person:</strong>
                         <%= @touch.in_person  %>
                      </p>
                      <% end %>
                      <% if @touch.letter %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Letter:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Letter:</strong>
                         <%= @touch.letter  %>
                      </p>
                      <% end %>
                      <br>
                      <hr>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Description:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Description:</strong>
                         <%= @touch.description %>
                      </p>
                   </div>
                   <div class="tab-pane" id="link11">
                      <div class="col-md-12">
-                        <strong class=" text-muted">Contacts:</strong>
+                        <strong class=" text-white">Contacts:</strong>
                         <div class="table-responsive table-sales">
                            <table class="table">
                               <tbody>
@@ -96,7 +96,7 @@
                                        </span>
                                        <% end %>
                                        <% if @touch.phone %>
-                                       <span class=" text-muted">
+                                       <span class=" text-white">
                                        Made a touch via phone
                                        </span>
                                        <% end %>
@@ -136,8 +136,8 @@
          </div>
       </div>
    </div>
-   <span class="ml-2">
-   <%= link_to 'Edit', edit_touch_path(@touch), class: 'text-white' %> |
+   <span class="ml-4 pl-4">
+   <%= link_to 'Edit', edit_touch_path(@touch), class: 'text-white ml-4 pl-1' %> |
    <%= link_to 'Back', touches_path, class: 'text-white' %>
    </span>
 </div>
