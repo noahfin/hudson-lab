@@ -122,8 +122,7 @@ class ContactsController < ApplicationController
     def previous_query_string
       if params[:group_id]
          session[:selected_group_id] = params[:group_id]
-
-          if params[:page]
+         if params[:page]
            session[:selected_page] = params[:page]
          end
       end

@@ -4,14 +4,12 @@ $('#contact-form-wiz').show();
 $('#form-modal').addClass('modal');
 $('body').addClass('modal-open');
 $('body').addClass('modal-backdrop');
-$('#wizardProfile').bootstrapWizard();
 $('#btn_finshed').hide();
 $('.selectpicker').selectpicker('render');
-$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'btn-info');
+$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'dropdown-toggle btn-info btn-round btn btn-block');
 $('.select_g_picker').attr("data-actions-box", "true");
 $('.select_g_picker').attr("dropupAuto", "false");
 $('.select_g_picker').attr("data-live-search", "true");
 $('.select_g_picker').attr("selectOnTabr", "true");
 $('.select_g_picker').attr("data-divider", "true");
 $('.selectpicker').selectpicker('toggle');
-

@@ -1,0 +1,30 @@
+<tr id="edit_touch_<%= touch.id %>">
+ <td class="text-white">
+<%= link_to  touch_path(touch) do %><i class="fa fa-eye"></i><% end %>
+</td>
+        <td class="text-white">
+<% case true
+when touch.phone
+  touch.phone
+when touch.email
+  touch.email
+when touch.postcard
+  touch.postcard
+  when touch.social_media
+  touch.social_media
+  when touch.in_person
+  touch.in_person
+else
+  touch.letter
+end
+%>
+    </td>
+    <td class="td-actions text-right">
+       <%= link_to edit_touch_path(touch.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+            <i class="material-icons">edit</i>
+       <% end %>
+        <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+            <i class="material-icons">close</i>
+        <% end %>
+    </td>
+</tr>

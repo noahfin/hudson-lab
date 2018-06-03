@@ -322,7 +322,7 @@
                   </div>
                   <div class="col-md-12  ml-auto mr-auto">
                      <div class="form-inline ml-auto mr-auto justify-content-center">
-                        <div class="form-group ">
+                        <div class="form-group  ">
                            <a class="btn btn-round btn-outline-info  ml-0 mr-0" data-toggle="collapse" href="#collapseGroup" aria-expanded="false" aria-controls="collapseGroup" id="round-group-btn">
                            <i class="material-icons">group</i>
                            Select Groups
@@ -426,7 +426,9 @@
                                  <% end %>
                                  <% end %>
                                  <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker form-control pull-left", id: 'contact_group_id' } %>
+                                 <div class="dropdown">
+                                    <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker pull-left", id: 'contact_group_id' } %>
+                                 </div>
                               </div>
                            </div>
                         </div>

@@ -104,7 +104,7 @@
 
              <li class="nav-item text-white">
               <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
-              <%= link_to contacts_path, class: "nav-link #{active}" do %>
+              <%= link_to contacts_path, class: "nav-link #{active}", remote: true do %>
                 <span class="sidebar-mini">  A</span>
                  <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%=  current_user.contacts.count %></span></span>
               <% end %>
@@ -112,7 +112,7 @@
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
-                <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}" do %>
+                <%= link_to contacts_path(group_id: group.id ), class: "nav-link #{active}", remote: true do %>
                 <span class="sidebar-mini">  <%= group.name[0] %> </span>
                 <span class="sidebar-normal">  <%= group.name %> <span class=" text-text-white">  <%= group.contacts.count %></span></span>
                 <% end %>
@@ -179,7 +179,7 @@
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
-                <%= link_to group_path(group), class: "nav-link #{active}" do %>
+                <%= link_to group_path(group), class: "nav-link #{active}", remote: true do %>
                 <span class="sidebar-mini">  <%= group.name[0] %> </span>
                 <span class="sidebar-normal">  <%= group.name %> <span class=" text-text-white">  <%= group.contacts.count %></span></span>
                 <% end %>
@@ -198,13 +198,13 @@
         <div class="collapse" id="properties">
           <ul class="nav text-white">
             <li class="nav-item text-white">
-               <%= link_to touches_path, class: 'nav-link'  do %>
+               <%= link_to touches_path, class: 'nav-link', remote: true  do %>
                 <span class="sidebar-mini"> AT </span>
                 <span class="sidebar-normal"> All Touches</span>
                <% end %>
             </li>
             <li class="nav-item ">
-               <%= link_to new_touch_path, class: 'nav-link'  do %>
+               <%= link_to new_touch_path, class: 'nav-link', remote: true  do %>
                 <span class="sidebar-mini"> NT </span>
                 <span class="sidebar-normal"> New Touch </span>
               <% end %>

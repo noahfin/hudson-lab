@@ -40,6 +40,9 @@ $(document).on('click', '.tooltip-inner', function (event) {
     $('.tooltip .arrow').hide();
 });
 
+$(document).on('click', '.custom-tip option', function (event) {
+  $('#group-id-touch').val($(this).val());
+});
 
 $(document).on('click', '#property-submit', function (event) {
     $('.form-check-input')
@@ -62,7 +65,12 @@ $(document).on('click', '.new-form', function (event) {
 
 
 $(document).on('turbolinks:load', function () {
-  $('.selectpicker').attr("dropupAuto", "false");
+$('.selectpicker').selectpicker('render');
+$('.select_g_for_touch').selectpicker('setStyle', ' btn-info btn-round btn btn-block');
+
+$('.select_g_for_touch').selectpicker('toggle');
+
+
       jQuery(function($) {
        $("#more").click(function(){
            $(".filter-box").toggle('fold');
@@ -212,7 +220,6 @@ $(document).on('turbolinks:load', function () {
     $('body').on('click', '#btn_next', 'btn-form', function (event) {
         event.preventDefault();
 
-        console.log('button clicked')
         if (moveToNext() === true) {
             var formData = getContactInputs();
             if ($('#hidden_update')) {
@@ -2655,13 +2662,7 @@ $.notifyDefaults({
     exit: "animated fadeOutDown"
   }
 });
-for (var iLoop = 0; iLoop < arrayAlign.length; iLoop++) {
-  $.notify('Bottom ' + arrayAlign[iLoop], {
-    placement: {
-      align: arrayAlign[iLoop]
-    }
-  });
-}
+
 setTimeout(function() {
   $.notifyClose();
 }, 3000);

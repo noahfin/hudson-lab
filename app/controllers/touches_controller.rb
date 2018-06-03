@@ -21,7 +21,6 @@ class TouchesController < ApplicationController
   # GET /touches/new
   def new
     @touch = Touch.new
-    @groups = Group.all
   end
 
   # GET /touches/1/edit

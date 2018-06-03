@@ -1,0 +1,11 @@
+$('#flash-messages').html('<%= escape_javascript render("layouts/messages") %>');
+$('#main-content').html('<%= escape_javascript render("touches/form") %>');
+
+$('.select_g_for_touch').selectpicker('setStyle', 'dropdown-toggle btn-info btn-round btn btn-block');
+$('.select_g_for_touch').attr("data-actions-box", "true");
+$('.select_g_for_touchr').attr("dropupAuto", "false");
+$('.select_g_for_touch').attr("data-live-search", "true");
+$('.select_g_for_touch').attr("selectOnTabr", "true");
+$('.select_g_for_touch').attr("data-divider", "true");
+$('.select_g_for_touch').selectpicker('toggle');
+$('.selectpicker').selectpicker('render');
