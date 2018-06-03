@@ -43,12 +43,13 @@ class TouchesController < ApplicationController
 
     respond_to do |format|
       if @touch.save
-        if  params['group']
+        if  params['group']['id'] && !params['group']['id'].empty?
              contact_array = contact_id
          else
+           contact_array = params['contact_ids']
 
-        contact_array = params['contact_ids']
       end
+
         contact_array.each_with_index do |c_id, i|
           next if c_id.to_i == 0
          contact = Contact.find(c_id.to_i)

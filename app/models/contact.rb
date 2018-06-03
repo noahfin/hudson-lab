@@ -38,7 +38,8 @@ class Contact < ApplicationRecord
   end
 
 def self.good_search(criteria)
-  where("first_name ILIKE ? or name ILIKE ?", "%#{criteria}%",  "%#{criteria}%").limit(30) if criteria.present?
+  criteria = criteria.split.map(&:capitalize).join(' ')
+  where("first_name LIKE ? or name LIKE ?", "%#{criteria}%",  "%#{criteria}%").limit(30) if criteria.present?
 end
 
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
