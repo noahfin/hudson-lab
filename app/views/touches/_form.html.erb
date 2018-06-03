@@ -1,92 +1,90 @@
 <style type="text/css" media="screen">
 /*the container must be positioned relative:*/
-@import "compass/css3";
 
-@import "compass";
+
 @import url("https://fonts.googleapis.com/css?family=Lato");
 
-$background: #e74c3c;
-$select-color: #fff;
-$select-background: #c0392b;
-$select-width: 220px;
-$select-height: 40px;
 
-body {
-  font-family: Lato, Arial;
-  color: $select-color;
-  padding: 20px;
-  background-color: $background;
-}
 h1 {
   font-weight: normal;
   font-size: 40px;
   font-weight: normal;
   text-transform: uppercase;
-  span {
-    font-size: 13px;
-    display: block;
-    padding-left: 4px;
-  }
 }
+h1 span {
+  font-size: 13px;
+  display: block;
+  padding-left: 4px;
+}
+
 p {
   margin-top: 200px;
-  a {
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: darken($select-background, 2);
-    @include transition(all 0.2s ease-in);
-    &:hover {
-      background-color: darken($select-background, 5);
-    }
-  }
 }
+p a {
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #b83729;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+p a:hover {
+  background-color: #ab3326;
+}
+
 .select-hidden {
   display: none;
   visibility: hidden;
   padding-right: 10px;
 }
+
 .select {
   cursor: pointer;
   display: inline-block;
   position: relative;
   font-size: 16px;
-  color: $select-color;
-  width: $select-width;
-  height: $select-height;
+  color: #fff;
+  width: 220px;
+  height: 40px;
 }
+
 .select-styled {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $select-background;
+  background-color: #c0392b;
   padding: 8px 15px;
-  @include transition(all 0.2s ease-in);
-  &:after {
-    content:"";
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-color: $select-color transparent transparent transparent;
-    position: absolute;
-    top: 16px;
-    right: 10px;
-  }
-  &:hover {
-    background-color: darken($select-background, 2);
-  }
-  &:active, &.active {
-    background-color: darken($select-background, 5);
-    &:after {
-      top: 9px;
-      border-color: transparent transparent $select-color transparent;
-    }
-  }
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.select-styled:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
+.select-styled:hover {
+  background-color: #b83729;
+}
+.select-styled:active, .select-styled.active {
+  background-color: #ab3326;
+}
+.select-styled:active:after, .select-styled.active:after {
+  top: 9px;
+  border-color: transparent transparent #fff transparent;
 }
 
 .select-options {
@@ -99,22 +97,26 @@ p {
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: darken($select-background, 5);
-  li {
-    margin: 0;
-    padding: 12px 0;
-    text-indent: 15px;
-    border-top: 1px solid darken($select-background, 10);
-    @include transition(all 0.15s ease-in);
-    &:hover {
-      color: $select-background;
-      background: $select-color;
-    }
-    &[rel="hide"] {
-      display: none;
-    }
-  }
+  background-color: #ab3326;
 }
+.select-options li {
+  margin: 0;
+  padding: 12px 0;
+  text-indent: 15px;
+  border-top: 1px solid #962d22;
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+.select-options li:hover {
+  color: #c0392b;
+  background: #fff;
+}
+.select-options li[rel="hide"] {
+  display: none;
+}
+
 </style>
 <div class="col-md-12">
    <div class="card card-1">
@@ -127,18 +129,20 @@ p {
          <div class="container-fluid pl-4 pr-4">
 
 
-         <%= form_with(model: touch, local: true, class: 'form-horizontal') do |form| %>
+         <%= form_with(model: @touch, remote: true, class: 'form-horizontal') do |form| %>
          <% if touch.errors.any? %>
          <div id="error_explanation">
-            <h2><%= pluralize(touch.errors.count, "error") %> prohibited this touch from being saved:</h2>
+            <h2><%= pluralize(@touch.errors.count, "error") %> prohibited this touch from being saved:</h2>
             <ul>
-               <% touch.errors.full_messages.each do |message| %>
+               <% @touch.errors.full_messages.each do |message| %>
                <li><%= message %></li>
                <% end %>
             </ul>
          </div>
          <% end %>
+<div>
 
+</div>
          <div class="row mb-4 pb-3">
             <div class="col-md-6">
                <div class="row mt-3">
@@ -149,18 +153,14 @@ p {
                            <span class="input-group-addon"><i class="material-icons pr-4">group</i></span>
                               <% attr = {prompt: "Select Groups"} %><% attr[:selected] =   session[:selected_group_id] %>
 
-
-                        <% group_ids = [[]] %>
+                <% group_ids = [[]] %>
                         <% Group.all.each_with_index do |group, index| %>
 
                         <% group_ids.push([group.id.to_s,group.name ])  %>
                         <% end %>
 
 
-
-
-<!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
-
+<div class="ml-4 pl-4">
 <select id="mounth">
     <option value="hide">-- Group --</option>
      <% group_ids.each_with_index do |group, index| %>
@@ -169,7 +169,7 @@ p {
 
      <% end %>
   </select>
-
+</div>
 
 <script>
 
@@ -315,7 +315,9 @@ $('select').each(function(){
 
                <div class="row">
                   <div class="col-md-6">
-                     <div class="form-group">
+                     <div class="row">
+                        <div class="col-md-6">
+                                  <div class="form-group">
                         <div class="form-check">
                            <label class="form-check-label">
                            <%= form.check_box :email, id: :touch_email, class: 'form-check-input' %>
@@ -348,8 +350,9 @@ $('select').each(function(){
                            </label>
                         </div>
                      </div>
-                  </div>
-                  <div class="col-md-6">
+
+                        </div>
+                                          <div class="col-md-6 pl-3">
                      <div class="form-group">
                         <div class="form-check">
                            <label class="form-check-label">
@@ -384,21 +387,28 @@ $('select').each(function(){
                         </div>
                      </div>
                   </div>
+                     </div>
+
+
                </div>
                <div class=" text-muted">
                <div class="row">
                   <hr>
-               <div class="col-md-12">
+               <div class="col-md-8">
+                    </div>
+                      <div class="col-md-4">
+                          <input type="hidden" name="group[id]" value="" id="group-id-touch">
 
-                  <input type="hidden" name="group[id]" value="" id="group-id-touch">
                            <%= form.submit remote: true, class: 'btn btn-lg bg-black pull-right border-0 btn-social btn-fill btn-github' do %>
                            <div class="ripple-container"></div>
                            <% end %>
 
-
-
-
                     </div>
+
+
+
+
+
                   </div>
 
                </div>
