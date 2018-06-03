@@ -130,7 +130,7 @@ p a:hover {
 
 
          <%= form_with(model: @touch, remote: true, class: 'form-horizontal') do |form| %>
-         <% if touch.errors.any? %>
+         <% if @touch.errors.any? %>
          <div id="error_explanation">
             <h2><%= pluralize(@touch.errors.count, "error") %> prohibited this touch from being saved:</h2>
             <ul>

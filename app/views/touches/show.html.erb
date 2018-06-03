@@ -88,38 +88,81 @@
                         <div class="tab-pane" id="link11">
                        <div class="col-md-12">
                          <strong class=" text-muted">Contacts:</strong>
-                              <% @touch.contacts.each.each_slice(3) do |contact| %>
-                              <div class="col-md-12">
-                                 <div class="row">
-                                    <% contact.each do |contact| %>
-                                    <%  next if !contact.first_name  %>
-                                    <div class="col-md-4">
+
+                      <div class="table-responsive table-sales">
+                        <table class="table">
+                          <tbody>
+                               <% @touch.contacts.each do |contact| %>
+                            <tr>
+                              <td>
+                                <div class="flag">
+                                  <i class="material-icons">touch_app</i>
+                              </div></td>
+                              <td> <%= contact.name  %></td>
+                              <td class="text-right">
+                            <% if @touch.email %>
+                          <p class=" text-black">
+
+                            <%= contact.email  %>
+                          </p>
+                          <% end %>
+
+                          <% if @touch.phone %>
+                          <p class=" text-muted">
+
+                            <%= contact.phone   %>
+                          </p>
+                          <% end %>
+
+                          <% if @touch.postcard %>
+                          <p class=" text-black">
+
+                            <%= @touch.Postcard  %>
+                          </p>
+                          <% end %>
+
+                          <% if @touch.social_media %>
+                          <p class=" text-black">
+
+                            <%= contact.social_media  %>
+                          </p>
+                          <% end %>
+                          <% if @touch.in_person %>
+                          <p class=" text-black">
+
+                            <%= contact.in_person  %>
+                          </p>
+                          <% end %>
+                          <% if @touch.letter %>
+                          <p class=" text-black">
+
+                            <%= contact.letter  %>
+                          </p>
+                          <% end %>
+
+                              </td>
+                              <td class="text-right">
+                               <i class="material-icons">how_to_reg</i>
+                              </td>
+                            </tr>
+
+                            <% end %>
+                          </tbody>
+                        </table>
+                        </div>
 
 
-                                      <p class=" text-muted">
-                                           <% if contact.name %>
-                                              <%= contact.name %>
-                                             <% elsif contact.first_name %>
-                                               <%= contact.first_name %>
-                                              <%= contact.last_name if contact.last_name   %>
-                                            <% else %>
-                                               <%= contact.company if contact.company   %>
-                                            <% end %>
-                                        </p>
-
-                                         </div>
-                                    </div>
-                                    <% end %>
-                                 </div>
                               </div>
-                              <% end %>
+
                            </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <%= link_to 'Edit', edit_touch_path(@touch) %> |
-                <%= link_to 'Back', touches_path %>
+                <span class="ml-2">
+                <%= link_to 'Edit', edit_touch_path(@touch), class: 'text-white' %> |
+                <%= link_to 'Back', touches_path, class: 'text-white' %>
+                </span>
               </div>
             </div>
