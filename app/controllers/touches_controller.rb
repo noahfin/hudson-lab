@@ -31,10 +31,12 @@ class TouchesController < ApplicationController
   # POST /touches.json
   def create
 
-    group = Group.find(params['group']['id']) if params['group']['id'] && !params['group']['id'].empty?
-    contact_id = []
-    group.contacts.each do |contact|
-      contact_id << contact.id.to_s
+     if params['group']['id'] && !params['group']['id'].empty?
+      group = Group.find(params['group']['id'])
+      contact_id = []
+      group.contacts.each do |contact|
+        contact_id << contact.id.to_s
+      end
     end
 
     @touch = Touch.new(touch_params)
