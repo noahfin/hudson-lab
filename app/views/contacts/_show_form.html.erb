@@ -52,6 +52,8 @@
                </div>
             </div>
          </div>
+
+
          <div class=" col-lg-3">
             <label class="text-muted  bmd-label-floating">Middle Name</label>
             <div class="form-group">
@@ -276,11 +278,39 @@
          </div>
       </div>
       <div class="row ">
-         <div class="col-md-3">
+
+         <div class="col-lg-3">
+            <label class="text-muted bmd-label-floating">Phone</label>
+            <div class="form-group">
+               <div class="">
+                  <div class="input-group">
+                     <%= form.text_field :phone, id: :contact_phone, class: 'form-control text-white',  autofocus: true %>
+                  </div>
+               </div>
+            </div>
          </div>
-         <div class="col-md-3">
+
+
+         <div class="col-lg-3">
+            <label class="text-muted bmd-label-floating">Cell phone</label>
+            <div class="form-group">
+               <div class="">
+                  <div class="input-group">
+                     <%= form.text_field :cell, id: :contact_cell, class: 'form-control text-white',  autofocus: true %>
+                  </div>
+               </div>
+            </div>
          </div>
+
          <div class="col-md-3">
+          <label class="text-muted bmd-label-floating">Notes</label>
+            <div class="form-group">
+               <div class="">
+                  <div class="input-group">
+                     <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white',  autofocus: true %>
+                  </div>
+               </div>
+            </div>
          </div>
          <div class="col-lg-3">
             <label class="text-muted">Country</label>
