@@ -85,11 +85,11 @@
 html,body, .content {
 
 
-  background: #232526 !important;
-
+  background: -webkit-linear-gradient(to right, #414345, #232526 ) !important;/* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top,  #414345, #232526) !important;
  background-size: cover;
   color: white !important;
-height: 100%;
+
 
 }
 
@@ -151,6 +151,3 @@ padding-left: 2px !important;
   background-image: linear-gradient(to top, #666 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #666 1px, rgba(2,102,102, 0) 1px) !important;
 }
 
-.bg-backgroud-color {
-  background:  #232526  !important;
-}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530035606) do
+ActiveRecord::Schema.define(version: 20180604005214) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -141,6 +141,13 @@ ActiveRecord::Schema.define(version: 20180530035606) do
     t.index ["lead_id"], name: "index_deals_on_lead_id"
   end
 
+  create_table "deals_tasks", id: false, force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "deal_id", null: false
+    t.index ["deal_id", "task_id"], name: "index_deals_tasks_on_deal_id_and_task_id"
+    t.index ["task_id", "deal_id"], name: "index_deals_tasks_on_task_id_and_deal_id"
+  end
+
   create_table "deals_users", id: false, force: :cascade do |t|
     t.integer "deal_id", null: false
     t.integer "user_id", null: false
@@ -152,6 +159,13 @@ ActiveRecord::Schema.define(version: 20180530035606) do
     t.string "name"
     t.integer "user_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
+  create_table "groups_tasks", id: false, force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "group_id", null: false
+    t.index ["group_id", "task_id"], name: "index_groups_tasks_on_group_id_and_task_id"
+    t.index ["task_id", "group_id"], name: "index_groups_tasks_on_task_id_and_group_id"
   end
 
   create_table "groups_users", id: false, force: :cascade do |t|

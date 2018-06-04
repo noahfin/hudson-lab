@@ -274,8 +274,8 @@ $('.select_g_for_touch').selectpicker('toggle');
     });
 
 
-    var getContactInputs = function () {
-        var user_ids = []
+ var getUsersAndGroupsInputs = function () {
+          var user_ids = []
 
         $('.users-for-new-group').each(function (i) {
             if ($(this).is(':checked') && $(this).val() !== "") {
@@ -289,6 +289,12 @@ $('.select_g_for_touch').selectpicker('toggle');
                 group_ids[i] = $(this).val();
             }
         });
+ var userGroupArray = [[user_ids][group_ids]];
+   return userGroupArray;
+ }
+
+    var getContactInputs = function () {
+      var userGroupArray  = getUsersAndGroupsInputs();
         var formData = {
             contact: {
                 'id': $('#hidden_update').val(),
@@ -297,6 +303,7 @@ $('.select_g_for_touch').selectpicker('toggle');
                 'company': $('#contact_company').val(),
                 'address': $('#contact_address').val(),
                 'cell': $('#contact_cell').val(),
+                'phone': $('#contact_phone').val(),
                 'county': $('#contact_county').val(),
                 'state': $('#contact_state').val(),
                 'country': $('#contact_country').val(),
@@ -322,9 +329,10 @@ $('.select_g_for_touch').selectpicker('toggle');
                 'postion': $('#contact_postion').val(),
                 'sic': $('#contact_sic').val(),
                 'role': $('#contact_role').val(),
+                'suite': $('#contact_suite').val(),
 
-                'group_id': group_ids,
-                'user_id': user_ids,
+                'group_id': userGroupArray[1],
+                'user_id': userGroupArray[0],
                 'verified': $('#contact_verified').val()
 
 
@@ -337,6 +345,27 @@ $('.select_g_for_touch').selectpicker('toggle');
     }
 
     var u_s = true;
+
+
+        $(document).on('click', '#task-send ', function (event) {
+            event.preventDefault()
+             $('#taks-form').prop("disabled", false);
+              var userGroupArray  = getUsersAndGroupsInputs();
+             var formData = {
+            task: {
+
+              'name'    :  $('#task_name').val(),
+              'user_ids':  $('#users-t').val()
+                  }
+            }
+            console.log($('#taks-form').serialize());
+            console.log(formData);
+
+
+            createTaskSend(formData);
+
+        });
+
     $(document).on('click', '.toggle-contact ', function (event) {
 
         if (u_s === false) {
@@ -369,6 +398,41 @@ $('.select_g_for_touch').selectpicker('toggle');
 
     });
 
+ var createTaskSend = function (data) {
+        var url = "/tasks/";
+        $.ajax({
+            url: url,
+            method: "post",
+            data: data,
+            success: function (contact) {
+                $('#tasks-form-modal').modal('hide');
+                $.notify({
+                    title: "New Action Step:",
+                    message: '"'+$('#task_name').val()+'"' + ' was successfuly created'
+                });
+
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+    }
     var createFormSend = function (data) {
         var url = "/contacts/";
         $.ajax({
@@ -404,6 +468,7 @@ $('.select_g_for_touch').selectpicker('toggle');
 
 
     }
+
 
     var showFormSend = function (data) {
         var url = "/contacts/" + $('#contact_id_hidden').val() + "/";

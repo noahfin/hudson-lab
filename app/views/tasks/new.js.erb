@@ -1,5 +1,7 @@
 $('#f-body').html('<%= j render("form", ajax_true: true) %>' );
-$('#tasks-form-modal').modal('show')
+$('#tasks-form-modal').modal('show');
+
+
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 var contact_ids_prop_i  = 0;
 var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];

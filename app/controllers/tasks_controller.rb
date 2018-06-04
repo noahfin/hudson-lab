@@ -22,8 +22,12 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
+      respond_to do |format|
     @task = Task.new
-      render :template => 'tasks/new.js.erb', turbolinks: true
+      format.html
+        format.json { render json: @tasks, status: :created }
+        format.js
+      end
   end
 
   # GET /tasks/1/edit
@@ -34,23 +38,13 @@ class TasksController < ApplicationController
   # POST /tasks
   def create
     @task = Task.new(task_params)
-    @tasks = Task.order('lower(name)').all
+
+
     respond_to do |format|
       if @task.save
-        params['contact_ids'].each_with_index do |c_id, i|
-          next if c_id.to_i == 0
-         contact = Contact.find(c_id.to_i)
-          @task.contacts << contact
-         end
-         if params['task']['user_id']
-            params['task']['user_id'].each_with_index do |u_id, i|
-            next if u_id.to_i == ''
-            user = User.find(u_id.to_i)
-            @property.users << user
-           end
-         end
+        @tasks = Task.order('lower(name)').all
         flash[:info] = "The Action Step was successfully created."
-        format.html { redirect_to @tasks }
+        format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :created }
         format.js
       else
@@ -66,19 +60,8 @@ class TasksController < ApplicationController
    @tasks = Task.order('lower(name)').all
     respond_to do |format|
       if @task.update(task_params)
-          flash[:info] = "The Action Step was successfully updated."
-          params['contact_ids'].each_with_index do |c_id, i|
-          next if c_id.to_i == 0
-          contact = Contact.find(c_id.to_i)
-          @property.contacts << contact
-         end
-         if params['task']['user_id']
-            params['task']['user_id'].each_with_index do |u_id, i|
-            next if u_id.to_i == ''
-            user = User.find(u_id.to_i)
-            @property.users << user
-           end
-         end
+
+
         format.html { redirect_to @task }
         format.json { head :no_content }
         format.js
@@ -115,7 +98,7 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, {:user_ids => []})
+      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, :group_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []})
     end
 
     def my_contacts

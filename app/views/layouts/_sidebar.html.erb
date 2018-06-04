@@ -136,10 +136,10 @@
               </a>
             </li>
             <li class="nav-item text-white">
-              <a class="nav-link" href="/tasks/">
+              <%= link_to tasks_new_path, class: 'text-white nav-link', remote: true do %>
                 <span class="sidebar-mini"> AA </span>
                 <span class="sidebar-normal"> Add Action Step </span>
-              </a>
+              <% end %>
             </li>
             <li class="nav-item text-white ">
               <a class="nav-link" href="/properties/">

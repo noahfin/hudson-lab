@@ -1,4 +1,4 @@
-
+$('#main-content').html('<%= escape_javascript render( "tasks/index") %>');
 $('#task-table-1').html('<%= escape_javascript render( @tasks) %>');
-$('#f-body').html('<%= j render("form", ajax_true: true) %>' );
+$('#tasks-form-modal').modal('hide');
 
