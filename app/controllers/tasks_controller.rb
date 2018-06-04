@@ -61,7 +61,6 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
 
-
         format.html { redirect_to @task }
         format.json { head :no_content }
         format.js
@@ -93,12 +92,11 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
-
     end
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, :group_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []})
+      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, :group_ids, :team_ids, :lead_ids, :projects_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []},  {:team_ids => []}, {:lead_ids => []}, {:deal_ids => []})
     end
 
     def my_contacts

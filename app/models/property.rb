@@ -3,8 +3,8 @@ class Property < ApplicationRecord
   has_many :issues, dependent: :destroy
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :contacts
-  has_many :posted_users, through: :posts,  source: :user, dependent: :destroy
-  has_many :complaining_users, through: :issues,  source: :user, dependent: :destroy
+  has_many :posted_users, through: :posts,  source: :user
+  has_many :complaining_users, through: :issues,  source: :user
   has_attached_file :avatar,
     :storage => :s3,
     :styles => {

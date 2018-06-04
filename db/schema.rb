@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604135425) do
+ActiveRecord::Schema.define(version: 20180604153247) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -319,6 +319,13 @@ ActiveRecord::Schema.define(version: 20180604135425) do
     t.boolean "complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks_teams", id: false, force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "team_id", null: false
+    t.index ["task_id", "team_id"], name: "index_tasks_teams_on_task_id_and_team_id"
+    t.index ["team_id", "task_id"], name: "index_tasks_teams_on_team_id_and_task_id"
   end
 
   create_table "tasks_users", id: false, force: :cascade do |t|
