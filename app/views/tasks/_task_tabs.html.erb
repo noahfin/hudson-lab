@@ -1,0 +1,161 @@
+ <% task_contact_array = [] %>
+  <% @tasks.each do |task| %>
+  <% if !task.contacts.nil? || !task.contacts.empty? %>
+   <% task_contact_array.push(task)%>
+   <% end %>
+ <% end %>
+   <% unless !task_contact_array.nil? || !task_contact_array.empty? %>
+   <div class="tab-pane " id="task-contacts-list">
+      <table class="table">
+         <% task_contact_array.each_with_index do |task, index| %>
+         <% next if task_contact_array[index].nil? || task_contact_array[index].empty? %>
+         <tr id="edit_task_<%= task.id %>">
+            <td>
+               <div class="form-check">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+                  <span class="form-check-sign">
+                  <span class="check"></span>
+                  </span>
+                  </label>
+               </div>
+            </td>
+            <td><%= task.name %></td>
+            <td class="td-actions text-right">
+               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons">edit</i>
+               <% end %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <i class="material-icons">close</i>
+               <% end %>
+            </td>
+         </tr>
+         <% end %>
+
+         <tbody >
+         </tbody>
+      </table>
+   </div>
+   <% end %>
+
+ <% projects_array = [] %>
+  <% @tasks.each do |task| %>
+  <% if !task.projects.nil? || !task.projects.empty? %>
+   <% projects_array.push(task)%>
+   <% end %>
+ <% end %>
+
+    <% unless !projects_array.nil? || !projects_array.empty? %>
+   <div class="tab-pane " id="task-projects-list">
+      <table class="table">
+         <% projects_array.each_with_index do |task, index|%>
+          <% next if  projects_array[index].nil? ||  projects_array[index].empty? %>
+         <tr id="edit_task_<%= task.id %>">
+            <td>
+               <div class="form-check">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+                  <span class="form-check-sign">
+                  <span class="check"></span>
+                  </span>
+                  </label>
+               </div>
+            </td>
+            <td><%= task.name %></td>
+            <td class="td-actions text-right">
+               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons">edit</i>
+               <% end %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <i class="material-icons">close</i>
+               <% end %>
+            </td>
+         </tr>
+         <% end %>
+         <tbody >
+         </tbody>
+      </table>
+   </div>
+   <% end %>
+
+ <% leads_array = [] %>
+  <% @tasks.each do |task| %>
+  <% if !task.leads.nil? || !task.leads.empty? %>
+   <% leads_array.push(task)%>
+   <% end %>
+ <% end %>
+
+  <% unless !leads_array.nil? || !leads_array.empty? %>
+   <div class="tab-pane " id="task-leads-list">
+      <table class="table">
+         <% leads_array.each_with_index do |task, index|%>
+         <% next if  leads_array[index].nil? ||  leads_array[index].empty? %>
+         <tr id="edit_task_<%= task.id %>">
+            <td>
+               <div class="form-check">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+                  <span class="form-check-sign">
+                  <span class="check"></span>
+                  </span>
+                  </label>
+               </div>
+            </td>
+            <td><%= task.name %></td>
+            <td class="td-actions text-right">
+               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons">edit</i>
+               <% end %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <i class="material-icons">close</i>
+               <% end %>
+            </td>
+         </tr>
+          <% end %>
+         <tbody >
+         </tbody>
+      </table>
+   </div>
+<% end %>
+
+
+ <% groups_array = [] %>
+  <% @tasks.each_with_index do |task, index|%>
+  <% if !task.groups.nil? || !task.groups.empty? %>
+   <% groups_array.push(task)%>
+   <% end %>
+ <% end %>
+
+    <% unless !groups_array.nil? || !groups_array.empty?   %>
+   <div class="tab-pane active" id="task-marketing-list">
+      <table class="table">
+         <% groups_array.each do |task| %>
+         <% next if  groups_array[index].nil? ||  groups_array[index].empty? %>
+         <tr id="edit_task_<%= task.id %>">
+            <td>
+               <div class="form-check">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+                  <span class="form-check-sign">
+                  <span class="check"></span>
+                  </span>
+                  </label>
+               </div>
+            </td>
+            <td><%= task.name %></td>
+            <td class="td-actions text-right">
+               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons">edit</i>
+               <% end %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <i class="material-icons">close</i>
+               <% end %>
+            </td>
+         </tr>
+         <% end %>
+
+         <tbody >
+         </tbody>
+      </table>
+   </div>
+<% end %>

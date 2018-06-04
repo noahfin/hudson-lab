@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604005214) do
+ActiveRecord::Schema.define(version: 20180604135425) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -211,6 +211,13 @@ ActiveRecord::Schema.define(version: 20180604005214) do
     t.index ["property_id"], name: "index_leads_on_property_id"
   end
 
+  create_table "leads_tasks", id: false, force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "lead_id", null: false
+    t.index ["lead_id", "task_id"], name: "index_leads_tasks_on_lead_id_and_task_id"
+    t.index ["task_id", "lead_id"], name: "index_leads_tasks_on_task_id_and_lead_id"
+  end
+
   create_table "personal_messages", force: :cascade do |t|
     t.text "body"
     t.integer "conversation_id"
@@ -241,6 +248,27 @@ ActiveRecord::Schema.define(version: 20180604005214) do
     t.index ["deal_id"], name: "index_posts_on_deal_id"
     t.index ["property_id"], name: "index_posts_on_property_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects_tasks", id: false, force: :cascade do |t|
+    t.integer "task_id", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id", "task_id"], name: "index_projects_tasks_on_project_id_and_task_id"
+    t.index ["task_id", "project_id"], name: "index_projects_tasks_on_task_id_and_project_id"
+  end
+
+  create_table "projects_teams", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "team_id", null: false
+    t.index ["project_id", "team_id"], name: "index_projects_teams_on_project_id_and_team_id"
+    t.index ["team_id", "project_id"], name: "index_projects_teams_on_team_id_and_project_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -298,6 +326,20 @@ ActiveRecord::Schema.define(version: 20180604005214) do
     t.integer "task_id", null: false
     t.index ["task_id", "user_id"], name: "index_tasks_users_on_task_id_and_user_id"
     t.index ["user_id", "task_id"], name: "index_tasks_users_on_user_id_and_task_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams_users", id: false, force: :cascade do |t|
+    t.integer "team_id", null: false
+    t.integer "user_id", null: false
+    t.index ["team_id", "user_id"], name: "index_teams_users_on_team_id_and_user_id"
+    t.index ["user_id", "team_id"], name: "index_teams_users_on_user_id_and_team_id"
   end
 
   create_table "touches", force: :cascade do |t|

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :contacts, :through => :groups, :source => :user
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :deals
+  has_and_belongs_to_many :teams
   has_many :posts, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :posted_properties, through: :posts,  source: :property, dependent: :destroy
@@ -13,6 +14,14 @@ class User < ApplicationRecord
   has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id', dependent: :destroy
   has_many :personal_messages, dependent: :destroy
   has_many :account_logins, dependent: :destroy
+  accepts_nested_attributes_for :posts
+  accepts_nested_attributes_for :issues
+  accepts_nested_attributes_for :problem_properties
+  accepts_nested_attributes_for :posted_deals
+  accepts_nested_attributes_for :tasks
+  accepts_nested_attributes_for :groups
+  accepts_nested_attributes_for :contacts
+  accepts_nested_attributes_for :teams
   enum role: [:user, :customer, :employee, :agent, :broker, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -24,9 +33,5 @@ class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Warden::Manager.after_set_user do|record, warden, opts|
-  #   logger.info("sign in at: #{record.current_sign_in_at}, #{record.current_sign_in_ip}")
-  #   record.account_logins.create!(ipAddress: record.current_sign_in_ip, loginTime: record.current_sign_in_at)
-  # end
 end
 
