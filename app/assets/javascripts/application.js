@@ -65,10 +65,6 @@ $(document).on('click', '.new-form', function (event) {
 
 
 $(document).on('turbolinks:load', function () {
-$('.selectpicker').selectpicker('render');
-$('.select_g_for_touch').selectpicker('setStyle', ' btn-info btn-round btn btn-block');
-
-$('.select_g_for_touch').selectpicker('toggle');
 
 
       jQuery(function($) {
@@ -78,7 +74,10 @@ $('.select_g_for_touch').selectpicker('toggle');
 
    });
 
-    $('.selectpicker').selectpicker('mobile');
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+$('.selectpicker').selectpicker('mobile');
+}
+
 
     $(document).on('click', '.select-allgroups', function (event) {
 
@@ -355,7 +354,8 @@ $('.select_g_for_touch').selectpicker('toggle');
             task: {
 
               'name'    :  $('#task_name').val(),
-              'user_ids':  $('#users-t').val()
+              'user_ids':  $('#users-t').val(),
+              'group_ids':  $('#groups-t').val()
                   }
             }
             console.log($('#taks-form').serialize());

@@ -1,3 +1,16 @@
 <div id="content">
   <%= render 'form' %>
+  <script>
+    $('.selectpicker').selectpicker('toggle');
+$('.selectpicker').selectpicker('render');
+$('.select_u_picker').selectpicker('val', '<%=  @users.to_s %>').selectpicker('setStyle', 'dropdown-toggle btn-info btn-round btn btn-block');
+$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'dropdown-toggle btn-info btn-round btn btn-block');
+$('.select_g_picker').attr("data-actions-box", "true");
+$('.select_g_picker').attr("dropupAuto", "false");
+$('.select_g_picker').attr("data-live-search", "true");
+$('.select_g_picker').attr("selectOnTabr", "true");
+$('.select_g_picker').attr("data-divider", "true");
+$('.selectpicker').selectpicker('toggle');
+$('.selectpicker').selectpicker('render');
+</script>
 </div>
