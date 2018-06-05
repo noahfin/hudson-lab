@@ -53,6 +53,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation, :last_seen_at, :account_logins])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :first_name, :last_name, :employee, :customer, :street_name, :street_num, :city, :username, :email, :password, :password_confirmation, :last_seen_at, :account_logins])
   end
+
   def get_groups
     @groups = @groups ||= current_user.groups.order('name ASC').uniq if current_user
     @contacts = @contacts ||= current_user.contacts.order('last_name ASC').page(params[:page]) if current_user

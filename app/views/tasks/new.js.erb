@@ -37,20 +37,28 @@ $('.get-contacts').autocomplete({
 
     }
 
+        var getGroupValues = function(){
+            var group_ids_array = []
+            group_ids = $('#groups-t').val();
+            jQuery.each( group_ids, function( i, input ) {
+              if (input.value !== "0" && input.value !== "") {
+             group_ids_array.push( input.value );
+             }
+            });
+            return group_ids_array;
+        }
+
  $(document).on('click', '#task-send ', function (event) {
             event.preventDefault()
              $('#taks-form').prop("disabled", true);
-             var group_ids = []
-             if (!$('#groups-t').val()) {
-              group_ids = $('#groups-t').val();
-             }
+            var group_ids = getGroupValues();
              var contact_ids = getAutocompleteContactsValues();
              var formData = {
             task: {
 
               'name'    :  $('#task_name').val(),
               'user_ids':  $('#users-t').val(),
-              'group_ids':  group_ids,
+              'group_ids':  $('#groups-t').val(),
               'contact_ids': contact_ids
                   }
             }
