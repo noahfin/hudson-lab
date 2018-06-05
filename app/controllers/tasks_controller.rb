@@ -39,14 +39,7 @@ class TasksController < ApplicationController
       if @task.save
          @tasks = Task.order('lower(name)').all
         if  @task.group_ids = params['task']['group_ids']
-          # if params['task']['contact_ids']
-          #   params['task']['contact_ids'].each do |contact_id|
-          #   next if contact_id == "" ||  contact_id.to_i < 1
-          #   contact = User.find(contact_id.to_i) if User.find(contact_id.to_i).exists?
-          #   contact_model = ContactTask.create( contact: contact, task: @task) unless  ContactTask.create( contact: contact, task: @task).exists?
-          #   end
-          # end
-           if  @task.group_ids = params['task']['group_ids']
+           if  @task.contact_ids = params['task']['contact_ids']
            end
         end
         format.html { redirect_to '/tasks/' }

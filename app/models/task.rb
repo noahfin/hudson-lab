@@ -7,5 +7,12 @@ class Task < ApplicationRecord
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :teams
   has_and_belongs_to_many :leads
-
+  accepts_nested_attributes_for :leads
+  accepts_nested_attributes_for :teams
+  accepts_nested_attributes_for :projects
+  accepts_nested_attributes_for :groups
+  accepts_nested_attributes_for :deals
+  accepts_nested_attributes_for :properties
+  accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :contacts
 end
