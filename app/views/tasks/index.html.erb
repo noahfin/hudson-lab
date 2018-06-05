@@ -5,13 +5,13 @@
             <div class="nav-tabs-wrapper">
                <ul class="nav nav-tabs tab" data-tabs="tabs">
                   <li class="nav-item nav-tab">
-                     <a class="nav-link active nav-tab" href="#tasks-main-list" data-toggle="tab">
+                     <a class="nav-link nav-tab nav-t-tab" href="#tasks-all-list" data-toggle="tab">
                         <i class="material-icons">assignment</i>
                         All Action Steps
                         <div class="ripple-container"></div>
                      </a>
                   </li>
-                  <li class="nav-item nav-tab tab">
+                  <li class="nav-item nav-tab tab ">
                      <a class="nav-link nav-tab nav-t-tab" href="#task-contacts-list" data-toggle="tab">
                         <i class="material-icons">assignment</i>
                         Contacts
@@ -54,7 +54,7 @@
       <div class="card-body" >
          <div class="tab-content" >
 
-   <div class="tab-pane active" id="tasks-main-list">
+   <div class="tab-pane" id="tasks-all-list">
       <table class="table">
          <% @tasks.each do |task| %>
 
@@ -94,16 +94,17 @@
 
 
 <script >
-
-var hrefTempIndex = "#tasks-main-list"
+ var hrefTempIndex = "#tasks-all-list"
+$('.tab-pane').hide();
+$(hrefTempIndex).show();
 $(document).on('click', '.nav-t-tab', function (e) {
 
     e.preventDefault()
 
   var tabSection =  $(this).attr('href');
-   if (hrefTempIndex !== $(this).attr('href')) {
-    $("#tasks-main-list").hide();
-    }
+   // if (hrefTempIndex !== $(this).attr('href')) {
+   //  $("#tasks-main-list").hide();
+   //  }
   console.log(tabSection);
   $(hrefTempIndex).hide();
    $(tabSection).show();
