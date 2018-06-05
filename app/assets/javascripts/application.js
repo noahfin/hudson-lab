@@ -164,17 +164,6 @@ $('.selectpicker').selectpicker('mobile');
     }
 
 
-    var getGroupPage = function () {
-
-        //     var web_address = location.href;
-        //    var pramsPageaArray2 = web_address.split("group_id=");
-        //   if (pramsPageaArray2[1]) {
-
-        //    $('#wiz_update_h').val(web_address.href);
-        // }
-    }
-
-
     $('[href*="#section_"]').on('click', function () {
 
         // Close collapsed navbar on click
@@ -263,9 +252,6 @@ $('.selectpicker').selectpicker('mobile');
                         $('.b-finsh').trigger("click");
 
 
-                        // .parents('form').eq(0).submit();
-
-
                     }
                 });
             }
@@ -274,21 +260,23 @@ $('.selectpicker').selectpicker('mobile');
 
 
  var getUsersAndGroupsInputs = function () {
-          var user_ids = []
 
+          var user_ids = []
         $('.users-for-new-group').each(function (i) {
             if ($(this).is(':checked') && $(this).val() !== "") {
                 user_ids[i] = $(this).val();
             }
         });
-        var group_ids = []
 
+        var group_ids = []
         $('.groups-for-new-group').each(function (i) {
             if ($(this).is(':checked') && $(this).val() !== "") {
                 group_ids[i] = $(this).val();
             }
         });
+
  var userGroupArray = [[user_ids][group_ids]];
+
    return userGroupArray;
  }
 
@@ -329,7 +317,6 @@ $('.selectpicker').selectpicker('mobile');
                 'sic': $('#contact_sic').val(),
                 'role': $('#contact_role').val(),
                 'suite': $('#contact_suite').val(),
-
                 'group_id': userGroupArray[1],
                 'user_id': userGroupArray[0],
                 'verified': $('#contact_verified').val()
@@ -490,6 +477,7 @@ $('.selectpicker').selectpicker('mobile');
 
         });
     })
+
     var dataTable = $('.data-table').DataTable();
     var lastUrl = ''
     document.addEventListener("turbolinks:before-cache", function () {
@@ -502,6 +490,7 @@ $('.selectpicker').selectpicker('mobile');
     var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
     var contact_ids_prop = [];
 
+
     $('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
@@ -512,6 +501,7 @@ $('.selectpicker').selectpicker('mobile');
 
             $(contact_class_p_name[contact_ids_prop_i]).html(ui.item.value);
             contact_ids_prop_i++;
+            $('.get-contacts').val('');
         }
     });
 
@@ -524,6 +514,7 @@ $('.selectpicker').selectpicker('mobile');
             var uri = '/contacts/' + ui.item.id.toString() + '/';
 
             getProfile(uri);
+            $('.get-contacts').val('');
         }
     });
     var getProfile = function (uri) {

@@ -43,9 +43,20 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
          @tasks = Task.order('lower(name)').all
-        if params['task'][:group_id]
-          @task.group_ids = params['tasks'][:group_id]
+        if params['task']['group_ids']
+          @task.group_ids = params['tasks']['group_ids']
+                  if params['task']['contact_ids']
+
+              params['task']['contact_ids'].each do |contact_id|
+              next if contact_id == "" ||  contact_id.to_i < 1
+              contact = User.find(contact_id.to_i)
+            contact_model = TasksContact.create(task: @task, contact: contact) unless TasksContact.create(task: @task, contact: contact).exists?
+           end
+
+         end
+
         end
+
 
         format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :created }

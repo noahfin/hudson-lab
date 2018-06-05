@@ -19,23 +19,41 @@ $('.get-contacts').autocomplete({
 
            $(contact_class_p_name[contact_ids_prop_i]).html( ui.item.value);
            contact_ids_prop_i ++;
+           $('.get-contacts').val('');
         }
     });
+
+     var getAutocompleteContactsValues = function(){
+       var contactInputs = $( ".c-ids" ).serializeArray();
+       var contactValueArray = [];
+
+      jQuery.each( contactInputs, function( i, input ) {
+        if (input.value !== "0") {
+       contactValueArray.push( input.value );
+       }
+      });
+
+        return contactValueArray;
+
+    }
 
  $(document).on('click', '#task-send ', function (event) {
             event.preventDefault()
              $('#taks-form').prop("disabled", true);
-
+             var group_ids = []
+             if (!$('#groups-t').val()) {
+              group_ids = $('#groups-t').val();
+             }
+             var contact_ids = getAutocompleteContactsValues();
              var formData = {
             task: {
 
               'name'    :  $('#task_name').val(),
               'user_ids':  $('#users-t').val(),
-              'group_ids':  $('#groups-t').val(),
-              'contact_ids':  $('.c-ids').val()
+              'group_ids':  group_ids,
+              'contact_ids': contact_ids
                   }
             }
-
 
             createTaskSend(formData);
             return false
