@@ -348,8 +348,8 @@ $('.selectpicker').selectpicker('mobile');
 
         $(document).on('click', '#task-send ', function (event) {
             event.preventDefault()
-             $('#taks-form').prop("disabled", false);
-              var userGroupArray  = getUsersAndGroupsInputs();
+             $('#taks-form').prop("disabled", true);
+
              var formData = {
             task: {
 
@@ -358,8 +358,6 @@ $('.selectpicker').selectpicker('mobile');
               'group_ids':  $('#groups-t').val()
                   }
             }
-            console.log($('#taks-form').serialize());
-            console.log(formData);
 
 
             createTaskSend(formData);
@@ -369,7 +367,6 @@ $('.selectpicker').selectpicker('mobile');
     $(document).on('click', '.toggle-contact ', function (event) {
 
         if (u_s === false) {
-
 
             var color = $(this).css("color");
             console.log(color);

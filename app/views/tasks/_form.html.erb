@@ -199,14 +199,14 @@
     </div>
 <% end %>
 <script>
-    var hrefTemp = '#task-users-tab';
-    $('#user-active-tab').click();
-$('.nav-a-tab').click(function (e) {
-  e.preventDefault()
+   var hrefTemp = '#task-users-tab';
+   $('#user-active-tab').click();
+   $('.nav-a-tab').click(function (e) {
+    e.preventDefault()
   var tabSection =  $(this).attr('href');
- if (hrefTemp !== $(this).attr('href')) {
+   if (hrefTemp !== $(this).attr('href')) {
     $("#task-users-tab").hide();
- }
+    }
   console.log(tabSection);
   $(hrefTemp).hide();
    $(tabSection).show();
@@ -216,16 +216,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
   e.target // newly activated tab
   e.relatedTarget // previous active tab
 });
-// $('#taks-form').click(function (e) {
-//     var text = $(event.target).text();
 
-//     if (text == 'Send Form'){
-//         console.log($(event.target));
-//     $('#taks-form').prop("disabled", false);
-//     $('.task-send').trigger('click');
-//     $('#taks-form').submit();
-// }
-// });
 
 
 </script>
