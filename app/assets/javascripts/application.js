@@ -346,23 +346,7 @@ $('.selectpicker').selectpicker('mobile');
     var u_s = true;
 
 
-        $(document).on('click', '#task-send ', function (event) {
-            event.preventDefault()
-             $('#taks-form').prop("disabled", true);
 
-             var formData = {
-            task: {
-
-              'name'    :  $('#task_name').val(),
-              'user_ids':  $('#users-t').val(),
-              'group_ids':  $('#groups-t').val()
-                  }
-            }
-
-
-            createTaskSend(formData);
-
-        });
 
     $(document).on('click', '.toggle-contact ', function (event) {
 
@@ -395,41 +379,7 @@ $('.selectpicker').selectpicker('mobile');
 
     });
 
- var createTaskSend = function (data) {
-        var url = "/tasks/";
-        $.ajax({
-            url: url,
-            method: "post",
-            data: data,
-            success: function (contact) {
-                $('#tasks-form-modal').modal('hide');
-                $.notify({
-                    title: "New Action Step:",
-                    message: '"'+$('#task_name').val()+'"' + ' was successfuly created'
-                });
 
-
-            },
-            error: function (err) {
-
-                var errors = err.responseJSON;
-                var error = errors.join(", ");
-
-                if (error) {
-
-
-                    $.notify({
-                        title: '<strong>Heads up!</strong>',
-                        message: error
-                    }, {
-                        type: 'danger'
-                    });
-                }
-            }
-        })
-
-
-    }
     var createFormSend = function (data) {
         var url = "/contacts/";
         $.ajax({

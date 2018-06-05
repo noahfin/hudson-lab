@@ -42,11 +42,11 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+         @tasks = Task.order('lower(name)').all
         if params['task'][:group_id]
           @task.group_ids = params['tasks'][:group_id]
         end
-        @tasks = Task.order('lower(name)').all
-        flash[:info] = "The Action Step was successfully created."
+
         format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :created }
         format.js

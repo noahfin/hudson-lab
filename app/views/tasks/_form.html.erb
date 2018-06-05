@@ -28,7 +28,7 @@
          </li>
       </ul>
       <div class="tab-content tab-space tab-subcategories">
-           <%= form_with model: @task, id: "task-main-form" do |f|%>
+           <%= form_with model: @task, id: "task-main-form", remote: true do |f|%>
 
 
          <div class="tab-pane" role="tabpanel" id="task-deals-tab" style="display:none;">
@@ -129,7 +129,7 @@
                                        <li class="list-inline-item m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1 c-ids">
                                              <span class="c1  mt-4 p-2  text-center">contact 1</span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -140,7 +140,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2  c-ids">
                                              <span class="c2 mt-4 p-2  text-center">contact 2 </span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -151,7 +151,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3  c-ids">
                                              <span class="c3 mt-4 p-2 text-center"> contact 3 </span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -162,7 +162,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4  c-ids">
                                              <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
