@@ -15,7 +15,20 @@
     resources :users
     resources :groups
     resources :tasks
-    resources :projects
+    resources :projects do
+
+        get 'resources', on: :collection
+
+       get 'description', on: :collection
+
+       get 'budget', on: :collection
+
+       get 'requirements', on: :collection
+
+       get 'projected_start_time', on: :collection
+
+       get 'actual_finshed_time', on: :collection
+    end
     resources :touches
     resources :leads
     resources :deals

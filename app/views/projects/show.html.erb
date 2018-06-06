@@ -1,8 +1,27 @@
-<div class="container">
-<div class="row mt-0 pt-0">
+<style type="text/css" media="screen">
+    .project-info {
+
+
+    }
+</style>
+<div class="container ">
+    <div class="uppder-content">
+
+
+
+
+
+
+
+</div>
+
+<div id="main-project-content">
+<div class="row mt-0 pt-0 " >
    <div class="col-sm-4 mt-0 pt-0">
       <div class="info info-white-top  ">
+        <%= link_to resources_projects_path do %>
          <div class="icon text-center  ">
+
             <i class="material-icons text-center">code</i>
             <h4 class="info-title text-center text-white">Resources</h4>
             <div class="row mt-4 ">
@@ -10,81 +29,75 @@
                </div>
             </div>
          </div>
+        <% end %>
       </div>
    </div>
    <div class="col-sm-4 mt-0 pt-0 mb-4">
       <div class="info  text-center info-white-center mb-2 ">
-         <div class="icon  ">
+         <%= link_to requirements_projects_path do %>
+         <div class="icon">
+
             <i class="material-icons text-center">format_paint</i>
             <h4 class="info-title text-center text-white">Requirements</h4>
+
          </div>
+         <% end %>
       </div>
       <div class="info-white-top ml-4 mr-4 pl-4 pt-4 pr-4"></div>
    </div>
    <div class="col-sm-4 mt-0 pt-0">
       <div class="info info-white-top   ">
+            <%= link_to requirements_projects_path do %>
          <div class="icon text-center">
+
             <i class="material-icons text-center">attach_money</i>
             <h4 class="info-title text-center text-white">Project Budget</h4>
             <div class="row mt-4 ">
                <div class="col-md-12 pt-4">
                </div>
             </div>
-         </div>
+        </div>
+        <% end %>
       </div>
    </div>
 </div>
 <div class="row">
    <div class="col-sm-4 mt-3">
       <div class="info ">
+           <%= link_to description_projects_path do %>
          <div class="icon text-center ">
             <i class="material-icons text-center">notes</i>
             <h4 class="info-title text-center text-white">Description</h4>
          </div>
+      <% end %>
       </div>
    </div>
    <div class="col-sm-4  mt-3">
       <div class="info  info-white-center">
+
+           <%= link_to projected_start_time_projects_path do %>
          <div class="icon text-center ">
             <i class="material-icons text-center">access_time</i>
          </div>
          <h4 class="info-title text-center text-white">Start Time</h4>
+        <% end %>
       </div>
+
    </div>
    <div class="col-sm-4  mt-3">
       <div class="info  ">
+
+            <%= link_to projected_start_time_projects_path do %>
          <div class="icon text-center">
             <i class="material-icons text-center">access_time</i>
             <h4 class="info-title text-white text-center ">Finsh Time</h4>
          </div>
+    <% end %>
       </div>
-   </div>
+    </div>
 </div>
-<div class="project-info" id="resources_div" style="display: none;">
-   <h4 class="info-title text-center text-white">Resources</h4>
-   <p class="text-whiter text-center" ><%= @project.resources %></p>
 </div>
-<div class="project-info" id="description_div" style="display: none;">
-   <h4 class="info-title text-center text-white">Description</h4>
-   <p class="text-white text-center " ><%= @project.description %></p>
-</div>
-<div class="project-info" id="budget_div"  style="display: none;">
-   <h4 class="info-title text-center text-white">Project Budget</h4>
-   <p class="text-whiter text-center" ><%= @project.budget %></p>
-</div>
-<div class="project-info" id="requirements_div"  style="display: none;">
-   <h4 class="info-title text-center text-white">Requirements</h4>
-   <p class="text-white text-center" ><%= @project.requirements %></p>
-   >
-</div>
-<div class="project-info" id="projected_start_time_div"  style="display: none;">
-   <h4 class="info-title text-center text-white">Start Time</h4>
-   <p class="text-white  text-center" ><%= @project.projected_start_time %></p>
-</div>
-<div class="project-info" id="actual_finshed_time_div"  style="display: none;">
-   <h4 class="info-title text-white text-center ">Finsh Time</h4>
-   <p class="text-white text-center " ><%= @project.actual_finshed_time %></p>
-</div>
+
 
 <h3 class="text-white mt-4 text-center pt-3 "><%= @project.name %></h3>
 <hr class="">
@@ -183,3 +196,4 @@
       </div>
    </div>
 </div>
+

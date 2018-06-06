@@ -149,9 +149,9 @@ class ContactsController < ApplicationController
          end
       else
         if session[:selected_page] && !session[:selected_group_id].nil?
-               @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(params[:selected_page])
+          @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(params[:selected_page])
         elsif session[:selected_group_id]
-               @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
+          @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
        else
            @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
        end

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :projected_start_time , :requirements , :budget, :resources, :description]
 
   # GET /projects
   # GET /projects.json
@@ -20,9 +20,19 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
   end
+  def projected_start_time
+  end
+  def actual_finshed_time
+  end
+  def requirements
+  end
+  def budget
+  end
+  def resources
+  end
+  def description
+  end
 
-  # POST /projects
-  # POST /projects.json
   def create
     @project = Project.new(project_params)
 
@@ -37,8 +47,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
   def update
     respond_to do |format|
       if @project.update(project_params)
@@ -51,8 +59,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.json
   def destroy
     @project.destroy
     respond_to do |format|
@@ -64,7 +70,12 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      if params[:id].to_i > 0
+        @project = Project.find(params[:id])
+        session[:selected_project] = params[:id]
+      else
+        @project = Project.find(session[:selected_project])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
