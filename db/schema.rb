@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180604153247) do
+ActiveRecord::Schema.define(version: 20180606001557) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -255,6 +255,20 @@ ActiveRecord::Schema.define(version: 20180604153247) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "projected_start_time"
+    t.datetime "projected_finish_time"
+    t.datetime "actual_start_time"
+    t.datetime "actual_finshed_time"
+    t.string "staffing"
+    t.string "resources"
+    t.string "requirements"
+  end
+
+  create_table "projects_steps", id: false, force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "step_id", null: false
+    t.index ["project_id", "step_id"], name: "index_projects_steps_on_project_id_and_step_id"
+    t.index ["step_id", "project_id"], name: "index_projects_steps_on_step_id_and_project_id"
   end
 
   create_table "projects_tasks", id: false, force: :cascade do |t|
@@ -310,6 +324,17 @@ ActiveRecord::Schema.define(version: 20180604153247) do
   end
 
   create_table "searches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "start_time"
+    t.datetime "finsh_time"
+    t.datetime "started_time"
+    t.datetime "finshed_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

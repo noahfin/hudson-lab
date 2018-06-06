@@ -13,10 +13,9 @@
     resources :personal_messages, only: [:create, :new]
     resources :conversations, only: [:index, :show]
     resources :users
-
-
-   resources :groups
+    resources :groups
     resources :tasks
+    resources :projects
     resources :touches
     resources :leads
     resources :deals
