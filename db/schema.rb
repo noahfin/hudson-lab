@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606001557) do
+ActiveRecord::Schema.define(version: 20180606115950) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -262,6 +262,10 @@ ActiveRecord::Schema.define(version: 20180606001557) do
     t.string "staffing"
     t.string "resources"
     t.string "requirements"
+    t.boolean "development"
+    t.boolean "maintenance"
+    t.boolean "technology"
+    t.boolean "business"
   end
 
   create_table "projects_steps", id: false, force: :cascade do |t|

@@ -2654,8 +2654,9 @@ $(document).on('turbolinks:load', function () {
 
     }
 
+var projectWiz = $('#wizardProjects');
     demo.initMaterialWizard();
-
+    projectWiz.initMaterialWizard();
 $.notifyDefaults({
   placement: {
     from: "bottom"

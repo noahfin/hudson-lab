@@ -1,0 +1,249 @@
+      <div class="wizard-container reg-intro">
+        <div class="card card-wizard card-1" data-color="red" id="wizardProfile">
+           <%= form_for(@project) do |f| %>
+            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+            <div class="card-header text-center">
+              <h3 class="card-title text-white">
+                Build Your Project Outline
+              </h3>
+              <h5 class="card-description text-white">This information will let us know more about you.</h5>
+            </div>
+            <div class="wizard-navigation">
+              <ul class="nav nav-pills">
+                <li class="nav-item text-white">
+                  <a class="nav-link active text-white" href="#about" data-toggle="tab" role="tab">
+                    Information
+                  </a>
+                </li>
+                <li class="nav-item text-white">
+                  <a class="nav-link text-white" href="#account" data-toggle="tab" role="tab">
+                    Category
+                  </a>
+                </li>
+                <li class="nav-item text-white">
+                  <a class="nav-link text-white" href="#address" data-toggle="tab" role="tab">
+                   Time
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="tab-pane active" id="about">
+                  <h5 class="info-text text-white"> Let's start with the basic information (with validation)</h5>
+                  <div class="row justify-content-center">
+                    <div class="col-sm-3  mt-0">
+                      <div class="picture-container mt-0">
+                        <div class="picture">
+
+                          <input type="file" id="wizard-picture">
+                        </div>
+                        <h6 class="description text-white">Choose Picture</h6>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-3 mt-4">
+                      <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="material-icons text-white">assignment</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput1" class="bmd-label-floating text-white">Project Name</label>
+                           <%= f.text_field :name, class: "form-control text-white" %>
+                        </div>
+                      </div> <!-- projected_start_time projected_finish_time actual_start_time actual_finshed_time staffing resources requirements description -->
+                  </div>
+                      <div class="col-sm-3  mt-4">
+                      <div class="input-group form-control-lg text-white">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">assignment</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput11" class="bmd-label-floating">Resources</label>
+                           <%= f.text_field :resources, class: "form-control text-white" %>
+                        </div>
+                      </div>
+                      </div>
+                    <div class="col-sm-3  mt-4">
+                      <div class="input-group form-control-lg text-white">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">assignment</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput11" class="bmd-label-floating">Requirements</label>
+                           <%= f.text_field :requirements, class: "form-control text-white" %>
+                        </div>
+                      </div>
+                      </div>
+                           </div>
+                    <div class="col-lg-11  offset-lg-3 pl-0  mt-3 pr-4 text-white">
+                      <div class="input-group form-control-lg  pr-4 pl-1">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons text-white">assignment</i>
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInput1" class="bmd-label-floating text-white">Description</label>
+                           <%= f.text_field :description, class: "form-control text-white ml-0" %>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane" id="account">
+                  <h5 class="info-text text-white"> What type of project? (checkboxes) </h5>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                      <div class="row ">
+                        <div class="col-sm-3">
+                          <div class="choice" data-toggle="wizard-checkbox">
+                            <%= f.check_box :development, {:class => "customer", }, "true", "false" %>
+
+
+                            <div class="icon">
+                             <i class="material-icons align-self-center text-danger center-icon">business</i>
+                            </div>
+                            <h6 class="text-white">Development</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                             <%= f.check_box :maintenance, {:class => "maintenance", }, "true", "flase" %>
+
+
+                            <div class="icon">
+                              <i class="material-icons text-warning">report_problem</i>
+                            </div>
+                            <h6 class="text-white">Maintenance</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                             <%= f.check_box :maintenance, {:class => "maintenance", }, "true", "flase" %>
+
+
+                            <div class="icon">
+                             <i class="material-icons align-self-center  center-icon text-info">laptop_mac</i>
+                            </div>
+                            <h6 class="text-white">Technology</h6>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="choice" data-toggle="wizard-checkbox">
+
+                             <%= f.check_box :business, {:class => "technology", }, "true", "flase" %>
+
+
+                            <div class="icon">
+                             <i class="material-icons align-self-center text-success center-icon">store</i>
+                            </div>
+                            <h6 class="text-white">Business</h6>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="address">
+                  <div class="">
+                    <div class="col-sm-12">
+                      <h5 class="info-text"> Fill Out The Time Requirments </h5>
+                       </div>
+
+                       <div class="row">
+
+
+
+                        <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='projectedStartTime'>
+                                       <label class="control-label">Projected Start Time</label>
+                                         <input type="text" class="form-control datetimepicker" value="10/05/2016"/>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='projectedFinshTime'>
+                                       <label class="control-label">Projected Finsh Time</label>
+                                         <input type="text" class="form-control datetimepicker" value="10/05/2016"/>
+                                    </div>
+                                </div>
+                            </div>
+
+  </div>
+
+                       <div class="row">
+
+
+
+                        <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='actualStartTime'>
+                                       <label class="control-label">Actual Start Time</label>
+                                         <input type="text" class="form-control datetimepicker" value="10/05/2016"/>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class='col-sm-6'>
+                                <div class="form-group">
+                                    <div class='input-group date' id='actualFinshTime'>
+                                       <label class="control-label">Actual Finsh Time</label>
+                                         <input type="text" class="form-control datetimepicker" value="10/05/2016"/>
+                                    </div>
+                                </div>
+                            </div>
+
+  </div>
+
+
+
+                        </div>
+
+
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="mr-auto">
+                <input type="button" class="btn btn-previous btn-fill btn-danger btn-wd disabled" name="previous" value="Previous">
+              </div>
+              <div class="ml-auto">
+                <input type="button" class="btn btn-next btn-fill btn-danger btn-wd" name="next" value="Next">
+                <button type="submit"  class="btn btn-finish btn-fill btn-success btn-wd" style="display: none;">finish </button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+      <!-- wizard container -->
+      <script>
+
+        $('.datetimepicker').datetimepicker({
+    icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove'
+    }
+});
+      </script>
