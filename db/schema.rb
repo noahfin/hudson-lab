@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606140404) do
+ActiveRecord::Schema.define(version: 20180606172819) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -267,6 +267,10 @@ ActiveRecord::Schema.define(version: 20180606140404) do
     t.boolean "technology"
     t.boolean "business"
     t.decimal "budget"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "projects_steps", id: false, force: :cascade do |t|

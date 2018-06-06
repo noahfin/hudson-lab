@@ -1,83 +1,185 @@
-
 <div class="container">
+<div class="row mt-0 pt-0">
+   <div class="col-sm-4 mt-0 pt-0">
+      <div class="info info-white-top  ">
+         <div class="icon text-center  ">
+            <i class="material-icons text-center">code</i>
+            <h4 class="info-title text-center text-white">Resources</h4>
+            <div class="row mt-4 ">
+               <div class="col-md-12 pt-4">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-4 mt-0 pt-0 mb-4">
+      <div class="info  text-center info-white-center mb-2 ">
+         <div class="icon  ">
+            <i class="material-icons text-center">format_paint</i>
+            <h4 class="info-title text-center text-white">Requirements</h4>
+         </div>
+      </div>
+      <div class="info-white-top ml-4 mr-4 pl-4 pt-4 pr-4"></div>
+   </div>
+   <div class="col-sm-4 mt-0 pt-0">
+      <div class="info info-white-top   ">
+         <div class="icon text-center">
+            <i class="material-icons text-center">attach_money</i>
+            <h4 class="info-title text-center text-white">Project Budget</h4>
+            <div class="row mt-4 ">
+               <div class="col-md-12 pt-4">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-sm-4 mt-3">
+      <div class="info ">
+         <div class="icon text-center ">
+            <i class="material-icons text-center">notes</i>
+            <h4 class="info-title text-center text-white">Description</h4>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-4  mt-3">
+      <div class="info  info-white-center">
+         <div class="icon text-center ">
+            <i class="material-icons text-center">access_time</i>
+         </div>
+         <h4 class="info-title text-center text-white">Start Time</h4>
+      </div>
+   </div>
+   <div class="col-sm-4  mt-3">
+      <div class="info  ">
+         <div class="icon text-center">
+            <i class="material-icons text-center">access_time</i>
+            <h4 class="info-title text-white text-center ">Finsh Time</h4>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="project-info" id="resources_div" style="display: none;">
+   <h4 class="info-title text-center text-white">Resources</h4>
+   <p class="text-whiter text-center" ><%= @project.resources %></p>
+</div>
+<div class="project-info" id="description_div" style="display: none;">
+   <h4 class="info-title text-center text-white">Description</h4>
+   <p class="text-white text-center " ><%= @project.description %></p>
+</div>
+<div class="project-info" id="budget_div"  style="display: none;">
+   <h4 class="info-title text-center text-white">Project Budget</h4>
+   <p class="text-whiter text-center" ><%= @project.budget %></p>
+</div>
+<div class="project-info" id="requirements_div"  style="display: none;">
+   <h4 class="info-title text-center text-white">Requirements</h4>
+   <p class="text-white text-center" ><%= @project.requirements %></p>
+   >
+</div>
+<div class="project-info" id="projected_start_time_div"  style="display: none;">
+   <h4 class="info-title text-center text-white">Start Time</h4>
+   <p class="text-white  text-center" ><%= @project.projected_start_time %></p>
+</div>
+<div class="project-info" id="actual_finshed_time_div"  style="display: none;">
+   <h4 class="info-title text-white text-center ">Finsh Time</h4>
+   <p class="text-white text-center " ><%= @project.actual_finshed_time %></p>
+</div>
 
-                    <div class="row mt-0 pt-0">
-
-                            <div class="col-sm-4 mt-0 pt-0">
-                            <div class="info info-white-top  ">
-                                <div class="icon text-center  ">
-                                    <i class="material-icons text-center">code</i>
-
-                                <h4 class="info-title text-center text-white">Resources</h4>
-                                <p class="text-whiter text-center" ><%= @project.resources %></p>
-                                <div class="row mt-4 ">
-                                    <div class="col-md-12 pt-4">
-
-                                    </div>
-
-                                </div>
-                                 </div>
-                            </div>
+<h3 class="text-white mt-4 text-center pt-3 "><%= @project.name %></h3>
+<hr class="">
+<div class="row">
+   <div class="col-md-12">
+      <div class="card card-raised card-background" style="background-image: url('<%= asset_url("ant-rozetsk.jpg") %>')">
+         <div class="card-body">
+            <h6 class="card-category text-info">Development</h6>
+            <h3 class="card-title">0 to 100.000 Customers in 6 months</h3>
+            <p class="card-description">
+               Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+            </p>
+            <a href="#pablo" class="btn bg-black btn-round view-project-btn">
+            <i class="material-icons">subject</i> Case Study
+            </a>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-12">
+         <div class="card card-timeline card-plain">
+            <div class="card-body">
+               <ul class="timeline">
+                  <li class="timeline-inverted">
+                     <div class="timeline-badge danger">
+                        <i class="material-icons">card_travel</i>
+                     </div>
+                     <div class="timeline-panel">
+                        <div class="timeline-heading">
+                           <span class="badge badge-danger">Some Title</span>
                         </div>
-                        <div class="col-sm-4 mt-0 pt-0 mb-4">
-                            <div class="info  text-center info-white-center mb-2 ">
-                                <div class="icon  ">
-                                    <i class="material-icons text-center">format_paint</i>
-
-                                <h4 class="info-title text-center text-white">Requirements</h4>
-                                <p class="text-white text-center" ><%= @project.requirements %></p>
-                                  </div>
-                            </div>
-                            <div class="info-white-top ml-4 mr-4 pl-4 pt-4 pr-4"></div>
+                        <div class="timeline-body">
+                           <p>Wifey made the best Father's Day meal ever. So thankful so happy so blessed. Thank you for making my family We just had fun with the “future” theme !!! It was a fun night all together ... The always rude Kanye Show at 2am Sold Out Famous viewing @ Figueroa and 12th in downtown.</p>
                         </div>
-                        <div class="col-sm-4 mt-0 pt-0">
-                            <div class="info info-white-top   ">
-                                <div class="icon text-center">
-                                    <i class="material-icons text-center">attach_money</i>
-
-                                <h4 class="info-title text-center text-white">Project Budget</h4>
-                                <p class="text-whiter text-center" ><%= @project.budget %></p>
-                                <div class="row mt-4 ">
-                                    <div class="col-md-12 pt-4">
-
-                                    </div>
-
-                                </div>
-                                 </div>
-                            </div>
+                        <h6>
+                           <i class="ti-time"></i> 11 hours ago via Twitter
+                        </h6>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="timeline-badge success">
+                        <i class="material-icons">extension</i>
+                     </div>
+                     <div class="timeline-panel">
+                        <div class="timeline-heading">
+                           <span class="badge badge-success">Another One</span>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4 mt-3">
-                            <div class="info ">
-                                <div class="icon text-center ">
-                                    <i class="material-icons text-center">notes</i>
-
-                                <h4 class="info-title text-center text-white">Description</h4>
-                                  <p class="text-white text-center " ><%= @project.description %></p>
-                                   </div>
-                            </div>
+                        <div class="timeline-body">
+                           <p>Thank God for the support of my wife and real friends. I also wanted to point out that it’s the first album to go number 1 off of streaming!!! I love you Ellen and also my number one design rule of anything I do from shoes to music to homes is that Kim has to like it....</p>
                         </div>
-                        <div class="col-sm-4  mt-3">
-                            <div class="info  info-white-center">
-                                <div class="icon text-center ">
-                                    <i class="material-icons text-center">access_time</i>
-                                </div>
-                                <h4 class="info-title text-center text-white">Start Time</h4>
-                                  <p class="text-white  text-center" ><%= @project.projected_start_time %></p>
-                            </div>
+                     </div>
+                  </li>
+                  <li class="timeline-inverted">
+                     <div class="timeline-badge info">
+                        <i class="material-icons">fingerprint</i>
+                     </div>
+                     <div class="timeline-panel">
+                        <div class="timeline-heading">
+                           <span class="badge badge-info">Another Title</span>
                         </div>
-                        <div class="col-sm-4  mt-3">
-                            <div class="info  ">
-                                <div class="icon text-center">
-                                    <i class="material-icons text-center">access_time</i>
-
-                                <h4 class="info-title text-white text-center ">Finsh Time</h4>
-                                 <p class="text-white text-center " ><%= @project.actual_finshed_time %></p>
-                                     </div>
-                            </div>
+                        <div class="timeline-body">
+                           <p>Called I Miss the Old Kanye That’s all it was Kanye And I love you like Kanye loves Kanye Famous viewing @ Figueroa and 12th in downtown LA 11:10PM</p>
+                           <p>What if Kanye made a song about Kanye Royère doesn't make a Polar bear bed but the Polar bear couch is my favorite piece of furniture we own It wasn’t any Kanyes Set on his goals Kanye</p>
+                           <hr>
                         </div>
-                    </div>
-                      <h4 class="text-white mt-4 text-center "><%= @project.name %></h4>
-    <hr class="">
-                </div>
+                        <div class="timeline-footer">
+                           <div class="dropdown">
+                              <button type="button" class="btn btn-round btn-info dropdown-toggle" data-toggle="dropdown">
+                              <i class="material-icons">build</i>
+                              </button>
+                              <div class="dropdown-menu">
+                                 <a class="dropdown-item" href="#">Action</a>
+                                 <a class="dropdown-item" href="#">Another action</a>
+                                 <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="timeline-badge warning">
+                        <i class="material-icons">flight_land</i>
+                     </div>
+                     <div class="timeline-panel">
+                        <div class="timeline-heading">
+                           <span class="badge badge-warning">Another One</span>
+                        </div>
+                        <div class="timeline-body">
+                           <p>Tune into Big Boy's 92.3 I'm about to play the first single from Cruel Winter also to Kim’s hair and makeup Lorraine jewelry and the whole style squad at Balmain and the Yeezy team. Thank you Anna for the invite thank you to the whole Vogue team</p>
+                        </div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
