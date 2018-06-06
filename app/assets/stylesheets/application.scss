@@ -833,3 +833,12 @@ div.dataTables_wrapper {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%)
 }
+.info-white-center {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+
+.info-white-top {
+  border-bottom: 1px solid white;
+}

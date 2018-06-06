@@ -1,59 +1,81 @@
+
 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="info">
-                                <div class="icon">
+    <h4 class="text-white mt-4"><%= @project.name %></h4>
+    <hr>
+                    <div class="row mt-0 pt-0">
+
+                            <div class="col-sm-4 mt-0 pt-0">
+                            <div class="info info-white-top  d-flex justify-content-center ">
+                                <div class="icon align-self-center ">
                                     <i class="material-icons">code</i>
+
+                                <h4 class="info-title text-center text-white">Resources</h4>
+                                <p class="text-whiter text-center" ><%= @project.resources %></p>
+                                <div class="row mt-4 ">
+                                    <div class="col-md-12 pt-4">
+
+                                    </div>
+
                                 </div>
-                                <h4 class="info-title">For Developers</h4>
-                                <p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">format_paint</i>
-                                </div>
-                                <h4 class="info-title">For Designers</h4>
-                                <p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+                        <div class="col-sm-4 mt-0 pt-0 mb-4">
+                            <div class="info  d-flex justify-content-center info-white-center mb-2 ">
+                                <div class="icon  ">
+                                    <i class="material-icons ml-auto mr-auto">format_paint</i>
+
+                                <h4 class="info-title text-center text-white">Requirements</h4>
+                                <p class="text-white text-center" ><%= @project.requirements %></p>
+                                  </div>
                             </div>
+                            <div class="info-white-top ml-4 mr-4 pl-4 pt-4 pr-4"></div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">dashboard</i>
+                        <div class="col-sm-4 mt-0 pt-0">
+                            <div class="info info-white-top  d-flex justify-content-center ">
+                                <div class="icon align-self-center ">
+                                    <i class="material-icons">attach_money</i>
+
+                                <h4 class="info-title text-center text-white">Project Budget</h4>
+                                <p class="text-whiter text-center" ><%= @project.budget %></p>
+                                <div class="row mt-4 ">
+                                    <div class="col-md-12 pt-4">
+
+                                    </div>
+
                                 </div>
-                                <h4 class="info-title">Bootstrap Grid</h4>
-                                <p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">view_carousel</i>
-                                </div>
-                                <h4 class="info-title">Example Pages Included</h4>
-                                <p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+                        <div class="col-sm-4 mt-3">
+                            <div class="info  d-flex  justify-content-center">
+                                <div class="icon align-self-center ">
+                                    <i class="material-icons">notes</i>
+
+                                <h4 class="info-title text-center text-white">Description</h4>
+                                  <p class="text-white text-center " ><%= @project.description %></p>
+                                   </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="info">
-                                <div class="icon">
+                        <div class="col-sm-4  mt-3">
+                            <div class="info   d-flex justify-content-center info-white-center">
+                                <div class="icon  align-self-center ">
                                     <i class="material-icons">access_time</i>
                                 </div>
-                                <h4 class="info-title">Save Time</h4>
-                                <p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+                                <h4 class="info-title text-center text-white">Start Time</h4>
+                                  <p class="text-white  text-center" ><%= @project.projected_start_time %></p>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="info">
-                                <div class="icon">
-                                    <i class="material-icons">attach_money</i>
-                                </div>
-                                <h4 class="info-title">Save Money</h4>
-                                <p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
+                        <div class="col-sm-4  mt-3">
+                            <div class="info d-flex justify-content-center ">
+                                <div class="icon align-self-center ">
+                                    <i class="material-icons">access_time</i>
+
+                                <h4 class="info-title text-center ">Finsh Time</h4>
+                                 <p class="text-white  " ><%= @project.actual_finshed_time %></p>
+                                     </div>
                             </div>
                         </div>
                     </div>
