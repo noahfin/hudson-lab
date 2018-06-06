@@ -293,11 +293,30 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item text-white ">
-        <a class="nav-link text-white" href="./widgets.html">
+        <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#projects">
           <i class="material-icons text-white">widgets</i>
-          <p> Widgets </p>
+          <p>  Projects
+            <b class="caret"></b>
+          </p>
         </a>
+        <div class="collapse text-white" id="projects">
+          <ul class="nav">
+            <li class="nav-item text-white">
+               <%= link_to projects_path, class: 'nav-link text-white'  do %>
+                <span class="sidebar-mini"> AP </span>
+                <span class="sidebar-normal"> All Projects</span>
+               <% end %>
+            </li>
+            <li class="nav-item text-white">
+               <%= link_to new_project_path, class: 'nav-link text-white'  do %>
+                <span class="sidebar-mini"> NL </span>
+                <span class="sidebar-normal"> New Project </span>
+              <% end %>
+            </li>
+
+          </ul>
+        </div>
       </li>
       <li class="nav-item text-white  ">
         <a class="nav-link text-white" href="./charts.html">
