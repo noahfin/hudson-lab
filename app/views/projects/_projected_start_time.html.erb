@@ -1,0 +1,12 @@
+<div class="col-md-12">
+<div class="row">
+    <div class="project-info" id="projected_start_time_div">
+   <h4 class="info-title text-center text-white">Start Time</h4>
+   Wifey made the best Father's Day meal ever. So thankful so happy so blessed. Thank you for making my family We just had fun with the “future” theme !!! It was a fun night all together ... The always rude Kanye Show at 2am Sold Out Famous viewing @ Figueroa and 12th in downtown.
+   <p class="text-white  text-center" ><%= @project.projected_start_time %></p>
+<%= link_to  project_path(session[:selected_project].to_i), class: 'text-danger text-center-bottom', remote: true do %>
+Back To All Section
+<% end %>
+</div>
+</div>
+</div>

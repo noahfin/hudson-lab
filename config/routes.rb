@@ -1,7 +1,8 @@
   Rails.application.routes.draw do
-  get 'tasks/index'
 
-  get 'tasks/new'
+
+
+  match "assets/material-kit.css.map" => "assets#material_map", as: :material_map, via: [:get, :post]
 
   root to: 'visitors#index'
 

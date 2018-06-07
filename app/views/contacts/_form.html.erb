@@ -1,17 +1,19 @@
 <!--      Wizard container        -->
-<div class="wizard-container" id="contact-form-wiz">
+<div class="wizard-container " id="contact-form-wiz">
    <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
    <%= render 'layouts/messages' if !flash.empty? %>
    <div class="card card-wizard card-6" data-color="green" id="wizardProfile" >
       <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-      <div class="card-header text-center">
-         <button type="button" class="close text-white wiz-close" data-dismiss="modal" aria-label="Close" >
+      <div class="card-header text-center p-0">
+         <div class="div-header  p-4 card-6">
+         <button type="button" class="close text-white wiz-close p-3" data-dismiss="modal" aria-label="Close" >
          <span aria-hidden="true">&times;</span>
          </button>
          <h3 class="card-title text-white">
             Build The Contact Profile
          </h3>
          <h5 class="card-description text-white">This information will store what we need for the contact or customer.</h5>
+         </div>
       </div>
       <div class="wizard-navigation" >
          <ul class="nav nav-pills text-light">

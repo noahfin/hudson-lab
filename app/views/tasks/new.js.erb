@@ -2,8 +2,10 @@
 $('#tasks-form-modal').modal('show');
 $('#f-body').html('<%= j render("form") %>' );
 
+$('#deals-select').selectpicker('val', '<%= @deals.to_s %>').selectpicker('setStyle', 'btn-outline-info');
+
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
-$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'dropdown-toggle btn-info btn-round btn btn-block');
+$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info');
 var contact_ids_prop_i  = 0;
 var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];
 

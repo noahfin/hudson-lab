@@ -22,6 +22,8 @@
 //= require conversations
 //= require vendorapps
 //= require smoothscroll.min.js
+//= require material-kit.min.js
+//= require material-kit-demo.js
 //= require rails-ujs
 //= require turbolinks
 //= require smoothscroll.min.js
@@ -189,6 +191,7 @@ $('.selectpicker').selectpicker('mobile');
     $('body').on('click', '.btn-back', function (event) {
         event.preventDefault();
         window.history.back();
+
 
 
     });

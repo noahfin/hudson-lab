@@ -18,7 +18,8 @@
  *= require_tree .
  *= require_self
  */
-
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+@import "material-kit.min.css";
 @import "material-dashboard.css";
 @import "demo.css";
 @import "font-awesome";
@@ -228,7 +229,7 @@
     padding-right: 0px !important;
     margin-left: 0px !important;
     margin-right: 0px !important;
-    overflow: hidden;
+
   }
   .col-md-1,
   .col-md-2,
@@ -412,6 +413,7 @@ body,
   box-sizing: border-box;
   width: 100%;
   height: 100% !important;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 .image-content {
@@ -747,7 +749,7 @@ div.dataTables_wrapper {
   bottom: -24px;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+
 #hudson-lab,
 .get-group,
 .main-size-text,
@@ -826,7 +828,7 @@ div.dataTables_wrapper {
   .b-white-hr {
     border-color: white !important;
   }
-.view-project-btn {
+.view-project-btn, .text-center-bottom {
   position: absolute;
   bottom: 1.8rem;
   left: 50%;
@@ -838,7 +840,27 @@ div.dataTables_wrapper {
   border-right: 1px solid white;
 }
 
-
+.project-info {
+  height: 22rem;
+}
 .info-white-top {
   border-bottom: 1px solid white;
+}
+.card-header-white {
+overflow: visible;
+}
+
+.div-header {
+  position: relative !important;
+  left: 0px !important;
+  top: -1rem !important;
+  background-size: cover !important;
+  z-index: 999999;
+  min-width: 100% !important;
+  margin: auto !important;
+}
+#contact-form-wiz {
+  position: relative;
+  top: 3rem !important;
+  left: 2rem;
 }

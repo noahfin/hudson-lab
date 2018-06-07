@@ -19,10 +19,11 @@ class TasksController < ApplicationController
   end
 
   def new
+    @deals = Deal.all
     respond_to do |format|
     @task = Task.new
       format.html
-        format.json { render json: @tasks, status: :created }
+        format.json { render json: @tasks}
         format.js
       end
   end

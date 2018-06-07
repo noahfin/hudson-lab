@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
     @contacts = Contact.good_search(criteria).page(params[:page])
 
   end
- def
+
 
   def inport
     groups = params['group_id']
