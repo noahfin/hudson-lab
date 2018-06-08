@@ -1,6 +1,6 @@
 <div class="container-fluid first-show-card">
    <div class="card card-1">
-      <div class="card-header card-header-tabs  bg-black">
+      <div class="pb-4  card-header-tabs  bg-black">
          <div class="nav-tabs-navigation">
             <div class="nav-tabs-wrapper">
                <ul class="nav nav-tabs tab" data-tabs="tabs">
@@ -47,12 +47,12 @@
                      </a>
                   </li>
                </ul>
-               <h4 class="display-5 pb-3 pull-right  far-right-touch "><small></i><%= link_to tasks_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">developer_board</i> <% end %><%= link_to tasks_new_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">add_box</i>    <% end %></small></h4>
+               <h4 class="display-5 pb-3 pull-right  far-right-touch "><small></i><%= link_to tasks_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">developer_board</i> <% end %><%= link_to new_task_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">add_box</i>    <% end %></small></h4>
             </div>
          </div>
       </div>
       <div class="card-body" >
-         <div class="tab-content" >
+         <div class="tab-content">
 
    <div class="tab-pane" id="tasks-all-list">
       <table class="table">

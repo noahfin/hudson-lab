@@ -1,22 +1,18 @@
 <tr>
-
   <td class="middle">
     <div class="media">
       <div class="media-left thumbnail contact-main-image">
         <%= link_to contact_path(contact.id), class: 'remote-link', remote: true do %>
-
-          <% if contact.email  == nil %>
-          <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object small-image" %>
-          <% else %>
-        <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object"  unless contact.email == nil %>
-
+        <% if contact.email  == nil %>
+            <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object small-image" %>
+            <% else %>
+            <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object"  unless contact.email == nil %>
+            <% end %>
         <% end %>
-      <% end %>
       </div>
       <div class="media-body">
         <h4 class="media-heading ">
-     <%= link_to contact_path(contact.id), class: 'text-white remote-link main-size-text',  remote: true  do %>
-
+       <%= link_to contact_path(contact.id), class: 'text-white remote-link main-size-text',  remote: true  do %>
         <% if contact.first_name || contact.last_name %>
           <%= contact.first_name if contact.first_name %>
           <%= contact.last_name if contact.last_name %>
@@ -25,18 +21,16 @@
            <% else %>
           No Name
         <% end %>
-      <% end %>
+        <% end %>
         </h4>
-
         <address>
-
-          <strong>  <%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></strong><br>
-
+          <p><%= contact.email %></p>
+          <p><%= contact.phone %></p>
+          <strong><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></strong><br>
         </address>
       </div>
     </div>
   </td>
-
   <td width="100" class="middle">
     <div>
       <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info remote-link", remote: true, title: 'edit', rel: "tooltip"  do %>

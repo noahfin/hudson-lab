@@ -1,80 +1,64 @@
 <div class="container-fluid">
 
+ <div class="card text-center card-1">
 
 
-<!-- start of deal borderd table in container -->
-
-                                    <div class="row">
-    <div class="col-md-8">
-        <h2>
-
-             <span class="text-gray">    Leads      <%= link_to new_lead_path, class: 'btn btn-just-icon btn-round bg-black ml-3 text-gray' do %> <i class="fa fa-plus"></i><% end %>  <span class="ml-4 pl-3">
-                <a class="btn bg-black  btn-left-margin text-gray" href="/crm/deals/index/deals-05-27-2018-080059-AM.csv"><i class="fa fa-file-text text-gray"></i> Download Excel/CSV</a>
-            </span> </span>
-
-
-        </h2>
-    </div>
-    <div class="col-md-4">
-        <form action="/crm/deals" id="user-search" class="well form-inline pull-right" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>        <input name="data[Deal][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">          <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
-          <i class="material-icons">search</i>
-          <div class="ripple-container"></div>
-        </button>
-        <a class="btn bg-black" id="more"><i class="fa fa-caret-down"></i> More </a>
-        <div id="hints" class="hints-search"></div>
-        </form>    </div>
-    <div class="col-md-12">
-                <div class="filter-box" style="display:none;">
-            <form action="/crm/deals" class="well form-inline" id="DealIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"></div>            <fieldset>
-                <legend>Filters</legend>
-                <div class="col-md-11">
-                    <table>
-                        <tbody><tr>
-                            <td class="col-md-3" style="padding: 0;">
-                                Name:&nbsp;<div class="form-group"><input name="data[Deal][search_name]" class="form-control" placeholder="Name" type="text" id="DealSearchName"></div>                            </td>
-                            <td class="col-md-3" style="padding: 0 10px 0 0;">
-                                Amount:&nbsp;<div class="form-group"><input name="data[Deal][search_amount]" class="form-control" placeholder="Amount" type="text" id="DealSearchAmount"></div>                            </td>
-                            <td class="col-md-3" style="padding: 0;">
-                                From:&nbsp;<div class="form-group"><input name="data[Deal][search_date_from]" class="form-control date hasDatepicker" placeholder="From" type="text" id="DealSearchDateFrom"></div>                            </td>
-                            <td class="col-md-3" style="padding: 0;">
-                                To:&nbsp;<div class="form-group"><input name="data[Deal][search_date_to]" class="form-control date hasDatepicker" placeholder="To " type="text" id="DealSearchDateTo"></div>                            </td>
-                        </tr>
-                    </tbody></table>
-                </div>
-                <div class="col-md-1" style="padding-top: 2px;"><button class="btn btn-info btn-sm" type="submit">Filter</button></div>
-            </fieldset>
-            </form>        </div>
-    </div>
-    <div class="col-md-12">
+    <ul class="nav nav-pills card-1 div-header pt-3 card-header-pills">
+          <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link active bg-danger" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
 
 
-       </div>
-   </div>
+<div class="table-responsive  card-1">
+  <table class="table table-shopping">
+      <thead>
+          <tr>
+              <th class="text-center text-white">Company</th>
+              <th class="text-center text-white">Contact</th>
+              <th class="text-center text-white">Email</th>
+              <th class="th-description text-center text-white">Size requirement</th>
+              <th class="text-right text-white">Location Need </th>
+              <th class="text-center text-white">Date</th>
+              <th class="text-right text-white">Actions</th>
 
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+            <% @leads.each do |lead| %>
+          <tr>
+              <td>
+                  <div class="img-container">
+                      <img src="https://images.thenorthface.com/is/image/TheNorthFace/NF0A2VFL_619_hero" alt="...">
+                  </div>
+              </td>
 
-    <table  id="leads" class="table table-hover table-striped custom-striped table-striped-black"  cellspacing="0">
-        <thead class="header-no-line">
-<tr>
-              <th class="text-right">Actions</th>
-              <th class="text-center">Name</th>
-              <th class="text-center">Business</th>
-              <th class="text-center">Address</th>
-              <th class="text-center">Email</th>
-              <th class="text-center">Date</th>
-              <th class="text-center">Phone</th>
-              <th class="text-center">Number</th>
-              <th class="text-center">Size requirement</th>
-              <th class="text-center">Location need</th>
-              <th class="text-center">Time requirement</th>
+              <td class="td-name">
+                  <a href="#jacket"><%= lead.business %></a>
+                  <br><small><%= lead.address %></small>
+              </td>
+              <td>
+                 <%= lead.email %>
+              </td>
+              <td>
+                <%= lead.size_requirement %>
+              </td>
 
-            </tr>
-        <tbody>
-          <% @leads.each do |lead| %>
-                        <tr>
-
-                             <td class="td-actions text-center ">
-                              <div class="btn-group">
-
+              <td class="td-number">
+                <%= lead.location_need %>
+              </td>
+              <td class="text-center">
+                     <%= lead.date %>
+              </td>
+              <td class="td-actions">
 
                   <%= link_to lead, class: '', rel: 'tooltip', title: 'View' do %>
                       <i class="material-icons text-info">person</i>
@@ -87,24 +71,16 @@
                     <%= link_to lead, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
                       <i class="material-icons text-danger">close</i>
                    <% end %>
-                     </div>
               </td>
-        <td class="text-center"><%= lead.name %></td>
-          <td class="text-center"><%= lead.business %></td>
-          <td class="text-center"><%= lead.address %></td>
-          <td class="text-center"><%= lead.email %></td>
-          <td class="text-center"><%= lead.date %></td>
-          <td class="text-center"><%= lead.phone %></td>
-          <td class="text-center"><%= lead.number %></td>
-          <td class="text-center"><%= lead.size_requirement %></td>
-          <td class="text-center"><%= lead.location_need %></td>
-          <td class="text-center"><%= lead.time_requirement %></td>
+              <% end %>
+          </tr>
+      </tbody>
+  </table>
+</div>
 
-        </tr>
-        <tr class="text-center text-white"> <td colspan="1" rowspan="" headers="">Notes</td> <td class="text-center text-white"  align="center" colspan="10"><%= lead.notes %></tr>
-         <% end %>
-                </tbody>
-    </table>
+</div>
+
+
  <br>
 
 

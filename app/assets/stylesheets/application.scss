@@ -658,7 +658,6 @@ div.dataTables_wrapper {
   min-width: 200px;
 }
 
-
 .content {min-height: 100vh !important;}
 .d-{  min-width: 150px !important;}
 
@@ -749,7 +748,6 @@ div.dataTables_wrapper {
   bottom: -24px;
 }
 
-
 #hudson-lab,
 .get-group,
 .main-size-text,
@@ -757,8 +755,7 @@ div.dataTables_wrapper {
   font-family: 'Roboto', sans-serif !important;
 }
 
-#hudson-lab
-{
+#hudson-lab {
   font-weight: 300 !important;
 }
 
@@ -813,21 +810,22 @@ div.dataTables_wrapper {
    border: 4px solid #004267 !important;
 }
 .blue-outline-btn {
-
   color: #004062 !important;
   background-color: transparent  !important;
   border: 1px solid #004062 !important;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgbargb(0, 99, 154, 0.4) !important;
-
 }
+
 // #112C4A dark-blue green
 
 .dark .form-check-sign .check {
     border: 1px solid #666 !important;
   }
+
   .b-white-hr {
     border-color: white !important;
   }
+
 .view-project-btn, .text-center-bottom {
   position: absolute;
   bottom: 1.8rem;
@@ -835,6 +833,7 @@ div.dataTables_wrapper {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%)
 }
+
 .info-white-center {
   border-left: 1px solid white;
   border-right: 1px solid white;
@@ -843,11 +842,13 @@ div.dataTables_wrapper {
 .project-info {
   height: 22rem;
 }
+
 .info-white-top {
   border-bottom: 1px solid white;
 }
+
 .card-header-white {
-overflow: visible;
+ overflow: visible;
 }
 
 .div-header {
@@ -859,8 +860,19 @@ overflow: visible;
   min-width: 100% !important;
   margin: auto !important;
 }
+
 #contact-form-wiz {
   position: relative;
   top: 3rem !important;
   left: 2rem;
+}
+
+.media-left{
+ width: 125px !important;
+ height: 125px !important;
+}
+
+.media-left img{
+  width: 100%;
+  height: auto;
 }
