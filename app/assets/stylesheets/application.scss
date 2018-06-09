@@ -407,7 +407,9 @@
   z-index: 9999 !important;
   max-width: 236px !important;
 }
-
+.main-contact-h3 {
+  padding-top: 1.2rem;
+}
 html,
 body,
 .content {
@@ -878,4 +880,7 @@ div.dataTables_wrapper {
 .media-left img{
   width: 100%;
   height: auto;
+}
+.icon-drop-county {
+  margin-right: 2.5rem;
 }

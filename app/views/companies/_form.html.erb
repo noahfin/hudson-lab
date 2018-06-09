@@ -35,9 +35,9 @@
                   <div class="row justify-content-center">
                     <div class="col-sm-3  mt-0">
                          <div class="fileinput fileinput-new" data-provides="fileinput">
-                            <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag  @company.avatar.present? ? @company.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                            <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag  @company.avatar.present? ? @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
                             </div>
-                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag  @company.avatar.present? ?  @company.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag  @company.avatar.present? ?  @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
                             </div>
                             <div class="text-center">
                                <span class="btn btn-default btn-file">
@@ -48,7 +48,6 @@
                             </div>
                          </div>
                     </div>
-
                     <div class="col-sm-3 mt-4 pl-4">
                       <div class="input-group form-control-lg text-white">
                         <div class="input-group-prepend">
@@ -62,9 +61,8 @@
                         </div>
                       </div> <!-- projected_start_time projected_finish_time actual_start_time actual_finshed_time staffing resources requirements description -->
                   </div>
-                      <div class="col-sm-3  mt-4">
+                    <div class="col-sm-3  mt-4">
                       <div class="input-group form-control-lg text-white">
-
                         <div class="input-group-prepend">
                           <span class="input-group-text">
                             <i class="material-icons text-white">assignment</i>
@@ -75,44 +73,39 @@
                            <%= f.text_field :sector, class: "form-control text-white" %>
                         </div>
                       </div>
-                      </div>
+                  </div>
                     <div class="col-sm-3  mt-4">
-                      <div class="input-group form-control-lg text-white">
-
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons text-white">assignment</i>
-                          </span>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInput11" class="bmd-label-floating">Requirements</label>
-                           <%= f.text_field :rent, class: "form-control text-white" %>
-                        </div>
-                      </div>
-                      </div>
-                           </div>
-                           <div class="col-md-12">
-
-
-                           <div class="row">
-                            <div class="col-lg-3 mt-0 pr-4 mr-0 text-white">
-                              <div class="input-group form-control-lg text-white mt-4">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="material-icons text-white">attach_money</i>
-                                </span>
-                              </div>
-                              <div class="form-group">
-                                <label for="exampleInput1" class="bmd-label-floating text-white">Project Budget</label>
-                                 <%= f.text_field :age, class: "form-control text-white" %>
-                              </div>
-                            </div>
-                          </div>
-
-                    <div class="col-lg-9 pr-0  mt-4 text-white">
-                      <div class="row">
-                       <div class="col-md-12">
-
+                  <div class="input-group form-control-lg text-white">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons text-white">assignment</i>
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInput11" class="bmd-label-floating">Requirements</label>
+                       <%= f.text_field :rent, class: "form-control text-white" %>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                 <div class="col-md-12">
+                 <div class="row">
+                  <div class="col-lg-3 mt-0 pr-4 mr-0 text-white">
+                    <div class="input-group form-control-lg text-white mt-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                          <i class="material-icons text-white">attach_money</i>
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInput1" class="bmd-label-floating text-white">Project Budget</label>
+                       <%= f.text_field :age, class: "form-control text-white" %>
+                    </div>
+                  </div>
+                </div>
+               <div class="col-lg-9 pr-0  mt-4 text-white">
+                 <div class="row">
+                    <div class="col-md-12">
                       <div class="input-group pr-0 mr-0 form-control-lg">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
@@ -125,11 +118,10 @@
                         </div>
                            </div>
                         </div>
-                      </div>
                     </div>
-                   </div>
                   </div>
-
+                </div>
+              </div>
               </div>
                 <div class="tab-pane" id="account">
                   <h5 class="info-text text-white"> What type of project? (checkboxes) </h5>
@@ -138,9 +130,6 @@
                       <div class="row ">
                         <div class="col-sm-3">
                           <div class="choice" data-toggle="wizard-checkbox">
-
-
-
                             <div class="icon">
                              <i class="material-icons align-self-center text-danger center-icon">business</i>
                             </div>
@@ -149,9 +138,6 @@
                         </div>
                         <div class="col-sm-3">
                           <div class="choice" data-toggle="wizard-checkbox">
-
-
-
                             <div class="icon">
                               <i class="material-icons text-warning">report_problem</i>
                             </div>
@@ -160,9 +146,6 @@
                         </div>
                         <div class="col-sm-3">
                           <div class="choice" data-toggle="wizard-checkbox">
-
-
-
                             <div class="icon">
                              <i class="material-icons align-self-center  center-icon text-info">laptop_mac</i>
                             </div>
@@ -171,26 +154,19 @@
                         </div>
                         <div class="col-sm-3">
                           <div class="choice" data-toggle="wizard-checkbox">
-
-
-
                             <div class="icon">
                              <i class="material-icons align-self-center text-success center-icon">store</i>
                             </div>
                             <h6 class="text-white">Business</h6>
                           </div>
                         </div>
-
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="tab-pane" id="address">
-
-
-
-                </div>
               </div>
+             </div>
             </div>
             <div class="card-footer">
               <div class="mr-auto">

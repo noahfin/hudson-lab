@@ -4,7 +4,7 @@
       <div class="media-left thumbnail contact-main-image mt-4">
         <%= link_to contact_path(contact.id), class: 'remote-link', remote: true do %>
         <% if contact.email  == nil %>
-            <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object small-image" %>
+            <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
             <% else %>
             <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object"  unless contact.email == nil %>
             <% end %>
@@ -26,7 +26,7 @@
         <address>
         <strong class="mt-0 mb-2 pt-0 pb-2"><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></strong><br>
           <p class="mt-0 mb-0 pt-2 pb-2"><%= contact.email %></p>
-          <p class="mt-0 mb-0 pt-2 pb-2"><%= contact.phone %></p>
+          <p class="mt-0 mb-0 pt-0 pb-2"><%= contact.phone %></p>
         </address>
       </div>
     </div>
