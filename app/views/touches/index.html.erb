@@ -10,43 +10,44 @@
    <div class="nav-tabs-navigation pt-3">
       <div class="nav-tabs-wrapper">
          <ul class="nav nav-tabs" data-tabs="tabs">
+
             <li class="nav-item">
-               <a class="nav-link active  " href="#profile" data-toggle="tab">
+               <a class="nav-link active nav-t-tab " href="#phone-touch" data-toggle="tab">
                   <i class="material-icons">contact_phone</i>
                   Phone
                   <div class="ripple-container"></div>
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#messages" data-toggle="tab">
+               <a class="nav-link nav-t-tab" href="#email-touch" data-toggle="tab">
                   <i class="material-icons">email</i>
                   Email
                   <div class="ripple-container"></div>
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link " href="#profile" data-toggle="tab">
+               <a class="nav-link nav-t-tab" href="#letter-touch" data-toggle="tab">
                   <i class="material-icons">contact_mail</i>
                   Letter
                   <div class="ripple-container"></div>
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#messages" data-toggle="tab">
+               <a class="nav-link nav-t-tab" href="#in_person-touch" data-toggle="tab">
                   <i class="material-icons">face</i>
                   In Person
                   <div class="ripple-container"></div>
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link " href="#profile" data-toggle="tab">
+               <a class="nav-link nav-t-tab " href="#social_media-touch" data-toggle="tab">
                   <i class="material-icons">web</i>
                   Social Media
                   <div class="ripple-container"></div>
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#messages" data-toggle="tab">
+               <a class="nav-link nav-t-tab" href="#postcard-touch" data-toggle="tab">
                   <i class="material-icons">note</i>
                   Postcard
                   <div class="ripple-container"></div>
@@ -58,13 +59,38 @@
    <h4 class="display-5 pb-3 pull-right  far-right-touch "><small><%= link_to 'New Touch', new_touch_path, class: 'text-white 5 pb-4 ' %></small></h4>
 </div>
 <div class="card-body">
-   <div class="tab-content">
-      <div class="tab-pane active" id="touches">
-         <div class="col-md-12">
+   <div class="tab-content" id="touches" >
+
+
             <%= render @touches %>
-         </div>
-      </div>
+
+
    </div>
 </div>
 </div>
 </div>
+
+
+<script >
+ var hrefTempIndex = "#phone-touch"
+$('.tab-pane').hide();
+$(hrefTempIndex).show();
+$(document).on('click', '.nav-t-tab', function (e) {
+
+    e.preventDefault()
+
+  var tabSection =  $(this).attr('href');
+   // if (hrefTempIndex !== $(this).attr('href')) {
+   //  $("#tasks-main-list").hide();
+   //  }
+  console.log(tabSection);
+  $(hrefTempIndex).hide();
+   $(tabSection).show();
+    hrefTempIndex = tabSection;
+})
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  e.target // newly activated tab
+  e.relatedTarget // previous active tab
+});
+</script>
+

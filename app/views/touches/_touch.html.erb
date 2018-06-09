@@ -1,99 +1,316 @@
-<div class="row">
-   <div class="col-md-12 mt-0 pt-0 pb-0 mb-0">
-      <h2 class="text-info pt-3"><%="Touch #{touch.id }"%></h2>
-         <hr class="pt-2 pb-2">
-  <h6 class="text-gray"> <%=" A Touch with the ID of #{touch.id } created at #{touch.created_at.strftime("%B %e, %Y at %I:%M %p") }" %> <span> <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm pull-right pt-0 mt-0 mr-2' , title: 'delete contact', rel: "tooltip"  do %>
-             <i class="material-icons">delete_sweep</i>
-               <% end %></span></h6>
 
+<%
+touch_email_array = []
+touch_phone_array = []
+touch_postcard_array = []
+touch_social_media_array = []
+touch_in_person_array = []
+touch_letter_array = []
+%>
+<% @touches.each do |touch| %>
+
+      <% if touch.email %>
+       <% touch_email_array.push(touch)  %>
+      <% end %>
+      <% if touch.phone %>
+         <% touch_phone_array.push(touch)  %>
+      <% end %>
+      <% if touch.postcard %>
+        <%  touch_postcard_array.push(touch)  %>
+      <% end %>
+      <% if touch.social_media %>
+       <%   touch_social_media_array.push(touch)  %>
+      <% end %>
+      <% if touch.in_person %>
+       <% touch_in_person_array.push(touch) %>
+      <% end %>
+      <% if touch.letter %>
+       <% touch_letter_array.push(touch) %>
+      <% end %>
+<% end %>
+
+
+
+<div class="tab-pane" id="email-touch">
+   <div class="card card-1">
+      <div class="table-responsive table-sales mt-3">
+         <table class="table">
+            <tr>
+               <th>View</th>
+               <th>Type</th>
+               <th class="text-right">Name</th>
+               <th class="text-right">Email</th>
+               <th class="text-right">Actions</th>
+            </tr>
+            <tbody id="task-table-1">
+               <% touch_email_array.each do |touch| %>
+               <tr id="edit_touch_<%= touch.id %>">
+                  <td>
+                     <div class="flag">
+                        <%= link_to  touch_path(touch), class: 'text-info' do %>
+                        <i class="material-icons">fingerprint</i>
+                        <% end %>
+                     </div>
+                  </td>
+                  <td >
+                     <p class="text-white">
+                        Touched via Email
+                  </td>
+                  <% touch_count = touch.contacts.count  %>
+                  <% if touch_count > 1 %>
+                  <td class="text-right">> <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %></td>
+                  <% elsif  touch_count == 1%>
+                  <td class="text-right">> <%= touch.contacts.first.name  %></td>
+                  <% end %>
+                  <td class="text-right">
+                     <p class=" text-white">
+                        <% if touch_count > 1 %>
+                        <%= touch.contacts.first.email %>  <% " + #{touch_count - 1} emails" %>
+                        <% elsif  touch_count == 1 %>
+                        <%= touch.contacts.first.email  %>
+                        <% end %>
+                     </p>
+                  </td>
+                  <td class="text-right">
+                     <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+                     <i class="material-icons">how_to_reg</i>
+                     <% end %>
+                     <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
+                     X
+                     <% end %>
+                  </td>
+               </tr>
+               <% end %>
+            </tbody>
+         </table>
+      </div>
    </div>
 </div>
-<div class="table-responsive table-sales mt-3">
-   <table class="table">
-      <tbody id="task-table-1">
-         <% touch.contacts.each do |contact| %>
-         <tr id="edit_touch_<%= touch.id %>">
-            <td>
-               <div class="flag">
-                  <%= link_to  touch_path(touch), class: 'text-info' do %>
-                  <i class="material-icons">touch_app</i>
-                  <% end %>
-               </div>
-            </td>
-            <td > <% if touch.email %>
-               <p class="text-white">
-                Touched via Email
-               </p>
+<div class="tab-pane" id="letter-touch">
+   <div class="card card-1">
+      <div class="table-responsive table-sales mt-3">
+         <table class="table">
+            <tr>
+               <th>View</th>
+               <th>Type</th>
+               <th class="text-right">Name</th>
+               <th class="text-right">Address</th>
+               <th class="text-right">Actions</th>
+            </tr>
+            <tbody id="task-table-1">
+               <% touch_letter_array.each do |touch| %>
+               <tr id="edit_touch_<%= touch.id %>">
+                  <td>
+                     <div class="flag">
+                        <%= link_to  touch_path(touch), class: 'text-info' do %>
+                        <i class="material-icons">fingerprint</i>
+                        <% end %>
+                     </div>
+                  </td>
+                  <td >
+                     <p class=" text-white">
+                        Touched via letter sent
+                     </p>
+                  </td>
+                  <td>
+                     <% touch_count = touch.contacts.count  %>
+                     <% if touch_count > 1 %>
+                     <%= touch.contacts.first.name  %>  <% " +#{touch_count - 1} contacts" %>
+                     <% elsif  touch_count == 1 %>
+                     <%= touch.contacts.first.name %>
+                     <% end %>
+                  </td>
+                  <td class="text-right">
+                     <p class=" text-white">
+                        <% if touch_count > 1 %>
+                        <%= touch.contacts.first.address  %>  <% " + #{touch_count - 1} addresses" %>
+                        <% else %>
+                        <%= touch.contacts.address  %>
+                        <% end %>
+                     </p>
+                  </td>
+                  <td class="text-right">
+                     <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+                     <i class="material-icons">how_to_reg</i>
+                     <% end %>
+                     <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
+                     X
+                     <% end %>
+                  </td>
+               </tr>
                <% end %>
-               <% if touch.phone %>
-               <p class="text-white">
-                   Touched via Phone
-               </p>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<div class="tab-pane active" id="in_person-touch">
+   <div class="card card-1">
+      <div class="table-responsive table-sales mt-3">
+         <table class="table">
+            <tr>
+               <th>View</th>
+               <th>Type</th>
+               <th class="text-right">Name</th>
+               <th  class="text-right">Address</th>
+               <th  class="text-right">Actions</th>
+            </tr>
+            <tbody id="task-table-1">
+               <% touch_in_person_array.each do |touch| %>
+               <tr id="edit_touch_<%= touch.id %>">
+                  <td>
+                     <div class="flag">
+                        <%= link_to  touch_path(touch), class: 'text-info' do %>
+                        <i class="material-icons">fingerprint</i>
+                        <% end %>
+                     </div>
+                  </td>
+                  <td >
+                     <p class="text-white">
+                        Touched face to face
+                     </p>
+                  </td>
+                  <% touch_count = touch.contacts.count  %>
+                  <td class="text-right">
+                     <% if touch_count > 1 %>
+                     <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %>
+                     <% elsif  touch_count == 1 %>
+                     <%= touch.contacts.first.name %>
+                     <% end %>
+                  </td>
+                  <td class="text-right">
+                     <p class="text-white">
+                        <% if touch_count > 1 %>
+                        <%= touch.contacts.first.address %>  <% " + #{touch_count - 1} addresses" %>
+                        <% elsif  touch_count == 1 %>
+                        <%= touch.contacts.first.address  %>
+                        <% end %>
+                     </p>
+                  </td>
+                  <td class="text-right">
+                     <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+                     <i class="material-icons">how_to_reg</i>
+                     <% end %>
+                     <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
+                     X
+                     <% end %>
+                  </td>
+               </tr>
                <% end %>
-               <% if touch.postcard %>
-               <p class="text-white">
-                  Touched via Phone
-               </p>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<div class="tab-pane active" id="social_media-touch">
+   <div class="card card-1">
+      <div class="table-responsive table-sales mt-3">
+         <table class="table">
+            <tr>
+               <th>View</th>
+               <th>Type</th>
+               <th class="text-right">Name</th>
+               <th  class="text-right">website</th>
+               <th  class="text-right">Actions</th>
+            </tr>
+            <tbody id="task-table-1">
+               <% touch_social_media_array.each do |touch| %>
+               <tr id="edit_touch_<%= touch.id %>">
+                  <td>
+                     <div class="flag">
+                        <%= link_to  touch_path(touch), class: 'text-info' do %>
+                        <i class="material-icons">fingerprint</i>
+                        <% end %>
+                     </div>
+                  </td>
+                  <td>
+                     <p class=" text-white">
+                        Touched via Social Media
+                     </p>
+                  </td>
+                  <td  class="text-right">
+                     <% touch_count = touch.contacts.count  %>
+                     <% if touch_count > 1 %>
+                     <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %>
+                     <% elsif  touch_count == 1 %>
+                     <%= touch.contacts.first.name  %>
+                     <% end %>
+                  </td>
+                  <td class="text-right">
+                     <p class=" text-white">
+                        <% if touch_count > 1 %>
+                        <%= touch.contacts.first.web_address %>  <% " + #{touch_count - 1} websites" %>
+                        <% elsif  touch_count == 1 %>
+                        <%= touch.contacts.first.web_address  %>
+                        <% end %>
+                     </p>
+                  </td>
+                  <td class="text-right">
+                     <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+                     <i class="material-icons">how_to_reg</i>
+                     <% end %>
+                     <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
+                     X
+                     <% end %>
+                  </td>
+               </tr>
                <% end %>
-               <% if touch.social_media %>
-               <p class=" text-white">
-                    Touched via Social Media
-               </p>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<div class="tab-pane active" id="postcard-touch">
+   <div class="card card-1">
+      <div class="table-responsive table-sales mt-3">
+         <table class="table">
+            <tr>
+               <th>View</th>
+               <th>Type</th>
+               <th class="text-right">Name</th>
+               <th  class="text-right">Postcard</th>
+               <th  class="text-right">Actions</th>
+            </tr>
+            <tbody id="task-table-1">
+               <% touch_postcard_array.each do |touch| %>
+               <tr id="edit_touch_<%= touch.id %>">
+                  <td>
+                     <div class="flag">
+                        <%= link_to  touch_path(touch), class: 'text-info' do %>
+                        <i class="material-icons">fingerprint</i>
+                        <% end %>
+                     </div>
+                  </td>
+                  <td >
+                     <p class="text-white">
+                        Touched via postcard
+                     </p>
+                  <td class="text-right">
+                     <% touch_count = touch.contacts.count  %>
+                     <% if touch_count > 1 %>
+                     <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %>
+                     <% elsif  touch_count == 1 %>
+                     <%= touch.contacts.first.name %>
+                     <% end %>
+                  </td>
+                  <td class="text-right">
+                     <p class="text-white">
+                        <%= touch.Postcard  %>
+                     </p>
+                  </td>
+                  <td class="text-right">
+                     <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+                     <i class="material-icons">how_to_reg</i>
+                     <% end %>
+                  </td>
+                  <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
+                     X
+                     <% end %>
+                  </td>
+               </tr>
                <% end %>
-               <% if touch.in_person %>
-               <p class="text-white">
-                 Touched face to face
-               </p>
-               <% end %>
-               <% if touch.letter %>
-               <p class=" text-white">
-                Touched via letter sent
-               </p>
-               <% end %></td>
-            <td> <%= contact.name  %></td>
-            <td class="text-right">
-               <% if touch.email %>
-               <p class=" text-white">
-                  <%= contact.email  %>
-               </p>
-               <% end %>
-               <% if touch.phone %>
-               <p class="text-white">
-                  <%= contact.phone   %>
-               </p>
-               <% end %>
-               <% if touch.postcard %>
-               <p class="text-white">
-                  <%= @touch.Postcard  %>
-               </p>
-               <% end %>
-               <% if touch.social_media %>
-               <p class=" text-white">
-                 Touched base over social_media
-               </p>
-               <% end %>
-               <% if touch.in_person %>
-               <p class="text-white">
-                  <%= contact.address %>
-               </p>
-               <% end %>
-               <% if touch.letter %>
-               <p class=" text-white">
-                  <%= contact.letter  %>
-               </p>
-               <% end %>
-            </td>
-            <td class="text-right">
-               <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
-               <i class="material-icons">how_to_reg</i>
-               <% end %>
-            </td>
-            <td>   <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
-               <i class="material-icons">close</i>
-               <% end %>
-            </td>
-         </tr>
-         <% end %>
-      </tbody>
-   </table>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>
