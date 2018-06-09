@@ -191,9 +191,6 @@ $('.selectpicker').selectpicker('mobile');
     $('body').on('click', '.btn-back', function (event) {
         event.preventDefault();
         window.history.back();
-
-
-
     });
 
 
