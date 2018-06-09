@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606172819) do
+ActiveRecord::Schema.define(version: 20180608145544) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -19,6 +19,29 @@ ActiveRecord::Schema.define(version: 20180606172819) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_account_logins_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "addres"
+    t.string "earnings"
+    t.string "rent"
+    t.string "sector"
+    t.string "age"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string "description"
+  end
+
+  create_table "companies_contacts", id: false, force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["company_id", "contact_id"], name: "index_companies_contacts_on_company_id_and_contact_id"
+    t.index ["contact_id", "company_id"], name: "index_companies_contacts_on_contact_id_and_company_id"
   end
 
   create_table "contacts", force: :cascade do |t|

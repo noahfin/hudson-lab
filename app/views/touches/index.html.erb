@@ -1,3 +1,269 @@
+<style type="text/css" media="screen">
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,700);
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+body {
+   background-color: #333;
+   color: #00aba9;
+   font-family: 'Roboto', sans-serif;
+}
+.header{
+   background-color: black;
+   height: 220px;
+   margin-bottom: 25px;
+   color: #fff;
+   border-bottom: 12px solid #223432;
+
+}
+.inner-header {
+   padding: 65px  20px 10px;
+   width: 60%;
+   margin: auto;
+   background:
+  radial-gradient(transparent, black),
+  url('/assets/phone-guy.jpg')  no-repeat;
+  background-size: cover;
+   background-size: cover;
+   background-position: 0% 60%;
+   height: 100%;
+}
+.new-container{
+   margin-right: 200px;
+}
+.side-container{
+   position: fixed;
+   right: 0;
+   top: 235px;
+   width: 50px;
+   height: 200px;
+   background: #223432;
+   padding-right:  8px;
+}
+.back, .search{
+   display: block;
+  width: 50px;
+  margin-right: 3px;
+  font-size: 11px;
+  background: none;
+}
+.back {
+   padding-right: 10px;
+   height: 65px;
+   background: url('/assets/up-arrow.png');
+   background-position: -5px 3px;
+   object-fit: cover;
+   margin-bottom: 50px;
+}
+.search-input {
+   position: absolute;
+   right: 50px;
+   top: 125px;
+   width: 300%;
+   height: 36px;
+   margin-left: -30px;
+}
+.search {
+   margin-left: 2px;
+}
+.search:hover {
+   background: green;
+}
+.textHead {
+   font-size: 44px;
+   font-weight: 100;
+}
+.container {
+   width: 80%;
+   margin-left: 19.1%;
+   padding: 10px;
+   padding-left: 0px;
+}
+.right_side {
+   width: 35%;
+}
+.left_side {
+   width: 65%;
+}
+.right-side, .left-side {
+   float: left;
+}
+.touch-box, .contact-box {
+   word-wrap: break-word;
+   height: 225px;
+   border-top: 20px solid  black;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   background: url('/assets/sci_fi_hexagon.jpg');
+}
+.touch-box {
+   width: 283px;
+   margin-left: 15px;
+   width:
+}
+.contact-box {
+   width: 100%;
+}
+.largeIn , button{
+   height: 30px;
+   width: 283px;
+   margin-right: 15px;
+}
+button{
+   height: 33px;
+   border: none;
+   background: #933835;
+   color: #fff;
+   font-size: 14px;
+   font-weight: 100;
+   margin-top: 10px;
+}
+.little-btn, .little-btn-edit {
+   width: 65px;
+   height: 27px;
+   border-radius: 15px;
+   margin: 4px 5px 6px;
+   background:  #DD7500;
+}
+.little-btn-edit {
+   display: block;
+}
+.contact-box p, .contact-box h3{
+   padding: 7px  2px 5px 8px;
+}
+.touch-box h3{
+   padding: 5px 7px;
+}
+.smallIn1,.smallIn2,.smallIn3, .smallIn4, .smallIn5 {
+   width: 110px;
+   height: 25px;
+}
+.inABlock{
+   display: block;;
+   margin: 7px;
+}
+.smallIn1 { margin-left: 80px;}
+.smallIn2 { margin-left: 62px;}
+.smallIn3 { margin-left: 80px;}
+.smallIn4 { margin-left: 5px;}
+.smallIn5 { margin-left: 38px;}
+
+@media only screen and (max-width: 945px) {
+   .largeIn , button{
+      margin-top: 10px;
+      width: 578px;
+   }
+}
+@media only screen and (max-width: 1207px) {
+   button .largIn{
+      margin-top: 10px;
+   }
+   .back {
+      margin-top: -10px;
+   }
+   .search-input {
+      top: 102px;
+}
+@media only screen and (max-width: 780px) {
+   .container {
+      margin-left: 50px;
+      }
+   }
+@media only screen and (max-width: 740px) {
+   .container {
+      width: 100%;
+   }
+   .header{
+         margin-bottom: 0;
+         padding-top: 0px;
+      }
+   .container {
+      margin: auto;
+      padding: 0;
+      padding-left: 8px;
+      width: 100%;
+   }
+   .new-container {
+      margin: auto;
+      padding: 0;
+      width: 98.5%;
+   }
+   .side-container{
+      position: fixed;
+      left: 0;
+      top: 0px;
+      width: 30px;
+      height: 40px;
+      background: rgba(34,52,50,.3);
+   }
+   .back, .search{
+     width: 30px;
+     margin-right: 3px;
+   }
+   .search {
+      width: 22px;
+      height: 24px;
+      margin-left: 6px;
+      font-size: 0px;
+      background: url('/assets/search.png');
+   }
+   .search-input {
+      position: absolute;
+      display: inline-block;
+      right: -222px;
+      width: 218px;
+      top: 0px;
+      height: 35px;
+      color: white;
+      background:  rgba(34,52,50,.3);
+   }
+   .search:hover{
+      background: #fff;
+   }
+   .back {
+      display: none;
+   }
+   .largeIn, button {
+      margin-bottom:  10;
+      width: 100%;
+      padding: 0;
+      margin-right: 0;
+      margin-left: -2px;
+   }
+   .textHead {
+      text-align: center;
+      margin-left: 20px;
+      font-size: 28px;
+      margin-top: -20px;
+      }
+
+   .right-side{
+      width: 40%;
+      word-wrap: break-word;
+   }
+   .left-side {
+      width: 58%;
+      margin-right: 4px;
+      }
+   .touch-box {
+      margin-top: 8px;
+      margin-left: 0px;
+      width: 100%;
+      margin-bottom: 4px;
+      height: 240px;
+   }
+   .contact-box {
+      margin: 0;
+      width: 100%;
+      height: 240px;
+      margin-top: 8px;
+      margin-bottom: 5px;
+   }
+
+}
+</style>
 <div class="container-fluid first-show-card">
 <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="tasks-form-modal">
    <div class="modal-dialog modal-lg">

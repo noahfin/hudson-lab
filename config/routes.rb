@@ -2,7 +2,6 @@
 
 
 
-  match "assets/material-kit.css.map" => "assets#material_map", as: :material_map, via: [:get, :post]
 
   root to: 'visitors#index'
 
@@ -16,18 +15,14 @@
     resources :users
     resources :groups
     resources :tasks
+    resources :companies
     resources :projects do
 
-        get 'resources', on: :collection
-
+      get 'resources', on: :collection
        get 'description', on: :collection
-
        get 'budget', on: :collection
-
        get 'requirements', on: :collection
-
        get 'projected_start_time', on: :collection
-
        get 'actual_finshed_time', on: :collection
     end
     resources :touches

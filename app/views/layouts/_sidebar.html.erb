@@ -87,6 +87,7 @@
             <b class="caret"></b>
           </p>
         </a>
+
         <div class="collapse" id="componentsExamples">
           <ul class="nav text-white ">
             <li class="nav-item ">
@@ -120,6 +121,7 @@
             </li>
           </ul>
         </div>
+      </li>
       <li class="nav-item text-white ">
         <a class="nav-link" data-toggle="collapse" href="#formsExamples">
           <i class="material-icons text-white">content_paste</i>
@@ -318,11 +320,32 @@
           </ul>
         </div>
       </li>
-      <li class="nav-item text-white  ">
-        <a class="nav-link text-white" href="./charts.html">
-          <i class="material-icons text-white">timeline</i>
-          <p> Charts </p>
+      <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#companies_sidebar">
+          <i class="material-icons text-white">person</i>
+          <p> Companies
+            <b class="caret"></b>
+          </p>
         </a>
+
+        <div class="collapse" id="companies_sidebar">
+          <ul class="nav text-white ">
+            <li class="nav-item ">
+              <%= link_to new_company_path, class: "nav-link text-white", remote: true do %>
+                <span class="sidebar-mini"> NC </span>
+                <span class="sidebar-normal"> New Company </span>
+              <% end %>
+            </li>
+               <li class="nav-item text-white">
+                <%= link_to companies_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> RT </span>
+                <span class="sidebar-normal"> View Companies </span>
+             <% end %>
+            </li>
+
+
+          </ul>
+        </div>
       </li>
       <li class="nav-item text-white ">
         <a class="nav-link text-white" href="./calendar.html">

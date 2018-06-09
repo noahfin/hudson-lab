@@ -1,7 +1,7 @@
 <tr>
-  <td class="middle">
+  <td class="middle pb-0 pt-1">
     <div class="media">
-      <div class="media-left thumbnail contact-main-image">
+      <div class="media-left thumbnail contact-main-image mt-4">
         <%= link_to contact_path(contact.id), class: 'remote-link', remote: true do %>
         <% if contact.email  == nil %>
             <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object small-image" %>
@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <div class="media-body">
-        <h4 class="media-heading ">
+        <h4 class="media-heading mt-0 mb-0 pt-2 pb-1">
        <%= link_to contact_path(contact.id), class: 'text-white remote-link main-size-text',  remote: true  do %>
         <% if contact.first_name || contact.last_name %>
           <%= contact.first_name if contact.first_name %>
@@ -24,14 +24,14 @@
         <% end %>
         </h4>
         <address>
-          <p><%= contact.email %></p>
-          <p><%= contact.phone %></p>
-          <strong><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></strong><br>
+        <strong class="mt-0 mb-2 pt-0 pb-2"><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></strong><br>
+          <p class="mt-0 mb-0 pt-2 pb-2"><%= contact.email %></p>
+          <p class="mt-0 mb-0 pt-2 pb-2"><%= contact.phone %></p>
         </address>
       </div>
     </div>
   </td>
-  <td width="100" class="middle">
+  <td width="100" class="middle  pb-1">
     <div>
       <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info remote-link", remote: true, title: 'edit', rel: "tooltip"  do %>
       <i class=" fa fa-edit e-contact"></i>
