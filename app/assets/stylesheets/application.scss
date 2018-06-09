@@ -13,17 +13,17 @@
  *= require jquery-ui/menu
  *= require jasny-bootstrap.min
  *= require font-awesome
-
-
  *= require_tree .
  *= require_self
  */
+
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
 @import "material-kit.min.css";
 @import "material-dashboard.css";
 @import "demo.css";
 @import "font-awesome";
 @import "jasny-bootstrap";
+
 .small-image {
   width: 80px;
   height: 80px;
@@ -36,6 +36,7 @@
 .page-header {
   min-height: 100vh;
 }
+
 .card-5 {
   border-radius: 0px !important;
 }
@@ -175,7 +176,7 @@
     padding-left: 0px !important;
     list-style: none;
   }
-  .first-show-card>ul {
+  .first-show-card > ul {
     margin: 0px !important;
     padding: 3px !important;
   }
@@ -232,7 +233,6 @@
     padding-right: 0px !important;
     margin-left: 0px !important;
     margin-right: 0px !important;
-
   }
   .col-md-1,
   .col-md-2,

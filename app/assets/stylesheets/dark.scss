@@ -57,40 +57,30 @@
 }
 
 .card-mertial-dark {
-
-
    background-color:  black !important;
 }
-
-
 
 .dark {
   color: #5bc0de !important;
 }
 
-
 .text-white {
   color: white !important;
 }
+
 .text-white a{
   color: white !important;
 }
-
 
 .bg-m-dark {
   background: #303030 !important;
 }
 
-
 html,body, .content {
-
-
   background: -webkit-linear-gradient(to right, #414345, #232526 ) !important;/* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to top,  #414345, #232526) !important;
- background-size: cover;
+  background-size: cover;
   color: white !important;
-
-
 }
 
 .dark-table {
@@ -108,6 +98,7 @@ html,body, .content {
     border: 1px solid #353535;
     color: #5c5c5c;
     width: 100%;
+    padding-top: .3rem;
 }
 .gray-dark {
   background-color: #343a40
@@ -120,12 +111,13 @@ html,body, .content {
 
 }
 .borderd-list-group a{
-height: 55px;
-width: 100%;
-border: 1px solid #434857;
-color: white !important;
-padding-left: 2px !important;
+  height: 55px;
+  width: 100%;
+  border: 1px solid #434857;
+  color: white !important;
+  padding-left: 2px !important;
 }
+
 .borderd-list-group {
   padding: 6px !important;
 }
