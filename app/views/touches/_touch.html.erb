@@ -29,7 +29,61 @@ touch_letter_array = []
       <% end %>
 <% end %>
 
-
+<div class="tab-pane" id="phone-touch">
+   <div class="card card-1">
+      <div class="table-responsive table-sales mt-3">
+         <table class="table">
+            <tr>
+               <th>View</th>
+               <th>Type</th>
+               <th class="text-right">Name</th>
+               <th class="text-right">Email</th>
+               <th class="text-right">Actions</th>
+            </tr>
+            <tbody id="task-table-1">
+               <% touch_phone_array.each do |touch| %>
+               <tr id="edit_touch_<%= touch.id %>">
+                  <td>
+                     <div class="flag">
+                        <%= link_to  touch_path(touch), class: 'text-info' do %>
+                        <i class="material-icons">fingerprint</i>
+                        <% end %>
+                     </div>
+                  </td>
+                  <td >
+                     <p class="text-white  pt-3">
+                        Touched via Phone
+                  </td>
+                  <% touch_count = touch.contacts.count  %>
+                  <% if touch_count > 1 %>
+                  <td class="text-right"> <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %></td>
+                  <% elsif  touch_count == 1%>
+                  <td class="text-right">> <%= touch.contacts.first.name  %></td>
+                  <% end %>
+                  <td class="text-right">
+                     <p class=" text-white">
+                        <% if touch_count > 1 %>
+                        <%= touch.contacts.first.phone %>  <% " + #{touch_count - 1} emails" %>
+                        <% elsif  touch_count == 1 %>
+                        <%= touch.contacts.first.phone  %>
+                        <% end %>
+                     </p>
+                  </td>
+                  <td class="text-right">
+                     <%= link_to edit_touch_path(touch.id), class: "btn btn-success btn-link btn-sm", remote: true, title: 'edit contact', rel: "tooltip"  do %>
+                     <i class="material-icons">how_to_reg</i>
+                     <% end %>
+                     <%= link_to  touch, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm float-right', title: 'delete contact', rel: "tooltip"  do %>
+                     X
+                     <% end %>
+                  </td>
+               </tr>
+               <% end %>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
 
 <div class="tab-pane" id="email-touch">
    <div class="card card-1">
@@ -53,7 +107,7 @@ touch_letter_array = []
                      </div>
                   </td>
                   <td >
-                     <p class="text-white">
+                     <p class="text-white p-3">
                         Touched via Email
                   </td>
                   <% touch_count = touch.contacts.count  %>
@@ -108,7 +162,7 @@ touch_letter_array = []
                      </div>
                   </td>
                   <td >
-                     <p class=" text-white">
+                     <p class=" text-white pt-3">
                         Touched via letter sent
                      </p>
                   </td>
@@ -165,9 +219,9 @@ touch_letter_array = []
                         <% end %>
                      </div>
                   </td>
-                  <td >
-                     <p class="text-white">
-                        Touched face to face
+                  <td>
+                     <p class=" text-white  pt-3">
+                        Touched via In Person
                      </p>
                   </td>
                   <% touch_count = touch.contacts.count  %>
@@ -224,7 +278,7 @@ touch_letter_array = []
                      </div>
                   </td>
                   <td>
-                     <p class=" text-white">
+                     <p class=" text-white  pt-3">
                         Touched via Social Media
                      </p>
                   </td>
@@ -282,7 +336,7 @@ touch_letter_array = []
                      </div>
                   </td>
                   <td >
-                     <p class="text-white">
+                     <p class="text-white  pt-3">
                         Touched via postcard
                      </p>
                   <td class="text-right">
