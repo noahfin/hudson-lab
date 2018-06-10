@@ -37,8 +37,8 @@
                      <th>Select</th>
                      <th colspan="2"></th>
                      <th>Username</th>
-                     <th colspan="3" align="right" class="ml-4 pl-4"><span class="ml-4 "></span>Groups</th>
-                     <th colspan="2" align="left"> </th>
+                     <th colspan="3" align="right" class="ml-4 pl-4"><span class="ml-4 "></span></th>
+                     <th colspan="2" align="left"> Groups</th>
                      <th colspan="2" align="left"> </th>
                   </tr>
                   <% @users.each do |user| %>
@@ -80,10 +80,10 @@
                            <div class="   mdl-color--grey-900 card ">
                               <ul class="list-group">
                                  <input type="hidden" value="groups[]" class="groups-hiiden">
-                                 <button type="button" class="btn  mdl-color--grey-900  select-allgroups pull-right">Select All Groups</button>
+                                 <button type="button" class="btn bg-dark  select-allgroups pull-right">Select All Groups</button>
                                  <% group_ids.each_with_index do |group, index| %>
                                  <% next if group[1].nil? || group[1] == '' %>
-                                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                                 <li class="list-group-item d-flex justify-content-between align-items-center text-white">
                                     <%= group[1] %>
                                     <span class="badge badge-pill badge-dark rounded-0 pl-4">
                                        <div class="form-check pl-4">
@@ -117,15 +117,29 @@
       </div>
       <div class="card-body padding-top-10">
          <div class="form-row margin-top-20">
-            <div class="col-6 col-lg-3">
-               <select class="form-control text-white select-simple" name="option">
-                  <option value="Share with selected">Share with selected</option>
-                  <option value="Remove form selected">Remove form selected</option>
-               </select>
+            <div class="col-md-11">
+               <span>
+                  <div class="row">
+                  <div class="col-md-3 pr-5">
+                     <select class="form-control text-white select-simple" name="option">
+                        <option value="Share with selected">Share with selected</option>
+                        <option value="Remove form selected">Remove form selected</option>
+                     </select>
+                  </div>
+                  <div class="col-md-6">
+
+                  </div>
+                <div class="col-md-3 pr-4">
+                  <div  class="pr-4">
+
+
+                   <button type="submit" class="btn btn-outline-info btn-block pull-right mr-4" id="share-group-2-users">Chnage </button>
+               </div>
             </div>
-            <div class="col-12 col-lg-6">&nbsp;</div>
-            <div class="col-12 col-lg-2">
-               <button type="submit" class="btn btn-outline-info btn-block" id="share-group-2-users">Chnage </button>
+             </div>
+            </span>
+            </div>
+            <div class="container">
             </div>
          </div>
       </div>

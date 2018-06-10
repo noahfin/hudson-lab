@@ -22,7 +22,7 @@
       <div class="col-md-6">
          <label class=" text-white ml-2" >Select Groups and Employees <small>(required)</small></label>
          <!-- Tabs with icons on Card -->
-         <div class="card card-nav-tabs">
+         <div class="card card-nav-tabs mdl-color--grey-900">
             <div class="card-header bg-black">
                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
                <div class="nav-tabs-navigation">
@@ -80,18 +80,19 @@
                            <% Group.all.each_with_index do |group, index| %>
                            <% next if group.nil? || group.name.empty? %>
                            <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted">
-                              <h5 class="text-wheight-light text-white pt-4 "><%= group.name %></h5>
-                              <nav class="navbar  bg-footer pb-4  justify-content-between align-items-center " id="group-check-nav">
-                                 <span class="ml-auto mr-auto text-center p-0 pb-4 mb-3 ">
-                                    <div class="form-check form-check-right ml-auto mr-auto p-0   mb-4 ">
-                                       <div class="form-check ml-auto mr-auto  mb-0 pt-0 pb-0 ">
-                                          <label class="form-check-label ">
-                                          <input class="form-check-input " name="groups[]" type="checkbox" value=<%="#{group.id}"%>>
-                                          <span class="form-check-sign ">
-                                          <span class="check"></span>
-                                          </span>
-                                          </label>
-                                       </div>
+                              <h5 class="text-wheight-light text-white pt-2 "><%= group.name %></h5>
+                              <nav class="navbar  bg-footer  justify-content-between align-items-center " id="group-check-nav">
+                                 <span class="ml-auto mr-auto text-center p-0   ">
+                                    <div class="form-check form-check-right ml-auto mr-auto  ">
+                                            <div class="togglebutton ">
+                                    <label>
+                                    <input type="checkbox" name="groups[]" value=<%="#{group.id}"%> />
+                                    <span class="toggle"></span>
+                                    <span class="text-white">
+                                    </span>
+                                    </label>
+                                 </div>
+
                                     </div>
                                  </span>
                               </nav>
