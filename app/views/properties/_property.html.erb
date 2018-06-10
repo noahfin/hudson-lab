@@ -1,25 +1,37 @@
 <% @properties.each_slice(3) do |property| %>
 <div class="row">
    <% property.each do |property| %>
-   <div class="col-md-4">
-      <div class="card text-center property-card card-background"  style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object") %>')";>
-         <div class="card-header">
-            <ul class="nav nav-pills card-header-pills">
-               <li class="nav-item">
-                  <%= link_to  property_issues_path(property), class: 'btn btn-outline-danger text-danger nav-link ' do %>
-                  Fix issue!
+   <div  class="col-md-4">
+      <div class="card-custom-background" >
+              <div class="card-headed-overlay">
+
+            </div>
+         <div class="card-background-left div-sides">
+
+         </div>
+
+         <div class="card-background-right div-sides">
+
+         </div>
+
+      <div class="card text-center property-card rounded-0 card-background card-background-main " style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg', class: "media-object") %>');">
+         <div class="card-header mt-0 rounded-0">
+
+            <ul class="list-inline">
+               <li class=" list-inline-item">
+                  <%= link_to  property_issues_path(property), class: '  ' do %>
+                 <small class="text-success"> Fix <i class="fa fa-exclamation-triangle"></i></small>
                   <% end %>
                </li>
-               <li class="nav-item">
-                  <%= link_to  new_property_issue_path(property), class: 'btn btn-outline-success text-success nav-link fix-broken-card ml-0 pl-3' do %>
-                  New Issue
+               <li class="list-inline-item">
+                  <%= link_to  new_property_issue_path(property), class: '' do %>
+                     <small class="text-danger"> New <i class="fa fa-exclamation-triangle"></i></small>
                   <% end %>
                </li>
-               <li class="nav-item">
-               </li>
+
             </ul>
          </div>
-         <div class="card-body">
+         <div class="card-body rounded-0">
             <%= link_to  property_posts_path(property), class: 'text-info', title: 'View Activty', rel: "tooltip"  do %>
             <h6 class="card-category text-info"><%= property.name %></h6>
             <% end %>
@@ -40,6 +52,7 @@
             </div>
          </div>
       </div>
+   </div>
    </div>
    <% end %>
 </div>

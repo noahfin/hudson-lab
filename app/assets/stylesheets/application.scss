@@ -888,3 +888,33 @@ div.dataTables_wrapper {
 .icon-drop-county {
   margin-right: 2.5rem;
 }
+
+.card-custom-background  {
+ padding-top: .009rem
+
+}
+.div-sides {
+  width: 4.8%;
+  height: 15%;
+  position: absolute;
+  top: 0rem;
+  background: #232526;
+  z-index: 99999999;
+}
+.card-background-right {
+  position: absolute !important;
+  right: .89rem  !important;
+  top: 0rem  !important;
+}
+
+.card-background-main {
+  height: 110%;
+
+}
+.card-border-radius-left {
+  border-top-left-radius: .4rem;
+}
+
+.property-card {
+  border-radius: 0px !important;
+}
