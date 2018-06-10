@@ -10,8 +10,8 @@
             <% end %>
         <% end %>
       </div>
-      <div class="media-body">
-        <h4 class="media-heading mt-0 mb-0 pt-2 pb-2">
+      <div class="media-body pt-0 pb-0">
+        <h4 class="media-heading mt-3 mb-0 pt-2 pb-2">
        <%= link_to contact_path(contact.id), class: 'text-white remote-link main-size-text',  remote: true  do %>
         <% if contact.first_name || contact.last_name %>
           <%= contact.first_name if contact.first_name %>
@@ -25,9 +25,9 @@
         </h4>
         <address>
         <strong class=" ">
-          <p class="mt-0 mb-0 pt-2 pb-0"><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></p></strong>
-          <p class="mt-0 mb-0  pt-2 pb-0 "><a href="<%= "mailto:#{contact.email}"%>"  class="text-white"><%= contact.email %></a></p>
-          <p class="mt-0 mb-0  pt-2  pb-0 text-white"><%= tel_to contact.phone %></p>
+          <span><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></p></strong></span>
+ <span><a href="<%= "mailto:#{contact.email}"%>"  class="text-white"><%= contact.email %></a></span>
+         <span class="text-white"><%= tel_to contact.phone %></span>
         </address>
       </div>
     </div>
