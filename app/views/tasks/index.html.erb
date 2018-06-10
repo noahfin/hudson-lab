@@ -1,118 +1,105 @@
 <div class="container-fluid first-show-card">
-   <div class="card card-1">
-      <div class="pb-4  card-header-tabs  bg-black">
-         <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-               <ul class="nav nav-tabs tab" data-tabs="tabs">
-                  <li class="nav-item nav-tab">
-                     <a class="nav-link nav-tab nav-t-tab" href="#tasks-all-list" data-toggle="tab">
-                        <i class="material-icons">assignment</i>
-                        All Action Steps
-                        <div class="ripple-container"></div>
-                     </a>
-                  </li>
-                  <li class="nav-item nav-tab tab ">
-                     <a class="nav-link nav-tab nav-t-tab" href="#task-contacts-list" data-toggle="tab">
-                        <i class="material-icons">assignment</i>
-                        Contacts
-                        <div class="ripple-container"></div>
-                     </a>
-                  </li>
-                  <li class="nav-item nav-tab tab">
-                     <a class="nav-link  nav-t-tab" href="#task-deals-list" data-toggle="tab">
-                        <i class="material-icons">assignment</i>
-                        Deals
-                        <div class="ripple-container"></div>
-                     </a>
-                  </li>
-                  <li class="nav-item nav-tab tab">
-                     <a class="nav-link nav-t-tab nav-t-tab" href="#task-projects-list" data-toggle="tab">
-                        <i class="material-icons">assignment</i>
-                        Projects
-                        <div class="ripple-container"></div>
-                     </a>
-                  </li>
-                  <li class="nav-item nav-tab tab">
-                     <a class="nav-link nav-t-tab " href="#task-leads-list" data-toggle="tab">
-                        <i class="material-icons">assignment</i>
-                        Leads
-                        <div class="ripple-container"></div>
-                     </a>
-                  </li>
-                  <li class="nav-item nav-tab tab">
-                     <a class="nav-link  nav-t-tab nav-tab" href="#task-marketing-list" data-toggle="tab">
-                        <i class="material-icons">assignment</i>
-                        Marketing
-                        <div class="ripple-container"></div>
-                     </a>
-                  </li>
-               </ul>
-               <h4 class="display-5 pb-3 pull-right  far-right-touch "><small></i><%= link_to tasks_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">developer_board</i> <% end %><%= link_to new_task_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">add_box</i>    <% end %></small></h4>
-            </div>
-         </div>
+<div class="card card-1">
+<div class="pb-4  card-header-tabs  bg-black">
+   <div class="nav-tabs-navigation">
+      <div class="nav-tabs-wrapper">
+         <ul class="nav nav-tabs tab" data-tabs="tabs">
+            <li class="nav-item nav-tab">
+               <a class="nav-link nav-tab nav-t-tab" href="#tasks-all-list" data-toggle="tab">
+                  <i class="material-icons">assignment</i>
+                  All Action Steps
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item nav-tab tab ">
+               <a class="nav-link nav-tab nav-t-tab" href="#task-contacts-list" data-toggle="tab">
+                  <i class="material-icons">assignment</i>
+                  Contacts
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item nav-tab tab">
+               <a class="nav-link  nav-t-tab" href="#task-deals-list" data-toggle="tab">
+                  <i class="material-icons">assignment</i>
+                  Deals
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item nav-tab tab">
+               <a class="nav-link nav-t-tab nav-t-tab" href="#task-projects-list" data-toggle="tab">
+                  <i class="material-icons">assignment</i>
+                  Projects
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item nav-tab tab">
+               <a class="nav-link nav-t-tab " href="#task-leads-list" data-toggle="tab">
+                  <i class="material-icons">assignment</i>
+                  Leads
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+            <li class="nav-item nav-tab tab">
+               <a class="nav-link  nav-t-tab nav-tab" href="#task-marketing-list" data-toggle="tab">
+                  <i class="material-icons">assignment</i>
+                  Marketing
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
+         </ul>
+         <h4 class="display-5 pb-3 pull-right  far-right-touch "><small></i><%= link_to tasks_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">developer_board</i> <% end %><%= link_to new_task_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">add_box</i>    <% end %></small></h4>
       </div>
-      <div class="card-body" >
-         <div class="tab-content">
-
-   <div class="tab-pane" id="tasks-all-list">
-      <table class="table">
-         <% @tasks.each do |task| %>
-
-         <tr id="edit_task_<%= task.id %>">
-            <td>
-               <div class="form-check">
-                  <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
-                  <span class="form-check-sign">
-                  <span class="check"></span>
-                  </span>
-                  </label>
-               </div>
-            </td>
-
-            <td><%= task.name %> </td>
-            <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-               <i class="material-icons">edit</i>
-               <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
-               <i class="material-icons">close</i>
-               <% end %>
-            </td>
-         </tr>
-         <% end %>
-
-         <tbody >
-         </tbody>
-      </table>
-   </div>
-   <div id="task-table-1">
-         <%= render 'tasks/task_tabs' %>
-   </div>
    </div>
 </div>
-
-
+<div class="card-body" >
+   <div class="tab-content">
+      <div class="tab-pane" id="tasks-all-list">
+         <table class="table">
+            <% @tasks.each do |task| %>
+            <tr id="edit_task_<%= task.id %>">
+               <td>
+                  <div class="form-check">
+                     <label class="form-check-label">
+                     <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+                     <span class="form-check-sign">
+                     <span class="check"></span>
+                     </span>
+                     </label>
+                  </div>
+               </td>
+               <td><%= task.name %> </td>
+               <td class="td-actions text-right">
+                  <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+                  <i class="material-icons">edit</i>
+                  <% end %>
+                  <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+                  <i class="material-icons">close</i>
+                  <% end %>
+               </td>
+            </tr>
+            <% end %>
+            <tbody >
+            </tbody>
+         </table>
+      </div>
+      <div id="task-table-1">
+         <%= render 'tasks/task_tabs' %>
+      </div>
+   </div>
+</div>
 <script >
- var hrefTempIndex = "#tasks-all-list"
-$('.tab-pane').hide();
-$(hrefTempIndex).show();
-$(document).on('click', '.nav-t-tab', function (e) {
-
-    e.preventDefault()
-
-  var tabSection =  $(this).attr('href');
-   // if (hrefTempIndex !== $(this).attr('href')) {
-   //  $("#tasks-main-list").hide();
-   //  }
-  console.log(tabSection);
-  $(hrefTempIndex).hide();
-   $(tabSection).show();
-    hrefTempIndex = tabSection;
-})
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-  e.target // newly activated tab
-  e.relatedTarget // previous active tab
-});
+   var hrefTempIndex = "#tasks-all-list"
+   $('.tab-pane').hide();
+   $(hrefTempIndex).show();
+   $(document).on('click', '.nav-t-tab', function (e) {
+      e.preventDefault()
+      var tabSection =  $(this).attr('href');
+      $(hrefTempIndex).hide();
+       $(tabSection).show();
+        hrefTempIndex = tabSection;
+   })
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      e.target // newly activated tab
+      e.relatedTarget // previous active tab
+   });
 </script>
-

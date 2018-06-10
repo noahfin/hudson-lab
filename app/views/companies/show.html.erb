@@ -551,7 +551,7 @@
          <div class="col-md-4 pb-0">
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
                <table class="profile-picture pb-0 pl-0 image-content" style="height:400px; width: 200px !important;" id="deal-company-logo">
-                 <td  class=""> <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23783458_979746265497126_5846339006839652540_o.png?_nc_cat=0&oh=9b16a0a61a3c340661b956c9277a9971&oe=5B802ECA" class=""></td>
+                 <td  class="">  <%= image_tag @company.avatar.present? ?  @company.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
                </table>
             </div>
          </div>
@@ -571,13 +571,13 @@
                                     <li class="nav-item nav-pills-dark">
                                        <a class="nav-link active" href="#dashboard-1" role="tab" data-toggle="tab">
                                        <i class="material-icons">dashboard</i>
-                                       Deals
+                                       Info
                                        </a>
                                     </li>
                                     <li class="nav-item nav-pills-dark">
                                        <a class="nav-link " href="#schedule-1" role="tab" data-toggle="tab">
                                        <i class="material-icons">schedule</i>
-                                       Schedule
+                                       Deals
                                        </a>
                                     </li>
                                     <li class="nav-item nav-pills-dark">
@@ -589,7 +589,7 @@
                                     <li class="nav-item link-tabs" >
                                        <div class="  mr-4 mt-4 pt-4 pr-4">
                                  <span class=" pt-4 ">
-                                 <%= link_to 'Edit', edit_deal_path(@deal), class: " pb-4 text-white" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-white"  %>
+                                 <%= link_to 'Edit', edit_company_path(@company), class: " pb-4 text-white" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-white"  %>
                                  </span>
                                     </div></li>
                                  </ul>
@@ -601,44 +601,42 @@
                      <div class="tab-content tab-space">
                         <div class="tab-pane active" id="dashboard-1">
                            <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-6 pl-2">
                                  <p>
                                     <strong>Name:</strong>
-                                    <%= @deal.name %>
+                                    <%= @company.name %>
                                  </p>
                                  <p>
-                                    <strong>Code:</strong>
-                                    <%= @deal.code %>
+                                    <strong>Earnings:</strong>
+                                    <%= @company.earnings %>
                                  </p>
                                  <p>
-                                    <strong>Category:</strong>
-                                    <%= @deal.category %>
+                                    <strong>Sector:</strong>
+                                    <%= @company.sector %>
                                  </p>
 
                               </div>
                               <div class="col-md-6">
                                  <p>
-                                    <strong>Active:</strong>
-                                    <%= @deal.active %>
+                                    <strong>Age:</strong>
+                                    <%= @company.age %>
                                  </p>
                                  <p>
-                                    <strong>Potential commission:</strong>
-                                    <%= @deal.potential_commission %>
+                                    <strong>Rent:</strong>
+                                    <%= @company.rent %>
                                  </p>
                                  <p>
-                                    <strong>Lead:</strong>
-                                    <%= @deal.lead_id %>
+                                    <strong>Addres:</strong>
+                                    <%= @company.addres %>
                                  </p>
                               </div>
                            </div>
                         </div>
                         <div class="tab-pane" id="schedule-1">
-                           Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
-                           <br><br>Dramatically maintain clicks-and-mortar solutions without functional solutions.
+
                         </div>
                         <div class="tab-pane" id="tasks-1">
-                           Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-                           <br><br>Dynamically innovate resource-leveling customer service for state of the art customer service.
+                           <%= @company.description %>
                         </div>
                      </div>
                         </div>
@@ -739,40 +737,99 @@
                      <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
                   </div>
                   <footer>
-                     <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span>(8)</span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(12)</span> </a>
-                     <ul class="comments mt-2">
-                        <li class="mt-3">
-                           <div class="user-comment-thumb mb-2"> <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="img-circle" width="30"></div>
-                           <div class="user-comment-content">
-                              <a href="#" class="user-comment-name text-danger"> John doe </a> Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Add and offered prepare how cordial two promise.
-                              <div class="user-comment-meta"> <a href="#" class="comment-date">January 4 at 1:11am</a> - <a href="#"> <i class="entypo-heart"></i> Like <span>(2)</span> </a> - <a href="#"> <i class="entypo-comment"></i> Reply </a></div>
-                           </div>
-                        </li>
-                        <li class="mt-3">
-                           <div class="user-comment-thumb mb-2"> <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="img-circle" width="30"></div>
-                           <div class="user-comment-content">
-                              <a href="#" class="user-comment-name text-danger"> John doe </a> Extremity direction existence as dashwoods do up. Securing marianne led welcomed offended but offering six raptures. Conveying concluded newspaper rapturous oh at.
-                              <div class="user-comment-meta"> <a href="#" class="comment-date">January 3 at 6:42pm</a> - <a href="#" class="liked"> <i class="entypo-heart"></i> Liked </a> - <a href="#"> <i class="entypo-comment"></i> Reply </a></div>
-                           </div>
-                        </li>
-                        <li class="mt-3">
-                           <div class="user-comment-thumb mb-2"> <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="" class="img-circle" width="30"></div>
-                           <div class="user-comment-content">
-                              <a href="#" class="user-comment-name text-danger"> John doe </a> Mean if he they been no hold mr. Is at much do made took held help. Latter person am secure of estate genius at.
-                              <div class="user-comment-meta"> <a href="#" class="comment-date">January 2 at 3:25pm</a> - <a href="#"> <i class="entypo-heart"></i> Like </a> - <a href="#"> <i class="entypo-comment"></i> Reply </a></div>
-                           </div>
-                        </li>
-                        <li class="comment-form mt-3">
-                           <div class="user-comment-thumb"> <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="img-circle" width="30"></div>
-                           <div class="user-comment-content mt-3">
-                              <div class="form-group shadow-textarea">
-                                 <label for="exampleFormControlTextarea6" class="text-white label-floating"></label>
-                                 <textarea class="form-control z-depth-1 text-white" id="exampleFormControlTextarea6" rows="4" ></textarea>
-                              </div>
-                              <button class="btn mdl-grey-900-btn"> <i class="entypo-chat"></i>Add Comment </button>
-                           </div>
-                        </li>
-                     </ul>
+             <div class="section section-comments">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <div class="media-area">
+                            <h3 class="title text-center">3 Comments</h3>
+                            <div class="media">
+                                <a class="float-left" href="#pablo">
+                                    <div class="avatar">
+                                        <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
+                                    </div>
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Tina Andrew
+                                        <small>· 7 minutes ago</small>
+                                    </h4>
+                                    <h6 class="text-muted"></h6>
+                                    <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
+                                    <div class="media-footer">
+                                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
+                                            <i class="material-icons">reply</i> Reply
+                                        </a>
+                                        <a href="#pablo" class="btn btn-danger btn-link float-right">
+                                            <i class="material-icons">thumb</i> 243
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <a class="float-left" href="#pablo">
+                                    <div class="avatar">
+                                        <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
+                                    </div>
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">John Camber
+                                        <small>· Yesterday</small>
+                                    </h4>
+                                    <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                    <p> Don't forget, You're Awesome!</p>
+                                    <div class="media-footer">
+                                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
+                                            <i class="material-icons">reply</i> Reply
+                                        </a>
+                                        <a href="#pablo" class="btn btn-link float-right">
+                                            <i class="fa fa-thumbs-up"></i> 25
+                                        </a>
+                                    </div>
+                                    <div class="media">
+                                        <a class="float-left" href="#pablo">
+                                            <div class="avatar">
+                                                <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile4-square.jpg">
+                                            </div>
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Tina Andrew
+                                                <small>· 12 Hours Ago</small>
+                                            </h4>
+                                            <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                            <p> Don't forget, You're Awesome!</p>
+                                            <div class="media-footer">
+                                                <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
+                                                    <i class="material-icons">reply</i> Reply
+                                                </a>
+                                                <a href="#pablo" class="btn btn-link btn-secondary float-right">
+                                                    <i class=" fa fa-thumbs-up"></i> 2
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="title text-center">Post your comment</h3>
+                        <div class="media media-post">
+                            <a class="author float-left" href="#pablo">
+                                <div class="avatar">
+                                    <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <div class="form-group label-floating bmd-form-group">
+                                    <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write some nice stuff or nothing...</label>
+                                    <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+                                </div>
+                                <div class="media-footer">
+                                    <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end media-post -->
+                    </div>
+                </div>
+            </div>
                   </footer>
                   <hr>
                </div>

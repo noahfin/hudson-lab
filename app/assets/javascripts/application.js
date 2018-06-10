@@ -130,17 +130,14 @@ $('.selectpicker').selectpicker('mobile');
     });
 
     var clsoeWiz = function () {
-        // $("[data-dismiss=modal]").trigger({ type: "click" });
         $('#contact-form-wiz').hide();
         $('#form-modal').modal('hide');
         $('#form-modal').removeClass('modal');
-
-        //hide the modal
         $('body').removeClass('modal-open');
-        //modal-open class is added on body so it has to be removed
         $('body').removeClass('modal-backdrop');
         $('.modal-backdrop').remove();
     }
+
     var pageParams;
     var pageUrl = location.href;
     if (history && history.pushState) {
@@ -258,6 +255,16 @@ $('.selectpicker').selectpicker('mobile');
         }
     });
 
+// company create section
+$(document).on('click', '#save-company', function (e) {
+      e.preventDefault();
+      console.log('#save-company clicked')
+        $('form').prop("disabled", false);
+        $(this).closest('form').submit();
+       var data = $('#company-form').serialize()
+        createCompanySend(data);
+    });
+
 
  var getUsersAndGroupsInputs = function () {
 
@@ -366,6 +373,42 @@ $('.selectpicker').selectpicker('mobile');
 
     });
 
+
+    var createCompanySend = function (data) {
+        var url = "/companies/";
+        $.ajax({
+            url: url,
+            method: "post",
+            data: data,
+            success: function (company) {
+                clsoeWiz();
+                $.notify({
+                    title: "New company Added:",
+                    message: $('#company_name').val() + '"' + ' was successfuly added to the database'
+                });
+
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+    }
 
     var createFormSend = function (data) {
         var url = "/contacts/";

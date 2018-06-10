@@ -36,13 +36,13 @@
               </td>
 
               <td class="td-name">
-                  <a href="#jacket"><%= company.name %></a>
-                  <br><small><%= company.address %></small>
+                 <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'View' do %>
+                 <%= company.name %>
+                 <% end %>
+                  <br><small><%= company.addres %></small>
               </td>
               <td>
-                <% company.each do |contact| %>
-                 <%= contact.name + ' ' %>
-                <% end %>
+              Contacts to be added
               </td>
               <td>
                <%= company.sector %>
@@ -56,7 +56,7 @@
               </td>
               <td class="td-actions">
 
-                  <%= link_to company, class: '', rel: 'tooltip', title: 'View' do %>
+                  <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
                       <i class="material-icons text-info">person</i>
                   <% end %>
 

@@ -59,6 +59,8 @@ class ApplicationController < ActionController::Base
     @contacts = @contacts ||= current_user.contacts.order('last_name ASC').page(params[:page]) if current_user
     @users = User.all
     @search = Search.new
+    @company = Company.new
+
   end
 
 end
