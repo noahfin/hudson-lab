@@ -228,5 +228,8 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 });
 
 $('#deals-select').selectpicker('setStyle', 'btn-outline-info');
+if( /Android|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+  $('.selectpicker').selectpicker('mobile');
+}
 
 </script>

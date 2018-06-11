@@ -9,7 +9,7 @@
    <%= form_tag inport_contacts_path, multipart: true do %>
    <div class="row" style="width 100% !important;">
       <div class="col-md-6 text-white mb-4">
-         <label class=" text-white ml-2" >Choose file<small>(required)</small></label>
+         <label class=" text-white ml-2" >Choose file  <small>(required)</small></label>
          <div class="fileinput fileinput-new input-group pt-3" data-provides="fileinput">
             <span class="input-group-addon btn bg-black text-white btn-file ml-2"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span> <%= file_field_tag :file %></span>
             <a href="#" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
@@ -20,26 +20,28 @@
          </div>
       </div>
       <div class="col-md-6">
-         <label class=" text-white ml-2" >Select Groups and Employees <small>(required)</small></label>
+         <label class=" text-white ml-2" >Select Groups and Employees  <small>(required)</small></label>
          <!-- Tabs with icons on Card -->
          <div class="card card-nav-tabs mdl-color--grey-900">
-            <div class="card-header bg-black">
-               <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-               <div class="nav-tabs-navigation">
-                  <div class="nav-tabs-wrapper">
-                     <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
-                           <a class="nav-link" href="#users" data-toggle="tab">
-                           <i class="material-icons">face</i> Users
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" href="#group" data-toggle="tab">
-                              <i class="material-icons">group</i> Group
-                              <div class="ripple-container"></div>
-                           </a>
-                        </li>
-                     </ul>
+            <div class="card-header mdl-color--grey-900 p-0 rounded-0">
+               <div class="mdl-color--grey-900 div-header pt-4">
+                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                  <div class="nav-tabs-navigation">
+                     <div class="nav-tabs-wrapper">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                           <li class="nav-item">
+                              <a class="nav-link" href="#users" data-toggle="tab">
+                              <i class="material-icons">face</i> Users
+                              </a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#group" data-toggle="tab">
+                                 <i class="material-icons">group</i> Group
+                                 <div class="ripple-container"></div>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
                   </div>
                </div>
             </div>
@@ -111,7 +113,7 @@
    </div>
    <div class="modal-footer b-top">
       <hr>
-      <%= submit_tag "Import CSV", class: "btn bg-hudson" %>
+      <%= submit_tag "Import CSV", class: "btn btn-outline-info rounded-0" %>
    </div>
    <% end %>
 </div>
