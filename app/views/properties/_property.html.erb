@@ -19,13 +19,13 @@
 
             <ul class="list-inline">
                <li class=" list-inline-item">
-                  <%= link_to  property_issues_path(property), class: 'btn btn-link btn-success text-success' do %>
-          Fix  <i class="material-icons">build</i>
+                  <%= link_to  property_issues_path(property), class: 'btn btn-link' do %>
+         <span class="text-white"> Fix </span> <i class="material-icons  text-success ">build</i>
                   <% end %>
                </li>
                <li class="list-inline-item">
                   <%= link_to  new_property_issue_path(property), class: 'btn btn-link btn-danger text-danger' do %>
-                    New <i class="material-icons">report_problem</i>
+             <span class="text-white">  New </span> <i class="material-icons">report_problem</i>
                   <% end %>
                </li>
 

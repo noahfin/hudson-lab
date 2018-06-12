@@ -1,5 +1,5 @@
 <div class="container">
-   <header class="section__title card-h-1">
+   <header class=" p-4 card-1 " style=" box-shadow: inset 0 0 0 4px rgba( 37, 37, 37, 0.5);">
       <h2><%= @property.name %></h2>
       <small><%= @property.address %></small>
    </header>
@@ -26,10 +26,8 @@
             <div class="detail-info">
                <div class="card  card-1">
                   <div class="card-header  card-header-icon ">
-                     <div class="card-icon bg-black">
-                        <i class="material-icons"></i>
-                     </div>
-                     <h4 class="card-title text-white">Basic Property Facts</h4>
+
+                     <h4 class="card-title text-white ml-3">Basic Property Facts</h4>
                   </div>
                   <div class="card-body ">
                      <div class="row">
@@ -302,8 +300,10 @@
             </div>
          </div>
          <div class="card  card-1 pl-4 pr-4 pt-4 pb-3  ">
-            <div class="card-header">
+            <div class="card-header p-0">
+               <div class=" card-1  div-header p-4">
                <h2>Highlights</h2>
+                </div>
             </div>
             <div class="card-body">
                <ul class="list-group">
@@ -363,16 +363,21 @@
             </div>
          </div>
          <div class="card  card-1  p-4">
-            <div class="card-header">
+
+            <div class="card-header p-0">
+            <div class=" card-1  div-header p-4">
                <h2>Property Overview</h2>
             </div>
+         </div>
             <div class="card-body">
                <p><%=  @property.description %></p>
             </div>
          </div>
          <div class="card  card-1  p-4">
             <div class="card-header">
+            <div class=" card-1  div-header p-4">
                <h2>Property Comments <span class="float-right"><small><%= link_to 'New post', new_property_post_path(@property), class: 'text-muted' %></span></small></h2>
+            </div>
             </div>
             <div class="card-body">
                <%  @property.posts.each do |post| %>
@@ -408,8 +413,12 @@
       </div>
       <div id="inquire" class="col-md-4 rmd-sidebar-mobile">
          <div class="card card-1">
-            <div class="card-header">
-               <h4 class="card-title text-white">Owners Informations</h4>
+
+               <div class="card-header p-0">
+             <div class=" card-1  div-header p-4">
+              <h4 class="card-title text-white">Owners Informations</h4>
+            </div>
+
             </div>
             <div class="card-body">
                <div id="accordion" role="tablist">
@@ -433,13 +442,15 @@
                      </div>
                   </div>
                   <div class="card-collapse">
-                     <div class="card-header card-h-1 pl-2" role="tab" id="headingTwo">
+                     <div class="card-header p-0" role="tab" id="headingTwo">
+                      <div class=" card-1  div-header p-4">
                         <h5 class="mb-0">
                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                            Owners Phone Number
                            <i class="material-icons">keyboard_arrow_down</i>
                            </a>
                         </h5>
+                     </div>
                      </div>
                      <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body">
@@ -468,22 +479,16 @@
                   </div>
                </div>
             </div>
-         </div>
-         <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="tasks-form-modal">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content bg-black" id="f-body">
-               </div>
-            </div>
-         </div>
-         <div class="card card-1">
-            <div class="card-header card-header-tabs  bg-black">
+         <div class="card card-1 mb-4">
+            <div class="card-header   bg-black">
+
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                           <a class="nav-link active" href="#profile" data-toggle="tab">
+                           <a class="nav-link active text-info " href="#profile" data-toggle="tab">
                               <i class="material-icons">bug_report</i>
-                              Onwner
+                            <span class="text-info"> Onwner</span>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
@@ -498,7 +503,7 @@
                   </div>
                </div>
             </div>
-            <div class="card-body">
+            <div class="card-body mb-4">
                <div class="tab-content">
                   <div class="tab-pane active" id="profile">
                      <table class="table">
@@ -510,11 +515,21 @@
                </div>
             </div>
          </div>
-         <div class="card card-1">
-            <div class="card-header">
+         </div>
+         <div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="tasks-form-modal">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content bg-black" id="f-body">
+               </div>
+            </div>
+         </div>
+
+         <div class="card card-1 mt-4 mb-4">
+            <div class="card-header p-0 mt-4">
+                <div class=" card-1  div-header p-4">
                <h4 class="card-title text-white">Borkers Informations</h4>
             </div>
-            <div class="card-body">
+            </div>
+            <div class="card-body mt-4">
                <div id="accordion" role="tablist">
                   <div class="card-collapse">
                      <div class="card-header card-h-1 pl-2" role="tab" id="heading-b-One">
@@ -571,10 +586,15 @@
                </div>
             </div>
          </div>
-         <div class="card hidden-xs hidden-sm hidden-print  card-1">
-            <div class="card__header  p-4">
+         <div class="mt-4 p4">
+
+         </div>
+         <div class="card hidden-xs hidden-sm hidden-print mt-4 card-1">
+            <div class="card-header  p-0">
+               <div class=" card-1  div-header p-4">
                <h2>Also Related...</h2>
                <small>Smimliar properties that are in the category <%= @property.category %></small>
+            </div>
             </div>
             <div class="col-md-12">
                <!--Image-->
@@ -643,11 +663,13 @@
             <div class="p-10"></div>
          </div>
          <div class="card-1 card p-3">
-            <div class="card-header">
+              <div class="card-header  p-0">
+               <div class=" card-1  div-header p-4">
                <h4 class="card-title text-white">All Contact related <span class="float-right"><%= link_to edit_property_path( @property.id), class: "text-info", title: 'edit property', rel: "tooltip"  do %>
                   <i class="material-icons text-info">account_circle</i>
                   <% end %></span>
                </h4>
+            </div>
             </div>
             <div class="table-responsive table-sales">
                <table class="table">
@@ -667,11 +689,14 @@
             </div>
          </div>
          <div class="card-1 card p-3">
-            <div class="card-header">
+            <div class="card-header p-0">
+
+               <div class=" card-1  div-header p-4">
                <h4 class="card-title text-white">Issues for this Property <span class="float-right"> <%= link_to  new_property_issue_path(@property) do %>
                   <i class="material-icons text-danger">report_problem</i>
                   <% end %></span>
                </h4>
+            </div>
             </div>
             <div class="table-responsive table-sales">
                <table class="table">
