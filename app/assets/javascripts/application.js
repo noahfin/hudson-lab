@@ -21,6 +21,8 @@
 //= require jquery-ui/core
 //= require conversations
 //= require vendorapps
+//= require moment
+//= require fullcalendar
 //= require smoothscroll.min.js
 //= require material-kit.min.js
 //= require material-kit-demo.js

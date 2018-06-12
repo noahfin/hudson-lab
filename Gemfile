@@ -27,6 +27,8 @@ gem 'csv'
 gem 'simple_form'
 gem 'pg_search'
 gem 'warden'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

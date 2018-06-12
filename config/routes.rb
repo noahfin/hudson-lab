@@ -16,6 +16,7 @@
     resources :groups
     resources :tasks
     resources :companies
+    resources :events
     resources :projects do
 
       get 'resources', on: :collection
