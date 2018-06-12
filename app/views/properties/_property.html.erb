@@ -3,9 +3,9 @@
    <% property.each do |property| %>
    <div  class="col-md-4">
       <div class="card-custom-background" >
-              <div class="card-headed-overlay">
+         <div class="card-headed-overlay">
 
-            </div>
+         </div>
          <div class="card-background-left div-sides">
 
          </div>
@@ -19,13 +19,13 @@
 
             <ul class="list-inline">
                <li class=" list-inline-item">
-                  <%= link_to  property_issues_path(property), class: '  ' do %>
-                 <small class="text-success"> Fix <i class="fa fa-exclamation-triangle"></i></small>
+                  <%= link_to  property_issues_path(property), class: 'btn btn-link btn-success text-success' do %>
+          Fix  <i class="material-icons">build</i>
                   <% end %>
                </li>
                <li class="list-inline-item">
-                  <%= link_to  new_property_issue_path(property), class: '' do %>
-                     <small class="text-danger"> New <i class="fa fa-exclamation-triangle"></i></small>
+                  <%= link_to  new_property_issue_path(property), class: 'btn btn-link btn-danger text-danger' do %>
+                    New <i class="material-icons">report_problem</i>
                   <% end %>
                </li>
 

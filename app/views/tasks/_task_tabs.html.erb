@@ -5,8 +5,8 @@
    <% end %>
  <% end %>
 
-   <div class="tab-pane" id="task-contacts-list" >
-         <h6>This id the task-contacts-list</h6>
+   <div class="tab-pane" id="task-contacts-list">
+         <h6>Action Steps For Contacts</h6>
       <table class="table">
          <% task_contact_array.each_with_index do |task, index| %>
          <% next if task_contact_array[index].nil? || task_contact_array[index] == '' %>
@@ -48,7 +48,7 @@
 
 
    <div class="tab-pane " id="task-projects-list">
-      <h6>This the task-projects-list</h6>
+       <h6>Action Steps For Projects</h6>
       <table class="table">
          <% projects_array.each_with_index do |task, index|%>
           <% next if  projects_array[index].nil? ||  projects_array[index] == '' %>
@@ -89,6 +89,7 @@
 
 
    <div class="tab-pane " id="task-leads-list">
+       <h6>Action Steps For Leads</h6>
       <table class="table">
          <% leads_array.each_with_index do |task, index|%>
          <% next if  leads_array[index].nil? ||  leads_array[index] == '' %>
@@ -129,8 +130,8 @@
  <% end %>
 
 
-   <div class="tab-pane " id="task-marketing-list" >
-      <h6>This id the task-marketing-list</h6>
+   <div class="tab-pane" id="task-marketing-list" >
+      <h6>Action Steps For Marketing</h6>
       <table class="table">
          <% groups_array.each_with_index do |task, index| %>
          <% next if  groups_array[index].nil? ||  groups_array[index] == '' %>
