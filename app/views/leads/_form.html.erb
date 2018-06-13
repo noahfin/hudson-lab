@@ -1,4 +1,4 @@
-<div class="ml-4 pl-2">
+<div class="main main-raised main-product bg-black p-3 mt-3">
    <%= form_with(model: lead, local: true) do |form| %>
    <% if lead.errors.any? %>
    <div id="error_explanation">
@@ -11,36 +11,30 @@
    </div>
    <% end %>
    <div class="">
-      <div class="col-md-8 col-md-offset-2 bg-footer">
+      <div class="">
          <div class="row">
             <div class="col-md-6">
                <h3 class="page-title">Lead Form </h3>
             </div>
             <div class="col-md-6">
-               <div class="">
-                  <%= form.submit class: 'btn info-color-dark rounded-0 btn-lg pull-right mt-3' %>
-                  </span>
-               </div>
             </div>
          </div>
       </div>
-      <div class="col-md-8 col-md-offset-2 bg-footer">
-         <div class="row">
-            <div class="col-md-6 mt-4">
-               <div class="form-group">
-                  <label  class="bmd-label-floating text-white">Company Name <span class="text-danger">*</span></label>
-                  <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white' %>
-               </div>
+      <div class="row">
+         <div class="col-md-6 mt-4">
+            <div class="form-group">
+               <label  class="bmd-label-floating text-white">Company Name <span class="text-danger">*</span></label>
+               <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white' %>
             </div>
-            <div class="col-md-6 mt-4">
-               <div class="form-group">
-                  <label  class="bmd-label-floating text-white">Contact Person</label>
-                  <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white' %>
-               </div>
+         </div>
+         <div class="col-md-6 mt-4">
+            <div class="form-group">
+               <label  class="bmd-label-floating text-white">Contact Person</label>
+               <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white' %>
             </div>
          </div>
       </div>
-      <div class="col-md-8 col-md-offset-2 bg-footer">
+      <div class="">
          <div class="row">
             <div class="col-sm-12 mt-4">
                <div class="form-group">
@@ -78,7 +72,7 @@
             </div>
          </div>
       </div>
-      <div class="col-md-8 col-md-offset-2 bg-footer ">
+      <div class="">
          <div class="row">
             <div class="col-sm-6 mt-4">
                <div class="form-group">
@@ -108,15 +102,18 @@
             </div>
          </div>
          <div class="row mb-4 pb-4">
-            <div class="col-sm-12 mt-4 mb-4 pb-4" >
+            <div class="col-sm-6 mt-4 mb-4 pb-4" >
                <div class="form-group">
                   <label class="bmd-label-floating">Notes  <span class="text-danger">*</span></label>
                   <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white mb-4'  %>
                </div>
             </div>
+            <div class="col-md-6 mt-4">
+                           <%= form.submit class: 'btn btn-outline-danger btn-round  btn-lg  pull-right mt-4' %>
+
+            </div>
+            <% end %>
          </div>
       </div>
    </div>
-   <% end %>
 </div>
-

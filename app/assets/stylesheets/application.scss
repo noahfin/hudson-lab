@@ -13,7 +13,6 @@
  *= require jquery-ui/menu
  *= require jasny-bootstrap.min
  *= require font-awesome
- *= require fullcalendar
  *= require_tree .
  *= require_self
  */
@@ -29,6 +28,7 @@
   font-family: 'Roboto', sans-serif !important;
   font-weight: 300;
 }
+
 .small-image {
   width: 80px;
   height: 80px;
