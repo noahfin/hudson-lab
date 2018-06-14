@@ -335,7 +335,12 @@
   background-size: cover;
   -o-background-size: cover;
 }
-
+.main-lead  {
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
 .property-card {
   background-image: no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -921,4 +926,12 @@ div.dataTables_wrapper {
   border-radius: 0px !important;
 }
 
-
+.float-right-postion-standerd {
+  position: absolute;
+  right: 1rem;
+}
+.btn-outline-white {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+  color: white !important;
+}

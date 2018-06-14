@@ -1,4 +1,4 @@
-<div class="main main-raised main-product bg-black p-3 mt-3">
+<div class="main main-raised main-lead  p-3 mt-3" data-parallax="true" style="background-image: url('<%= asset_url("fabian-kozdon-271993-unsplash.jpg") %>')";>
    <%= form_with(model: lead, local: true) do |form| %>
    <% if lead.errors.any? %>
    <div id="error_explanation">
@@ -13,103 +13,125 @@
    <div class="">
       <div class="">
          <div class="row">
-            <div class="col-md-6">
-               <h3 class="page-title">Lead Form </h3>
+            <div class="col-md-12">
+               <h3 class="page-title">Lead Form <span><%= form.submit class: 'btn btn-outline-white roundd-0  float-right mr-4' %></span></h3>
             </div>
-            <div class="col-md-6">
-            </div>
+
          </div>
       </div>
       <div class="row">
-         <div class="col-md-6 mt-4">
-            <div class="form-group">
-               <label  class="bmd-label-floating text-white">Company Name <span class="text-danger">*</span></label>
-               <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white' %>
+         <div class="col-md-6" >
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5">
+                  <label  class="bmd-label-floating text-white">Company Name </label>
+                  <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white' %>
+               </div>
             </div>
          </div>
-         <div class="col-md-6 mt-4">
-            <div class="form-group">
+         <div class="col-md-6">
+               <div class="  m-4 p-3  bg-gray66">
+            <div class="form-group card card-5">
                <label  class="bmd-label-floating text-white">Contact Person</label>
                <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white' %>
+            </div>
             </div>
          </div>
       </div>
       <div class="">
          <div class="row">
-            <div class="col-sm-12 mt-4">
-               <div class="form-group">
-                  <label  class="bmd-label-floating text-white">Address</label>
-                  <%= form.text_field :address, id: :lead_address, class: 'form-control  text-white' %>
+            <div class=" col-sm-3 ">
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <label  class="bmd-label-floating text-white pb-4">Size Requirement</label>
+                  <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control  text-white mt-4' %>
                </div>
             </div>
-            <div class=" col-sm-3 mt-4">
-               <div class="form-group">
-                  <label  class="bmd-label-floating text-white">Size Requirement</label>
-                  <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control  text-white' %>
-               </div>
             </div>
-            <div class="col-sm-3 mt-4">
-               <div class="form-group">
+            <div class="col-sm-3 ">
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Assign To</label>
-                  <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="lead[contact_id]" >
+                  <select class="selectpicker  mt-0 mb-0 pt-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="lead[contact_id]" id="lead-contact-user" >
                      <% User.all.each do |user| %>
                      <option class="text-dark" value=<%= "#{user.id}"%>><%= "#{user.first_name}"%></option>
                      <% end %>
                   </select>
                </div>
             </div>
-            <div class="col-sm-3 mt-4">
-               <div class="form-group">
+         </div>
+            <div class="col-sm-3">
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Location Need</label>
                   <%= form.text_field :location_need, id: :lead_location_need, class: 'form-control text-white' %>
                </div>
             </div>
-            <div class="col-sm-3 mt-4">
-               <div class="form-group">
+         </div>
+            <div class="col-sm-3 ">
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Postal Code</label>
                   <input class="form-control  text-white"  type="text">
                </div>
             </div>
          </div>
+         </div>
       </div>
       <div class="">
          <div class="row">
-            <div class="col-sm-6 mt-4">
-               <div class="form-group">
+            <div class="col-sm-6 ">
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Email</label>
                   <%= form.text_field :email, id: :lead_email, class: 'form-control  text-white' %>
                </div>
             </div>
-            <div class="col-sm-6 mt-4">
-               <div class="form-group">
+         </div>
+            <div class="col-sm-6">
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Phone Number</label>
                   <%= form.text_field :phone, id: :lead_phone, class: 'form-control  text-white' %>
                </div>
             </div>
+            </div>
          </div>
          <div class="row">
-            <div class="col-sm-6 mt-4">
-               <div class="form-group">
+            <div class="col-sm-6">
+               <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Mobile Number</label>
                   <%= form.text_field :number, id: :lead_number, class: 'form-control  text-white' %>
                </div>
             </div>
-            <div class="col-sm-6 mt-4">
-               <div class="form-group">
+            </div>
+            <div class="col-sm-6">
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label  class="bmd-label-floating text-white">Time Requirement</label>
                   <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white' %>
                </div>
             </div>
          </div>
-         <div class="row mb-4 pb-4">
-            <div class="col-sm-6 mt-4 mb-4 pb-4" >
-               <div class="form-group">
+         </div>
+         <div class="row mb-4 pb-4 ">
+            <div class="col-sm-6" >
+                   <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
                   <label class="bmd-label-floating">Notes  <span class="text-danger">*</span></label>
-                  <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white mb-4'  %>
+                  <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white '  %>
                </div>
             </div>
+            </div>
+            <div class="col-sm-6 ">
+                   <div class="  m-4 p-3  bg-gray66">
+                  <div class="form-group mt-4 card card-5 p-2">
+                  <label  class="bmd-label-floating text-white">Address</label>
+                  <%= form.text_field :address, id: :lead_address, class: 'form-control  text-white' %>
+               </div>
+            </div>
+            </div>
             <div class="col-md-6 mt-4">
-                           <%= form.submit class: 'btn btn-outline-danger btn-round  btn-lg  pull-right mt-4' %>
 
             </div>
             <% end %>

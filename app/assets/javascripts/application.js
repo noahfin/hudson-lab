@@ -52,6 +52,58 @@ $(document).on('click', '#property-submit', function (event) {
     $('.form-check-input')
     $(this).closest('form').submit();
 });
+
+$(document).on('click', '#Leads-contact-send', function (event) {
+   event.preventDefault();
+   var formData = {
+            lead: {
+                'size_requirement': $('#lead_size_requirement').val(),
+                'location_need': $('#lead_location_need').val(),
+                'user_id': $('#lead-contact-user').val(),
+                'time_requirement': $('#lead_time_requirement').val(),
+                'address': $('#contact_address').val(),
+                'number': $('#contact_cell').val(),
+                'phone': $('#contact_phone').val(),
+                'name': $('#contact_phone').val(),
+                'business': $('#contact_phone').val()
+
+              }
+            };
+
+    var url = "/leads/";
+        $.ajax({
+            url: url,
+            method: "post",
+            data: formData,
+            success: function (Lead) {
+
+                $.notify({
+                    title: "New Lead Added:",
+                    message: $('#contact_company').val() + '"' + ' was successfuly added as a new lead'
+                });
+
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        });
+
+});
+
 $(document).on('click', '.submit', function (event) {
     $(this).closest('form').submit();
 });
@@ -376,8 +428,10 @@ $(document).on('click', '#save-company', function (e) {
     });
 
 
-    var createCompanySend = function (data) {
-        var url = "/companies/";
+    // create new Lead with ajax
+
+    var createLeadSend = function (data) {
+        var url = "/leads/";
         $.ajax({
             url: url,
             method: "post",
@@ -385,7 +439,7 @@ $(document).on('click', '#save-company', function (e) {
             success: function (company) {
                 clsoeWiz();
                 $.notify({
-                    title: "New company Added:",
+                    title: "The Contact Was Also Added as A lead:",
                     message: $('#company_name').val() + '"' + ' was successfuly added to the database'
                 });
 

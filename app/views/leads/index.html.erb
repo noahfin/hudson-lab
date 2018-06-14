@@ -2,48 +2,50 @@
  <div class="card text-center card-1">
     <ul class="nav nav-pills card-1 div-header pt-3 card-header-pills">
       <li class="nav-item">
-        <a class="nav-link active bg-danger" href="#">Active</a>
+        <a class="nav-link active bg-black" href="#">Leads</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
+      <li class=" pull-right-btn-in nav">  <button type="" class="btn-back btn  btn-round btn-outline-info  float-right-postion-standerd">Go Back</button></li>
   </ul>
   <div class="table-responsive  card-1">
     <table class="table table-shopping">
         <thead>
             <tr>
-                <th class="text-center text-white">Company</th>
+                <th class="text-right text-white">Actions</th>
                 <th class="text-center text-white">Contact</th>
                 <th class="text-center text-white">Email</th>
                 <th class="th-description text-center text-white">Size requirement</th>
                 <th class="text-right text-white">Location Need </th>
                 <th class="text-center text-white">Date</th>
-                <th class="text-right text-white">Actions</th>
-
                 <th></th>
             </tr>
         </thead>
           <tbody>
                 <% @leads.each do |lead| %>
               <tr>
-                  <td>
-                      <div class="img-container">
-                          <img src="placholder.png">
-                      </div>
-                  </td>
+                <td class="td-actions">
+                    <%= link_to lead, class: '', rel: 'tooltip', title: 'View' do %>
+                        <i class="material-icons text-info">person</i>
+                    <% end %>
+                    <%= link_to edit_lead_path(lead), class: '', rel: 'tooltip', title: 'Edit' do %>
+                        <i class="material-icons text-success">edit</i>
+                    <% end %>
 
+                      <%= link_to lead, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
+                        <i class="material-icons text-danger">close</i>
+                     <% end %>
+                  </td>
                   <td class="td-name">
                       <a href="#jacket"><%= lead.business %></a>
                       <br><small><%= lead.address %></small>
                   </td>
-
                   <td>
                      <%= lead.email %>
                   </td>
-
                   <td>
                     <%= lead.size_requirement %>
                   </td>
@@ -54,18 +56,6 @@
                   <td class="text-center">
                       <%= lead.date %>
                   </td>
-                  <td class="td-actions">
-                      <%= link_to lead, class: '', rel: 'tooltip', title: 'View' do %>
-                          <i class="material-icons text-info">person</i>
-                      <% end %>
-                      <%= link_to edit_lead_path(lead), class: '', rel: 'tooltip', title: 'Edit' do %>
-                          <i class="material-icons text-success">edit</i>
-                      <% end %>
-
-                        <%= link_to lead, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
-                          <i class="material-icons text-danger">close</i>
-                       <% end %>
-                  </td>
                   <% end %>
               </tr>
           </tbody>
@@ -74,7 +64,7 @@
   </div>
 
 <br>
-  <button type="" class="btn-back btn  btn-round btn-outline-info  pull-right">Go Back</button>
+
 
 </div>
 <script>
