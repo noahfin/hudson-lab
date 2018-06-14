@@ -42,7 +42,14 @@ class TasksController < ApplicationController
         if  @task.group_ids = params['task']['group_ids']
            if  @task.contact_ids = params['task']['contact_ids']
            end
+
         end
+         if  @task.lead_ids = params['task']['lead_ids']
+             @task.lead_ids.each do |lead_id|
+               deal =  Lead.where(["lead_id = ?",  lead_id ])
+               deals.tasks <<  @task
+             end
+         end
         format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :created }
         format.js

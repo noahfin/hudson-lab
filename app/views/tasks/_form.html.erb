@@ -41,10 +41,10 @@
                   </div>
                </div>
                <div class="card-body">
-                  <% attr = {prompt: "Select related Deal"} %>
+                  <% attr = {prompt: "Select related Lead"} %>
 
-                  <label for="task[deal_id]" class="bmd-label-floating text-black">Pick deal<small>(required)</small></label>
-                     <%= f.collection_select :deal_ids, Deal.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_d_picker ", id: "deals-select" } %>
+                  <label for="task[lead_id]" class="bmd-label-floating text-black">Pick deal<small>(required)</small></label>
+                     <%= f.collection_select :lead_ids, Lead.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_d_picker ", id: "deals-select" } %>
                </div>
             </div>
          </div>
@@ -65,7 +65,7 @@
                     <div class="col-md-6 ml-auto mr-auto">
                      <% attr = {prompt: "Select related users"} %>
                      <% attr[:selected] = current_user.id.to_i if current_user.id %>
-                     <label for="user_ids[]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
+                     <label for="user_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
                      <%= f.collection_select :user_ids, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_u_picker users-for-new-group", id: "users-t" } %>
                   </div>
                   <div class="col-md-6">
