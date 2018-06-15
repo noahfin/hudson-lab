@@ -23,7 +23,7 @@
          </li>
          <li class="nav-item" role="presentation" >
             <a class="nav-link nav-a-tab text-white" data-toggle="tab" href="#task-contacts-tab"  aria-controls="task-contacts-tab" role="tablist">
-            <i class="material-icons">supervised_user_circle</i> Contacts
+            <i class="material-icons">supervised_user_circle</i> Projects
             </a>
          </li>
       </ul>
@@ -44,7 +44,7 @@
                   <% attr = {prompt: "Select related Lead"} %>
 
                   <label for="task[lead_id]" class="bmd-label-floating text-black">Pick deal<small>(required)</small></label>
-                     <%= f.collection_select :lead_ids, Lead.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_d_picker ", id: "deals-select" } %>
+                     <%= f.collection_select :lead_ids, Lead.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
                </div>
             </div>
          </div>
@@ -56,7 +56,7 @@
 
                   <h4 class="card-title  text-black">Action Step and related users</h4>
                   <p class="card-category">
-                    Create The Task And Find The Related Users
+                    Create The Task And Find The Related Users and Contacts
                   </p>
                   </div>
                </div>
@@ -84,40 +84,7 @@
                      </div>
                   </div>
                 </div>
-               </div>
-            </div>
-         </div>
-         <div class="tab-pane" role="tabpanel" id="task-groups-tab" style="display:none;">
-            <div class="card  card-nav-tabs bg-white text-black rounded-0">
-               <div class="card-header bg-white  text-black p-0">
-               <div class="bg-white div-header p-4 text-black">
-                  <h4 class="card-title text-black">Marketing Campaign</h4>
-                  <p class="card-category text-gray">
-                     Find and select related groups
-                  </p>
-               </div>
-               </div>
-               <div class="card-body">
-                  <div class="col-md-6 ml-auto mr-auto">
-                     <% attr = {prompt: "Select related users"} %>
-                     <% attr[:selected] =  session[:selected_group_id] %>
-                     <label for="user_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
-                     <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="tab-pane" role="tabpanel" id="task-contacts-tab" style="display:none;">
-            <div class="card rounded-0 card-nav-tabs ">
-               <div class="card-header bg-white p-0 mb-4">
-                     <div class="bg-white div-header p-4">
-                  <h4 class="card-title">Action Steps That Relate To Contacts</h4>
-                  <p class="card-category">
-                     Search to find contacts then click on their name
-                  </p>
-               </div>
-               </div>
-               <div class="card-body">
+                <div class="row">
                   <div class="col-md-6">
                      <div class="form-group  pt-1 mt-1">
                         <div class=" pt-0 mt-0  ">
@@ -197,6 +164,50 @@
                            </div>
                         </div>
                      </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+         <div class="tab-pane" role="tabpanel" id="task-groups-tab" style="display:none;">
+            <div class="card  card-nav-tabs bg-white text-black rounded-0">
+               <div class="card-header bg-white  text-black p-0">
+               <div class="bg-white div-header p-4 text-black">
+                  <h4 class="card-title text-black">Marketing Campaign</h4>
+                  <p class="card-category text-gray">
+                     Find and select related groups
+                  </p>
+               </div>
+               </div>
+               <div class="card-body">
+                  <div class="col-md-6 ml-auto mr-auto">
+                     <% attr = {prompt: "Select related groups"} %>
+                     <% attr[:selected] =  session[:selected_group_id] %>
+                     <label for="user_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
+                     <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="tab-pane" role="tabpanel" id="task-contacts-tab" style="display:none;">
+            <div class="card rounded-0 card-nav-tabs ">
+               <div class="card-header bg-white p-0 mb-4">
+                     <div class="bg-white div-header p-4">
+                  <h4 class="card-title">Action Steps That Relate To Projects</h4>
+                  <p class="card-category">
+                     Search to find contacts then click on their name
+                  </p>
+               </div>
+               </div>
+               <div class="card-body">
+                  <div class="col-md-6">
+                 <div class="form-group ml-auto mr-auto">
+                     <% attr = {prompt: "Select related projects"} %>
+
+                     <label for="user_ids[]" class="bmd-label-floating text-black">Pick Projects<small>(required)</small></label>
+                     <%= f.collection_select :project_ids, Project.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker ", id: "projects-select" } %>
+                  </div>
+
                   </div>
                </div>
             </div>

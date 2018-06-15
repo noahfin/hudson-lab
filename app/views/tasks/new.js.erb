@@ -2,7 +2,8 @@
 $('#tasks-form-modal').modal('show');
 $('#f-body').html('<%= j render("form") %>' );
 
-$('#deals-select').selectpicker('val', '<%= @deals.to_s %>').selectpicker('setStyle', 'btn-outline-info');
+$('#leads-select').selectpicker('val', '<%= @leads.to_s %>').selectpicker('setStyle', 'btn-outline-info');
+$('#projects-select').selectpicker('val', '<%= @projects.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 
 $('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info');

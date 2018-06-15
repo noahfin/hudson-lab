@@ -20,6 +20,8 @@ class TasksController < ApplicationController
 
   def new
     @deals = Deal.all
+    @projects = Project.all
+    @leads = Lead.all
     respond_to do |format|
     @task = Task.new
       format.html
@@ -50,6 +52,10 @@ class TasksController < ApplicationController
                deals.tasks <<  @task
              end
          end
+          if  @task.project_ids = params['task']['projects_ids']
+
+         end
+
         format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :created }
         format.js
@@ -99,7 +105,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, :group_ids, :team_ids, :lead_ids, :projects_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []},  {:team_ids => []}, {:lead_ids => []}, {:deal_ids => []}, {:contact_ids => []}, {:projects_ids => []})
+      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, :group_ids, :team_ids, :lead_ids, :project_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []},  {:team_ids => []}, {:lead_ids => []}, {:deal_ids => []}, {:contact_ids => []}, {:project_ids => []})
     end
 
 
