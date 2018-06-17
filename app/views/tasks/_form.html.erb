@@ -36,15 +36,15 @@
                   <div class="bg-white div-header p-4">
                   <h4 class="card-title">Create Action Steps For Deals</h4>
                   <p class="card-category">
-                     Select the Deal so it will tied to this Action Step
+                     Select the Deal or Lead so it will tied to this Action Step
                   </p>
                   </div>
                </div>
                <div class="card-body">
-                  <% attr = {prompt: "Select related Lead"} %>
+                  <% attr = {prompt: "Select"} %>
 
-                  <label for="lead_ids" class="bmd-label-floating text-black">Pick deal<small>(required)</small></label>
-                     <%= f.collection_select :lead_ids, Lead.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
+                  <label for="lead_ids" class="bmd-label-floating text-black">Pick Lead<small>(required)</small></label>
+                     <%= f.collection_select :lead_ids, Lead.all, :id, :name,  attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
                </div>
             </div>
          </div>
@@ -63,7 +63,7 @@
                <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
-                     <% attr = {prompt: "Select related users"} %>
+
                      <% attr[:selected] = current_user.id.to_i if current_user.id %>
                      <label for="user_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
                      <%= f.collection_select :user_ids, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_u_picker users-for-new-group", id: "users-t" } %>
@@ -181,9 +181,9 @@
                </div>
                <div class="card-body">
                   <div class="col-md-6 ml-auto mr-auto">
-                     <% attr = {prompt: "Select related groups"} %>
+
                      <% attr[:selected] =  session[:selected_group_id] %>
-                     <label for="group_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
+                     <label for="group_ids[]" class="bmd-label-floating text-black">Pick Groups<small></small></label>
                      <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
                   </div>
                </div>
@@ -200,15 +200,28 @@
                </div>
                </div>
                <div class="card-body">
+                  <div class="row">
+
+
                   <div class="col-md-6">
                  <div class="form-group ml-auto mr-auto">
                      <% attr = {prompt: "Select related projects"} %>
 
-                     <label for="project_ids[]" class="bmd-label-floating text-black">Pick Projects<small>(required)</small></label>
+                     <label for="project_ids[]" class="bmd-label-floating text-black">Pick Projects<small></small></label>
                      <%= f.collection_select :project_ids, Project.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker ", id: "projects-select" } %>
                   </div>
 
                   </div>
+                <div class="col-md-6">
+                 <div class="form-group ml-auto mr-auto">
+               <% attr = {prompt: "Select"} %>
+
+                  <label for="property_ids" class="bmd-label-floating text-black">Pick Properties<small></small></label>
+                     <%= f.collection_select :property_ids, Property.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_property_picker ", id: "property-select" } %>
+               </div>
+               </div>
+               </div>
+               </div>
                </div>
             </div>
          </div>

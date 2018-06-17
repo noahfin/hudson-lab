@@ -21,7 +21,11 @@
                   </label>
                </div>
             </td>
-            <td><%= task.name   + " Has contacts"%></td>
+            <td><%= task.name %></td>
+                    <td><%  task.contacts.each_with_index do |contact, index|%>  <%= link_to contact_path(contact.id), class: "btn  btn-link btn-sm", remote: true, title: 'View contact', rel: "tooltip"  do %>
+               <%= contact.name + " | " %>
+                <% end %>
+               <% end %></td>
             <td class="td-actions text-right">
                <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons">edit</i>
@@ -38,6 +42,52 @@
       </table>
    </div>
 
+
+
+
+ <% properties_array = [] %>
+  <% @tasks.each do |task| %>
+  <% if !task.properties.empty? %>
+   <% properties_array.push(task)%>
+   <% end %>
+ <% end %>
+
+
+   <div class="tab-pane " id="task-properties_list">
+       <h6>Action Steps For Properties</h6>
+      <table class="table">
+         <% properties_array.each_with_index do |task, index|%>
+          <% next if  properties_array[index].nil? ||  properties_array[index] == '' %>
+         <tr id="edit_task_<%= task.id %>">
+            <td>
+               <div class="form-check">
+                  <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
+                  <span class="form-check-sign">
+                  <span class="check"></span>
+                  </span>
+                  </label>
+               </div>
+            </td>
+            <td><%= task.name %></td>
+               <td><%  task.properties.each_with_index do |property, index|%>  <%= link_to property_path(property.id), class: "btn  btn-link btn-sm", remote: true, title: 'View property', rel: "tooltip"  do %>
+               <%= property.name + " | " %>
+                <% end %>
+               <% end %></td>
+            <td class="td-actions text-right">
+               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons">edit</i>
+               <% end %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <i class="material-icons">close</i>
+               <% end %>
+            </td>
+         </tr>
+         <% end %>
+         <tbody >
+         </tbody>
+      </table>
+   </div>
 
  <% projects_array = [] %>
   <% @tasks.each do |task| %>
@@ -63,7 +113,11 @@
                   </label>
                </div>
             </td>
-            <td><%= task.name  + " Has Projects"%></td>
+            <td><%= task.name %></td>
+               <td><%  task.projects.each_with_index do |project, index|%>  <%= link_to project_path(project.id), class: "btn  btn-link btn-sm", remote: true, title: 'View project', rel: "tooltip"  do %>
+               <%= project.name + " | " %>
+                <% end %>
+               <% end %></td>
             <td class="td-actions text-right">
                <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons">edit</i>
@@ -89,7 +143,7 @@
 
 
    <div class="tab-pane " id="task-leads-list">
-       <h6>Action Steps For Leads</h6>
+       <h6>Action Steps For Deals</h6>
       <table class="table">
          <% leads_array.each_with_index do |task, index|%>
          <% next if  leads_array[index].nil? ||  leads_array[index] == '' %>
@@ -104,7 +158,11 @@
                   </label>
                </div>
             </td>
-            <td><%= task.name  + " Has Leads" %></td>
+            <td><%= task.name %></td>
+            <td><%  task.leads.each_with_index do |lead, index|%>  <%= link_to lead_path(lead.id), class: "btn  btn-link btn-sm", remote: true, title: 'View lead', rel: "tooltip"  do %>
+               <%= lead.name + " | " %>
+                <% end %>
+               <% end %></td>
             <td class="td-actions text-right">
                <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons">edit</i>
@@ -146,7 +204,11 @@
                   </label>
                </div>
             </td>
-            <td><%= task.name + " Has Groups" %></td>
+            <td><%= task.name %></td>
+             <td><%  task.groups.each_with_index do |group, index|%>  <%= link_to group_path(group.id), class: "btn  btn-link btn-sm", remote: true, title: 'View Group', rel: "tooltip"  do %>
+               <%= group.name + " | " %>
+                <% end %>
+               <% end %></td>
             <td class="td-actions text-right">
                <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons">edit</i>
