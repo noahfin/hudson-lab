@@ -53,6 +53,20 @@ class DealsController < ApplicationController
        flash[:info] = "Deal Was Updated."
        redirect_to deal_path(params[:id])
   end
+ def destroy
+    respond_to do |format|
+      if @deal.destroy
+        flash[:danger] = "The deal was successfully deleted."
+        format.html { redirect_to deals_url }
+        format.json { head :no_content }
+        format.js
+      else
+        format.html { redirect_to deals_url }
+        format.json { render json: @deal.errors, status: :forbidden }
+        format.js { render status: :forbidden }
+      end
+    end
+  end
 
    private
 

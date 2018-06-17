@@ -1,6 +1,6 @@
  <% task_contact_array = [] %>
   <% @tasks.each do |task| %>
-  <% if task.contacts .count > 1 %>
+  <% if task.contacts.count >= 1 %>
    <% task_contact_array.push(task)%>
    <% end %>
  <% end %>
@@ -41,7 +41,7 @@
 
  <% projects_array = [] %>
   <% @tasks.each do |task| %>
-  <% if task.projects .count > 1 %>
+  <% if task.projects.count >= 1 %>
    <% projects_array.push(task)%>
    <% end %>
  <% end %>
@@ -82,7 +82,7 @@
 
  <% leads_array = [] %>
   <% @tasks.each do |task| %>
-  <% if task.leads.count > 1 %>
+  <% if task.leads.count >= 1 %>
    <% leads_array.push(task)%>
    <% end %>
  <% end %>
@@ -124,7 +124,7 @@
 
  <% groups_array = [] %>
   <% @tasks.each_with_index do |task, index|%>
-  <% if task.groups.count > 1 %>
+  <% if task.groups.count >= 1 %>
    <% groups_array.push(task)%>
    <% end %>
  <% end %>

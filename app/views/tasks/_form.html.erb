@@ -23,7 +23,7 @@
          </li>
          <li class="nav-item" role="presentation" >
             <a class="nav-link nav-a-tab text-white" data-toggle="tab" href="#task-contacts-tab"  aria-controls="task-contacts-tab" role="tablist">
-            <i class="material-icons">supervised_user_circle</i> Projects
+            <i class="material-icons">folder_special</i> Projects
             </a>
          </li>
       </ul>
@@ -43,7 +43,7 @@
                <div class="card-body">
                   <% attr = {prompt: "Select related Lead"} %>
 
-                  <label for="task[lead_id]" class="bmd-label-floating text-black">Pick deal<small>(required)</small></label>
+                  <label for="lead_ids" class="bmd-label-floating text-black">Pick deal<small>(required)</small></label>
                      <%= f.collection_select :lead_ids, Lead.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
                </div>
             </div>
@@ -106,7 +106,7 @@
                                        <li class="list-inline-item m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1 c-ids">
+                                             <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact1 c-ids">
                                              <span class="c1  mt-4 p-2  text-center">contact 1</span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -117,7 +117,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2  c-ids">
+                                             <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact2  c-ids">
                                              <span class="c2 mt-4 p-2  text-center">contact 2 </span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -128,7 +128,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3  c-ids">
+                                             <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact3  c-ids">
                                              <span class="c3 mt-4 p-2 text-center"> contact 3 </span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -139,7 +139,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4  c-ids">
+                                             <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact4  c-ids">
                                              <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -150,7 +150,7 @@
                                        <li class="list-inline-item  m-2">
                                           <div class="form-check mr-3 pr-3">
                                              <label class="form-check-label">
-                                             <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                             <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact5  c-ids">
                                              <span class="c5 mt-4 p-2  text-center"> contact 5 </span>
                                              <span class="form-check-sign">
                                              <span class="check"></span>
@@ -183,7 +183,7 @@
                   <div class="col-md-6 ml-auto mr-auto">
                      <% attr = {prompt: "Select related groups"} %>
                      <% attr[:selected] =  session[:selected_group_id] %>
-                     <label for="user_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
+                     <label for="group_ids[]" class="bmd-label-floating text-black">Pick users<small>(required)</small></label>
                      <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
                   </div>
                </div>
@@ -204,7 +204,7 @@
                  <div class="form-group ml-auto mr-auto">
                      <% attr = {prompt: "Select related projects"} %>
 
-                     <label for="user_ids[]" class="bmd-label-floating text-black">Pick Projects<small>(required)</small></label>
+                     <label for="project_ids[]" class="bmd-label-floating text-black">Pick Projects<small>(required)</small></label>
                      <%= f.collection_select :project_ids, Project.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker ", id: "projects-select" } %>
                   </div>
 
@@ -216,7 +216,7 @@
    </div>
 </div>
      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-info mr-auto pull-left pl-4 pr-4 " data-dismiss="modal"> Close </button> <%= f.submit class: "btn btn-outline-info", id: "task-send" %>
+        <button type="button" class="btn btn-outline-info mr-auto pull-left pl-4 pr-4 " data-dismiss="modal"> Close </button> <%= f.submit class: "btn btn-outline-info", id: "task-send", remote: true %>
     </div>
 <% end %>
 <script>

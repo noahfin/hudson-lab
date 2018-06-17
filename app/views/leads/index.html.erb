@@ -1,82 +1,149 @@
 <div class="container-fluid">
- <div class="card text-center card-1">
-    <ul class="nav nav-pills card-1 div-header pt-3 card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link active bg-black" href="#">Leads</a>
-      </li>
-      <li class="nav-item">
-
-      </li>
-      <li class="nav-item">
-      </li>
-      <li class=" pull-right-btn-in nav">  <button type="" class="btn-back btn  btn-round btn-outline-info  float-right-postion-standerd">Go Back</button></li>
-  </ul>
-  <div class="table-responsive  card-1">
-    <table class="table table-shopping">
-        <thead>
-            <tr>
-                <th class="text-right text-white">Actions</th>
-                <th class="text-center text-white">Contact</th>
-                <th class="text-center text-white">Email</th>
-                <th class="th-description text-center text-white">Size requirement</th>
-                <th class="text-right text-white">Location Need </th>
-                <th class="text-center text-white">Date</th>
-                <th></th>
-            </tr>
-        </thead>
-          <tbody>
-                <% @leads.each do |lead| %>
-              <tr>
-                <td class="td-actions">
-                    <%= link_to lead, class: '', rel: 'tooltip', title: 'View' do %>
-                        <i class="material-icons text-info">person</i>
-                    <% end %>
-                    <%= link_to edit_lead_path(lead), class: '', rel: 'tooltip', title: 'Edit' do %>
-                        <i class="material-icons text-success">edit</i>
-                    <% end %>
-
-                      <%= link_to lead, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
-                        <i class="material-icons text-danger">close</i>
-                     <% end %>
-                  </td>
-                  <td class="td-name">
-                      <a href="#jacket"><%= lead.business %></a>
-                      <br><small><%= lead.address %></small>
-                  </td>
-                  <td>
-                     <%= lead.email %>
-                  </td>
-                  <td>
-                    <%= lead.size_requirement %>
-                  </td>
-
-                  <td class="td-number">
-                    <%= lead.location_need %>
-                  </td>
-                  <td class="text-center">
-                      <%= lead.date %>
-                  </td>
-                  <% end %>
-              </tr>
-          </tbody>
-      </table>
-    </div>
-  </div>
-
-<br>
-
-
+   <!--Section: Main panel-->
+   <div class="card rounded-0 pt-4 card-1 text-white">
+      <div class="col-md-12">
+         <!-- start of lead borderd table in container -->
+         <div class="container">
+            <div class="collapse" id="leads-header">
+               <div class="row">
+                  <div class="col-md-8">
+                     <h2>
+                        <span>   leads <%= link_to  new_lead_path, class: 'btn btn-just-icon btn-round bg-black ml-3' do %>
+                        <i class="fa fa-plus"></i>
+                        <% end %>
+                        <span class="ml-4 pl-3">
+                        <a class="btn bg-black  btn-left-margin" href=""><i class="fa fa-file-text"></i> Download Excel/CSV</a>
+                        </span> </span>
+                     </h2>
+                  </div>
+                  <div class="col-md-4">
+                     <form action="/crm/leads" id="user-search" class="well form-inline pull-right" method="post" accept-charset="utf-8">
+                        <div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
+                        <input name="data[lead][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">
+                        <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
+                           <i class="material-icons">search</i>
+                           <div class="ripple-container"></div>
+                        </button>
+                        <a class="btn bg-black text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
+                        <div id="hints" class="hints-search"></div>
+                     </form>
+                  </div>
+                  <div class="col-md-12">
+                     <div class="filter-box" style="display:none;">
+                        <form action="/crm/leads" class="well form-inline" id="leadIndexForm" method="post" accept-charset="utf-8">
+                           <div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
+                           <fieldset>
+                              <legend>Filters</legend>
+                              <div class="col-md-11">
+                                 <table>
+                                    <tbody>
+                                       <tr>
+                                          <td class="col-md-3" style="padding: 0;">
+                                             Name:&nbsp;
+                                             <div class="form-group"><input name="data[lead][search_name]" class="form-control" placeholder="Name" type="text" id="leadSearchName"></div>
+                                          </td>
+                                          <td class="col-md-3" style="padding: 0 10px 0 0;">
+                                             Amount:&nbsp;
+                                             <div class="form-group"><input name="data[lead][search_amount]" class="form-control" placeholder="Amount" type="text" id="leadSearchAmount"></div>
+                                          </td>
+                                          <td class="col-md-3" style="padding: 0;">
+                                             From:&nbsp;
+                                             <div class="form-group"><input name="data[lead][search_date_from]" class="form-control date  datetimepicker" placeholder="From" type="text" id="leadSearchDateFrom"></div>
+                                          </td>
+                                          <td class="col-md-3" style="padding: 0;">
+                                             To:&nbsp;
+                                             <div class="form-group"><input name="data[lead][search_date_to]" class="form-control date  datetimepickerr" placeholder="To " type="text" id="leadSearchDateTo"></div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                              <div class="col-md-1" style="padding-top: 2px;"><button class="btn btn-info btn-sm" type="submit">Filter</button></div>
+                           </fieldset>
+                        </form>
+                     </div>
+                  </div>
+                  <div class="col-md-12">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card card-1">
+            <div class="card-header card-header-icon card-1">
+               <div class="card-icon bg-black">
+                  <i class="material-icons">business</i>
+               </div>
+               <div class="row">
+                  <div class="col-md-10">
+                     <span class="pb-2">
+                        <h4 class="card-title text-white">leads
+                           <span class=" mt-0 pt-0 pb-4">
+                           </span>
+                        </h4>
+                  </div>
+                  <div class="col-md-2">
+                  <%= link_to new_lead_path, class: 'text-white 5 pb-4 add-lead pull-right' do %><i class="material-icons">add_box</i>    <% end %>
+                  </div>
+               </div>
+               </span>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table">
+                     <thead class=" text-primary">
+                        <tr>
+                           <th class="text-white">Action</th>
+                           <th class="text-white"><a href="text-white">Company</a></th>
+                           <th class="text-white"><a href="text-white">Contact Name</a></th>
+                           <th class="text-white"><a href="text-white">Email</a></th>
+                           <th class="text-white"><a href="text-white">Size</a></th>
+                           <th class="text-white"><a href="text-white"> Location Need</a></th>
+                           <th colspan="1" class="text-white text-right pr-4">Delete</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <% @leads.each do |l| %>
+                        <tr id="edit_lead_<%= lead.id %>">
+                           <td class="text-white">
+                              <%= link_to  edit_lead_path(lead) do %><i class="fa fa-edit"></i><% end %>
+                           </td>
+                           <td class="text-white"> <%= link_to lead_path(lead)  do %>    <%= lead.business %>
+                              <br><small><%= lead.address %></small>  <% end %>
+                           </td>
+                           <td  class="text-white">
+                              <%= lead.email %>
+                           </td>
+                           <td  class="text-white">
+                              <%= lead.size_requirement %>
+                           </td>
+                           <td  class="text-white">
+                              <%= lead.location_need %>
+                           </td>
+                           <td class="text-center">
+                              <%= lead.date %>
+                           </td>
+                           <td colspan="1" class="text-danger text-right">      <%= link_to lead_path(lead.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this lead?"}  do %>
+                              <i class="fa fa-trash text-white"></i>     <% end %>
+                           </td>
+                        </tr>
+                        <% end %>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
 <script>
-jQuery(function($) {
-    $("#more").click(function(){
-        $(".filter-box").toggle('fold');
-    });
-    $(".date").datepicker({ dateFormat: 'yy-mm-dd' });
-    $('#filter-result-close').click(function(){
-        window.location.href = "/crm/deals";
-    });
-});
+   jQuery(function($) {
+       $("#more").click(function(){
+           $(".filter-box").toggle('fold');
+       });
+       $(".date").datepicker({ dateFormat: 'yy-mm-dd' });
+       $('#filter-result-close').click(function(){
+           window.location.href = "/crm/leads";
+       });
+   });
 </script>
-
-<!-- end of deal borderd table  -->
+<!-- end of lead borderd table  -->

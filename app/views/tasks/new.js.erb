@@ -59,10 +59,14 @@ $('.get-contacts').autocomplete({
              var formData = {
             task: {
 
-              'name'    :  $('#task_name').val(),
-              'user_ids':  $('#users-t').val(),
-              'group_ids':  $('#groups-t').val(),
-              'contact_ids': contact_ids
+            'name': $('#task_name').val(),
+                'complete': $('#task_complete').val(),
+                'contact_ids': contact_ids,
+                'lead_ids': $('#leads-select').val(),
+                'user_ids': $('#users-t').val(),
+                'project_ids': $('#projects-select').val(),
+                'group_ids': $('#groups-t').val()
+
                   }
             }
 

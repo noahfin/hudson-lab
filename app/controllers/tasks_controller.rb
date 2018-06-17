@@ -46,13 +46,9 @@ class TasksController < ApplicationController
            end
 
         end
-         if  @task.lead_ids = params['task']['lead_ids']
-             @task.lead_ids.each do |lead_id|
-               deal =  Lead.where(["lead_id = ?",  lead_id ])
-               deals.tasks <<  @task
-             end
-         end
-          if  @task.project_ids = params['task']['projects_ids']
+
+          if  params['task']['projects_ids']
+            @task.projects = params['task']['projects_ids']
 
          end
 

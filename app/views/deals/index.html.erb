@@ -272,41 +272,44 @@
       <div class="card card-1">
                   <div class="card-header card-header-icon card-1">
                     <div class="card-icon bg-black">
-                      <i class="material-icons">assignment</i>
+                      <i class="material-icons">business</i>
                     </div>
-                    <h4 class="card-title text-white">Deals          <span>
-  <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#deals-header" aria-expanded="false" aria-controls="deals-header">
-   <i class="material-icons">whatshot</i>
-  </a>
-</span>
-</h4>
+                    <h4 class="card-title text-white">Deals <span>
+                    <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#deals-header" aria-expanded="false" aria-controls="deals-header">
+                     <i class="material-icons mr-4 pr-4">whatshot</i>
+                    </a>
+                  </span>
+                     </h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table">
                         <thead class=" text-primary">
                             <tr>
-               <th class="text-white">Action</th>
-               <th class="text-white"><a href="text-white">Company</a></th>
-               <th class="text-white"><a href="text-white">Contact Name</a></th>
-               <th class="text-white"><a href="text-white">Status</a></th>
-               <th class="text-white"><a href="text-white">User's Name</a></th>
-               <th class="text-white"><a href="text-white">Date</a></th>
-
-                        </tr></thead>
+                              <th class="text-white">Action</th>
+                              <th class="text-white"><a href="text-white">Company</a></th>
+                              <th class="text-white"><a href="text-white">Contact Name</a></th>
+                              <th class="text-white"><a href="text-white">Status</a></th>
+                              <th class="text-white"><a href="text-white">Date</a></th>
+                              <th class="text-white"><a href="text-white">User's Name</a></th>
+                              <th colspan="1" class="text-white text-right pr-4">Delete</th>
+                           </tr>
+                     </thead>
                         <tbody>
-                                    <% @deals.each do |deal| %>
-            <tr>
+            <% @deals.each do |deal| %>
+            <tr id="edit_deal_<%= deal.id %>">
                <td class="text-white">
                   <%= link_to  edit_deal_path(deal) do %><i class="fa fa-edit"></i><% end %>
                </td>
-
+               <%= link_to deal_path(deal)  do %>
                <td class="text-white"> <%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
-
                <td class="text-white"><% deal.contacts.first.name if deal.contacts.first %></td>
                <td class="text-white"><span class="label label-success"><%= deal.active %></span></td>
-               <td class="text-white"><% deal.users.each do |user| %> <span><%= user.first_name + ' ,' %> <% end %></span></td>
                <td class="text-white"><%= deal.created_at.strftime("%d %b. %Y") %></td>
+               <td class="text-white"><% deal.users.each do |user| %> <span><%= user.first_name + ' ,' %> <% end %></span></td>
+               <% end %>
+               <td colspan="1" class="text-danger text-right">      <%= link_to deal_path(deal.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this Deal?"}  do %>
+               <i class="fa fa-trash text-white"></i>     <% end %></td>
 
 
             </tr>
