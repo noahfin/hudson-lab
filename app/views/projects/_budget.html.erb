@@ -1,12 +1,26 @@
-<div class="col-md-12 slideInRight">
+<div class="col-md-12 slideInRight" id="budget_div">
 <div class="row">
-<div class="project-info" id="budget_div" >
-   <h4 class="info-title text-center text-white">Project Budget</h4>
-   Wifey made the best Father's Day meal ever. So thankful so happy so blessed. Thank you for making my family We just had fun with the “future” theme !!! It was a fun night all together ... The always rude Kanye Show at 2am Sold Out Famous viewing @ Figueroa and 12th in downtown.
-   <p class="text-whiter text-center" ><%= @project.budget %></p>
-<%= link_to  project_path(session[:selected_project].to_i), class: 'text-danger text-center-bottom', remote: true do %>
+<div class="project-info col-md-12"  >
+
+      <div class="col-md-4 ml-auto mr-auto">
+             <div class="card-body flex mb-4">
+                  <div class="icon icon-circle d-flex justify-content-center  align-self-center">
+                     <i class="material-icons align-self-center text-danger center-icon">monetization_on</i>
+                  </div>
+                  <h3 class="card-title text-white align-self-center text-center">Project Budget</h3>
+                  <p class="card-description">
+
+                  </p>
+               </div>
+             </div>
+   <p class="text-whiter text-center mt-3 mb-3" ><%= @project.budget %></p>
+    <div class="col-md-8 ml-auto mr-auto">
+               <div class="row">
+<%= link_to  project_path(session[:selected_project].to_i), class: 'text-danger text-center col-md-8  ml-auto mr-auto', remote: true do %>
 Back To All Section
 <% end %>
+</div>
+</div>
 </div>
 </div>
 </div>
