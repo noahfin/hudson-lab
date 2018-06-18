@@ -327,14 +327,9 @@
             <b class="caret"></b>
           </p>
         </a>
-
         <div class="collapse" id="companies_sidebar">
           <ul class="nav text-white ">
             <li class="nav-item ">
-
-
-
-
               <a class="nav-link" data-toggle="modal" data-target="#loginModal">
                 <span class="sidebar-mini"> NC </span>
                 <span class="sidebar-normal"> New Company </span>
@@ -346,20 +341,33 @@
                 <span class="sidebar-normal"> View Companies </span>
              <% end %>
             </li>
-
-
           </ul>
         </div>
       </li>
-      <li class="nav-item text-white ">
-        <a class="nav-link text-white" href="/events/">
-          <i class="material-icons text-light">date_range</i>
-          <p> Calendar </p>
+        <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#events_sidebar">
+          <i class="material-icons text-white">date_range</i>
+          <p> Calendar
+            <b class="caret"></b>
+          </p>
         </a>
+        <div class="collapse" id="events_sidebar">
+          <ul class="nav text-white ">
+            <li class="nav-item ">
+              <%= link_to new_event_path, class: ' nav-link remote-link', remote: true do %>
+                <span class="sidebar-mini"> NC </span>
+                <span class="sidebar-normal"> New Event </span>
+               <% end %>
+             </li>
+               <li class="nav-item text-white">
+                <%= link_to events_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> RT </span>
+                <span class="sidebar-normal"> View Calendar </span>
+             <% end %>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </div>
 </div>
-
-
-
