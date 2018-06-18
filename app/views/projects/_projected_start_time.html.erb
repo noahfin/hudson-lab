@@ -4,7 +4,7 @@
           <div class="col-md-4 ml-auto mr-auto">
                     <div class="card-body flex mb-4">
                   <div class="icon icon-circle d-flex justify-content-center  align-self-center">
-                     <i class="material-icons align-self-center text-danger center-icon">query_builder</i>
+                     <i class="material-icons align-self-center text-info center-icon">query_builder</i>
                   </div>
                   <h3 class="card-title text-white align-self-center text-center">Start Time</h3>
                   <p class="card-description">
@@ -15,7 +15,7 @@
    <p class="text-white  text-center mt-3 mb-3" ><%= @project.projected_start_time %></p>
     <div class="col-md-8 ml-auto mr-auto">
             <div class="row">
-<%= link_to  project_path(session[:selected_project].to_i), class: 'text-danger text-center col-md-8  ml-auto mr-auto', remote: true do %>
+<%= link_to  project_path(session[:selected_project].to_i), class: 'text-warning text-center col-md-8  ml-auto mr-auto', remote: true do %>
 Back To All Section
 <% end %>
 </div>

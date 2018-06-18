@@ -44,6 +44,20 @@ $(document).on('click', '.tooltip-inner', function (event) {
     $('.tooltip .arrow').hide();
 });
 
+var project_checkbox = false
+$(document).on('click', '.choice', function (event) {
+  console.log( $(this).closest("input:checkbox"));
+  if (project_checkbox === false) {
+var chekBox = $(this).find("input:checkbox")
+  console.log( chekBox);
+   chekBox.prop('checked', true);
+   }
+   else {
+    project_checkbox = true
+   var chekBox = $(this).find("input:checkbox")
+   chekBox.prop('checked', false);
+   }
+});
 $(document).on('click', '.custom-tip option', function (event) {
   $('#group-id-touch').val($(this).val());
 });

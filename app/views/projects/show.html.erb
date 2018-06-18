@@ -10,127 +10,123 @@
    font-size: 4rem;
    }
    .card-background:after {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: block;
-    left: 0;
-    top: 0;
-    content: "";
-    background-color: rgba(0, 0, 0, 0.0)  !important;
-    border-radius: 6px;
- }
+   position: absolute;
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+   display: block;
+   left: 0;
+   top: 0;
+   content: "";
+   background-color: rgba(0, 0, 0, 0.0)  !important;
+   border-radius: 6px;
+   }
 </style>
 <div class="container ">
-    <div class="uppder-content">
-
-
-
-
-
-
-
-</div>
-
-<div id="main-project-content">
-<div class="row mt-0 pt-0 " >
-   <div class="col-sm-4 mt-0 pt-0">
-      <div class="info info-white-top  ">
-        <%= link_to resources_projects_path, remote: true do %>
-         <div class="icon text-center  ">
-
-            <i class="material-icons text-center">code</i>
-            <h4 class="info-title text-center text-white">Resources</h4>
-            <div class="row mt-4 ">
-               <div class="col-md-12 pt-4">
+   <div class="uppder-content">
+   </div>
+   <div id="main-project-content">
+      <div class="row mt-0 pt-0 " >
+         <div class="col-sm-4 mt-0 pt-0">
+            <div class="info info-white-top  ">
+               <%= link_to resources_projects_path, remote: true do %>
+               <div class="icon text-center  ">
+                  <i class="material-icons text-center">code</i>
+                  <h4 class="info-title text-center text-white">Resources</h4>
+                  <div class="row mt-4 ">
+                     <div class="col-md-12 pt-4">
+                     </div>
+                  </div>
                </div>
+               <% end %>
             </div>
          </div>
-        <% end %>
-      </div>
-   </div>
-   <div class="col-sm-4 mt-0 pt-0 mb-4">
-      <div class="info  text-center info-white-center mb-2 ">
-         <%= link_to requirements_projects_path, remote: true do %>
-         <div class="icon">
-
-            <i class="material-icons text-center">format_paint</i>
-            <h4 class="info-title text-center text-white">Requirements</h4>
-
-         </div>
-         <% end %>
-      </div>
-      <div class="info-white-top ml-4 mr-4 pl-4 pt-4 pr-4"></div>
-   </div>
-   <div class="col-sm-4 mt-0 pt-0">
-      <div class="info info-white-top   ">
-            <%= link_to budget_projects_path, remote: true do %>
-         <div class="icon text-center">
-
-            <i class="material-icons text-center">attach_money</i>
-            <h4 class="info-title text-center text-white">Project Budget</h4>
-            <div class="row mt-4 ">
-               <div class="col-md-12 pt-4">
+         <div class="col-sm-4 mt-0 pt-0 mb-4">
+            <div class="info  text-center info-white-center mb-2 ">
+               <%= link_to requirements_projects_path, remote: true do %>
+               <div class="icon">
+                  <i class="material-icons text-center">format_paint</i>
+                  <h4 class="info-title text-center text-white">Requirements</h4>
                </div>
+               <% end %>
             </div>
-        </div>
-        <% end %>
+            <div class="info-white-top ml-4 mr-4 pl-4 pt-4 pr-4"></div>
+         </div>
+         <div class="col-sm-4 mt-0 pt-0">
+            <div class="info info-white-top   ">
+               <%= link_to budget_projects_path, remote: true do %>
+               <div class="icon text-center">
+                  <i class="material-icons text-center">attach_money</i>
+                  <h4 class="info-title text-center text-white">Project Budget</h4>
+                  <div class="row mt-4 ">
+                     <div class="col-md-12 pt-4">
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-4 mt-3">
+            <div class="info ">
+               <%= link_to description_projects_path, remote: true do %>
+               <div class="icon text-center ">
+                  <i class="material-icons text-center">notes</i>
+                  <h4 class="info-title text-center text-white">Description</h4>
+               </div>
+               <% end %>
+            </div>
+         </div>
+         <div class="col-sm-4  mt-3">
+            <div class="info  info-white-center">
+               <%= link_to projected_start_time_projects_path, remote: true do %>
+               <div class="icon text-center ">
+                  <i class="material-icons text-center">access_time</i>
+               </div>
+               <h4 class="info-title text-center text-white">Start Time</h4>
+               <% end %>
+            </div>
+         </div>
+         <div class="col-sm-4  mt-3">
+            <div class="info  ">
+               <%= link_to projected_start_time_projects_path, remote: true do %>
+               <div class="icon text-center">
+                  <i class="material-icons text-center">access_time</i>
+                  <h4 class="info-title text-white text-center ">Finsh Time</h4>
+               </div>
+               <% end %>
+            </div>
+         </div>
       </div>
    </div>
-</div>
-<div class="row">
-   <div class="col-sm-4 mt-3">
-      <div class="info ">
-           <%= link_to description_projects_path, remote: true do %>
-         <div class="icon text-center ">
-            <i class="material-icons text-center">notes</i>
-            <h4 class="info-title text-center text-white">Description</h4>
-         </div>
-      <% end %>
-      </div>
-   </div>
-   <div class="col-sm-4  mt-3">
-      <div class="info  info-white-center">
+   <h3 class="text-white mt-4 text-center pt-3 "><%= @project.name %></h3>
+   <hr class="">
+   <% category = '' %>
+   <% if @project.development
+      category = "Development"
+      elsif @project.maintenance
+       category = "Maintenance"
+      elsif @project.technology
+       category = "Technology"
+      else
+      category = "Business"
 
-           <%= link_to projected_start_time_projects_path, remote: true do %>
-         <div class="icon text-center ">
-            <i class="material-icons text-center">access_time</i>
-         </div>
-         <h4 class="info-title text-center text-white">Start Time</h4>
-        <% end %>
-      </div>
-
-   </div>
-   <div class="col-sm-4  mt-3">
-      <div class="info  ">
-
-            <%= link_to projected_start_time_projects_path, remote: true do %>
-         <div class="icon text-center">
-            <i class="material-icons text-center">access_time</i>
-            <h4 class="info-title text-white text-center ">Finsh Time</h4>
-         </div>
-    <% end %>
-      </div>
-    </div>
-</div>
-</div>
-
-
-<h3 class="text-white mt-4 text-center pt-3 "><%= @project.name %></h3>
-<hr class="">
-<div class="row">
-   <div class="col-md-12">
-      <div class="card card-raised card-background" style="background-image: url('<%= asset_url("ant-rozetsk.jpg") %>')">
-         <div class="card-body">
-            <h6 class="card-category text-info">Development</h6>
-            <h3 class="card-title">0 to 100.000 Customers in 6 months</h3>
-            <p class="card-description">
-               Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-            </p>
-            <a href="#pablo" class="btn bg-black btn-round view-project-btn">
-            <i class="material-icons">subject</i> Case Study
-            </a>
+       %>
+   <% end %>
+   <div class="row">
+      <div class="col-md-12">
+         <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(@project.avatar.present? ? @project.avatar.url() : 'rob-lambert-64186-unsplash.jpg') %>');">
+            <div class="card-body">
+               <h6 class="card-category text-info"><%= category %></h6>
+               <h3 class="card-title">Finshed by <%= @project.name %></h3>
+               <p class="card-description text-white">
+                  <%= @project.description %>
+               </p>
+               <%= link_to projects_path, class: "btn bg-black text-white btn-round view-project-btn" do %>
+               <i class="material-icons">subject</i> Back to Projects
+               <% end %>
+            </div>
          </div>
       </div>
    </div>
@@ -214,4 +210,3 @@
       </div>
    </div>
 </div>
-

@@ -1,0 +1,57 @@
+      <div class="col-md-12">
+         <div id="project-main">
+            <% @projects.each_slice(3) do |projects| %>
+            <div class="row">
+               <% projects.each_with_index do |project, index| %>
+
+               <% btn_color = 'bg-black' %>
+               <% if index == 0
+                  btn_color = "btn-warning"
+                  elsif index == 1
+                  btn_color = "btn-info"
+
+                  else
+                    btn_color = "bg-success"
+                  %>
+               <% end %>
+               <% category = 'Development' %>
+
+               <% if index <= 1 %>
+               <div class="col-md-6">
+                  <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(project.avatar.present? ? project.avatar.url() : 'ant-rozetsk.jpg') %>');">
+                     <div class="card-body">
+                        <h6 class="card-category text-info"><%= category %></h6>
+                        <a >
+                           <h3 class="card-title"><%= project.name %></h3>
+                        </a>
+                        <p class="card-description">
+                           <%= project.description %>
+                        </p>
+                        <%= link_to project_path(project.id), class: "btn #{btn_color} btn-round  text-white view-project-btn" do %>
+                        <i class="material-icons">content_copy</i> View Project
+                        <% end %>
+                     </div>
+                  </div>
+               </div>
+               <% else %>
+               <div class="col-md-12">
+                  <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(project.avatar.present? ? project.avatar.url() : 'rob-lambert-64186-unsplash.jpg') %>');">
+                     <div class="card-body">
+                        <h6 class="card-category text-info"><%= category %></h6>
+                        <h3 class="card-title"><%= project.name %></h3>
+                        <h4 class="card-title">Finshed by <%= project.projected_start_time.strftime("%d %b. %Y") if project.projected_start_time %></h4>
+                        <p class="card-description">
+                           <%= project.description %>
+                        </p>
+                        <%= link_to project_path(project.id), class: "btn #{btn_color} text-white btn-round view-project-btn" do %>
+                        <i class="material-icons">subject</i> View Project
+                        <% end %>
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+               <% end  %>
+            </div>
+            <% end %>
+         </div>
+      </div>

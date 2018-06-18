@@ -33,6 +33,19 @@ class ProjectsController < ApplicationController
   def description
   end
 
+  def development
+    @projects = Project.where(["development = ?",  true ])
+  end
+  def maintenance
+     @projects = Project.where(["maintenance = ?",  true ])
+  end
+  def technology
+    @projects = Project.where(["technology = ?",  true ])
+  end
+  def business
+     @projects = Project.where(["business = ?",  true ])
+  end
+
   def create
     @project = Project.new(project_params)
 
@@ -80,6 +93,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description)
+      params.require(:project).permit(:name, :description, :development, :maintenance, :projected_start_time, :technology, :business,  :projected_finish_time, :actual_start_time, :actual_finshed_time, :staffing, :resources, :requirements, :avatar)
     end
 end

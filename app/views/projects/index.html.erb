@@ -10,156 +10,141 @@
    font-size: 4rem;
    }
    .card-background:after {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: block;
-    left: 0;
-    top: 0;
-    content: "";
-    background-color: rgba(0, 0, 0, 0.0)  !important;
-    border-radius: 6px;
- }
+   position: absolute;
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+   display: block;
+   left: 0;
+   top: 0;
+   content: "";
+   background-color: rgba(0, 0, 0, 0.0)  !important;
+   border-radius: 6px;
+   }
 </style>
 <div class="container">
-
-      <div class="">
-         <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder">
-               <div class="card-body flex">
-                  <div class="icon icon-circle d-flex justify-content-center  align-self-center">
-                     <i class="material-icons align-self-center text-danger center-icon">business</i>
-                  </div>
-                  <h3 class="card-title text-white">Development</h3>
-                  <p class="card-description">
-
-                  </p>
-                  <a href="#pablo" class="btn bg-trans b-white btn-round align-self-center text-white">View Projects</a>
+   <div class="">
+      <section class="row text-center placeholders">
+         <div class="col-6 col-sm-3 placeholder">
+            <div class="card-body flex">
+               <div class="icon icon-circle d-flex justify-content-center  align-self-center">
+                  <i class="material-icons align-self-center text-danger center-icon">business</i>
                </div>
+               <h3 class="card-title text-white">Development</h3>
+               <p class="card-description">
+               </p>
+                <%= link_to development_projects_path, remote: true, class: "btn bg-trans b-white btn-round align-self-center text-white" do %>
+                  View Projects
+               <% end %>
             </div>
-            <div class="col-6 col-sm-3 placeholder">
-               <div class="card-body flex">
-                  <div class="icon icon-circle d-flex justify-content-center  align-self-center">
-                     <i class="material-icons align-self-center  center-icon text-warning">report_problem</i>
-                  </div>
-                  <h3 class="card-title text-white">Maintenance</h3>
-                  <p class="card-description">
-
-                  </p>
-                  <a href="#pablo" class="btn bg-trans b-white btn-round align-self-center text-white">View Projects</a>
+         </div>
+         <div class="col-6 col-sm-3 placeholder">
+            <div class="card-body flex">
+               <div class="icon icon-circle d-flex justify-content-center  align-self-center">
+                  <i class="material-icons align-self-center  center-icon text-warning">report_problem</i>
                </div>
+               <h3 class="card-title text-white">Maintenance</h3>
+               <p class="card-description">
+               </p>
+              <%= link_to maintenance_projects_path, remote: true, class: "btn bg-trans b-white btn-round align-self-center text-white" do %>
+                  View Projects
+               <% end %>
             </div>
-            <div class="col-6 col-sm-3 placeholder">
-               <div class="card-body flex">
-                  <div class="icon icon-circle d-flex justify-content-center text-white align-self-center">
-                     <i class="material-icons align-self-center  center-icon text-info">laptop_mac</i>
-                  </div>
-                  <h3 class="card-title text-white">Technology</h3>
-                  <p class="card-description">
-
-                  </p>
-                  <a href="#pablo" class="btn bg-trans b-white btn-round align-self-center text-white">View Projects</a>
+         </div>
+         <div class="col-6 col-sm-3 placeholder">
+            <div class="card-body flex">
+               <div class="icon icon-circle d-flex justify-content-center text-white align-self-center">
+                  <i class="material-icons align-self-center  center-icon text-info">laptop_mac</i>
                </div>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-               <div class="card-body flex">
-                  <div class="icon icon-circle d-flex justify-content-center  align-self-center">
-                     <i class="material-icons align-self-center text-success center-icon">store</i>
-                  </div>
-                  <h3 class="card-title text-black text-white">Business </h3>
-                  <p class="card-description">
-
-                  </p>
-                  <a href="#pablo" class="btn bg-trans b-white btn-round align-self-center text-white">View Projects</a>
+               <h3 class="card-title text-white">Technology</h3>
+               <p class="card-description">
+               </p>
+              <%= link_to technology_projects_path, remote: true, class: "btn bg-trans b-white btn-round align-self-center text-white" do %>
+                  View Projects
+               <% end %>
+              </div>
+         </div>
+         <div class="col-6 col-sm-3 placeholder">
+            <div class="card-body flex">
+               <div class="icon icon-circle d-flex justify-content-center  align-self-center">
+                  <i class="material-icons align-self-center text-success center-icon">store</i>
                </div>
+               <h3 class="card-title text-black text-white">Business </h3>
+               <p class="card-description">
+               </p>
+                <%= link_to business_projects_path, remote: true, class: "btn bg-trans b-white btn-round align-self-center text-white" do %>
+                  View Projects
+               <% end %>
             </div>
-         </section>
+         </div>
+      </section>
+      <hr class="b-white-hr">
+      <div class="col-md-12">
+         <div id="project-main">
+            <% @projects.each_slice(3) do |projects| %>
+            <div class="row">
+               <% projects.each_with_index do |project, index| %>
 
-         <hr class="b-white-hr">
-         <div class="col-md-12">
+               <% btn_color = 'bg-black' %>
+               <% if index == 0
+                  btn_color = "btn-warning"
+                  elsif index == 1
+                  btn_color = "btn-info"
 
- <% development_array = [] %>
-  <% @projects.each do |project| %>
-  <% if project.development %>
-   <% development_array.push(project)%>
-   <% end %>
- <% end %>
+                  else
+                    btn_color = "bg-success"
+                  %>
+               <% end %>
+               <% category = '' %>
+               <% if project.development
+                  category = "Development"
+                  elsif project.maintenance
+                   category = "Maintenance"
+                  elsif project.technology
+                   category = "Technology"
+                  else
+                  category = "Business"
 
-<div id="project-main">
-  <% @projects.each_slice(3) do |projects| %>
-<div class="row">
-   <% projects.each_with_index do |project, index| %>
-
-<!--            projected_start_time projected_finish_time actual_start_time actual_finshed_time staffing resources requirements description name
- -->
-
-   <% btn_color = 'bg-black' %>
-      <% if index == 0
-           btn_color = "btn-danger"
-          elsif index == 1
-           btn_color = "btn-info"
-
-          else
-             btn_color = "btn-warning"
-          %>
-      <% end %>
- <% if index <= 1 %>
-
-                         <div class="col-md-6">
-                            <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(project.avatar.present? ? project.avatar.url() : 'ant-rozetsk.jpg') %>');">
-                                <div class="card-body">
-                                  <% category = '' %>
-                                  <% if project.development
-                                   category = "Development"
-                                  elsif project.maintenance
-                                    category = "Maintenance"
-                                  elsif project.technology
-                                    category = "Technology"
-                                  else
-                                   category = "Business"
-
-                                    %>
-                                  <% end %>
-                                    <h6 class="card-category text-info"><%= category %></h6>
-                                    <a href="#pablo">
-                                        <h3 class="card-title"><%= project.name %></h3>
-                                    </a>
-                                    <p class="card-description">
-                                      <%= project.description %>
-                                    </p>
-                                    <%= link_to project_path(project.id), class: "btn #{btn_color} btn-round  text-white view-project-btn" do %>
-
-                                        <i class="material-icons">content_copy</i> View Project
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-<% else %>
-                        <div class="col-md-12">
-                            <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(project.avatar.present? ? project.avatar.url() : 'rob-lambert-64186-unsplash.jpg') %>');">
-                                <div class="card-body">
-                                    <h6 class="card-category text-info">Marketing</h6>
-                                    <h3 class="card-title">Finshed by <%= project.actual_finshed_time.strftime("%d %b. %Y") %></h3>
-                                    <p class="card-description">
-<%= project.description %>
-                                    </p>
-
-                                    <%= link_to project_path(project.id), class: "btn #{btn_color} text-white btn-round view-project-btn" do %>
-
-                                        <i class="material-icons">subject</i> View Project
-                                    <% end %>
-
-                                </div>
-                            </div>
-                        </div>
-                <% end %>
-                 <% end  %>
-                </div>
-
-  <% end %>
+                   %>
+               <% end %>
+               <% if index <= 1 %>
+               <div class="col-md-6">
+                  <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(project.avatar.present? ? project.avatar.url() : 'ant-rozetsk.jpg') %>');">
+                     <div class="card-body">
+                        <h6 class="card-category text-info"><%= category %></h6>
+                        <a >
+                           <h3 class="card-title"><%= project.name %></h3>
+                        </a>
+                        <p class="card-description">
+                           <%= project.description %>
+                        </p>
+                        <%= link_to project_path(project.id), class: "btn #{btn_color} btn-round  text-white view-project-btn" do %>
+                        <i class="material-icons">content_copy</i> View Project
+                        <% end %>
+                     </div>
+                  </div>
+               </div>
+               <% else %>
+               <div class="col-md-12">
+                  <div class="card card-raised card-background"  style="background-image: url('<%= asset_url(project.avatar.present? ? project.avatar.url() : 'rob-lambert-64186-unsplash.jpg') %>');">
+                     <div class="card-body">
+                        <h6 class="card-category text-info"><%= category %></h6>
+                        <h3 class="card-title"><%= project.name %></h3>
+                        <h4 class="card-title">Finshed by <%= project.projected_start_time.strftime("%d %b. %Y") if project.projected_start_time %></h4>
+                        <p class="card-description">
+                           <%= project.description %>
+                        </p>
+                        <%= link_to project_path(project.id), class: "btn #{btn_color} text-white btn-round view-project-btn" do %>
+                        <i class="material-icons">subject</i> View Project
+                        <% end %>
+                     </div>
+                  </div>
+               </div>
+               <% end %>
+               <% end  %>
+            </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
 </div>
-
-         </div>
-             </div>
-         </div>
