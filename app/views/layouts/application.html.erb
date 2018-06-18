@@ -158,6 +158,7 @@
                      </div>
                   </div>
                </div>
+               <%= render 'calender_modal' %>
                <%= render 'contacts/modalcsv' %>
             </div>
          </div>
@@ -165,27 +166,7 @@
    </body>
 </html>
 
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
-var hrefTemp = "#first-company-tab"
-
-
-$(document).on('click', '.modal-header .nav-company-tabs', function (e) {
-
-    e.preventDefault();
-
-  var tabSection =  $(this).attr('href');
-   if (hrefTemp !== $(this).attr('href')) {
-    $("#first-compnay-tab").hide();
-    }
-
-  $(hrefTemp).hide();
-   $(tabSection).show();
-    hrefTemp = tabSection;
-})
-$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-  e.target // newly activated tab
-  e.relatedTarget // previous active tab
-});
 
 </script>
