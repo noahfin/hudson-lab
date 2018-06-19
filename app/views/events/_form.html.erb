@@ -1,78 +1,55 @@
-<div class="modal-body">
-  <h5>Popover in a modal</h5>
 
-</div>
-
-<button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#loginModal">
-    Event Form<i class="material-icons">date_range</i>
-
+<button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#eventFormModal">
+Event Form<i class="material-icons">date_range</i>
 </button>
-
-<div class="modal fade" id="loginModal" tabindex="-1" role="">
-    <div class="modal-dialog " role="document">
-        <div class="modal-content bg-black ">
-            <div class="card bg-black">
-                <div class="modal-header card-1 ">
-                    <div class="card-header card-1 card-header-info text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                        <h4 class="card-title">Calender Form</h4>
-
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <%= form_with(model:  @event, remote: true) do |form| %>
-                        <p class="description text-center">Fill in the Event info</p>
-                        <div class="card-body">
-
-  <div class="field">
-    <%= form.label :title, class: 'form-label' %>
-    <%= form.text_field :title, id: :event_title, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_range, class: 'form-label' %>
-    <%= form.text_field :date_range, id: :event_date_range, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start, class: 'form-label' %>
-    <%= form.text_field :start, id: :event_start, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end, class: 'form-label' %>
-    <%= form.text_field :end, id: :event_end, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color, class: 'form-label' %>
-    <%= form.text_field :color, id: :event_color, class: 'form-control' %>
-  </div>
-
-
-                        </div>
-                                 </div>
-                <div class="modal-footer ml-4 mr-4 pl-4 pr-4">
-                   <div class="row">
-                    <div class="col-md-4 float-left ml-4">
-                    <button type="button" class="btn btn-outline-info pull-left ml-2 pl-3 pr-3" data-dismiss="modal">Close</button>
-
-                    </div>
-                    <div class="col-md-8">
-                         <%= form.submit class: "btn btn-outline-info " %>
-
-                    </div>
-
-                   </div>
-
-
-                </div>
-                   <% end %>
-
+<div class="modal fade" id="eventFormModal" tabindex="-1" role="">
+   <div class="modal-dialog " role="document">
+      <div class="modal-content bg-black ">
+         <div class="card bg-black">
+            <div class="modal-header card-1 ">
+               <div class="card-header card-1 card-header-info text-center">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                  <h4 class="card-title">Calender Form</h4>
+               </div>
             </div>
-        </div>
-    </div>
+            <div class="modal-body">
+               <%= form_with(model:  @event, remote: true) do |form| %>
+               <p class="description text-center">Fill in the Event info</p>
+               <div class="card-body">
+                  <div class="field">
+                     <%= form.label :title, class: 'form-label' %>
+                     <%= form.text_field :title, id: :event_title, class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                     <%= form.label :date_range, class: 'form-label' %>
+                     <%= form.text_field :date_range, id: :event_date_range, class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                     <%= form.label :start, class: 'form-label' %>
+                     <%= form.text_field :start, id: :event_start, class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                     <%= form.label :end, class: 'form-label' %>
+                     <%= form.text_field :end, id: :event_end, class: 'form-control' %>
+                  </div>
+                  <div class="field">
+                     <%= form.label :color, class: 'form-label' %>
+                     <%= form.text_field :color, id: :event_color, class: 'form-control' %>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer ml-4 mr-4 pl-4 pr-4">
+               <div class="row">
+                  <div class="col-md-4 float-left ml-4">
+                     <button type="button" class="btn btn-outline-info pull-left ml-2 pl-3 pr-3" data-dismiss="modal">Close</button>
+                  </div>
+                  <div class="col-md-8">
+                     <%= form.submit class: "btn btn-outline-info " %>
+                  </div>
+               </div>
+            </div>
+            <% end %>
+         </div>
+      </div>
+   </div>
 </div>
-
-
-

@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(version: 20180618143536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "date_range"
-    t.string "start"
-    t.string "end"
+    t.datetime "start"
+    t.datetime "end"
     t.string "color"
   end
 
