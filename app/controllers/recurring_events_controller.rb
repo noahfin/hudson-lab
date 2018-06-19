@@ -42,3 +42,4 @@ class RecurringEventsController < ApplicationController
     params.require(:recurring_event).permit(:title, :anchor, :frequency, :color)
   end
 end
+

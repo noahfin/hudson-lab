@@ -1,1 +1,22 @@
-<%= render 'form' %>
+<div class="modal   rounded-0 fade" id="new_event">
+  <div class="modal-dialog  rounded-0">
+    <div class="modal-content bg-black rounded-0">
+      <div class="card card-5 ">
+        <div class="modal-header card-1 rounded-0">
+        <div class="card-header card-1 card-header-info card-1">
+
+
+
+          <button type="button" class="close text-white pull-right-x" data-dismiss="modal" aria-hidden="true"><i class="material-icons">
+close
+</i></button>
+          <h4 class="modal-title">Create New Event</h4>
+        </div>
+        </div>
+        <div class="modal-body">
+          <%= render 'form', event: @event %>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -21,12 +21,12 @@
 //= require jquery-ui/core
 //= require conversations
 //= require vendorapps
-//= require moment
+//= require momentjs
 //= require fullcalendar
+//= require daterangepicker
 //= require smoothscroll.min.js
 //= require material-kit.min.js
 //= require material-kit-demo.js
-//= require daterangepicker
 //= require date_range_picker.js
 //= require rails-ujs
 //= require turbolinks
@@ -48,7 +48,7 @@ $(window).resize(function () {
 
 var initialize_calendar;
 initialize_calendar = function() {
-  $('#calendar').each(function(){
+  $('.calendar').each(function(){
     var calendar = $(this);
     calendar.fullCalendar({
       header: {
@@ -70,43 +70,8 @@ initialize_calendar = function() {
           date_range_picker();
           $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
           $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
-        })
-        $(document).on('click', '#send-event', function (event) {
-              event.preventDefault();
-                        var eventData;
-                        // var start_str = '';
+        });
 
-                          // var start_times = $('#start-inputs select option:selected');
-                          // start_times.each(function(){start_str += $(this).text() + ' ' });
-                          //  console.log($('#start_id'));
-                          //  console.log($('#end_id'));
-                          //   var end_str = '';
-                          // var end_times = $('#end-inputs  select option:selected');
-                          // end_times.each(function(){end_str += $(this).text() + ' ' });
-                          var m = moment("April 1st, 2005", "MMM-DD-YYYY");
-                            eventData = {
-                                title:  $("#input-field").val(),
-                                start: $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm')),
-                                end:  $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'))
-                            };
-                            console.log(eventData);
-                           $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-
-                          $.ajax({
-            url: "/events/",
-            data: formData = {
-            event: {
-                                title:  $("#input-field").val(),
-                                start: $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm')),
-                                end: $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm')),
-                                date_range: $("#event_date_range").val()
-                              }
-                            },
-            type: 'post'
-        }).done(function() {
-   $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-});
-                      })
         calendar.fullCalendar('unselect');
       },
 
@@ -137,6 +102,8 @@ initialize_calendar = function() {
   })
 };
 $(document).on('turbolinks:load', initialize_calendar);
+
+
 
 var project_checkbox = false
 $(document).on('click', '.choice', function (event) {

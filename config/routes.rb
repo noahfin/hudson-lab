@@ -9,7 +9,9 @@
     resources :groups
     resources :tasks
     resources :companies
-    resources :events
+    resources :events do
+    get 'destroy_all', on: :collection
+    end
     resources :recurring_events
     resources :projects do
        get 'resources', on: :collection
