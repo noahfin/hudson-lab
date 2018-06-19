@@ -10,6 +10,7 @@
     resources :tasks
     resources :companies
     resources :events
+    resources :recurring_events
     resources :projects do
        get 'resources', on: :collection
        get 'description', on: :collection

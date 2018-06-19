@@ -5,6 +5,12 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    respond_to do |format|
+
+      format.html
+        format.json { render json: @events}
+        format.js
+      end
   end
 
   # GET /events/1
@@ -25,16 +31,17 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+     @events = Event.all
 
-    respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
+
+
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+
+
+
     end
+     render :layout => false
   end
 
   # PATCH/PUT /events/1
@@ -42,8 +49,9 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
+         @events = Event.all
+        format.html { redirect_to "events", notice: 'Event was successfully updated.' }
+        format.json { render :index, status: :ok, location: @event }
       else
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -69,6 +77,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :description, :notification, :category, :attended)
+      params.require(:event).permit(:title, :description, :notification, :category, :attended, :date_range, :start, :end, :color )
     end
 end

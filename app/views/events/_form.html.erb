@@ -16,35 +16,81 @@ Event Form<i class="material-icons">date_range</i>
                <%= form_with(model:  @event, remote: true) do |form| %>
                <p class="description text-center">Fill in the Event info</p>
                <div class="card-body">
-                  <div class="field">
-                     <%= form.label :title, class: 'form-label' %>
-                     <%= form.text_field :title, id: :event_title, class: 'form-control' %>
-                  </div>
-                  <div class="field">
-                     <%= form.label :date_range, class: 'form-label' %>
-                     <%= form.text_field :date_range, id: :event_date_range, class: 'form-control' %>
-                  </div>
-                  <div class="field">
-                     <%= form.label :start, class: 'form-label' %>
-                     <%= form.text_field :start, id: :event_start, class: 'form-control' %>
-                  </div>
-                  <div class="field">
-                     <%= form.label :end, class: 'form-label' %>
-                     <%= form.text_field :end, id: :event_end, class: 'form-control' %>
-                  </div>
-                  <div class="field">
-                     <%= form.label :color, class: 'form-label' %>
-                     <%= form.text_field :color, id: :event_color, class: 'form-control' %>
-                  </div>
+                <div class="form-group">
+                    <div class="field" id="start-inputs">
+    <%= form.label :start, class: 'control-label' %>
+    <%= form.datetime_select :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden daterange', id: "start_id", remote: true %>
+  </div>
+
+  <div class="field" id="end-inputs">
+    <%= form.label :end, class: 'control-label pr-1' %>
+    <%= form.datetime_select :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden daterange', id: "end_id", remote: true %>
+  </div>
+      <div class="row">
+
+</div>
+                </div>
+                   <div class="form-group">
+                    <div class="field">
+    <%= form.label :title, class: 'control-label' %>
+    <%= form.text_field :title, class: 'form-control text-white', id: "input-field" %>
+  </div>
+id=""
+  <div class="field">
+    <%= form.label :date_range, class: 'control-label' %>
+    <%= form.text_field :date_range, id: :event_date_range, class: 'form-control text-white' %>
+  </div>
+
+
+                        <div class="field">
+                          <div class="row">
+                            <div class="col-md-4">
+                                 <%= link_to 'Delete',
+                @event,
+                method: :delete,
+                class: 'btn btn-danger ',
+                data: { confirm: 'Are you sure?' },
+                remote: true unless @event.new_record? %>
+
+                          </div>
+                          <div class="col-md-8">
+
+
+                        <%= link_to " Recurring <i class='material-icons'>date_range</i>".html_safe, new_recurring_event_path,
+                class: 'btn btn-outline-info btn-small pull-right',
+                remote: true if @event.new_record? %>
+
+                          </div>
+                        </div>
+
+                     </div>
                </div>
+                 </div>
+
+
+
             </div>
             <div class="modal-footer ml-4 mr-4 pl-4 pr-4">
                <div class="row">
+                          <div class="form-group">
+          <div class="form-actions">
+
+
+
+  </div>
+           <hr>
+
+                  </div>
+               </div>
+               <div class="row">
                   <div class="col-md-4 float-left ml-4">
-                     <button type="button" class="btn btn-outline-info pull-left ml-2 pl-3 pr-3" data-dismiss="modal">Close</button>
+                     <div class=" field float-right">
+  <%= form.label :color, class: 'control-label' %>
+                                                       <%= form.select :color, collection: [['Black','black'], ['Green','green'], ['Red','red']], class: 'form-control' %>
+</div>
                   </div>
                   <div class="col-md-8">
-                     <%= form.submit class: "btn btn-outline-info " %>
+                     <%= form.submit class: "btn btn-outline-info ", id: 'send-event' %>
                   </div>
                </div>
             </div>

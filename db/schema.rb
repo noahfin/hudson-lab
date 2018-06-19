@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180618143536) do
+ActiveRecord::Schema.define(version: 20180619054600) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 20180618143536) do
     t.datetime "start"
     t.datetime "end"
     t.string "color"
+    t.boolean "all_day_event"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -367,6 +368,15 @@ ActiveRecord::Schema.define(version: 20180618143536) do
     t.integer "task_id", null: false
     t.index ["property_id", "task_id"], name: "index_properties_tasks_on_property_id_and_task_id"
     t.index ["task_id", "property_id"], name: "index_properties_tasks_on_task_id_and_property_id"
+  end
+
+  create_table "recurring_events", force: :cascade do |t|
+    t.string "title"
+    t.date "anchor"
+    t.integer "frequency", limit: 1, default: 0
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|
