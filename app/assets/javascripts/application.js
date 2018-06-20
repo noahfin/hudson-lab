@@ -13,12 +13,7 @@
 //= require popper
 //= require jquery.turbolinks
 //= require jasny-bootstrap.min
-//= require jquery-ui/widget
-//= require jquery-ui/position
-//= require jquery-ui/widgets/autocomplete
-//= require jquery-ui/widgets/menu
-//= require jquery-ui/widgets/selectmenu
-//= require jquery-ui/core
+//= require jquery-ui
 //= require conversations
 //= require vendorapps
 //= require momentjs

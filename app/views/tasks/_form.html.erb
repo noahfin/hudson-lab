@@ -28,7 +28,7 @@
          </li>
       </ul>
       <div class="tab-content tab-space tab-subcategories">
-           <%= form_with model: @task, id: "task-main-form", remote: true do |f|%>
+           <%= form_with model: @task, id: "task-main-form", remote: true, :authenticity_token => true, id: 'tasks-form-id' do |f|%>
          <div class="tab-pane" role="tabpanel" id="task-deals-tab" style="display:none;">
             <div class="card rounded-0">
 
