@@ -7,7 +7,6 @@ Bundler.require(*Rails.groups)
 
 module Dashbord
   class Application < Rails::Application
-
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -18,10 +17,7 @@ module Dashbord
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
-config.generators do |g|
-  g.template_engine :haml_modal_crud
-  g.resource_route  :modal_crud_route
-end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.enable_dependency_loading = true

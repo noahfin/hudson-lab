@@ -102,7 +102,7 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <% @leads.each do |l| %>
+                        <% @leads.each do |lead| %>
                         <tr id="edit_lead_<%= lead.id %>">
                            <td class="text-white">
                               <%= link_to  edit_lead_path(lead) do %><i class="fa fa-edit"></i><% end %>
