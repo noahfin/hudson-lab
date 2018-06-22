@@ -98,8 +98,6 @@ initialize_calendar = function() {
 };
 $(document).on('turbolinks:load', initialize_calendar);
 
-
-
 var project_checkbox = false
 $(document).on('click', '.choice', function (event) {
   console.log( $(this).closest("input:checkbox"));
@@ -194,6 +192,16 @@ $(document).on('click', '.new-form', function (event) {
 
 
 $(document).on('turbolinks:load', function () {
+
+$('#dash-search').val('');
+$(document).on('mouseleave', '.ui-menu', function (event) {
+
+   $('#dash-search').autocomplete('close');
+
+});
+
+
+
 
 
 $('input[class="daterange"]').daterangepicker();;
@@ -714,9 +722,7 @@ $('#dash-search').autocomplete({
     });
 var appendFunction = function(contacts){
    $.each(contacts, function( index, contact ) {
-    console.log(contact.name);
-        console.log(contact.phone);
-                console.log(contact.email);
+
 
             var hidd_input = $('<input type="hidden" value="'+contact.id+'">');
             $('#seach-table-1 tr:last-child ').html('<tr class="child"><td><h4>'+contact.name+'</h4><address><p class="text-warning">'+contact.phone+'</p> <a href="mailto:'+contact.email+'">'+contact.email+'</a></address></td></tr>');
@@ -734,7 +740,7 @@ var getContactForDash = function(query){
                 query: query
             },
             success: function (contacts) {
-              console.log(contacts);
+
               appendFunction(contacts);
 
             },
