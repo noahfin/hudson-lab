@@ -67,28 +67,26 @@
    #taskContainer, #sortableTodo {
    background: black;
    }
-.one-edge-shadow {
-    -webkit-box-shadow: 0 8px 6px -6px black !important;
-       -moz-box-shadow: 0 8px 6px -6px black !important;
-            box-shadow: 0 8px 6px -6px black !important;
-            border: #212121 !important;
-}
-.deals-card-d, .card-search-tables, .tasks-card {
-    height: 500px;
-
-}
-.form-control, .is-focused .form-control {
-
-  border-color: #00acc1 !important;
-
-}
-.position-right-deal  {
-    position: absolute;
-    right: 2rem;
+   .one-edge-shadow {
+   -webkit-box-shadow: 0 8px 6px -6px black !important;
+   -moz-box-shadow: 0 8px 6px -6px black !important;
+   box-shadow: 0 8px 6px -6px black !important;
+   border: #212121 !important;
+   }
+   .deals-card-d, .card-search-tables, .tasks-card {
+   height: 500px;
+   }
+   .form-control, .is-focused .form-control {
+   border-color: #00acc1 !important;
+   }
+   .position-right-deal  {
+   position: absolute;
+   right: 2rem;
    top: 2.24rem;
-
-}
-
+   }
+   .task-body {
+    overflow-x: scroll;
+   }
 </style>
 <div class="col-md-12 first-show-card">
 <div class="row first-show-card">
@@ -232,38 +230,36 @@
       </div>
    </div>
 </div>
-
 <div class="row first-show-card">
-<div class="col-xl-3">
-     <div class="card bg-black mb-4 p-0 tasks-card search-card">
-        <div class="card-header  p-0  bg-black ">
+   <div class="col-xl-3">
+      <div class="card bg-black mb-4 p-0 tasks-card search-card">
+         <div class="card-header  p-0  bg-black ">
             <div class=" bg-black  div-header p-4 one-edge-shadow">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                           <a class="nav-link active text-info " href="#contact-s" data-toggle="tab">
-                             <i class="material-icons">account_circle</i>
-
-                            <span class="text-info"> </span>
+                           <a class="nav-link active text-info " href="#contact-s" data-toggle="tab" id="contact-s">
+                              <i class="material-icons">account_circle</i>
+                              <span class="text-info"> </span>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
                         <li class="nav-item ">
-                           <a class="nav-link " href="#propeties-s" data-toggle="tab">
+                           <a class="nav-link " href="" data-toggle="tab" id="propeties-s">
                               <i class="material-icons ">business</i>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
-                            <li class="nav-item pl-0 ml-0">
-                           <a class="nav-link pl-0 ml-0" href="#deals-s" data-toggle="tab">
+                        <li class="nav-item pl-0 ml-0">
+                           <a class="nav-link pl-0 ml-0" href="#deals-s" data-toggle="tab" id="deals-s">
                               <i class="material-icons">monetization_on</i>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
                         <li class="nav-item pl-0 ml-0">
-                           <a class="nav-link pl-0 ml-0" href="#deals-s" data-toggle="tab">
-                             <i class="material-icons">content_copy</i>
+                           <a class="nav-link pl-0 ml-0" href="#projects-s" data-toggle="tab" id="projects-s">
+                              <i class="material-icons">content_copy</i>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
@@ -271,125 +267,107 @@
                   </div>
                </div>
             </div>
-             </div>
-            <div class="card-body mb-4">
-               <div class="tab-content p-0">
-                  <div class="tab-pane active" id="dash-search-pan">
-                    <div class="table-responsive">
-                         <table class="table p-0">
-                            <input type="text" name="search_tables" class="form-control text-info mt-3 c-s-dash g-s-dash p-s-dash " id="dash-search"  placeholder= "Search...">
-
-                            <tbody class="p-0 ml-0 mr-0 mt-2" id="seach-table-1">
-                                <TR></TR>
-
-                            </tbody>
-                         </table>
-                     </div>
+         </div>
+         <div class="card-body mb-4">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="dash-search-pan">
+                  <div class="table-responsive">
+                     <table class="table p-0">
+                        <input type="text" name="search_tables" class="form-control text-info mt-3 c-s-dash g-s-dash p-s-dash " id="dash-search"  placeholder= "Search...">
+                        <tbody class="p-0 ml-0 mr-0 mt-2" id="seach-table-1">
+                           <TR></TR>
+                        </tbody>
+                     </table>
                   </div>
                </div>
             </div>
-
-     </div>
-              </div>
-
-
-
+         </div>
+      </div>
+   </div>
    <div class="col-xl-6 col-lg-12 first-show-card">
-        <div class="card bg-black mb-4 p-0 deals-card-d">
-            <div class="card-header  p-0  bg-black ">
+      <div class="card bg-black mb-4 p-0 deals-card-d">
+         <div class="card-header  p-0  bg-black ">
             <div class=" bg-black  div-header p-4 one-edge-shadow">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
                            <a class="nav-link active text-info " href="#profile" data-toggle="tab">
-                                <i class="material-icons ">business</i>
-                            <span class="text-info"> </span>
+                              <i class="material-icons ">business</i>
+                              <span class="text-info"> </span>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" href="#messages" data-toggle="tab">
                               <i class="material-icons">account_circle</i>
-
                               <div class="ripple-container"></div>
                            </a>
                         </li>
-                        <li class=""><h5 class="">Deals <span class="text-muted text-bold-400">- Won 5</span>
-                            <small>
-                            <a href="#" class="position-right-deal pb-4"><span>   New Deal</span></a>
-                            </small>
-                        </h5></li>
+                        <li class="">
+                           <h5 class="">Deals <span class="text-muted text-bold-400">- Won 5</span>
+                              <small>
+                              <a href="#" class="position-right-deal pb-4"><span>   New Deal</span></a>
+                              </small>
+                           </h5>
+                        </li>
                      </ul>
                   </div>
                </div>
             </div>
-             </div>
-            <div class="card-body mb-4">
-               <div class="tab-content p-0">
-                  <div class="tab-pane active" id="profile">
-
-
-
-               <% @deals.each do |deal| %>
-               <div class="table-responsive">
-
-                  <table class="table  table-hover bg-black">
-                     <thead>
-                        <tr>
-                           <th class="text-center">Contact</th>
-                           <th class="text-center">Name</th>
-                           <th class="text-center">Date Created</th>
-                           <th class="text-center">Role</th>
-                           <th class="text-center">Status</th>
-                           <th class="text-center">Action</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td class="text-center"><% if deal.contacts.first == nil %>
-                              <%= image_tag small_gravatar_url("user1@example.com"), class: "media-object"  %>
-                              <% else %>
-                              <%= image_tag deal.contacts.first.avatar.present? ? deal.contacts.first.avatar.url(:thumb) : 'placholder.png', class: "user-image" %>
-                              <% end %>
-                           </td>
-                           <td class="text-center"><%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
-                           <td class="text-center"><%= deal.created_at.strftime("%B %e, %Y") %></td>
-                           <td class="text-center"><%= deal.contacts.first.role  if deal.contacts.first %></td>
-                           <td class="text-center"><span class="status text-success">•</span>  <%= deal.status %> </td>
-                           <td class="text-center">
-                              <a class="text-white"><i class="material-icons">menu</i></a>
-
-                           </td>
-                        </tr>
-                        <% end %>
-                     </tbody>
-                  </table>
-               </div>
-
-
-
+         </div>
+         <div class="card-body mb-4">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="profile">
+                  <% @deals.each do |deal| %>
+                  <div class="table-responsive">
+                     <table class="table  table-hover bg-black">
+                        <thead>
+                           <tr>
+                              <th class="text-center">Contact</th>
+                              <th class="text-center">Name</th>
+                              <th class="text-center">Date Created</th>
+                              <th class="text-center">Role</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td class="text-center"><% if deal.contacts.first == nil %>
+                                 <%= image_tag small_gravatar_url("user1@example.com"), class: "media-object"  %>
+                                 <% else %>
+                                 <%= image_tag deal.contacts.first.avatar.present? ? deal.contacts.first.avatar.url(:thumb) : 'placholder.png', class: "user-image" %>
+                                 <% end %>
+                              </td>
+                              <td class="text-center"><%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
+                              <td class="text-center"><%= deal.created_at.strftime("%B %e, %Y") %></td>
+                              <td class="text-center"><%= deal.contacts.first.role  if deal.contacts.first %></td>
+                              <td class="text-center"><span class="status text-success">•</span>  <%= deal.status %> </td>
+                              <td class="text-center">
+                                 <a class="text-white"><i class="material-icons">menu</i></a>
+                              </td>
+                           </tr>
+                           <% end %>
+                        </tbody>
+                     </table>
                   </div>
                </div>
             </div>
-
-     </div>
-
+         </div>
+      </div>
    </div>
-
-       <div class="col-xl-3">
-
-
-         <div class="card bg-black mb-4 p-0 tasks-card">
-            <div class="card-header  p-0  bg-black ">
+   <div class="col-xl-3">
+      <div class="card bg-black mb-4 p-0 tasks-card">
+         <div class="card-header  p-0  bg-black ">
             <div class=" bg-black  div-header p-4 one-edge-shadow">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
                            <a class="nav-link active text-info " href="#profile" data-toggle="tab">
-                                <i class="material-icons ">business</i>
-                            <span class="text-info"> All</span>
+                              <i class="material-icons ">business</i>
+                              <span class="text-info"> All</span>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
@@ -403,31 +381,24 @@
                      </ul>
                   </div>
                </div>
-
             </div>
-             </div>
-            <div class="card-body mb-4">
-               <div class="tab-content p-0">
-                  <div class="tab-pane active" id="profile">
-                    <div class="table-responsive">
-                         <table class="table p-0">
-                            <tbody class="p-0 m-0" id="task-table-prop-1">
-                               <%= render 'tasks' %>
-                           </tbody>
-
-                         </table>
-                     </div>
+         </div>
+         <div class="card-body mb-4 task-body">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="profile">
+                  <div class="table-responsive">
+                     <table class="table p-0">
+                        <tbody class="p-0 m-0" id="task-table-prop-1">
+                           <%= render 'tasks' %>
+                        </tbody>
+                     </table>
                   </div>
                </div>
             </div>
-
-     </div>
+         </div>
+      </div>
+   </div>
 </div>
-
-</div>
-
-
-
 <div class="row">
    <!-- BEGIN ALERT - REVENUE -->
    <div class="col-md-3 col-sm-6">
@@ -516,10 +487,3 @@
 </div>
 
 
-
-
-<script type="text/javascript">
-
-</script>
-
-<!--  -->
