@@ -277,7 +277,7 @@
                   <div class="tab-pane active" id="dash-search-pan">
                     <div class="table-responsive">
                          <table class="table p-0">
-                            <input type="text" name="search_tables" class="form-control text-info mt-3" id="dash-search">
+                            <input type="text" name="search_tables" class="form-control text-info mt-3 c-s-dash g-s-dash p-s-dash " id="dash-search"  placeholder= "Search...">
 
                             <tbody class="p-0 ml-0 mr-0 mt-2" id="seach-table-1">
                                 <TR></TR>
@@ -358,7 +358,7 @@
                            <td class="text-center"><%= deal.contacts.first.role  if deal.contacts.first %></td>
                            <td class="text-center"><span class="status text-success">•</span>  <%= deal.status %> </td>
                            <td class="text-center">
-                              <a class="text-white"><i class="material-icons">brightness_7</i></a>
+                              <a class="text-white"><i class="material-icons">menu</i></a>
 
                            </td>
                         </tr>
@@ -411,8 +411,9 @@
                   <div class="tab-pane active" id="profile">
                     <div class="table-responsive">
                          <table class="table p-0">
-
+                            <tbody class="p-0 m-0" id="task-table-prop-1">
                                <%= render 'tasks' %>
+                           </tbody>
 
                          </table>
                      </div>

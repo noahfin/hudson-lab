@@ -6,7 +6,9 @@
     resources :personal_messages, only: [:create, :new]
     resources :conversations, only: [:index, :show]
     resources :users
-    resources :groups
+    resources :groups do
+      get 'autocomplete', on: :collection
+    end
     resources :tasks
     resources :companies
     resources :events do

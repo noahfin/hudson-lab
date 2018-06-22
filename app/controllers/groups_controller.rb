@@ -11,6 +11,14 @@ class GroupsController < ApplicationController
       end
   end
 
+
+  def autocomplete
+
+       @groups = Group.search(params[:term]).order('name ASC')
+
+
+  end
+
   def show
     respond_to do |format|
     format.html

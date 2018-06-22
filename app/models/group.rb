@@ -8,6 +8,9 @@ class Group < ApplicationRecord
    validates :name, presence: true
    validates :name, uniqueness: true
 
+  def self.search(term)
+    where('name LIKE ? ', "%#{term}%") if term.present?
+  end
 
  def to_csv(contacts, options = {})
   CSV.generate(options) do |csv|

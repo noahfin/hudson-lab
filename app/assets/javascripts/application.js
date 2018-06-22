@@ -697,8 +697,20 @@ $(document).on('click', '#save-company', function (e) {
     var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
     var contact_ids_prop = [];
 
+$('.g-s-dash').autocomplete({
+        source: '/groups/autocomplete',
+        minLength: 2,
+        select: function (event, ui) {
+            var uri = '/contacts/' + ui.item.id.toString() + '/';
+            getProfile(uri);
 
-$('#dash-search').autocomplete({
+             $('#myTable ')
+             $('#dash-search').val('');
+        }
+    });
+
+
+$('.c-s-dash').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 2,
         select: function (event, ui) {
@@ -711,7 +723,7 @@ $('#dash-search').autocomplete({
     });
 
     var keyUpNum = 0
-    $("#dash-search").keyup(function () {
+    $(".c-s-dash").keyup(function () {
         keyUpNum++
         if (keyUpNum > 1) {
           console.log($("#dash-search").val());
@@ -781,6 +793,20 @@ var getContactForDash = function(query){
     });
 
 
+
+    $('#query_groups').autocomplete({
+        source: '/groups/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+          console.log(ui.item.value);
+            $('#query_groups').val(ui.item.value);
+            var uri = '/groups/' + ui.item.id.toString() + '/';
+              $('#query_groups').val('');
+              getProfile(uri);
+
+
+        }
+    });
     $('#query').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
@@ -795,6 +821,7 @@ var getContactForDash = function(query){
     var getProfile = function (uri) {
         $.getScript(uri);
     }
+
 
     var keyUpArray = 0
     $("#query").keyup(function () {
