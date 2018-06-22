@@ -191,7 +191,7 @@ $(document).on('click', '.new-form', function (event) {
 
 
 
-$(document).on('turbolinks:load', initialize_calendar);
+
 
 $(document).on('turbolinks:load', function () {
 
@@ -688,6 +688,76 @@ $(document).on('click', '#save-company', function (e) {
 
     var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
     var contact_ids_prop = [];
+
+
+$('#dash-search').autocomplete({
+        source: '/contacts/autocomplete',
+        minLength: 2,
+        select: function (event, ui) {
+            var uri = '/contacts/' + ui.item.id.toString() + '/';
+            getProfile(uri);
+
+             $('#myTable ')
+             $('#dash-search').val('');
+        }
+    });
+
+    var keyUpNum = 0
+    $("#dash-search").keyup(function () {
+        keyUpNum++
+        if (keyUpNum > 1) {
+          console.log($("#dash-search").val());
+           var value =  $('#dash-search').val();
+            getContactForDash(value);
+            keyUpNum = 0
+        }
+    });
+var appendFunction = function(contacts){
+   $.each(contacts, function( index, contact ) {
+    console.log(contact.name);
+        console.log(contact.phone);
+                console.log(contact.email);
+
+            var hidd_input = $('<input type="hidden" value="'+contact.id+'">');
+            $('#seach-table-1 tr:last-child ').html('<tr class="child"><td><h4>'+contact.name+'</h4><address><p class="text-warning">'+contact.phone+'</p> <a href="mailto:'+contact.email+'">'+contact.email+'</a></address></td></tr>');
+
+    });
+
+}
+var getContactForDash = function(query){
+
+
+        $.ajax({
+            url: "/dashboard/searchcontacts/",
+            method: "get",
+            data: {
+                query: query
+            },
+            success: function (contacts) {
+              console.log(contacts);
+              appendFunction(contacts);
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+                    newGroup.next('.text-danger').detach();
+                    $('#new_group').addClass('has-error')
+                        .after('<p class="text-danger pt-2 mb-0">' + error + '</p>');
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+}
 
 
     $('.get-contacts').autocomplete({

@@ -16,15 +16,18 @@
  */
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+
+
 @import "font-awesome";
 @import "fullcalendar";
 @import "daterangepicker";
 @import "material-kit.min.css";
 @import "material-dashboard.css";
-@import "demo.css";
+@import "demo";
 @import "font-awesome";
-@import "jasny-bootstrap";
+@import "jasny-bootstrap-main.css";
 @import "daterangepicker.css";
+
 
 .show-btn {
   font-family: 'Roboto', sans-serif !important;
@@ -999,4 +1002,10 @@ div.dataTables_wrapper {
 .fc-today{
   background: black !important;
   color: red !important;
+}
+.group_search {
+ width: 100%;
+ position: absolute !important;
+
+ left: -7rem !important;
 }

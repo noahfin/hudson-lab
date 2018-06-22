@@ -70,18 +70,17 @@ $('.get-contacts').autocomplete({
                 'property_ids': $('#property-select').val()
 
                   },
-                  authenticity_token: '<%= form_authenticity_token %>'
+                  authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
             }
 
             createTaskSend(formData);
             return false
 
         });
-var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
  var createTaskSend = function (data) {
-        var url = "/tasks/";
+
         $.ajax({
-            url: $("#tasks-form-id").attr("action") + "?&authenticity_token=" + '<%= form_authenticity_token %>',
+            url: $("#tasks-form-id").attr("action"),
             method: "post",
             data: data,
             success: function (contact) {
