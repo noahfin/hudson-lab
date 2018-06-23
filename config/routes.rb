@@ -26,11 +26,14 @@
        get 'maintenance', on: :collection
        get 'technology', on: :collection
        get 'business', on: :collection
+       get 'autocomplete', on: :collection
     end
 
     resources :touches
     resources :leads
-    resources :deals
+    resources :deals do
+      get 'autocomplete', on: :collection
+    end
     match "users/settheme" => "users#set_theme", as: :set_theme, via: :get
     match "users/sharegroups" => "users#sharegroups", as: :sharegroups, via: :post
     match "search" => "search#create", as: :searches, via: [:get, :post]
@@ -43,6 +46,7 @@
      get 'category', on: :collection
      resources :posts
      resources :issues
+     get 'autocomplete', on: :collection
     end
 
     resources :contacts do

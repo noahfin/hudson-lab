@@ -17,4 +17,7 @@ class Project < ApplicationRecord
 
 validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+ def self.search(term)
+    where('name LIKE ? ', "%#{term}%") if term.present?
+  end
 end

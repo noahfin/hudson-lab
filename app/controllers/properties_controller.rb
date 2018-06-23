@@ -10,52 +10,54 @@ class PropertiesController < ApplicationController
    def edit
 
    end
-
- def category
-     @properties = Property.all
-     @categories = Property.pluck(:category).uniq
-      @similar_properties = []
-       @categories.each do |cat|
-
-   @similar_properties << Property.where("category like ?", "%#{cat}")
+   def autocomplete
+       @properties = Property.search(params[:term]).order('name ASC')
    end
- end
-   def show
-    @similar_properties = Property.where("category like ?", "%#{@property.category}")
+   def category
+       @properties = Property.all
+       @categories = Property.pluck(:category).uniq
+        @similar_properties = []
+         @categories.each do |cat|
+
+     @similar_properties << Property.where("category like ?", "%#{cat}")
+     end
    end
-   def create
-      @property = Property.new(property_params)
-      if @property.save
+     def show
+      @similar_properties = Property.where("category like ?", "%#{@property.category}")
+     end
+     def create
+        @property = Property.new(property_params)
+        if @property.save
 
-        params['contact_ids'].each_with_index do |c_id, i|
-          next if c_id.to_i == 0
-         contact = Contact.find(c_id.to_i)
+          params['contact_ids'].each_with_index do |c_id, i|
+            next if c_id.to_i == 0
+           contact = Contact.find(c_id.to_i)
 
-          @property.contacts << contact
-         end
+            @property.contacts << contact
+           end
 
-        flash[:success] = "The property was successfully created."
-        redirect_to properties_path
-      else
-        flash[:danger] = @property.errors.full_messages.to_s
-        render 'new'
-      end
-   end
+          flash[:success] = "The property was successfully created."
+          redirect_to properties_path
+        else
+          flash[:danger] = @property.errors.full_messages.to_s
+          render 'new'
+        end
+     end
 
- def update
-@property = Property.find(params[:id])
+   def update
+  @property = Property.find(params[:id])
 
-    @property.update_attributes(property_params)
-       flash[:info] = "Property Was Updated."
-        params['contact_ids'].each_with_index do |c_id, i|
-          next if c_id.to_i == 0
-         contact = Contact.find(c_id.to_i)
+      @property.update_attributes(property_params)
+         flash[:info] = "Property Was Updated."
+          params['contact_ids'].each_with_index do |c_id, i|
+            next if c_id.to_i == 0
+           contact = Contact.find(c_id.to_i)
 
-          @property.contacts << contact
-         end
-       redirect_to property_path(params[:id])
+            @property.contacts << contact
+           end
+         redirect_to property_path(params[:id])
 
-  end
+    end
 
    private
 

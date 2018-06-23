@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.order('lower(name)').all
+    @tasks = Task.order(created_at: :desc)
     respond_to do |format|
       format.html
       format.json { render json: @tasks }

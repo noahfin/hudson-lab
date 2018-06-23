@@ -17,7 +17,10 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
-  # GET /projects/1/edit
+  def autocomplete
+       @projects = Project.search(params[:term]).order('name ASC')
+  end
+
   def edit
   end
   def projected_start_time

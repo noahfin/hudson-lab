@@ -17,4 +17,8 @@ class Deal < ApplicationRecord
   counts
  end
 
+ def self.search(term)
+    where('name LIKE ? ', "%#{term}%") if term.present?
+  end
+
 end

@@ -238,31 +238,37 @@
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
-                           <a class="nav-link active text-info " href="#contact-s" data-toggle="tab" id="contact-s">
+                        <li class="nav-item ml-0 mr-0  pl-0 pr-0 ">
+                           <a class="nav-link active  pl-1 pr-1 ml-1 mr-1 text-info t-tab " href=".c-s-dash" data-toggle="tab" id="contact-s" title="contacts">
                               <i class="material-icons">account_circle</i>
                               <span class="text-info"> </span>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
-                        <li class="nav-item ">
-                           <a class="nav-link " href="" data-toggle="tab" id="propeties-s">
+                        <li class="nav-item  pl-0 pr-0 ml-1 mr-1">
+                           <a class="nav-link pl-1 pr-1 ml-0 mr-0 t-tab" href=".prop-s-dash" data-toggle="tab" id="propeties-s" title="properties">
                               <i class="material-icons ">business</i>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
-                        <li class="nav-item pl-0 ml-0">
-                           <a class="nav-link pl-0 ml-0" href="#deals-s" data-toggle="tab" id="deals-s">
-                              <i class="material-icons">monetization_on</i>
+                        <li class="nav-item pl-0 pr-0 ml-1 mr-1">
+                           <a class="nav-link pl-1 pr-1 ml-0 mr-0 t-tab" href=".deals-s" data-toggle="tab" id="deals-s" title="deals">
+                              <i class="material-icons">attach_money</i>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
-                        <li class="nav-item pl-0 ml-0">
-                           <a class="nav-link pl-0 ml-0" href="#projects-s" data-toggle="tab" id="projects-s">
-                              <i class="material-icons">content_copy</i>
+                        <li class="nav-item pl-0 pr-0 ml-1 mr-1 ">
+                           <a class="nav-link  pl-1 pr-1 ml-0 mr-0 t-tab" href=".pro-s-dash" data-toggle="tab" id="projects-s" title="projects">
+                              <i class="material-icons">folder_special</i>
                               <div class="ripple-container"></div>
                            </a>
-                        </li>
+                       </li>
+                        <li class="nav-item pl-0 pr-0 ml-1 mr-1 ">
+                           <a class="nav-link  pl-1 pr-1 ml-0 mr-0 t-tab" href=".g-s-dash" data-toggle="tab" id="groups-s" title="groups">
+                              <i class="material-icons">group</i>
+                              <div class="ripple-container"></div>
+                           </a>
+                       </li>
                      </ul>
                   </div>
                </div>
@@ -273,7 +279,7 @@
                <div class="tab-pane active" id="dash-search-pan">
                   <div class="table-responsive">
                      <table class="table p-0">
-                        <input type="text" name="search_tables" class="form-control text-info mt-3 c-s-dash g-s-dash p-s-dash " id="dash-search"  placeholder= "Search...">
+                        <input type="text" name="search_tables" class="form-control text-info mt-3 g-s-dash c-s-dash deals-s pro-s-dash prop-s-dash" id="dash-search"  placeholder= "Search...">
                         <tbody class="p-0 ml-0 mr-0 mt-2" id="seach-table-1">
                            <TR></TR>
                         </tbody>
@@ -319,7 +325,6 @@
          <div class="card-body mb-4">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="profile">
-                  <% @deals.each do |deal| %>
                   <div class="table-responsive">
                      <table class="table  table-hover bg-black">
                         <thead>
@@ -333,11 +338,15 @@
                            </tr>
                         </thead>
                         <tbody>
+                        <% @deals.each do |deal| %>
                            <tr>
-                              <td class="text-center"><% if deal.contacts.first == nil %>
-                                 <%= image_tag small_gravatar_url("user1@example.com"), class: "media-object"  %>
+                              <td class="text-center">
+                                <% if deal.contacts.first == nil %>
+
+                                     <%= image_tag small_gravatar_url("user1@example.com"), class: "user-image"  %>
+
                                  <% else %>
-                                 <%= image_tag deal.contacts.first.avatar.present? ? deal.contacts.first.avatar.url(:thumb) : 'placholder.png', class: "user-image" %>
+                                 <%= image_tag deal.contacts.first.avatar.present? ? deal.contacts.first.avatar.url(:thumb) : small_gravatar_url(deal.contacts.first.email), class: "user-image",  height: '32', width: '32'%>
                                  <% end %>
                               </td>
                               <td class="text-center"><%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
@@ -345,7 +354,7 @@
                               <td class="text-center"><%= deal.contacts.first.role  if deal.contacts.first %></td>
                               <td class="text-center"><span class="status text-success">•</span>  <%= deal.status %> </td>
                               <td class="text-center">
-                                 <a class="text-white"><i class="material-icons">menu</i></a>
+                                 <a class="text-white"><i class="material-icons">more_horiz</i></a>
                               </td>
                            </tr>
                            <% end %>

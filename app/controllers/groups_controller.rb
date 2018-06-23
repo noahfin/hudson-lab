@@ -13,10 +13,7 @@ class GroupsController < ApplicationController
 
 
   def autocomplete
-
        @groups = Group.search(params[:term]).order('name ASC')
-
-
   end
 
   def show

@@ -2,7 +2,12 @@ class DealsController < ApplicationController
   include DealsHelper
   before_action :find_property, only: [:edit, :update, :destroy, :show]
    def index
-    @deals = Deal.all.order(created_at: :desc).page(params[:page])
+    @deals = Deal.all.order(created_at: :desc)
+      respond_to do |format|
+       format.html
+       format.json { render json: @tasks }
+       render 'index', turbolinks: true, change: 'content'
+     end
    end
    def new
      @deal = Deal.new
@@ -11,6 +16,9 @@ class DealsController < ApplicationController
    def edit
 
    end
+  def autocomplete
+       @deals = Deal.search(params[:term]).order('name ASC')
+  end
 
  def category
      @deals = Deal.all
