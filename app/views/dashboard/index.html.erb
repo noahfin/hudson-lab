@@ -28,7 +28,7 @@
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
    }
    .card-dash-rose {
-   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(233, 30, 99, 0.6);
+   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(244, 67, 54, 0.6);
    }
    .card-dash-success{
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(76, 175, 80, 0.6);
@@ -92,16 +92,16 @@
 <div class="row first-show-card">
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <a href="/leads/" >
-         <div class="card card-stats  rounded-0 bg-black card-dash-warning">
-            <div class="card-header    bg-black card-header-icon">
+         <div class="card card-stats  rounded-0 card-1 card-dash-warning">
+            <div class="card-header     card-header-icon">
                <div class="card-icon card-icon-outline-warning">
                   <i class="material-icons">business</i>
                </div>
-               <p class="card-category card-top-dash ">Lead</p>
-               <h3 class="card-title"><%= Lead.count %></h3>
+               <p class="card-category card-top-dash text-white">Lead</p>
+               <h3 class="card-title text-white"><%= Lead.count %></h3>
             </div>
             <div class="card-footer">
-               <div class="stats">
+               <div class="stats text-white">
                   <i class="material-icons text-warning mt-2 pt-1 pr-3">warning</i>
                   View all Leads
                </div>
@@ -111,33 +111,33 @@
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <%= link_to deals_path do %>
-      <div class="card card-stats card-dash-rose rounded-0 bg-black">
+      <div class="card card-stats card-dash-rose rounded-0 card-1">
          <div class="card-header card-header-icon ">
             <div class="card-icon card-icon-outline-danger">
                <i class="material-icons">equalizer</i>
             </div>
-            <p class="card-category card-top-dash">Deals</p>
-            <h3 class="card-title"><%= Deal.count %></h3>
+            <p class="card-category card-top-dash text-white">Deals</p>
+            <h3 class="card-title text-white"><%= Deal.count %></h3>
          </div>
-         <div class="card-footer">
-            <div class="stats">
-               <i class="material-icons  text-danger mt-2 pt-1 pr-3">local_offer</i> View All Deals
+         <div class="card-footer text-white">
+            <div class="stats text-white">
+               <i class="material-icons  text-danger mt-2 pt-1 pr-3 ">local_offer</i> View All Deals
             </div>
          </div>
       </div>
       <% end %>
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
-      <div class="card card-stats  card-dash-success rounded-0 bg-black">
+      <div class="card card-stats  card-dash-success rounded-0 card-1">
          <div class="card-header  card-header-icon">
             <div class="card-icon  card-icon-outline-success">
                <i class="material-icons">store</i>
             </div>
-            <p class="card-category card-top-dash">Revenue</p>
-            <h3 class="card-title">$34,245</h3>
+            <p class="card-category card-top-dash text-wgite">Revenue</p>
+            <h3 class="card-title text-white">$34,245</h3>
          </div>
          <div class="card-footer">
-            <div class="stats">
+            <div class="stats text-white">
                <i class="material-icons text-success mt-2 pt-1 pr-3">date_range</i> Last 24 Hours
             </div>
          </div>
@@ -145,16 +145,16 @@
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <%= link_to contacts_path do %>
-      <div class="card card-stats  card-dash-info rounded-0 bg-black">
+      <div class="card card-stats  card-dash-info rounded-0 card-1">
          <div class="card-header card-header-icon">
             <div class="card-icon  card-icon-outline-info">
                <i class="material-icons">person</i>
             </div>
-            <p class="card-category card-top-dash">Contacs</p>
-            <h3 class="card-title">+<%= Contact.count %></h3>
+            <p class="card-category card-top-dash text-white">Contacs</p>
+            <h3 class="card-title text-white">+<%= Contact.count %></h3>
          </div>
          <div class="card-footer">
-            <div class="stats">
+            <div class="stats text-white">
                <i class="material-icons  text-info mt-2 pt-1 pr-3">update</i> <span >View Contacts</span>
             </div>
          </div>
@@ -162,10 +162,10 @@
    </div>
    <% end %>
 </div>
-<div class="white-box card-1 m-0">
+<div class="white-box mdl-color--grey-900 m-0">
    <div class="row row-in ">
       <div class="col-lg-3 col-sm-6 row-in-br">
-         <div class="col-in row bg-black">
+         <div class="col-in row card-1">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-user"></i>
                <h5 class="text-muted vb">MYNEW CLIENTS</h5>
@@ -181,7 +181,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
-         <div class="col-in row bg-black">
+         <div class="col-in row card-1">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-pencil-alt"></i>
                <h5 class="text-muted vb">NEW PROJECTS</h5>
@@ -197,7 +197,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6 row-in-br">
-         <div class="col-in row bg-black">
+         <div class="col-in row card-1">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-mouse-alt"></i>
                <h5 class="text-muted vb">OPEN PROJECTS</h5>
@@ -213,7 +213,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6  b-0">
-         <div class="col-in row bg-black">
+         <div class="col-in row card-1">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-receipt"></i>
                <h5 class="text-muted vb">NEW INVOICES</h5>
@@ -232,9 +232,9 @@
 </div>
 <div class="row first-show-card">
    <div class="col-xl-3">
-      <div class="card bg-black mb-4 p-0 tasks-card search-card">
-         <div class="card-header  p-0  bg-black ">
-            <div class=" bg-black  div-header p-4 one-edge-shadow">
+      <div class="card card-1 mb-4 p-0 tasks-card search-card">
+         <div class="card-header card-1 p-0  card-1 ">
+            <div class="card-1  div-header p-4">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
@@ -274,7 +274,7 @@
                </div>
             </div>
          </div>
-         <div class="card-body mb-4">
+         <div class="card-body mb-4 card-1">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="dash-search-pan">
                   <div class="table-responsive">
@@ -291,9 +291,9 @@
       </div>
    </div>
    <div class="col-xl-6 col-lg-12 first-show-card">
-      <div class="card bg-black mb-4 p-0 deals-card-d">
-         <div class="card-header  p-0  bg-black ">
-            <div class=" bg-black  div-header p-4 one-edge-shadow">
+      <div class="card card-1 p-0 deals-card-d">
+         <div class="card-header   mb-4 p-0  card-1 ">
+            <div class=" card-1  div-header p-4 ">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
@@ -326,7 +326,7 @@
             <div class="tab-content p-0">
                <div class="tab-pane active" id="profile">
                   <div class="table-responsive">
-                     <table class="table  table-hover bg-black">
+                     <table class="table  table-hover card-1">
                         <thead>
                            <tr>
                               <th class="text-center">Contact</th>
@@ -349,11 +349,11 @@
                                  <%= image_tag deal.contacts.first.avatar.present? ? deal.contacts.first.avatar.url(:thumb) : small_gravatar_url(deal.contacts.first.email), class: "user-image",  height: '32', width: '32'%>
                                  <% end %>
                               </td>
-                              <td class="text-center"><%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
-                              <td class="text-center"><%= deal.created_at.strftime("%B %e, %Y") %></td>
-                              <td class="text-center"><%= deal.contacts.first.role  if deal.contacts.first %></td>
-                              <td class="text-center"><span class="status text-success">•</span>  <%= deal.status %> </td>
-                              <td class="text-center">
+                              <td class="text-center text-white"><%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
+                              <td class="text-center text-white"><%= deal.created_at.strftime("%B %e, %Y") %></td>
+                              <td class="text-center text-white"><%= deal.contacts.first.role  if deal.contacts.first %></td>
+                              <td class="text-center text-white"><span class="status text-success">•</span>  <%= deal.status %> </td>
+                              <td class="text-center text-white">
                                  <a class="text-white"><i class="material-icons">more_horiz</i></a>
                               </td>
                            </tr>
@@ -367,9 +367,9 @@
       </div>
    </div>
    <div class="col-xl-3">
-      <div class="card bg-black mb-4 p-0 tasks-card">
-         <div class="card-header  p-0  bg-black ">
-            <div class=" bg-black  div-header p-4 one-edge-shadow">
+      <div class="card card-1  mb-4 p-0 tasks-card">
+         <div class="card-header  card-1 p-0">
+            <div class=" card-1  div-header p-4 m-0 ">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
@@ -392,12 +392,12 @@
                </div>
             </div>
          </div>
-         <div class="card-body mb-4 task-body">
+         <div class="card-body mb-4 task-body card-1 ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="profile">
                   <div class="table-responsive">
                      <table class="table p-0">
-                        <tbody class="p-0 m-0" id="task-table-prop-1">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
                            <%= render 'tasks' %>
                         </tbody>
                      </table>
@@ -411,7 +411,7 @@
 <div class="row">
    <!-- BEGIN ALERT - REVENUE -->
    <div class="col-md-3 col-sm-6">
-      <div class="card bg-black">
+      <div class="card card-1">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-info no-margin">
                <strong class="pull-right text-success text-lg">0,38% <i class="md md-trending-up"></i></strong>
@@ -432,7 +432,7 @@
    <!-- END ALERT - REVENUE -->
    <!-- BEGIN ALERT - VISITS -->
    <div class="col-md-3 col-sm-6">
-      <div class="card bg-black">
+      <div class="card card-1">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-warning no-margin">
                <strong class="pull-right text-warning text-lg">0,01% <i class="md md-swap-vert"></i></strong>
@@ -453,7 +453,7 @@
    <!-- END ALERT - VISITS -->
    <!-- BEGIN ALERT - BOUNCE RATES -->
    <div class="col-md-3 col-sm-6">
-      <div class="card bg-black">
+      <div class="card card-1">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-danger no-margin">
                <strong class="pull-right  text-lg">0,18% <i class="md md-trending-down"></i></strong>
@@ -474,7 +474,7 @@
    <!-- END ALERT - BOUNCE RATES -->
    <!-- BEGIN ALERT - TIME ON SITE -->
    <div class="col-md-3 col-sm-6">
-      <div class="card bg-black">
+      <div class="card card-1">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-success no-margin">
                <h1 class="pull-right card-icon-outline-success"><i class="md md-timer"></i></h1>

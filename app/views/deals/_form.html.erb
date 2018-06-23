@@ -1,21 +1,146 @@
-<div class="container">
-   <div class="card mdl-color--grey-900 rounded-0">
-      <div>
-         <h3 class="text-white ml-3">Add New Deal</h3>
+<div class="wizard-container reg-intro">
+   <div class="card card-wizard card-5" data-color="green" id="wizardProfile">
+      <%= form_with(model: deal, remote: true) do |form| %>
+      <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+      <div class="card-header text-center  p-0">
+         <div class=" card-1  div-header p-4">
+            <h3 class="card-title text-white">
+               Build Your Deal Outline
+            </h3>
+            <h5 class="card-description text-white">This information will help to keep track of your deal.</h5>
+         </div>
+         <div class="wizard-navigation">
+            <ul class="nav nav-pills">
+               <li class="nav-item text-white">
+                  <a class="nav-link active text-white" href="#about" data-toggle="tab" role="tab">
+                  Information
+                  </a>
+               </li>
+               <li class="nav-item text-white">
+                  <a class="nav-link text-white" href="#account" data-toggle="tab" role="tab">
+                  Status
+                  </a>
+               </li>
+               <li class="nav-item text-white">
+                  <a class="nav-link text-white" href="#address" data-toggle="tab" role="tab">
+                  Resources
+                  </a>
+               </li>
+            </ul>
+         </div>
       </div>
-      <div class="row">
-         <div class="col-md-6">
-            <% if deal.errors.any? %>
-            <div id="error_explanation">
-               <h2><%= pluralize(deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
-               <ul>
-                  <% deal.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                  <% end %>
-               </ul>
+      <div class="card-body bg-black">
+         <div class="tab-content">
+            <div class="tab-pane active" id="about">
+               <h5 class="info-text text-white"> Let's start with the basic information for your deal</h5>
+               <div class="row justify-content-center">
+
+                  <div class="col-sm-4 mt-4 pl-4">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white">content_copy</i>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label for="exampleInput1" class="bmd-label-floating text-white">Deal Name</label>
+                            <%= form.text_field :name, id: :deal_name, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                     <!-- projected_start_time projected_finish_time actual_start_time actual_finshed_time staffing resources requirements description -->
+                  </div>
+                  <div class="col-sm-4  mt-4">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white">assignment</i>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label for="exampleInput11" class="bmd-label-floating">Deal Code</label>
+                            <%= form.text_field :code, id: :deal_code, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-4  mt-4">
+                     <div class="input-group form-control-lg text-white">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">
+                           <i class="material-icons text-white">assignment</i>
+                           </span>
+                        </div>
+                        <div class="form-group">
+                           <label for="exampleInput11" class="bmd-label-floating">Deal Category</label>
+                            <%= form.text_field :category, id: :deal_category, class: 'form-control text-white' %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-9 pl-0 pr-0">
+
+                        <div class="input-group form-control-lg text-white mt-4 ml-0 pl-0">
+                           <div class="input-group-prepend ml-0 pl-0">
+                              <span class="input-group-text">
+                              <i class="material-icons text-white">attach_money</i>
+                              </span>
+                           </div>
+                           <div class="form-group">
+                              <label for="exampleInput1" class="bmd-label-floating text-white">Commission</label>
+                               <%= form.number_field :potential_commission, value: number_to_currency(form.object.potential_commission.to_f, delimiter: '', unit: ''),class: 'form-control text-white'  %>
+
+                           </div>
+                        </div>
+                     </div>
+
             </div>
-            <% end %>
-            <%= form_with(model: deal, remote: true) do |form| %>
+            <div class="tab-pane" id="account">
+               <h5 class="info-text text-white"> What type of project? (checkboxes) </h5>
+               <div class="row justify-content-center">
+                  <div class="col-lg-10">
+                     <div class="row ">
+                        <div class="col-sm-3">
+                           <div class="choice" data-toggle="wizard-checkbox">
+
+                              <%= check_box_tag 'deal[status]',  'Qualify', false  %>
+                              <div class="icon">
+                                 <i class="material-icons align-self-center text-danger center-icon">business</i>
+                              </div>
+                              <h6 class="text-white">Qualification</h6>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="choice" data-toggle="wizard-checkbox">
+                              <%= check_box_tag 'deal[status]', 'Showing', false %>
+                              <div class="icon">
+                                 <i class="material-icons text-warning">supervised_user_circle</i>
+                              </div>
+                              <h6 class="text-white">Showing</h6>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="choice" data-toggle="wizard-checkbox">
+                              <%= check_box_tag 'deal[status]', 'Terms', false %>
+                              <div class="icon">
+                                 <i class="material-icons align-self-center  center-icon text-info">file_copy</i>
+                              </div>
+                              <h6 class="text-white">Terms</h6>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="choice" data-toggle="wizard-checkbox">
+                              <%= check_box_tag 'deal[status]','Won', false %>
+                              <div class="icon">
+                                 <i class="material-icons align-self-center text-success center-icon">monetization_on</i>
+                              </div>
+                              <h6 class="text-white">Won</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab-pane" id="address">
+
             <fieldset>
                <div class="form-group pr-4">
                   <label for="contacts" class="col col-md-4 control-label">Contact</label>
@@ -43,18 +168,21 @@
                      </div>
                   </div>
                </div>
-               <label class="control-label col-md-4">Deal Status</label>
-               <div class="controls col-md-8">
-                  <div class="btn-group" data-toggle="buttons-radio" data-toggle-name="deal_status_id">
-                     <button type="button" class="btn btn-warning" value="Process">
-                     Process       </button>
-                     <button type="button" class="btn btn-success" value="Closed">
-                     Accepted        </button>
-                     <button type="button" class="btn btn-danger" value="Rejected">
-                     Rejected        </button>
+               <div class="form-group pr-4">
+                  <label for="contacts" class="col col-md-4 control-label">Add Lead</label>
+                  <div class="col-md-9 pr-4 ">
+                     <div class="form-group">
+                        <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="Conect the lead"  data-size="8" data-style="btn-outline-info" name="contact_ids[]"  tabindex="-98">
+                           <% Lead.all.each do |lead| %>
+
+                           <option class="text-dark" value=<%= "#{lead.id}"%>><%= "#{ lead.name}"%></option>
+                           <% end %>
+                        </select>
+                     </div>
                   </div>
                </div>
-               <input type="hidden" name="deal[status]" class="form-control" id="DealDealStatusId">
+
+
                <div class="form-group ml-3">
                   <label for="name" class="cols-sm-2 control-label ml-2  pl-4"></label>
                   <div class="cols-sm-10">
@@ -72,64 +200,26 @@
                   </div>
                </div>
             </fieldset>
-         </div>
-         <div class="col-md-6">
-            <div class="form-group">
-               <label for="name" class="cols-sm-2 control-label ml-2 pl-4">name</label>
-               <div class="cols-sm-10">
-                  <div class="input-group">
-                     <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
-                     <%= form.text_field :name, id: :deal_name, class: 'form-control text-white' %>
-                  </div>
-               </div>
-            </div>
-            <div class="form-group">
-               <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Code</label>
-               <div class="cols-sm-10">
-                  <div class="input-group">
-                     <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
-                     <%= form.text_field :code, id: :deal_code, class: 'form-control text-white' %>
-                  </div>
-               </div>
-            </div>
-            <div class="form-group">
-               <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Category</label>
-               <div class="cols-sm-10">
-                  <div class="input-group">
-                     <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
-                     <%= form.text_field :category, id: :deal_category, class: 'form-control text-white' %>
-                  </div>
-               </div>
-            </div>
-            <div class="form-group">
-               <label for="name" class="cols-sm-2 control-label ml-2  pl-4">Potential Commission</label>
-               <div class="cols-sm-10">
-                  <div class="input-group">
-                     <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
-                     <%= form.text_field :potential_commission, id: :deal_potential_commission, class: 'form-control text-white' %>
-                  </div>
-               </div>
-            </div>
-            <div class="form-group">
-               <%= form.label :lead_id, class: 'cols-sm-2 bmd-lable-floating  ml-2  pl-4' %>
-               <div class="cols-sm-10">
-                  <div class="input-group">
-                     <span class="input-group-addon"> <i class="material-icons text-white">monetization_on</i></span>
-                     <%= form.text_field :lead_id, id: :deal_lead_id, class: 'form-control text-white' %>
-                  </div>
                </div>
             </div>
          </div>
-         <div class="form-group ml-4 ml-3">
-            <span>
-            <%= form.submit class: 'btn btn-info submit', remote: true %>
-            <button class="btn btn-info ml-2" ><i class="fa fa-save"></i> Add</button>  &nbsp;<a href="/deals/" class="btn btn-primary"><i class="fa fa-reply"></i>&nbsp;Cancel</a>
-            </span>
+
+      <div class="card-footer">
+         <div class="mr-auto">
+            <input type="button" class="btn btn-previous btn-fill btn-success btn-wd disabled" name="previous" value="Previous">
          </div>
-         <% end %>
+         <div class="ml-auto">
+            <input type="button" class="btn btn-next btn-fill btn-success btn-wd" name="next" value="Next">
+            <button type="submit"  class="btn btn-finish btn-fill btn-success btn-wd" style="display: none;">finish </button>
+         </div>
+         <div class="clearfix"></div>
       </div>
+      <% end %>
    </div>
 </div>
-<script type="text/javascript">
-   $('.selectpicker').selectpicker('toggle');
+
+<!-- wizard container -->
+<script>
+
 </script>
+

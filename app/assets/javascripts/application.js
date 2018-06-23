@@ -697,91 +697,51 @@ $(document).on('click', '#save-company', function (e) {
     var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
     var contact_ids_prop = [];
 
-// $(document).on('click', '#projects-s', function (e) {
-//    e.preventDefault();
-// $('.pro-s-dash').autocomplete({
-//         source: '/projects/autocomplete',
-//         minLength: 2,
-//         select: function (event, ui) {
-//             var uri = '/projects/' + ui.item.id.toString() + '/';
 
-//             $('#dash-search').val('');
-//             getProfile(uri);
-
-
-
-//         }
-//     });
-//    });
-// $(document).on('click', '#propeties-s', function (e) {
-//    e.preventDefault();
-// $('.prop-s-dash').autocomplete({
-//         source: '/properties/autocomplete',
-//         minLength: 2,
-//         select: function (event, ui) {
-//             var uri = '/properties/' + ui.item.id.toString() + '/';
-//             $('#dash-search').val('');
-//             getProfile(uri);
-//         }
-//     });
-// });
-// $(document).on('click', '#deals-s', function (e) {
-//    e.preventDefault();
-// $('.deals-s').autocomplete({
-//         source: '/deals/autocomplete',
-//         minLength: 2,
-//         select: function (event, ui) {
-//             var uri = '/deals/' + ui.item.id.toString() + '/';
-//             $('#dash-search').val('');
-//             getProfile(uri);
-//         }
-//     });
-// });
-
-   var tabTempSection = ".c-s-dash"
-   var  tabSection =  ".c-s-dash"
+    var tabTempSection = ".c-s-dash"
+    var  tabSection =  ".c-s-dash"
    $(document).on('click', '.t-tab', function (e) {
     e.preventDefault();
 
-$("a[href*='i"+tabSection+"']").removeClass('active');
+      $("a[href*='i"+tabSection+"']").removeClass('active');
 
 
 
 
-  var titleTab =  $(this).attr('title');
+        var titleTab =  $(this).attr('title');
 
-  tabSection =  $(this).attr('href');
+        tabSection =  $(this).attr('href');
 
-   $('#dash-search').removeClass("g-s-dash c-s-dash deals-s pro-s-dash prop-s-dash");
+        $('#dash-search').removeClass("g-s-dash c-s-dash deals-s pro-s-dash prop-s-dash");
 
-  $('#dash-search').addClass(tabSection.replace('.',''));
+        $('#dash-search').addClass(tabSection.replace('.',''));
 
-  $("a[href*='i"+tabSection+"']").addClass('active');
-$(tabSection).autocomplete({
-        source: '/'+titleTab+'/autocomplete',
-        minLength: 2,
-        select: function (event, ui) {
-            var uri = '/'+titleTab+'/' + ui.item.id.toString() + '/';
-            $('#dash-search').val('');
-            getProfile(uri);
-        }
-    });
+        $("a[href*='i"+tabSection+"']").addClass('active');
+      $(tabSection).autocomplete({
+              source: '/'+titleTab+'/autocomplete',
+              minLength: 2,
+              select: function (event, ui) {
+                  var uri = '/'+titleTab+'/' + ui.item.id.toString() + '/';
+                  $('#dash-search').val('');
+                  getProfile(uri);
+              }
+          });
 
-        console.log(tabSection);
-      tabTempSection =  $(this).attr('href');
+              console.log(tabSection);
+            tabTempSection =  $(this).attr('href');
 
 
 
-   }).off( "click", tabTempSection, function(){
-    $(tabTempSection).autocomplete({
-        source: '/'+titleTab+'/autocomplete',
-        minLength: 2,
-        select: function (event, ui) {
-            var uri = '/'+titleTab+'/' + ui.item.id.toString() + '/';
-            $('#dash-search').val('');
-            getProfile(uri);
-        }
-    });
+         }).off( "click", tabTempSection, function(){
+          $(tabTempSection).autocomplete({
+              source: '/'+titleTab+'/autocomplete',
+              minLength: 2,
+              select: function (event, ui) {
+                  var uri = '/'+titleTab+'/' + ui.item.id.toString() + '/';
+                  $('#dash-search').val('');
+                  getProfile(uri);
+              }
+        });
    });
 
 
