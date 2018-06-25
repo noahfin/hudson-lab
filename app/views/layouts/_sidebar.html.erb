@@ -174,7 +174,7 @@
               </a></li>
               <li class="nav-item text-white ">
 
-              <%= link_to new_group_path, class: "nav-link text-white" do %>
+              <%= link_to new_group_path, class: "nav-link text-white", remote: true do %>
                 <span class="sidebar-mini"> AG</span>
                 <span class="sidebar-normal"> Add Group </span>
               <% end %></li>
@@ -330,10 +330,10 @@
         <div class="collapse" id="companies_sidebar">
           <ul class="nav text-white ">
             <li class="nav-item ">
-              <a class="nav-link" data-toggle="modal" data-target="#loginModal">
+               <%= link_to new_company_path, class: "nav-link text-white", remote: true do %>
                 <span class="sidebar-mini"> NC </span>
                 <span class="sidebar-normal"> New Company </span>
-             </a>
+              <% end %>
             </li>
                <li class="nav-item text-white">
                 <%= link_to companies_path, class: "nav-link" do %>

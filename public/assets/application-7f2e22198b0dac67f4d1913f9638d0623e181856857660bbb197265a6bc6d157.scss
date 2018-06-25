@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
- *= require_tree .
- *= require_self
+
+
 
  */
 
@@ -29,9 +29,7 @@
 @import "daterangepicker.css";
 @import "jquery-ui.theme.css";
 
- .h2-icon {
-  font-size: 30px !important;
- }
+
 .user-image-main {
   height: 20px !important;
   width: 20px !important;

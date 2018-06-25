@@ -159,7 +159,7 @@
                   <label for="contacts" class="col col-md-4 control-label">Employees</label>
                   <div class="col-md-9 pr-4 ">
                      <div class="form-group">
-                        <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="Add Main Contact"  data-size="8" data-style="btn-outline-info" name="contact_ids[]" multiple tabindex="-98">
+                        <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="Add Main Contact"  data-size="8" data-style="btn-outline-info" name="user_ids[]" multiple tabindex="-98">
                            <% User.all.each do |user| %>
                            <% next if user.first_name.nil? || user.first_name.empty? %>
                            <option class="text-dark" value=<%= "#{user.id}"%>><%= "#{ user.first_name}"%></option>
@@ -172,7 +172,7 @@
                   <label for="contacts" class="col col-md-4 control-label">Add Lead</label>
                   <div class="col-md-9 pr-4 ">
                      <div class="form-group">
-                        <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="Conect the lead"  data-size="8" data-style="btn-outline-info" name="contact_ids[]"  tabindex="-98">
+                        <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="Conect the lead"  data-size="8" data-style="btn-outline-info" name="lead_ids[]"  tabindex="-98">
                            <% Lead.all.each do |lead| %>
 
                            <option class="text-dark" value=<%= "#{lead.id}"%>><%= "#{ lead.name}"%></option>
@@ -181,6 +181,20 @@
                      </div>
                   </div>
                </div>
+                              <div class="form-group pr-4">
+                  <label for="contacts" class="col col-md-4 control-label">Add company</label>
+                  <div class="col-md-9 pr-4 ">
+                     <div class="form-group">
+                        <select class="selectpicker  mt-0 mb-0" data-style="select-with-transition" title="Conect the lead"  data-size="8" data-style="btn-outline-info" name="company_ids[]"  tabindex="-98">
+                           <% Company.all.each do |company| %>
+
+                           <option class="text-dark" value=<%= "#{company.id}"%>><%= "#{ company.name}"%></option>
+                           <% end %>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+
 
 
                <div class="form-group ml-3">

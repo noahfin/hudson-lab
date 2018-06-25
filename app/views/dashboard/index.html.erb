@@ -92,7 +92,7 @@
 <div class="row first-show-card">
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <a href="/leads/" >
-         <div class="card card-stats  rounded-0 card-1 card-dash-warning">
+         <div class="card card-stats  rounded-0 bg-black card-dash-warning">
             <div class="card-header     card-header-icon">
                <div class="card-icon card-icon-outline-warning">
                   <i class="material-icons">business</i>
@@ -111,7 +111,7 @@
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <%= link_to deals_path do %>
-      <div class="card card-stats card-dash-rose rounded-0 card-1">
+      <div class="card card-stats card-dash-rose rounded-0 bg-black">
          <div class="card-header card-header-icon ">
             <div class="card-icon card-icon-outline-danger">
                <i class="material-icons">equalizer</i>
@@ -128,7 +128,7 @@
       <% end %>
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
-      <div class="card card-stats  card-dash-success rounded-0 card-1">
+      <div class="card card-stats  card-dash-success rounded-0 bg-black">
          <div class="card-header  card-header-icon">
             <div class="card-icon  card-icon-outline-success">
                <i class="material-icons">store</i>
@@ -145,7 +145,7 @@
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <%= link_to contacts_path do %>
-      <div class="card card-stats  card-dash-info rounded-0 card-1">
+      <div class="card card-stats  card-dash-info rounded-0 bg-black">
          <div class="card-header card-header-icon">
             <div class="card-icon  card-icon-outline-info">
                <i class="material-icons">person</i>
@@ -165,7 +165,7 @@
 <div class="white-box mdl-color--grey-900 m-0">
    <div class="row row-in ">
       <div class="col-lg-3 col-sm-6 row-in-br">
-         <div class="col-in row card-1">
+         <div class="col-in row bg-black">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-user"></i>
                <h5 class="text-muted vb">MYNEW CLIENTS</h5>
@@ -181,7 +181,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
-         <div class="col-in row card-1">
+         <div class="col-in row bg-black">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-pencil-alt"></i>
                <h5 class="text-muted vb">NEW PROJECTS</h5>
@@ -197,7 +197,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6 row-in-br">
-         <div class="col-in row card-1">
+         <div class="col-in row bg-black">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-mouse-alt"></i>
                <h5 class="text-muted vb">OPEN PROJECTS</h5>
@@ -213,7 +213,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6  b-0">
-         <div class="col-in row card-1">
+         <div class="col-in row bg-black">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-receipt"></i>
                <h5 class="text-muted vb">NEW INVOICES</h5>
@@ -232,9 +232,9 @@
 </div>
 <div class="row first-show-card">
    <div class="col-xl-3">
-      <div class="card card-1 mb-4 p-0 tasks-card search-card">
-         <div class="card-header card-1 p-0  card-1 ">
-            <div class="card-1  div-header p-4">
+      <div class="card bg-black mb-4 p-0 tasks-card search-card">
+         <div class="card-header bg-black p-0  bg-black ">
+            <div class="bg-black  div-header p-4">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
@@ -274,7 +274,7 @@
                </div>
             </div>
          </div>
-         <div class="card-body mb-4 card-1">
+         <div class="card-body mb-4 bg-black">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="dash-search-pan">
                   <div class="table-responsive">
@@ -291,9 +291,9 @@
       </div>
    </div>
    <div class="col-xl-6 col-lg-12 first-show-card">
-      <div class="card card-1 p-0 deals-card-d">
-         <div class="card-header   mb-4 p-0  card-1 ">
-            <div class=" card-1  div-header p-4 ">
+      <div class="card bg-black p-0 deals-card-d">
+         <div class="card-header   mb-4 p-0  bg-black ">
+            <div class=" bg-black  div-header p-4 ">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
@@ -326,13 +326,12 @@
             <div class="tab-content p-0">
                <div class="tab-pane active" id="profile">
                   <div class="table-responsive">
-                     <table class="table  table-hover card-1">
+                     <table class="table  table-hover bg-black">
                         <thead>
                            <tr>
                               <th class="text-center">Contact</th>
                               <th class="text-center">Name</th>
                               <th class="text-center">Date Created</th>
-                              <th class="text-center">Role</th>
                               <th class="text-center">Status</th>
                               <th class="text-center">Action</th>
                            </tr>
@@ -351,8 +350,8 @@
                               </td>
                               <td class="text-center text-white"><%= link_to deal_path(deal)  do %> <%= deal.name %>  <% end %></td>
                               <td class="text-center text-white"><%= deal.created_at.strftime("%B %e, %Y") %></td>
-                              <td class="text-center text-white"><%= deal.contacts.first.role  if deal.contacts.first %></td>
-                              <td class="text-center text-white"><span class="status text-success">•</span>  <%= deal.status %> </td>
+                            <!--   <td class="text-center text-white">deal.contacts.first.role  if deal.contacts.first %></td> -->
+                              <td class="text-center text-white">  <%= deal.status %> </td>
                               <td class="text-center text-white">
                                  <a class="text-white"><i class="material-icons">more_horiz</i></a>
                               </td>
@@ -367,9 +366,9 @@
       </div>
    </div>
    <div class="col-xl-3">
-      <div class="card card-1  mb-4 p-0 tasks-card">
-         <div class="card-header  card-1 p-0">
-            <div class=" card-1  div-header p-4 m-0 ">
+      <div class="card bg-black  mb-4 p-0 tasks-card">
+         <div class="card-header  bg-black p-0">
+            <div class=" bg-black  div-header p-4 m-0 ">
                <div class="nav-tabs-navigation">
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
@@ -392,12 +391,12 @@
                </div>
             </div>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body bg-black ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="profile">
                   <div class="table-responsive">
                      <table class="table p-0">
-                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 bg-black ">
                            <%= render 'tasks' %>
                         </tbody>
                      </table>
@@ -411,7 +410,7 @@
 <div class="row">
    <!-- BEGIN ALERT - REVENUE -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
+      <div class="card bg-black">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-info no-margin">
                <strong class="pull-right text-success text-lg">0,38% <i class="md md-trending-up"></i></strong>
@@ -432,7 +431,7 @@
    <!-- END ALERT - REVENUE -->
    <!-- BEGIN ALERT - VISITS -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
+      <div class="card bg-black">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-warning no-margin">
                <strong class="pull-right text-warning text-lg">0,01% <i class="md md-swap-vert"></i></strong>
@@ -453,7 +452,7 @@
    <!-- END ALERT - VISITS -->
    <!-- BEGIN ALERT - BOUNCE RATES -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
+      <div class="card bg-black">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-danger no-margin">
                <strong class="pull-right  text-lg">0,18% <i class="md md-trending-down"></i></strong>
@@ -474,7 +473,7 @@
    <!-- END ALERT - BOUNCE RATES -->
    <!-- BEGIN ALERT - TIME ON SITE -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
+      <div class="card bg-black">
          <div class="card-body no-padding">
             <div class="alert alert-callout card-icon-outline-success no-margin">
                <h1 class="pull-right card-icon-outline-success"><i class="md md-timer"></i></h1>

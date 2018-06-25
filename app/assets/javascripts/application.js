@@ -418,14 +418,6 @@ $('.selectpicker').selectpicker('mobile');
     });
 
 // company create section
-$(document).on('click', '#save-company', function (e) {
-      e.preventDefault();
-      console.log('#save-company clicked')
-        $('form').prop("disabled", false);
-        $(this).closest('form').submit();
-       var data = $('#company-form').serialize()
-        createCompanySend(data);
-    });
 
 
  var getUsersAndGroupsInputs = function () {
@@ -543,6 +535,7 @@ $(document).on('click', '#save-company', function (e) {
         $.ajax({
             url: url,
             method: "post",
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
             data: data,
             success: function (company) {
                 clsoeWiz();

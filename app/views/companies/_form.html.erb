@@ -1,207 +1,126 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-      <div class="wizard-container" id="company-form-wiz" style= "display: block">
-        <div class="card card-wizard card-1" data-color="red" >
-           <%= form_for(@company, html: {multipart: true}) do |f| %>
-            <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-            <div class="card-header text-center">
-              <h3 class="card-title text-white">
-                Build Your Project Outline
-              </h3>
-              <h5 class="card-description text-white">This information will let us know more about you.</h5>
-            </div>
-            <div class="wizard-navigation">
-              <ul class="nav nav-pills">
-                <li class="nav-item text-white">
-                  <a class="nav-link active text-white" href="#about" data-toggle="tab" role="tab">
-                    Information
-                  </a>
-                </li>
-                <li class="nav-item text-white">
-                  <a class="nav-link text-white" href="#account" data-toggle="tab" role="tab">
-                    Category
-                  </a>
-                </li>
-                <li class="nav-item text-white">
-                  <a class="nav-link text-white" href="#address" data-toggle="tab" role="tab">
-                   Time
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div class="tab-content">
-                <div class="tab-pane active" id="about">
-                  <h5 class="info-text text-white"> Let's start with the basic information (with validation)</h5>
-                  <div class="row justify-content-center">
-                    <div class="col-sm-3  mt-0">
-                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                            <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag  @company.avatar.present? ? @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
-                            </div>
-                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag  @company.avatar.present? ?  @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
-                            </div>
-                            <div class="text-center">
-                               <span class="btn btn-default btn-file">
-                               <span class="fileinput-new text-white">Choose Photo</span>
-                               <span class="fileinput-exists text-white">Change</span><%= f.file_field :avatar %>
-                               </span>
-                               <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                            </div>
-                         </div>
-                    </div>
-                    <div class="col-sm-3 mt-4 pl-4">
-                      <div class="input-group form-control-lg text-white">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                              <i class="material-icons text-white">assignment</i>
-                          </span>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInput1" class="bmd-label-floating text-white">Project Name</label>
-                           <%= f.text_field :name, class: "form-control text-white" %>
-                        </div>
-                      </div> <!-- projected_start_time projected_finish_time actual_start_time actual_finshed_time staffing resources requirements description -->
-                  </div>
-                    <div class="col-sm-3  mt-4">
-                      <div class="input-group form-control-lg text-white">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons text-white">assignment</i>
-                          </span>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInput11" class="bmd-label-floating">Resources</label>
-                           <%= f.text_field :sector, class: "form-control text-white" %>
-                        </div>
-                      </div>
-                  </div>
-                    <div class="col-sm-3  mt-4">
-                  <div class="input-group form-control-lg text-white">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons text-white">assignment</i>
-                      </span>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInput11" class="bmd-label-floating">Requirements</label>
-                       <%= f.text_field :rent, class: "form-control text-white" %>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                 <div class="col-md-12">
-                 <div class="row">
-                  <div class="col-lg-3 mt-0 pr-4 mr-0 text-white">
-                    <div class="input-group form-control-lg text-white mt-4">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                          <i class="material-icons text-white">attach_money</i>
-                      </span>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInput1" class="bmd-label-floating text-white">Project Budget</label>
-                       <%= f.text_field :age, class: "form-control text-white" %>
-                    </div>
-                  </div>
-                </div>
-               <div class="col-lg-9 pr-0  mt-4 text-white">
-                 <div class="row">
-                    <div class="col-md-12">
-                      <div class="input-group pr-0 mr-0 form-control-lg">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">
-                            <i class="material-icons text-white">assignment</i>
-                          </span>
-                        </div>
-                        <div class="form-group pr-0 mr-0">
-                          <label for="exampleInput1" class="bmd-label-floating text-white">Description</label>
-                           <%= f.text_field :description, class: "form-control text-white ml-0 pr-0 mr-0" %>
-                        </div>
+<div class="modal-dialog modal-login" role="document">
+                     <div class="modal-content">
+                        <div class="card card-signup bg-black">
+                           <div class="modal-header ">
+                              <div class="card-header p-0 card-1 ">
+                                <div class="div-header card-1   p-4">
+
+
+                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+
+                                 <div class="social-line text-center card-1 pl-4">
+                                    <a href="#first-company-tab" class="btn btn-just-icon btn-link nav-company-tabs" >
+                                    <i class="fa fa-address-card text-danger text-center"></i>
+                                    </a>
+                                    <a href="#second-company-tab" class="btn btn-just-icon btn-link nav-company-tabs">
+                                    <i class="fa fa-list-alt text-info text-center"></i>
+                                    </a>
+                                    <a href="#last-compnay-tab" class="btn btn-just-icon btn-link nav-company-tabs">
+                                     <i class=" fa fa-image text-warning text-center"></i>
+                                    </a>
+                                 </div>
+                                  </div>
+                              </div>
                            </div>
+
+                           <!-- addres earnings rent  age image  -->
+                           <div class="modal-body">
+                              <%= form_for(@company, :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: 'company-form') do |form| %>
+                              <p class="description text-center">Company form</p>
+                              <div class="card-body">
+                                <div id="first-company-tab">
+                                 <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="fa fa-user-circle"></i>
+                                       </span>
+                                        <%= form.text_field :name, id: :company_name, class: 'form-control text-white', placeholder: 'Name...' %>
+                                    </div>
+                                 </div>
+                                 <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="fa fa-address-card"></i>
+                                       </span>
+                                      <%= form.text_field :addres, id: :company_addres, class: 'form-control text-white', placeholder: 'Addres...' %>
+                                    </div>
+                                 </div>
+                                 <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="fa fa-universal-access "></i>
+                                       </span>
+                                        <%= form.text_field :sector, id: :company_sector, class: 'form-control text-white', placeholder: 'Sector...' %>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!--   second section   -->
+                                <div id="second-company-tab" style="display: none;">
+                                   <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="fa fa-user-circle"></i>
+                                       </span>
+                                      <%= form.text_field :rent, id: :company_earnings, class: 'form-control text-white', placeholder: 'Rent...' %>
+                                    </div>
+                                 </div>
+                                 <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="fa fa-address-card"></i>
+                                       </span>
+                                        <%= form.text_field :earnings, id: :company_earnings, class: 'form-control text-white', placeholder: 'Earnings...' %>
+                                    </div>
+                                 </div>
+                                 <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                       <span class="input-group-addon">
+                                       <i class="fa fa-universal-access "></i>
+                                       </span>
+                                        <%= form.text_field :age, id: :company_age, class: 'form-control text-white', placeholder: 'Age...' %>
+                                    </div>
+                                 </div>
+                                </div>
+                              <div id="last-compnay-tab" style="display: none;"><!--  last-compnay-tab -->
+                              <div class="row">
+                                <div class="form-group">
+                                   <div class="row mt-3">
+                                      <div class=" col-md-12">
+                                         <div class="input-group ">
+                                            <div class="col-xl-12">
+                                               <div class="row ">
+                                                  <div class="col-sm-4 ml-auto mr-auto">
+                                                     <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                        <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @company.avatar.present? ? @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
+                                                        </div>
+                                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @company.avatar.present? ? @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
+                                                        </div>
+                                                        <div class="text-center">
+                                                           <span class="btn btn-default btn-file">
+                                                           <span class="fileinput-new text-white">Choose Photo</span>
+                                                           <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
+                                                           </span>
+                                                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                        </div>
+                                                     </div>
+                                                  </div>
+                                               </div>
+                                            </div>
+                                         </div>
+                                      </div>
+                                   </div>
+                                   <div>
+                                   </div>
+                                </div>
+                             </div>
+                                 </div>
+                              </div>
+
+                           </div>
+                           <div class="modal-footer justify-content-center">
+                            <%= form.submit "save", class: "btn btn-info btn-link btn-wd btn-lg", id: "s-company" %>
+                           </div>
+                            <% end %>
                         </div>
-                    </div>
+                     </div>
                   </div>
-                </div>
-              </div>
-              </div>
-                <div class="tab-pane" id="account">
-                  <h5 class="info-text text-white"> What type of project? (checkboxes) </h5>
-                  <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                      <div class="row ">
-                        <div class="col-sm-3">
-                          <div class="choice" data-toggle="wizard-checkbox">
-                            <div class="icon">
-                             <i class="material-icons align-self-center text-danger center-icon">business</i>
-                            </div>
-                            <h6 class="text-white">Development</h6>
-                          </div>
-                        </div>
-                        <div class="col-sm-3">
-                          <div class="choice" data-toggle="wizard-checkbox">
-                            <div class="icon">
-                              <i class="material-icons text-warning">report_problem</i>
-                            </div>
-                            <h6 class="text-white">Maintenance</h6>
-                          </div>
-                        </div>
-                        <div class="col-sm-3">
-                          <div class="choice" data-toggle="wizard-checkbox">
-                            <div class="icon">
-                             <i class="material-icons align-self-center  center-icon text-info">laptop_mac</i>
-                            </div>
-                            <h6 class="text-white">Technology</h6>
-                          </div>
-                        </div>
-                        <div class="col-sm-3">
-                          <div class="choice" data-toggle="wizard-checkbox">
-                            <div class="icon">
-                             <i class="material-icons align-self-center text-success center-icon">store</i>
-                            </div>
-                            <h6 class="text-white">Business</h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="address">
-              </div>
-             </div>
-            </div>
-            <div class="card-footer">
-              <div class="mr-auto">
-                <input type="button" class="btn btn-previous btn-fill btn-danger btn-wd disabled" name="previous" value="Previous">
-              </div>
-              <div class="ml-auto">
-                <input type="button" class="btn btn-next btn-fill btn-danger btn-wd" name="next" value="Next">
-                <button type="submit"  class="btn btn-finish btn-fill btn-success btn-wd" style="display: none;">finish </button>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-      <!-- wizard container -->
-      <script>
-
-        $('.datetimepicker').datetimepicker({
-    icons: {
-        time: "fa fa-clock-o",
-        date: "fa fa-calendar",
-        up: "fa fa-chevron-up",
-        down: "fa fa-chevron-down",
-        previous: 'fa fa-chevron-left',
-        next: 'fa fa-chevron-right',
-        today: 'fa fa-screenshot',
-        clear: 'fa fa-trash',
-        close: 'fa fa-remove'
-    }
-});
-      </script>
-
-
-<button class="btn btn-round btn-danger" style="display: block;">
-    <i class="material-icons">assignment</i>
-    Fill Out Company form
-</button>
