@@ -12,3 +12,5 @@ amazon:
   secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
   region: <%= ENV['AWS_REGION']  %>
   bucket: hudson-lab-images
+  url:  :s3_domain_url
+  path: /:class/avatars/:id_:basename.:style.:extension
