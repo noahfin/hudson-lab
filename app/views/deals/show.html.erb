@@ -546,7 +546,7 @@
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
                <table class="profile-picture pb-0 pl-0 image-content" style="height:400px; width: 200px !important;" id="deal-company-logo">
 
-                  <td  class=""><% if @deal.image.attached? %><% if @deal %> <%= image_tag url_for(@deal.image)  %> <% end %><% end %></td>
+                  <td  class=""><% if @deal.image.attached? %><% if @deal %> <%= image_tag url_for(@deal.image), class: 'd-flex justify-content-center'  %> <% end %><% end %></td>
                </table>
             </div>
          </div>
@@ -650,7 +650,7 @@
                <div class="profile-env ">
                   <section class="profile-info-tabs mt-3 ">
                      <ul class="user-details">
-                        <li> <a href="#"> <i class="entypo-suitcase"></i><% if  !@deal.contacts.nil? %><%= @deal.contacts.first.name %><% end %>  Works as <span class="text-hudson-ornage"><% if  !@deal.contacts.nil? %> <%= @deal.contacts.first.postion %><% end %> </span> </a></li>
+                        <li> <a href="#"> <i class="entypo-suitcase"></i><% if  !@deal.contacts.nil? %><% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %> <%= contact.first_name + ' ' + contact.last_name %><% end %><% end %>  Works as <span class="text-hudson-ornage"><% if  !@deal.contacts.nil? %> <% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %><%= contact.postion  if contact.postion %><% end %> <% end %> </span> </a></li>
                         <li> <a href="#"> <i class="entypo-location"></i>At <% if  !@deal.contacts.nil? %><%= @deal.contacts.first.postion if @deal.contacts && !@deal.contacts.first.nil? %> <% end %> at <% if  !@deal.contacts.nil? %> <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a></li>
                         <li> <a href="#"> <i class="entypo-calendar"></i><%= @deal.created_at.strftime("%d %b. %Y") %> </a></li>
                      </ul>
@@ -660,7 +660,7 @@
             <div class="col-sm-9 pt-4">
                <ul class="profile-info-sections mt-4">
                   <li>
-                     <div class="profile-name"> <strong> <a class="text-white" ><%= @deal.contacts.first.name if @deal.contacts && @deal.contacts.first %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#"><% if  !@deal.contacts.nil? %><%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %><% end %> at <% if  !@deal.contacts.nil? %> <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %><% end %></a> </span></div>
+                     <div class="profile-name"> <strong> <a class="text-white" ><% if  !@deal.contacts.nil? %><% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %> <%= contact.first_name + ' ' + contact.last_name %><% end %><% end %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#"><% if  !@deal.contacts.nil? %> <% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %><%= contact.postion  if contact.postion %><% end %> <% end %> </span> </a> at <% if  !@deal.contacts.nil? %><% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %> <%= contact.company if contact.company %><% end %><% end %></a> </span></div>
                   </li>
                   <li>
                      <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; ">
