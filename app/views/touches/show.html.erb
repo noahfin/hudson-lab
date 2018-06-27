@@ -88,7 +88,7 @@
                         <div class="col-md-12">
                            <strong class=" text-white">Contacts:</strong>
                            <div class="table-responsive table-sales">
-                              <table class="table">
+                              <table class="table text-white">
                                  <tbody>
                                     <% @touch.contacts.each do |contact| %>
                                     <tr>
@@ -97,7 +97,7 @@
                                              <i class="material-icons">touch_app</i>
                                           </div>
                                        </td>
-                                       <td> <%= contact.first_name  %></td>
+                                       <td> <% if contact.name %><%= contact.name  %> <% else %> <%= contact.first_name  %><% end %></td>
                                        <td class="text-right">
                                           <% if @touch.email %>
                                           <span class=" text-black mt-3">
@@ -110,7 +110,7 @@
                                           </span>
                                           <% end %>
                                           <% if @touch.postcard %>
-                                          <spanclass=" text-black">
+                                          <span class=" text-white">
                                           Made a touch via postcard
                                           </span>
                                           <% end %>
