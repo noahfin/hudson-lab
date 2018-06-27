@@ -44,7 +44,7 @@
                    <div class="col-md-6 ml-auto mr-auto">
                   <% attr = {prompt: "Select"} %>
 
-                  <label for="lead_ids" class="bmd-label-floating text-black">Pick Leads</label>
+                  <label for="lead_ids" class="bmd-label-floating text-black">Pick Deals and Leads</label>
                      <%= f.collection_select :lead_ids, Lead.all, :id, :name,  attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
                </div>
             </div>

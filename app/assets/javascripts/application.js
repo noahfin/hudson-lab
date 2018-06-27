@@ -201,6 +201,27 @@ $(document).on('mouseleave', '.ui-menu', function (event) {
 });
 
 
+// like btn add section
+$(document).on('click', '.like-btn', function (e) {
+   e.preventDefault();
+   var post_id = $(this).find('.like_post');
+   post_id = [post_id.val()]
+var like_authenticity = $(this).find('.like_authenticity').val();
+    console.log(like_authenticity);
+   console.log(post_id);
+
+    var data = {like:
+      {
+        like: 1,
+        post_ids: post_id
+
+
+  },
+ authenticity_token: like_authenticity
+ }
+likeSend(data);
+});
+
 
 
 
@@ -495,6 +516,24 @@ $('.selectpicker').selectpicker('mobile');
 
 
 
+    // deal post ajax section
+    $(document).on('click', '#deal_post_submmit', function (event) {
+         event.preventDefault();
+
+        var auth_token = $('input[name="authenticity_token"]').val();
+        console.log(auth_token);
+        var post_body = $("#post_body").val();
+         var data ={
+          comment: post_body
+        }
+        data.authenticity_token = auth_token;
+        data.utf8 = 'true';
+        data.id = $("#deal_post_id").val();
+        console.log(data);
+      createDealPostSend(data);
+      return false
+
+    });
 
     $(document).on('click', '.toggle-contact ', function (event) {
 
@@ -542,6 +581,43 @@ $('.selectpicker').selectpicker('mobile');
                 $.notify({
                     title: "The Contact Was Also Added as A lead:",
                     message: $('#company_name').val() + '"' + ' was successfuly added to the database'
+                });
+
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+    }
+
+    var createDealPostSend = function (data) {
+        var url = $("#deal_post_form").attr("action");
+        $.ajax({
+            url: url,
+            method: "post",
+            beforeSend: $.rails.CSRFProtection,
+            data: data,
+            success: function (contact) {
+                clsoeWiz();
+                $.notify({
+                    title: "New Contact Added:",
+                    message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
                 });
 
 
@@ -635,6 +711,45 @@ $('.selectpicker').selectpicker('mobile');
 
     }
 
+
+    var likeSend = function (data) {
+        var url = "/likes/"
+
+        $.ajax({
+            url: url,
+            method: "post",
+            data: data,
+            success: function (data) {
+              console.log(data);
+              var postIdStr = "#like_"+data.post.id;
+              var like_number = $(postIdStr).html();
+              console.log(like_number);
+like_number = parseInt(like_number);
+$(postIdStr).html(like_number + 1);
+                 $.notify({
+                    title: "Nice!",
+                    message: 'You successfuly like this post'
+                });
+            },
+            error: function (err) {
+
+
+
+                if (err) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: err.responseJSON
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+    }
 
     $('body').on('click', '#pick-users-csv', function (event) {
         event.preventDefault();

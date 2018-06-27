@@ -1,4 +1,7 @@
   Rails.application.routes.draw do
+  resources :mainposts
+  resources :comments
+  resources :likes
   root to: 'visitors#index'
 
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { registrations: 'registrations', confirmations: 'confirmations'}
@@ -32,6 +35,9 @@
     resources :touches
     resources :leads
     resources :deals do
+      resources :posts
+      resources :issues
+      resources :comments
       get 'autocomplete', on: :collection
     end
     match "users/settheme" => "users#set_theme", as: :set_theme, via: :get

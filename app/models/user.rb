@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :deals
   has_and_belongs_to_many :teams
+  has_and_belongs_to_many :mainpost
+  has_and_belongs_to_many :comments
+  has_and_belongs_to_many :likes
   has_many :posts, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :posted_properties, through: :posts,  source: :property, dependent: :destroy

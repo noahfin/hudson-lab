@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_23_224503) do
+ActiveRecord::Schema.define(version: 2018_06_27_011159) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -19,6 +19,55 @@ ActiveRecord::Schema.define(version: 2018_06_23_224503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_account_logins_on_user_id"
+  end
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments_mainposts", id: false, force: :cascade do |t|
+    t.integer "mainpost_id", null: false
+    t.integer "comment_id", null: false
+    t.index ["comment_id", "mainpost_id"], name: "index_comments_mainposts_on_comment_id_and_mainpost_id"
+    t.index ["mainpost_id", "comment_id"], name: "index_comments_mainposts_on_mainpost_id_and_comment_id"
+  end
+
+  create_table "comments_posts", id: false, force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.integer "comment_id", null: false
+    t.index ["comment_id", "post_id"], name: "index_comments_posts_on_comment_id_and_post_id"
+    t.index ["post_id", "comment_id"], name: "index_comments_posts_on_post_id_and_comment_id"
+  end
+
+  create_table "comments_users", id: false, force: :cascade do |t|
+    t.integer "comment_id", null: false
+    t.integer "user_id", null: false
+    t.index ["comment_id", "user_id"], name: "index_comments_users_on_comment_id_and_user_id"
+    t.index ["user_id", "comment_id"], name: "index_comments_users_on_user_id_and_comment_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -171,6 +220,20 @@ ActiveRecord::Schema.define(version: 2018_06_23_224503) do
     t.index ["lead_id"], name: "index_deals_on_lead_id"
   end
 
+  create_table "deals_likes", id: false, force: :cascade do |t|
+    t.integer "deal_id", null: false
+    t.integer "like_id", null: false
+    t.index ["deal_id", "like_id"], name: "index_deals_likes_on_deal_id_and_like_id"
+    t.index ["like_id", "deal_id"], name: "index_deals_likes_on_like_id_and_deal_id"
+  end
+
+  create_table "deals_mainposts", id: false, force: :cascade do |t|
+    t.integer "mainpost_id", null: false
+    t.integer "deal_id", null: false
+    t.index ["deal_id", "mainpost_id"], name: "index_deals_mainposts_on_deal_id_and_mainpost_id"
+    t.index ["mainpost_id", "deal_id"], name: "index_deals_mainposts_on_mainpost_id_and_deal_id"
+  end
+
   create_table "deals_tasks", id: false, force: :cascade do |t|
     t.integer "task_id", null: false
     t.integer "deal_id", null: false
@@ -263,6 +326,37 @@ ActiveRecord::Schema.define(version: 2018_06_23_224503) do
     t.index ["task_id", "lead_id"], name: "index_leads_tasks_on_task_id_and_lead_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "like"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes_mainposts", id: false, force: :cascade do |t|
+    t.integer "mainpost_id", null: false
+    t.integer "like_id", null: false
+    t.index ["like_id", "mainpost_id"], name: "index_likes_mainposts_on_like_id_and_mainpost_id"
+    t.index ["mainpost_id", "like_id"], name: "index_likes_mainposts_on_mainpost_id_and_like_id"
+  end
+
+  create_table "likes_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "like_id", null: false
+  end
+
+  create_table "mainposts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mainposts_users", id: false, force: :cascade do |t|
+    t.integer "mainpost_id", null: false
+    t.integer "user_id", null: false
+    t.index ["mainpost_id", "user_id"], name: "index_mainposts_users_on_mainpost_id_and_user_id"
+    t.index ["user_id", "mainpost_id"], name: "index_mainposts_users_on_user_id_and_mainpost_id"
+  end
+
   create_table "personal_messages", force: :cascade do |t|
     t.text "body"
     t.integer "conversation_id"
@@ -290,6 +384,9 @@ ActiveRecord::Schema.define(version: 2018_06_23_224503) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "utf8"
+    t.string "authenticity_token"
+    t.string "post"
     t.index ["deal_id"], name: "index_posts_on_deal_id"
     t.index ["property_id"], name: "index_posts_on_property_id"
     t.index ["user_id"], name: "index_posts_on_user_id"

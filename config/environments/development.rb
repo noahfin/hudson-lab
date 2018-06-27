@@ -75,6 +75,7 @@ Rails.application.configure do
   s3_region: 'us-east-1'
  }
 
+ config.active_storage.service = :local
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.

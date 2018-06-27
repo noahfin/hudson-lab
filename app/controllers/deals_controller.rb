@@ -30,7 +30,8 @@ class DealsController < ApplicationController
    end
  end
    def show
-
+    @mainpost = Mainpost.new
+     @comment = Comment.new
    end
    def create
 
@@ -79,7 +80,7 @@ class DealsController < ApplicationController
    private
 
     def deal_params
-      params.require(:deal).permit(:name, :code, :category, :active, :lead_id, :user_ids,  :status, :potential_commission, :contact_ids, :company_ids  => [])
+      params.require(:deal).permit(:name, :code, :category, :active, :image,  :lead_id, :user_ids,  :status, :potential_commission, :contact_ids, :company_ids  => [])
     end
     def find_property
       @deal = Deal.find params[:id]

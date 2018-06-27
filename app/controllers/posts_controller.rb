@@ -1,14 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+ protect_from_forgery null_session: [:create, :update  ]
 
   def index
     @property = Property.find(params[:property_id])
+     @deal = Deal.find(params[:deal_id])
     @posts = @property.posts
   end
 
   def show
      @property = Property.find(params[:property_id])
+      @deal = Deal.find(params[:deal_id])
 
   end
 
@@ -18,19 +20,32 @@ class PostsController < ApplicationController
 
   def edit
     @property = Property.find(params[:property_id])
+     @deal = Deal.find(params[:deal_id])
 
   end
 
   def create
-    @property = Property.find(params[:property_id])
-    params[:post] = params
+    @property = Property.find(params[:property_id]) unless params[:deal_id]
+
+    @deal = Deal.find(params[:deal_id])
+    params['post'] = params
     @post = Post.new(post_params)
       if @post.save
       flash[:info] = "Post was created."
-      redirect_to property_path(@property)
+              if params[:deal_id]
+
+       redirect_to deal_path( params[:deal_id] )
+     elsif  params[:property_id]
+      redirect_to porperty_path( params[:property_id] )
+    end
       else
         flash[:danger] = "Post was not created."
-        render :new
+        if params[:deal_id]
+
+       redirect_to deal_path( params[:deal_id] )
+     elsif  params[:property_id]
+      redirect_to porperty_path( params[:property_id] )
+    end
     end
   end
 
@@ -40,7 +55,7 @@ class PostsController < ApplicationController
        params[:post] = params
     @post.update_attributes(post_params)
        flash[:info] = "Post Was Updated."
-       redirect_to property_path(params[:property_id])
+
   end
 
   def destroy
@@ -57,7 +72,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-       params.require(:post).permit(:rating, :comment, :property_id).merge({user_id: current_user.id})
+       params.require(:post).permit(:post, :rating, :comment, :deal_id, :utf8, :authenticity_token, :property_id, :comment_id).merge({user_id: current_user.id})
     end
 
 end

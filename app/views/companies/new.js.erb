@@ -4,28 +4,43 @@ $('#company-form-modal').modal('show');
  $(document).on('click', '#s-company ', function (event) {
             event.preventDefault()
              $('#company-form').prop("disabled", true);
-             var formData = {
-            company: {
 
-            'name': $('#company_name').val(),
-                'avatar': $('#company_avatar').val(),
-                'earnings': $('#company_earnings').val(),
-                'age': $('#company_age').val(),
-                'sector': $('#company_sector').val(),
-                'addres': $('#company_addres').val()
+$('#s-company').trigger('click');
 
-                  },
-                  authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
-            }
 
-            createCompanySend(formData);
-            return false
+
+  // var data = {
+  //           company: {
+
+  //           'name': $('#company_name').val(),
+  //               'avatar': $('#company_avatar').val(),
+  //               'earnings': $('#company_earnings').val(),
+  //               'age': $('#company_age').val(),
+  //               'sector': $('#company_sector').val(),
+  //               'addres': $('#company_addres').val()
+
+  //                 },
+  //                 authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
+  //           }
+
+// data.name =  $('#company_name').val();
+// data.avatar = $('#company_avatar');
+// data.earnings =  $('#company_earnings').val();
+// data.age = $('#company_age').val();
+// authenticity_token = '<%= "" +form_authenticity_token.to_s %>';
+// data.sector = $('#company_sector').val();
+// data.addres = $('#company_addres').val();
+
+
+            // createCompanySend(data);
+            // return false
 
         });
 
 var createCompanySend = function (data) {
         var url = "/companies/";
         $.ajax({
+           contentType: 'multipart/form-data',
             url: url,
             method: "post",
             beforeSend: $.rails.CSRFProtection,
