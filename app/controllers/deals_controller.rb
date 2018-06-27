@@ -37,13 +37,14 @@ class DealsController < ApplicationController
 
       @deal = Deal.new(deal_params)
       if @deal.save
-
+        if params['contact_ids'] && !params['contact_ids'].empty?
         params['contact_ids'].each_with_index do |c_id, i|
           next if c_id.to_i == 0
          contact = Contact.find(c_id.to_i)
 
           @deal.contacts << contact
          end
+       end
 
         flash[:success] = "The deal was successfully created."
         redirect_to deals_path
