@@ -650,8 +650,8 @@
                <div class="profile-env ">
                   <section class="profile-info-tabs mt-3 ">
                      <ul class="user-details">
-                        <li> <a href="#"> <i class="entypo-suitcase"></i><%= @deal.contacts.first.name if @deal.contacts %>  Works as <span class="text-hudson-ornage"><%= @deal.contacts.first.postion if @deal.contacts %> </span> </a></li>
-                        <li> <a href="#"> <i class="entypo-location"></i>At <%= @deal.contacts.first.postion if @deal.contacts %> at <%= @deal.contacts.first.company if @deal.contacts %></a></li>
+                        <li> <a href="#"> <i class="entypo-suitcase"></i><%= @deal.contacts.first.name if !@deal.contacts.nil? || !@deal.contacts.first.nil? %>  Works as <span class="text-hudson-ornage"><%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %> </span> </a></li>
+                        <li> <a href="#"> <i class="entypo-location"></i>At <%= @deal.contacts.first.postion if @deal.contacts && !@deal.contacts.first.nil? %> at <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %></a></li>
                         <li> <a href="#"> <i class="entypo-calendar"></i><%= @deal.created_at.strftime("%d %b. %Y") %> </a></li>
                      </ul>
                   </section>
@@ -660,7 +660,7 @@
             <div class="col-sm-9 pt-4">
                <ul class="profile-info-sections mt-4">
                   <li>
-                     <div class="profile-name"> <strong> <a class="text-white" ><%= @deal.contacts.first.name if @deal.contacts %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#"><%= @deal.contacts.first.postion if @deal.contacts %> at <%= @deal.contacts.first.company if @deal.contacts %></a> </span></div>
+                     <div class="profile-name"> <strong> <a class="text-white" ><%= @deal.contacts.first.name if @deal.contacts && @deal.contacts.first %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#"><%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %> at <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %></a> </span></div>
                   </li>
                   <li>
                      <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; ">
@@ -717,7 +717,7 @@
                <aside class="user-thumb"> <%= image_tag small_gravatar_url(post_user_email), class: 'user-image' %> </aside>
                <div class="story-content">
                   <header>
-                     <div class="publisher"> <a href="#"><%= @deal.contacts.first.name if @deal.contacts %> </a>&nbsp; posted a note <em><%= time_ago_in_words(post.created_at)%></em></div>
+                     <div class="publisher"> <a href="#"><%= @deal.contacts.first.name if @deal.contacts && !@deal.contacts.first.nil? %> </a>&nbsp; posted a note <em><%= time_ago_in_words(post.created_at)%></em></div>
                      <div class="story-type"> <i class="entypo-feather"></i></div>
                   </header>
                   <div class="story-main-content">
@@ -753,7 +753,7 @@
                   </div>
                </div>
          </div>
-         <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{post.id}"%>><%= post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= post.comments.count %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn">like <input class="like_post" type="hidden" value=<%="#{post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>  > </span>
+         <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{post.id}"%>><%= post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= post.comments.count if post.comments %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn">like <input class="like_post" type="hidden" value=<%="#{post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>  > </span>
          <ul class="comments mt-2" id=<%="comment_#{post.id}"%>>
          <% post.comments.each do |comment| %>
          <li class="mt-3" id=<%="comment_#{comment.id}"%>><% if !comment.users.first.nil? && !comment.users.first.email.nil?
@@ -762,7 +762,7 @@
                post_user_email = 'hudsonlab@example.com' end %>
          <div class="user-comment-thumb mb-2"> <%= image_tag small_gravatar_url(comment_user_email), class: 'user-image' %></div>
          <div class="user-comment-content">
-         <a href="#" class="user-comment-name text-danger"><%= comment.users.first.first_name if comment.users %> </a><%= comment.body if comment.body %>
+         <a href="#" class="user-comment-name text-danger"><%= comment.users.first.first_name if comment.users && !comment.users.first.nil? %> </a><%= comment.body if comment.body if comment.users && !comment.users.first.nil? %>
          <div class="user-comment-meta"> <a href="#" class="comment-date"><%= comment.created_at.strftime("%B %e, %Y at %I:%M %p") %></a> - <a href="#"> <i class="entypo-heart"></i><%= comment.title %> </a> - <a href="#"> <i class="entypo-comment"></i>
           <%= link_to comment_path(id: comment.id, authenticity_token: form_authenticity_token, post_id: post.id), method: :delete, class: 'text-danger remote-link ', remote: true, data: { confirm: "Are you sure you want delete this contact?"}  do %>
       <i class="fa fa-trash" title='delete' rel="tooltip"></i>
