@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
   include DealsHelper
-  before_action :find_property, only: [:edit, :update, :destroy, :show]
+  before_action :find_deal, only: [:edit, :update, :destroy, :show]
    def index
     @deals = Deal.all.order(created_at: :desc)
       respond_to do |format|
@@ -82,7 +82,7 @@ class DealsController < ApplicationController
     def deal_params
       params.require(:deal).permit(:name, :code, :category, :active, :image,  :lead_id, :user_ids,  :status, :potential_commission, :contact_ids, :company_ids  => [])
     end
-    def find_property
+    def find_deal
       @deal = Deal.find params[:id]
     end
 
