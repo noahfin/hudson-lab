@@ -593,7 +593,7 @@
                            </div>
                         </div>
                         <div class="card-content bg-transparent">
-                           <div class="tab-content tab-space">
+                           <div class="tab-content tab-space pl-3">
                               <div class="tab-pane active" id="dashboard-1">
                                  <div class="row">
                                     <div class="col-md-6 pl-4">
@@ -650,8 +650,8 @@
                <div class="profile-env ">
                   <section class="profile-info-tabs mt-3 ">
                      <ul class="user-details">
-                        <li> <a href="#"> <i class="entypo-suitcase"></i><% if  !@deal.contacts.nil? %><% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %> <%= contact.first_name + ' ' + contact.last_name %><% end %><% end %>  Works as <span class="text-hudson-ornage"><% if  !@deal.contacts.nil? %> <% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %><%= contact.postion  if contact.postion %><% end %> <% end %> </span> </a></li>
-                        <li> <a href="#"> <i class="entypo-location"></i>At <% if  !@deal.contacts.nil? %><%= @deal.contacts.first.postion if @deal.contacts && !@deal.contacts.first.nil? %> <% end %> at <% if  !@deal.contacts.nil? %> <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a></li>
+                        <li> <a href="#"> <i class="entypo-suitcase"></i><% if !@deal.contacts.nil? %><% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %><%= contact.first_name + ' ' + contact.last_name %><% end %><% end %>  Works as <span class="text-hudson-ornage"><% if  !@deal.contacts.nil? %> <% @deal.contacts.each_with_index do |contact, index| %><% break if index > 1 %><%= contact.postion  if contact.postion %><% end %> <% end %> </span> </a></li>
+                        <li> <a href="#"> <i class="entypo-location"></i><% if !@deal.contacts.nil? %><%= @deal.contacts.first.postion if @deal.contacts && !@deal.contacts.first.nil? %> <% end %> at <% if  !@deal.contacts.nil? %> <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a></li>
                         <li> <a href="#"> <i class="entypo-calendar"></i><%= @deal.created_at.strftime("%d %b. %Y") %> </a></li>
                      </ul>
                   </section>
