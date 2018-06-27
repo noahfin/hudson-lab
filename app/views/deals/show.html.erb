@@ -545,7 +545,7 @@
          <div class="col-md-4 pb-0">
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
                <table class="profile-picture pb-0 pl-0 image-content" style="height:400px; width: 200px !important;" id="deal-company-logo">
-                  <td  class=""> <%= image_tag @deal.image if @deal.image %></td>
+                  <td  class=""> <%= image_tag @deal.image if !@deal.image.nil? %></td>
                </table>
             </div>
          </div>
@@ -663,9 +663,8 @@
                   </li>
                   <li>
                      <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; ">
-                        <%= link_to new_deal_path, class: 'btn pb-4 btn-just-icon btn-round mdl-grey-900-btn  remote-link', remote: true do %>
-                        <i class="material-icons">add_circle_outline</i>
-                        <div class="ripple-container"></div>
+                        <%= link_to new_deal_path, class: 'btn btn-sm mdl-grey-900-btn  remote-link', remote: true do %>
+                           New Deal
                         <% end %>
                      </div>
                   </li>
