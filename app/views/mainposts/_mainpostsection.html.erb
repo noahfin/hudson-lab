@@ -1,0 +1,66 @@
+ <article class="story "  id=<%="main@post_#{@post.id}"%>>
+               <% if !@post.users.first.nil? && !@post.users.first.email.nil?
+                  @post_user_email = @post.users.first.email
+                  else
+                     @post_user_email = 'hudsonlab@example.com' end %>
+               <aside class="user-thumb"> <%= image_tag small_gravatar_url(@post_user_email), class: 'user-image' %> </aside>
+               <div class="story-content">
+                  <header>
+                     <div class="publisher"> <a href="#"><% if  !@deal.contacts.nil?  %><%= @deal.contacts.first.name if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a>&nbsp; @posted a note <em><%= time_ago_in_words(@post.created_at)%></em></div>
+                     <div class="story-type"> <i class="entypo-feather"></i></div>
+                  </header>
+                  <div class="story-main-content">
+                     <p><%= @post.body %></p>
+                     <span>
+                     <a class="btn btn-info text-info btn-link" data-toggle="collapse" href="#collapsecomment" aria-expanded="false" aria-controls="collapsecomment">
+                     <span class="text-info">Comment <i class="material-icons">comment</i></span>
+                     </a>
+                     </span>
+                     <div class="collapse" id="collapsecomment">
+                        <div class="card card-1 rounded-0  extra-hiiden">
+                           <div class="col-md-12 pl-4">
+                              <%= simple_form_for(@comment, remote: true, :authenticity_token => true) do |f| %>
+                              <%= f.error_notification %>
+                              <input type="hidden" value=<%="#{@post.id}"%> id="deal_@post_id" name="comment[main@post_ids]">
+                              <div class="row">
+                                 <div class="col-md-2 mt-3 p-1">
+                                    <label class="">Add Tag</label>
+                                    <%= f.input :title, class: 'form-control', label: false %>
+                                 </div>
+                                 <div class="col-md-6 mt-3">
+                                    <label class=" comment-position">Add Comment</label>
+                                    <%= f.input :body, class: 'form-control ', label: false  %>
+                                 </div>
+                                 <div class="col-md-4   mt-4 pt-4">
+                                    <%= f.button :submit, class: 'btn btn-outline-info mt-2 btn-block' %>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <% end %>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{@post.id}"%>><%= @post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= @post.comments.count if @post.comments %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn">like <input class="like_@post" type="hidden" value=<%="#{@post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>  > </span>
+         <ul class="comments mt-2" id=<%="comment_#{@post.id}"%>>
+         <% @post.comments.each do |comment| %>
+         <li class="mt-3" id=<%="comment_#{comment.id}"%>><% if !comment.users.first.nil? && !comment.users.first.email.nil?
+            comment_user_email = comment.users.first.email
+            else
+               @post_user_email = 'hudsonlab@example.com' end %>
+         <div class="user-comment-thumb mb-2"> <%= image_tag small_gravatar_url(comment_user_email), class: 'user-image' %></div>
+         <div class="user-comment-content">
+         <a href="#" class="user-comment-name text-danger"><%= comment.users.first.first_name if comment.users && !comment.users.first.nil? %> </a><%= comment.body if comment.body if comment.users && !comment.users.first.nil? %>
+         <div class="user-comment-meta"> <a href="#" class="comment-date"><%= comment.created_at.strftime("%B %e, %Y at %I:%M %p") %></a> - <a href="#"> <i class="entypo-heart"></i><%= comment.title %> </a> - <a href="#"> <i class="entypo-comment"></i>
+          <%= link_to comment_path(id: comment.id, authenticity_token: form_authenticity_token, post_id: @post.id), method: :delete, class: 'text-danger remote-link ', remote: true, data: { confirm: "Are you sure you want delete this contact?"}  do %>
+      <i class="fa fa-trash" title='delete' rel="tooltip"></i>
+      <% end %></a></div>
+         </div>
+         </li>
+         <% end %>
+
+         </ul>
+         <hr>
+   </div>
+   </article>

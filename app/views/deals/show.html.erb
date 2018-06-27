@@ -682,7 +682,7 @@
          <div class="col-md-12">
             <div class="filter-box extra-hiiden" style="display:none;">
                <div class="card mdl-color--grey-900 col-md-12 p-4">
-                  <%= simple_form_for(@mainpost) do |f| %>
+                  <%= simple_form_for(@mainpost, remote: true, :authenticity_token => true) do |f| %>
                   <div class="row">
                      <div class="col-md-8 ">
                         <%= f.error_notification %>
@@ -709,7 +709,7 @@
             </form> -->
          <div class="profile-stories">
             <% @deal.mainpost.each do |post| %>
-            <article class="story">
+            <article class="story "  id=<%="mainpost_#{post.id}"%>>
                <% if !post.users.first.nil? && !post.users.first.email.nil?
                   post_user_email = post.users.first.email
                   else
@@ -723,11 +723,9 @@
                   <div class="story-main-content">
                      <p><%= post.body %></p>
                      <span>
-                     <a class="btn btn-info text-info btn-link" data-toggle="collapse" href="#collapsecomment" aria-expanded="false" aria-controls="collapsecomment">
-                     <span class="text-info">Comment <i class="material-icons">comment</i></span>
-                     </a>
+
                      </span>
-                     <div class="collapse" id="collapsecomment">
+                     <div class="collapse" id=<%="commentCollapse_#{post.id}"%>>
                         <div class="card card-1 rounded-0  extra-hiiden">
                            <div class="col-md-12 pl-4">
                               <%= simple_form_for(@comment, remote: true, :authenticity_token => true) do |f| %>
@@ -752,8 +750,10 @@
                      </div>
                   </div>
                </div>
-         </div>
-         <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{post.id}"%>><%= post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= post.comments.count if post.comments %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn">like <input class="like_post" type="hidden" value=<%="#{post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>  > </span>
+
+         <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{post.id}"%>><%= post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= post.comments.count if post.comments %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn mr-0">like <input class="like_post" type="hidden" value=<%="#{post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>>  </span>                   <a class="btn btn-info text-info btn-link ml-0 pl-1" data-toggle="collapse"  href=<%="#commentCollapse_#{post.id}"%> aria-expanded="false" aria-controls=<%="#commentCollapse_#{post.id}"%>>
+                     <span class="text-info ml-0 pl-0">Add &nbsp;<i class="material-icons">comment</i></span>
+                     </a>
          <ul class="comments mt-2" id=<%="comment_#{post.id}"%>>
          <% post.comments.each do |comment| %>
          <li class="mt-3" id=<%="comment_#{comment.id}"%>><% if !comment.users.first.nil? && !comment.users.first.email.nil?
@@ -770,11 +770,14 @@
          </div>
          </li>
          <% end %>
-         <% end %>
+
          </ul>
          <hr>
-   </div>
+
    </article>
+       <% end %>
+      </div>
+
 
 </div>
 </section>

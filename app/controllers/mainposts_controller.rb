@@ -24,15 +24,20 @@ class MainpostsController < ApplicationController
   # POST /mainposts
   # POST /mainposts.json
   def create
-    @mainpost = Mainpost.new(mainpost_params)
+    @post = Mainpost.new(mainpost_params)
+    @deal = Deal.find(params['mainpost']['deal_ids'])
+    @comment = Comment.new
 
     respond_to do |format|
-      if @mainpost.save
-        format.html { redirect_to @mainpost, notice: 'Mainpost was successfully created.' }
-        format.json { render :show, status: :created, location: @mainpost }
+      if @post.save
+     format.html
+        format.json { render json: @post}
+        format.js
       else
-        format.html { render :new }
-        format.json { render json: @mainpost.errors, status: :unprocessable_entity }
+           format.html
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js
+
       end
     end
   end

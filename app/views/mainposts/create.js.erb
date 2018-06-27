@@ -1,0 +1,3 @@
+var postArray = $('.story');
+$("<%= escape_javascript(render :partial => 'mainpostsection')%>").insertAfter(postArray[postArray.length - 1]);
+
