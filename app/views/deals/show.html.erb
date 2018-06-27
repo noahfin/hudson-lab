@@ -546,7 +546,7 @@
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
                <table class="profile-picture pb-0 pl-0 image-content" style="height:400px; width: 200px !important;" id="deal-company-logo">
 
-                  <td  class=""><% if !@deal.image.nil? %> <%= image_tag url_for(@deal.image)  %> <% end %></td>
+                  <td  class=""><% if @deal.image.attached? %><% if @deal %> <%= image_tag url_for(@deal.image)  %> <% end %><% end %></td>
                </table>
             </div>
          </div>
