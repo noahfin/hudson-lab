@@ -650,8 +650,8 @@
                <div class="profile-env ">
                   <section class="profile-info-tabs mt-3 ">
                      <ul class="user-details">
-                        <li> <a href="#"> <i class="entypo-suitcase"></i><%= @deal.contacts.first.name if !@deal.contacts.nil? || !@deal.contacts.first.nil? %>  Works as <span class="text-hudson-ornage"><%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %> </span> </a></li>
-                        <li> <a href="#"> <i class="entypo-location"></i>At <%= @deal.contacts.first.postion if @deal.contacts && !@deal.contacts.first.nil? %> at <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %></a></li>
+                        <li> <a href="#"> <i class="entypo-suitcase"></i><% if  @deal.contacts %><%= if !@deal.contacts.nil? || !@deal.contacts.first.nil? %><% end %>  Works as <span class="text-hudson-ornage"><% if  @deal.contacts %> <%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %> <% end %> </span> </a></li>
+                        <li> <a href="#"> <i class="entypo-location"></i>At <% if  @deal.contacts %><%= @deal.contacts.first.postion if @deal.contacts && !@deal.contacts.first.nil? %> <% end %> at <% if  @deal.contacts %> <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a></li>
                         <li> <a href="#"> <i class="entypo-calendar"></i><%= @deal.created_at.strftime("%d %b. %Y") %> </a></li>
                      </ul>
                   </section>
@@ -660,7 +660,7 @@
             <div class="col-sm-9 pt-4">
                <ul class="profile-info-sections mt-4">
                   <li>
-                     <div class="profile-name"> <strong> <a class="text-white" ><%= @deal.contacts.first.name if @deal.contacts && @deal.contacts.first %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#"><%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %> at <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %></a> </span></div>
+                     <div class="profile-name"> <strong> <a class="text-white" ><%= @deal.contacts.first.name if @deal.contacts && @deal.contacts.first %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#"><% if  @deal.contacts %><%= @deal.contacts.first.postion if !@deal.contacts.nil? || !@deal.contacts.first.nil? &&  !@deal.contacts.first.postion.nil? %><% end %> at <% if  @deal.contacts %> <%= @deal.contacts.first.company if @deal.contacts && !@deal.contacts.first.nil? %><% end %></a> </span></div>
                   </li>
                   <li>
                      <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; ">
@@ -717,7 +717,7 @@
                <aside class="user-thumb"> <%= image_tag small_gravatar_url(post_user_email), class: 'user-image' %> </aside>
                <div class="story-content">
                   <header>
-                     <div class="publisher"> <a href="#"><%= @deal.contacts.first.name if @deal.contacts && !@deal.contacts.first.nil? %> </a>&nbsp; posted a note <em><%= time_ago_in_words(post.created_at)%></em></div>
+                     <div class="publisher"> <a href="#"><% if  @deal.contacts %><%= @deal.contacts.first.name if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a>&nbsp; posted a note <em><%= time_ago_in_words(post.created_at)%></em></div>
                      <div class="story-type"> <i class="entypo-feather"></i></div>
                   </header>
                   <div class="story-main-content">
