@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :previous_query_string
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :get_groups
-  before_action :authenticate_user!
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :show_404
 

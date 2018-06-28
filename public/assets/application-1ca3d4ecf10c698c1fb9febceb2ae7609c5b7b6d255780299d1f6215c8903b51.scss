@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
- *= require_tree .
- *= require_self
+
+
 
  */
 
@@ -44,9 +44,6 @@
 .btn-hudson {
   background-color: #004267 !important;
   box-shadow: 0 2px 2px 0 rgba( 0, 66, 97, 0.14), 0 3px 1px -2px rgba( 0, 66, 97, 0.2), 0 1px 5px 0 rgba( 0, 66, 97, 0.12) !important;
-}
-.darker-hudson {
- background:  #001824 !important;
 }
 .fc-header-toolbar {
      webkit-box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);

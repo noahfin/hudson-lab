@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     include UsersHelper
-  # before_action :admin_only, :except => :show
+    before_action :authenticate_user!
+   before_action :admin_only, :except => :show
 
   def index
     @users = User.all
@@ -77,7 +78,7 @@ class UsersController < ApplicationController
 
   def admin_only
     unless current_user.admin?
-      redirect_to root_path, :alert => "Access denied."
+      redirect_to root_path, flash[:danger] = "Access denied!"
     end
   end
 

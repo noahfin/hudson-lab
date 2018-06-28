@@ -15988,9 +15988,9 @@ select.selectpicker {
   background: none; }
 
 .purple-filter:after {
-  background: rgba(101, 47, 142, 0.64);
-  background: linear-gradient(45deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%);
-  background: -webkit-linear-gradient(135deg, rgba(101, 47, 142, 0.88) 0%, rgba(125, 46, 185, 0.45) 100%); }
+  background: rgba(91,192,222, 0.64);
+  background: linear-gradient(45deg, rgba(91,192,222, 0.88) 0%, rgba(110, 181, 160, 0.45) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(91,192,222, 0.88) 0%, rgba(110, 181, 160, 0.45) 100%); }
 
 .header-filter[filter-color="purple"]:after, .header-filter[filter-color="primary"]:after {
   background: rgba(225, 190, 231, 0.56);
@@ -16007,7 +16007,7 @@ select.selectpicker {
   /* For Safari 5.1 to 6.0 */
   /* For Opera 11.1 to 12.0 */
   /* For Firefox 3.6 to 15 */
-  background: linear-gradient(60deg, rgba(178, 235, 242, 0.56), rgba(77, 208, 225, 0.95));
+  background: linear-gradient(60deg, rgba(0, 66, 97, 0.56), rgba(0, 33, 49,  0.95));
   /* Standard syntax */ }
 
 .header-filter[filter-color="green"]:after, .header-filter[filter-color="success"]:after {

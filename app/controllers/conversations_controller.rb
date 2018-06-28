@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
     before_action :set_conversation, except: [:index]
     before_action :check_participating!, except: [:index]
-
+    before_action :authenticate_user!
   def index
     @conversations = Conversation.participating(current_user).order('updated_at DESC')
   end

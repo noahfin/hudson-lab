@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :projected_start_time , :requirements , :budget, :resources, :description]
-
+  before_action :authenticate_user!
   # GET /projects
   # GET /projects.json
   def index

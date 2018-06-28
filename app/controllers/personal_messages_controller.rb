@@ -1,6 +1,6 @@
 class PersonalMessagesController < ApplicationController
   before_action :find_conversation!
-
+  before_action :authenticate_user!
 def create
   @conversation ||= Conversation.create(author_id: current_user.id,
                                         receiver_id: @receiver.id)

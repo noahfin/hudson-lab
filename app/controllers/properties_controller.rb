@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :find_property, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_user!
    def index
     @properties = Property.all.order(created_at: :desc).page(params[:page])
    end

@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   include ContactsHelper
   require 'uri'
-
+  before_action :authenticate_user!
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
 
   after_action :my_contacts, only: [:edit, :update  ]

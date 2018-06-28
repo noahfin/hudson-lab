@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
   require "csv"
   require 'roo'
   before_action :set_group, only: [:show, :edit, :update, :destroy]

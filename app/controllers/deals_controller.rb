@@ -1,6 +1,7 @@
 class DealsController < ApplicationController
   include DealsHelper
   before_action :find_deal, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_user!
    def index
     @deals = Deal.all.order(created_at: :desc)
       respond_to do |format|

@@ -2,7 +2,7 @@
     <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand text-white" href="/">Hudson Commercial Lab </a>
+                <a class="navbar-brand  href="/">Hudson Commercial Lab </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
@@ -13,7 +13,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="dropdown nav-item">
                       <div class="collapse navbar-collapse justify-content-end" id="navbar">
-                        <ul class="navbar-nav text-white">
+                        <ul class="navbar-nav ">
                           <li class="nav-item active">
                             <a href="/" class="nav-link">
                               <i class="material-icons">dashboard</i> Dashboard
@@ -34,7 +34,7 @@
             </div>
         </div>
     </nav>
-    <div class="page-header header-filter clear-filter" data-parallax="true" style="background-image: url('<%= asset_url("purple-1.jpg") %>')";>
+    <div class="page-header header-filter clear-filter" filter-color="blue" data-parallax="true" style="background-image: url('<%= asset_url("jonathan-simcoe.jpg") %>')";>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
@@ -45,38 +45,39 @@
                                 Lab
                             </span>
                         </h1>
-                        <h3 class="title">A well crafted CRM Dashboard. To help take your bussiness to the next level. Let's get started and see what it's made to do. </h3>
+                        <h3 class="titl text-white">A well crafted CRM Dashboard. To help take your bussiness to the next level. Let's get started and see what it's made to do. </h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="main main-raised">
+    <div class="main main-raised card-1">
         <div class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto">
-                        <h4 class="description text-center"> This app is a full stack contact manager application for Hudson Commercial and their Employees. It helps the company and their employees to easily manage their contacts, leads, deals and action steps to make successful real estate transactions.</h4>
+                        <h3 class="title text-white text-center">About</h3>
+                        <h4 class="description text-center text-white"> This app is a full stack contact manager application for Hudson Commercial and their Employees. It helps the company and their employees to easily manage their contacts, leads, deals and action steps to make successful real estate transactions.</h4>
                     </div>
                 </div>
                 <div class="features-1">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="info">
-                                <div class="icon icon-rose">
+                                <div class="icon icon-danger">
                                     <i class="material-icons">apps</i>
                                 </div>
-                                <h4 class="info-title">Full feature multi user CRM</h4>
-                                <p>This app is designed to make organizing your business contacts and your personal contacts easy and quick to navigate through.</p>
+                                <h4 class="info-title text-white">Full feature multi user CRM</h4>
+                                <p class="text-white">This app is designed to make organizing your business contacts and your personal contacts easy and quick to navigate through.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="info">
-                                <div class="icon icon-info">
-                                    <i class="material-icons">view_day</i>
+                                <div class="icon ">
+                                    <i class="material-icons text-hudson">view_day</i>
                                 </div>
-                                <h4 class="info-title">Kepp track of your activty</h4>
-                                <p>The Hudson Commercial Lab is also a real estate activity tracker. Allowing you to easily keep track of what actions and events are happening on your listings and deals. </p>
+                                <h4 class="info-title text-white">Kepp track of your activty</h4>
+                                <p  class="text-white">The Hudson Commercial Lab is also a real estate activity tracker. Allowing you to easily keep track of what actions and events are happening on your listings and deals. </p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -84,8 +85,8 @@
                                 <div class="icon icon-success">
                                     <i class="material-icons">view_carousel</i>
                                 </div>
-                                <h4 class="info-title">Action Steps</h4>
-                                <p>Plan out action steps needed to get deals done or actions needed to be made on new leads. Assign action steps to other employees and add comments if needed.</p>
+                                <h4 class="info-title text-white">Action Steps</h4>
+                                <p class="text-white">Plan out action steps needed to get deals done or actions needed to be made on new leads. Assign action steps to other employees and add comments if needed.</p>
                             </div>
                         </div>
                     </div>
@@ -96,9 +97,9 @@
             <div class="container">
                 <div class="col-md-8 ml-auto mr-auto mb-4">
                     <div class="section-description">
-                        <h2 class="title">Ready to get strated?</h2>
-                        <h5 class="description">Technology is the feature. Connecting with your customers and keeping them informed is a fundamental part of a successful real estate company.</h5>
-                         <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'btn bg-dark-blue btn-round' %>
+                        <h2 class="title text-white ">Ready to get strated?</h2>
+                        <h5 class="description">Technology is the feature. Connecting with your customers and keeping them informed is a fundamental part of successful real esate companies.</h5>
+                         <%= link_to "<i class='material-icons text-white'>person_add</i> <span class='text-white'>Register</span>".html_safe, new_user_registration_path, class: 'btn  btn-round  btn-outline-white' %>
                     </div>
                 </div>
             </div>

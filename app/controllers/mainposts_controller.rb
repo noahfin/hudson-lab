@@ -1,6 +1,6 @@
 class MainpostsController < ApplicationController
   before_action :set_mainpost, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /mainposts
   # GET /mainposts.json
   def index
