@@ -25,25 +25,19 @@
    border: 1px solid #f44336  !important;
    }
    .card-dash-warning {
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   border-left: 1px solid black;
+   border: 3px solid black;
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
    }
    .card-dash-rose {
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
+   border: 3px solid black;
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(244, 67, 54, 0.6);
    }
-   .card-dash-success{
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
+     .card-dash-success{
+   border: 3px solid black;
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(76, 175, 80, 0.6);
    }
    .card-dash-info{
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   border-right: 1px solid black;
+   border: 3px solid black;
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(0, 188, 212, 0.6);
    }
    .media-left-deal {
@@ -94,8 +88,34 @@
    right: 2rem;
    top: 2.24rem;
    }
-   .task-body {
+   .task-body, .deals-body {
     overflow: hidden;
+   }
+   .card-row-1 {
+   border-top: 3px solid black;
+   border-bottom: 3px solid black;
+   border-left: 3px solid black;
+   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
+   }
+   .card-row-2  {
+   border-top: 3px solid black;
+   border-bottom: 3px solid black;
+   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(244, 67, 54, 0.6);
+   }
+  .card-row-3 {
+   border-top: 3px solid black;
+   border-bottom: 3px solid black;
+   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(76, 175, 80, 0.6);
+   }
+   .card-row-4 {
+   border-top: 3px solid black;
+   border-bottom: 3px solid black;
+   border-right: 3px solid black;
+   box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(0, 188, 212, 0.6);
+   }
+   .tasks-card,  .deals-card-d {
+         border: 2px solid black;
+         border-radius: 0px !important;
    }
 </style>
 <div class="col-md-12 first-show-card">
@@ -175,7 +195,7 @@
 <div class="white-box mdl-color--grey-900 m-0">
    <div class="row row-in ">
       <div class="col-lg-3 col-sm-6 row-in-br">
-         <div class="col-in row card-1">
+         <div class="col-in row card-1 card-row-1">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-user"></i>
                <h5 class="text-muted vb">MYNEW CLIENTS</h5>
@@ -191,7 +211,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
-         <div class="col-in row card-1">
+         <div class="col-in row card-1 card-row-2">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-pencil-alt"></i>
                <h5 class="text-muted vb">NEW PROJECTS</h5>
@@ -207,7 +227,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6 row-in-br">
-         <div class="col-in row card-1">
+         <div class="col-in row card-1 card-row-3">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-mouse-alt"></i>
                <h5 class="text-muted vb">OPEN PROJECTS</h5>
@@ -223,7 +243,7 @@
          </div>
       </div>
       <div class="col-lg-3 col-sm-6  b-0">
-         <div class="col-in row card-1">
+         <div class="col-in row card-1 card-row-4">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-receipt"></i>
                <h5 class="text-muted vb">NEW INVOICES</h5>
@@ -332,7 +352,7 @@
                </div>
             </div>
          </div>
-         <div class="card-body mb-4 mt-0">
+         <div class="card-body deals-body mb-4 mt-0">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="profile">
                   <div class="table-responsive">
@@ -420,8 +440,8 @@
 <div class="row">
    <!-- BEGIN ALERT - REVENUE -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
-         <div class="card-body no-padding">
+      <div class="card card-1 pt-2">
+         <div class="card-body pt-4">
             <div class="alert alert-callout card-icon-outline-info no-margin">
                <strong class="pull-right text-success text-lg">0,38% <i class="md md-trending-up"></i></strong>
                <strong class="text-xl">$ 32,829</strong><br>
@@ -441,8 +461,8 @@
    <!-- END ALERT - REVENUE -->
    <!-- BEGIN ALERT - VISITS -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
-         <div class="card-body no-padding">
+      <div class="card card-1 pt-2">
+         <div class="card-body  pt-4">
             <div class="alert alert-callout card-icon-outline-warning no-margin">
                <strong class="pull-right text-warning text-lg">0,01% <i class="md md-swap-vert"></i></strong>
                <strong class="text-xl">432,901</strong><br>
@@ -462,8 +482,8 @@
    <!-- END ALERT - VISITS -->
    <!-- BEGIN ALERT - BOUNCE RATES -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
-         <div class="card-body no-padding">
+      <div class="card card-1 pt-2">
+         <div class="card-body  pt-4">
             <div class="alert alert-callout card-icon-outline-danger no-margin">
                <strong class="pull-right  text-lg">0,18% <i class="md md-trending-down"></i></strong>
                <strong class="text-xl">42.90%</strong><br>
@@ -483,8 +503,8 @@
    <!-- END ALERT - BOUNCE RATES -->
    <!-- BEGIN ALERT - TIME ON SITE -->
    <div class="col-md-3 col-sm-6">
-      <div class="card card-1">
-         <div class="card-body no-padding">
+      <div class="card card-1  pt-2">
+         <div class="card-body  pt-4">
             <div class="alert alert-callout card-icon-outline-success no-margin">
                <h1 class="pull-right card-icon-outline-success"><i class="md md-timer"></i></h1>
                <strong class="text-xl">54 sec.</strong><br>
