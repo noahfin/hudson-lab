@@ -1,5 +1,9 @@
-<%= simple_form_for @event, remote: true do |f| %>
-  <div class="form-inputs text-white">
+<%= simple_form_for @event, remote: true, :authenticity_token => true do |f| %>
+  <div class="form-inputs text-white event-select-group">
+
+
+ <label for="user_ids[]" class="bmd-label-floating text-white">Pick users</label>
+ <%= f.collection_select :user_ids, User.all, :id, :first_name, remote: true, multiple: "true",  class: "selectpicker select_u_picker users-for-new-group", id: "users-t"  %>
     <%= f.input :title, class: 'text-white' %>
     <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker text-white" } %>
     <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden text-white' %>

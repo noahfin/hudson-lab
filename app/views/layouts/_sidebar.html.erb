@@ -45,7 +45,6 @@
                 <span class="sidebar-normal"> Sign Out </span>
               <% end %>
             </li>
-
           </ul>
         </div>
       </div>
@@ -54,32 +53,7 @@
         <li class="nav-item text-white <%=active_item('dashboard') %>">
          <%= link_to "<i class='material-icons text-white'>dashboard</i><p> Dashboard </p>".html_safe, dashboard_path, class: 'nav-link text-white' %>
         </li>
-      <li class="nav-item ">
-        <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
-          <i class="material-icons text-white">image</i>
-          <p> Pages
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse" id="pagesExamples">
-          <ul class="nav">
-            <li class="nav-item <%=active_item('about') %>">
-             <%= link_to '<span class="sidebar-mini"> D </span><span class="sidebar-normal"> Documentation </span>'.html_safe, 'pages/about', class: 'nav-link text-white' %>
-            </li>
-            <li class="nav-item <%=active_item('contacts/new') %>">
-             <%= link_to '<span class="sidebar-mini"> +C </span><span class="sidebar-normal"> New Contact </span>'.html_safe, new_contact_path, class: 'nav-link text-white' %>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" data-toggle="collapse" href="/groups/">
-                <span class="sidebar-mini text-white"> G </span>
-                <span class="sidebar-normal"> Groups <i class="material-icons text-white">group</i> </span>
 
-
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
       <li class="nav-item text-white ">
         <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
           <i class="material-icons text-white">person</i>
@@ -353,18 +327,19 @@
         </a>
         <div class="collapse" id="events_sidebar">
           <ul class="nav text-white ">
+            <li class="nav-item text-white">
+              <%= link_to events_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> RT </span>
+                <span class="sidebar-normal"> View Calendar </span>
+             <% end %>
+            </li>
             <li class="nav-item ">
               <%= link_to new_event_path, class: ' nav-link remote-link', remote: true do %>
                 <span class="sidebar-mini"> NC </span>
                 <span class="sidebar-normal"> New Event </span>
                <% end %>
              </li>
-               <li class="nav-item text-white">
-                <%= link_to events_path, class: "nav-link" do %>
-                <span class="sidebar-mini"> RT </span>
-                <span class="sidebar-normal"> View Calendar </span>
-             <% end %>
-            </li>
+
           </ul>
         </div>
       </li>

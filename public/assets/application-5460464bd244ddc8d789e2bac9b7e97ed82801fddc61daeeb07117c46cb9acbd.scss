@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
- *= require_tree .
- *= require_self
+
+
 
  */
 
@@ -1031,13 +1031,4 @@ div.dataTables_wrapper {
  background: #191b1c !important;
  border-color: #232526 !important;
  color: white !important;
-}
-.tasks-card h2 {
-  color: white !important;
-  float: left !important;
-  font-size: 15px !important;
-}
-.events-dash-link {
-  position: relative;
-  top: -36px !important;
 }

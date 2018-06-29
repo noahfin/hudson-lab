@@ -73,17 +73,37 @@
                   <div class="col-md-6">
                      <label class="form-check-label">Action Step</label>
                         <%= f.text_field :name, id: :task_name, class: 'form-control text-black mb-4' %>
-                        <div class="form-group text-black">
-                        <div class="form-check dark ">
-                           <label class="form-check-label form-check-label-dark  ">
-                           <%= f.check_box :complete, id: :task_complete, class: 'form-check-input text-black' %>
-                           Complete
-                           <span class="form-check-sign">
-                           <span class="check"></span>
-                           </span>
-                           </label>
+                        <div class="row">
+                           <div class="col-md-6">
+                               <div class="form-group text-black">
+                                 <div class="form-check dark ">
+                                    <label class="form-check-label form-check-label-dark  ">
+                                    <%= f.check_box :complete, id: :task_complete, class: 'form-check-input text-black' %>
+                                    Complete
+                                    <span class="form-check-sign">
+                                    <span class="check"></span>
+                                    </span>
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                          <div class="col-md-6">
+                               <div class="form-group text-black">
+                                 <div class="form-check dark ">
+                                    <label class="form-check-label form-check-label-dark  ">
+                                    <%= f.check_box :personal, id: :task_personal, class: 'form-check-input text-black' %>
+                                    Personal
+                                    <span class="form-check-sign">
+                                    <span class="check"></span>
+                                    </span>
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+
+
+
                         </div>
-                     </div>
                   </div>
                 </div>
                 <div class="row">

@@ -1,2 +1,115 @@
-$('#f-body').html('<%= j render("form", ajax_true: true) %>' );
-$('#tasks-form-modal').modal('show')
+
+$('#tasks-form-modal').modal('show');
+$('#f-body').html('<%= j render("form") %>' );
+
+$('#leads-select').selectpicker('val', '<%= @leads.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
+$('#projects-select').selectpicker('val', '<%= @projects.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
+
+$('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
+$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info pl-3');
+$('#property-select').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info pl-3');
+var contact_ids_prop_i  = 0;
+var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];
+
+var contact_class_prop = ['.contact1','.contact2','.contact3','.contact4','.contact5','.contact6','.contact7','.contact8','.contact9','.contact10'];
+var contact_ids_prop = [];
+$('.get-contacts').autocomplete({
+        source: '/contacts/autocomplete',
+        minLength: 2,
+        select: function(event, ui) {
+           contact_ids_prop[contact_ids_prop.length] = ui.item.id
+           $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
+
+
+           $(contact_class_p_name[contact_ids_prop_i]).html( ui.item.value);
+           contact_ids_prop_i ++;
+           $('.get-contacts').val('');
+        }
+    });
+
+     var getAutocompleteContactsValues = function(){
+       var contactInputs = $( ".c-ids" ).serializeArray();
+       var contactValueArray = [];
+
+      jQuery.each( contactInputs, function( i, input ) {
+        if (input.value !== "0") {
+       contactValueArray.push( input.value );
+       }
+      });
+
+        return contactValueArray;
+
+    }
+
+        var getGroupValues = function(){
+            var group_ids_array = []
+            group_ids = $('#groups-t').val();
+            jQuery.each( group_ids, function( i, input ) {
+              if (input.value !== "0" && input.value !== "") {
+             group_ids_array.push( input.value );
+             }
+            });
+            return group_ids_array;
+        }
+
+ $(document).on('click', '#task-send ', function (event) {
+            event.preventDefault()
+             $('#taks-form').prop("disabled", true);
+            var group_ids = getGroupValues();
+             var contact_ids = getAutocompleteContactsValues();
+             var formData = {
+            task: {
+
+            'name': $('#task_name').val(),
+                'complete': $('#task_complete').val(),
+                'personal':  $('#task_personal').val(),
+                'contact_ids': contact_ids,
+                'lead_ids': $('#leads-select').val(),
+                'user_ids': $('#users-t').val(),
+                'project_ids': $('#projects-select').val(),
+                'group_ids': $('#groups-t').val(),
+                'property_ids': $('#property-select').val()
+
+                  },
+                  authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
+            }
+
+            createTaskSend(formData);
+            return false
+
+        });
+ var createTaskSend = function (data) {
+
+        $.ajax({
+            url: $("#tasks-form-id").attr("action"),
+            method: "patch",
+            data: data,
+            success: function (contact) {
+                $('#tasks-form-modal').modal('hide');
+                $.notify({
+                    title: "New Action Step:",
+                    message: '"'+$('#task_name').val()+'"' + ' was successfuly updated'
+                });
+
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+
+    }

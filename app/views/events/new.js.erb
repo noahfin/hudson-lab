@@ -1,4 +1,5 @@
 $('.modal-backdrop').hide();
 $('#remote_container').html('<%= j render "new" %>');
+$('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
 $('#new_event').modal('show');
 

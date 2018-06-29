@@ -67,9 +67,9 @@
                      </label>
                   </div>
                </td>
-               <td><%= task.name %> </td>
+               <td><%= link_to edit_task_path(task.id), class: "btn btn-link ", remote: true, title: 'edit', rel: "tooltip"  do %><%= task.name %>   <% end %></td>
                <td class="td-actions text-right">
-                  <%= link_to edit_task_path(task.id), class: "btn btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+                  <%= link_to edit_task_path(task.id), class: "btn btn-link ", remote: true, title: 'edit', rel: "tooltip"  do %>
                   <i class="material-icons primary-dark">edit</i>
                   <% end %>
                   <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>

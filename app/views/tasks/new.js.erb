@@ -2,12 +2,12 @@
 $('#tasks-form-modal').modal('show');
 $('#f-body').html('<%= j render("form") %>' );
 
-$('#leads-select').selectpicker('val', '<%= @leads.to_s %>').selectpicker('setStyle', 'btn-outline-info');
-$('#projects-select').selectpicker('val', '<%= @projects.to_s %>').selectpicker('setStyle', 'btn-outline-info');
+$('#leads-select').selectpicker('val', '<%= @leads.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
+$('#projects-select').selectpicker('val', '<%= @projects.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
 
-$('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info');
-$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info');
-$('#property-select').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info');
+$('.select_u_picker').selectpicker('val', '<%= @users.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
+$('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info pl-3');
+$('#property-select').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', ' btn-outline-info pl-3');
 var contact_ids_prop_i  = 0;
 var contact_class_p_name = ['.c1','.c2','.c3','.c4','.c5','.c6','.c7','.c8','.c9','.c10'];
 
@@ -62,6 +62,7 @@ $('.get-contacts').autocomplete({
 
             'name': $('#task_name').val(),
                 'complete': $('#task_complete').val(),
+                'personal':  $('#task_personal').val(),
                 'contact_ids': contact_ids,
                 'lead_ids': $('#leads-select').val(),
                 'user_ids': $('#users-t').val(),

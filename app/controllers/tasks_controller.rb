@@ -67,12 +67,12 @@ class TasksController < ApplicationController
   end
 
   def update
-   @tasks = Task.order('lower(name)').all
+   @tasks = Task.order(created_at: :desc)
     respond_to do |format|
       if @task.update(task_params)
 
-        format.html { redirect_to @task }
-        format.json { head :no_content }
+        format.html { redirect_to '/tasks/' }
+        format.json { render json: @tasks, status: :updated }
         format.js
       else
         format.html { render :edit }
@@ -104,7 +104,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :complete, :contact_ids, :user_ids, :group_ids, :team_ids, :lead_ids, :property_ids, :project_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []},  {:team_ids => []}, {:lead_ids => []}, {:deal_ids => []}, {:contact_ids => []}, {:project_ids => []}, {:property_ids => []})
+      params.require(:task).permit(:name, :complete, :personal, :contact_ids, :user_ids, :group_ids, :team_ids, :lead_ids, :property_ids, :project_ids, :deal_ids,{:deal_ids => []}, {:group_ids => []}, {:user_ids => []},  {:team_ids => []}, {:lead_ids => []}, {:deal_ids => []}, {:contact_ids => []}, {:project_ids => []}, {:property_ids => []})
     end
 
 

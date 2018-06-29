@@ -60,10 +60,7 @@
    height: 535px;
    overflow: scroll;
    }
-   .deal-dash-card {
-   height: 535px;
-   overflow: scroll;
-   }
+
    .t-sec-box {
    box-shadow: 0 2px 4px rgba(0,0,0,.5) !important;
    background: black !important;
@@ -88,7 +85,7 @@
    right: 2rem;
    top: 2.24rem;
    }
-   .task-body, .deals-body {
+   .task-body, .deals-body, .left-table {
     overflow: hidden;
    }
    .card-row-1 {
@@ -192,7 +189,7 @@
    </div>
    <% end %>
 </div>
-<div class="white-box mdl-color--grey-900 m-0">
+<div class="white-box mdl-color--grey-900 m-0 border-black">
    <div class="row row-in ">
       <div class="col-lg-3 col-sm-6 row-in-br">
          <div class="col-in row card-1 card-row-1">
@@ -304,15 +301,21 @@
                </div>
             </div>
          </div>
-         <div class="card-body mb-4 card-1 pt-0">
+         <div class="card-body mb-4 card-1 pt-0 left-table">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="dash-search-pan">
-                  <div class="table-responsive">
-                     <table class="table p-0">
+                  <div class="table-responsive left-table">
+                     <table class="table p-0 ">
                         <input type="text" name="search_tables" class="form-control text-info mt-3 g-s-dash c-s-dash deals-s pro-s-dash prop-s-dash" id="dash-search"  placeholder= "Search...">
                         <tbody class="p-0 ml-0 mr-0 mt-2" id="seach-table-1">
                            <TR></TR>
                         </tbody>
+                        <div class="" id="dash-calender"></div>
+                       <%= link_to events_path, class: "mt-0 events-dash-link" do %>
+                        View calendar
+                        <% end %>
+
+
                      </table>
                   </div>
                </div>

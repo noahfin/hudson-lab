@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @events = Event.where(start: params[:start]..params[:end])
+    @events = current_user.events
   end
 
   def show
@@ -35,6 +35,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :date_range, :start, :end, :color)
+      params.require(:event).permit(:title, :date_range, :start, :end, :color, :user_ids)
     end
 end

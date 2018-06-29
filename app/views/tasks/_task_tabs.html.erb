@@ -22,15 +22,15 @@
                </div>
             </td>
             <td><%= task.name %></td>
-                    <td><%  task.contacts.each_with_index do |contact, index|%>  <%= link_to contact_path(contact.id), class: "btn  btn-link btn-sm", remote: true, title: 'View contact', rel: "tooltip"  do %>
+                    <td><%  task.contacts.each_with_index do |contact, index|%>  <%= link_to contact_path(contact.id), class: "btn  btn-link", remote: true, title: 'View contact', rel: "tooltip"  do %>
                <%= contact.name + " | " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
@@ -70,15 +70,15 @@
                </div>
             </td>
             <td><%= task.name %></td>
-               <td><%  task.properties.each_with_index do |property, index|%>  <%= link_to property_path(property.id), class: "btn  btn-link btn-sm", remote: true, title: 'View property', rel: "tooltip"  do %>
+               <td><%  task.properties.each_with_index do |property, index|%>  <%= link_to property_path(property.id), class: "btn  btn-link", remote: true, title: 'View property', rel: "tooltip"  do %>
                <%= property.name + " | " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
@@ -114,15 +114,15 @@
                </div>
             </td>
             <td><%= task.name %></td>
-               <td><%  task.projects.each_with_index do |project, index|%>  <%= link_to project_path(project.id), class: "btn  btn-link btn-sm", remote: true, title: 'View project', rel: "tooltip"  do %>
+               <td><%  task.projects.each_with_index do |project, index|%>  <%= link_to project_path(project.id), class: "btn  btn-link", remote: true, title: 'View project', rel: "tooltip"  do %>
                <%= project.name + " | " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
@@ -159,15 +159,15 @@
                </div>
             </td>
             <td><%= task.name %></td>
-            <td><%  task.leads.each_with_index do |lead, index|%>  <%= link_to lead_path(lead.id), class: "btn  btn-link btn-sm", remote: true, title: 'View lead', rel: "tooltip"  do %>
+            <td><%  task.leads.each_with_index do |lead, index|%>  <%= link_to lead_path(lead.id), class: "btn  btn-link", remote: true, title: 'View lead', rel: "tooltip"  do %>
                <%= lead.name + " | " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
@@ -205,15 +205,15 @@
                </div>
             </td>
             <td><%= task.name %></td>
-             <td><%  task.groups.each_with_index do |group, index|%>  <%= link_to group_path(group.id), class: "btn  btn-link btn-sm", remote: true, title: 'View Group', rel: "tooltip"  do %>
+             <td><%  task.groups.each_with_index do |group, index|%>  <%= link_to group_path(group.id), class: "btn  btn-link", remote: true, title: 'View Group', rel: "tooltip"  do %>
                <%= group.name + " | " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
                <i class="material-icons">close</i>
                <% end %>
             </td>
