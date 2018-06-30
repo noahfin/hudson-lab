@@ -1,4 +1,7 @@
   Rails.application.routes.draw do
+  resources :addresses do
+      get 'autocomplete', on: :collection
+    end
   resources :mainposts
   resources :comments
   resources :likes

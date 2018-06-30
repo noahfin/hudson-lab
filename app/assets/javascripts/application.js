@@ -220,7 +220,9 @@ $(document).on('click', '#Leads-contact-send', function (event) {
                 'name': $('#contact_phone').val(),
                 'business': $('#contact_phone').val()
 
-              }
+
+              },
+               'authenticity_token': $('#lead_c_form_authenticity_token').val()
             };
 
     var url = "/leads/";
@@ -228,13 +230,13 @@ $(document).on('click', '#Leads-contact-send', function (event) {
             url: url,
             method: "post",
             data: formData,
-            success: function (Lead) {
+            success: function (lead) {
 
                 $.notify({
                     title: "New Lead Added:",
                     message: $('#contact_company').val() + '"' + ' was successfuly added as a new lead'
                 });
-
+               $('#lead_c_id').val(lead.id)
 
             },
             error: function (err) {
@@ -271,8 +273,6 @@ $(document).on('click', '.new-form', function (event) {
     $(formArray[i]).click();
     i++
 });
-
-
 
 
 
@@ -1062,6 +1062,14 @@ var getContactForDash = function(query){
 
             getProfile(uri);
             $('.get-contacts').val('');
+        }
+    });
+        $('.address').autocomplete({
+        source: '/address/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            $('.address').val(ui.item.value);
+
         }
     });
     var getProfile = function (uri) {

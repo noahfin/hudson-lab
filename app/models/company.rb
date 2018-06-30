@@ -1,4 +1,5 @@
 class Company < ApplicationRecord
+   has_and_belongs_to_many :address
     has_attached_file :avatar,
   :storage => :s3,
   :styles => {

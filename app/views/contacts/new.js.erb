@@ -5,7 +5,6 @@ $('#form-modal').addClass('modal');
 $('body').addClass('modal-open');
 $('body').addClass('modal-backdrop');
 $('#btn_finshed').hide();
-$('.selectpicker').selectpicker('render');
 $('.select_g_picker').selectpicker('val', '<%=  @groups.to_s %>').selectpicker('setStyle', 'dropdown-toggle btn-info btn-round btn btn-block');
 $('.select_g_picker').attr("data-actions-box", "true");
 $('.select_g_picker').attr("dropupAuto", "false");
@@ -13,3 +12,109 @@ $('.select_g_picker').attr("data-live-search", "true");
 $('.select_g_picker').attr("selectOnTabr", "true");
 $('.select_g_picker').attr("data-divider", "true");
 $('.selectpicker').selectpicker('toggle');
+
+$("#contact_address").change(function(){
+    var addressArray = ['#contact_street_num', '#contact_strret_name', '#contact_suite', '#contact_city', '#contact_state', '#contact_postal_code'];
+    var city  = '';
+    var cityEndIndex;
+    var citystartIndex;
+    var strretName = '';
+    var streetEndIndex;
+    var state = '';
+    var stateEndIndex;
+    var stateStartIndex;
+    var suite = '';
+    var postal_code;
+    var address = $('.address-parse').val().split(" ");
+    addressLength = 0;
+
+ address.forEach(function( item, index ) {
+  addressLength = index;
+   console.log(addressLength);
+});
+
+
+        for (i = 0; i < addressLength; i++) {
+           if (address[i].toLowerCase() === 'street' || address[i].toLowerCase() === 'st' || address[i].toLowerCase() === 'st,' || address[i].toLowerCase() === 'road'  || address[i].toLowerCase() === 'rd'  || address[i].toLowerCase() === 'lane'  || address[i].toLowerCase() === 'circle'  || address[i].toLowerCase() === 'avenue'  || address[i].toLowerCase() === 'av'  || address[i].toLowerCase() === 'blvd' || address[i].toLowerCase() === 'rd'  || address[i].toLowerCase() === 'lane'  || address[i].toLowerCase() === 'circle'  || address[i].toLowerCase() === 'avenue'  || address[i].toLowerCase() === 'av'  || address[i].toLowerCase() === 'blvd'){
+
+
+            streetEndIndex = i;
+             for (j = 1; j <= streetEndIndex; j++) {
+              strretName += removeComma(address[j]) + ' ';
+
+              }
+          }
+          if ( address[i].toLowerCase() === 'york' || address[i].toLowerCase() === 'york,'){
+            postal_code =   address[i + 1];
+            stateEndIndex = i;
+            stateStartIndex = i - 1;
+            cityIndex = i - 2;
+            state =  removeComma(address[i]);
+
+
+
+
+            for (n = streetEndIndex + 1; n < stateStartIndex; n++) {
+
+                 city += removeComma(address[n]);
+
+          }
+
+            }
+
+         if (address[i].toLowerCase() === 'ny' || address[i].toLowerCase() === 'ny,' || address[i].toLowerCase() === 'connecticut' || address[i].toLowerCase() === 'ct' || address[i].toLowerCase() === 'ct,' || address[i].toLowerCase() === 'connecticut,'){
+            stateEndIndex = i;
+            stateStartIndex = i;
+            postal_code = address[i + 1];
+            cityIndex = i - 1;
+            state =  removeComma(address[i]);
+
+
+
+
+            for (n = streetEndIndex + 1; n < stateStartIndex; n++) {
+
+                 city += removeComma(address[n]);
+
+          }
+            // if (parseInt(address[cityIndex - 1]) !== 'NaN' || parseInt(address[cityIndex - 1]) != NaN ) {
+            //   console.log(parseInt(address[cityIndex - 1]));
+            //   suite = address[cityIndex - 1];
+            //   if (address[cityIndex - 2] == 'suite') {
+            //     address.splice(cityIndex - 2,1);
+            //   }
+
+            // }
+
+            }
+
+
+
+   $(addressArray[0]).val(address[0]);
+   $(addressArray[1]).val(strretName);
+   $(addressArray[2]).val(suite);
+   $(addressArray[3]).val(city);
+   $(addressArray[4]).val(state);
+   $(addressArray[5]).val(postal_code);
+
+}
+
+});
+
+var removeComma = function(string){
+   var stateElementLength;
+   var stringArray  = string.split("");
+   var newStr = '';
+       stringArray.forEach(function( item, index ) {
+               if(item === ',') {
+               return newStr;
+              } else {
+               newStr += item;
+              }
+
+          });
+
+      return newStr;
+
+
+}

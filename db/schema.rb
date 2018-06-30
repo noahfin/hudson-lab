@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_29_144641) do
+ActiveRecord::Schema.define(version: 2018_06_30_215027) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -40,6 +40,50 @@ ActiveRecord::Schema.define(version: 2018_06_29_144641) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "suite"
+    t.string "county"
+    t.string "state"
+    t.string "country"
+    t.string "postal_code"
+    t.string "notes"
+    t.string "city"
+    t.string "street_num"
+    t.string "strret_name"
+    t.string "zip_code_ext"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+  end
+
+  create_table "addresses_companies", id: false, force: :cascade do |t|
+    t.integer "address_id", null: false
+    t.integer "company_id", null: false
+    t.index ["address_id", "company_id"], name: "index_addresses_companies_on_address_id_and_company_id"
+    t.index ["company_id", "address_id"], name: "index_addresses_companies_on_company_id_and_address_id"
+  end
+
+  create_table "addresses_contacts", id: false, force: :cascade do |t|
+    t.integer "address_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["address_id", "contact_id"], name: "index_addresses_contacts_on_address_id_and_contact_id"
+    t.index ["contact_id", "address_id"], name: "index_addresses_contacts_on_contact_id_and_address_id"
+  end
+
+  create_table "addresses_deals", id: false, force: :cascade do |t|
+    t.integer "address_id", null: false
+    t.integer "deal_id", null: false
+    t.index ["address_id", "deal_id"], name: "index_addresses_deals_on_address_id_and_deal_id"
+    t.index ["deal_id", "address_id"], name: "index_addresses_deals_on_deal_id_and_address_id"
+  end
+
+  create_table "addresses_properties", id: false, force: :cascade do |t|
+    t.integer "address_id", null: false
+    t.integer "property_id", null: false
+    t.index ["address_id", "property_id"], name: "index_addresses_properties_on_address_id_and_property_id"
+    t.index ["property_id", "address_id"], name: "index_addresses_properties_on_property_id_and_address_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -144,6 +188,7 @@ ActiveRecord::Schema.define(version: 2018_06_29_144641) do
     t.string "prefix"
     t.string "total_number_of_employees"
     t.string "suite"
+    t.string "Fulladdress"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end

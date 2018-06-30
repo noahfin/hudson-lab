@@ -29,14 +29,16 @@ class PropertiesController < ApplicationController
      def create
         @property = Property.new(property_params)
         if @property.save
-
+          if Address.exists?([' address LIKE ? ', "%#{@property.address}%"])
+            @property.addresses << Address.where([' address LIKE ? ', "%#{@property.address}%"])
+            else
+             @property.addresses <<  Address.create( address: @property.address)
+          end
           params['contact_ids'].each_with_index do |c_id, i|
             next if c_id.to_i == 0
            contact = Contact.find(c_id.to_i)
-
             @property.contacts << contact
            end
-
           flash[:success] = "The property was successfully created."
           redirect_to properties_path
         else
@@ -47,17 +49,14 @@ class PropertiesController < ApplicationController
 
    def update
   @property = Property.find(params[:id])
-
       @property.update_attributes(property_params)
          flash[:info] = "Property Was Updated."
           params['contact_ids'].each_with_index do |c_id, i|
             next if c_id.to_i == 0
            contact = Contact.find(c_id.to_i)
-
             @property.contacts << contact
            end
          redirect_to property_path(params[:id])
-
     end
 
    private

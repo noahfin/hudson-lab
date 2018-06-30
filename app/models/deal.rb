@@ -6,6 +6,7 @@ class Deal < ApplicationRecord
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :mainpost
   has_and_belongs_to_many :maincomments
+  has_and_belongs_to_many :address
   has_one_attached :image
   def average_ratings
    return 0 if posts.empty?

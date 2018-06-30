@@ -1,5 +1,4 @@
 class Contact < ApplicationRecord
-
   require 'roo'
   include PgSearch
   include ContactsHelper
@@ -10,6 +9,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :deals
+  has_and_belongs_to_many :address
   has_and_belongs_to_many  :contact_touches, class_name: 'Touch'
 
   has_many :leads
@@ -63,6 +63,11 @@ end
       row = row.to_hash
       contact.attributes = row
       contact.save!
+      if Address.exists?([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
+        contact.addresses << Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
+        else
+          Address.create( suite: contact.suite, county: contact.county, state: contact.state, country: contact.country, postal_code: contact.suite, zip_code_ext: contact.zip_code_ext,  city: contact.city, street_num: contact.street_num, strret_name: contact.strret_name)
+        end
       user_reltionships(contact, group, users)
     end
   end

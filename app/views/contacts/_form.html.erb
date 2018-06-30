@@ -156,7 +156,7 @@
                   <div class="col-sm-7">
                      <div class="form-group text-white">
                         <label class="bmd-label-floating  text-white">Address</label>
-                        <%= form.text_field :address, id: :contact_address, class: 'form-control text-white',  autofocus: true %>
+                        <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto',  autofocus: true, value: '' %>
                      </div>
                   </div>
                   <div class="col-sm-5">
@@ -295,10 +295,15 @@
                         </div>
                      </div>
                   </div>
-                  <div class="row">
+                        <div class="row">
                      <div class="collapse" id="collapseleads">
+                           <%= form_with(model:  @lead, remote: true) do |form| %>
                         <div class="card card-body card-1  rounded-0">
-                           <span class="pull-right"><a href="" title="sendLeadInfo " id="Leads-contact-send"><i class="material-icons text-info">arrow_right_alt</i> Send </a></span>
+                           <span class="pull-right"><a  title="sendLeadInfo " id="Leads-contact-send"><i class="material-icons text-info">arrow_right_alt</i> Send</a></span>
+                                  <input type="hidden" name="lead[business]" id="lead_c_business">
+                                  <input type="hidden" name="lead[name]"  id="lead_c_name">
+                                   <input type="hidden" name="lead[number]"  id="lead_c_number">
+                                   <input type="hidden" name="form_authenticity_token" value=<%= "#{form_authenticity_token}" %> id="lead_c_form_authenticity_token">
                            <div class="row">
                               <div class=" col-sm-3 mt-4">
                                  <div class="form-group">
@@ -326,11 +331,16 @@
                                     <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white' %>
                                  </div>
                               </div>
+                              <div class="row">
+                                  <%= form.submit  :class => 'btn btn-link pull', id: "Leads-contact-send" do %>
+                                  <i class="material-icons text-info">arrow_right_alt</i> Send
+                                  <% end %>
+                              </div>
                            </div>
                         </div>
+                        <% end %>
                      </div>
-                  </div>
-                  <div class="col-md-5 ml-0 pl-0 ">
+                  </div>                  <div class="col-md-5 ml-0 pl-0 ">
                      <div class="row">
                         <div class="form-group  collapse" id="add-users-group">
                            <div class="row mt-1">
@@ -378,6 +388,7 @@
                               <% end %>
                               <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
                               <div class="dropdown">
+                                 <input type="hidden" name="contact[lead_ids]"  id="lead_c_id">
                                  <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker pull-left", id: 'contact_group_id' } %>
                               </div>
                            </div>
@@ -439,3 +450,6 @@
    <% end %>
 </div>
 <!-- wizard container -->
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
+
+</script>

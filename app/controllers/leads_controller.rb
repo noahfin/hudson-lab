@@ -31,11 +31,9 @@ class LeadsController < ApplicationController
       if @lead.save
          @deal = Deal.create(name: @lead.business)
          @deal.lead_id = @lead.id
-         format.html do
-         redirect_to '/'
-       end
-        format.json { render :show, status: :created, location: @lead }
-         flash[:success] = "Lead and Deal where successfully created"
+        format.html
+        format.json { render json: @lead}
+        format.js
       else
 
         format.json { render json: @lead.errors, status: :unprocessable_entity }
