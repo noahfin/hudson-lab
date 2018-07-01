@@ -8,7 +8,7 @@
             <li class="profile-list list-group-item pl-0 "><span class="pull-left"><strong class="left-c-text  pl-0  main-size-text">Name</strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.name if @contact.name %></span></li>
             <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Phone: </strong></span><span class="  scondary-size-text text-white" id="c-phone"><%= tel_to @contact.phone %></span></li>
             <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Cell Phone: </strong></span><span class=" scondary-size-text text-white " id="c-cell"><%= tel_to @contact.cell %></span></li>
-            <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Address: </strong></span><span class="float-right c-info-text-rightt scondary-size-text"><%= @contact.address if  @contact.address %></span></li>
+            <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Address: </strong></span><span class="float-right c-info-text-rightt scondary-size-text"><%= @contact.Fulladdress if  @contact.Fulladdress %></span></li>
             <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Email: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.email if @contact.email %></span></li>
             <li class="profile-list list-group-item pl-0 "><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Company: </strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.company if @contact.company %></span></li>
             <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Web Address</strong></span> <span class=" scondary-size-text"> <a class="text-info scondary-size-text text-right c-webaddress" rel="external" href=<%= "https://#{@contact.web_address}" %>><%= @contact.web_address %></a></span></li>
@@ -52,7 +52,7 @@
          <h6 class="card-category text-gray scondary-size-text"> <%= @contact.company  if @contact.company  %></h6>
          <h4 class="card-title scondary-size-text"> <%= @contact.first_name if @contact.last_name  %> <%= @contact.first_name if @contact.last_name  %> </h4>
          <p class="card-description scondary-size-text">
-            <%= @contact.address if @contact.address%>
+            <%= @contact.address if @contact.Fulladdress %>
          </p>
 
          <button type="button" class="btn-back btn bg-hudson btn-round text-white scondary-size-text">Go Back</button>

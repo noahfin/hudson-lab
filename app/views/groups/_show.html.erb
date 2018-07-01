@@ -1,15 +1,15 @@
-<div class="card rounded-0 pt-4 card-1 text-white">
+<div class="card rounded-0 pt-4 card-5 text-white">
 <div class="col-md-12">
    <div class="">
       <div class="collapse" id="contacts-header">
          <div class="row">
             <div class="col-md-8">
                <h2>
-                  <span><%= @group.name %> <%= link_to  new_group_path, class: 'btn btn-just-icon btn-round bg-black ml-3' do %>
+                  <span><%= @group.name %> <%= link_to  new_group_path, class: 'btn btn-just-icon btn-round mdl-color--grey-900 ml-3' do %>
                   <i class="fa fa-plus"></i>
                   <% end %>
                   <span class="ml-4 pl-3">
-                  <%= link_to  group_path(@group.id, format: "csv"), class: 'btn bg-black  btn-left-margin' do %>
+                  <%= link_to  group_path(@group.id, format: "csv"), class: 'btn mdl-color--grey-900  btn-left-margin' do %>
                   <i class="fa fa-file-text"></i> Download Excel/CSV
                   <% end %>
                   </span>
@@ -20,11 +20,11 @@
                <form action="/contacts/" id="user-search" class="well form-inline pull-right" method="get" accept-charset="utf-8">
                   <div style="display:none;"><input type="hidden" name="group_id" value=<%= "#{@group.id}" %>></div>
                   <input name="term" class="form-control" placeholder="Search this group" id="search" autocomplete="off" type="text">
-                  <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
+                  <button type="submit" class="btn mdl-color--grey-900 btn-round btn-just-icon mr-3" id="send-search">
                      <i class="material-icons">search</i>
                      <div class="ripple-container"></div>
                   </button>
-                  <a class="btn bg-black text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
+                  <a class="btn mdl-color--grey-900 text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
                   <div id="hints" class="hints-search"></div>
                </form>
             </div>
@@ -44,9 +44,9 @@
             </div>
          </div>
       </div>
-      <div class="card card-1">
-         <div class="card-header card-header-icon card-1">
-            <div class="card-icon bg-black">
+      <div class="card card-5">
+         <div class="card-header card-header-icon ">
+            <div class="card-icon mdl-color--grey-900">
                <i class="material-icons">group</i>
             </div>
             <h4 class="card-title text-white"><%= @group.name %>
@@ -117,7 +117,7 @@
                         <td class="d-"><%= contact.email %></td>
                         <td class="d-"><%= contact.company %></td>
                         <td class="d-"><%= contact.web_address %></td>
-                        <td class="d-"><%= contact.address %></td>
+                        <td class="d-"><%= contact.Fulladdress %></td>
                         <td class="d-"><%= contact.suite %></td>
                         <td class="d-"><%= contact.street_num %></td>
                         <td class="d-"><%= contact.strret_name %></td>
