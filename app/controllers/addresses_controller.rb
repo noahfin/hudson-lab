@@ -7,9 +7,7 @@ class AddressesController < ApplicationController
     @addresses = Address.all
   end
   def autocomplete
-    criteria = params[:term]
-    @addresses =  Address.search(params[:criteria]).order('first_name ASC')
-
+       @addresses = Address.search(params[:term]).order('address ASC')
   end
   # GET /addresses/1
   # GET /addresses/1.json

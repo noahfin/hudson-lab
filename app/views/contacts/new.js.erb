@@ -56,7 +56,7 @@ $("#contact_address").change(function(){
 
             for (n = streetEndIndex + 1; n < stateStartIndex; n++) {
 
-                 city += removeComma(address[n]);
+                 city += removeComma(address[n]) + ' ';
 
           }
 
@@ -73,8 +73,14 @@ $("#contact_address").change(function(){
 
 
             for (n = streetEndIndex + 1; n < stateStartIndex; n++) {
+                if (address[n].toLowerCase() === 'suite') {
+                  suite = address[n + 1];
+                n++
 
-                 city += removeComma(address[n]);
+
+                } else {
+                 city += removeComma(address[n]) + ' ';;
+                }
 
           }
             // if (parseInt(address[cityIndex - 1]) !== 'NaN' || parseInt(address[cityIndex - 1]) != NaN ) {

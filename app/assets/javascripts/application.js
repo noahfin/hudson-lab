@@ -1064,11 +1064,11 @@ var getContactForDash = function(query){
             $('.get-contacts').val('');
         }
     });
-        $('.address').autocomplete({
+        $('.address-auto').autocomplete({
         source: '/address/autocomplete',
         minLength: 3,
         select: function (event, ui) {
-            $('.address').val(ui.item.value);
+            $('.address-auto').val(ui.item.value);
 
         }
     });
