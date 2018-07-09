@@ -5,39 +5,38 @@
    }
    .card-icon-outline-warning {
    background: transparent !important;
-   border: 1px solid #fb8c00 !important;
    }
    .card-icon-outline-rose
    {
    background: transparent !important;
-   border: 1px solid #d81b60 !important;
+
    }
    .card-icon-outline-success {
    background: transparent !important;
-   border: 1px solid #43a047 !important;
+
    }
    .card-icon-outline-info {
    background: transparent !important;
-   border: 1px solid  #00acc1 !important;
+
    }
    .card-icon-outline-danger {
    background: transparent !important;
-   border: 1px solid #f44336  !important;
+
    }
    .card-dash-warning {
-   border: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
    }
    .card-dash-rose {
-   border: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(244, 67, 54, 0.6);
    }
      .card-dash-success{
-   border: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(76, 175, 80, 0.6);
    }
    .card-dash-info{
-   border: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(0, 188, 212, 0.6);
    }
    .media-left-deal {
@@ -52,7 +51,7 @@
    position: relative;
    color: #444;
    background: #fff;
-   border: 1px solid #d2d2d2;
+
    border-radius: 3px;
    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
    }
@@ -72,7 +71,7 @@
    -webkit-box-shadow: 0 8px 6px -6px black !important;
    -moz-box-shadow: 0 8px 6px -6px black !important;
    box-shadow: 0 8px 6px -6px black !important;
-   border: #212121 !important;
+
    }
    .deals-card-d, .card-search-tables, .tasks-card {
    height: 500px;
@@ -89,31 +88,25 @@
     overflow: hidden;
    }
    .card-row-1 {
-   border-top: 3px solid black;
-   border-bottom: 3px solid black;
-   border-left: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
    }
    .card-row-2  {
-   border-top: 3px solid black;
-   border-bottom: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(244, 67, 54, 0.6);
    }
   .card-row-3 {
-   border-top: 3px solid black;
-   border-bottom: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(76, 175, 80, 0.6);
    }
    .card-row-4 {
-   border-top: 3px solid black;
-   border-bottom: 3px solid black;
-   border-right: 3px solid black;
+
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(0, 188, 212, 0.6);
    }
    .tasks-card,  .deals-card-d {
-         border: 2px solid black;
          border-radius: 0px !important;
    }
+
 </style>
 <div class="col-md-12 first-show-card">
 <div class="row first-show-card">
@@ -308,14 +301,12 @@
                      <table class="table p-0 ">
                         <input type="text" name="search_tables" class="form-control text-info mt-3 g-s-dash c-s-dash deals-s pro-s-dash prop-s-dash" id="dash-search"  placeholder= "Search...">
                         <tbody class="p-0 ml-0 mr-0 mt-2" id="seach-table-1">
-                           <TR></TR>
-                        </tbody>
+                           <tr></tr>
                         <div class="" id="dash-calender"></div>
                        <%= link_to events_path, class: "mt-0 events-dash-link" do %>
                         View calendar
                         <% end %>
-
-
+                        </tbody>
                      </table>
                   </div>
                </div>
@@ -346,7 +337,7 @@
                         <li class="">
                            <h5 class="">Deals <span class="text-muted text-bold-400">- Won 5</span>
                               <small>
-                              <a href="#" class="position-right-deal pb-4"><span>   New Deal</span></a>
+                              <a href="#" class="position-right-deal pb-4 text-white"><span>   New Deal</span></a>
                               </small>
                            </h5>
                         </li>
@@ -374,9 +365,7 @@
                            <tr>
                               <td class="text-center">
                                 <% if deal.contacts.first == nil %>
-
                                      <%= image_tag small_gravatar_url("user1@example.com"), class: "user-image"  %>
-
                                  <% else %>
                                  <%= image_tag deal.contacts.first.avatar.present? ? deal.contacts.first.avatar.url(:thumb) : small_gravatar_url(deal.contacts.first.email), class: "user-image",  height: '32', width: '32'%>
                                  <% end %>
@@ -406,14 +395,14 @@
                   <div class="nav-tabs-wrapper">
                      <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                           <a class="nav-link active text-info " href="#profile" data-toggle="tab">
+                           <a class="nav-link active text-info task-user-tab" href="#maindash_tasks" data-toggle="tab">
                               <i class="material-icons ">business</i>
                               <span class="text-info"> All</span>
                               <div class="ripple-container"></div>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" href="#messages" data-toggle="tab">
+                           <a class="nav-link task-user-tab" href="#tasks-user-list" data-toggle="tab">
                               <i class="material-icons">account_circle</i>
                               <%= current_user.first_name  %>
                               <div class="ripple-container"></div>
@@ -426,7 +415,7 @@
          </div>
          <div class="card-body mb-4 task-body card-1 ">
             <div class="tab-content p-0">
-               <div class="tab-pane active" id="profile">
+               <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
                      <table class="table p-0">
                         <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
@@ -526,5 +515,27 @@
       <!-- END ALERT - TIME ON SITE -->
    </div>
 </div>
+<script>
+  $(function() {
 
+   var hrefTempIndex = "#maindash_tasks"
+   $(hrefTempIndex).show();
+   $("#tasks-user-list").hide();
+   $(document).on('click', '.task-user-tab', function (e) {
+      e.preventDefault()
+      var tabSection =  $(this).attr('href');
+      $(hrefTempIndex).hide();
+       $(tabSection).show();
+       $(tabSection).css({
+          display: 'block',
+          visibility: 'visible'
+       });
+        hrefTempIndex = tabSection;
+   })
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      e.target // newly activated tab
+      e.relatedTarget // previous active tab
+   });
 
+});
+</script>

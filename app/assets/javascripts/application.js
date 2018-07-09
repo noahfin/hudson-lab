@@ -962,29 +962,15 @@ $(tabSection).autocomplete({
         }
     });
 
-function flash() {
-  $( "div" ).show().fadeOut( "slow" );
-}
-$( "#bind" ).click(function() {
-  $( "body" )
-    .on( "click", "#theone", flash )
-    .find( "#theone" )
-      .text( "Can Click!" );
-});
-$( "#unbind" ).click(function() {
-  $( "body" )
-    .off( "click", "#theone", flash )
-    .find( "#theone" )
-      .text( "Does nothing..." );
-});
+
 
 var appendFunction = function(contacts){
    $.each(contacts, function( index, contact ) {
 
-
+console.log(contact);
             var hidd_input = $('<input type="hidden" value="'+contact.id+'">');
-            $('#seach-table-1 tr:last-child ').html('<tr class="child"><td><h3>'+contact.name+'</h3><address><h4 class="text-warning">'+contact.phone+'</h4> <a class="text-white" href="mailto:'+contact.email+'"><span class="text-white">'+contact.email+'</span></a></address></td></tr>');
-
+            $('#seach-table-1 tr:last-child ').append('<tr class="child"><td><h3>'+contact.name+'</h3><address><h4 class="text-warning">'+contact.phone+'</h4> <a class="text-white" href="mailto:'+contact.email+'"><span class="text-white">'+contact.email+'</span></a></address></td></tr>');
+             $('#collapse_seach-table-1').collapse('show');
     });
 
 }
@@ -1065,8 +1051,8 @@ var getContactForDash = function(query){
         }
     });
         $('.address-auto').autocomplete({
-        source: '/address/autocomplete',
-        minLength: 3,
+        source: '/addresses/autocomplete',
+        minLength: 2,
         select: function (event, ui) {
             $('.address-auto').val(ui.item.value);
 

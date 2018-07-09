@@ -42,7 +42,8 @@
                                        <span class="input-group-addon">
                                        <i class="fa fa-address-card"></i>
                                        </span>
-                                      <%= form.text_field :addres, id: :company_addres, class: 'form-control text-white', placeholder: 'Addres...' %>
+                                       <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
+                                      <%= form.text_field :addres, id: :company_addres, class: 'form-control text-white address-auto', placeholder: 'Addres...' %>
                                     </div>
                                  </div>
                                  <div class="form-group bmd-form-group">

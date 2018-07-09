@@ -127,7 +127,8 @@
                    <div class="  m-4 p-3  bg-gray66">
                   <div class="form-group mt-4 card card-5 p-2">
                   <label  class="bmd-label-floating text-white mb-4 pb-3">Address</label>
-                  <%= form.text_field :address, id: :lead_address, class: 'form-control  text-white' %>
+                  <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
+                  <%= form.text_field :address, id: :lead_address, class: 'form-control address-auto  text-white' %>
                </div>
             </div>
             </div>

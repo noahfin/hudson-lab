@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_30_215027) do
+ActiveRecord::Schema.define(version: 2018_07_04_144132) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -517,6 +517,34 @@ ActiveRecord::Schema.define(version: 2018_06_30_215027) do
     t.string "owner_name"
     t.string "county"
     t.string "zip_code"
+    t.string "type_ofproperty"
+    t.string "known_as"
+    t.string "size_and_floors"
+    t.text "space1"
+    t.text "space2"
+    t.text "space3"
+    t.text "space4"
+    t.text "space5"
+    t.text "space6"
+    t.string "rental_per_sf"
+    t.string "cam_per_sf"
+    t.string "cam"
+    t.string "utilites_per_sf"
+    t.string "taxes_per_sf"
+    t.text "rental_includes"
+    t.text "cleaning"
+    t.text "electric"
+    t.string "gross_rental_per_sf"
+    t.string "escalations"
+    t.string "parking"
+    t.string "landlords_work"
+    t.string "possession"
+    t.string "lease_term"
+    t.boolean "exclusive"
+    t.text "add_comments"
+    t.string "contact_person"
+    t.text "availability"
+    t.string "water_and_sewer"
   end
 
   create_table "properties_tasks", id: false, force: :cascade do |t|

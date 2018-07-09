@@ -156,6 +156,7 @@
                   <div class="col-sm-7">
                      <div class="form-group text-white">
                         <label class="bmd-label-floating  text-white">Address</label>
+                        <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
                         <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto',  autofocus: true, value: '' %>
                      </div>
                   </div>
@@ -340,7 +341,8 @@
                         </div>
                         <% end %>
                      </div>
-                  </div>                  <div class="col-md-5 ml-0 pl-0 ">
+                  </div>
+                  <div class="col-md-5 ml-0 pl-0 ">
                      <div class="row">
                         <div class="form-group  collapse" id="add-users-group">
                            <div class="row mt-1">

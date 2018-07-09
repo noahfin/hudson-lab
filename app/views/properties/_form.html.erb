@@ -1,9 +1,9 @@
 <div class="container">
    <div class="col-md-12">
       <div class="card card-1" >
-         <div class="card-header  card-header-icon">
-            <div class="card-icon card-1 ">
-               <i class="material-icons text-white">mail_outline</i>
+         <div class="card-header pt-4 card-header-icon">
+            <div class="card-icon card-1  ">
+               <i class="material-icons text-white">business</i>
             </div>
               <h3 class="text-white card-title">  <%= @property.new_record? ? "New Property" : "Update Property"  %></h3>
          </div>
@@ -28,8 +28,8 @@
                   </div>
                   <div class="col-md-12 ml-0 pl-0 mr-0 pr-0 ">
                      <div class="card card-5 ml-0 pl-0 mr-0 pr-0">
-                        <div class="card-header bg-white rounded-0">
-                           <h4 class="card-title text-muted">Connect The contacts</h4>
+                        <div class="card-header bg-white rounded-0  pt-3">
+                           <h4 class="card-title text-muted pt-3  text-white">Connect Contacts</h4>
                         </div>
                         <div class="card-body p-1 card-1">
                            <div id="accordion" role="tablist">
@@ -116,6 +116,32 @@
                         </div>
                      </div>
                   </div>
+                                    <div class="form-group bmd-form-group text-white">
+                     <%= form.label :address, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :address, id: :property_address, class: 'form-control text-white' %>
+                  </div>
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :description, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_area :description, id: :property_description, class: 'form-control text-white' %>
+                  </div>
+                  <div class="col-sm-12">
+                     <div class="form-check form-check-inline">
+                        <label class="form-check-label text-white">
+                        <%= form.check_box :for_lease, id: :property_for_lease, class: 'form-check-input text-white ' %> For Lease
+                        <span class="form-check-sign">
+                        <span class="check"></span>
+                        </span>
+                        </label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <label class="form-check-label text-white">
+                        <%= form.check_box :for_sale, id: :property_for_sale, class: 'form-check-input text-white b-white' %> For Sale
+                        <span class="form-check-sign text-white">
+                        <span class="check"></span>
+                        </span>
+                        </label>
+                     </div>
+                  </div>
                </div>
                <div class="col-md-4">
                   <div class="form-group bmd-form-group text-white">
@@ -154,23 +180,7 @@
                      <%= form.label :overhead_doors, class: 'bmd-label-floating text-white'  %>
                      <%= form.text_field :overhead_doors, id: :property_overhead_doors, class: 'form-control text-white' %>
                   </div>
-                  <div class="form-group bmd-form-group text-white">
-                     <%= form.label :owner_name, class: 'bmd-label-floating text-white'  %>
-                     <%= form.text_field :owner_name, id: :property_owner_name, class: 'form-control text-white' %>
-                  </div>
-                  <div class="form-group">
-                     <select class="selectpicker county-select" name="county" data-style="select-with-transition" title="Single Select">
-                        <option value="Select County" class="tex-mute"> Select County </option>
-                        <option value="Dutchess"> Dutchess </option>
-                        <option value="Ulster"> Ulster </option>
-                        <option value="Putnam"> Putnam </option>
-                        <option value="Orange"> Orange </option>
-                        <option value="Columbia"> Columbia </option>
-                        <option value="Sullivan"> Sullivan </option>
-                        <option value="Greene"> Greene </option>
-                        <option value="westchester"> westchester </option>
-                     </select>
-                  </div>
+
                </div>
                <div class="col-md-4">
                   <div class="form-group bmd-form-group text-white">
@@ -201,34 +211,155 @@
                      <%= form.label :property_type, class: 'bmd-label-floating text-white'  %>
                      <%= form.text_field :property_type, id: :property_property_type, class: 'form-control text-white' %>
                   </div>
-                  <div class="form-group bmd-form-group text-white">
-                     <%= form.label :address, class: 'bmd-label-floating text-white'  %>
-                     <%= form.text_field :address, id: :property_address, class: 'form-control text-white' %>
+                                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :owner_name, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :owner_name, id: :property_owner_name, class: 'form-control text-white' %>
                   </div>
-                  <div class="form-group bmd-form-group text-white">
-                     <%= form.label :description, class: 'bmd-label-floating text-white'  %>
-                     <%= form.text_area :description, id: :property_description, class: 'form-control text-white' %>
+                  <div class="form-group">
+                     <select class="selectpicker county-select" name="county" data-style="select-with-transition" title="Single Select">
+                        <option value="Select County" class="tex-mute"> Select County </option>
+                        <option value="Dutchess"> Dutchess </option>
+                        <option value="Ulster"> Ulster </option>
+                        <option value="Putnam"> Putnam </option>
+                        <option value="Orange"> Orange </option>
+                        <option value="Columbia"> Columbia </option>
+                        <option value="Sullivan"> Sullivan </option>
+                        <option value="Greene"> Greene </option>
+                        <option value="westchester"> westchester </option>
+                     </select>
                   </div>
-                  <div class="col-sm-12">
-                     <div class="form-check form-check-inline">
-                        <label class="form-check-label text-white">
-                        <%= form.check_box :for_lease, id: :property_for_lease, class: 'form-check-input text-white ' %> For Lease
-                        <span class="form-check-sign">
-                        <span class="check"></span>
-                        </span>
-                        </label>
-                     </div>
-                     <div class="form-check form-check-inline">
-                        <label class="form-check-label text-white">
-                        <%= form.check_box :for_sale, id: :property_for_sale, class: 'form-check-input text-white b-white' %> For Sale
-                        <span class="form-check-sign text-white">
-                        <span class="check"></span>
-                        </span>
-                        </label>
-                     </div>
-                  </div>
+
                </div>
             </div>
+            <div class="row">
+               <div class="col-md-4">
+                   <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space4, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space4, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space3, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space3, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space2, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space2, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space1, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space1, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :size_and_floors, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :size_and_floors, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :known_as, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :known_as, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                     <div class="form-group bmd-form-group text-white">
+                     <%= form.label :landlords_work, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :landlords_work, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :parking, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :parking, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :escalations, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :escalations, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+
+
+               </div>
+               <div class="col-md-4">
+                  <div class="form-group bmd-form-group text-white">
+                     <%= form.label :taxes_per_sf, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :taxes_per_sf, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :utilites_per_sf, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :utilites_per_sf, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :cam, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :cam, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :cam_per_sf, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :cam_per_sf, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :rental_per_sf, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :rental_per_sf, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space6, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space6, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :space5, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :space5, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                     <div class="form-group bmd-form-group text-white">
+                     <%= form.label :cleaning, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :cleaning, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :rental_includes, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :rental_includes, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+
+
+
+               </div>
+
+
+            <div class="col-md-4">
+                        <div class="form-group bmd-form-group text-white">
+                     <%= form.label :water_and_sewer, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :water_and_sewer, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :availability, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :availability, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :availability, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :availability, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :exclusive, class: 'bmd-label-floating text-white'  %>
+                     <%= form.check_box :exclusive, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :contact_person, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :contact_person, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :add_comments, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :add_comments, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :lease_term, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :lease_term, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :possession, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :possession, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                     <div class="form-group bmd-form-group text-white">
+                     <%= form.label :gross_rental_per_sf, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :gross_rental_per_sf, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+                      <div class="form-group bmd-form-group text-white">
+                     <%= form.label :electric, class: 'bmd-label-floating text-white'  %>
+                     <%= form.text_field :electric, id: :property_zip_code, class: 'form-control text-white' %>
+                  </div>
+
+
+            </div>
+         </div>
          </div>
          <div class="card-footer ">
             <%= form.submit "Send Form", remote: true, class: 'btn btn-outline-info' %>
@@ -239,3 +370,4 @@
       </div>
    </div>
 </div>
+

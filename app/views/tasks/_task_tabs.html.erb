@@ -9,7 +9,14 @@
          <h6>Action Steps For Contacts</h6>
       <table class="table">
          <% task_contact_array.each_with_index do |task, index| %>
-         <% next if task_contact_array[index].nil? || task_contact_array[index] == '' %>
+            <% is_personl_user = false%>
+            <% task.users.each do |user| %>
+            <% if user.id == current_user.id %>
+            <%  is_personl_user = true   %>
+
+            <% end %>
+            <% end %>
+         <% next if  !is_personl_user && task.personal?  || task_contact_array[index].nil?%>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check">
@@ -27,8 +34,8 @@
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
-               <i class="material-icons text-white">edit</i>
+               <%= link_to edit_task_path(task.id), class: "btn btn-link text-primary", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons text-primary">edit</i>
                <% end %>
                <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
                <i class="material-icons">close</i>
@@ -57,7 +64,14 @@
        <h6>Action Steps For Properties</h6>
       <table class="table">
          <% properties_array.each_with_index do |task, index|%>
-          <% next if  properties_array[index].nil? ||  properties_array[index] == '' %>
+            <% is_personl_user = false%>
+            <% task.users.each do |user| %>
+            <% if user.id == current_user.id %>
+            <%  is_personl_user = true   %>
+
+            <% end %>
+            <% end %>
+          <% next if  !is_personl_user && task.personal? || properties_array[index].nil? ||  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check">
@@ -78,8 +92,8 @@
                <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
-               <i class="material-icons">close</i>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn text-white btn-link'  do %>
+               <i class="material-icons text-white">close</i>
                <% end %>
             </td>
          </tr>
@@ -101,7 +115,14 @@
        <h6>Action Steps For Projects</h6>
       <table class="table">
          <% projects_array.each_with_index do |task, index|%>
-          <% next if  projects_array[index].nil? ||  projects_array[index] == '' %>
+            <% is_personl_user = false%>
+            <% task.users.each do |user| %>
+            <% if user.id == current_user.id %>
+            <%  is_personl_user = true   %>
+
+            <% end %>
+            <% end %>
+          <% next if  !is_personl_user && task.personal? || projects_array[index].nil? %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check">
@@ -120,10 +141,10 @@
                <% end %></td>
             <td class="td-actions text-right">
                <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
-               <i class="material-icons">edit</i>
+               <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
-               <i class="material-icons">close</i>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn text-white btn-link'  do %>
+               <i class="material-icons text-white">close</i>
                <% end %>
             </td>
          </tr>
@@ -146,7 +167,14 @@
        <h6>Action Steps For Deals</h6>
       <table class="table">
          <% leads_array.each_with_index do |task, index|%>
-         <% next if  leads_array[index].nil? ||  leads_array[index] == '' %>
+            <% is_personl_user = false %>
+            <% task.users.each do |user| %>
+            <% if user.id == current_user.id %>
+            <%  is_personl_user = true   %>
+
+            <% end %>
+            <% end %>
+            <% next if  !is_personl_user && task.personal? || leads_array[index].nil? %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check">
@@ -167,8 +195,8 @@
                <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
                <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
-               <i class="material-icons">close</i>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn text-white btn-link'  do %>
+               <i class="material-icons text-white">close</i>
                <% end %>
             </td>
          </tr>
@@ -192,7 +220,14 @@
       <h6>Action Steps For Marketing</h6>
       <table class="table">
          <% groups_array.each_with_index do |task, index| %>
-         <% next if  groups_array[index].nil? ||  groups_array[index] == '' %>
+            <% is_personl_user = false%>
+            <% task.users.each do |user| %>
+            <% if user.id == current_user.id %>
+            <%  is_personl_user = true   %>
+
+            <% end %>
+            <% end %>
+         <% next if !is_personl_user && task.personal? || groups_array[index].nil?  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check">
@@ -210,11 +245,11 @@
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
-               <%= link_to edit_task_path(task.id), class: "btn btn-primary btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
-               <i class="material-icons">edit</i>
+               <%= link_to edit_task_path(task.id), class: "btn text-white btn-link", remote: true, title: 'edit', rel: "tooltip"  do %>
+               <i class="material-icons text-white">edit</i>
                <% end %>
-               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link'  do %>
-               <i class="material-icons">close</i>
+               <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn text-white btn-link'  do %>
+               <i class="material-icons text-white">close</i>
                <% end %>
             </td>
          </tr>
