@@ -63,6 +63,8 @@ class ContactsController < ApplicationController
   end
 
   def update
+    if current_user
+
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     if @contact.update(contact_params)
        user_reltionships(@contact)
@@ -75,6 +77,7 @@ class ContactsController < ApplicationController
         end
       end
       end
+     end
   end
 
 
@@ -89,8 +92,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
        address = Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{params['contact']['city'] }%", "%#{params['contact']['street_num']}%", "%#{params['contact']['strret_name']}%"]).first
-      if  address != nil && address.length == 1
-        @contact.addresses << address
+      if  address != nil
+        @contact.address_ids << address
         else
           if params['contact']['Fulladdress']
             address = Address.create(address: params['contact']['Fulladdress'])
@@ -171,7 +174,8 @@ class ContactsController < ApplicationController
         elsif session[:selected_group_id]
           @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
        else
-           @contacts = current_user.contacts.order('last_name ASC').page(params[:page])
+           @contacts = current_user.contacts.order('last_name ASC').page(params[:page]) unless !current_user
+
        end
          previous_query_string()
       end

@@ -1052,7 +1052,7 @@ var getContactForDash = function(query){
     });
         $('.address-auto').autocomplete({
         source: '/addresses/autocomplete',
-        minLength: 2,
+        minLength: 4,
         select: function (event, ui) {
             $('.address-auto').val(ui.item.value);
 
