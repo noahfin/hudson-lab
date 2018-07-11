@@ -64,9 +64,9 @@ end
       contact.attributes = row
       contact.save!
       if Address.exists?([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
-        contact.addresses << Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
+        contact.address_ids << Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
         else
-          Address.create( suite: contact.suite, county: contact.county, state: contact.state, country: contact.country, postal_code: contact.suite, zip_code_ext: contact.zip_code_ext,  city: contact.city, street_num: contact.street_num, strret_name: contact.strret_name)
+          Address.create(address: contact.Fulladdress, suite: contact.suite, county: contact.county, state: contact.state, country: contact.country, postal_code: contact.suite, zip_code_ext: contact.zip_code_ext,  city: contact.city, street_num: contact.street_num, strret_name: contact.strret_name)
         end
       user_reltionships(contact, group, users)
     end
