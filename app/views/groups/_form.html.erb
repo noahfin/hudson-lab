@@ -1,4 +1,4 @@
-<%= form_for @group, remote: true, :authenticity_token => true do |form| %>
+<%= form_for @group, :authenticity_token => true do |form| %>
 <% if group.errors.any? %>
 <div id="error_explanation">
    <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -10,6 +10,7 @@
 </div>
 <% end %>
 <div class="form-group">
+   <%=  hidden_field(:new_authenticity_token, :id, :value => form_authenticity_token.to_s, id: 'group_authenticity_token') %>
    <%=  hidden_field(:group, :id, :value => @group.id.to_s, id: 'group_id') %>
    <%= form.text_field :name, id: :group_name, class: 'form-control g-name text-white', placeholder: 'Enter new group name new_group' %>
 </div>

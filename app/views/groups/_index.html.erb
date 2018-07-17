@@ -6,7 +6,9 @@
       <div class="container-fluid   card-1 pt-4 first-show-card">
 
          <div class="m-4">
-
+             <%= link_to new_group_path, class: "text-white" do %>
+           <span class="pull-right mt-2"><i class="fa fa-plus"></i> New</span>
+           <% end %>
 
             <span >
                <% @groups.each_with_index do |g, i| %>

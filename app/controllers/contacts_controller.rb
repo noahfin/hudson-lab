@@ -64,7 +64,6 @@ class ContactsController < ApplicationController
 
   def update
     if current_user
-
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
     if @contact.update(contact_params)
        user_reltionships(@contact)
@@ -175,7 +174,6 @@ class ContactsController < ApplicationController
           @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
        else
            @contacts = current_user.contacts.order('last_name ASC').page(params[:page]) unless !current_user
-
        end
          previous_query_string()
       end

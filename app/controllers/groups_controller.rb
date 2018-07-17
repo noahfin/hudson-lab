@@ -42,10 +42,8 @@ class GroupsController < ApplicationController
        flash[:danger] = @group.errors.full_messages.to_s
     end
 
-    respond_to do |format|
-        format.html
-        format.js
-      end
+
+     redirect_to(groups_path)
   end
 
   def update

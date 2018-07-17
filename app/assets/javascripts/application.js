@@ -1103,7 +1103,9 @@ var getContactForDash = function(query){
             data: {
                 group: {
                     name: newGroup,
-                    user_ids: user_ids
+                    user_ids: user_ids,
+                    {authenticity_token: $("group_authenticity_token") }
+
                 }
             },
             success: function (group) {
