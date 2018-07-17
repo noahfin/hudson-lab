@@ -1,5 +1,7 @@
-clsoeWiz();
-
+$('#main-content').html('<%= escape_javascript render(@contacts) %>');
+$('#contact-form-wiz').hide();
+$('#form-modal').modal('hide');
+$('#form-modal').removeClass('modal');
 $('.select_u_picker').attr("data-actions-box", "true");
       $(function() {
         $.notify({
