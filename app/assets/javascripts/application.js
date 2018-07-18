@@ -1096,6 +1096,8 @@ var getContactForDash = function(query){
             console.log(newGroup + "is in the block");
             newGroup = $('.g-name').val();
         }
+       var group_authenticity_token =  $("#group_authenticity_token");
+       console.log(group_authenticity_token);
         event.preventDefault();
         $.ajax({
             url: "/groups",
@@ -1104,7 +1106,7 @@ var getContactForDash = function(query){
                 group: {
                     name: newGroup,
                     user_ids: user_ids,
-                    {authenticity_token: $("group_authenticity_token") }
+                   authenticity_token: group_authenticity_token
 
                 }
             },
