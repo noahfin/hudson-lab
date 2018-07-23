@@ -95,9 +95,19 @@ class ContactsController < ApplicationController
       end
       if params['contact'][:group_id]
       @contact.group_ids = params['contact'][:group_id]
-    end
+     end
+     if params['group_ids']
+      @contact.group_ids = params['group_ids']
+     end
     if  params['contact']['user_id']
         params['contact']['user_id'].each do |u_id|
+        next if u_id.to_i == 0 || u_id == "" || u_id.to_i < 1
+          user = User.find(u_id.to_i)
+       user.contacts << @contact
+       end
+     end
+     if  params['user_ids']
+        params['user_ids'].each do |u_id|
         next if u_id.to_i == 0 || u_id == "" || u_id.to_i < 1
           user = User.find(u_id.to_i)
        user.contacts << @contact

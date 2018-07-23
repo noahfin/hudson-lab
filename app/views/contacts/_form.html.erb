@@ -246,9 +246,9 @@
                            </a>
                         </div>
                         <div class="form-group">
-                           <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#pickUsers" aria-expanded="false" aria-controls="pickUsers" id="round-user-btn">
+                           <button class="btn  btn-outline-info  btn-round  ml-2 mr-0" type="button" data-toggle="collapse" data-target="#collapseleads" aria-expanded="false" aria-controls="collapseleads" >
                            <i class="material-icons">person_add</i>
-                           Unselect Users
+                           Add as Lead
                            </button>
                         </div>
                         <div class="form-group ">
@@ -377,41 +377,97 @@
                   </div>
                </div>
                <!--  end of main row justify center -->
+               <div style= "min-width: 400px; margin: 0 auto;">
+
+
                <div class="row">
                   <div class="form-group ">
                      <div class=" ">
                         <div class="collapse " id="collapseGroup">
-                           <div class="col-md-12 ml-auto mr-auto">
-                              <% group_ids = [] %>
-                              <% if !@group_ids.nil? %>
-                              <%  @group_ids.each_with_index do |group, index| %>
-                              <% group_ids[index] = group.group_id %>
-                              <% end %>
-                              <% end %>
-                              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-                              <div class="dropdown">
-                                 <input type="hidden" name="contact[lead_ids]"  id="lead_c_id">
-                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker pull-left groups-for-new-group", id: 'contact_group_id' } %>
+                           <div style= "min-width: 600px; margin: 0 auto;">
+                              <div class="card text-center rounded-0 card mdl-color--grey-900">
+
+  <div class="card-header p-0 bg-black rounded-0 pb-0 mb-0" >
+   <div class="div-header  p-4 card-6 rounded-0">
+    <ul class="nav nav-pills card-header-pills rounded-0 mdl-color--grey-900  mt-3">
+      <li class="nav-item text-white">
+        <a class="nav-link active nav-t-tab text-white" href="#groups-pane"><span class="text-white">Groups</span></a>
+      </li>
+      <li class="nav-item text-white">
+        <a class="nav-link nav-t-tab text-white text-white" href="#users"><span class="text-white">Users</span></a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+  <div class="card-body card mdl-color--grey-900 rounded-0">
+                  <div class="tab-pane group-pane" id="users">
+                     <div class="col-md-12">
+                        <h4 class="ml-4 ml-3 pull-right"><i class="material-icons text-white">
+                           folder_shared
+                           </i>
+                        </h4>
+                        <% User.all.each.each_slice(6) do |user| %>
+                        <div class="col-md-12">
+                           <div class="row">
+                              <% user.each do |user| %>
+                              <%  next if !user.first_name  %>
+                              <div class="col-md-2">
+                                 <div class="togglebutton ">
+                                    <label>
+                                    <input type="checkbox" name="user_ids[]" checked="true" value=
+                                       <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                                    <span class="toggle"></span>
+                                    <span class="text-white"><%= user.first_name if user.first_name %>
+                                    </span>
+                                    </label>
+                                 </div>
                               </div>
+                              <% end %>
+                           </div>
+                        </div>
+                        <% end %>
+                     </div>
+                  </div>
+                  <div class="tab-pane group-pane mdl-color--grey-900 rounded-0" id="groups-pane">
+                     <div class="mdl-color--grey-900 rounded-0 text-white ">
+                        <ul class="list-group mdl-color--grey-900 text-white">
+                           <input type="hidden"  value="group_id[]" class="groups-hiiden">
+                           <% Group.all.each_with_index do |group, index| %>
+                           <% next if group.nil? || group.name.empty? %>
+                           <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted">
+                              <h5 class="text-wheight-light text-white pt-2 "><%= group.name %></h5>
+                              <nav class="navbar  bg-footer  justify-content-between align-items-center " id="group-check-nav">
+                                 <span class="ml-auto mr-auto text-center p-0   ">
+                              <div class="form-check form-check-right ml-auto mr-auto  ">
+                                 <div class="togglebutton ">
+                                    <label>
+                                    <input type="checkbox" name="group_ids[]" value=<%="#{group.id}"%> />
+                                    <span class="toggle"></span>
+                                    <span class="text-white">
+                                    </span>
+                                    </label>
+                                 </div>
+
+                              </div>
+                                 </span>
+                              </nav>
+                           </li>
+                           <% end %>
+                        </ul>
+                     </div>
+                  </div>
+  </div>
+</div>
+
+
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="row">
-                  <div class="form-group">
-                  <% attr = {prompt: "Select related users"} %>
-                  <% user_ids = [] %>
-                  <% User.all.each do |user| %>
-                  <% user_ids.push(user.id.to_s) %>
-                  <% end %>
-                  <% attr[:selected] = user_ids %>
-                  <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
-                  <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker users-for-new-group " } %>
-                  </div>
                </div>
-               <div class="col-md-5">
-               </div>
+
             </div>
          </div>
       </div>
@@ -428,8 +484,9 @@
             <button type="button" class="btn btn-fill b-update-contact btn-rose ">Update</button>
             <% end %>
             <% else %>
-            <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose ', id: "btn_finshed" %>
+
             <% end %>
+            <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose ', id: "btn_finshed" %>
          </div>
          <div class="clearfix"></div>
       </div>
@@ -437,6 +494,19 @@
    <% end %>
 </div>
 <!-- wizard container -->
-<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
-
+<script >
+   var hrefTempIndex = "#groups-pane"
+   $('.group-pane').hide();
+   $("#groups-pane").show();
+   $(document).on('click', '.nav-t-tab', function (e) {
+      e.preventDefault()
+      var tabSection =  $(this).attr('href');
+      $(hrefTempIndex).hide();
+       $(tabSection).show();
+        hrefTempIndex = tabSection;
+   })
+   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      e.target // newly activated tab
+      e.relatedTarget // previous active tab
+   });
 </script>

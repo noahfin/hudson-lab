@@ -6,7 +6,7 @@ $('body').addClass('modal-open');
 $('body').addClass('modal-backdrop');
 $('.selectpicker').selectpicker('toggle').selectpicker('setStyle', 'btn-outline-info');
 
-
+$('#btn_finshed').hide();
 
  var getUsersAndGroupsInputs = function () {
 
@@ -68,7 +68,7 @@ $('.selectpicker').selectpicker('toggle').selectpicker('setStyle', 'btn-outline-
                 'sic': $('#contact_sic').val(),
                 'role': $('#contact_role').val(),
                 'suite': $('#contact_suite').val(),
-                'group_id': userGroupArray[1],
+                'group_id': $('#groups-hiiden'),
                 'user_id': userGroupArray[0],
                 'verified': $('#contact_verified').val()
 
