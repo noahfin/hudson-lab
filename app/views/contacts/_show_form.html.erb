@@ -322,6 +322,25 @@
             </div>
          </div>
       </div>
+          <div class="col-md-12 pull-right ml-0 pr-2 pl-0 mt-0">
+            <div class=" form-group mr-0 pl-3">
+             <% group_ids = [] %>
+             <% if !@group_ids.nil? %>
+                <%  @group_ids.each_with_index do |group, index| %>
+                         <% group_ids[index] = group.group_id %>
+                <% end %>
+              <% end %>
+              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+                      <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker dropdown groups-for-new-group", id: 'contact_group_id' } %>
+
+                       <%= form.select(:role, Contact.roles.keys.map {|role| [role.titleize,role]},{}, { :class => 'selectpicker dropdown' }  )%>
+                      <% attr = {prompt: "Select related users"} %>
+                      <%= form.collection_select :user_id, User.all, :id, :first_name, attr,{ remote: true, multiple: "true", required: true,  class: "selectpicker select_u_picker dropdown users-for-new-group " } %>
+
+            </div>
+
+                    </div>
+
       <!-- wizard container -->
       <div class="form-check pull-right p-2">
          <label class="form-check-label ">
@@ -337,3 +356,13 @@
    </div>
 </div>
 <% end %>
+<script>
+$('.selectpicker').selectpicker('setStyle', 'dropdown-toggle btn-outline-info btn-round btn btn-block pl-3');
+$('.selectpicker').attr("data-actions-box", "true");
+$('.selectpicker').attr("dropupAuto", "false");
+$('.selectpicker').attr("data-live-search", "true");
+$('.selectpicker').attr("selectOnTabr", "true");
+$('.selectpicker').attr("data-divider", "true");
+$('.selectpicker').selectpicker('toggle');
+
+</script>

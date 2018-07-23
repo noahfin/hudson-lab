@@ -1096,20 +1096,22 @@ var getContactForDash = function(query){
             console.log(newGroup + "is in the block");
             newGroup = $('.g-name').val();
         }
-       var group_authenticity_token =  $("#group_authenticity_token");
-       console.log(group_authenticity_token);
+
+              var formData = {
+            group: {
+
+            'name': newGroup,
+                'user_ids': user_ids
+
+
+                  },
+                  authenticity_token: group_authenticity_token
+            }
         event.preventDefault();
         $.ajax({
             url: "/groups",
             method: "post",
-            data: {
-                group: {
-                    name: newGroup,
-                    user_ids: user_ids,
-                   authenticity_token: group_authenticity_token
-
-                }
-            },
+            data: formData,
             success: function (group) {
                 console.log(group);
                 if (group.id != null) {

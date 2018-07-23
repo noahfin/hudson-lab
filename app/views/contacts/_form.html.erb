@@ -391,7 +391,7 @@
                               <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
                               <div class="dropdown">
                                  <input type="hidden" name="contact[lead_ids]"  id="lead_c_id">
-                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker pull-left", id: 'contact_group_id' } %>
+                                 <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker pull-left groups-for-new-group", id: 'contact_group_id' } %>
                               </div>
                            </div>
                         </div>
@@ -399,31 +399,15 @@
                   </div>
                </div>
                <div class="row">
-                  <div class="form-group ">
-                     <div class="collapse " id="pickUsers">
-                        <div class="col-md-12">
-                           <% User.all.each.each_slice(6) do |user| %>
-                           <div class="col-md-12">
-                              <div class="row">
-                                 <% user.each do |user| %>
-                                 <%  next if !user.first_name  %>
-                                 <div class="col-md-2">
-                                    <div class="togglebutton ">
-                                       <label>
-                                       <input type="checkbox" name="user_id[]" checked="true" value=
-                                          <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                                       <span class="toggle"></span>
-                                       <span class="text-white"><%= user.first_name if user.first_name %>
-                                       </span>
-                                       </label>
-                                    </div>
-                                 </div>
-                                 <% end %>
-                              </div>
-                           </div>
-                           <% end %>
-                        </div>
-                     </div>
+                  <div class="form-group">
+                  <% attr = {prompt: "Select related users"} %>
+                  <% user_ids = [] %>
+                  <% User.all.each do |user| %>
+                  <% user_ids.push(user.id.to_s) %>
+                  <% end %>
+                  <% attr[:selected] = user_ids %>
+                  <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
+                  <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker users-for-new-group " } %>
                   </div>
                </div>
                <div class="col-md-5">
@@ -441,10 +425,11 @@
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
             <% if @contact.persisted? %>
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+            <button type="button" class="btn btn-fill b-update-contact btn-rose ">Update</button>
             <% end %>
             <% else %>
+            <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose ', id: "btn_finshed" %>
             <% end %>
-            <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose', id: "btn_finshed" %>
          </div>
          <div class="clearfix"></div>
       </div>
