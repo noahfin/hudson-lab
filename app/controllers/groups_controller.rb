@@ -34,16 +34,13 @@ class GroupsController < ApplicationController
   def edit
   end
 
+
   def create
-    @group = Group.new(group_params)
+   @group = Group.new(group_params)
     if @group.save
       flash[:info] = "Group with the slected users was successfully created."
-    else
-       flash[:danger] = @group.errors.full_messages.to_s
+     render json: @group, status: :created
     end
-
-
-     redirect_to(groups_path)
   end
 
   def update

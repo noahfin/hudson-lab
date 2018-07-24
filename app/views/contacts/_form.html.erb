@@ -235,7 +235,7 @@
             <div class="tab-pane" id="group">
                <div class="row justify-content-center">
                   <div class="col-sm-12">
-                     <h5 class="info-text text-white">Very important to select group and the Emplyees who need the contact <span  class=" mt-1">  <a  data-toggle="collapse" href="#collapseleads" aria-expanded="false" aria-controls="collapseleads"><i class="material-icons mt-2">arrow_drop_down_circle</i></a></span></h5>
+                     <h5 class="info-text text-white">Very important to select group and the Emplyees who need the contact <span  class=" mt-1">  <a  data-toggle="collapse" href="#add-group" aria-expanded="false" aria-controls="add-group"><i class="material-icons">group_add</i></a></span></h5>
                   </div>
                   <div class="col-md-12  ml-auto mr-auto">
                      <div class="form-inline ml-auto mr-auto justify-content-center">
@@ -376,6 +376,43 @@
                      </div>
                   </div>
                </div>
+         <div class="form-group ml-4 collapse" id="add-group">
+            <div class="row mt-4">
+              <div class=" col-md-12">
+                <div class="input-group pl-0">
+                  <div class="col-xl-12">
+                    <div class="row pl-0">
+                      <div class="col-xl-10 pl-3 mb-4">
+                        <label for="new_group" class="bmd-label-floating">New Group Name</label>
+                        <input type="text" name="new_group" id="new_group" class="form-control ml-0 new_group pb-4 text-white">
+                        </div>
+                        <div class="col-xl-2 ">
+                           <input type="hidden" id="group_authenticity_token" value=<%="#{form_authenticity_token}"%>>
+                          <span class="input-group-btn mr-0 ml-2">
+                            <button type="button" class="btn btn-fab btn-round btn-info save-new-group" id="save-new-group" data-remote="true">
+                              <i class="material-icons">input</i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="btn-group"><% User.all.each do |user| %><%  next if !user.first_name  %>
+                  <div class="togglebutton form-check-inline">
+                    <label>
+                      <input type="checkbox" checked="true" value=
+                        <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                        <span class="toggle"></span>
+                        <span class="text-light"><%= user.first_name if user.first_name %>
+                        </span>
+                      </label>
+                    </div><% end %>
+                  </div>
+                </div>
+              </div>
                <!--  end of main row justify center -->
                <div style= "min-width: 400px; margin: 0 auto;">
 
@@ -431,7 +468,7 @@
                   </div>
                   <div class="tab-pane group-pane mdl-color--grey-900 rounded-0" id="groups-pane">
                      <div class="mdl-color--grey-900 rounded-0 text-white ">
-                        <ul class="list-group mdl-color--grey-900 text-white">
+                        <ul class="list-group mdl-color--grey-900 text-white" id="list-group-to-select-group">
                            <input type="hidden"  value="group_id[]" class="groups-hiiden">
                            <% Group.all.each_with_index do |group, index| %>
                            <% next if group.nil? || group.name.empty? %>

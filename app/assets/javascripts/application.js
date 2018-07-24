@@ -1088,7 +1088,7 @@ var getContactForDash = function(query){
         $('.users-for-new-group').each(function (i) {
             user_ids[i] = $(this).val();
         });
-
+var group_authenticity_token  = $('#group_authenticity_token').val()
 
         var newGroup = $('input[name=new_group').val();
         console.log(newGroup);
@@ -1115,11 +1115,8 @@ var getContactForDash = function(query){
             success: function (group) {
                 console.log(group);
                 if (group.id != null) {
-                    var newOption = $('<option selected="true" value="' + group.id.toString() + '">' + group.name + '</option></select>');
-                    if ($(' p .text-danger')) {
-                        $(' p .text-danger').detach();
-                    }
-                    $('#new_group').addClass('has-success')
+                    var newOption = $('<li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted"><h5 class="text-wheight-light text-white pt-2 ">' + group.name + '</h5><nav class="navbar  bg-footer  justify-content-between align-items-center " id="group-check-nav"><span class="ml-auto mr-auto text-center p-0"><div class="form-check form-check-right ml-auto mr-auto"><div class="togglebutton"><label><input name="group_ids[]"  value="' + group.id.toString() + 'type="checkbox"><span class="toggle"></span><span class="text-white"></span></label></div></div></span></nav></li>');
+
 
 
                     $.notify({
@@ -1127,8 +1124,7 @@ var getContactForDash = function(query){
                         message: 'The Group: ' + '"' + group.name + '"' + ' was successfuly created it is selected'
                     });
 
-                    $('#contact_group_id').append(newOption);
-                    $('.selectpicker').selectpicker('render');
+                    $('#list-group-to-select-group').append(newOption);
                     $('input[name=new_group').val("");
                 }
             },
