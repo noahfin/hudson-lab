@@ -481,11 +481,11 @@
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
             <% if @contact.persisted? %>
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
-            <button type="button" class="btn btn-fill b-update-contact btn-rose ">Update</button>
             <% end %>
             <% else %>
 
             <% end %>
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"></input>
             <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose ', id: "btn_finshed" %>
          </div>
          <div class="clearfix"></div>
