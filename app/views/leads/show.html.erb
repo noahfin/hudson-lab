@@ -3,94 +3,106 @@
       <h2 class="title text-white ml-4 pl-3">Lead Information</h2>
       <ul class="scondary-smaller-text">
          <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                <ul class="list-group scondary-size-text text-white">
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="pb-3">Name:</strong>
-                        <%= @lead.name %>
+                        <strong class="pb-3 text-white">Name:</strong>
+                        <span class="text-white"> <%= @lead.name %></span>
                      </p>
                   </li>
                   <li class="list-group-item">
                       <p class="scondary-size-text">
-                  <strong class="mb-3">Email:</strong>
-               <span><%= @lead.email %></span>
+                  <strong class="mb-3 text-white">Email:</strong>
+               <span class="text-white"><%= @lead.email %></span>
                </p>
                   </li>
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Business:</strong>
-                        <%= @lead.business %>
+                        <strong class="mb-3 text-white">Business:</strong>
+                        <span class="text-white"><%= @lead.business %></span>
                      </p>
                   </li>
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Date:</strong>
-                     <span>  <%= @lead.date %></span>
+                        <strong class="mb-3 text-white">Date:</strong>
+                     <span class="text-white">  <%= @lead.date %></span>
                      </p>
                   </li>
                </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                <ul class="list-group scondary-size-text text-white">
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Address:</strong>
-                     <span><%= @lead.address %></span>
+                        <strong class="mb-3 text-white">Address:</strong>
+                     <span class="text-white"><%= @lead.address %></span>
                      </p>
                   </li>
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Phone:</strong>
-                      <span> <%= @lead.phone %></span>
+                        <strong class="mb-3 text-white">Phone:</strong>
+                      <span class="text-white"> <%= @lead.phone %></span>
                      </p>
                   </li>
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3"> Cell Number:</strong>
-                        <%= @lead.number %>
+                        <strong class="mb-3 text-white"> Cell Number:</strong>
+                      <span class="text-white">  <%= @lead.number %></span>
                      </p>
                   </li>
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Size requirement:</strong>
-                     <span>  <%= @lead.size_requirement %></span>
+                        <strong class="mb-3 text-white">Size requirement:</strong>
+                     <span class="text-white">  <%= @lead.size_requirement %></span>
                      </p>
                   </li>
                </ul>
             </div>
-            <div class="col-md-4">
+         </div>
+         <div class="row">
+
+
+             <div class="col-md-4">
                <ul class="list-group  text-white">
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Location need:</strong>
+                        <strong class="mb-3 text-white">Location need:</strong>
                    <span>    <%= @lead.location_need %></span>
                      </p>
                   </li>
+                   </div>
+                   <div class="col-md-4">
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3"> Time requirement:</strong>
-                   <span> <%= @lead.time_requirement %> </span>
+                        <strong class="mb-3 text-white"> Time requirement:</strong>
+                   <span class="text-white"> <%= @lead.time_requirement %> </span>
                      </p>
                   </li>
+               </div>
+                  <div class="col-md-4">
                   <li class="list-group-item">
                      <p class="scondary-size-text">
-                        <strong class="mb-3">Contact:</strong>
-                  <span> <%= @lead.contact.name if  @lead.contact &&  @lead.contact.name %></span>
+                        <strong class="mb-3 text-white">Contact:</strong>
+                  <span class="text-white"> <%= @lead.contact.name if  @lead.contact &&  @lead.contact.name %></span>
                      </p>
                   </li>
+               </div>
                </ul>
-            </div>
+
+
+               </div>
           <div class="row">
             <div class="p-4 text-white">
-               <h5>  <strong class="scondary-size-text text-white p-4">Notes: &nbsp;</strong></h5>
+               <h5>  <strong class="scondary-size-text ttext-white p-4">Notes: &nbsp;</strong></h5>
                <h5 class="scondary-size-text text-white p-4">
 
                 <span> <%= @lead.notes %> </span>
             </h5>
            </div>
          </div>
+
      <span class="pl-0"> <%= link_to 'Edit', edit_lead_path(@lead), class: 'pl-0  ml-3 text-info' %>&nbsp;&nbsp;&nbsp; <%= link_to 'Back', leads_path, class: 'pr-4 pull-right text-info ' %> </span>
-      </div>
+
    </div>
 </div>

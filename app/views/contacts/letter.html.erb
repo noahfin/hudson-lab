@@ -54,12 +54,12 @@
   });
   $('body').on('click', '#copy-letter-btn', function (event) {
    document.execCommand('copy')
-                       $.notify({
-                        title: '<strong>Heads up!</strong>',
-                        message: 'The letter was copied to you clipbord!'
-                    }, {
-                        type: 'succes'
-                    });
+         $.notify({
+          title: '<strong>Heads up!</strong>',
+          message: 'The letter was copied to you clipbord!'
+      }, {
+          type: 'succes'
+      });
   });
 ;
   function selectText(element) {

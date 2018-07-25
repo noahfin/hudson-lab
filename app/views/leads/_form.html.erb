@@ -23,16 +23,14 @@
          <div class="col-md-6" >
             <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Company Name </label>
-                  <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white' %>
+                  <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white', placeholder: 'Company Name'  %>
                </div>
             </div>
          </div>
          <div class="col-md-6">
                <div class="  m-4 p-3  bg-gray66">
             <div class="form-group card card-5 p-2">
-               <label  class="bmd-label-floating text-white mb-4 pb-3">Contact Person</label>
-               <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white' %>
+               <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white', placeholder: 'Contact Person'  %>
             </div>
             </div>
          </div>
@@ -42,8 +40,7 @@
             <div class=" col-sm-3 ">
                    <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white pb-4">Size Requirement</label>
-                  <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control  text-white mt-4' %>
+                  <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control  text-white mt-4', placeholder: 'Size Requirement' %>
                </div>
             </div>
             </div>
@@ -62,16 +59,14 @@
             <div class="col-sm-3">
                    <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Location Need</label>
-                  <%= form.text_field :location_need, id: :lead_location_need, class: 'form-control text-white' %>
+                  <%= form.text_field :location_need, id: :lead_location_need, class: 'form-control text-white', placeholder: 'Location Need' %>
                </div>
             </div>
          </div>
             <div class="col-sm-3 ">
-                   <div class="  m-4 p-3  bg-gray66">
+            <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Postal Code</label>
-                  <input class="form-control  text-white"  type="text">
+                  <input class="form-control  text-white"  type="text" placeholder= 'Postal Code'>
                </div>
             </div>
          </div>
@@ -82,16 +77,14 @@
             <div class="col-sm-6 ">
                    <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Email</label>
-                  <%= form.text_field :email, id: :lead_email, class: 'form-control  text-white' %>
+                  <%= form.text_field :email, id: :lead_email, class: 'form-control  text-white', placeholder: 'Email' %>
                </div>
             </div>
          </div>
             <div class="col-sm-6">
             <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Phone Number</label>
-                  <%= form.text_field :phone, id: :lead_phone, class: 'form-control  text-white' %>
+                  <%= form.text_field :phone, id: :lead_phone, class: 'form-control  text-white', placeholder: 'Phone Number' %>
                </div>
             </div>
             </div>
@@ -100,16 +93,14 @@
             <div class="col-sm-6">
                <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Mobile Number</label>
-                  <%= form.text_field :number, id: :lead_number, class: 'form-control  text-white' %>
+                  <%= form.text_field :number, id: :lead_number, class: 'form-control  text-white', placeholder: 'Mobile Number' %>
                </div>
             </div>
             </div>
             <div class="col-sm-6">
                    <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label  class="bmd-label-floating text-white  mb-4 pb-3">Time Requirement</label>
-                  <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white' %>
+                  <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white', placeholder: 'Time Requirement' %>
                </div>
             </div>
          </div>
@@ -118,17 +109,15 @@
             <div class="col-sm-6" >
                    <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <label class="bmd-label-floating mb-4 pb-3">Notes  <span class="text-danger">*</span></label>
-                  <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white '  %>
+                  <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white ', placeholder: 'Notes'  %>
                </div>
             </div>
             </div>
             <div class="col-sm-6 ">
                    <div class="  m-4 p-3  bg-gray66">
                   <div class="form-group mt-4 card card-5 p-2">
-                  <label  class="bmd-label-floating text-white mb-4 pb-3">Address</label>
                   <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
-                  <%= form.text_field :address, id: :lead_address, class: 'form-control address-auto  text-white' %>
+                  <%= form.text_field :address, id: :lead_address, class: 'form-control address-auto  text-white', placeholder: 'Address'  %>
                </div>
             </div>
             </div>
