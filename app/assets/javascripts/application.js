@@ -1116,8 +1116,6 @@ var group_authenticity_token  = $('#group_authenticity_token').val()
                 console.log(group);
                 if (group.id != null) {
                     var newOption = $('<li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted"><h5 class="text-wheight-light text-white pt-2 ">' + group.name + '</h5><nav class="navbar  bg-footer  justify-content-between align-items-center" id="group-check-nav"><span class="ml-auto mr-auto text-center p-0"><div class="form-check form-check-right ml-auto mr-auto"><div class="togglebutton"><label><input name="group_ids[]"  value="'+group.id.toString()+'" type="checkbox"><span class="toggle"></span><span class="text-white"></span></label></div></div></span></nav></li>');
-
-                  var oldOption= $(' <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted"><label class="checkbox-inline"><h5 class="text-wheight-light text-white pt-2 ">' + group.name + '</h5><div class="form-check form-check-right ml-auto mr-auto"><input name="group_ids[]"  value="'+group.id.toString()+'type="checkbox"></div></label>');
                     $.notify({
                         title: "New Group Added:",
                         message: 'The Group: ' + '"' + group.name + '"' + ' was successfuly created it is selected'

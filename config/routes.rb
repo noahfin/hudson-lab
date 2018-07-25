@@ -62,6 +62,7 @@
       get 'autocomplete', on: :collection
       get 'searchname', on: :collection
       post 'inport', on: :collection
+      get 'letter'=> 'contacts#letter'
     end
 
   end

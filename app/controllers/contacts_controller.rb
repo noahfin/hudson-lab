@@ -29,6 +29,10 @@ class ContactsController < ApplicationController
     @contacts = Contact.good_search(criteria).page(params[:page])
 
   end
+  def letter
+    @contact = Contact.find(params[:contact_id])
+    render 'letter.html.erb'
+  end
 
 
   def inport

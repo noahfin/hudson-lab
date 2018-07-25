@@ -54,12 +54,15 @@
          <p class="card-description scondary-size-text">
             <%= @contact.Fulladdress if  @contact.Fulladdress %>
          </p>
+         <div class="row">
+            <div class="col-md-12">
 
-         <button type="button" class="btn-back btn bg-hudson btn-round text-white scondary-size-text">Go Back</button>
-
-
-
-
+               <%= link_to "/contacts/#{@contact.id}/letter/", class: "btn bg-hudson btn-round text-white scondary-size-text" do %>
+                  <i class="fa fa-envelope-o"></i>Create Letter
+               <% end %>
+            </div>
+         </div>
+         <a href="" title="" class="btn-back btn btn-link text-danger text-center">Go Back</a>
       </div>
    </div>
 
