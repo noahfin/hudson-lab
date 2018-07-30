@@ -19,7 +19,7 @@
          <% next if  !is_personl_user && task.personal?  || task_contact_array[index].nil?%>
          <tr id="edit_task_<%= task.id %>">
             <td>
-               <div class="form-check">
+               <div class="form-check  pt-2 pb-2 mt-0">
                   <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
                   <span class="form-check-sign">
@@ -74,7 +74,7 @@
           <% next if  !is_personl_user && task.personal? || properties_array[index].nil? ||  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
-               <div class="form-check">
+               <div class="form-check  pt-2  mt-0">
                   <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
                   <span class="form-check-sign">
@@ -125,7 +125,7 @@
           <% next if  !is_personl_user && task.personal? || projects_array[index].nil? %>
          <tr id="edit_task_<%= task.id %>">
             <td>
-               <div class="form-check">
+               <div class="form-check  pt-2  mt-0">
                   <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
                   <span class="form-check-sign">
@@ -177,7 +177,7 @@
             <% next if  !is_personl_user && task.personal? || leads_array[index].nil? %>
          <tr id="edit_task_<%= task.id %>">
             <td>
-               <div class="form-check">
+               <div class="form-check  pt-2 mt-0">
                   <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
                   <span class="form-check-sign">
@@ -230,7 +230,7 @@
          <% next if !is_personl_user && task.personal? || groups_array[index].nil?  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
-               <div class="form-check">
+               <div class="form-check  pt-2  mt-0">
                   <label class="form-check-label">
                   <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
                   <span class="form-check-sign">

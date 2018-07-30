@@ -8,7 +8,7 @@
 <div class="modal-body b-bottom">
    <%= form_tag inport_contacts_path, multipart: true do %>
    <div class="row" style="width 100% !important;">
-      <div class="col-md-6 text-white mb-4">
+      <div class="col-md-4 text-white mb-4">
          <label class=" text-white ml-2" >Choose file  <small>(required)</small></label>
          <div class="fileinput fileinput-new input-group pt-3" data-provides="fileinput">
             <span class="input-group-addon btn bg-black text-white btn-file ml-2"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span> <%= file_field_tag :file %></span>
@@ -19,8 +19,7 @@
             </div>
          </div>
       </div>
-      <div class="col-md-6">
-         <label class=" text-white ml-2" >Select Groups and Employees  <small>(required)</small></label>
+      <div class="col-md-8">
          <!-- Tabs with icons on Card -->
          <div class="card card-nav-tabs mdl-color--grey-900">
             <div class="card-header mdl-color--grey-900 p-0 rounded-0">
@@ -79,14 +78,14 @@
                      <div class="mdl-color--grey-900 rounded-0 text-white ">
                         <ul class="list-group mdl-color--grey-900 text-white">
                            <input type="hidden"  value="groups[]" class="groups-hiiden">
-                           <% Group.all.each_with_index do |group, index| %>
+                           <% @groups.each_with_index do |group, index| %>
                            <% next if group.nil? || group.name.empty? %>
                            <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted">
                               <h5 class="text-wheight-light text-white pt-2 "><%= group.name %></h5>
                               <nav class="navbar  bg-footer  justify-content-between align-items-center " id="group-check-nav">
                                  <span class="ml-auto mr-auto text-center p-0   ">
                                     <div class="form-check form-check-right ml-auto mr-auto  ">
-                                            <div class="togglebutton ">
+                                 <div class="togglebutton ">
                                     <label>
                                     <input type="checkbox" name="groups[]" value=<%="#{group.id}"%> />
                                     <span class="toggle"></span>
@@ -94,7 +93,6 @@
                                     </span>
                                     </label>
                                  </div>
-
                                     </div>
                                  </span>
                               </nav>
