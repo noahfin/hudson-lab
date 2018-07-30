@@ -33,7 +33,7 @@
                   <% delete_string =  "Delete " + @group.name %>
                   <div class="col-lg-11 mr-auto ml-auto">
                      <h3 class=" pl-2">  <span> <%= @group.name %> / <%= @group.contacts.count %> <% edit_string =  "Edit " + @group.name %> <%= link_to edit_group_path(@group.id), class: "btn btn-link remote-link btn-success text-success", remote: true, title: edit_string, rel: "tooltip"  do %>
-                        <i class=" fa fa-edit e-contact pb-4 mb-3"></i>    <% end %></span><span class="pull-right" > <span class="pull-right ">   <%= link_to @group, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", remote: true, title: delete_string, rel: "tooltip" do %>
+                        <i class=" fa fa-edit e-contact pb-4 mb-3"></i>    <% end %></span><span class="pull-right" > <span class="pull-right ">   <%= link_to @group, remote: true,  method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger pr-4", title: delete_string, rel: "tooltip" do %>
                         <i class="material-icons text-danger pt-4">delete</i>
                         <% end %></span>  <button type="button" class="btn-back btn btn-link text-white pt-4"><i class="material-icons">keyboard_backspace</i></button> </span></strong>
                      </h3>

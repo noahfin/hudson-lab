@@ -259,6 +259,20 @@ $(document).on('click', '#Leads-contact-send', function (event) {
 
 });
 
+$(document).on('click', '.plan-group-b', function (event) {
+  if ($("update-group-h"))  {
+                 $.notify({
+                    title: "Great!",
+                    message: 'Your group form was successfuly'
+                });
+
+              } else{
+                  $.notify({
+                    title: "Nice!",
+                    message: 'Your group form was successfuly'
+                });
+              }
+});
 $(document).on('click', '.submit', function (event) {
     $(this).closest('form').submit();
 });
