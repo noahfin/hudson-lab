@@ -117,25 +117,14 @@ class ContactsController < ApplicationController
        user.contacts << @contact
        end
      end
-     if   @contact.errors.any?
-           flash[:danger] = @contact.errors.to_s
-         else
-     flash[:success] = "Contact got created"
-   end
-     respond_to do |format|
-        format.html
-        format.json { render json: @contact}
-        format.js
 
-     end
+    render json: @contact, status: :created
+  else
+    flash[:danger] = @contact.errors.to_s
+    render 'new'
+   end
   end
-       respond_to do |format|
-        format.js { redirect_to contacts_path(previous_query_string)}
-        #redirect_to post_comments_path(@post), status: 303, turbolinks: false
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-    end
- end
+
 
   private
 

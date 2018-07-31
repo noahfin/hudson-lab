@@ -24,8 +24,6 @@
                      <i class="material-icons">search</i>
                      <div class="ripple-container"></div>
                   </button>
-                  <a class="btn mdl-color--grey-900 text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
-                  <div id="hints" class="hints-search"></div>
                </form>
             </div>
             <div class="col-md-12">
@@ -45,7 +43,7 @@
          </div>
       </div>
       <div class="card card-5">
-         <div class="card-header card-header-icon ">
+         <div class="card-header card-header-icon">
             <div class="card-icon mdl-color--grey-900">
                <i class="material-icons">group</i>
             </div>
@@ -100,7 +98,7 @@
                      <%  @group.contacts.each do |contact| %>
                      <tr>
                         <td class="text-white">
-                           <%= link_to  edit_contact_path(contact) do %><i class="fa fa-edit"></i><% end %>
+                           <%= link_to  edit_contact_path(contact), remote: true do %><i class="fa fa-edit"></i><% end %>
                         </td>
                         <td class="d-">
                            <%= link_to contact_path(contact.id), class: "text-black", title: 'view profile', rel: "tooltip"  do %>
