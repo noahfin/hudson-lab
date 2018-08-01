@@ -472,7 +472,9 @@ $('.selectpicker').selectpicker('mobile');
         window.history.back();
     });
 
+  // $('body').on('click', '#btn_finshed', function (event) {
 
+  // });
     $('.select_u_picker').attr("data-actions-box", "true");
     var i = 1;
 
@@ -499,6 +501,7 @@ $('.selectpicker').selectpicker('mobile');
     });
 
     var moveToNext = function () {
+
         $(formArray[wizIndex]).trigger("click");
         if (formArray[wizIndex] === 'a[href="#account"]') {
             $('#contacts_suffix').focus();
@@ -507,7 +510,7 @@ $('.selectpicker').selectpicker('mobile');
         }else{
         if (formArray[wizIndex] === 'a[href="#group"]') {
             wizIndex = 0;
-
+            $('#hidden_page_url').val(location.href)
             $('.b-finsh').show();
 
             return true;
@@ -518,7 +521,6 @@ $('.selectpicker').selectpicker('mobile');
 
 
     $(document).keypress(function (e) {
-
         if (e.which == 13) {
            e.preventDefault();
             if (moveToNext() === true) {
@@ -527,9 +529,7 @@ $('.selectpicker').selectpicker('mobile');
                     if (e.which == 13) {
 
                          clsoeWiz();
-
                         $('.b-finsh').trigger("click");
-
 
                     }
                 });

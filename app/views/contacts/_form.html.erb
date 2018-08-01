@@ -522,6 +522,8 @@
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
             <% if @contact.persisted? %>
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+           <input type="hidden" name="page_url" value="" id="hidden_page_url">
+
             <% end %>
             <% else %>
 

@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    session[:return_to] = request.referer
     respond_to do |format|
     format.html
     format.csv { send_data @group.to_csv(@group.contacts) }

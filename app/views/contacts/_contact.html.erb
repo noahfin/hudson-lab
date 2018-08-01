@@ -24,7 +24,7 @@
         <% end %>
         </h4>
         <address>
-        <strong class=" ">
+        <strong class="">
           <span><%= link_to contact_path(contact.id), class: 'text-white remote-link scondary-size-text' ,  remote: true  do %><%= contact.company %> <% end %></p></strong></span>
          <span><a href="<%= "mailto:#{contact.email}"%>"  class="text-white"><%= contact.email %></a></span>
          <span class="text-white"><%= tel_to contact.phone %></span>

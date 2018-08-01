@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_04_144132) do
+ActiveRecord::Schema.define(version: 2018_07_31_160609) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 2018_07_04_144132) do
     t.string "total_number_of_employees"
     t.string "suite"
     t.string "Fulladdress"
+    t.string "page_url"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
