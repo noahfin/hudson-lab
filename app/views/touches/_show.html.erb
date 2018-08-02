@@ -33,45 +33,45 @@
                         </div>
                      </div>
                      <% if @touch.email %>
-                     <p class=" text-muted">
+                     <p class="text-white">
                         <strong>Email:</strong>
                         <%= @touch.email  %>
                      </p>
                      <% end %>
                      <% if @touch.phone %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Phone:</strong>
+                     <p class="text-white">
+                        <strong class=" text-white">Phone:</strong>
                         <%= @touch.phone   %>
                      </p>
                      <% end %>
                      <% if @touch.postcard %>
-                     <p class=" text-muted">
+                     <p class=" text-white">
                         <strong class=" text-muted">Postcard:</strong>
                         <%= @touch.Postcard  %>
                      </p>
                      <% end %>
                      <% if @touch.social_media %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Social media:</strong>
+                     <p class="text-white">
+                        <strong class=" text-white">Social media:</strong>
                         <%= @touch.social_media  %>
                      </p>
                      <% end %>
                      <% if @touch.in_person %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">In person:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">In person:</strong>
                         <%= @touch.in_person  %>
                      </p>
                      <% end %>
                      <% if @touch.letter %>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Letter:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Letter:</strong>
                         <%= @touch.letter  %>
                      </p>
                      <% end %>
                      <br>
                      <hr>
-                     <p class=" text-muted">
-                        <strong class=" text-muted">Description:</strong>
+                     <p class=" text-white">
+                        <strong class=" text-white">Description:</strong>
                         <%= @touch.description %>
                      </p>
                   </div>
@@ -82,46 +82,46 @@
                            <table class="table">
                               <tbody>
                                  <% @touch.contacts.each do |contact| %>
-                                 <tr>
+                                 <tr class="text-white">
                                     <td>
                                        <div class="flag">
                                           <i class="material-icons">touch_app</i>
                                        </div>
                                     </td>
                                     <td> <%= contact.first_name  %></td>
-                                    <td class="text-right">
+                                    <td class="text-right text-white">
                                        <% if @touch.email %>
                                        <span class=" text-black mt-3">
                                        Made a touch via email
                                        </span>
                                        <% end %>
                                        <% if @touch.phone %>
-                                       <span class=" text-muted">
+                                       <span class=" text-white">
                                        Made a touch via phone
                                        </span>
                                        <% end %>
                                        <% if @touch.postcard %>
-                                       <spanclass=" text-black">
+                                       <span class=" text-white">
                                        Made a touch via postcard
                                        </span>
                                        <% end %>
                                        <% if @touch.social_media %>
-                                       <span class=" text-black">
+                                       <span class="text-white">
                                        Made a touch via socila media
                                        </span>
                                        <% end %>
                                        <% if @touch.in_person %>
-                                       <span class=" text-black">
+                                       <span class="text-white">
                                        Made a touch via in-person
                                        </span>
                                        <% end %>
                                        <% if @touch.letter %>
-                                       <span class=" text-black">
+                                       <span class="text-white">
                                        Made a touch via letter
                                        </span>
                                        <% end %>
                                     </td>
-                                    <td class="text-right">
+                                    <td class="text-right text-white">
                                        <i class="material-icons">how_to_reg</i>
                                     </td>
                                  </tr>

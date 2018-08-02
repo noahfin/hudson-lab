@@ -45,6 +45,7 @@ class ContactsController < ApplicationController
   end
 
   def new
+    session[:return_to] = request.referer
     @lead = Lead.new
     @contact = Contact.new
     respond_to do |format|
