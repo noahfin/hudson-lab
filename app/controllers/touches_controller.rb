@@ -46,9 +46,18 @@ class TouchesController < ApplicationController
       if @touch.save
         if  params['group']['id'] && !params['group']['id'].empty?
              contact_array = contact_id
+             @group = Group.find(params['group']['id'])
+             touch_array =[]
+             touch_array[0] = @touch.id
+             if @group.touch_ids
+               @group.touch_ids << @touch.id
+             else
+              @group.update_attributes(touch_ids: touch_array)
+             end
+             @touch.group_name = @group.name
+             @touch.group_id = @group.id.to_s
          else
            contact_array = params['contact_ids']
-
       end
 
         contact_array.each_with_index do |c_id, i|
@@ -98,6 +107,6 @@ class TouchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def touch_params
-      params.require(:touch).permit(:email, :phone, :postcard, :social_media, :in_person, :letter, :description, :contact_id)
+      params.require(:touch).permit(:email, :phone, :postcard, :social_media, :in_person, :group_name, :letter, :description, :contact_id, :group_ids)
     end
 end

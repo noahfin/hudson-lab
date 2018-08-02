@@ -192,6 +192,8 @@
                                       $styledSelect.text($(this).text()).removeClass('active');
                                          console.log($(this).attr('rel'));
                                      $('#group-id-touch').val($(this).attr('rel'));
+                                     $('#group-name-touch').val($(this).text());
+                                     console.log($(this).text());
                                       $list.hide();
                                       //console.log($this.val());
                                   });
@@ -209,7 +211,7 @@
                </div>
             </div>
             <div class="col-md-6">
-               <div class="form-group  pt-0 mt-0  ">
+               <div class="form-group  pt-0 mt-0">
                   <div class=" pt-0 mt-0  ">
                      <div class="card-collapse  pt-0 mt-0 ">
                         <div class="card-header pt-0 " role="tab" id="headingTwo">
@@ -373,6 +375,7 @@
                   </div>
                   <div class="col-md-4">
                      <input type="hidden" name="group[id]" value="" id="group-id-touch">
+                     <input type="hidden" name="touch[group_name]" value="not-given" id="group-name-touch">
                      <%= form.submit remote: true, class: 'btn btn-lg bg-black pull-right border-0 btn-social btn-fill btn-github' do %>
                      <div class="ripple-container"></div>
                      <% end %>

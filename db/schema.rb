@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_194827) do
+ActiveRecord::Schema.define(version: 2018_08_02_211641) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -319,6 +319,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_194827) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
+    t.integer "touch_ids"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
@@ -635,6 +636,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_194827) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "group_name"
+    t.string "group_id"
     t.index ["contact_id"], name: "index_touches_on_contact_id"
   end
 
