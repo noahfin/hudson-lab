@@ -152,85 +152,61 @@
                      <h5 class="info-text text-white">Fill out the current address for contact </h5>
                   </div>
                </div>
-               <div class="row justify-content-center">
-                  <div class="col-sm-7">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">Address</label>
+                  <div class="row mb-3">
+                     <div class="col-md-3">
+                        <%= form.label :street_num, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :strret_name, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :city, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :city, id: :contact_city, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :county, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :county, id: :contact_county, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                  </div>
+                  <div class="row mb-3">
+                     <div class="col-md-2">
+                        <%= form.label :suite, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white ' %>
+
+                     </div>
+                     <div class="col-md-2">
+                        <%= form.label :state, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :state, id: :contact_state, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-4 ">
+                        <%= form.label :country, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :country, id: :contact_country, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-2 ">
+                        <%= form.label :postal_code, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-2">
+                        <%= form.label :zip_code_ext, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
+                     </div>
+                  </div>
+                  <div class="row mb-3">
+                     <div class="col-md-6">
+                        <%= form.label :Fulladdress, class: 'bmd-label-floating text-white' %>
                         <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
-                        <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto',  autofocus: true, value: '' %>
+                        <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto mb-0 mt-0',  autofocus: true, value: '' %>
                      </div>
-                  </div>
-                  <div class="col-sm-5">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">Street No.</label>
-                        <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white' %>
+                     <div class="col-md-6 ">
+                        <%= form.label :notes, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white' %>
                      </div>
+
+
                   </div>
-               </div>
-               <div class="row justify-content-center">
-                  <div class="col-sm-4">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">Street Name</label>
-                        <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">City</label>
-                        <%= form.text_field :city, id: :contact_city, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">County</label>
-                        <%= form.text_field :county, id: :contact_county, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-               </div>
-               <div class="row justify-content-center">
-                  <div class="col-md-3">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">Suite</label>
-                        <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">State</label>
-                        <%= form.text_field :state, id: :contact_state, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">Country</label>
-                        <%= form.text_field :country, id: :contact_country, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="form-group text-white">
-                        <label class="bmd-label-floating  text-white">Postal Code</label>
-                        <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white' %>
-                     </div>
-                  </div>
-               </div>
-               <div class="row justify-content-center">
-                  <div class="col-md-8">
-                     <div class="form-group text-white">
-                        <label class="text-white">Contact Notes</label>
-                        <div class="form-group">
-                           <%= form.text_area :notes, id: :contact_notes, class: 'form-control text-white', row: 20 %>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="form-group text-white">
-                        <label class=" text-white">Postal Code Ext</label>
-                        <div class="form-group">
-                           <%= form.text_area :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white', row: 20 %>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+
             </div>
             <div class="tab-pane" id="group">
                <div class="row justify-content-center">
