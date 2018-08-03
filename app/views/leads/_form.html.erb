@@ -1,5 +1,5 @@
 <div class="main main-raised main-lead  rounded-0 p-3 mt-3" data-parallax="true" style="background-image: url('<%= asset_url("buildin-row.jpg") %>')";>
-   <%= form_with(model: lead, local: true) do |form| %>
+   <%= form_with(model: lead, remote: true) do |form| %>
    <% if lead.errors.any? %>
    <div id="error_explanation">
       <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
@@ -14,7 +14,7 @@
       <div class="">
          <div class="row">
             <div class="col-md-12">
-               <h3 class="page-title"><span class="ml-4 pl-2">Lead Form</span> <span><%= form.submit class: 'btn btn-outline-white roundd-0  float-right mr-4' %></span></h3>
+               <h3 class="page-title"><span class="ml-4 pl-2">Lead Form</span> <span><%= form.submit class: 'btn btn-outline-white roundd-0  float-right mr-4 lead-submit-btn' %></span></h3>
             </div>
          </div>
       </div>
@@ -112,7 +112,7 @@
                </div>
             </div>
             </div>
-            <div class="col-sm-6 ">
+            <div class="col-sm-6 mb-0 ">
                    <div class="  m-4 p-3  bg-gray66">
                   <div class="form-group mt-4 card card-5 p-2">
                   <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
@@ -120,10 +120,104 @@
                </div>
             </div>
             </div>
-            <div class="col-md-6 mt-4">
+          </div>
+          <div class="col-md-12 mt-0">
+
+
+            <div class="row mt-0">
+                 <div class="col-md-6">
+            <div class="form-group ">
+
+                   <div class="  m-4 p-3  bg-gray66">
+                  <div class="col-md-12 ">
+                     <div class="form-group bg-black">
+               <div class="form-group  pt-0 mt-0  ">
+                  <div class=" pt-0 mt-0  ">
+                     <div class="card-collapse  pt-0 mt-0 ">
+                        <div class="card-header pt-0 bg-black" role="tab" id="headingTwo">
+                           <div class="row">
+                              <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Find Contacts" aria-label="Search" id="search-contat-task">
+                           </div>
+                           <h5 class="mb-0">
+                              <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              click to see who got added
+                              <i class="material-icons text-muted">keyboard_arrow_down</i>
+                              </a>
+                           </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                           <div class="card-body" id="form-contact">
+                              <ul class="list-inline p-3">
+                                 <li class="list-inline-item m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                       <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                       <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                       <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                       <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                       <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <% end %>
          </div>
+      </div>
+            <% end %>
+
       </div>
    </div>
 </div>

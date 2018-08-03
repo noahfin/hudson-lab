@@ -10,6 +10,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :deals
   has_and_belongs_to_many :address
+  has_and_belongs_to_many :leads
   has_and_belongs_to_many  :contact_touches, class_name: 'Touch'
 
   has_many :leads

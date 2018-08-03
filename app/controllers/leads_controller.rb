@@ -29,8 +29,27 @@ class LeadsController < ApplicationController
 
     respond_to do |format|
       if @lead.save
+      flash[:success] = "Lead was successfully created!"
+        id_array = [] if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
+        if params['contact_ids']
+          contact_id_array = params['contact_ids'].to_a
+
+            contact_id_array.each do |id |
+              if id.to_i > 0
+               id_array << id
+              end
+           end
+
+          if contact_id_array[0].to_i > 0
+           @lead.contact_ids = id_array
+         end
+       end
          @deal = Deal.create(name: @lead.business)
          @deal.lead_id = @lead.id
+        if params['contact_ids']
+         @deal.contact_ids = id_array if id_array
+        end
+
         format.html
         format.json { render json: @lead}
         format.js
@@ -73,6 +92,6 @@ class LeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_params
-      params.require(:lead).permit(:name, :business, :address, :email, :date, :phone, :number, :size_requirement, :location_need, :time_requirement, :notes, :contact_id, :property_id, :user_id,{:user_ids => []})
+      params.require(:lead).permit(:name, :business, :address, :email, :date, :phone, :number, :size_requirement, :location_need, :time_requirement, :notes, :contact_id, :property_id, :user_id,{:user_ids => []}, :contact_ids)
     end
 end

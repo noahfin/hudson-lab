@@ -39,7 +39,7 @@ $(window).resize(function () {
 
 
 
-
+//bundle exec rake assets:precompile
 
 var initialize_calendar_dash;
 initialize_calendar_dash = function() {
@@ -256,6 +256,15 @@ $(document).on('click', '#Leads-contact-send', function (event) {
                 }
             }
         });
+
+});
+$(document).on('click', '.lead-submit-btn', function (event) {
+
+                 $.notify({
+                    title: "Great!",
+                    message: 'Your Lead form was successfuly'
+                });
+
 
 });
 

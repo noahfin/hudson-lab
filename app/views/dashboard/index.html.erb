@@ -195,8 +195,15 @@
                <i class="ti-user"></i>
                <h5 class="text-muted vb">MYNEW CLIENTS</h5>
             </div>
+            <% new_clients = 0
+            @leads.each_with_index do |lead, index|
+               if lead.contact
+                  new_clients += 1
+               end
+            end %>
+
             <div class="col-md-6 col-sm-6 col-xs-6">
-               <h3 class="counter text-right m-t-15 text-danger">23</h3>
+               <h3 class="counter text-right m-t-15 text-danger"><%= new_clients %></h3>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                <div class="progress">
@@ -205,6 +212,25 @@
             </div>
          </div>
       </div>
+               <% open_projects = 0
+               closed_projects = 0
+               @projects.each do |project|
+                  if project.closed && project.closed == true
+                     closed_projects += 1
+                  end
+               end %>
+               <% closed_projects_index = 0
+
+               @projects_array = @projects.to_a
+               @projects_array.each_with_index do |project, index|
+                  if project.closed && project.closed ==  true
+                     closed_projects_index = index
+                  end
+               end %>
+               <% new_projects = 0 %>
+               <% for i in (closed_projects_index...@projects_array.count)
+                new_projects += 1
+               end %>
       <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
          <div class="col-in row card-1 card-row-2">
             <div class="col-md-6 col-sm-6 col-xs-6">
@@ -212,7 +238,7 @@
                <h5 class="text-muted vb">NEW PROJECTS</h5>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-6">
-               <h3 class="counter text-right m-t-15 text-info">169</h3>
+               <h3 class="counter text-right m-t-15 text-info"><%= new_projects %></h3>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                <div class="progress">
@@ -225,10 +251,11 @@
          <div class="col-in row card-1 card-row-3">
             <div class="col-md-6 col-sm-6 col-xs-6">
                <i class="ti-mouse-alt"></i>
+
                <h5 class="text-muted vb">OPEN PROJECTS</h5>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-6">
-               <h3 class="counter text-right m-t-15 text-success">431</h3>
+               <h3 class="counter text-right m-t-15 text-success"><%=  closed_projects %> </h3>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
                <div class="progress">
@@ -432,92 +459,6 @@
             </div>
          </div>
       </div>
-   </div>
-</div>
-<div class="row">
-   <!-- BEGIN ALERT - REVENUE -->
-   <div class="col-md-3 col-sm-6">
-      <div class="card card-1 pt-2">
-         <div class="card-body pt-4">
-            <div class="alert alert-callout card-icon-outline-info no-margin">
-               <strong class="pull-right text-success text-lg">0,38% <i class="md md-trending-up"></i></strong>
-               <strong class="text-xl">$ 32,829</strong><br>
-               <span class="opacity-50">Revenue</span>
-               <div class="stick-bottom-left-right">
-                  <div class="progress progress-hairline no-margin">
-                     <div class="progress-bar progress-bar-info" style="width:63%"></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!--end .card-body -->
-      </div>
-      <!--end .card -->
-   </div>
-   <!--end .col -->
-   <!-- END ALERT - REVENUE -->
-   <!-- BEGIN ALERT - VISITS -->
-   <div class="col-md-3 col-sm-6">
-      <div class="card card-1 pt-2">
-         <div class="card-body  pt-4">
-            <div class="alert alert-callout card-icon-outline-warning no-margin">
-               <strong class="pull-right text-warning text-lg">0,01% <i class="md md-swap-vert"></i></strong>
-               <strong class="text-xl">432,901</strong><br>
-               <span class="opacity-50">Visits</span>
-               <div class="stick-bottom-right">
-                  <div class="progress progress-hairline no-margin">
-                     <div class="progress-bar progress-bar-warning" style="width:23%"></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!--end .card-body -->
-      </div>
-      <!--end .card -->
-   </div>
-   <!--end .col -->
-   <!-- END ALERT - VISITS -->
-   <!-- BEGIN ALERT - BOUNCE RATES -->
-   <div class="col-md-3 col-sm-6">
-      <div class="card card-1 pt-2">
-         <div class="card-body  pt-4">
-            <div class="alert alert-callout card-icon-outline-danger no-margin">
-               <strong class="pull-right  text-lg">0,18% <i class="md md-trending-down"></i></strong>
-               <strong class="text-xl">42.90%</strong><br>
-               <span class="opacity-50">Bounce rate</span>
-               <div class="stick-bottom-left-right">
-                  <div class="progress progress-hairline no-margin">
-                     <div class="progress-bar progress-bar-danger" style="width:43%"></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!--end .card-body -->
-      </div>
-      <!--end .card -->
-   </div>
-   <!--end .col -->
-   <!-- END ALERT - BOUNCE RATES -->
-   <!-- BEGIN ALERT - TIME ON SITE -->
-   <div class="col-md-3 col-sm-6">
-      <div class="card card-1  pt-2">
-         <div class="card-body  pt-4">
-            <div class="alert alert-callout card-icon-outline-success no-margin">
-               <h1 class="pull-right card-icon-outline-success"><i class="md md-timer"></i></h1>
-               <strong class="text-xl">54 sec.</strong><br>
-               <span class="opacity-50">Bounce rate</span>
-               <div class="stick-bottom-left-right">
-                  <div class="progress progress-hairline no-margin">
-                     <div class="progress-bar progress-bar-success" style="width:43%"></div>
-                  </div>
-               </div>
-            </div>
-            <!--end .card-body -->
-         </div>
-         <!--end .card -->
-      </div>
-      <!--end .col -->
-      <!-- END ALERT - TIME ON SITE -->
    </div>
 </div>
 <script>

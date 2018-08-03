@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_02_211641) do
+ActiveRecord::Schema.define(version: 2018_08_03_154212) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -206,6 +206,13 @@ ActiveRecord::Schema.define(version: 2018_08_02_211641) do
     t.integer "contact_id", null: false
     t.index ["contact_id", "group_id"], name: "index_contacts_groups_on_contact_id_and_group_id"
     t.index ["group_id", "contact_id"], name: "index_contacts_groups_on_group_id_and_contact_id"
+  end
+
+  create_table "contacts_leads", id: false, force: :cascade do |t|
+    t.integer "lead_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "lead_id"], name: "index_contacts_leads_on_contact_id_and_lead_id"
+    t.index ["lead_id", "contact_id"], name: "index_contacts_leads_on_lead_id_and_contact_id"
   end
 
   create_table "contacts_properties", id: false, force: :cascade do |t|
@@ -474,6 +481,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_211641) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean "closed"
   end
 
   create_table "projects_steps", id: false, force: :cascade do |t|
