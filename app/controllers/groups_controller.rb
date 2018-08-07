@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @groups = Group.all
+    @groups = Group.all.order(:name)
        respond_to do |format|
         format.html
         format.js

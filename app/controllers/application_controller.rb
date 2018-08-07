@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_groups
-    @groups = @groups ||= current_user.groups.order('name ASC').uniq if current_user
+    @groups = @groups ||= current_user.groups.order(:name).uniq if current_user
     @contacts = @contacts ||= current_user.contacts.order('last_name ASC').page(params[:page]) if current_user
     @users = User.all
     @search = Search.new
