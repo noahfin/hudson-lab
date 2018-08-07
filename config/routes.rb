@@ -6,6 +6,8 @@
   resources :comments
   resources :likes
   root to: 'visitors#index'
+  match "about" => "pages#about", as: :about, via: :get
+
 
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { registrations: 'registrations', confirmations: 'confirmations'}
     root 'home#index'

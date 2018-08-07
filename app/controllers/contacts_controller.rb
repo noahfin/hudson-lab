@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
 
 
   def inport
-    groups = params['group_id']
+    groups = params['groups']
     users = params['input']
     Contact.inport(params[:file], groups, users)
     flash[:success] = "Contact data inported!"
