@@ -424,7 +424,7 @@
                            folder_shared
                            </i>
                         </h4>
-                        <% User.all.each.each_slice(6) do |user| %>
+                        <% @users.each.each_slice(6) do |user| %>
                         <div class="col-md-12">
                            <div class="row">
                               <% user.each do |user| %>
@@ -450,7 +450,7 @@
                      <div class="mdl-color--grey-900 rounded-0 text-white ">
                         <ul class="list-group mdl-color--grey-900 text-white" id="list-group-to-select-group">
                            <input type="hidden"  value="group_id[]" class="groups-hiiden">
-                           <% Group.all.each_with_index do |group, index| %>
+                           <% @groups.each_with_index do |group, index| %>
                            <% next if group.nil? || group.name.empty? %>
                            <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted">
                               <h5 class="text-wheight-light text-white pt-2 "><%= group.name %></h5>
