@@ -1083,12 +1083,15 @@ var getContactForDash = function(query){
     });
         $('.address-auto').autocomplete({
         source: '/addresses/autocomplete',
-        minLength: 4,
+        minLength: 2,
         select: function (event, ui) {
+          console.log(ui);
             $('.address-auto').val(ui.item.value);
 
         }
     });
+
+
     var getProfile = function (uri) {
         $.getScript(uri);
     }

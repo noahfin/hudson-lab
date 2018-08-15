@@ -13,6 +13,16 @@ $('.select_g_picker').attr("selectOnTabr", "true");
 $('.select_g_picker').attr("data-divider", "true");
 $('.selectpicker').selectpicker('toggle');
 
+        $('.address-auto').autocomplete({
+        source: '/addresses/autocomplete',
+        minLength: 2,
+        select: function (event, ui) {
+          console.log(ui);
+            $('.address-auto').val(ui.item.value);
+
+        }
+    });
+
 $("#contact_address").change(function(){
     var addressArray = ['#contact_street_num', '#contact_strret_name', '#contact_suite', '#contact_city', '#contact_state', '#contact_postal_code'];
     var city  = '';

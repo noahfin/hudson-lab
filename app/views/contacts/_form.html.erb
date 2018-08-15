@@ -152,6 +152,19 @@
                      <h5 class="info-text text-white">Fill out the current address for contact </h5>
                   </div>
                </div>
+                <div class="row mb-3">
+                     <div class="col-md-6">
+                        <%= form.label :Fulladdress, class: 'bmd-label-floating text-white' %>
+                        <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
+                        <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto mb-0 mt-0',  autofocus: true, value: '' %>
+                     </div>
+                     <div class="col-md-6 ">
+                        <%= form.label :notes, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white' %>
+                     </div>
+
+
+                  </div>
                   <div class="row mb-3">
                      <div class="col-md-3">
                         <%= form.label :street_num, class: 'bmd-label-floating text-white' %>
@@ -193,19 +206,7 @@
                         <%= form.text_field :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
                      </div>
                   </div>
-                  <div class="row mb-3">
-                     <div class="col-md-6">
-                        <%= form.label :Fulladdress, class: 'bmd-label-floating text-white' %>
-                        <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
-                        <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto mb-0 mt-0',  autofocus: true, value: '' %>
-                     </div>
-                     <div class="col-md-6 ">
-                        <%= form.label :notes, class: 'bmd-label-floating text-white' %>
-                        <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white' %>
-                     </div>
 
-
-                  </div>
 
             </div>
             <div class="tab-pane" id="group">
