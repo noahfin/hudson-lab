@@ -113,11 +113,36 @@
    }
 
 </style>
+
+<section>
+   <div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+         <!--Content-->
+         <div class="modal-content text-center">
+
+            <div class="modal-header d-flex justify-content-center">
+               <p class="heading">Are you sure?</p>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+               <i class="fa fa-times fa-4x animated rotateIn"></i>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer flex-center">
+               <a href="https://mdbootstrap.com/product/material-design-for-bootstrap-pro/" class="btn  btn-outline-secondary-modal">Yes</a>
+               <a type="button" class="btn  btn-primary-modal waves-effect" data-dismiss="modal">No</a>
+            </div>
+         </div>
+         <!--/.Content-->
+      </div>
+   </div>
+
+</section>
 <div class="col-md-12 first-show-card">
 <div class="row first-show-card">
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <a href="/leads/" >
-         <div class="card card-stats  rounded-0 card-1 card-dash-warning">
+         <div class="card card-stats  rounded-0  card-dash-warning card-1" >
             <div class="card-header     card-header-icon">
                <div class="card-icon card-icon-outline-warning">
                   <i class="material-icons bg-black text-warning">business</i>
@@ -136,7 +161,7 @@
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <%= link_to deals_path do %>
-      <div class="card card-stats card-dash-rose rounded-0 card-1">
+      <div class="card card-stats card-dash-rose rounded-0  card-1">
          <div class="card-header card-header-icon ">
             <div class="card-icon card-icon-outline-danger">
                <i class="material-icons bg-black text-danger">equalizer</i>
@@ -153,7 +178,7 @@
       <% end %>
    </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
-      <div class="card card-stats  card-dash-success rounded-0 card-1">
+      <div class="card card-stats  card-dash-success rounded-0 card-1" >
          <div class="card-header  card-header-icon">
             <div class="card-icon  card-icon-outline-success">
                <i class="material-icons bg-black text-success">store</i>
@@ -187,6 +212,179 @@
    </div>
    <% end %>
 </div>
+<section class="card card-cascade narrower mb-5 text-white card-1">
+   <!--Grid row-->
+   <div class="row">
+      <!--Grid column-->
+      <div class="col-md-5">
+         <!--Panel Header-->
+         <div class="view py-3 gradient-card-header bg-black">
+            <h5 class="mb-0 text-white">Sales</h5>
+         </div>
+         <!--/Panel Header-->
+         <!--Panel content-->
+         <div class="card-body">
+            <!--Grid row-->
+            <div class="row">
+               <!--Grid column-->
+               <div class="col-md-6 mb-4 text-white mt-4">
+                  <!--Date select-->
+                  <p class="lead">
+                     <span class="badge bg-black p-2">Date range</span>
+                  </p>
+                  <select class="selectpicker text-white" data-style="select-with-transition" title="Single Select" data-size="8" data-style="btn-outline-info">
+                     <option value="" disabled selected class="text-white">Choose time period</option>
+                     <option value="1">Today</option>
+                     <option value="2">Yesterday</option>
+                     <option value="3">Last 7 days</option>
+                     <option value="4">Last 30 days</option>
+                     <option value="5">Last week</option>
+                     <option value="6">Last month</option>
+                     <option value="6">Last 6 months</option>
+                     <option value="7">last year</option>
+                  </select>
+                  <!--Date pickers-->
+                  <p class="lead my-4 text-white">
+                     <span class="badge bg-black p-2 text-white">Custom date</span>
+                  </p>
+                  <div class="md-form text-white">
+                     <input placeholder="Selected date" type="text" id="from" class="form-control text-white datetimepicker">
+                     <label for="date-picker-example text-white">From</label>
+                  </div>
+                  <div class="md-form text-white mt-3 pt-2">
+                     <input placeholder="Selected date" type="text" id="to" class="form-control text-white  datetimepicker">
+                     <label for="date-picker-example text-white">To</label>
+                  </div>
+               </div>
+               <!--Grid column-->
+               <!--Grid column-->
+               <div class="col-md-6 mb-4 text-center text-gray mr-0 pr-0">
+                  <!--Summary-->
+                  <p class="text-gray">Total sales:
+                     <strong>2000$</strong>
+                     <button type="button" class="btn bg-black btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Total sales in the given period">
+                     <i class="material-icons text-white">monetization_on</i>
+                     </button>
+                  </p>
+                  <p>Average sales:
+                     <strong>100$</strong>
+                     <button type="button" class="btn bg-black btn-sm p-2 mb-4 position-right" data-toggle="tooltip" data-placement="top" title="Average daily sales in the given period">
+                     <i class="material-icons text-white ">monetization_on</i>
+                     </button>
+                  </p>
+
+                  <div class="card card-chart card-1">
+
+
+
+                                <div class="card-header mdl-color--grey-900 text-white mt-4">
+                                   <div class="table-repsonsive">
+
+                   <table>
+                                    <div class="ct-chart" id="websiteViewsChart"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="100%" class="ct-chart-bar" style="width: 100%; height: 100%;"><g class="ct-grids"><line y1="120" y2="120" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="96" y2="96" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="72" y2="72" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="48" y2="48" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="24" y2="24" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line><line y1="0" y2="0" x1="40" x2="368.328125" class="ct-grid ct-vertical"></line></g><g><g class="ct-series ct-series-a"><line x1="53.680338541666664" x2="53.680338541666664" y1="120" y2="54.959999999999994" class="ct-bar" ct:value="542" opacity="1"></line><line x1="81.041015625" x2="81.041015625" y1="120" y2="66.84" class="ct-bar" ct:value="443" opacity="1"></line><line x1="108.40169270833333" x2="108.40169270833333" y1="120" y2="81.6" class="ct-bar" ct:value="320" opacity="1"></line><line x1="135.76236979166666" x2="135.76236979166666" y1="120" y2="26.400000000000006" class="ct-bar" ct:value="780" opacity="1"></line><line x1="163.12304687499997" x2="163.12304687499997" y1="120" y2="53.64" class="ct-bar" ct:value="553" opacity="1"></line><line x1="190.48372395833331" x2="190.48372395833331" y1="120" y2="65.64" class="ct-bar" ct:value="453" opacity="1"></line><line x1="217.84440104166666" x2="217.84440104166666" y1="120" y2="80.88" class="ct-bar" ct:value="326" opacity="1"></line><line x1="245.20507812499997" x2="245.20507812499997" y1="120" y2="67.92" class="ct-bar" ct:value="434" opacity="1"></line><line x1="272.5657552083333" x2="272.5657552083333" y1="120" y2="51.84" class="ct-bar" ct:value="568" opacity="1"></line><line x1="299.9264322916667" x2="299.9264322916667" y1="120" y2="46.8" class="ct-bar" ct:value="610" opacity="1"></line><line x1="327.287109375" x2="327.287109375" y1="120" y2="29.28" class="ct-bar" ct:value="756" opacity="1"></line><line x1="354.6477864583333" x2="354.6477864583333" y1="120" y2="12.599999999999994" class="ct-bar" ct:value="895" opacity="1"></line></g></g><g class="ct-labels"><foreignObject style="overflow: visible;" x="40" y="125" width="27.360677083333332" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">J</span></foreignObject><foreignObject style="overflow: visible;" x="67.36067708333333" y="125" width="27.360677083333332" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">F</span></foreignObject><foreignObject style="overflow: visible;" x="94.72135416666666" y="125" width="27.360677083333336" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">M</span></foreignObject><foreignObject style="overflow: visible;" x="122.08203125" y="125" width="27.36067708333333" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">A</span></foreignObject><foreignObject style="overflow: visible;" x="149.44270833333331" y="125" width="27.36067708333333" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">M</span></foreignObject><foreignObject style="overflow: visible;" x="176.80338541666666" y="125" width="27.360677083333343" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">J</span></foreignObject><foreignObject style="overflow: visible;" x="204.1640625" y="125" width="27.360677083333314" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">J</span></foreignObject><foreignObject style="overflow: visible;" x="231.52473958333331" y="125" width="27.360677083333343" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">A</span></foreignObject><foreignObject style="overflow: visible;" x="258.88541666666663" y="125" width="27.360677083333343" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">S</span></foreignObject><foreignObject style="overflow: visible;" x="286.24609375" y="125" width="27.360677083333314" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">O</span></foreignObject><foreignObject style="overflow: visible;" x="313.6067708333333" y="125" width="27.360677083333314" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 27px; height: 20px;">N</span></foreignObject><foreignObject style="overflow: visible;" x="340.96744791666663" y="125" width="30" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 30px; height: 20px;">D</span></foreignObject><foreignObject style="overflow: visible;" y="96" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">0</span></foreignObject><foreignObject style="overflow: visible;" y="72" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">200</span></foreignObject><foreignObject style="overflow: visible;" y="48" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">400</span></foreignObject><foreignObject style="overflow: visible;" y="24" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">600</span></foreignObject><foreignObject style="overflow: visible;" y="0" x="0" height="24" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 24px; width: 30px;">800</span></foreignObject><foreignObject style="overflow: visible;" y="-30" x="0" height="30" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 30px; width: 30px;">1000</span></foreignObject></g></svg></div>
+
+                                 </table>
+                                     </div>
+                                </div>
+                                <div class="card-body ">
+                                    <h4 class="card-title"></h4>
+                                    <p class="card-category"></p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+
+                                    </div>
+                                </div>
+
+                        </div>
+               </div>
+               <!--Grid column-->
+            </div>
+            <!--Grid row-->
+         </div>
+         <!--Panel content-->
+      </div>
+      <!--Grid column-->
+      <!--Grid column-->
+      <div class="col-md-7">
+         <!--Panel Header-->
+         <div class="view py-3 gradient-card-header bg-black mb-4">
+            <div class="card mdl-color--grey-900">
+               <div class="card-header card-header-icon ">
+                  <div class="card-icon bg-black">
+                     <i class="material-icons">timeline</i>
+                  </div>
+                  <h4 class="card-title text-white">Coloured Line Chart
+                     <small> - Rounded</small>
+                  </h4>
+               </div>
+               <div class="card-body mdl-color--grey-900 ">
+                  <div id="colouredRoundedLineChart" class="ct-chart">
+                     <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="300px" class="ct-chart-line" style="width: 100%; height: 300px;">
+                        <g class="ct-grids">
+                           <line y1="265" y2="265" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="240" y2="240" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="215" y2="215" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="190" y2="190" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="165" y2="165" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="140" y2="140" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="115" y2="115" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="90" y2="90" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="65" y2="65" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="40" y2="40" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                           <line y1="15" y2="15" x1="50" x2="595" class="ct-grid ct-vertical"></line>
+                        </g>
+                        <g>
+                           <g class="ct-series ct-series-a">
+                              <path d="M 50 193.25 C 58.258 185.208 83.03 145.125 99.545 145 C 116.061 144.875 132.576 195.583 149.091 192.5 C 165.606 189.417 182.121 143.167 198.636 126.5 C 215.152 109.833 231.667 98.167 248.182 92.5 C 264.697 86.833 281.212 84.583 297.727 92.5 C 314.242 100.417 330.758 142.583 347.273 140 C 363.788 137.417 380.303 83.25 396.818 77 C 413.333 70.75 429.848 108.667 446.364 102.5 C 462.879 96.333 479.394 52.25 495.909 40 C 512.424 27.75 537.197 30.833 545.455 29" class="ct-line"></path>
+                              <line x1="50" y1="193.25" x2="50.01" y2="193.25" class="ct-point" ct:value="287" opacity="1"></line>
+                              <line x1="99.54545454545455" y1="145" x2="99.55545454545455" y2="145" class="ct-point" ct:value="480" opacity="1"></line>
+                              <line x1="149.0909090909091" y1="192.5" x2="149.10090909090908" y2="192.5" class="ct-point" ct:value="290" opacity="1"></line>
+                              <line x1="198.63636363636363" y1="126.5" x2="198.64636363636362" y2="126.5" class="ct-point" ct:value="554" opacity="1"></line>
+                              <line x1="248.1818181818182" y1="92.5" x2="248.19181818181818" y2="92.5" class="ct-point" ct:value="690" opacity="1"></line>
+                              <line x1="297.72727272727275" y1="92.5" x2="297.73727272727274" y2="92.5" class="ct-point" ct:value="690" opacity="1"></line>
+                              <line x1="347.27272727272725" y1="140" x2="347.28272727272724" y2="140" class="ct-point" ct:value="500" opacity="1"></line>
+                              <line x1="396.8181818181818" y1="77" x2="396.8281818181818" y2="77" class="ct-point" ct:value="752" opacity="1"></line>
+                              <line x1="446.3636363636364" y1="102.5" x2="446.37363636363636" y2="102.5" class="ct-point" ct:value="650" opacity="1"></line>
+                              <line x1="495.90909090909093" y1="40" x2="495.9190909090909" y2="40" class="ct-point" ct:value="900" opacity="1"></line>
+                              <line x1="545.4545454545455" y1="29" x2="545.4645454545455" y2="29" class="ct-point" ct:value="944" opacity="1"></line>
+                           </g>
+                        </g>
+                        <g class="ct-labels">
+                           <foreignObject style="overflow: visible;" x="50" y="270" width="49.54545454545455" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'06</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="99.54545454545455" y="270" width="49.54545454545455" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'07</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="149.0909090909091" y="270" width="49.54545454545453" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'08</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="198.63636363636363" y="270" width="49.54545454545456" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'09</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="248.1818181818182" y="270" width="49.54545454545456" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'10</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="297.72727272727275" y="270" width="49.545454545454504" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'11</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="347.27272727272725" y="270" width="49.54545454545456" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'12</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="396.8181818181818" y="270" width="49.54545454545456" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'13</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="446.3636363636364" y="270" width="49.54545454545456" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'14</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="495.90909090909093" y="270" width="49.54545454545456" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;">'15</span></foreignObject>
+                           <foreignObject style="overflow: visible;" x="545.4545454545455" y="270" width="49.545454545454504" height="20"><span class="ct-label ct-horizontal ct-end" xmlns="http://www.w3.org/2000/xmlns/" style="width: 50px; height: 20px;"></span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="240" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">0</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="215" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">100</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="190" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">200</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="165" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">300</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="140" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">400</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="115" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">500</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="90" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">600</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="65" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">700</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="40" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">800</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="15" x="10" height="25" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 25px; width: 30px;">900</span></foreignObject>
+                           <foreignObject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" xmlns="http://www.w3.org/2000/xmlns/" style="height: 30px; width: 30px;">1000</span></foreignObject>
+                        </g>
+                     </svg>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--/Card image-->
+      </div>
+      <!--Grid column-->
+   </div>
+   <!--Grid row-->
+</section>
 <div class="white-box mdl-color--grey-900 m-0 border-black">
    <div class="row row-in ">
       <div class="col-lg-3 col-sm-6 row-in-br">
@@ -281,6 +479,11 @@
          </div>
       </div>
    </div>
+</div>
+<div class="row">
+
+
+
 </div>
 <div class="row first-show-card">
    <div class="col-xl-3">

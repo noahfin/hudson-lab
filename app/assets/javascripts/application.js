@@ -751,6 +751,7 @@ $('.selectpicker').selectpicker('mobile');
 
     }
 
+
     var createFormSend = function (data) {
         var url = "/contacts/";
         $.ajax({
@@ -901,6 +902,13 @@ $(postIdStr).html(like_number + 1);
         });
     })
 
+    $(document).on('click',  "#btn_finshed", function (e) {
+                 clsoeWiz();
+                $.notify({
+                    title: "Contact From Compete",
+                    message: $('#contact_first_name').val() + '"' + ' was successfuly'
+                });
+   });
     var dataTable = $('.data-table').DataTable();
     var lastUrl = ''
     document.addEventListener("turbolinks:before-cache", function () {
@@ -1062,7 +1070,7 @@ var getContactForDash = function(query){
 
         }
     });
-    $('#query').autocomplete({
+    $('#query, .query-c').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
         select: function (event, ui) {
