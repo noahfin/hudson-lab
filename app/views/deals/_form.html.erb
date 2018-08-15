@@ -77,22 +77,39 @@
                   </div>
                </div>
                <div class="row">
-                  <div class="col-md-4 mt-4 p-4">
-                     <label for="exampleInput11" class="bmd-label-floating pl-4">Deal Image</label>
-                    <div class="form-group form-file-upload form-file-multiple pl-4">
-                      <input type="file" multiple="" class="inputFileHidden" name="deal[image]">
-                      <div class="input-group">
-                        <%= form.file_field :image %>
-                          <span class="input-group-btn">
-                              <button type="button" class="btn btn-fab btn-round btn-info">
-                                  <i class="material-icons">attach_file</i>
-                              </button>
-                          </span>
-                      </div>
-                    </div>
+                  <div class="col-md-5 ml-0 pl-0 ">
+                     <div class="row">
 
+                           <div class="row mt-1">
+                              <div class=" col-md-12">
+                                 <div class="input-group ">
+                                    <div class="col-xl-12">
+                                       <div class="row ">
+                                          <div class="col-sm-4 ml-auto mr-auto">
+                                             <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                </div>
+                                                <div class="text-center">
+                                                   <span class="btn btn-default btn-file">
+                                                   <span class="fileinput-new text-white">Choose Photo</span>
+                                                   <span class="fileinput-exists text-white">Change</span><%= form.file_field :image %>
+                                                   </span>
+                                                   <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div>
+                           </div>
+
+                     </div>
                   </div>
-
                <div class="col-md-7 pl-2 pr-0">
 
                         <div class="input-group form-control-lg text-white mt-4 ml-0 pl-0">
