@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_162602) do
+ActiveRecord::Schema.define(version: 2018_08_16_171422) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -278,6 +278,13 @@ ActiveRecord::Schema.define(version: 2018_08_16_162602) do
     t.integer "like_id", null: false
     t.index ["deal_id", "like_id"], name: "index_deals_likes_on_deal_id_and_like_id"
     t.index ["like_id", "deal_id"], name: "index_deals_likes_on_like_id_and_deal_id"
+  end
+
+  create_table "deals_maincomments", id: false, force: :cascade do |t|
+    t.integer "deal_id", null: false
+    t.integer "maincomment_id", null: false
+    t.index ["deal_id", "maincomment_id"], name: "index_deals_maincomments_on_deal_id_and_maincomment_id"
+    t.index ["maincomment_id", "deal_id"], name: "index_deals_maincomments_on_maincomment_id_and_deal_id"
   end
 
   create_table "deals_mainposts", id: false, force: :cascade do |t|
