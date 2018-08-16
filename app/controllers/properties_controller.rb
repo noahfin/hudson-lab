@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
 
    end
    def autocomplete
-       @properties = Property.search(params[:term]).order('name ASC')
+      @properties = Property.search(params[:term]).order('name ASC')
    end
    def category
        @properties = Property.all
@@ -29,10 +29,10 @@ class PropertiesController < ApplicationController
      def create
         @property = Property.new(property_params)
         if @property.save
-          if Address.exists?([' address LIKE ? ', "%#{@property.address}%"])
-            @property.addresses << Address.where([' address LIKE ? ', "%#{@property.address}%"])
+          if Address.exists?([' address LIKE ? ', "%#{@property.Fulladdress}%"])
+            @property.address_ids << Address.where([' address LIKE ? ', "%#{@property.Fulladdress}%"])
             else
-             @property.addresses <<  Address.create( address: @property.address)
+             @property.address_ids <<  Address.create( address: @property.Fulladdress)
           end
           params['contact_ids'].each_with_index do |c_id, i|
             next if c_id.to_i == 0
@@ -46,9 +46,8 @@ class PropertiesController < ApplicationController
           render 'new'
         end
      end
-
    def update
-  @property = Property.find(params[:id])
+     @property = Property.find(params[:id])
       @property.update_attributes(property_params)
          flash[:info] = "Property Was Updated."
           params['contact_ids'].each_with_index do |c_id, i|
@@ -57,12 +56,10 @@ class PropertiesController < ApplicationController
             @property.contacts << contact
            end
          redirect_to property_path(params[:id])
-    end
-
+   end
    private
-
     def property_params
-      params.require(:property).permit(:name, :code, :category, :avatar, :rental_rate, :price, :year_built, :building_class, :lease_type,  :overhead_doors, :loading_docks, :min_divisible, :space_use, :space_available, :date_available, :property_type, :address, :zip_code, :county, :description, :for_lease,  :for_sale, :owner_name, :type_ofproperty, :known_as, :size_and_floors, :space1,  :space2,  :space3, :space4, :space5, :space6, :rental_per_sf, :cam_per_sf, :cam, :utilites_per_sf, :taxes_per_sf, :rental_includes, :cleaning, :electric, :gross_rental_per_sf, :escalations, :parking, :landlords_work, :possession, :lease_term, :exclusive, :add_comments, :contact_person, :availability, :water_and_sewer, :contact_ids)
+      params.require(:property).permit(:name, :code, :category, :avatar, :Fulladdress, :rental_rate, :price, :year_built, :building_class, :lease_type,  :overhead_doors, :loading_docks, :min_divisible, :space_use, :space_available, :date_available, :property_type, :address, :zip_code, :county, :description, :for_lease,  :for_sale, :owner_name, :type_ofproperty, :known_as, :size_and_floors, :space1,  :space2,  :space3, :space4, :space5, :space6, :rental_per_sf, :cam_per_sf, :cam, :utilites_per_sf, :taxes_per_sf, :rental_includes, :cleaning, :electric, :gross_rental_per_sf, :escalations, :parking, :landlords_work, :possession, :lease_term, :exclusive, :add_comments, :contact_person, :availability, :water_and_sewer, :contact_ids)
     end
     def find_property
       @property = Property.find params[:id]

@@ -221,3 +221,15 @@
       </div>
    </div>
 </div>
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
+      $('.address-auto').autocomplete({
+        source: '/addresses/autocomplete',
+        minLength: 2,
+        select: function (event, ui) {
+          console.log(ui);
+            $('.address-auto').val(ui.item.value);
+
+        }
+    });
+
+</script>
