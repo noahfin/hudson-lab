@@ -54,7 +54,7 @@
 
  <% properties_array = [] %>
   <% @tasks.each do |task| %>
-  <% if !task.properties.empty? %>
+  <% if task.properties %>
    <% properties_array.push(task)%>
    <% end %>
  <% end %>
@@ -105,14 +105,14 @@
 
  <% projects_array = [] %>
   <% @tasks.each do |task| %>
-  <% if task.projects.count >= 1 %>
+  <% if task.projects %>
    <% projects_array.push(task)%>
    <% end %>
  <% end %>
 
 
    <div class="tab-pane " id="task-projects-list">
-       <h6>Action Steps For Projects</h6>
+
       <table class="table">
          <% projects_array.each_with_index do |task, index|%>
             <% is_personl_user = false%>
