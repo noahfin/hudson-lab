@@ -64,7 +64,7 @@
        <h6>Action Steps For Properties</h6>
       <table class="table">
          <% properties_array.each_with_index do |task, index|%>
-            <% is_personl_user = false%>
+            <% is_personl_user = false %>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
             <%  is_personl_user = true   %>
@@ -115,7 +115,7 @@
 
       <table class="table">
          <% projects_array.each_with_index do |task, index|%>
-            <% is_personl_user = false%>
+            <% is_personl_user = false %>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
             <%  is_personl_user = true   %>

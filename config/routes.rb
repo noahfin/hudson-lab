@@ -1,4 +1,5 @@
   Rails.application.routes.draw do
+  resources :canvas
   resources :addresses do
       get 'autocomplete', on: :collection
     end

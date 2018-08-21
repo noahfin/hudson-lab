@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_171422) do
+ActiveRecord::Schema.define(version: 2018_08_17_185654) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -84,6 +84,39 @@ ActiveRecord::Schema.define(version: 2018_08_16_171422) do
     t.integer "property_id", null: false
     t.index ["address_id", "property_id"], name: "index_addresses_properties_on_address_id_and_property_id"
     t.index ["property_id", "address_id"], name: "index_addresses_properties_on_property_id_and_address_id"
+  end
+
+  create_table "cancontacts", force: :cascade do |t|
+    t.string "title"
+    t.boolean "contacted"
+    t.text "notes"
+  end
+
+  create_table "cancontacts_canvas", id: false, force: :cascade do |t|
+    t.integer "canva_id", null: false
+    t.integer "cancontact_id", null: false
+    t.index ["cancontact_id", "canva_id"], name: "index_cancontacts_canvas_on_cancontact_id_and_canva_id"
+    t.index ["canva_id", "cancontact_id"], name: "index_cancontacts_canvas_on_canva_id_and_cancontact_id"
+  end
+
+  create_table "cancontacts_contacts", id: false, force: :cascade do |t|
+    t.integer "cancontact_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["cancontact_id", "contact_id"], name: "index_cancontacts_contacts_on_cancontact_id_and_contact_id"
+    t.index ["contact_id", "cancontact_id"], name: "index_cancontacts_contacts_on_contact_id_and_cancontact_id"
+  end
+
+  create_table "canvas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "canvas_groups", id: false, force: :cascade do |t|
+    t.integer "canva_id", null: false
+    t.integer "group_id", null: false
+    t.index ["canva_id", "group_id"], name: "index_canvas_groups_on_canva_id_and_group_id"
+    t.index ["group_id", "canva_id"], name: "index_canvas_groups_on_group_id_and_canva_id"
   end
 
   create_table "comments", force: :cascade do |t|

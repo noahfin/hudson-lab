@@ -154,10 +154,15 @@
               </a></li>
               <li class="nav-item text-white ">
 
-              <%= link_to new_group_path, class: "nav-link text-white", remote: true do %>
-                <span class="sidebar-mini"> AG</span>
-                <span class="sidebar-normal"> Add Group </span>
-              <% end %></li>
+                <%= link_to new_group_path, class: "nav-link text-white", remote: true do %>
+                 <span class="sidebar-mini"> AG</span>
+                 <span class="sidebar-normal"> Add Group </span>
+                <% end %></li>
+              <li class="nav-item text-white ">
+               <%= link_to canvas_path, class: "nav-link text-white" do %>
+                 <span class="sidebar-mini"> VC</span>
+                  <span class="sidebar-normal"> Canvassing </span>
+               <% end %></li>
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>

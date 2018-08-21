@@ -1,0 +1,101 @@
+<%= simple_form_for(@canva) do |f| %>
+<%= f.error_notification %>
+<div class="row">
+<div class="col-xl-6">
+   <div class="form-inputs">
+      <%= f.input :name %>
+   </div>
+   <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+</div>
+<div class="col-xl-6">
+
+   <div class="row">
+      <div class="form-group ">
+         <div class=" ">
+            <div>
+               <div style= "min-width: 600px; margin: 0 auto;">
+                  <div class="card text-center rounded-0 card mdl-color--grey-900">
+                     <div class="card-header p-0 bg-black rounded-0 pb-0 mb-0" >
+                        <div class="div-header  p-4 card-6 rounded-0">
+                           <ul class="nav nav-pills card-header-pills rounded-0 mdl-color--grey-900  mt-3">
+                              <li class="nav-item text-white">
+                                 <a class="nav-link active nav-t-tab text-white" href="#groups-pane"><span class="text-white">Groups</span></a>
+                              </li>
+                              <li class="nav-item text-white">
+                                 <a class="nav-link nav-t-tab text-white text-white" href="#users"><span class="text-white">Users</span></a>
+                              </li>
+                              <li class="nav-item text-white ">
+                                 <a  class="nav-link  text-white text-white" data-toggle="collapse" href="#add-group" aria-expanded="false" aria-controls="add-group"><span class="text-white ">New Group</span></a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="card-body card mdl-color--grey-900 rounded-0">
+                        <div class="tab-pane group-pane" id="users">
+                           <div class="col-md-12">
+                              <h4 class="ml-4 ml-3 pull-right"><i class="material-icons text-white">
+                                 folder_shared
+                                 </i>
+                              </h4>
+                              <% @users.each.each_slice(6) do |user| %>
+                              <div class="col-md-12">
+                                 <div class="row">
+                                    <% user.each do |user| %>
+                                    <%  next if !user.first_name  %>
+                                    <div class="col-md-2">
+                                       <div class="togglebutton ">
+                                          <label>
+                                          <input type="checkbox" name="user_ids[]" checked="true" value=
+                                             <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                                          <span class="toggle"></span>
+                                          <span class="text-white"><%= user.first_name if user.first_name %>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                    <% end %>
+                                 </div>
+                              </div>
+                              <% end %>
+                           </div>
+                        </div>
+                        <div class="tab-pane group-pane mdl-color--grey-900 rounded-0" id="groups-pane">
+                           <div class="mdl-color--grey-900 rounded-0 text-white ">
+                              <ul class="list-group mdl-color--grey-900 text-white" id="list-group-to-select-group">
+                                 <input type="hidden"  value="group_id[]" class="groups-hiiden">
+                                 <% @groups.each_with_index do |group, index| %>
+                                 <% next if group.nil? || group.name.empty? %>
+                                 <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted">
+                                    <h5 class="text-wheight-light text-white pt-2 "><%= group.name %></h5>
+                                    <nav class="navbar  bg-footer  justify-content-between align-items-center " id="group-check-nav">
+                                       <span class="ml-auto mr-auto text-center p-0   ">
+                                          <div class="form-check form-check-right ml-auto mr-auto  ">
+                                             <div class="togglebutton ">
+                                                <label>
+                                                <input type="checkbox" name="group_ids[]" value=<%="#{group.id}"%> />
+                                                <span class="toggle"></span>
+                                                <span class="text-white">
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </div>
+                                       </span>
+                                    </nav>
+                                 </li>
+                                 <% end %>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<% end %>
+</div>
