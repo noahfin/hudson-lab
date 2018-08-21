@@ -1,9 +1,7 @@
 <style type="text/css" media="screen">
-  #select-leter {
-    background: transparent;
-  }
+
 </style>
-<div id="select-leter">
+<div id="select-leter" class="bg-trans">
 <br><br><br><br>
     <header>
       <% date = DateTime.now.strftime('%d-%m-%Y')%>
@@ -26,11 +24,11 @@
 <br>
 
 
-<span>Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
+<span class="bg-trans">Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
 
 <br><br>
-    <div class="main-section-letter"> <!-- use this div only if it is required for styling -->
-        <p>
+    <div class="main-section-letterbg-trans"> <!-- use this div only if it is required for styling -->
+        <p class="bg-trans">
           Sehr geehrte Frau Graf,
           <br class="salution" />
 
