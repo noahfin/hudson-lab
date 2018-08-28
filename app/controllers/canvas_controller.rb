@@ -1,30 +1,37 @@
 class CanvasController < ApplicationController
   before_action :set_canva, only: [:show, :edit, :update, :destroy]
 
-  # GET /canvas
-  # GET /canvas.json
   def index
     @canvas = Canva.all
   end
 
-  # GET /canvas/1
-  # GET /canvas/1.json
   def show
+
   end
 
-  # GET /canvas/new
   def new
     @canva = Canva.new
   end
 
-  # GET /canvas/1/edit
   def edit
+
   end
 
-  # POST /canvas
-  # POST /canvas.json
   def create
     @canva = Canva.new(canva_params)
+    if params['group_ids']
+      @canva.group_ids =   params['group_ids']
+      groups = params['group_ids'].to_a
+      groups.each do |group|
+        group = Group.find(group)
+        contacts = group.contacts
+        contacts.each do |contact|
+        concontact = Cancontact.create(title: contact.name)
+        concontact.contact_ids << contact
+         @canva.cancontacts << concontact
+        end
+      end
+    end
 
     respond_to do |format|
       if @canva.save
@@ -37,8 +44,6 @@ class CanvasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /canvas/1
-  # PATCH/PUT /canvas/1.json
   def update
     respond_to do |format|
       if @canva.update(canva_params)
@@ -51,8 +56,6 @@ class CanvasController < ApplicationController
     end
   end
 
-  # DELETE /canvas/1
-  # DELETE /canvas/1.json
   def destroy
     @canva.destroy
     respond_to do |format|
@@ -62,12 +65,11 @@ class CanvasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_canva
       @canva = Canva.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def canva_params
       params.require(:canva).permit(:name)
     end
