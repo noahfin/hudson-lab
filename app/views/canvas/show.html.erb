@@ -13,7 +13,6 @@
     </div>
   </div>
 </div>
-
 <div class="card rounded-0 pt-4 bg-dark text-white">
 <div class="col-md-12">
    <div class="">
@@ -32,18 +31,15 @@
                   <span> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Back', canvas_path %></span>
                   </span>
                </h2>
-
             </div>
-
-
          </div>
       </div>
       <div class="card bg-dark ">
          <div class="card-header card-header-icon">
             <div class="card-icon mdl-color--grey-900">
-               <i class="material-icons">group</i>
+               <i class="material-icons text-success ">save</i>
             </div>
-            <h4 class="card-title text-white"> <%= @canva.name %>
+            <h4 class="card-title text-white pt-0"> <%= @canva.name %>
                <span>
                <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#contacts-header" aria-expanded="false" aria-controls="contacts-header">
                <i class="material-icons">whatshot</i>
@@ -51,7 +47,8 @@
                </span>
             </h4>
          </div>
-         <div class="card-body">
+            <div class="card-body">
+              <%= simple_form_for(@canva) do |f| %>
                 <div class="card-body mdl-color--grey-900 pt-4">
                   <div class="tab-content">
                     <div class="tab-pane active" id="profile">
@@ -60,19 +57,23 @@
                           <% @canva.cancontacts.each do |cancontact| %>
                           <tr>
                             <td>
+                              <span>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input class="form-check-input" value="" checked="" type="checkbox">
+                                 <input class="form-check-input" type="checkbox" value="<%= cancontact.contacted %>" <%= 'checked=""' if cancontact.contacted == true %>>
                                   <span class="form-check-sign">
                                     <span class="check"></span>
                                   </span>
                                 </label>
                               </div>
+
+
+                                 </span>
                             </td>
                             <td class="text-white"><%= cancontact.title %> | <%= cancontact.name  %> | <%=  cancontact.email  %>  | <%= cancontact.company  %> | <%= cancontact.address  %> | <%= cancontact.Fulladdress  %> | <%= cancontact.phone  %>  | <%= cancontact.cell  %> </td>
-
+                            <td ><span class="float-right"> <input type="text" class="form-control long-input"  name= "notes[]" value="<%= cancontact.notes %> " ></span></td>
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="" class="btn btn-succes text-succes btn-link btn-sm" data-original-title="Edit Task">
+                              <button type="button" rel="tooltip" title="" class="btn btn-succes text-succes btn-link btn-sm canva-edit" data-original-title="Edit Task">
                                 <i class="material-icons text-success">edit</i>
                               </button>
                               <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
@@ -85,7 +86,8 @@
                             <td>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input class="form-check-input" value="" type="checkbox">
+
+                                  <input class="form-check-input" value="" type="checkbox" checked="">
                                   <span class="form-check-sign">
                                     <span class="check"></span>
                                   </span>
@@ -266,8 +268,20 @@
                           </tr>
                         </tbody>
                       </table>
+                      <% end %>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <script type="text/javascript">
+              $('.long-input').hide();
+              $('.canva-edit').click(function(event) {
+                console.log("show input")
+                $(this).closest('input').show();
+              });
+
+
+            </script>
+x
