@@ -47,6 +47,20 @@ class CanvasController < ApplicationController
   def update
     respond_to do |format|
       if @canva.update(canva_params)
+        if params["contacted"]
+           concontacts = params['contacted'].to_a
+           concontacts.each do |concontact|
+            concontact = Cancontact.find(concontact)
+            concontact.update_attributes(contacted: true)
+          end
+        end
+        if params["notes"]
+          notes =  params["notes"].to_a
+           @canva.cancontacts.each_with_index do |cancontacts, index|
+            concontact = Cancontact.find(cancontacts.id)
+            concontact.update_attributes(notes: notes[index])
+          end
+        end
         format.html { redirect_to @canva, notice: 'Canva was successfully updated.' }
         format.json { render :show, status: :ok, location: @canva }
       else
