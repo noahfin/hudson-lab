@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_185654) do
+ActiveRecord::Schema.define(version: 2018_08_29_155914) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -90,6 +90,13 @@ ActiveRecord::Schema.define(version: 2018_08_17_185654) do
     t.string "title"
     t.boolean "contacted"
     t.text "notes"
+    t.string "name"
+    t.string "email"
+    t.string "company"
+    t.string "address"
+    t.string "Fulladdress"
+    t.string "phone"
+    t.string "cell"
   end
 
   create_table "cancontacts_canvas", id: false, force: :cascade do |t|

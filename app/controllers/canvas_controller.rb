@@ -26,7 +26,7 @@ class CanvasController < ApplicationController
         group = Group.find(group)
         contacts = group.contacts
         contacts.each do |contact|
-        concontact = Cancontact.create(title: contact.name)
+        concontact = Cancontact.create(title: contact.name, name: contact.name, email: contact.email, company: contact.company,  Fulladdress: contact.Fulladdress, phone: contact.phone, cell: contact.cell)
         concontact.contact_ids << contact
          @canva.cancontacts << concontact
         end

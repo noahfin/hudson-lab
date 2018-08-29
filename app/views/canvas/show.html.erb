@@ -1,44 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="row b-black ml-1 mr-1">
+  <div class="col-md-7 text-black">
+    <h3 class="mt-4 p-4">Canvassing Session Created at  <%= @canva.created_at.strftime("%d %b. %Y") %></h3>
+  </div>
+  <div class="col-md-4">
+    <div class="choice-back bg-dark p-4">
+      <div class="choice-canv ml-auto mr-auto" data-toggle="wizard-checkbox">
+          <div class="icon">
+             <i class="material-icons align-self-center text-danger center-icon pt-4">business</i>
+          </div>
+          <h6 class="text-white pt-4">Canvassing</h6>
+       </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @canva.name %>
-</p>
+<div class="card rounded-0 pt-4 bg-dark text-white">
+<div class="col-md-12">
+   <div class="">
+      <div class="collapse" id="contacts-header">
+         <div class="row">
+            <div class="col-md-8">
+               <h2>
+                  <span><%= @canva.name %> <%= link_to  new_canva_path, class: 'btn btn-just-icon btn-round mdl-color--grey-900 ml-3' do %>
+                  <i class="fa fa-plus"></i>
+                  <% end %>
+                  <span class="ml-4 pl-3">
+                  <%= link_to   edit_canva_path(@canva)  , class: 'btn mdl-color--grey-900  btn-left-margin' do %>
+                  <i class="fa fa-file-text"></i> Edit Canvassing Session
+                  <% end %>
+                  </span>
+                  <span> &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Back', canvas_path %></span>
+                  </span>
+               </h2>
 
-<%= link_to 'Edit', edit_canva_path(@canva) %> |
-<%= link_to 'Back', canvas_path %>
+            </div>
 
 
-<div class="col-lg-6 col-md-12">
-              <div class="card mdl-color--grey-900 text-muted">
-                <div class="card-header card-header-tabs bg-black">
-                  <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                      <span class="nav-tabs-title">Tasks:</span>
-                      <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#profile" data-toggle="tab">
-                            <i class="material-icons">bug_report</i> Bugs
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#messages" data-toggle="tab">
-                            <i class="material-icons">code</i> Website
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#settings" data-toggle="tab">
-                            <i class="material-icons">cloud</i> Server
-                            <div class="ripple-container"></div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-body mdl-color--grey-900">
+         </div>
+      </div>
+      <div class="card bg-dark ">
+         <div class="card-header card-header-icon">
+            <div class="card-icon mdl-color--grey-900">
+               <i class="material-icons">group</i>
+            </div>
+            <h4 class="card-title text-white"> <%= @canva.name %>
+               <span>
+               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#contacts-header" aria-expanded="false" aria-controls="contacts-header">
+               <i class="material-icons">whatshot</i>
+               </a>
+               </span>
+            </h4>
+         </div>
+         <div class="card-body">
+                <div class="card-body mdl-color--grey-900 pt-4">
                   <div class="tab-content">
                     <div class="tab-pane active" id="profile">
                       <table class="table">
@@ -55,10 +69,11 @@
                                 </label>
                               </div>
                             </td>
-                            <td><%= cancontact.title %></td>
+                            <td class="text-white"><%= cancontact.title %> | <%= cancontact.name  %> | <%=  cancontact.email  %>  | <%= cancontact.company  %> | <%= cancontact.address  %> | <%= cancontact.Fulladdress  %> | <%= cancontact.phone  %>  | <%= cancontact.cell  %> </td>
+
                             <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="" class="btn btn-succes btn-link btn-sm" data-original-title="Edit Task">
-                                <i class="material-icons">edit</i>
+                              <button type="button" rel="tooltip" title="" class="btn btn-succes text-succes btn-link btn-sm" data-original-title="Edit Task">
+                                <i class="material-icons text-success">edit</i>
                               </button>
                               <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
                                 <i class="material-icons">close</i>
@@ -80,7 +95,7 @@
                             <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="" class="btn btn-succes btn-link btn-sm" data-original-title="Edit Task">
-                                <i class="material-icons">edit</i>
+                                <i class="material-icons text-succes">edit</i>
                               </button>
                               <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
                                 <i class="material-icons">close</i>
@@ -102,7 +117,7 @@
                             </td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="" class="btn btn-succes btn-link btn-sm" data-original-title="Edit Task">
-                                <i class="material-icons">edit</i>
+                                <i class="material-icons text-succes">edit</i>
                               </button>
                               <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
                                 <i class="material-icons">close</i>
