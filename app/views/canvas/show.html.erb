@@ -1,120 +1,110 @@
 <div class="row b-black ml-1 mr-1">
-  <div class="col-md-7 text-black">
-    <h3 class="mt-4 p-4">Canvassing Session Created at  <%= @canva.created_at.strftime("%d %b. %Y") %></h3>
-  </div>
-  <div class="col-md-4">
-    <div class="choice-back bg-dark p-4 flex">
-      <div class="choice-canv ml-auto mr-auto" data-toggle="wizard-checkbox">
-          <div class="icon d-flex d-flex justify-content-center mt-4 pt-4">
-
-
-          <h6 class="text-white pt-4   align-self-center">Canvassing</h6>
-             </div>
-       </div>
-    </div>
-  </div>
-</div>
-<div class="card rounded-0 pt-4 bg-dark text-white">
-<div class="col-md-12">
-   <div class=" ml-4 pl-4">
-      <div class="collapse" id="contacts-header">
-         <div class="row">
-            <div class="col-md-12">
-               <h2 class="pl-4 ml-4">
-                  <span><%= @canva.name %> <%= link_to  new_canva_path, class: 'btn btn-just-icon btn-round mdl-color--grey-900 ml-3' do %>
-                  <i class="fa fa-plus"></i>
-                  <% end %>
-                  <span class="ml-4 pl-3">
-                  <%= link_to   edit_canva_path(@canva)  , class: 'btn mdl-color--grey-900  btn-left-margin' do %>
-                  <i class="fa fa-file-text"></i> Edit Canvassing Session
-                  <% end %>
-                  </span>
-                  <span> &nbsp;&nbsp;<%= link_to 'Back', canvas_path %></span>
-                  </span>
-               </h2>
+   <div class="col-md-7 text-black">
+      <h3 class="mt-4 p-4">Canvassing Session Created at  <%= @canva.created_at.strftime("%d %b. %Y") %></h3>
+   </div>
+   <div class="col-md-4">
+      <div class="choice-back bg-dark p-4 flex">
+         <div class="choice-canv ml-auto mr-auto" data-toggle="wizard-checkbox">
+            <div class="icon d-flex d-flex justify-content-center mt-4 pt-4">
+               <h6 class="text-white pt-4   align-self-center">Canvassing</h6>
             </div>
          </div>
       </div>
-      <div class="card bg-dark ">
-         <%= simple_form_for(@canva) do |f| %>
-         <input type="hidden" name="canva[name]" value="<%="#{@canva.name}"%>">
-         <div class="card-header card-header-icon">
-        <h4 class="card-title text-white pt-0 pl-4">  <span><%= f.submit 'Update Canvassing', class: "btn btn-outline-white" do %>
+   </div>
+</div>
+<div class="card rounded-0 pt-4 bg-dark text-white">
+<div class="col-md-12">
+<div class=" ml-4 pl-4">
+<div class="collapse" id="contacts-header">
+   <div class="row">
+      <div class="col-md-12">
+         <h2 class="pl-4 ml-4">
+            <span><%= @canva.name %> <%= link_to  new_canva_path, class: 'btn btn-just-icon btn-round mdl-color--grey-900 ml-3' do %>
+            <i class="fa fa-plus"></i>
+            <% end %>
+            <span class="ml-4 pl-3">
+            <%= link_to   edit_canva_path(@canva)  , class: 'btn mdl-color--grey-900  btn-left-margin' do %>
+            <i class="fa fa-file-text"></i> Edit Canvassing Session
+            <% end %>
+            </span>
+            <span> &nbsp;&nbsp;<%= link_to 'Back', canvas_path %></span>
+            </span>
+         </h2>
+      </div>
+   </div>
+</div>
+<div class="card bg-dark ">
+   <%= simple_form_for(@canva) do |f| %>
+   <input type="hidden" name="canva[name]" value="<%="#{@canva.name}"%>">
+   <div class="card-header card-header-icon">
+      <h4 class="card-title text-white pt-0 pl-4">
+         <span>
+            <%= f.submit 'Update Canvassing', class: "btn btn-outline-white" do %>
             <div class="card-icon mdl-color--grey-900">
                <i class="material-icons text-success ">save</i>
             </div>
             <% end %>
-           <span class="pl-4 "><%= @canva.name %></span>
-
-              </span>
-               <span>
-               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#contacts-header" aria-expanded="false" aria-controls="contacts-header">
-               <i class="material-icons pr-4 mr-4 pt-3">whatshot</i>
-               </a>
-               </span>
-            </h4>
-         </div>
-            <div class="card-body">
-
-                <div class="card-body mdl-color--grey-900 pt-4">
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="profile">
-                      <table class="table">
-                        <tbody>
-                          <% @canva.cancontacts.each do |cancontact| %>
-                          <tr>
-                            <td>
-                              <span>
+            <span class="pl-4 "><%= @canva.name %></span>
+         </span>
+         <span>
+         <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#contacts-header" aria-expanded="false" aria-controls="contacts-header">
+         <i class="material-icons pr-4 mr-4 pt-3">whatshot</i>
+         </a>
+         </span>
+      </h4>
+   </div>
+   <div class="card-body">
+      <div class="card-body mdl-color--grey-900 pt-4">
+         <div class="tab-content">
+            <div class="tab-pane active" id="profile">
+               <table class="table">
+                  <tbody>
+                     <% @canva.cancontacts.each do |cancontact| %>
+                     <tr>
+                        <td>
+                           <span>
                               <div class="form-check">
-                                <label class="form-check-label">
+                                 <label class="form-check-label">
                                  <input class="form-check-input" name="contacted[]" type="checkbox" value="<%="#{cancontact.id}"%>" <%= 'checked=""' if cancontact.contacted == true %>>
-                                  <span class="form-check-sign">
-                                    <span class="check"></span>
-                                  </span>
-                                </label>
-                              </div>
-
-
+                                 <span class="form-check-sign">
+                                 <span class="check"></span>
                                  </span>
-                            </td>
-                            <td class="text-white"><%= cancontact.title %> | <%= cancontact.name  %> | <%=  cancontact.email  %>  | <%= cancontact.company  %> | <%= cancontact.address  %> | <%= cancontact.Fulladdress  %> | <%= cancontact.phone  %>  | <%= cancontact.cell  %> </td>
-                            <td ><span class="float-right"> <input type="text" class="form-control long-input text"  name= "notes[]" value="<%= cancontact.notes %>" ></span></td>
-                            <td class="td-actions text-right">
-                              <button type="button" rel="tooltip" title="" class="btn btn-succes text-succes btn-link btn-sm canva-edit" data-original-title="Edit Task">
-                                <i class="material-icons text-success">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <% end %>
-
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-             <% end %>
+                                 </label>
+                              </div>
+                           </span>
+                        </td>
+                        <td class="text-white"><%= cancontact.title %> | <%= cancontact.name  %> | <%=  cancontact.email  %>  | <%= cancontact.company  %> | <%= cancontact.address  %> | <%= cancontact.Fulladdress  %> | <%= cancontact.phone  %>  | <%= cancontact.cell  %> </td>
+                        <td ><span class="float-right"> <input type="text" class="form-control long-input text"  name= "notes[]" value="<%= cancontact.notes %>" ></span></td>
+                        <td class="td-actions text-right">
+                           <button type="button" rel="tooltip" title="" class="btn btn-succes text-succes btn-link btn-sm canva-edit" data-original-title="Edit Task">
+                           <i class="material-icons text-success">edit</i>
+                           </button>
+                           <button type="button" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
+                           <i class="material-icons">close</i>
+                           </button>
+                        </td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+               </table>
             </div>
+         </div>
+      </div>
+   </div>
+   <% end %>
+</div>
+<script type="text/javascript">
+   $('.long-input').hide();
+   var change = true;
+   $('.canva-edit').click(function(event) {
+   var x =  $(this).closest('tr').find('input[type=text]')
 
-            <script type="text/javascript">
-              $('.long-input').hide();
-              var change = true;
-              $('.canva-edit').click(function(event) {
-              var x =  $(this).closest('tr').find('input[type=text]')
-
-                if  (change === true) {
-                    x.show();
-                    change = false
-                } else {
-                    x.hide();
-                    change = true
-                }
-              });
-
-
-            </script>
-
+     if  (change === true) {
+         x.show();
+         change = false
+     } else {
+         x.hide();
+         change = true
+     }
+   });
+</script>

@@ -1,27 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Canvas</h1>
-
+<h1>Canvassing</h1>
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @canvas.each do |canva| %>
+   <thead>
       <tr>
-        <td><%= canva.name %></td>
-        <td><%= link_to 'Show', canva %></td>
-        <td><%= link_to 'Edit', edit_canva_path(canva) %></td>
-        <td><%= link_to 'Destroy', canva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <th class="pl-3">Name</th>
+         <th colspan="3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
+   </thead>
+   <tbody>
+      <% @canvas.each do |canva| %>
+      <tr class="col-md-12">
+         <div class="col-md-12">
+            <div class="row">
+               <div class="col-md-8">
+                  <td class="col-md-8"><%= canva.name %></td>
+               </div>
+               <div class="col-md-4 pull-right">
+                  <td class="text-right"><%= link_to 'Show', canva, class: "text-muted" %></td>
+                  <td class="text-right"><%= link_to 'Edit', edit_canva_path(canva), class: "text-muted" %></td>
+                  <td><%= link_to  canva, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" do  %> <i class="fa fa-trash"></i> <% end %></td>
+               </div>
+            </div>
+         </div>
+      </tr>
+      <% end %>
+   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Canva', new_canva_path %>
+<%= link_to 'New Canva', new_canva_path, class: "text-danger pl-3"%>
