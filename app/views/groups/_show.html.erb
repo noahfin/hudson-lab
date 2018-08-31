@@ -95,7 +95,7 @@
                      </tr>
                   </thead>
                   <tbody>
-                     <%  @group.contacts.each do |contact| %>
+                     <%  @group.contacts.order(:last_name).each do |contact| %>
                      <tr>
                         <td class="text-white">
                            <%= link_to  edit_contact_path(contact), remote: true do %><i class="fa fa-edit"></i><% end %>
