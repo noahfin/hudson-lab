@@ -103,6 +103,7 @@ initialize_calendar_dash = function() {
     });
   })
 };
+
 $(document).on('turbolinks:load', initialize_calendar_dash);
 
 var initialize_calendar;
@@ -983,11 +984,11 @@ $(tabSection).autocomplete({
     });
 
     var keyUpNum = 0
-    $(tabSection).keyup(function () {
+    $('#contacts_get').keyup(function () {
         keyUpNum++
         if (keyUpNum > 1) {
-          console.log($("#dash-search").val());
-           var value =  $('#dash-search').val();
+          console.log($("#contacts_get").val());
+           var value =  $('#contacts_get').val();
             getContactForDash(value);
             keyUpNum = 0
         }
@@ -996,14 +997,17 @@ $(tabSection).autocomplete({
 
 
 var appendFunction = function(contacts){
+  var htmlStr = "";
    $.each(contacts, function( index, contact ) {
 
-console.log(contact);
-            var hidd_input = $('<input type="hidden" value="'+contact.id+'">');
-            $('#seach-table-1 tr:last-child ').append('<tr class="child"><td><h3>'+contact.name+'</h3><address><h4 class="text-warning">'+contact.phone+'</h4> <a class="text-white" href="mailto:'+contact.email+'"><span class="text-white">'+contact.email+'</span></a></address></td></tr>');
-             $('#collapse_seach-table-1').collapse('show');
-    });
 
+            var hidd_input = $('<input type="hidden" value="'+contact.id+'">');
+           htmlStr +=  '<tr class="text-white"><td>'+contact.id+'</td><td>'+contact.name+'</td><td>'+contact.phone+'</td><td>'+contact.cell+'</td><td>'+contact.email+'</td><td>'+contact.company+'</td></tr>'
+
+
+    });
+   var html = $(htmlStr);
+$( ".t-info-box").html(html);
 }
 var getContactForDash = function(query){
 

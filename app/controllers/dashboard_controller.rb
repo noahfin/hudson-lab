@@ -8,7 +8,14 @@ class DashboardController < ApplicationController
   end
 
   def contacts_search
-      @contacts = Contact.search(params[:query]).order('name ASC')
+
+    term = params[:query]
+      @contacts = Contact.where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
       render json: @contacts
   end
 end
+
+
+
+
+

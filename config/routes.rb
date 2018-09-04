@@ -50,9 +50,10 @@
     match "users/sharegroups" => "users#sharegroups", as: :sharegroups, via: :post
     match "search" => "search#create", as: :searches, via: [:get, :post]
     match "search/prepare" => "search#prepare", as: :prepareshearch, via: :get
-    get '/dashboard', to: 'dashboard#index'
-    get '/dashboard/searchcontacts/', to: 'dashboard#contacts_search'
+    match "/dashboard/searchcontacts/" => "dashboard#contacts_search", as: :dash_contacts_search, via: :get
     match "touches/contact/:id" => "touches#contact", as: :contact_touches, via: [:get, :post]
+
+    get '/dashboard', to: 'dashboard#index'
 
     resources :properties do
      get 'category', on: :collection
