@@ -11,6 +11,16 @@
    line-height: 1.7;
    }
    .card-reg { z-index: 99999999; }
+   .lable-remember {
+      position: relative;
+      top: -1.1rem;
+      left: 1.1rem;
+   }
+      @media screen and (min-width: 1600px) {
+  .mainlogin {
+    margin-top: 13%;
+  }
+}
 </style>
 <body class="presentation-page ">
    <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
@@ -49,15 +59,34 @@
       </div>
    </nav>
    <div class="page-header mdl-color--grey-900">
+
       <section class=" ml-auto mr-auto">
+         <div class="mb-2 mt-2 p-2 mr-auto ml-auto">
+            <p class="notice  bg-footer text-danger mt-3 mb-3 ml-3 p-2"><%= notice %></p>
+            <p class="alert  bg-footer text-danger mt-3 mb-3 ml-3 p-2"><%= alert %></p>
          <div class=" ml-auto mr-auto">
+         </div>
+
             <div class="mask ml-auto mr-auto ">
                <div class="ml-auto mr-auto">
-                  <div class="mainlogin " >
+
+                  <div class="mainlogin" >
+
                      <div class=" cool-form ml-auto mr-auto bg-footer  p-4">
                         <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
                         <h2 class="text-center">Log in</h2>
-                        <div class="form-group mr-auto ml-auto">
+                          <% if resource.errors.any? %>
+                            <div id="error_explanation">
+                              <h2><%= pluralize(resource.errors.count, "error") %> prohibited successfull login:</h2>
+
+                              <ul>
+                              <% resource.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                              <% end %>
+                              </ul>
+                            </div>
+                          <% end %>
+                                                <div class="form-group mr-auto ml-auto">
                            <label class="lb-responsive">Enter Email</label> <br class="br-responsive">
                            <%= f.email_field :email, class: "dark-form-control pl-2 text-light", required: true, placeholder: 'Email'  %>
                         </div>
@@ -69,17 +98,25 @@
                            <button type="submit" class="btn btn-outline-info btn-block">Log in</button>
                         </div>
                         <div class="clearfix">
-                           <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+                     <label class="pull-left checkbox-inline">  <% if devise_mapping.rememberable? -%>
+                      <div class="field">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me, class: "lable-remember" %>
+                      </div>
+                    <% end -%></label>
                            <a href="#" class="pull-right text-muted">Forgot Password?</a>
                            <div class="col-md-12">
                            </div>
                            <div class="clearfix mt-4 ">
-                              <div class="col-md-12 mt-4 mb-4">
-                                 <%= link_to "Create an Account".html_safe, new_user_registration_path, class: 'text-muted float-left text-left ' %>
+                              <div class="col-md-12 mt-4 mb-4 ">
+                                 <%= link_to "Create an Account".html_safe, new_user_registration_path, class: 'text-muted float-left text-left pt-3 pl-1' %>
                               </div>
                            </div>
                         </div>
                         <% end %>
+
+
+
                      </div>
                   </div>
                </div>
