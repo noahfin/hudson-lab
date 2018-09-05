@@ -62,6 +62,8 @@
                      <tr>
                         <th class="d- text-info">Edit </th>
                         <th class="d- text-info">Name </th>
+                        <th class="d- text-info">Company </th>
+                        <th class="d- text-info">Web Address</th>
                         <th class="d- text-info">Prefix </th>
                         <th class="d- text-info">First Name </th>
                         <th class="d- text-info">Middle </th>
@@ -70,8 +72,6 @@
                         <th class="d- text-info">Phone </th>
                         <th class="d- text-info">Cell Phone </th>
                         <th class="d- text-info">Email </th>
-                        <th class="d- text-info">Company </th>
-                        <th class="d- text-info">Web Address</th>
                         <th class="d- text-info">Address</th>
                         <th class="d- text-info">Suite</th>
                         <th class="d- text-info">Street Number</th>
@@ -105,6 +105,9 @@
                            <%= contact.name %>
                            <% end %>
                         </td>
+                        <td class="d-"><%= contact.name %></td>
+                        <td class="d-"><%= contact.company %></td>
+                        <td class="d-"><%= contact.web_address %></td>
                         <td class="d-"><%= contact.prefix %></td>
                         <td class="d-"><%= contact.first_name %></td>
                         <td class="d-"><%= contact.middle_name %></td>
@@ -113,8 +116,6 @@
                         <td class="d-"><%= contact.phone %></td>
                         <td class="d-"><%= contact.cell %></td>
                         <td class="d-"><%= contact.email %></td>
-                        <td class="d-"><%= contact.company %></td>
-                        <td class="d-"><%= contact.web_address %></td>
                         <td class="d-"><%= contact.Fulladdress %></td>
                         <td class="d-"><%= contact.suite %></td>
                         <td class="d-"><%= contact.street_num %></td>
@@ -144,3 +145,102 @@
       </div>
    </div>
 </div>
+ <% if @group.touch_ids %>
+<div class="row">
+         <div class="card card-5">
+         <div class="card-header card-header-icon">
+            <div class="card-icon mdl-color--grey-900">
+               <i class="material-icons">group</i>
+            </div>
+            <h4 class="card-title text-white"><%= @group.name %>
+               <span>
+               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#contacts-header" aria-expanded="false" aria-controls="contacts-header">
+               <i class="material-icons">whatshot</i>
+               </a>
+               </span>
+            </h4>
+         </div>
+         <div class="card-body">
+
+              <%  @group.touch_ids.each do |touch_id| %>
+              <% @touch = Touch.find(touch_id) %>
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class="">
+                     <tr>
+                        <th class="d- text-info">id </th>
+                        <th class="d- text-info">Description </th>
+                        <th class="d- text-info">Created At </th>
+                        <th class="d- text-info">Type</th>
+                        <th class="d- text-info">Contacts </th>
+
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <%  @touch.contacts.each do |contact| %>
+                     <tr>
+                        <td class="text-white">
+                           <%= link_to  edit_contact_path(contact), remote: true do %><i class="fa fa-edit"></i><% end %>
+                        </td>
+                        <td class="d-">
+                           <%= link_to contact_path(contact.id), class: "text-black", title: 'view profile', rel: "tooltip"  do %>
+                           <%= contact.name %>
+                           <% end %>
+                        </td>
+                        <td class="d-"><%= touch.id %></td>
+                        <td class="d-"><%= touch.description %></td>
+                        <td class="d-"><%= touch.created_at %></td>
+                        <td class="d-"> <% if @touch.email %>
+                        <p class=" text-white">
+                           <strong>Email:</strong>
+                           <%= @touch.email  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.phone %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Phone:</strong>
+                           <%= @touch.phone   %>
+                        </p>
+                        <% end %>
+                        <% if @touch.postcard %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Postcard:</strong>
+                           <%= @touch.postcard  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.social_media %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Social media:</strong>
+                           <%= @touch.social_media  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.in_person %>
+                        <p class=" text-white">
+                           <strong class=" text-white">In person:</strong>
+                           <%= @touch.in_person  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.letter %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Letter:</strong>
+                           <%= @touch.letter  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.group_name %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Group:</strong>
+                           <%= @touch.group_name  %>
+                        </p>
+                        <% end %></td>
+                        <td class="d-"><%= @group.contacts.count %></td>
+
+                     </tr>
+                     <% end %>
+                  </tbody>
+               </table>
+            </div>
+          <% end %>
+         </div>
+      </div>
+</div>
+<% end %>
