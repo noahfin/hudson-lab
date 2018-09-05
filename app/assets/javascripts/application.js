@@ -1002,10 +1002,11 @@ var appendFunction = function(contacts){
 
 
             var hidd_input = $('<input type="hidden" value="'+contact.id+'">');
-           htmlStr +=  '<tr class="text-white"><td>'+contact.id+'</td><td>'+contact.name+'</td><td>'+contact.phone+'</td><td>'+contact.cell+'</td><td>'+contact.email+'</td><td>'+contact.company+'</td></tr>'
+           htmlStr +=  '<tr class="text-white"> <a  href="/contacts/'+contact.id.toString()+'/"><td>'+contact.id+'</td><td>'+contact.name+'</td><td>'+contact.phone+'</td><td>'+contact.cell+'</td><td>'+contact.email+'</td><td>'+contact.company+'</td></a></tr>'
 
 
     });
+
    var html = $(htmlStr);
 $( ".t-info-box").html(html);
 }
