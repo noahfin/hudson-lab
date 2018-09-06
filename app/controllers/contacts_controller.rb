@@ -86,11 +86,19 @@ class ContactsController < ApplicationController
 
   def destroy
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
-    @contact = @contact.destroy
-    flash[:success] = "Contact was successfully deleted."
-    redirect_to contacts_path(previous_query_string)
+    respond_to do |format|
+      if @contact.destroy
+        flash[:danger] = "The Action Step was successfully deleted."
+        format.html { redirect_to contacts_url }
+        format.json { head :no_content }
+        format.js
+      else
+        format.html { redirect_to contacts_url }
+        format.json { render json: @contact.errors, status: :forbidden }
+        format.js { render status: :forbidden }
+      end
+    end
   end
-
   def create
     @contact = Contact.new(contact_params)
     if @contact.save

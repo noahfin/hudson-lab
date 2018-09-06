@@ -1,4 +1,4 @@
-<tr>
+ <tr id="contact_<%= contact.id %>">
   <td class="middle pb-0 pt-1">
     <div class="media">
       <div class="media-left thumbnail contact-main-image mt-4">
@@ -37,7 +37,7 @@
       <%= link_to edit_contact_path(contact.id), class: "btn btn-circle btn btn-outline-info remote-link", remote: true, title: 'edit', rel: "tooltip"  do %>
       <i class=" fa fa-edit e-contact"></i>
       <% end %>
-      <%= link_to contact_path(contact.id), method: :delete, class: 'btn btn-circle btn btn-outline-info remote-link ', remote: true, data: { confirm: "Are you sure you want delete this contact?"}  do %>
+      <%= link_to contact_path(contact.id), method: :delete, class: 'btn btn-circle btn btn-outline-info remote-link ', remote: true do %>
       <i class="fa fa-trash d-contact" title='delete' rel="tooltip"></i>
       <% end %>
       </a>
