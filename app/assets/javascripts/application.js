@@ -268,6 +268,30 @@ $(document).on('click', '.lead-submit-btn', function (event) {
 
 
 });
+$(document).on('click', '.c-delete', function (event) {
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: "Contact Was successfuly Deleted"
+                    }, {
+                        type: 'danger'
+                    });
+
+
+});
+
+$(document).on('click', '.import-contacts-btn', function (event) {
+
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: "Please wait a second then hit the refresh button and check to see if the inport was a success."
+                    }, {
+                        type: 'warning'
+                    });
+
+
+});
+
 
 $(document).on('click', '.plan-group-b', function (event) {
   if ($("update-group-h"))  {
