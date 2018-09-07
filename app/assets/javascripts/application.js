@@ -1007,6 +1007,69 @@ $(tabSection).autocomplete({
         }
     });
 
+
+   var keyUpNumProperties = 0
+    $('#properties_get').keyup(function () {
+        keyUpNumProperties++
+        if (keyUpNumProperties > 1) {
+          console.log($("#properties_get").val());
+           var value =  $('#properties_get').val();
+            getpropertiesForDash(value);
+            keyUpNumProperties = 0
+        }
+    });
+
+
+
+var appendFunctionProperties = function(properties){
+  var htmlStr = "";
+   $.each(properties, function( index, property ) {
+
+
+            var hidd_input = $('<input type="hidden" value="'+property.id+'">');
+           htmlStr +=  '<tr class="text-white"> <a  href="/contacts/'+property.id.toString()+'/"><td>'+property.id+'</td><td>'+property.name+'</td><td>'+property.Fulladdress+'</td><td>'+property.space_available+'</td><td>'+property.price+'</td><td>'+property.category+'</td></a></tr>'
+
+
+    });
+
+   var html = $(htmlStr);
+$( ".t-info-box").html(html);
+}
+var getpropertiesForDash = function(query){
+
+
+        $.ajax({
+            url: "/properties/autocomplete/",
+            method: "get",
+            data: {
+                query: query
+            },
+            success: function (properties) {
+
+              appendFunctionProperties(properties);
+
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+                    newGroup.next('.text-danger').detach();
+                    $('#new_group').addClass('has-error')
+                        .after('<p class="text-danger pt-2 mb-0">' + error + '</p>');
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+}
+
     var keyUpNum = 0
     $('#contacts_get').keyup(function () {
         keyUpNum++

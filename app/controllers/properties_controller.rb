@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
 
    end
    def autocomplete
-      @properties = Property.search(params[:term]).order('name ASC')
+      @properties = Property.search(params[:query])
    end
    def category
        @properties = Property.all
