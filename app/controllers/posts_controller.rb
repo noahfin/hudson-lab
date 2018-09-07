@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
- protect_from_forgery null_session: [:create, :update  ]
+   protect_from_forgery null_session: [:create, :update  ]
    before_action :authenticate_user!
   def index
     @property = Property.find(params[:property_id])

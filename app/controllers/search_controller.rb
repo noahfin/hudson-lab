@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+   before_action :authenticate_user!
 def create
      if params[:query].present?
        @contacts = Contact.search(params[:query]).order('first_name ASC').page(params[:page])

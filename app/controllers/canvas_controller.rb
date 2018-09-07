@@ -1,6 +1,6 @@
 class CanvasController < ApplicationController
   before_action :set_canva, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   def index
     @canvas = Canva.all
   end
