@@ -11,7 +11,6 @@
 
 
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, :controllers => { registrations: 'registrations', confirmations: 'confirmations'}
-    root 'home#index'
     resources :personal_messages, only: [:create, :new]
     resources :conversations, only: [:index, :show]
     resources :users

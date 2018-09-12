@@ -121,6 +121,23 @@
 </section>
 <div class="col-md-12 first-show-card">
 <div class="row first-show-card">
+      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+      <%= link_to contacts_path do %>
+      <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1">
+         <div class="card-header card-header-icon">
+            <div class="card-icon  card-icon-outline-info">
+               <i class="material-icons bg-black text-info">person</i>
+            </div>
+            <p class="card-category card-top-dash text-white">Contacs</p>
+            <h3 class="card-title text-white">+<%= Contact.count %></h3>
+         </div>
+         <div class="card-footer">
+            <div class="stats text-white">
+               <i class="material-icons  text-info mt-2 pt-1 pr-3">update</i> <span >View Contacts</span>
+            </div>
+         </div>
+      </div>
+   </div>
    <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
       <a href="/leads/" >
          <div class="card card-stats  rounded-0  card-dash-warning card-1" >
@@ -174,23 +191,7 @@
          </div>
       </div>
    </div>
-   <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
-      <%= link_to contacts_path do %>
-      <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1">
-         <div class="card-header card-header-icon">
-            <div class="card-icon  card-icon-outline-info">
-               <i class="material-icons bg-black text-info">person</i>
-            </div>
-            <p class="card-category card-top-dash text-white">Contacs</p>
-            <h3 class="card-title text-white">+<%= Contact.count %></h3>
-         </div>
-         <div class="card-footer">
-            <div class="stats text-white">
-               <i class="material-icons  text-info mt-2 pt-1 pr-3">update</i> <span >View Contacts</span>
-            </div>
-         </div>
-      </div>
-   </div>
+
    <% end %>
 </div>
 <section class="card card-cascade narrower mb-5 text-white card-1">
