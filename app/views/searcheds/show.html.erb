@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @searched.name %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @searched.contact_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @searched.number %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @searched.email %>
+</p>
+
+<p>
+  <strong>Cell:</strong>
+  <%= @searched.cell %>
+</p>
+
+<p>
+  <strong>Fulladdress:</strong>
+  <%= @searched.fulladdress %>
+</p>
+
+<%= link_to 'Edit', edit_searched_path(@searched) %> |
+<%= link_to 'Back', searcheds_path %>

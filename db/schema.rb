@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_144501) do
+ActiveRecord::Schema.define(version: 2018_09_14_134246) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -262,6 +262,13 @@ ActiveRecord::Schema.define(version: 2018_09_05_144501) do
     t.integer "contact_id", null: false
     t.index ["contact_id", "property_id"], name: "index_contacts_properties_on_contact_id_and_property_id"
     t.index ["property_id", "contact_id"], name: "index_contacts_properties_on_property_id_and_contact_id"
+  end
+
+  create_table "contacts_searcheds", id: false, force: :cascade do |t|
+    t.integer "searched_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "searched_id"], name: "index_contacts_searcheds_on_contact_id_and_searched_id"
+    t.index ["searched_id", "contact_id"], name: "index_contacts_searcheds_on_searched_id_and_contact_id"
   end
 
   create_table "contacts_tasks", id: false, force: :cascade do |t|
@@ -628,6 +635,24 @@ ActiveRecord::Schema.define(version: 2018_09_05_144501) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "searcheds", force: :cascade do |t|
+    t.string "name"
+    t.string "contact_id"
+    t.string "number"
+    t.string "email"
+    t.string "cell"
+    t.string "fulladdress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "searcheds_users", id: false, force: :cascade do |t|
+    t.integer "searched_id", null: false
+    t.integer "user_id", null: false
+    t.index ["searched_id", "user_id"], name: "index_searcheds_users_on_searched_id_and_user_id"
+    t.index ["user_id", "searched_id"], name: "index_searcheds_users_on_user_id_and_searched_id"
   end
 
   create_table "searches", force: :cascade do |t|

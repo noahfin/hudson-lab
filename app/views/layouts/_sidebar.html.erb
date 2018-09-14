@@ -26,7 +26,14 @@
                 <span class="sidebar-mini"> MP </span>
                 <span class="sidebar-normal"> My Profile </span>
               <% end %>
+
              </li>
+             <li class="nav-item">
+              <%= link_to  new_searched_path, class: 'nav-link text-white'   do %>
+                <span class="sidebar-mini"> NS </span>
+                <span class="sidebar-normal"> New Searched Record  </span>
+              <% end %>
+            </li>
             <li class="nav-item">
               <%= link_to  edit_user_registration_path, class: 'nav-link text-white'   do %>
                 <span class="sidebar-mini"> EP </span>

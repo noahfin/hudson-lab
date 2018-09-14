@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @tasks = Task.all
     @projects = Project.all
     @leads = Lead.all
+    @searcheds = Searched.all
   end
 
   def contacts_search
