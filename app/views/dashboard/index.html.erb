@@ -193,7 +193,11 @@
                                 </div></td>
                                 <td><%= searched.name %></</td>
                                 <td class="text-right">
+                                 <% if searched.contact_id %>
                                  <%= link_to contact_path(searched.contact_id) do %>
+                                  <i class="material-icons">remove_red_eye</i>
+                                  <% end %>
+                                  <% else %>
                                   <i class="material-icons">remove_red_eye</i>
                                   <% end %>
                                 </td>
