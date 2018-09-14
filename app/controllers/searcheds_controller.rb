@@ -46,9 +46,10 @@ class SearchedsController < ApplicationController
           if contact_id_array[0].to_i > 0
            @searched.contact_ids = id_array
          end
+                @searched.update_attributes(:name => @searched.contacts.first.name, :contact_id => contact_id, :number => @searched.contacts.first.phone, :email => @searched.contacts.first.email, :cell =>  @searched.contacts.first.cell, :fulladdress => @searched.contacts.first.Fulladdress)
+
        end
 
-       @searched.update_attributes(:name => @searched.contacts.first.name, :contact_id => contact_id, :number => @searched.contacts.first.phone, :email => @searched.contacts.first.email, :cell =>  @searched.contacts.first.cell, :fulladdress => @searched.contacts.first.Fulladdress)
 
     respond_to do |format|
       if @searched.save
