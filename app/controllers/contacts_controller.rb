@@ -39,7 +39,7 @@ class ContactsController < ApplicationController
     end
 
     @searcheds.each_with_index do|searched, index|
-       searcheds_array[index] = {name: searched.contacts.first.name, contact_id: searched.contact_id, email: searched.email, cell: searched.cell, number: searched.number, fulladdress: searched.fulladdress}
+       searcheds_array[index] = {name: searched.name, contact_id: searched.contact_id, email: searched.email, cell: searched.cell, number: searched.number, fulladdress: searched.fulladdress}
 
     end
 
