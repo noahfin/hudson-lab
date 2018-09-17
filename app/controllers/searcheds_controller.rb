@@ -26,10 +26,6 @@ class SearchedsController < ApplicationController
   # POST /searcheds.json
   def create
     @searcheds = Searched.all
-    if @searcheds.count >= 7
-      searched_shift(@searcheds)
-      redirect_to dsahboard_path
-    else
     @searched = Searched.new(searched_params)
     contact_id = ''
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
@@ -60,7 +56,6 @@ class SearchedsController < ApplicationController
         format.json { render json: @searched.errors, status: :unprocessable_entity }
       end
     end
-     end
 
   end
 

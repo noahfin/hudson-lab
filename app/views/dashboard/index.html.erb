@@ -91,6 +91,47 @@
        background: #191b1c !important;
    }
 </style>
+<!-- Large modal -->
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content pt-0 pb-0">
+
+   <div class="card card-profile card-5 bg-black mt-0 mb-0">
+      <div class="card-avatar avatar-hudson">
+         <a href="">
+         <%= image_tag Contact.first.avatar.present? ? Contact.first.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object ", id: "contact_profile_image" %>
+         </a>
+      </div>
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="card-body">
+         <h6 class="card-category text-gray scondary-size-text contact_profile_image"> <%= Contact.first.company  if Contact.first.company  %></h6>
+         <h4 class="card-title scondary-size-text contact_profile_name"  id="contact_profile_name"> <%=Contact.first.name  %>  </h4>
+         <h5 class="contact_profile_cell" id="contact_profile_cell">Cell:  <%=Contact.first.cell  %> </h5>
+         <h5 class="contact_profile_number text-danger" id="contact_profile_number">Office:  <%=Contact.first.phone  %> </h5>
+       <h5 class="contact_profile_email" id="contact_profile_email">Email:  <%=Contact.first.email  %> </h5>
+
+         <p class="card-description scondary-size-text contact_profile_Fulladdress" id="contact_profile_Fulladdress">
+            <%= Contact.first.Fulladdress if  Contact.first.Fulladdress %>
+         </p>
+
+         <div class="row">
+            <div class="col-md-12">
+
+               <%= link_to "/contacts/#{Contact.first.id}/letter/", class: "btn bg-hudson btn-round text-white scondary-size-text contact_profile_letter", id: "contact_profile_letter" do %>
+                  <i class="fa fa-envelope-o pb-1 pr-2"></i>Create Letter
+               <% end %>
+            </div>
+         </div>
+         <a href="" title="" class="btn-back btn btn-link text-danger text-center">Go Back</a>
+      </div>
+   </div>
+    </div>
+  </div>
+</div>
 
 <div class="col-md-12 first-show-card">
 <div class="row first-show-card">
@@ -202,7 +243,17 @@
                                   <% end %>
                                 </td>
                                 <td class="text-right">
-                                 <i class="material-icons">mail_outline</i>
+                                 <a data-toggle="modal" data-target=".bd-example-modal-lg" class="profile_modal_trigger">
+                                 <p name="profile_name" class="p_name" value=><%= searched.name %> </p>
+                                 <% contact = Contact.find(searched.contact_id) %>
+                                 <p name="profile_image" class="p_image" value=><%= contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150' %> </p>
+                                 <p name="profile_number" class="p_number" value=><%= searched.number %></p>
+                                 <p name="profile_email" class="p_email" value=><%= searched.email %></p>
+                                 <p name="profile_cell" class="p_cell" value=><%= searched.cell %></p>
+                                 <p name="profile_fulladdress" class="p_fulladdress" value=><%= searched.fulladdress  %></p>
+                                 <p name="profile_name" class="p_id" > <%= searched.contact_id %></p>
+                                 <i class="material-icons">contact_phone</i>
+                                 </a>
                                 </td>
                               </tr>
                             <% end %>
@@ -219,180 +270,7 @@
       </div>
 
    </div>
-   <div class="col-md-12">
-      <div class="row first-show-card">
-         <div class="col-md-4">
-            <div class="card card-1-color">
-               <div class="card-body">
-                  <h5 class="card-category card-category-social">
-                      PROFILE INFORMATION
-                     <SPAN class="float-right mr-3"><i class="material-icons">
-more_horiz
-</i></SPAN>
-                  </h5>
-                  <h4 class="card-title">
-                     <a href="#pablo">"You Don't Have to Sacrifice Joy to Build a Fabulous Business and Life"</a>
-                  </h4>
-               </div>
-               <div class="card-footer">
-                  <div class="author">
-                     <a href="#pablo">
-                     <img src="./assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
-                     <span>Tania Andrew</span>
-                     </a>
-                  </div>
-                  <div class="stats ml-auto">
-                     <i class="material-icons">favorite</i> 2.4K ·
-                     <i class="material-icons">share</i> 45
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-8">
-            <div class="card card-1-color">
-               <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <thead class="">
-                                                <tr><th>
-                                                    ID
-                                                </th>
-                                                <th>
-                                                    Name
-                                                </th>
-                                                <th>
-                                                    Country
-                                                </th>
-                                                <th>
-                                                    City
-                                                </th>
-                                                <th>
-                                                    Salary
-                                                </th>
-                                            </tr></thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                    <td>
-                                                        Niger
-                                                    </td>
-                                                    <td>
-                                                        Oud-Turnhout
-                                                    </td>
-                                                    <td>
-                                                        $36,738
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                    <td>
-                                                        Curaçao
-                                                    </td>
-                                                    <td>
-                                                        Sinaai-Waas
-                                                    </td>
-                                                    <td>
-                                                        $23,789
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                    <td>
-                                                        Netherlands
-                                                    </td>
-                                                    <td>
-                                                        Baileux
-                                                    </td>
-                                                    <td>
-                                                        $56,142
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                    <td>
-                                                        Korea, South
-                                                    </td>
-                                                    <td>
-                                                        Overland Park
-                                                    </td>
-                                                    <td>
-                                                        $38,735
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                    <td>
-                                                        Malawi
-                                                    </td>
-                                                    <td>
-                                                        Feldkirchen in Kärnten
-                                                    </td>
-                                                    <td>
-                                                        $63,542
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
-                                                    <td>
-                                                        Chile
-                                                    </td>
-                                                    <td>
-                                                        Gloucester
-                                                    </td>
-                                                    <td>
-                                                        $78,615
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-               </div>
-               <div class="card-footer">
-                  <div class="author">
-                     <a href="#pablo">
-                     <img src="./assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
-                     <span>Tania Andrew</span>
-                     </a>
-                  </div>
-                  <div class="stats ml-auto">
-                     <i class="material-icons">favorite</i> 2.4K ·
-                     <i class="material-icons">share</i> 45
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+
    </div>
 </section>
 
@@ -810,4 +688,42 @@ more_horiz
     });
 
    });
+
+
+   $(".p_name").hide();
+   $(".p_number").hide();
+   $(".p_email").hide();
+   $(".p_cell").hide();
+   $(".p_id").hide();
+   $(".p_image").hide();
+
+   $(".p_fulladdress").hide();
+       $(document).on('click', '.profile_modal_trigger', function (e) {
+          var name =  $(this).find(".p_name").html();
+          var number =  $(this).find(".p_number").html();
+          var email =  $(this).find(".p_email").html();
+          var cell =  $(this).find(".p_cell").html();
+          var fulladdress =  $(this).find(".p_fulladdress").html();
+          var id =  $(this).find(".p_id").html();
+          var image_url =  $(this).find(".p_image").html();
+          var letter_url = "/contacts/"+id+"/letter/"
+         console.log(letter_url)
+         $("#contact_profile_name").html( name );
+         $("#contact_profile_number").html( number );
+         $("#contact_profile_email").html( email );
+         $("#contact_profile_cell").html( cell );
+         $("#contact_profile_Fulladdress").html( fulladdress );
+         document.getElementById("contact_profile_letter").href=letter_url
+
+
+
+
+
+
+
+
+    });
+
+
+
 </script>

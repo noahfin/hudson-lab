@@ -29,13 +29,15 @@ class ContactsController < ApplicationController
     criteria = params[:term]
     @contacts = Contact.good_search(criteria).page(params[:page])
     @searcheds = Searched.all
-    searcheds_array = [{name: '', contact_id: '', number: '', email: '', cell: '', fulladdress: ''}]
+    searcheds_array = []
 
 
-    if !@contacts.nil? && @searcheds.count <= 7
-       @searcheds.first.update_attributes(:name => @contacts.first.name, :contact_id =>  @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
+    if !@contacts.nil? && @searcheds.count < 7
+              Searched.create(:name => @contacts.first.name, :contact_id => @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
+
     else
-        Searched.create(:name => @contacts.first.name, :contact_id => @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
+             @searcheds.first.update_attributes(:name => @contacts.first.name, :contact_id =>  @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
+
     end
 
     @searcheds.each_with_index do|searched, index|
@@ -47,11 +49,12 @@ class ContactsController < ApplicationController
        next if index == 0
        temp_array = []
 
-
-       searcheds_array[index - 1].each do |val|
+    if  searcheds_array[index - 1 ]
+       searcheds_array[index - 1 ].each do |val|
         temp_array << val
        end
-       searched.update_attributes(:name => temp_array[0][1], :contact_id =>   temp_array[1][1], :number =>  temp_array[2][1], :email =>   temp_array[3][1], :cell =>    temp_array[4][1], :fulladdress =>  temp_array[5][1])
+          searched.update_attributes(:name => temp_array[0][1], :contact_id =>   temp_array[1][1], :number =>  temp_array[2][1], :email =>   temp_array[3][1], :cell =>    temp_array[4][1], :fulladdress =>  temp_array[5][1])
+     end
     end
 
   end
