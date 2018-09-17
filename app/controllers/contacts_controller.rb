@@ -30,10 +30,10 @@ class ContactsController < ApplicationController
     @contacts = Contact.good_search(criteria).page(params[:page])
     @searcheds = Searched.all
 
-    if !@contacts.nil? && @searcheds.count >= 7
+    if !@contacts.nil? && @searcheds.count <= 7
        @searcheds.first.update_attributes(:name => @contacts.first.name, :contact_id =>  @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
     else
-        @searcheds.first.create(:name => @contacts.first.name, :contact_id => @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
+        Searched.create(:name => @contacts.first.name, :contact_id => @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
     end
   end
   def letter
