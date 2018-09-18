@@ -177,9 +177,9 @@ touch_letter_array = []
                   <td class="text-right">
                      <p class=" text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.address  %>  <% " + #{touch_count - 1} addresses" %>
+                        <%= touch.contacts.first.Fulladdress     %>  <% " + #{touch_count - 1} addresses" %>
                         <% else %>
-                        <%= touch.contacts.address  %>
+                        <%= touch.contacts.Fulladdress  %>
                         <% end %>
                      </p>
                   </td>
@@ -235,9 +235,9 @@ touch_letter_array = []
                   <td class="text-right">
                      <p class="text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.address %>  <% " + #{touch_count - 1} addresses" %>
+                        <%= touch.contacts.first.Fulladdress %>  <% " + #{touch_count - 1} addresses" %>
                         <% elsif  touch_count == 1 %>
-                        <%= touch.contacts.first.address  %>
+                        <%= touch.contacts.first.Fulladdress  %>
                         <% end %>
                      </p>
                   </td>
@@ -349,7 +349,7 @@ touch_letter_array = []
                   </td>
                   <td class="text-right">
                      <p class="text-white">
-                        <%= touch.Postcard  %>
+                        <%= touch.postcard  %>
                      </p>
                   </td>
                   <td class="text-right">

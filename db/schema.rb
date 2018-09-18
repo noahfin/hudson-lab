@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_14_134246) do
+ActiveRecord::Schema.define(version: 2018_09_18_162107) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -84,6 +84,29 @@ ActiveRecord::Schema.define(version: 2018_09_14_134246) do
     t.integer "property_id", null: false
     t.index ["address_id", "property_id"], name: "index_addresses_properties_on_address_id_and_property_id"
     t.index ["property_id", "address_id"], name: "index_addresses_properties_on_property_id_and_address_id"
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "name"
+    t.string "phone_number"
+    t.datetime "time"
+    t.string "fulladdress"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "appointments_contacts", id: false, force: :cascade do |t|
+    t.integer "appointment_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["appointment_id", "contact_id"], name: "index_appointments_contacts_on_appointment_id_and_contact_id"
+    t.index ["contact_id", "appointment_id"], name: "index_appointments_contacts_on_contact_id_and_appointment_id"
+  end
+
+  create_table "appointments_users", id: false, force: :cascade do |t|
+    t.integer "appointment_id", null: false
+    t.integer "user_id", null: false
+    t.index ["appointment_id", "user_id"], name: "index_appointments_users_on_appointment_id_and_user_id"
+    t.index ["user_id", "appointment_id"], name: "index_appointments_users_on_user_id_and_appointment_id"
   end
 
   create_table "cancontacts", force: :cascade do |t|

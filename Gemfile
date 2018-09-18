@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'therubyracer'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'sprockets', '~> 4.0.0.beta1'
+gem "twitter-bootstrap-rails"
 
 
 

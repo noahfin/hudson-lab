@@ -224,7 +224,7 @@
                                     <td><%= searched.name %></</td>
                                     <td class="text-right">
                                        <% if !searched.contact_id.empty?  %>
-                                       <%= link_to contact_path(searched.contact_id) do %>
+                                       <%= link_to contact_path(searched.contact_id), title: 'View Profile', rel: "tooltip" do %>
                                        <i class="material-icons">remove_red_eye</i>
                                        <% end %>
                                        <% else %>
@@ -232,7 +232,7 @@
                                        <% end %>
                                     </td>
                                     <td class="text-right">
-                                       <a data-toggle="modal" data-target=".bd-example-modal-lg" class="profile_modal_trigger">
+                                       <a data-toggle="modal" data-target=".bd-example-modal-lg" class="profile_modal_trigger" title= 'Get Phone Number' rel= "tooltip" >
                                           <p name="profile_name" class="p_name" value=><%= searched.name %> </p>
                                           <% contact = Contact.find(searched.contact_id) %>
                                           <p name="profile_image" class="p_image" value=><%= contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150' %> </p>
@@ -502,7 +502,7 @@
    <div class="card card-1  mb-4 p-0 tasks-card">
       <div class="card-header  card-header-icon">
          <div class="card-icon bg-black">
-            <i class="material-icons">assignment</i>
+            <i class="material-icons">history</i>
          </div>
       </div>
       <% new_clients = 0
@@ -540,7 +540,7 @@
                               <h5 class="text-muted vb">NEW ClIENTS</h5>
                            </td>
                            <td>
-                              <h6 class="counter text-right m-t-15 text-danger"><%= new_clients %></h6>
+                              <h6 class=" text-right m-t-15 text-danger"><%= new_clients %></h6>
                            </td>
                         </tr>
                         <tr>
@@ -548,7 +548,7 @@
                               <h5 class="text-muted vb">NEW PROJECTS</h5>
                            </td>
                            <td>
-                              <h6 class="counter text-right m-t-15 text-info"><%= new_projects %></h6>
+                              <h6 class=" text-right m-t-15 text-info"><%= new_projects %></h6>
                            </td>
                         </tr>
                         <tr>
@@ -556,7 +556,7 @@
                               <h5 class="text-muted vb">NEW INVOICES</h5>
                            </td>
                            <td>
-                              <h6 class="counter text-right m-t-15 text-danger"><%= new_clients %></h6>
+                              <h6 class=" text-right m-t-15 text-warning"><%= new_clients %></h6>
                            </td>
                         </tr>
 
@@ -570,30 +570,26 @@
 </div>
 
    <div class="col-xl-6">
-         <div class="card card-1  mb-4 p-0 tasks-card">
-      <div class="card-header  card-header-icon">
-         <div class="card-icon bg-black">
-            <i class="material-icons">assignment</i>
+      <div class="card card-1  mb-4 p-0 tasks-card">
+         <div class="card-header  card-header-icon">
+            <div class="card-icon bg-black">
+               <i class="material-icons">assignment_ind</i>
+            </div>
          </div>
-      </div>
-            <div class="card-body mb-4 task-body card-1 ">
-         <div class="tab-content p-0">
-            <div class="tab-pane active" id="maindash_tasks">
-               <div class="table-responsive">
-                  <table class="table p-0">
-                     <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
-    <div class="" id="dash-calender"></div>
-                        <%= link_to events_path, class: "mt-0 events-dash-link" do %>
-                        View calendar
-                        <% end %>
-
-                     </tbody>
-                  </table>
+         <div class="card-body mb-4 task-body card-1 ">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="maindash_tasks">
+                  <div class="table-responsive">
+                     <table class="table p-0">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                           <%= render 'appointments' %>
+                        </tbody>
+                     </table>
+                  </div>
                </div>
             </div>
          </div>
       </div>
-</div>
    </div>
 </div>
 </div>

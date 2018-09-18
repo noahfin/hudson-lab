@@ -1,77 +1,70 @@
 <div class="container-fluid">
-
- <div class="card text-center card-1">
-    <ul class="nav nav-pills card-1  pt-3 card-header-pills">
-      <li class="nav-item">
-        <a class="nav-link active bg-danger" href="#">Main</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">More</a>
-      </li>
-      <li class="nav-item">
-      </li>
-    </ul>
-<div class="table-responsive  card-1">
-  <table class="table table-shopping">
-      <thead>
-          <tr>
-              <th class="text-center text-white">Name</th>
-              <th class="text-center text-white">Addres</th>
-              <th class="text-center text-white">Contact</th>
-              <th class="th-description text-center text-white">Sector</th>
-              <th class="text-right text-white">rent </th>
-              <th class="text-center text-white">Age</th>
-              <th class="text-right text-white">Actions</th>
-
-              <th></th>
-          </tr>
-      </thead>
-      <tbody>
-            <% @companies.each do |company| %>
-          <tr>
-              <td>
-                  <div class="img-container">
-                      <%= image_tag company.avatar.present? ? company.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
-                  </div>
-              </td>
-
-              <td class="td-name">
-                 <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'View' do %>
-                 <%= company.name %>
-                 <% end %>
-                  <br><small><%= company.addres %></small>
-              </td>
-              <td>
-              Contacts to be added
-              </td>
-              <td>
-               <%= company.sector %>
-              </td>
-
-              <td class="td-number">
-                <%= company.rent %>
-              </td>
-              <td class="text-center">
-                <%= company.age %>
-              </td>
-              <td class="td-actions">
-
-                  <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
-                      <i class="material-icons text-info">person</i>
+   <div class="card text-center card-1">
+      <ul class="nav nav-pills card-1  pt-3 card-header-pills">
+         <li class="nav-item">
+            <a class="nav-link active bg-danger" href="#">Main</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="#">More</a>
+         </li>
+         <li class="nav-item">
+         </li>
+      </ul>
+      <div class="table-responsive  card-1">
+         <table class="table table-shopping">
+            <thead>
+               <tr>
+                  <th class="text-center text-white">Name</th>
+                  <th class="text-center text-white">Addres</th>
+                  <th class="text-center text-white">Contact</th>
+                  <th class="th-description text-center text-white">Sector</th>
+                  <th class="text-right text-white">rent </th>
+                  <th class="text-center text-white">Age</th>
+                  <th class="text-right text-white">Actions</th>
+                  <th></th>
+               </tr>
+            </thead>
+            <tbody>
+               <% @companies.each do |company| %>
+               <tr>
+                  <td>
+                     <div class="img-container">
+                        <%= image_tag company.avatar.present? ? company.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
+                     </div>
+                  </td>
+                  <td class="td-name">
+                     <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'View' do %>
+                     <%= company.name %>
+                     <% end %>
+                     <br><small><%= company.addres %></small>
+                  </td>
+                  <td>
+                     Contacts to be added
+                  </td>
+                  <td>
+                     <%= company.sector %>
+                  </td>
+                  <td class="td-number">
+                     <%= company.rent %>
+                  </td>
+                  <td class="text-center">
+                     <%= company.age %>
+                  </td>
+                  <td class="td-actions">
+                     <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
+                     <i class="material-icons text-info">person</i>
+                     <% end %>
+                     <%= link_to edit_company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
+                     <i class="material-icons text-success">edit</i>
+                     <% end %>
+                     <%= link_to company, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
+                     <i class="material-icons text-danger">close</i>
+                     <% end %>
+                  </td>
                   <% end %>
-
-                  <%= link_to edit_company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
-                      <i class="material-icons text-success">edit</i>
-                  <% end %>
-
-                    <%= link_to company, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
-                      <i class="material-icons text-danger">close</i>
-                   <% end %>
-              </td>
-              <% end %>
-          </tr>
-      </tbody>
-  </table>
-</div>
-</div>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>

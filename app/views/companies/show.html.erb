@@ -4,13 +4,12 @@
    z-index: 20;
    margin-top: 0px !important;
    }
-.profile-picture {
+   .profile-picture {
    position: absolute;
    bottom: 56px !important;
    max-width: 100%;
    }
-  .profile-picture img {
-
+   .profile-picture img {
    -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
    -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
    box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
@@ -19,13 +18,12 @@
    -o-transition: all 300ms ease-in-out;
    transition: all 300ms ease-in-out;
    }
-  .profile-picture:hover img {
+   .profile-picture:hover img {
    zoom: 1;
    -webkit-opacity: 0.5;
    -moz-opacity: 0.5;
    opacity: 0.5;
    filter: alpha(opacity=50);
-
    }
    .profile-env > header .profile-info-sections {
    margin: 0;
@@ -206,7 +204,6 @@
    padding-left: 20px;
    padding-right: 20px;
    }
-
    .profile-env section.profile-feed .profile-post-form .form-options {
    border-top: 1px solid #ebebeb;
    padding: 10px;
@@ -488,10 +485,8 @@
    display: block;
    }
    .profile-env > header .profile-picture img {
-
    float: none;
    display: inline-block;
-
    }
    .profile-env section.profile-feed .profile-stories article.story .user-thumb {
    width: 18%;
@@ -536,13 +531,12 @@
    border-radius: 50% !important;
    }
    #more, #load-more-deal {
-       color:  #fff !important;
+   color:  #fff !important;
    }
    #deal-company-logo {
-      margin: auto !important;
+   margin: auto !important;
    }
    .profile-feed a, .text-hudson-ornage{ color:  #be7e45 !important; }
-
 </style>
 <p id="notice"><%= notice %></p>
 <div class="container">
@@ -551,7 +545,7 @@
          <div class="col-md-4 pb-0">
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
                <table class="profile-picture pb-0 pl-0 image-content" style="height:400px; width: 200px !important;" id="deal-company-logo">
-                 <td  class="">  <%= image_tag @company.avatar.present? ?  @company.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
+                  <td  class="">  <%= image_tag @company.avatar.present? ?  @company.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
                </table>
             </div>
          </div>
@@ -588,60 +582,57 @@
                                     </li>
                                     <li class="nav-item link-tabs" >
                                        <div class="  mr-4 mt-4 pt-4 pr-4">
-                                 <span class=" pt-4 ">
-                                 <%= link_to 'Edit', edit_company_path(@company), class: " pb-4 text-white" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-white"  %>
-                                 </span>
-                                    </div></li>
+                                          <span class=" pt-4 ">
+                                          <%= link_to 'Edit', edit_company_path(@company), class: " pb-4 text-white" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-white"  %>
+                                          </span>
+                                       </div>
+                                    </li>
                                  </ul>
                               </div>
                            </div>
                         </div>
                         <div class="card-content bg-transparent">
-
-                     <div class="tab-content tab-space">
-                        <div class="tab-pane active" id="dashboard-1">
-                           <div class="row">
-                              <div class="col-md-6 pl-2">
-                                 <p>
-                                    <strong>Name:</strong>
-                                    <%= @company.name %>
-                                 </p>
-                                 <p>
-                                    <strong>Earnings:</strong>
-                                    <%= @company.earnings %>
-                                 </p>
-                                 <p>
-                                    <strong>Sector:</strong>
-                                    <%= @company.sector %>
-                                 </p>
-
+                           <div class="tab-content tab-space">
+                              <div class="tab-pane active" id="dashboard-1">
+                                 <div class="row">
+                                    <div class="col-md-6 pl-2">
+                                       <p>
+                                          <strong>Name:</strong>
+                                          <%= @company.name %>
+                                       </p>
+                                       <p>
+                                          <strong>Earnings:</strong>
+                                          <%= @company.earnings %>
+                                       </p>
+                                       <p>
+                                          <strong>Sector:</strong>
+                                          <%= @company.sector %>
+                                       </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <p>
+                                          <strong>Age:</strong>
+                                          <%= @company.age %>
+                                       </p>
+                                       <p>
+                                          <strong>Rent:</strong>
+                                          <%= @company.rent %>
+                                       </p>
+                                       <p>
+                                          <strong>Addres:</strong>
+                                          <%= @company.addres %>
+                                       </p>
+                                    </div>
+                                 </div>
                               </div>
-                              <div class="col-md-6">
-                                 <p>
-                                    <strong>Age:</strong>
-                                    <%= @company.age %>
-                                 </p>
-                                 <p>
-                                    <strong>Rent:</strong>
-                                    <%= @company.rent %>
-                                 </p>
-                                 <p>
-                                    <strong>Addres:</strong>
-                                    <%= @company.addres %>
-                                 </p>
+                              <div class="tab-pane" id="schedule-1">
+                              </div>
+                              <div class="tab-pane" id="tasks-1">
+                                 <%= @company.description %>
                               </div>
                            </div>
                         </div>
-                        <div class="tab-pane" id="schedule-1">
-
-                        </div>
-                        <div class="tab-pane" id="tasks-1">
-                           <%= @company.description %>
-                        </div>
                      </div>
-                        </div>
-                     </div>
-
                   </div>
                </div>
             </section>
@@ -677,18 +668,17 @@
                         <span> <a href="#">following</a> </span>
                      </div>
                   </li>
-                 <li>
-                  <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; position: relative; bottom: .6rem;">
-                     <a class="btn pb-4 btn-just-icon btn-round mdl-grey-900-btn">
-                        <i class="material-icons">person_add</i>
-                        <div class="ripple-container"></div>
-                     </a>
-                  </div>
-               </li>
+                  <li>
+                     <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; position: relative; bottom: .6rem;">
+                        <a class="btn pb-4 btn-just-icon btn-round mdl-grey-900-btn">
+                           <i class="material-icons">person_add</i>
+                           <div class="ripple-container"></div>
+                        </a>
+                     </div>
+                  </li>
                </ul>
             </div>
             <div class="">
-
             </div>
          </header>
       </div>
@@ -737,99 +727,99 @@
                      <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
                   </div>
                   <footer>
-             <div class="section section-comments">
-                <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <div class="media-area">
-                            <h3 class="title text-center">3 Comments</h3>
-                            <div class="media">
-                                <a class="float-left" href="#pablo">
-                                    <div class="avatar">
-                                        <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
+                     <div class="section section-comments">
+                        <div class="row">
+                           <div class="col-md-8 ml-auto mr-auto">
+                              <div class="media-area">
+                                 <h3 class="title text-center">3 Comments</h3>
+                                 <div class="media">
+                                    <a class="float-left" href="#pablo">
+                                       <div class="avatar">
+                                          <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
+                                       </div>
+                                    </a>
+                                    <div class="media-body">
+                                       <h4 class="media-heading">Tina Andrew
+                                          <small>· 7 minutes ago</small>
+                                       </h4>
+                                       <h6 class="text-muted"></h6>
+                                       <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
+                                       <div class="media-footer">
+                                          <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
+                                          <i class="material-icons">reply</i> Reply
+                                          </a>
+                                          <a href="#pablo" class="btn btn-danger btn-link float-right">
+                                          <i class="material-icons">thumb</i> 243
+                                          </a>
+                                       </div>
                                     </div>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Tina Andrew
-                                        <small>· 7 minutes ago</small>
-                                    </h4>
-                                    <h6 class="text-muted"></h6>
-                                    <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-                                    <div class="media-footer">
-                                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
-                                            <i class="material-icons">reply</i> Reply
-                                        </a>
-                                        <a href="#pablo" class="btn btn-danger btn-link float-right">
-                                            <i class="material-icons">thumb</i> 243
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <a class="float-left" href="#pablo">
-                                    <div class="avatar">
-                                        <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
-                                    </div>
-                                </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">John Camber
-                                        <small>· Yesterday</small>
-                                    </h4>
-                                    <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                                    <p> Don't forget, You're Awesome!</p>
-                                    <div class="media-footer">
-                                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
-                                            <i class="material-icons">reply</i> Reply
-                                        </a>
-                                        <a href="#pablo" class="btn btn-link float-right">
-                                            <i class="fa fa-thumbs-up"></i> 25
-                                        </a>
-                                    </div>
-                                    <div class="media">
-                                        <a class="float-left" href="#pablo">
-                                            <div class="avatar">
+                                 </div>
+                                 <div class="media">
+                                    <a class="float-left" href="#pablo">
+                                       <div class="avatar">
+                                          <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
+                                       </div>
+                                    </a>
+                                    <div class="media-body">
+                                       <h4 class="media-heading">John Camber
+                                          <small>· Yesterday</small>
+                                       </h4>
+                                       <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                       <p> Don't forget, You're Awesome!</p>
+                                       <div class="media-footer">
+                                          <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
+                                          <i class="material-icons">reply</i> Reply
+                                          </a>
+                                          <a href="#pablo" class="btn btn-link float-right">
+                                          <i class="fa fa-thumbs-up"></i> 25
+                                          </a>
+                                       </div>
+                                       <div class="media">
+                                          <a class="float-left" href="#pablo">
+                                             <div class="avatar">
                                                 <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile4-square.jpg">
-                                            </div>
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Tina Andrew
+                                             </div>
+                                          </a>
+                                          <div class="media-body">
+                                             <h4 class="media-heading">Tina Andrew
                                                 <small>· 12 Hours Ago</small>
-                                            </h4>
-                                            <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                                            <p> Don't forget, You're Awesome!</p>
-                                            <div class="media-footer">
+                                             </h4>
+                                             <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                             <p> Don't forget, You're Awesome!</p>
+                                             <div class="media-footer">
                                                 <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
-                                                    <i class="material-icons">reply</i> Reply
+                                                <i class="material-icons">reply</i> Reply
                                                 </a>
                                                 <a href="#pablo" class="btn btn-link btn-secondary float-right">
-                                                    <i class=" fa fa-thumbs-up"></i> 2
+                                                <i class=" fa fa-thumbs-up"></i> 2
                                                 </a>
-                                            </div>
-                                        </div>
+                                             </div>
+                                          </div>
+                                       </div>
                                     </div>
-                                </div>
-                            </div>
+                                 </div>
+                              </div>
+                              <h3 class="title text-center">Post your comment</h3>
+                              <div class="media media-post">
+                                 <a class="author float-left" href="#pablo">
+                                    <div class="avatar">
+                                       <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
+                                    </div>
+                                 </a>
+                                 <div class="media-body">
+                                    <div class="form-group label-floating bmd-form-group">
+                                       <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write some nice stuff or nothing...</label>
+                                       <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+                                    </div>
+                                    <div class="media-footer">
+                                       <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- end media-post -->
+                           </div>
                         </div>
-                        <h3 class="title text-center">Post your comment</h3>
-                        <div class="media media-post">
-                            <a class="author float-left" href="#pablo">
-                                <div class="avatar">
-                                    <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
-                                </div>
-                            </a>
-                            <div class="media-body">
-                                <div class="form-group label-floating bmd-form-group">
-                                    <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write some nice stuff or nothing...</label>
-                                    <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
-                                </div>
-                                <div class="media-footer">
-                                    <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end media-post -->
-                    </div>
-                </div>
-            </div>
+                     </div>
                   </footer>
                   <hr>
                </div>

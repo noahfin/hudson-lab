@@ -1,0 +1,210 @@
+<div class="main main-raised main-lead  rounded-0 p-3 mt-3" data-parallax="true" style="background-image: url('<%= asset_url("buildin-row.jpg") %>')";>
+   <%= form_for @appointment, :html => { :class => "form-horizontal appointment" } do |f| %>
+   <% if @appointment.errors.any? %>
+   <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+         <h3 class="panel-title"><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h3>
+      </div>
+      <div class="panel-body">
+         <ul>
+            <% @appointment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+         </ul>
+      </div>
+   </div>
+   <% end %>
+   <div class="">
+      <div class="">
+         <div class="row">
+            <div class="col-md-12">
+               <h3 class="page-title"><span class="ml-4 pl-2">Appointment Form</span> <span><%= f.submit class: 'btn btn-outline-white roundd-0  float-right mr-4 lead-submit-btn' %></span></h3>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6" >
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <%= f.text_field :name, :class => 'form-control text-white', placeholder: 'Name ' %>
+               </div>
+               <%=f.error_span(:name) %>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <%= f.text_field :phone_number, :class => 'form-control text-white', placeholder: 'Phone Number' %>
+               </div>
+               <%=f.error_span(:phone_number) %>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-3">
+            <%= f.label :time, "Hour And Minute", :class => 'control-label ml-4' %>
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <%= time_select :appointment, :time,  {:default => {:hour => '10', :minute => '30'}}, class: " m-3 p-2" %>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-3 ">
+            <%= f.label :time, "Date", :class => 'control-label ml-4' %>
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <%= date_select :appointment, :time, :class => "form-control  m-3 p-2 "  %>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-3">
+            <%= f.label :time, "Time Zone Leave Blank", :class => 'control-label ml-4' %>
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <%= f.time_field_tag :time_zone, ActiveSupport::TimeZone.all.sort, default: "Pacific Time (US & Canada)" %>
+               </div>
+            </div>
+         </div>
+         <div class=" col-sm-3 ">
+            <%= f.label :fulladdress, "Full Address", :class => 'control-label ml-4' %>
+            <div class="  m-4 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <%= f.text_field :fulladdress, :class => 'form-control text-white mt-4 address-auto', placeholder: 'Full Address' %>
+               </div>
+               <%=f.error_span(:fulladdress) %>
+            </div>
+         </div>
+         <%=f.error_span(:time) %>
+      </div>
+   </div>
+   <div class="">
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group ml-4 ">
+               <div class="   p-3  mr-4 bg-gray66">
+                  <div class="col-md-12  ">
+                     <div class="form-group bg-black">
+                        <div class="form-group  pt-0 mt-0  ">
+                           <div class=" pt-0 mt-0  ">
+                              <div class="card-collapse  pt-0 mt-0 ">
+                                 <div class="card-header pt-0 bg-black" role="tab" id="headingTwo">
+                                    <div class="row">
+                                       <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type name then select the contact" aria-label="Search" id="search-contat-task">
+                                    </div>
+                                    <h5 class="mb-0">
+                                       <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                       click to see who got added
+                                       <i class="material-icons text-muted">keyboard_arrow_down</i>
+                                       </a>
+                                    </h5>
+                                 </div>
+                                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body" id="form-contact">
+                                       <ul class="list-inline p-3">
+                                          <li class="list-inline-item m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                                <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                                <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                                <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                                <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                                <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-sm-6">
+            <div class="mt-2 p-3  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                  <a class="btn btn-link" data-toggle="collapse" href="#collapsegetusers" aria-expanded="false" aria-controls="collapsegetusers">select employees</a>
+                  <div class="collapse" id="collapsegetusers">
+                     <div class="form-group mt-4">
+                        <div class="form-group">
+                           <% attr = {prompt: "Select related users"} %>
+                           <% user_ids = [] %>
+                           <% User.all.each do |user| %>
+                           <% user_ids.push(user.id.to_s) %>
+                           <% end %>
+                           <% attr[:selected] = user_ids %>
+                           <%= f.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-12 mt-0">
+         <div class="row m-0">
+         </div>
+      </div>
+      <% end %>
+   </div>
+</div>
+</div>
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
+   $('.address-auto').autocomplete({
+     source: '/addresses/autocomplete',
+     minLength: 2,
+     select: function (event, ui) {
+       console.log(ui);
+         $('.address-auto').val(ui.item.value);
+
+     }
+   });
+
+</script>

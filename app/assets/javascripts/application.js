@@ -47,7 +47,9 @@ initialize_calendar_dash = function() {
     var calendar = $(this);
     calendar.fullCalendar({
       themeSystem: 'jquery-ui',
+    header: {
 
+    },
     footer: {
       left: 'custom1',
       center: 'title',

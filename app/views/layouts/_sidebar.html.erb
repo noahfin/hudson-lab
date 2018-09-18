@@ -367,6 +367,27 @@
           </ul>
         </div>
       </li>
+         <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#appointments_sidebar">
+          <i class="material-icons text-white">assignment_ind</i>
+          <p> Appointments
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse" id="appointments_sidebar">
+          <ul class="nav text-white ">
+            <li class="nav-item text-white">
+              <%= link_to appointments_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> RT </span>
+                <span class="sidebar-normal"> View appointments </span>
+             <% end %>
+            </li>
+
+
+          </ul>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
+appointments

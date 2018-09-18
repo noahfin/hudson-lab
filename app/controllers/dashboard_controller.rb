@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     @projects = Project.all
     @leads = Lead.all
     @searcheds = Searched.all
+    @appointments = Appointment.all
   end
 
   def contacts_search
