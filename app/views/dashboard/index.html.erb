@@ -455,7 +455,7 @@
    <div class="col-xl-6">
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-             <%= link_to new_task_path do %>
+             <%= link_to new_task_path, remote: true, class: "text-white", title: 'Click to Add New Tasks', rel: "tooltip" do %>
             <div class="card-icon bg-black">
                <i class="material-icons">assignment</i>
             </div>
@@ -479,7 +479,7 @@
    <div class="col-xl-6">
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-            <%= link_to new_deal_path do %>
+            <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
             <div class="card-icon bg-black">
                <i class="material-icons">business</i>
             </div>
@@ -576,7 +576,7 @@
    <div class="col-xl-6">
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-            <%= link_to new_appointment_path do %>
+            <%= link_to new_appointment_path, title: 'Click to Add New Appointment', rel: "tooltip" do %>
             <div class="card-icon bg-black">
                <i class="material-icons">assignment_ind</i>
             </div>

@@ -1,6 +1,6 @@
 <% task_contact_array = [] %>
 <% @tasks.each do |task| %>
-<% if task.contacts.count >= 1 %>
+<% if task.contact_ids.count >= 1 %>
 <% task_contact_array.push(task)%>
 <% end %>
 <% end %>

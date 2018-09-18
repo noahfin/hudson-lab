@@ -1,12 +1,12 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
   def index
-    @deals = Deal.all
-    @tasks = Task.all
-    @projects = Project.all
-    @leads = Lead.all
+    @deals = Deal.order(created_at: :desc)
+    @tasks = Task.order(created_at: :desc)
+    @projects = Project.order(created_at: :desc)
+    @leads = Lead.order(created_at: :desc)
     @searcheds = Searched.all
-    @appointments = Appointment.all
+    @appointments = Appointment.order(created_at: :desc)
   end
 
   def contacts_search
