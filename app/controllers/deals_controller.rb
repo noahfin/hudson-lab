@@ -47,6 +47,12 @@ class DealsController < ApplicationController
          end
        end
 
+         leads =  params['leads_ids'].to_a
+         @deal.lead_ids = leads if  params['leads_ids']
+         users = params['user_ids'].to_a
+         @deal.user_ids = users if  params['user_ids']
+         companies = params['company_ids'].to_a
+         @deal.company_ids = companies if  params['company_ids']
         flash[:success] = "The deal was successfully created."
         redirect_to deals_path
       else

@@ -3,6 +3,8 @@ class Deal < ApplicationRecord
   has_many :issues
   has_and_belongs_to_many :contacts
   has_and_belongs_to_many :users
+  has_and_belongs_to_many :companies
+  has_and_belongs_to_many :leads
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :mainpost
   has_and_belongs_to_many :maincomments

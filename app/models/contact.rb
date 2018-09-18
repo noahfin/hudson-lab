@@ -12,6 +12,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :address
   has_and_belongs_to_many :leads
   has_and_belongs_to_many :cancontacts
+  has_and_belongs_to_many :companies
   has_and_belongs_to_many :searcheds
   has_and_belongs_to_many :appointment
   has_and_belongs_to_many  :contact_touches, class_name: 'Touch'
