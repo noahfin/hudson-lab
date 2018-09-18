@@ -1,0 +1,16 @@
+<p class="text-muted m-2 pb-1 ">Current Deals To Work On</p>
+
+       <% @deals.each do |deal| %>
+   <tr id="edit_task_<%= deal.id %>">
+      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_deal_path(deal.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm",  title: 'edit', rel: "tooltip"  do %>
+         <%= deal.name %>   <% end %>
+      </td>
+      <td class="text-right text-white"><%= deal.created_at.strftime("%B %e, %Y") %></td>
+      <td class="text-right"><%= deal.status %> </td>
+   </tr>
+   <!-- /.custom-control -->
+   <% end %>
+
+
+
+
