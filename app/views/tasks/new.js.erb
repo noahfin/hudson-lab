@@ -1,6 +1,6 @@
 
 $('#tasks-form-modal').modal('show');
-$('#f-body').html('<%= j render("form") %>' );
+$('#f-body').html('<%= j render("form", ajax_true: true) %>' );
 
 $('#leads-select').selectpicker('val', '<%= @leads.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');
 $('#projects-select').selectpicker('val', '<%= @projects.to_s %>').selectpicker('setStyle', 'btn-outline-info pl-3');

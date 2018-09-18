@@ -28,7 +28,7 @@
          </li>
       </ul>
       <div class="tab-content tab-space tab-subcategories">
-           <%= form_with model: @task, id: "task-main-form", remote: true, :authenticity_token => true, id: 'tasks-form-id' do |f|%>
+           <%= form_with model: @task, id: "task-main-form", remote: local_assigns[:ajax_true], :authenticity_token => true, id: 'tasks-form-id' do |f|%>
          <div class="tab-pane" role="tabpanel" id="task-deals-tab" style="display:none;">
             <div class="card rounded-0">
 
@@ -78,7 +78,7 @@
                                <div class="form-group text-black">
                                  <div class="form-check dark ">
                                     <label class="form-check-label form-check-label-dark  ">
-                                    <%= f.check_box :complete, id: :task_complete, class: 'form-check-input text-black' %>
+                                       <input type="checkbox" checked="false" name="task[complete]" />
                                     Complete
                                     <span class="form-check-sign">
                                     <span class="check"></span>
@@ -91,7 +91,7 @@
                                <div class="form-group text-black">
                                  <div class="form-check dark ">
                                     <label class="form-check-label form-check-label-dark  ">
-                                    <%= f.check_box :personal, id: :task_personal, class: 'form-check-input text-black' %>
+                                    <input type="checkbox" checked="false" name="task[personal]" />
                                     Personal
                                     <span class="form-check-sign">
                                     <span class="check"></span>

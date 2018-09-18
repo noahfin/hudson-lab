@@ -42,26 +42,30 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-         @tasks = Task.order('lower(name)').all
-        if  @task.group_ids = params['task']['group_ids']
-           if  @task.contact_ids = params['task']['contact_ids']
+         @tasks = Task.all.order(:name)
+         groups = params['task']['group_ids'].to_a
+         @task.groups = groups if params['task']['group_ids']
+         contacts = params['task']['contact_ids'].to_a
+         contact_array = []
+         contacts.each do |contact|
+           if contact != ""
+            contact_array << contact.to_i
            end
-
-        end
-
-          if  params['task']['projects_ids']
-            @task.projects = params['task']['projects_ids']
-
          end
-
-
-        format.html { redirect_to '/tasks/' }
-        format.json { render json: @tasks, status: :created }
-        format.js
+         @task.contact_ids = contact_array if  params['task']['contact_ids']
+         users = params['task']['users_ids'].to_a
+         @task.users = users  if   params['task']['user_ids']
+         projects = params['task']['project_ids'].to_a
+         @task.projects = projects if  params['task']['projects_ids']
+         leads = params['task']['lead_ids'].to_a
+         @task.leads = leads if  params['task']['leads_ids']
+         format.html { redirect_to '/tasks/' }
+         format.json { render json: @tasks, status: :created }
+         format.js
       else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-        format.js
+         format.html { render :new }
+         format.json { render json: @task.errors, status: :unprocessable_entity }
+         format.js
       end
     end
   end
