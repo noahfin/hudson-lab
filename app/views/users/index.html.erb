@@ -1,4 +1,4 @@
-<% unless current_user.admin? %>
+<% unless !current_user.admin? %>
 <div class="col-md-12  mdl-color--grey-900">
    <div class="   mdl-color--grey-900 pt-4 ">
       <h3 class="text-white ml-3">Users</h3>
@@ -44,7 +44,7 @@
                   <% @users.each do |user| %>
                   <tr>
                      <td width="60">
-                        <div class="form-check pt-4">
+                        <div class="form-check pb-4 mt-3 pt-1 pb-0">
                            <label class="form-check-label">
                            <%= form_with model: user,  url: sharegroups_url, action: "sharegroups", method: 'post', :format=> :js, remote: true, :authenticity_token => true, id: "sharegroup_form"  do |form|%>
                            <input type="checkbox" class="form-check-input the-selected-user  mt-0 " value=<%="#{user.id}" %> name="user[user_id]">
@@ -56,7 +56,7 @@
                      </td>
                      <td colspan="2"></td>
                      <td width="30" class="pl-4">
-                        <div class="user mt-3">
+                        <div class="user mt-4">
                            <%= image_tag small_gravatar_url(user.email), class: 'user-image' %>
                            <div class="">
                               <strong></strong>
@@ -71,8 +71,8 @@
                         <% group_ids.push([group.id.to_s,group.name ])  %>
                         <% end %>
                         <% attr = {prompt: "Select Groups"} %>
-                        <p>
-                           <a class="btn  bg-black col-md-12" data-toggle="collapse" href=<%="#dropdown#{user.id}" %> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
+                        <p >
+                           <a class="btn  bg-black col-md-12 mt-4" data-toggle="collapse" href=<%="#dropdown#{user.id}" %> aria-expanded="false" aria-controls=<%="#dropdown#{user.id}"%>>
                            Select Groups to share thier contacts to useres
                            </a>
                         </p>
@@ -141,7 +141,7 @@
    </div>
 </div>
 <% end %>
-<div class=" col-md-12   p-4 mdl-color--grey-900">
+<div class=" col-md-12 p-4 mdl-color--grey-900">
    <hr>
    <div class="row">
       <div class="borderd-list-group  col-md-4 ">
@@ -211,48 +211,5 @@
       </div>
    </div>
 </div>
-<div class="row  p-3">
-   <div class="col-md-12 mb-3  mdl-color--grey-900">
-      <% @users.each.each_slice(3) do |user| %>
-      <div class="col-md-12 mb-3  mdl-color--grey-900">
-         <div class="row">
-            <% user.each do |user| %>
-            <div class=" col-md-4">
-               <div class="card card-plain mdl-color--grey-900">
-                  <div class="card-header bg-dark text-white">
-                     <h4 class="card-title mt-0 text-white"> <%=  user.first_name + ' ' if  user.first_name %> <%=  user.last_name + ' ' if  user.last_name %></h4>
-                     <p class="card-category text-white"> Table to Display Users Login Time Save to the Db</p>
-                  </div>
-                  <div class="card-body">
-                     <div class="table-responsive">
-                        <table class="table table-bordered table-dark table-ip">
-                           <thead>
-                              <tr>
-                                 <th>Id</th>
-                                 <th>Name</th>
-                                 <th>Time</th>
-                                 <th>IP Address</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                              <% user.account_logins.each do |account_login| %>
-                              <tr>
-                                 <td>1</td>
-                                 <td><%=  user.first_name + ' ' if  user.first_name %> <%=  user.last_name + ' ' if  user.last_name %> </td>
-                                 <td> <%= account_login.loginTime if account_login.loginTime %></td>
-                                 <td><span class="badge badge-danger rounded-0 "><%= account_login.ipAddress if account_login.ipAddress %></span></td>
-                              </tr>
-                              <% end %>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <% end %>
-         </div>
-      </div>
-      <% end %>
-   </div>
-</div>
+
 

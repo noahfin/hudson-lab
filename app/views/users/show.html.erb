@@ -25,31 +25,36 @@
    padding: 16px 0;
    }
    .pro-card {
-   min-height: 450px !important;
+   min-height: 405px !important;
    }
 </style>
 <div class="row mb-0">
    <div class="col-sm-6">
-      <div class="card pro-card reounded-0" >
-         <h4 class="card-header bg-dark text-white">
-            <%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>
-            <div class="float-right small">
-               <a class="btn btn-raised mdl-color--grey-900" href="#" title="Ver perfil de Miguel92" data-toggle="tooltip" data-placement="top">
-               <i class="fa fa-user-circle" aria-hidden="true"></i>
-               </a>
-               <a class="btn btn-raised mdl-color--grey-900" href="#" title="Enviar mensaje">
-               <i class="fa fa-envelope" aria-hidden="true"></i>
-               </a>
-               <a class="btn btn-raised mdl-color--grey-900" href="#" title="Seguir usuario">
-               <i class="fa fa-eye" aria-hidden="true"></i>
-               </a>
+      <div class="card pro-card reounded-0 mdl-color--grey-900" >
+         <div class="card-header bg-dark  p-0 pb-0 ">
+            <div class=" bg-dark  div-header p-4 m-0"  >
+               <h4 class=" text-white">
+               <%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>
+                  <div class="float-right small">
+                     <a class="btn btn-raised mdl-color--grey-900">
+                     <i class="fa fa-user-circle" aria-hidden="true"></i>
+                     </a>
+                     <a class="btn btn-raised mdl-color--grey-900" href="<%="mailto:#{@user.email}?subject=feedback"%>" title="Email User" alt="tooltip" data-placement="top">
+                     <i class="fa fa-envelope" aria-hidden="true"></i>
+                     </a>
+                     <a class="btn btn-raised mdl-color--grey-900" href="#" title="">
+                     <i class="fa fa-eye" aria-hidden="true"></i>
+                     </a>
+
+                  </div>
+               </h4>
             </div>
-         </h4>
+         </div>
          <div class=" mdl-color--grey-900 rounded-0 card-body  pro-card-body rounded-0">
             <div class="row" >
                <div class="col-md-8">
                   <div class="image float-left user-l p-4">
-                     <img src="http://31.media.tumblr.com/tumblr_lw2lhqjrel1qfmi03o9_r1_500.gif" class="img-thumbnail" alt="avatar">
+                      <%= image_tag large_gravatar_url(@user.email), class: "img-thumbnail", alt: "user-image" %>
                   </div>
                </div>
                <div class="col-md-4 mt-4 text-white">
@@ -64,12 +69,13 @@
    <div class="col-md-4">
       <!--Section: Experience-->
       <section class="card text-white mb-4 rounded-0">
+
          <div class="card-body p-0  ">
-            <h5 class="bg-dark  text-center p-4 mb-0 text-white">
+            <h5 class="bg-dark  text-center p-4 m-0 text-white">
                <strong><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>'s Contributions </strong>
             </h5>
             <div class="mdl-color--grey-900 mt-0 p-4">
-               <hr class="mt-1 mb-1 pt-0 pb-0 mdl-color--grey-900">
+               <hr class="mt-0 mb-1 pt-0 pb-0 mdl-color--grey-900">
                <ul class="list-unstyled pt-0 mdl-color--grey-900">
 
                   <li>
@@ -121,13 +127,12 @@
    <div class="col-md-2">
       <!--Section: Achievements-->
       <section class="card p-0 rounded-0">
-         <div class="card-body mdl-color--grey-900 p-0 text-center  text-white">
-            <h5 class=" bg-dark  text-center p-0 mb-0 text-white">
-               <p class="col-md-12 mt-1"></p>
+         <div class="card-body mdl-color--grey-900 p-0  text-center  text-white">
+            <h5 class=" bg-dark  text-center p-0 m-0 text-white">
+               <p class="col-md-12 mt-0"></p>
                <strong class=""><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %>'s Accoount</strong>
                  <p class="col-md-12 mt-1 "></p>
             </h5>
-
             <div class=" mdl-color--grey-900 p-4">
                <%= link_to edit_user_registration_path, class: 'btn btn-black btn btn-block rounded-0' do %>
                Edit Profile <i class="fa fa-pencil ml-2 text-success"></i>
@@ -142,41 +147,6 @@
    </div>
 </div>
 
-<div class="row">
-   <div class="col-md-12">
-      <div class="col-md-6">
-         <div class="card card-plain mdl-color--grey-900">
-            <div class="card-header bg-dark text-white">
-               <h4 class="card-title mt-0 text-white"> Table on Plain Background</h4>
-               <p class="card-category text-white"> Here is a subtitle for this table</p>
-            </div>
-            <div class="card-body">
-               <div class="table-responsive">
-                  <table class="table table-bordered table-dark table-ip">
-                     <thead>
-                        <tr>
-                           <th>Id</th>
-                           <th>Name</th>
-                           <th>Time</th>
-                           <th>IP Address</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <% @user.account_logins.each do |account_login| %>
-                        <tr>
-                           <td>1</td>
-                           <td><%=  @user.first_name + ' ' if  @user.first_name %> <%=  @user.last_name + ' ' if  @user.last_name %> </td>
-                           <td> <%= account_login.loginTime if account_login.loginTime %></td>
-                           <td><span class="badge badge-danger rounded-0 "><%= account_login.ipAddress if account_login.ipAddress %></span></td>
-                        </tr>
-                        <% end %>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+
 </div>
 </div>
