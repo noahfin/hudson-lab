@@ -1,3 +1,11 @@
 var postArray = $('.story');
+console.log(postArray)
+$("#more").trigger('click');
+if (postArray.length == 0) {
+$(".profile-stories").append($("<%= escape_javascript(render :partial => 'mainpostsection')%>"));
+}
+else{
 $("<%= escape_javascript(render :partial => 'mainpostsection')%>").insertAfter(postArray[postArray.length - 1]);
 
+}
+ $(".get_post_id").hide()

@@ -1,2 +1,3 @@
 $('#comment_<%= @post.id %>').append("<%= escape_javascript(render :partial => 'postComments')%>")
+$('a[href^="#commentCollapse_<%= @post.id %>"]').trigger('click');
 

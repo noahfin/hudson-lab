@@ -529,6 +529,7 @@
    .profile-feed a, .text-hudson-ornage{ color:  #be7e45 !important; }
    .post-input {
    min-width: 600px !important;
+   color: white !important;
    }
    .extra-hiiden {
    overflow: hidden;
@@ -536,6 +537,9 @@
    .comment-position {
    position: absolute;
    top: .4rem;
+   }
+   #mainpost_body, #comment_title, #comment_body {
+      color: white !important;
    }
 </style>
 <p id="notice"><%= notice %></p>
@@ -687,12 +691,12 @@
                      <div class="col-md-8 ">
                         <%= f.error_notification %>
                         <input type="hidden" value=<%="#{@deal.id}"%> id="deal_post_id" name="mainpost[deal_ids]">
-                        <div class="form-group">
-                           <%= f.input :body, class: 'form-control post-input ', label: false, placeholder: "Post a note to this deal"%>
+                        <div class="form-group text-white">
+                           <%= f.input :body, class: 'form-control post-input text-white', label: false, placeholder: "Post a note to this deal"%>
                         </div>
                      </div>
                      <div class="form-group col-md-4 mt-4 pt-4">
-                        <%= f.button :submit, class: 'btn btn-outline-info mt-2' %>
+                        <%= f.button :submit, class: 'btn btn-outline-info mt-2 post-send-btn' %>
                      </div>
                   </div>
                   <% end %>
@@ -709,7 +713,7 @@
             </form> -->
          <div class="profile-stories">
             <% @deal.mainpost.each do |post| %>
-            <article class="story "  id=<%="mainpost_#{post.id}"%>>
+            <article class="story"  id=<%="mainpost_#{post.id}"%>>
                <% if !post.users.first.nil? && !post.users.first.email.nil?
                   post_user_email = post.users.first.email
                   else
@@ -717,7 +721,7 @@
                <aside class="user-thumb"> <%= image_tag small_gravatar_url(post_user_email), class: 'user-image' %> </aside>
                <div class="story-content">
                   <header>
-                     <div class="publisher"> <a href="#"><% if  !@deal.contacts.nil?  %><%= @deal.contacts.first.name if @deal.contacts && !@deal.contacts.first.nil? %> <% end %></a>&nbsp; posted a note <em><%= time_ago_in_words(post.created_at)%></em></div>
+                     <div class="publisher"> <a href="#"><%= post.users.first.name %> </a>&nbsp; posted a note <em><%= time_ago_in_words(post.created_at)%></em></div>
                      <div class="story-type"> <i class="entypo-feather"></i></div>
                   </header>
                   <div class="story-main-content">
@@ -751,7 +755,7 @@
                   </div>
                </div>
 
-         <a href="#" class="liked mb-3"> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{post.id}"%>><%= post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= post.comments.count if post.comments %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn mr-0">like <input class="like_post" type="hidden" value=<%="#{post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>>  </span>                   <a class="btn btn-info text-info btn-link ml-0 pl-1" data-toggle="collapse"  href=<%="#commentCollapse_#{post.id}"%> aria-expanded="false" aria-controls=<%="#commentCollapse_#{post.id}"%>>
+         <a href="#" class="liked mb-3 "> <i class="entypo-heart"></i> Liked <span class="text-info"><a>(</a><a id=<%="like_#{post.id}"%>><%= post.likes.count %></a><a>)</a>  </span> </a> <a href="#"> <i class="entypo-comment"></i> Comment <span>(<%= post.comments.count if post.comments %>)</span></a>&nbsp;&nbsp;<span class="badge badge-dark like-btn text-danger mr-0">like <p class="get_post_id"><%= post.id%></p> <input class="like_post" type="hidden" value=<%="#{post.id}"%>>  <input class="like_authenticity" type="hidden" value=<%="#{form_authenticity_token}"%>>  </span>                   <a class="btn btn-info text-info btn-link ml-0 pl-1" data-toggle="collapse"  href=<%="#commentCollapse_#{post.id}"%> aria-expanded="false" aria-controls=<%="#commentCollapse_#{post.id}"%>>
                      <span class="text-info ml-0 pl-0">Add &nbsp;<i class="material-icons">comment</i></span>
                      </a>
          <ul class="comments mt-2" id=<%="comment_#{post.id}"%>>
@@ -783,3 +787,4 @@
 </section>
 </div>
 </div>
+

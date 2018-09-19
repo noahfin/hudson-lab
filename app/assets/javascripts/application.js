@@ -331,12 +331,15 @@ $(document).on('mouseleave', '.ui-menu', function (event) {
 
 });
 
+$(".get_post_id").hide()
+
 
 // like btn add section
 $(document).on('click', '.like-btn', function (e) {
    e.preventDefault();
-   var post_id = $(this).find('.like_post');
-   post_id = [post_id.val()]
+   var post_id = $(this).find('.get_post_id');
+   console.log(post_id.html());
+   post_id = [post_id.html()]
 var like_authenticity = $(this).find('.like_authenticity').val();
     console.log(like_authenticity);
    console.log(post_id);
