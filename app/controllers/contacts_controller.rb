@@ -3,25 +3,22 @@ class ContactsController < ApplicationController
   require 'uri'
   before_action :authenticate_user!
   before_action :find_contact, only: [:edit, :update, :destroy, :show]
-
   after_action :my_contacts, only: [:edit, :update  ]
   protect_from_forgery except: [:index, :show  ]
-
 
   def index
     session[:return_to] = request.referer
     @contact = Contact.new
     session[:selected_group_id] = params[:group_id]
     if params[:query].present?
-       @contacts = Contact.search(params[:query]).order('name ASC').page(params[:page])
+       @contacts = Contact.search(params[:query]).order(:name).page(params[:page])
     else
       my_contacts
     end
     respond_to do |format|
         format.html
         format.js
-      end
-
+    end
   end
 
   def autocomplete
@@ -30,40 +27,32 @@ class ContactsController < ApplicationController
     @contacts = Contact.good_search(criteria).page(params[:page])
     @searcheds = Searched.all
     searcheds_array = []
-
-
+    custom_index = 1
+    @searcheds.each_with_index do|searched, index|
+     searcheds_array[custom_index] = {name: searched.name, contact_id: searched.contact_id, email: searched.email, cell: searched.cell, number: searched.number, fulladdress: searched.fulladdress}
+     custom_index += 1
+    end
     if !@contacts.nil? && @searcheds.count < 7
-              Searched.create(:name => @contacts.first.name, :contact_id => @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
-
+       Searched.create(:name => @contacts.first.name, :contact_id => @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
     else
-             @searcheds.first.update_attributes(:name => @contacts.first.name, :contact_id =>  @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress)
-
+        @searcheds.first.update_attributes(:name => @contacts.first.name, :contact_id =>  @contacts.first.id, :number => @contacts.first.phone, :email => @contacts.first.email, :cell =>  @contacts.first.cell, :fulladdress => @contacts.first.Fulladdress) if !@contacts.nil?
+        @searcheds.each_with_index do|searched, index|
+           next if index == 0
+           temp_array = []
+        if  searcheds_array[index]
+            searcheds_array[index].each do |val|
+            temp_array << val
+           end
+            searched.update_attributes(:name => temp_array[0][1], :contact_id =>   temp_array[1][1], :number =>  temp_array[2][1], :email =>   temp_array[3][1], :cell =>    temp_array[4][1], :fulladdress =>  temp_array[5][1])
+        end
+      end
     end
-
-    @searcheds.each_with_index do|searched, index|
-       searcheds_array[index] = {name: searched.name, contact_id: searched.contact_id, email: searched.email, cell: searched.cell, number: searched.number, fulladdress: searched.fulladdress}
-
-    end
-
-    @searcheds.each_with_index do|searched, index|
-       next if index == 0
-       temp_array = []
-
-    if  searcheds_array[index - 1 ]
-       searcheds_array[index - 1 ].each do |val|
-        temp_array << val
-       end
-          searched.update_attributes(:name => temp_array[0][1], :contact_id =>   temp_array[1][1], :number =>  temp_array[2][1], :email =>   temp_array[3][1], :cell =>    temp_array[4][1], :fulladdress =>  temp_array[5][1])
-     end
-    end
-
-  end
+ end
 
   def letter
     @contact = Contact.find(params[:contact_id])
     render 'letter.html.erb'
   end
-
 
   def inport
     groups = params['groups']
@@ -78,40 +67,35 @@ class ContactsController < ApplicationController
     @lead = Lead.new
     @contact = Contact.new
     respond_to do |format|
-        format.html
-        format.js
-      end
+      format.html
+      format.js
+    end
   end
+
  def show
-
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
-
      respond_to do |format|
-        format.html
-        format.js
-      end
+      format.html
+      format.js
+   end
  end
+
   def edit
   authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
   my_contacts
   @group_ids = ContactsGroup.select("group_id").where(["contact_id = ?",  @contact.id ])
-
   end
 
   def update
     if current_user
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
-    if @contact.update(contact_params)
-       user_reltionships(@contact)
-       flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
-
-         redirect_to session[:return_to]
-
-
-     end
-   end
+      if @contact.update(contact_params)
+        user_reltionships(@contact)
+        flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
+        redirect_to session[:return_to]
+      end
+    end
   end
-
 
   def destroy
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
@@ -128,6 +112,7 @@ class ContactsController < ApplicationController
       end
     end
   end
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
@@ -169,7 +154,6 @@ class ContactsController < ApplicationController
 
   end
 
-
   private
 
     def contact_params
@@ -197,26 +181,26 @@ class ContactsController < ApplicationController
           if params['county']
             county = params['county']
             group = Group.find(params[:group_id])
-              @contacts = group.contacts.by_county(county).order('last_name ASC').page(params[:page])
+              @contacts = group.contacts.by_county(county).order(:last_name).page(params[:page])
 
           else
             if params['term']
               term = params['term'].split.map(&:capitalize)*' '
               group = Group.find(params[:group_id])
-              @contacts = group.contacts.in_group(term).order('last_name ASC').page(params[:page])
+              @contacts = group.contacts.in_group(term).order(:last_name).page(params[:page])
             else
-              @contacts = Group.find(params[:group_id]).contacts.order('last_name ASC').page(params[:page])
+              @contacts = Group.find(params[:group_id]).contacts.order(:last_name).page(params[:page])
             end
          end
       else
         if session[:selected_page] && !session[:selected_group_id].nil?
-          @contacts = Group.find( session[:selected_group_id]).contacts.order('last_name ASC').page(params[:selected_page])
+          @contacts = Group.find( session[:selected_group_id]).contacts.order(:last_name).page(params[:selected_page])
         elsif session[:selected_group_id]
-          @contacts = Group.find(session[:selected_group_id]).contacts.order('last_name ASC').page(params[:page])
+          @contacts = Group.find(session[:selected_group_id]).contacts.order(:last_name).page(params[:page])
        else
            @contacts = current_user.contacts.order('last_name ASC').page(params[:page]) unless !current_user
        end
          previous_query_string()
       end
+    end
   end
-end

@@ -1,13 +1,13 @@
 <div class="wizard-container reg-intro">
-   <div class="card card-wizard card-5" data-color="green" id="wizardProfile">
+   <div class="card card-wizard bg-black" data-color="red" id="wizardProfile">
       <%= form_with(model: deal, remote: true) do |form| %>
       <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
-      <div class="card-header text-center  p-0">
-         <div class=" card-1  div-header p-4">
-            <h3 class="card-title text-white">
+      <div class="card-header text-center bg-black p-0" style=" background: black !important;">
+         <div class=" bg-black  div-header p-4"  style=" background: black !important;">
+            <h3 class="card-title text-white"  style=" background: black !important;">
                Build Your Deal Outline
             </h3>
-            <h5 class="card-description text-white">This information will help to keep track of your deal.</h5>
+            <h5 class="card-description text-white"  style=" background: black !important;">This information will help to keep track of your deal.</h5>
          </div>
          <div class="wizard-navigation">
             <ul class="nav nav-pills">
@@ -325,10 +325,10 @@
 
       <div class="card-footer">
          <div class="mr-auto">
-            <input type="button" class="btn btn-previous btn-fill btn-success btn-wd disabled" name="previous" value="Previous">
+            <input type="button" class="btn btn-previous btn-fill btn-danger btn-wd disabled" name="previous" value="Previous">
          </div>
          <div class="ml-auto">
-            <input type="button" class="btn btn-next btn-fill btn-success btn-wd" name="next" value="Next">
+            <input type="button" class="btn btn-next btn-fill btn-danger btn-wd" name="next" value="Next">
             <button type="submit"  class="btn btn-finish btn-fill btn-success btn-wd" style="display: none;">finish </button>
          </div>
          <div class="clearfix"></div>
