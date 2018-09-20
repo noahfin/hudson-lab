@@ -48,7 +48,7 @@
 
   <% if properties_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"> Action Steps For Properties  </td>
+      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps For Properties </h4> </td>
    </tr>
    <% end %>
    <% properties_array.each_with_index do |task, index| %>
@@ -68,7 +68,7 @@
 <div class="">
      <% if projects_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"> Action Steps for Projects </td>
+      <td class=" p-3 mb-2 text-muted"><h4 class="text-muted"> Action Steps for Projects </h4></td>
    </tr>
    <% end %>
    <% projects_array.each_with_index do |task, index| %>
@@ -87,7 +87,7 @@
 <div class="">
    <% if groups_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted">Action Steps for Groups</td>
+      <td class=" p-3 mb-2 text-muted"><h4 class="text-muted">Action Steps for Groups</h4></td>
    </tr>
    <% end %>
    <% groups_array.each_with_index do |task, index| %>
@@ -105,7 +105,7 @@
 <div class="">
    <% if leads_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"> Action Steps for Leads </td>
+      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps for Leads</h4> </td>
    </tr>
    <% end %>
    <% leads_array.each_with_index do |task, index| %>
@@ -125,10 +125,10 @@
 
 
 
-            <tbody id="tasks-user-list">
+            <tbody id="tasks-user-list" class="mt-0 pt-0">
         <% unless task_contact_array.nil? || task_contact_array.empty? %>
 <% if task_contact_array.count > 0 %>
-   <p class=" p-2 mb-2 text-muted"> Action Steps for Contacts  </p>
+  <h4 class="text-muted mt-0 pt-2"> Action Steps for Contacts </h4>
    <% end %>
    <% task_contact_array.each_with_index do |task, index| %>
 
@@ -154,7 +154,7 @@
 <div class="">
    <% if task_contact_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"> Action Steps For Properties  </td>
+      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps For Properties<h4>  </td>
    </tr>
    <% end %>
    <% properties_array.each_with_index do |task, index| %>
@@ -180,7 +180,7 @@
 <% unless projects_array.nil?  || projects_array.empty? %>
 <div class="">
    <tr>
-      <td class=" p-3 mb-2 text-muted"> Action Steps for Projects </td>
+      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps for Projects</h4> </td>
    </tr>
    <% projects_array.each_with_index do |task, index| %>
           <% is_personl_user = false %>
@@ -203,7 +203,7 @@
 <% unless groups_array.nil? || groups_array.empty? %>
 <div class="">
    <tr>
-      <td class=" p-3 mb-2 text-muted">Action Steps for Groups</td>
+      <td class=" p-3 mb-2 text-muted"><h4 class="text-muted">Action Steps for Groups</h4></td>
    </tr>
    <% groups_array.each_with_index do |task, index| %>
 
@@ -227,7 +227,7 @@
 <% unless leads_array.nil? || leads_array.empty? %>
 <div class="">
    <tr>
-      <td class=" p-3 mb-2 text-muted"> Action Steps for Leads </td>
+      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps for Leads</h4> </td>
    </tr>
    <% leads_array.each_with_index do |task, index| %>
 
