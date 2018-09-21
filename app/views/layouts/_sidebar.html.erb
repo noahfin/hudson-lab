@@ -246,17 +246,23 @@
         </a>
         <div class="collapse text-white" id="deals">
           <ul class="nav text-white">
-            <li class="nav-item ">
+            <li class="nav-item">
                <%= link_to deals_path, class: 'nav-link text-white'  do %>
                 <span class="sidebar-mini"> AD </span>
                 <span class="sidebar-normal"> All Deals</span>
                <% end %>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
                <%= link_to new_deal_path, class: 'nav-link text-white'  do %>
                 <span class="sidebar-mini"> ND </span>
                 <span class="sidebar-normal"> New Deal </span>
               <% end %>
+            </li>
+             <li class="nav-item">
+              <a href="/maps" title="maps"  class= 'nav-link text-white'>
+                <span class="sidebar-mini"> VM </span>
+                <span class="sidebar-normal"> View Maps </span>
+              </a>
             </li>
 
           </ul>

@@ -46020,6 +46020,7 @@ if ("undefined" == typeof jQuery) throw new Error("Jasny Bootstrap's JavaScript 
         }
     }, Vt
 });
+
 $().ready(function() {
     $sidebar = $('.sidebar');
     $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -47275,7 +47276,7 @@ var demo = {
     initSmallGoogleMaps: function() {
 
         // Regular Map
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var myLatlng = new google.maps.LatLng(41.6504857, -73.9351406,);
         var mapOptions = {
             zoom: 8,
             center: myLatlng,
@@ -47293,7 +47294,7 @@ var demo = {
 
 
         // Custom Skin & Settings Map
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var myLatlng = new google.maps.LatLng(41.6504857, -73.9351406,);
         var mapOptions = {
             zoom: 13,
             center: myLatlng,
@@ -47400,7 +47401,7 @@ var demo = {
 
 
         // Satellite Map
-        var myLatlng = new google.maps.LatLng(40.748817, -73.985428);
+        var myLatlng = new google.maps.LatLng(41.6504857, -73.9351406,);
         var mapOptions = {
             zoom: 3,
             scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page

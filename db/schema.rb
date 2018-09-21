@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_19_161609) do
+ActiveRecord::Schema.define(version: 2018_09_20_183928) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -509,6 +509,12 @@ ActiveRecord::Schema.define(version: 2018_09_19_161609) do
     t.integer "user_id", null: false
     t.index ["mainpost_id", "user_id"], name: "index_mainposts_users_on_mainpost_id_and_user_id"
     t.index ["user_id", "mainpost_id"], name: "index_mainposts_users_on_user_id_and_mainpost_id"
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personal_messages", force: :cascade do |t|

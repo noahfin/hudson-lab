@@ -30,29 +30,26 @@
 <% end %>
 <!-- .todo-header -->
 <% unless task_contact_array.nil? || task_contact_array.empty? %>
-
-   <% task_contact_array.each_with_index do |task, index| %>
-   <tr id="edit_task_<%= task.id %>">
-      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-         <%= task.name %>   <% end %>
-      </td>
-   </tr>
-   <!-- /.custom-control -->
-   <% end %>
-   <% end %>
-
+<% task_contact_array.each_with_index do |task, index| %>
+<tr id="edit_task_<%= task.id %>">
+   <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+      <%= task.name %>   <% end %>
+   </td>
+</tr>
+<!-- /.custom-control -->
+<% end %>
+<% end %>
 <!-- /.todo -->
 <% unless properties_array.nil? || properties_array.empty? %>
 <div class="">
-
-
-  <% if properties_array.count > 0 %>
+   <% if properties_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps For Properties </h4> </td>
+      <td class=" p-3 mb-2 text-muted">
+         <h4 class="text-muted">Action Steps For Properties </h4>
+      </td>
    </tr>
    <% end %>
    <% properties_array.each_with_index do |task, index| %>
-
    <!-- .custom-control -->
    <tr id="edit_task_<%= task.id %>">
       <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
@@ -62,13 +59,14 @@
    <% end %>
    <% end %>
 </div>
-
 <!-- /.todo -->
 <% unless projects_array.nil?  || projects_array.empty? %>
 <div class="">
-     <% if projects_array.count > 0 %>
+   <% if projects_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"><h4 class="text-muted"> Action Steps for Projects </h4></td>
+      <td class=" p-3 mb-2 text-muted">
+         <h4 class="text-muted"> Action Steps for Projects </h4>
+      </td>
    </tr>
    <% end %>
    <% projects_array.each_with_index do |task, index| %>
@@ -81,13 +79,14 @@
    <% end %>
    <% end %>
 </div>
-
 <!-- /.todo -->
 <% unless groups_array.nil? || groups_array.empty? %>
 <div class="">
    <% if groups_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"><h4 class="text-muted">Action Steps for Groups</h4></td>
+      <td class=" p-3 mb-2 text-muted">
+         <h4 class="text-muted">Action Steps for Groups</h4>
+      </td>
    </tr>
    <% end %>
    <% groups_array.each_with_index do |task, index| %>
@@ -100,12 +99,13 @@
    <% end %>
    <% end %>
 </div>
-
 <% unless leads_array.nil? || leads_array.empty? %>
 <div class="">
    <% if leads_array.count > 0 %>
    <tr>
-      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps for Leads</h4> </td>
+      <td class=" p-3 mb-2 text-muted">
+         <h4 class="text-muted">Action Steps for Leads</h4>
+      </td>
    </tr>
    <% end %>
    <% leads_array.each_with_index do |task, index| %>
@@ -118,136 +118,127 @@
    <% end %>
    <% end %>
 </div>
-
 <!-- tab section base --><!-- tab section base --> <!-- tab section base --><!-- tab section base --> <!-- tab section base --><!-- tab section base -->
-
-
-
-
-
-            <tbody id="tasks-user-list" class="mt-0 pt-0">
-        <% unless task_contact_array.nil? || task_contact_array.empty? %>
-<% if task_contact_array.count > 0 %>
-  <h4 class="text-muted mt-0 pt-2"> Action Steps for Contacts </h4>
+<tbody id="tasks-user-list" class="mt-0 pt-0">
+   <% unless task_contact_array.nil? || task_contact_array.empty? %>
+   <% if task_contact_array.count > 0 %>
+   <h4 class="text-muted mt-0 pt-2"> Action Steps for Contacts </h4>
    <% end %>
    <% task_contact_array.each_with_index do |task, index| %>
-
-          <% is_personl_user = false%>
-            <% task.users.each do |user| %>
-            <% if user == current_user %>
-            <%  is_personl_user = true   %>
-
-            <% end %>
-            <% end %>
+   <% is_personl_user = false%>
+   <% task.users.each do |user| %>
+   <% if user == current_user %>
+   <%  is_personl_user = true   %>
+   <% end %>
+   <% end %>
    <% next if !is_personl_user   %>
    <tr id="edit_task_<%= task.id %>">
       <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
          <%= task.name %>   <% end %>
       </td>
    </tr>
-
    <% end %>
    <% end %>
-
-<!-- /.todo -->
-<% unless properties_array.nil? || properties_array.empty? %>
-<div class="">
-   <% if task_contact_array.count > 0 %>
-   <tr>
-      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps For Properties<h4>  </td>
-   </tr>
-   <% end %>
-   <% properties_array.each_with_index do |task, index| %>
-
-          <% is_personl_user = false%>
-            <% task.users.each do |user| %>
-            <% if user == current_user %>
-            <%  is_personl_user = true   %>
-
-            <% end %>
-            <% end %>
-   <% next if  !is_personl_user   %>
-   <!-- .custom-control -->
-   <tr id="edit_task_<%= task.id %>">
-      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-         <%= task.name %>   <% end %>
-      </td>
-   </tr>
-   <% end %>
-   <% end %>
-</div>
-<!-- /.todo -->
-<% unless projects_array.nil?  || projects_array.empty? %>
-<div class="">
-   <tr>
-      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps for Projects</h4> </td>
-   </tr>
-   <% projects_array.each_with_index do |task, index| %>
-          <% is_personl_user = false %>
-            <% task.users.each do |user| %>
-            <% if user == current_user %>
-            <%  is_personl_user = true   %>
-
-            <% end %>
-            <% end %>
-   <% next if !is_personl_user %>
-   <tr id="edit_task_<%= task.id %>">
-      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-         <%= task.name %>   <% end %>
-      </td>
-   </tr>
-   <!-- /.custom-control -->
-   <% end %>
-   <% end %>
-</div>
-<% unless groups_array.nil? || groups_array.empty? %>
-<div class="">
-   <tr>
-      <td class=" p-3 mb-2 text-muted"><h4 class="text-muted">Action Steps for Groups</h4></td>
-   </tr>
-   <% groups_array.each_with_index do |task, index| %>
-
-          <% is_personl_user = false%>
-            <% task.users.each do |user| %>
-            <% if user == current_user %>
-            <%  is_personl_user = true   %>
-
-            <% end %>
-            <% end %>
+   <!-- /.todo -->
+   <% unless properties_array.nil? || properties_array.empty? %>
+   <div class="">
+      <% if task_contact_array.count > 0 %>
+      <tr>
+         <td class=" p-3 mb-2 text-muted">
+            <h4 class="text-muted">
+            Action Steps For Properties
+            <h4>
+         </td>
+      </tr>
+      <% end %>
+      <% properties_array.each_with_index do |task, index| %>
+      <% is_personl_user = false%>
+      <% task.users.each do |user| %>
+      <% if user == current_user %>
+      <%  is_personl_user = true   %>
+      <% end %>
+      <% end %>
+      <% next if  !is_personl_user   %>
+      <!-- .custom-control -->
+      <tr id="edit_task_<%= task.id %>">
+         <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+            <%= task.name %>   <% end %>
+         </td>
+      </tr>
+      <% end %>
+      <% end %>
+   </div>
+   <!-- /.todo -->
+   <% unless projects_array.nil?  || projects_array.empty? %>
+   <div class="">
+      <tr>
+         <td class=" p-3 mb-2 text-muted">
+            <h4 class="text-muted">Action Steps for Projects</h4>
+         </td>
+      </tr>
+      <% projects_array.each_with_index do |task, index| %>
+      <% is_personl_user = false %>
+      <% task.users.each do |user| %>
+      <% if user == current_user %>
+      <%  is_personl_user = true   %>
+      <% end %>
+      <% end %>
       <% next if !is_personl_user %>
-   <tr id="edit_task_<%= task.id %>">
-      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-         <%= task.name %>   <% end %>
-      </td>
-   </tr>
-   <!-- /.custom-control -->
-   <% end %>
-   <% end %>
-</div>
-<% unless leads_array.nil? || leads_array.empty? %>
-<div class="">
-   <tr>
-      <td class=" p-3 mb-2 text-muted"> <h4 class="text-muted">Action Steps for Leads</h4> </td>
-   </tr>
-   <% leads_array.each_with_index do |task, index| %>
-
-          <% is_personl_user = false%>
-            <% task.users.each do |user| %>
-            <% if user == current_user %>
-            <%  is_personl_user = true   %>
-
-            <% end %>
-            <% end %>
+      <tr id="edit_task_<%= task.id %>">
+         <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+            <%= task.name %>   <% end %>
+         </td>
+      </tr>
+      <!-- /.custom-control -->
+      <% end %>
+      <% end %>
+   </div>
+   <% unless groups_array.nil? || groups_array.empty? %>
+   <div class="">
+      <tr>
+         <td class=" p-3 mb-2 text-muted">
+            <h4 class="text-muted">Action Steps for Groups</h4>
+         </td>
+      </tr>
+      <% groups_array.each_with_index do |task, index| %>
+      <% is_personl_user = false%>
+      <% task.users.each do |user| %>
+      <% if user == current_user %>
+      <%  is_personl_user = true   %>
+      <% end %>
+      <% end %>
       <% next if !is_personl_user %>
-   <tr id="edit_task_<%= task.id %>">
-      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0  btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
-         <%= task.name %>   <% end %>
-      </td>
-   </tr>
-   <!-- /.custom-control -->
-   <% end %>
-   <% end %>
-</div>
+      <tr id="edit_task_<%= task.id %>">
+         <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+            <%= task.name %>   <% end %>
+         </td>
+      </tr>
+      <!-- /.custom-control -->
+      <% end %>
+      <% end %>
+   </div>
+   <% unless leads_array.nil? || leads_array.empty? %>
+   <div class="">
+      <tr>
+         <td class=" p-3 mb-2 text-muted">
+            <h4 class="text-muted">Action Steps for Leads</h4>
+         </td>
+      </tr>
+      <% leads_array.each_with_index do |task, index| %>
+      <% is_personl_user = false%>
+      <% task.users.each do |user| %>
+      <% if user == current_user %>
+      <%  is_personl_user = true   %>
+      <% end %>
+      <% end %>
+      <% next if !is_personl_user %>
+      <tr id="edit_task_<%= task.id %>">
+         <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_task_path(task.id), class: "btn ml-0 mr-0  btn-link btn-sm", remote: true, title: 'edit', rel: "tooltip"  do %>
+            <%= task.name %>   <% end %>
+         </td>
+      </tr>
+      <!-- /.custom-control -->
+      <% end %>
+      <% end %>
+   </div>
 </tbody>
-
-
