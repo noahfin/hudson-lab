@@ -1,6 +1,6 @@
 <div class="sidebar  text-white" >
   <div class="logo text-white">
-    <a href="" class="simple-text logo-mini mb-2 text-white scondary-size-text">
+    <a href="/contacts" class="simple-text logo-mini mb-2 text-white scondary-size-text">
      <%= current_user.first_name[0] if current_user.first_name %> <%= current_user.last_name[0] if current_user.last_name %>
     </a>
     <a href="" class="simple-text logo-normal mb-2 text-white scondary-size-text">
@@ -63,10 +63,32 @@
       </div>
     </div>
     <ul class="nav text-white ">
-        <li class="nav-item text-white <%=active_item('dashboard') %>">
-         <%= link_to "<i class='material-icons text-white'>dashboard</i><p> Dashboard </p>".html_safe, dashboard_path, class: 'nav-link text-white' %>
-        </li>
 
+        <li class="nav-item text-white ">
+        <a class="nav-link" data-toggle="collapse" href="#componentsdashboard">
+          <i class="material-icons text-white">dashboard</i>
+          <p> Dashboard
+            <b class="caret"></b>
+          </p>
+        </a>
+
+          <div class="collapse" id="componentsdashboard">
+          <ul class="nav text-white ">
+            <li class="nav-item ">
+              <%= link_to dashboard_path, class: "nav-link text-white" do %>
+                <span class="sidebar-mini"> VD </span>
+                <span class="sidebar-normal"> View Dashboard </span>
+              <% end %>
+            </li>
+               <li class="nav-item text-white">
+                <%= link_to maps_path, class: "nav-link" do %>
+                <span class="sidebar-mini">VM </span>
+                <span class="sidebar-normal">View Maps </span>
+             <% end %>
+            </li>
+
+          </ul>
+        </div>
       <li class="nav-item text-white ">
         <a class="nav-link" data-toggle="collapse" href="#componentsExamples">
           <i class="material-icons text-white">person</i>
@@ -160,7 +182,6 @@
                 <span class="sidebar-normal"> View Groups </span>
               </a></li>
               <li class="nav-item text-white ">
-
                 <%= link_to new_group_path, class: "nav-link text-white", remote: true do %>
                  <span class="sidebar-mini"> AG</span>
                  <span class="sidebar-normal"> Add Group </span>
@@ -396,4 +417,4 @@
     </ul>
   </div>
 </div>
-appointments
+

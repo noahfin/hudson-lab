@@ -1,340 +1,830 @@
 <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-
+   /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+   #map {
+   height: 100%;
+   }
+   /* Optional: Makes the sample page fill the window. */
+   html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   }
+</style>
 <div class="">
-
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card card-1">
-                <div class="card-header card-header-text card-1">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card card-1">
+               <div class="card-header card-header-text card-1">
                   <div class="card-text bg-black">
-                    <h4 class="card-title bg-black">Satellite Map</h4>
+                     <h4 class="card-title bg-black">Satellite Map</h4>
                   </div>
-                </div>
-                <div class="card-body ">
+               </div>
+               <div class="card-body ">
                   <h4 class="card-title"></h4>
-                  <div id="satelliteMap" class="map map-big" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="-moz-user-select: none;"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card card-1 ">
-                <div class="card-header card-header-text card-1">
-                  <div class="card-text bg-black">
-                    <h4 class="card-title ">Custom Skin &amp; Settings Map</h4>
+                  <div id="satelliteMap" class="map map-big" style="position: relative; overflow: hidden;">
+                     <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                        <div class="gm-err-container">
+                           <div class="gm-err-content">
+                              <div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="-moz-user-select: none;"></div>
+                              <div class="gm-err-title">Oops! Something went wrong.</div>
+                              <div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-                <div class="card-body card-1 ">
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="card card-1 ">
+               <div class="card-header card-header-text card-1">
+                  <div class="card-text bg-black">
+                     <h4 class="card-title ">Custom Map &amp; Find Propects</h4>
+                  </div>
+               </div>
+               <div class="card-body card-1 ">
                   <h4 class="card-title bg-black"></h4>
-
-                  <div id="regularMap" class="map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="-moz-user-select: none;"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card card-1 ">
-                <div class="card-header card-header-text card-1">
-                  <div class="card-text bg-black">
-                    <h4 class="card-title ">Custom Skin &amp; Settings Map</h4>
+                  <div id="regularMap" class="map" style="position: relative; overflow: hidden;">
+                     <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                        <div class="gm-err-container">
+                           <div class="gm-err-content">
+                              <div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="-moz-user-select: none;"></div>
+                              <div class="gm-err-title">Oops! Something went wrong.</div>
+                              <div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-                <div class="card-body ">
-                  <h4 class="card-title"></h4>
-                  <div id="customSkinMap" class="map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="-moz-user-select: none;"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
+         <div class="col-md-6">
+            <div class="card card-1 ">
+               <div class="card-header card-header-text card-1">
+                  <div class="card-text bg-black">
+                     <h4 class="card-title ">Custom Skin &amp; Settings Map</h4>
+                  </div>
+               </div>
+               <div class="card-body ">
+                  <h4 class="card-title"></h4>
+                  <div id="customSkinMap" class="map" style="position: relative; overflow: hidden;">
+                     <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                        <div class="gm-err-container">
+                           <div class="gm-err-content">
+                              <div class="gm-err-icon"><img src="https://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="-moz-user-select: none;"></div>
+                              <div class="gm-err-title">Oops! Something went wrong.</div>
+                              <div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
+   </div>
+</div>
+<div class="col-md-6">
+   <div class="card card-1 ">
+      <div class="card-header card-header-text card-1">
+         <div class="card-text bg-black">
+            <h4 class="card-title ">Search For Business To Prospect </h4>
+         </div>
+      </div>
+      <div class="card-body ">
+         <div class="right-content">
+            <input type="text" id="autocomplete" placeholder="Enter A Location" class="form-control">
+         </div>
+         <div class="">
+            <div id="bus-name">
+               <div class="reveal-btn right">
+                  <a href=""></a>
+               </div>
+               <div class="reveal-btn left ">
+                  <a class="little-btn" href=""></a>
+               </div>
+               <div class="input-group no-border">
+                  <input value="" class="form-control" placeholder="Search..." type="text" id="location-input">
+                  <button type="submit" class="btn btn-outline-white send-btn mt-3 ">
+                     Search <i class="material-icons">search</i>
+                     <div class="ripple-container"></div>
+                  </button>
+               </div>
+               <hr>
+               <ul id="places-ul">
+                  <li></li>
+                  <li class="lat"></li>
+                  <li class="lng"></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%="#{@key}"%>&libraries=places"></script>
 
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
-
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-        $full_page = $('.full-page');
-
-        $sidebar_responsive = $('body > .navbar-collapse');
-
-        window_width = $(window).width();
-
-        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
-          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
-            $('.fixed-plugin .dropdown').addClass('open');
-          }
-
-        }
-
-        $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-
-
-          var new_image = $(this).find("img").attr('src');
-
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
-      });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      demo.initSmallGoogleMaps();
-    });
-  </script>
-  <script>
-      function initMap() {
-        // Styles a map in night mode.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.6504857, lng: -73.9351406},
-          zoom: 12,
-          styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-          ]
-        });
-      }
-    </script>
 <script type="text/javascript">
+   $(document).ready(function() {
+   //google map vaiables setting
 
-  if(!window.location.hash) {
-    window.location = window.location + '#loaded';
-    window.location.reload();
-  }
+   var placeData = [ ];
+   var currentLocation = {
+    lat: 41.65053,
+    lng: -73.932648
+   };
+
+   function codeLatLng( locString,callback) {
+   var geoLoc = {
+     intLat: 0.0,
+     intLng: 0.0
+   }
+    var geocoder = new google.maps.Geocoder();
+    var address = locString;
+    var startLocation =  geocoder.geocode( { 'address': address}, function(results, status) {
+     if (status == google.maps.GeocoderStatus.OK) {
+        geoLoc.intLat = parseFloat(results[0].geometry.location.lat());
+        geoLoc.intLng = parseFloat(results[0].geometry.location.lng());
+        console.log(results)
+          callback(geoLoc);
+     } else {
+       alert("Geocode was not successful for the following reason: " + status);
+     }
+      return geoLoc;
+   });
+   }
 
 
+   //Start of Main Google maps Function
+   //**********************************
+
+   getPlaceType("art_gallery");
+
+   function getPlaceType(typeVal, addr) {
+   var lat;
+   var lng;
+   if ( currentLocation.lat === undefined) {
+    lat = 41.65053;
+    lng = -73.932648;
+    console.log('Location is undefined, so it is using hardcododing! ');
+    console.log(lat);
+   } else {
+    lat = currentLocation.lat;
+    lng = currentLocation.lng;
+   }
+
+    $.post('/maps/place', { type: typeVal, lat: lat,  lng: lng},
+   function(json){
+     placeData = [];//reset the array back to empty
+   $.each(json.results, function( index, value ) {
+       var $ul = $('<ul class="place-name"></ul>');
+       var $p= $('<p class="h5"></p>');
+       var $lat = $('<li class="lat"></li>');
+       var $lng = $('<li class="lng"></li>')
+       var $id = $('<li class="place-id"></li>')
+       var $photo_id = $('<li class="photo-id"></li>')
+
+      placeData[index] = {name: value.name, id: value.place_id}; //sets the place data
+       $p.html(value.name);
+       if (value.photos != undefined){
+           console.log(value.photos[0].photo_reference);
+          $photo_id.html(value.photos[0].photo_reference)
+       }
+
+       $lat.html(value.geometry.location.lat);
+       $lng.html(value.geometry.location.lng);
+       $id.html(value.place_id);
+
+       $ul.append($p);
+       $ul.append($lat);
+       $ul.append($lng);
+       $ul.append($id);
+       $ul.append($photo_id);
+       $('#bus-name').append($ul);
+   })
+      addCsvButton();
+   });
+   }
+
+   $('.type-select').change(function(){
+    placeData = [];
+   $(".place-name").remove();
+    getPlaceType($(this).val());
+   })
+
+   //google maps api code
+    //call the function that gets and sets cords
+   codeLatLng('2265 South Road, Poughkeepsie, NY', function(addr){
+   var mapOptions = {
+    center: new google.maps.LatLng(addr.intLat,addr.intLng),
+    zoom: 12,
+   mapTypeId: google.maps.MapTypeId.ROADMAP
+   };
+   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+   var markerOptions = {
+   position: new google.maps.LatLng(addr.intLat, addr.intLng)
+   };
+   var marker = new google.maps.Marker(markerOptions);
+   marker.setMap(map);
+
+   });
+   $(document).on('click', '.place-name', getLocation);
+
+   function getLocation() {
+   var thisChildren = $(this).children();
+   var pName  = thisChildren[0].innerHTML;
+   var latVal = thisChildren[1].innerHTML;
+   var lngVal = thisChildren[2].innerHTML;
+   var idVal =  thisChildren[3].innerHTML;
+   var photo_ref =  thisChildren[4].innerHTML;
+
+   var mapOptions = {
+     center: new google.maps.LatLng(latVal,lngVal),
+     zoom: 11,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+   };
+
+   var request = {
+     placeId: idVal
+   };
+
+   var service = new google.maps.places.PlacesService(map);
+   service.getDetails(request, callback);
+
+   function callback(place, status) {
+     if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+       var markerOptions = {
+         position: new google.maps.LatLng(latVal, lngVal)
+       };
+       var marker = new google.maps.Marker(markerOptions);
+       marker.setMap(map);
+
+
+       $.get('photos/'+ photo_ref,
+         function(json){
+
+             if (json == "The file was successfully uploaded!") {
+
+             $("#place-photo").attr("src", "uploads/" +photo_ref+".png");
+
+             }
+
+         });
+
+       var infoWindowOptions = {
+         content:  place.name +place.formatted_address + '<br><br>' +'<a href="tel:+' +place.formatted_phone_number +'">'+ place.formatted_phone_number + '</a><br>'
+       }
+       var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+       google.maps.event.addListener(marker,'click',function(e){
+         infoWindow.open(map, marker);
+       });
+     }
+   }
+   };
+
+   $('.right').click(function(e){
+   e.preventDefault()
+   $( ".chnage-loc" ).slideDown( 1000, function() {
+      $('.change-search').css( "display", "block" );
+   });
+   });
+
+   $('.left').click(function(e){
+   e.preventDefault()
+   $( ".chnage-loc" ).slideUp( 1000, function() {
+     $('.change-search').css( "display", "none" );
+   });
+   });
+   //End of main function
+
+   // auto complete section
+   $('#autocomplete').change(function(){
+
+     var $location = $('#autocomplete').val();
+      $('#location-input').html(' ');
+     codeLatLng($location, function(addr){
+
+       var mapOptions = {
+          center: new google.maps.LatLng(addr.intLat,addr.intLng),
+          zoom: 12,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+       };
+       var map = new google.maps.Map(document.getElementById('regularMap'), mapOptions);
+       var markerOptions = {
+       position: new google.maps.LatLng(addr.intLat, addr.intLng)
+       };
+       var marker = new google.maps.Marker(markerOptions);
+       marker.setMap(map);
+
+       var lat;
+       var lng;
+       var typeVal = "art_gallery"
+       if ( addr === undefined) {
+        lat = 41.65053;
+        lng = -73.932648;
+       } else { // here is where we update currentLocation data
+        lat = addr.intLat
+        lng = addr.intLng;
+        currentLocation.lat = addr.intLat;
+        currentLocation.lng = addr.intLng;
+
+       }
+
+       $.post('place', { type: typeVal, lat: lat,  lng: lng},
+         function(json){
+           $(".place-name").remove();
+           placeData = [];
+           $.each(json.results, function( index, value ) {
+           var $ul = $('<ul class="place-name"></ul>');
+           var $p= $('<p class="h5"></p>');
+           var $lat = $('<li class="lat"></li>');
+           var $lng = $('<li class="lng"></li>')
+           var $id = $('<li class="place-id"></li>')
+           var $photo_id = $('<li class="photo-id"></li>')
+           $p.html(value.name);
+           if (value.photos != undefined){
+              $photo_id.html(value.photos[0].photo_reference)
+           }
+           placeData[index] = {name: value.name, id: value.place_id};
+           $lat.html(value.geometry.location.lat);
+           $lng.html(value.geometry.location.lng);
+           $id.html(value.place_id);
+           $ul.append($p);
+           $ul.append($lat);
+           $ul.append($lng);
+           $ul.append($id);
+           $ul.append($photo_id);
+           $('#bus-name').append($ul);
+
+           })
+          addCsvButton();
+         });
+
+       })
+
+   });// End of auto complete section
+
+   // code for CSV File
+   function callback2(place, status) {
+   if (status == google.maps.places.PlacesServiceStatus.OK){
+     placeData[x].name = place.name;
+     addressArray.push(place.formatted_address);
+     detailsArray.push({address: place.formatted_address, number: place.formatted_phone_number, website: place.website })
+       if(x !== addressArray.length) {
+           console.log(x);+
+           x++;
+           loopArray();
+         }else {
+           x = 0;
+
+         }
+
+   }
+   }// End of CSV FIle section
+
+
+   //add placees radar search
+   function doRadarSearch(keyWords) {
+
+   initMap();
+   var map;
+   var infoWindow;
+   var service;
+   var latVal, lngVal;
+   placeData = [];
+
+   function initMap() {
+   map = new google.maps.Map(document.getElementById('regularMap'), {
+     center: {lat: currentLocation.lat, lng: currentLocation.lng},
+     zoom: 15,
+               styles: [{
+                   "featureType": "water",
+                   "stylers": [{
+                       "saturation": 43
+                   }, {
+                       "lightness": -11
+                   }, {
+                       "hue": "#0088ff"
+                   }]
+               }, {
+                   "featureType": "road",
+                   "elementType": "geometry.fill",
+                   "stylers": [{
+                       "hue": "#ff0000"
+                   }, {
+                       "saturation": -100
+                   }, {
+                       "lightness": 99
+                   }]
+               }, {
+                   "featureType": "road",
+                   "elementType": "geometry.stroke",
+                   "stylers": [{
+                       "color": "#808080"
+                   }, {
+                       "lightness": 54
+                   }]
+               }, {
+                   "featureType": "landscape.man_made",
+                   "elementType": "geometry.fill",
+                   "stylers": [{
+                       "color": "#ece2d9"
+                   }]
+               }, {
+                   "featureType": "poi.park",
+                   "elementType": "geometry.fill",
+                   "stylers": [{
+                       "color": "#ccdca1"
+                   }]
+               }, {
+                   "featureType": "road",
+                   "elementType": "labels.text.fill",
+                   "stylers": [{
+                       "color": "#767676"
+                   }]
+               }, {
+                   "featureType": "road",
+                   "elementType": "labels.text.stroke",
+                   "stylers": [{
+                       "color": "#ffffff"
+                   }]
+               }, {
+                   "featureType": "poi",
+                   "stylers": [{
+                       "visibility": "off"
+                   }]
+               }, {
+                   "featureType": "landscape.natural",
+                   "elementType": "geometry.fill",
+                   "stylers": [{
+                       "visibility": "on"
+                   }, {
+                       "color": "#b8cb93"
+                   }]
+               }, {
+                   "featureType": "poi.park",
+                   "stylers": [{
+                       "visibility": "on"
+                   }]
+               }, {
+                   "featureType": "poi.sports_complex",
+                   "stylers": [{
+                       "visibility": "on"
+                   }]
+               }, {
+                   "featureType": "poi.medical",
+                   "stylers": [{
+                       "visibility": "on"
+                   }]
+               }, {
+                   "featureType": "poi.business",
+                   "stylers": [{
+                       "visibility": "simplified"
+                   }]
+               }]
+   });
+
+   infoWindow = new google.maps.InfoWindow();
+   service = new google.maps.places.PlacesService(map);
+
+   // The idle event is a debounced event, so we can query & listen without
+   // throwing too many requests at the server.
+   map.addListener('idle', performSearch);
+   }
+
+
+
+
+
+  function performSearch() {
+
+
+   var request = {
+     bounds: map.getBounds(),
+     query:  keyWords
+   };
+    service = new google.maps.places.PlacesService(map);
+   service.textSearch(request, callback);
+   }
+
+   function callback(results, status) {
+
+   if (status !== google.maps.places.PlacesServiceStatus.OK) {
+     console.error(status);
+     return;
+   }
+
+   for (var i = 0, result; result = results[i]; i++) {
+     addMarker(result);
+
+      placeData[i] = {name: undefined, id: result.place_id}; //sets the place data
+
+   }
+   }
+
+   function addMarker(place) {
+   var marker = new google.maps.Marker({
+     map: map,
+     position: place.geometry.location,
+     icon: {
+       url: 'http://maps.gstatic.com/mapfiles/circle.png',
+       anchor: new google.maps.Point(10, 10),
+       scaledSize: new google.maps.Size(10, 17)
+     }
+   });
+
+   google.maps.event.addListener(marker, 'click', function() {
+     service.getDetails(place, function(result, status) {
+       if (status !== google.maps.places.PlacesServiceStatus.OK) {
+         console.error(status);
+
+         return;
+       }
+
+
+       infoWindow.setContent( '<div><strong class="text-black">' + result.name + '</strong><br>' +'<a href="tel:+' +result.formatted_phone_number +'" class="text-info">'+ result.formatted_phone_number + '</a><br> <a href="'+result.website+'" title="website"><p class="text-black">'+  result.website + '</P></a><br>'  );
+       infoWindow.open(map, marker);
+     });
+   });
+   }
+   }
+
+   $('.send-btn').on('click', function(e){
+     e.preventDefault();
+    var $string = $('#location-input').val();
+    doRadarSearch($string );
+   });
+
+
+
+   });
+   $(document).ready(function() {
+     $().ready(function() {
+       $sidebar = $('.sidebar');
+
+       $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+       $full_page = $('.full-page');
+
+       $sidebar_responsive = $('body > .navbar-collapse');
+
+       window_width = $(window).width();
+
+       fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+       if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+         if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+           $('.fixed-plugin .dropdown').addClass('open');
+         }
+
+       }
+
+       $('.fixed-plugin a').click(function(event) {
+         // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+         if ($(this).hasClass('switch-trigger')) {
+           if (event.stopPropagation) {
+             event.stopPropagation();
+           } else if (window.event) {
+             window.event.cancelBubble = true;
+           }
+         }
+       });
+
+       $('.fixed-plugin .active-color span').click(function() {
+         $full_page_background = $('.full-page-background');
+
+         $(this).siblings().removeClass('active');
+         $(this).addClass('active');
+
+         var new_color = $(this).data('color');
+
+         if ($sidebar.length != 0) {
+           $sidebar.attr('data-color', new_color);
+         }
+
+         if ($full_page.length != 0) {
+           $full_page.attr('filter-color', new_color);
+         }
+
+         if ($sidebar_responsive.length != 0) {
+           $sidebar_responsive.attr('data-color', new_color);
+         }
+       });
+
+       $('.fixed-plugin .background-color .badge').click(function() {
+         $(this).siblings().removeClass('active');
+         $(this).addClass('active');
+
+         var new_color = $(this).data('background-color');
+
+         if ($sidebar.length != 0) {
+           $sidebar.attr('data-background-color', new_color);
+         }
+       });
+
+       $('.fixed-plugin .img-holder').click(function() {
+         $full_page_background = $('.full-page-background');
+
+         $(this).parent('li').siblings().removeClass('active');
+         $(this).parent('li').addClass('active');
+
+
+         var new_image = $(this).find("img").attr('src');
+
+         if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+           $sidebar_img_container.fadeOut('fast', function() {
+             $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+             $sidebar_img_container.fadeIn('fast');
+           });
+         }
+
+         if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+           var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+           $full_page_background.fadeOut('fast', function() {
+             $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+             $full_page_background.fadeIn('fast');
+           });
+         }
+
+         if ($('.switch-sidebar-image input:checked').length == 0) {
+           var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+           var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+           $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+           $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+         }
+
+         if ($sidebar_responsive.length != 0) {
+           $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+         }
+       });
+
+       $('.switch-sidebar-image input').change(function() {
+         $full_page_background = $('.full-page-background');
+
+         $input = $(this);
+
+         if ($input.is(':checked')) {
+           if ($sidebar_img_container.length != 0) {
+             $sidebar_img_container.fadeIn('fast');
+             $sidebar.attr('data-image', '#');
+           }
+
+           if ($full_page_background.length != 0) {
+             $full_page_background.fadeIn('fast');
+             $full_page.attr('data-image', '#');
+           }
+
+           background_image = true;
+         } else {
+           if ($sidebar_img_container.length != 0) {
+             $sidebar.removeAttr('data-image');
+             $sidebar_img_container.fadeOut('fast');
+           }
+
+           if ($full_page_background.length != 0) {
+             $full_page.removeAttr('data-image', '#');
+             $full_page_background.fadeOut('fast');
+           }
+
+           background_image = false;
+         }
+       });
+
+       $('.switch-sidebar-mini input').change(function() {
+         $body = $('body');
+
+         $input = $(this);
+
+         if (md.misc.sidebar_mini_active == true) {
+           $('body').removeClass('sidebar-mini');
+           md.misc.sidebar_mini_active = false;
+
+           $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+         } else {
+
+           $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+           setTimeout(function() {
+             $('body').addClass('sidebar-mini');
+
+             md.misc.sidebar_mini_active = true;
+           }, 300);
+         }
+
+         // we simulate the window Resize so the charts will get updated in realtime.
+         var simulateWindowResize = setInterval(function() {
+           window.dispatchEvent(new Event('resize'));
+         }, 180);
+
+         // we stop the simulation of Window Resize after the animations are completed
+         setTimeout(function() {
+           clearInterval(simulateWindowResize);
+         }, 1000);
+
+       });
+     });
+   });
 </script>
-    <script  src="https://maps.googleapis.com/maps/api/js?key=<%="#{@key}"%>"
-    async defer></script>
-  </body>
+<script>
+   $(document).ready(function() {
+     demo.initSmallGoogleMaps();
+   });
+</script>
+<script>
+   function initMap() {
+     // Styles a map in night mode.
+     var map = new google.maps.Map(document.getElementById('map'), {
+       center: {lat: 41.6504857, lng: -73.9351406},
+       zoom: 12,
+       styles: [
+         {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+         {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+         {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+         {
+           featureType: 'administrative.locality',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#d59563'}]
+         },
+         {
+           featureType: 'poi',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#d59563'}]
+         },
+         {
+           featureType: 'poi.park',
+           elementType: 'geometry',
+           stylers: [{color: '#263c3f'}]
+         },
+         {
+           featureType: 'poi.park',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#6b9a76'}]
+         },
+         {
+           featureType: 'road',
+           elementType: 'geometry',
+           stylers: [{color: '#38414e'}]
+         },
+         {
+           featureType: 'road',
+           elementType: 'geometry.stroke',
+           stylers: [{color: '#212a37'}]
+         },
+         {
+           featureType: 'road',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#9ca5b3'}]
+         },
+         {
+           featureType: 'road.highway',
+           elementType: 'geometry',
+           stylers: [{color: '#746855'}]
+         },
+         {
+           featureType: 'road.highway',
+           elementType: 'geometry.stroke',
+           stylers: [{color: '#1f2835'}]
+         },
+         {
+           featureType: 'road.highway',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#f3d19c'}]
+         },
+         {
+           featureType: 'transit',
+           elementType: 'geometry',
+           stylers: [{color: '#2f3948'}]
+         },
+         {
+           featureType: 'transit.station',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#d59563'}]
+         },
+         {
+           featureType: 'water',
+           elementType: 'geometry',
+           stylers: [{color: '#17263c'}]
+         },
+         {
+           featureType: 'water',
+           elementType: 'labels.text.fill',
+           stylers: [{color: '#515c6d'}]
+         },
+         {
+           featureType: 'water',
+           elementType: 'labels.text.stroke',
+           stylers: [{color: '#17263c'}]
+         }
+       ]
+     });
+   }
+</script>
+</body>
 </html>

@@ -5,7 +5,10 @@ class MapsController < ApplicationController
   # GET /maps.json
   def index
     @maps = Map.all
-    @key = ENV['PLACES_KEY']
+    @key = ENV['PLACES_KEY_TWO']
+    place = "airport"
+    uri = URI.encode("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.65053,-73.932648&radius=50000&type="+ place +"&key=" + @key)
+    @location = HTTParty.get(uri).to_json
   end
 
   # GET /maps/1
@@ -14,23 +17,22 @@ class MapsController < ApplicationController
   end
 
   def places
-      content_type :json
+
       place = "airport"
-      key = ENV['PLACES_KEY']
+      key = ENV['PLACES_KEY_TWO']
       uri = URI.encode("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=41.65053,-73.932648&radius=50000&type="+ place +"&key=" + key)
       @location = HTTParty.get(uri).to_json
 
     end
     def place
 
-      content_type :json
       place = params['type']
       lat =  params['lat']
       lng =  params['lng']
        puts 'Look for this statment, then look below'
        puts lat
        puts lng
-      key = ENV['PLACES_KEY']
+      key = ENV['PLACES_KEY_TWO']
       uri = URI.encode("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng +"&radius=50000&type="+ place +"&key=" + key)
       @places = HTTParty.get(uri).to_json
 
