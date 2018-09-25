@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_20_183928) do
+ActiveRecord::Schema.define(version: 2018_09_25_152008) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -273,6 +273,13 @@ ActiveRecord::Schema.define(version: 2018_09_20_183928) do
     t.index ["group_id", "contact_id"], name: "index_contacts_groups_on_group_id_and_contact_id"
   end
 
+  create_table "contacts_invoices", id: false, force: :cascade do |t|
+    t.integer "invoice_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "invoice_id"], name: "index_contacts_invoices_on_contact_id_and_invoice_id"
+    t.index ["invoice_id", "contact_id"], name: "index_contacts_invoices_on_invoice_id_and_contact_id"
+  end
+
   create_table "contacts_leads", id: false, force: :cascade do |t|
     t.integer "lead_id", null: false
     t.integer "contact_id", null: false
@@ -343,6 +350,13 @@ ActiveRecord::Schema.define(version: 2018_09_20_183928) do
     t.integer "lead_id"
     t.string "status"
     t.index ["lead_id"], name: "index_deals_on_lead_id"
+  end
+
+  create_table "deals_invoices", id: false, force: :cascade do |t|
+    t.integer "invoice_id", null: false
+    t.integer "deal_id", null: false
+    t.index ["deal_id", "invoice_id"], name: "index_deals_invoices_on_deal_id_and_invoice_id"
+    t.index ["invoice_id", "deal_id"], name: "index_deals_invoices_on_invoice_id_and_deal_id"
   end
 
   create_table "deals_leads", id: false, force: :cascade do |t|
@@ -435,6 +449,15 @@ ActiveRecord::Schema.define(version: 2018_09_20_183928) do
     t.integer "user_id", null: false
     t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
     t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.decimal "sale_price"
+    t.decimal "lease_price"
+    t.decimal "commission"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "issues", force: :cascade do |t|

@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+
 <%= link_to 'Profile', edit_user_registration_path, class: 'dropdown-item' %>
 <%= link_to 'Sign out', destroy_user_session_path(current_user.id, authenticity_token: form_authenticity_token.to_s),authenticity_token: true, :method=>'delete', class: 'dropdown-item' %>
 <% else %>
@@ -7,7 +8,7 @@
 <% end %>
 <% if user_signed_in? %>
 <div class="dropdown-divider"></div>
-
+<%= link_to 'Invoices', invoices_path, class: 'dropdown-item' %>
 <%= link_to 'Concat first and last name', prepareshearch_path, class: 'dropdown-item' %>
 <%= link_to 'Users', users_path, class: 'dropdown-item' %>
 <% end %>

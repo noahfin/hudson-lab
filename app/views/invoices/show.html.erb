@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sale price:</strong>
+  <%= @invoice.sale_price %>
+</p>
+
+<p>
+  <strong>Lease price:</strong>
+  <%= @invoice.lease_price %>
+</p>
+
+<p>
+  <strong>Commision:</strong>
+  <%= @invoice.commission %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @invoice.name %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>
