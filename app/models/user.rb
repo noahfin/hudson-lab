@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :events
   has_and_belongs_to_many :searcheds
   has_and_belongs_to_many :appointment
+  has_and_belongs_to_many :invoices
   has_many :posts, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_many :posted_properties, through: :posts,  source: :property, dependent: :destroy

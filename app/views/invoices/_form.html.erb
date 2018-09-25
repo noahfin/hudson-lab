@@ -26,7 +26,7 @@
          <div class="col-md-6">
             <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                     <%= f.input :commission,  :class => 'form-control text-white', label: false, placeholder: 'commission ' %>
+                     <%= f.input :commission,  :class => 'form-control text-white', label: false, placeholder: 'Commission Percentage' %>
                </div>
                <%=f.error_span(:commission) %>
             </div>
@@ -37,7 +37,7 @@
          <div class="col-md-6" >
             <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <%= f.input :sale_price,  :class => 'form-control text-white',  label: false, placeholder: 'sale_price '  %>
+                  <%= f.input :sale_price,  :class => 'form-control text-white',  label: false, placeholder: 'Sale Price '  %>
                </div>
                <%=f.error_span(:name) %>
             </div>
@@ -45,14 +45,94 @@
          <div class="col-md-6">
             <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                     <%= f.input :lease_price,  :class => 'form-control text-white', label: false, placeholder: 'lease_price ' %>
+                     <%= f.input :lease_price,  :class => 'form-control text-white', label: false, placeholder: 'Lease Price ' %>
                </div>
                <%=f.error_span(:lease_price) %>
             </div>
          </div>
       </div>
+
+
    <div class="">
       <div class="row">
+                  <div class="col-md-6">
+            <div class="form-group ml-4 ">
+               <div class="   p-3  mr-4 bg-gray66">
+                  <div class="col-md-12  ">
+                     <div class="form-group bg-black">
+                        <div class="form-group  pt-0 mt-0  ">
+                           <div class=" pt-0 mt-0  ">
+                              <div class="card-collapse  pt-0 mt-0 ">
+                                 <div class="card-header pt-0 bg-black" role="tab" id="headingTwo">
+                                    <div class="row">
+                                       <input class="form-control get-deals ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type name then select the Deal" aria-label="Search" id="search-deals">
+                                    </div>
+                                    <h5 class="mb-0">
+                                       <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                       click the deal that got added
+                                       <i class="material-icons text-muted">keyboard_arrow_down</i>
+                                       </a>
+                                    </h5>
+                                 </div>
+                                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body" id="form-contact">
+                                       <ul class="list-inline p-3">
+                                          <li class="list-inline-item m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="deal_ids[]" value="0" checked="true" class="contact1">
+                                                <span class="c1  mt-4 p-2  text-muted text-center">Deal 1</span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="deal_ids[]" value="0" checked="true" class="contact2">
+                                                <span class="c2 mt-4 p-2 text-muted text-center">Deal 2 </span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="deal_ids[]" value="0" checked="true" class="contact3">
+                                                <span class="c3 mt-4 p-2 text-muted text-center"> Deal 3 </span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+                                          <li class="list-inline-item  m-2">
+                                             <div class="form-check mr-3 pr-3">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" name="deal_ids[]" value="0" checked="true" class="contact4">
+                                                <span class="c4 mt-4 p-2 text-muted text-center">Deal 4</span>
+                                                <span class="form-check-sign">
+                                                <span class="check"></span>
+                                                </span>
+                                                </label>
+                                             </div>
+                                          </li>
+
+                                       </ul>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
          <div class="col-md-6">
             <div class="form-group ml-4 ">
                <div class="   p-3  mr-4 bg-gray66">
@@ -141,7 +221,19 @@
                </div>
             </div>
          </div>
-         <div class="col-sm-6">
+
+      </div>
+      <div class="row">
+
+         <div class="col-md-6">
+            <div class="  ml-4 mr-4 mt-2 pr-3 pl-3 pt-2 pb-1  bg-gray66">
+               <div class="form-group card card-5 p-2">
+                     <%= f.input :Commission_Earned,  :class => 'form-control text-white', label: false, placeholder: 'Commission Earned ' %>
+               </div>
+               <%=f.error_span(:Commission_Earned) %>
+            </div>
+         </div>
+                  <div class="col-sm-6">
             <div class="mt-2 p-3   mr-4 ml-4 bg-gray66">
                <div class="form-group card card-5 pl-2 pr-3 pt-3 pb-3">
                   <a class="btn btn-link" data-toggle="collapse" href="#collapsegetusers" aria-expanded="false" aria-controls="collapsegetusers">select employees</a>
@@ -168,7 +260,7 @@
       </div>
       <% end %>
    </div>
-</div>
+
 </div>
 <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
    $('.address-auto').autocomplete({

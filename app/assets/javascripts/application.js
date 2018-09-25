@@ -948,6 +948,25 @@ $(postIdStr).html(like_number + 1);
     var contact_ids_prop = [];
 
 
+ //deal add with autocomplete
+  $('#search-deals').autocomplete({
+        source: '/deals/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            contact_ids_prop[contact_ids_prop.length] = ui.item.id
+            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
+
+
+            $(contact_class_p_name[contact_ids_prop_i]).html(ui.item.value);
+            contact_ids_prop_i++;
+            $('.get-deals').val('');
+        }
+    });
+
+
+
+
+
     var tabTempSection = ".c-s-dash"
     var  tabSection =  ".c-s-dash"
    $(document).on('click', '.t-tab', function (e) {

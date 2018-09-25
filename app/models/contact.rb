@@ -9,6 +9,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :deals
+  has_and_belongs_to_many :invoices
   has_and_belongs_to_many :address
   has_and_belongs_to_many :leads
   has_and_belongs_to_many :cancontacts

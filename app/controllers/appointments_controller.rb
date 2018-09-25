@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     Time.zone = appointment_params[:time_zone]
-    @appointment = Appointment.new(appointment_params)
+    = Appointment.new(appointment_params)
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
           id_array = []
           contact_id_array = params['contact_ids'].to_a
@@ -49,7 +49,7 @@ class AppointmentsController < ApplicationController
             params['appointment']['user_id'].each do |u_id|
             next if u_id.to_i == 0 || u_id == "" || u_id.to_i < 1
               user = User.find(u_id.to_i)
-           user.appointments << @contact
+            @appointment.users << user
            end
          end
 

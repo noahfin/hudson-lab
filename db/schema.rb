@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_152008) do
+ActiveRecord::Schema.define(version: 2018_09_25_194144) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -458,6 +458,14 @@ ActiveRecord::Schema.define(version: 2018_09_25_152008) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "Commission_Earned"
+  end
+
+  create_table "invoices_users", id: false, force: :cascade do |t|
+    t.integer "invoice_id", null: false
+    t.integer "user_id", null: false
+    t.index ["invoice_id", "user_id"], name: "index_invoices_users_on_invoice_id_and_user_id"
+    t.index ["user_id", "invoice_id"], name: "index_invoices_users_on_user_id_and_invoice_id"
   end
 
   create_table "issues", force: :cascade do |t|
