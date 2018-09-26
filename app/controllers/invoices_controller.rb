@@ -25,36 +25,37 @@ class InvoicesController < ApplicationController
   # POST /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
-        if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
-          id_array = []
-          contact_id_array = params['contact_ids'].to_a
-            contact_id_array.each do |id|
-              if id.to_i > 0
-               id_array << id
+       #  if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
+       #    id_array = []
+       #    contact_id_array = params['contact_ids'].to_a
 
-              end
-           end
+       #      contact_id_array.each do |id|
+       #        if id.to_i > 0
+       #         id_array << id
 
-          if contact_id_array[0].to_i > 0
-           @invoice.contact_ids = id_array
-         end
+       #        end
+       #     end
 
-       end
-         if params['deal_ids']
-            params['deal_ids'].each do |d_id|
-            next if d_id.to_i == 0 || d_id == "" || d_id.to_i < 1
-              deal = Deal.find(d_id.to_i)
-              @invoice.deals << deal
-           end
-         end
+       #    if contact_id_array[0].to_i > 0
+       #     @invoice.contact_ids = id_array
+       #   end
 
-        if  params['invoice']['user_ids']
-            params['invoice']['user_ids'].each do |u_id|
-            next if u_id.to_i == 0 || u_id == "" || u_id.to_i < 1
-              user = User.find(u_id.to_i)
-               @invoice.users << user
-           end
-         end
+       # end
+       #   if params['deal_ids']
+       #      params['deal_ids'].each do |d_id|
+       #      next if d_id.to_i == 0 || d_id == "" || d_id.to_i < 1
+       #        deal = Deal.find(d_id.to_i)
+       #        @invoice.deals << deal
+       #     end
+       #   end
+
+       #  if  params['invoice']['user_ids']
+       #      params['invoice']['user_ids'].each do |u_id|
+       #      next if u_id.to_i == 0 || u_id == "" || u_id.to_i < 1
+       #        user = User.find(u_id.to_i)
+       #         @invoice.users << user
+       #     end
+       #   end
 
 
     respond_to do |format|
