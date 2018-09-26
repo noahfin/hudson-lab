@@ -28,11 +28,10 @@ class InvoicesController < ApplicationController
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
           id_array = []
           contact_id_array = params['contact_ids'].to_a
-
-            contact_id_array.each do |id |
+            contact_id_array.each do |id|
               if id.to_i > 0
                id_array << id
-               contact_id = id.to_s
+
               end
            end
 

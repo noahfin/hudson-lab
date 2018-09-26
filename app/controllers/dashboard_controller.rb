@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
     @leads = Lead.order(created_at: :desc)
     @searcheds = Searched.all
     @appointments = Appointment.order(created_at: :desc)
+    @invoices = Invoice.all
   end
 
   def contacts_search
