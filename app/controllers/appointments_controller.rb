@@ -28,7 +28,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments.json
   def create
     Time.zone = appointment_params[:time_zone]
-    = Appointment.new(appointment_params)
+    @appointment = Appointment.new(appointment_params)
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
           id_array = []
           contact_id_array = params['contact_ids'].to_a
