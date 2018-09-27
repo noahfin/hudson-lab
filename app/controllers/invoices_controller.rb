@@ -25,6 +25,8 @@ class InvoicesController < ApplicationController
   # POST /invoices.json
   def create
     @invoice = Invoice.new(invoice_params)
+        respond_to do |format|
+        if @invoice.save
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
           id_array = []
           contact_id_array = params['contact_ids'].to_a
@@ -58,8 +60,8 @@ class InvoicesController < ApplicationController
          end
 
 
-    respond_to do |format|
-      if @invoice.save
+
+
         format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
       else
@@ -101,6 +103,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:sale_price, :lease_price, :commision, :name, :contact_ids, :deal_ids,{:user_ids => []})
+      params.require(:invoice).permit(:sale_price, :lease_price, :commission, :Commission_Earned, :name, :contact_ids, :deal_ids,{:user_ids => []})
     end
 end

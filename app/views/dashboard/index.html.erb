@@ -151,7 +151,7 @@
                   <div class="card-icon card-icon-outline-warning">
                      <i class="material-icons bg-black text-warning">business</i>
                   </div>
-                  <p class="card-category card-top-dash text-white">Lead</p>
+                  <p class="card-category card-top-dash text-white">Leads</p>
                   <h3 class="card-title text-white"><%= Lead.count %></h3>
                </div>
                <div class="card-footer">
@@ -181,28 +181,31 @@
          </div>
          <% end %>
       </div>
-
+      <% revenue = 0 %>
+      <% @invoices.each do |invoice| %>
+        <% revenue += invoice.Commission_Earned if invoice.Commission_Earned %>
+      <% end %>
       <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+           <%= link_to invoices_path do %>
          <div class="card card-stats  card-dash-success rounded-0 card-1" >
             <div class="card-header  card-header-icon">
                <div class="card-icon  card-icon-outline-success">
                   <i class="material-icons bg-black text-success">store</i>
                </div>
                <p class="card-category card-top-dash text-wgite">Revenue</p>
-               <h3 class="card-title text-white">$34,245</h3>
+               <h3 class="card-title text-white">$<%= number_with_precision(revenue, :precision => 0, :delimiter => ',') %></h3>
             </div>
             <div class="card-footer">
                <div class="stats text-white">
-                  <i class="material-icons text-success mt-2 pt-1 pr-3">date_range</i> Last 24 Hours
+                  <i class="material-icons text-success mt-2 pt-1 pr-3">date_range</i> View Invoices
                </div>
             </div>
          </div>
+        <% end %>
       </div>
       <% end %>
    </div>
-    <% @invoices.each do |invoice| %>
-   <span><%= invoice.name %> --</span>
-     <% end %>
+
    <section>
       <div class="row">
          <div class="col-md-12">
@@ -225,7 +228,7 @@
                                           <i class="material-icons">perm_identity</i>
                                        </div>
                                     </td>
-                                    <td><%= searched.name %></</td>
+                                    <td><%= searched.name %></td>
                                     <td class="text-right">
                                        <% if !searched.contact_id.empty?  %>
                                        <%= link_to contact_path(searched.contact_id), title: 'View Profile', rel: "tooltip" do %>
@@ -537,6 +540,7 @@
       <% for i in (closed_projects_index...@projects_array.count)
          new_projects += 1
          end %>
+
       <div class="card-body mb-4 task-body card-1 ">
          <div class="tab-content p-0">
             <div class="tab-pane active" id="maindash_tasks">
@@ -546,10 +550,10 @@
                         <h4 class="text-muted m-2 pb-1 ">Datatbase Activity</h4>
                         <tr>
                            <td>
-                              <h5 class="text-white vb">NEW ClIENTS</h5>
+                              <h5 class="text-white vb">NEW INVOICES</h5>
                            </td>
                            <td>
-                              <h6 class=" text-right m-t-15 text-danger"><%= new_clients %></h6>
+                              <h6 class=" text-right m-t-15 text-danger"><%= @invoices.count %></h6>
                            </td>
                         </tr>
                         <tr>
@@ -562,10 +566,10 @@
                         </tr>
                         <tr>
                            <td>
-                              <h5 class="text-white vb">NEW INVOICES</h5>
+                              <h5 class="text-white vb">FINSHED PROJECTS</h5>
                            </td>
                            <td>
-                              <h6 class=" text-right m-t-15 text-warning"><%= new_clients %></h6>
+                              <h6 class=" text-right m-t-15 text-success"><%= closed_projects_index %></h6>
                            </td>
                         </tr>
 
@@ -581,7 +585,7 @@
    <div class="col-xl-6">
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-         <%= link_to new_appointment_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>d
+         <%= link_to new_appointment_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
           <div class="card-icon bg-black">
                <i class="material-icons">assignment_ind</i>
          </div>
