@@ -200,6 +200,9 @@
       </div>
       <% end %>
    </div>
+    <% @invoices.each do |invoice| %>
+   <span><%= invoice.name %> --</span>
+     <% end %>
    <section>
       <div class="row">
          <div class="col-md-12">
