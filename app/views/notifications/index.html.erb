@@ -1,27 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="row ">
+   <div class="col-xl-6">
+      <div class="card card-1  mb-4 p-0 tasks-card">
+         <div class="card-header  card-header-icon">
+            <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
+            <div class="card-icon bg-black">
+               <i class="material-icons">business</i>
+            </div>
+            <% end %>
+         </div>
+         <div class="card-body mb-4 task-body card-1 ">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="maindash_tasks">
+                  <div class="table-responsive">
+                     <table class="table p-0">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                          <h4 class="text-muted m-2 pb-1 ">Current notification</h4>
+                          <% notifi_type  = ''%>
+                           <% notifi_color = ''%>
+                          <% @notifications.each do |notification| %>
+                          <% if notification.thing == 'deal'
+                                notifi_type = 'fa fa-suitcase'
+                                notifi_color = 'bg-light-warning'
+                             elsif notification.thing == 'contact'
+                                   notifi_type = 'fa  fa-database'
+                                  notifi_color = 'bg-light-info'
+                             elsif notification.thing == 'task'
+                                   notifi_type = 'fa fa-tasks'
+                                    notifi_color = 'bg-light-danger'
 
-<h1>Notifications</h1>
+                             end
+                          %>
+                          <tr>
+                             <td><button class="<%="btn btn-just-icon  btn-round #{notifi_color}"%>" >
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button></td><td class="text-right"><%= notification.name %> &nbsp;&nbsp;<span class="text-muted">Just Now</span></td>
+                          </tr>
+                          <% end %>
 
-  <tbody>
-    <% @notifications.each do |notification| %>
-      <tr>
-        <td><%= notification.name %></td>
-        <td><%= link_to 'Show', notification %></td>
-        <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
-        <td><%= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  <br>
 <%= link_to 'New Notification', new_notification_path %>
