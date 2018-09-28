@@ -60,6 +60,7 @@ class ApplicationController < ActionController::Base
     @users = User.all
     @search = Search.new
     @company = Company.new
+    @notifications =  current_user.notifications
 
   end
 

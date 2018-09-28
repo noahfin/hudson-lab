@@ -116,6 +116,11 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+       User.all.each do |user|
+          notification_str =  'Contact '+ @contact.name + ' was added by ' + current_user.first_name
+          @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+          user.notifications << @notification if user != current_user
+       end
        address = Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{params['contact']['city'] }%", "%#{params['contact']['street_num']}%", "%#{params['contact']['strret_name']}%"]).first
       if  address != nil
         @contact.address_ids << address

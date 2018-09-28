@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_142600) do
+ActiveRecord::Schema.define(version: 2018_09_28_184624) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -554,6 +554,13 @@ ActiveRecord::Schema.define(version: 2018_09_28_142600) do
     t.datetime "updated_at", null: false
     t.string "thing"
     t.string "thing_id"
+    t.string "user_name"
+    t.string "name_id"
+  end
+
+  create_table "notifications_users", id: false, force: :cascade do |t|
+    t.integer "notification_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "personal_messages", force: :cascade do |t|

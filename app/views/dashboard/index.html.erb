@@ -89,6 +89,26 @@
    .card-1-color {
    background: #191b1c !important;
    }
+   .bg-light-info {
+     color: #67757c;
+     background-color: #cfecfe;
+    }
+    .bg-light-success {
+      color: #67757c;
+      background-color: #e8fdeb;
+    }
+    .bg-light-inverse {
+      color: #67757c;
+      background-color: #f6f6f6;
+    }
+   .bg-light-danger {
+    color: #67757c;
+    background-color: #f9e7eb;
+}
+.bg-light-warning {
+    color: #67757c;
+    background-color: #fff8ec;
+}
 </style>
 <!-- Large modal -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -609,6 +629,38 @@
 </div>
 </div>
 
+
+   <div class="row ">
+
+
+   <div class="col-xl-6">
+            <div class="card card-1  mb-4 p-0 tasks-card">
+         <div class="card-header  card-header-icon">
+            <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
+            <div class="card-icon bg-black">
+               <i class="material-icons">business</i>
+            </div>
+            <% end %>
+         </div>
+         <div class="card-body mb-4 task-body card-1 ">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="maindash_tasks">
+                  <div class="table-responsive">
+                     <table class="table p-0">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                           <%= render 'feed' %>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+  </div>
+  </div>
+
+</div>
 <script>
    $("#tasks-user-list").hide();
    $(function() {

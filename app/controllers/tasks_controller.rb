@@ -42,6 +42,11 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
+          User.all.each do |user|
+            notification_str =  'task'+ @task.name + ' was added by ' + current_user.first_name
+            @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+            user.notifications << @notification if user.id != current_user.id
+         end
          @tasks = Task.all.order(:name)
          groups = params['task']['group_ids'].to_a
          @task.groups = groups if params['task']['group_ids']
