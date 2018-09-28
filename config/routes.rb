@@ -1,5 +1,6 @@
   Rails.application.routes.draw do
 
+  resources :notifications
   resources :invoices
   resources :maps do
      post "place", on: :collection

@@ -16,6 +16,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :searcheds
   has_and_belongs_to_many :appointment
+  has_and_belongs_to_many :notifications
   has_and_belongs_to_many  :contact_touches, class_name: 'Touch'
 
   has_many :leads
@@ -51,7 +52,7 @@ end
 
   scope :by_group, -> (group_id) {  current_user.contacts.where(["group_id = ?", group_id ]) if group_id.present?}
 
-   def self.to_csv(options = {})
+def self.to_csv(options = {})
   CSV.generate(options) do |csv|
     csv << column_names
     all.each do |product|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_25_194144) do
+ActiveRecord::Schema.define(version: 2018_09_28_142600) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -546,6 +546,14 @@ ActiveRecord::Schema.define(version: 2018_09_25_194144) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "thing"
+    t.string "thing_id"
   end
 
   create_table "personal_messages", force: :cascade do |t|
