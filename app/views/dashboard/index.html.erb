@@ -609,15 +609,11 @@
    </div>
 </div>
 </div>
-
-
    <div class="row ">
-
-
    <div class="col-xl-6">
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-            <%= link_to notifications_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
+            <%= link_to notifications_path, class: "text-white", title: 'Click to view notification', rel: "tooltip" do %>
             <div class="card-icon bg-black">
                <i class="material-icons">notifications</i>
             </div>
@@ -629,7 +625,29 @@
                   <div class="table-responsive">
                      <table class="table p-0">
                         <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
-                           <%= render 'feed' %>
+                          <h4 class="text-muted m-2 pb-1 ">Current notification</h4>
+                          <% notifi_type  = ''%>
+                           <% notifi_color = ''%>
+                          <% @notifications.each do |notification| %>
+                          <% if notification.thing == 'deal'
+                                notifi_type = 'fa fa-suitcase'
+                                notifi_color = 'bg-light-warning'
+                             elsif notification.thing == 'contact'
+                                   notifi_type = 'fa  fa-database'
+                                  notifi_color = 'bg-light-info'
+                             elsif notification.thing == 'task'
+                                   notifi_type = 'fa fa-tasks'
+                                    notifi_color = 'bg-light-danger'
+
+                             end
+                          %>
+                          <tr>
+                             <td><button class="<%="btn btn-just-icon  btn-round #{notifi_color}"%>" >
+
+                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button></td><td class="text-right"><%= notification.name %> &nbsp;&nbsp;<span class="text-muted">Just Now</span></td>
+                          </tr>
+                          <% end %>
+
                         </tbody>
                      </table>
                   </div>
@@ -637,8 +655,7 @@
             </div>
          </div>
       </div>
-
-  </div>
+    </div>
   </div>
 
 </div>

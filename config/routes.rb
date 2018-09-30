@@ -1,6 +1,9 @@
   Rails.application.routes.draw do
 
-  resources :notifications
+  resources :notifications do
+       get 'just_user', on: :collection
+       get 'all_users', on: :collection
+     end
   resources :invoices
   resources :maps do
      post "place", on: :collection

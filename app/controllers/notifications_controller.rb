@@ -20,6 +20,25 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit
   end
+  def just_user
+      current_user.notifications.each do |notification|
+      notification.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to notifications_url, notice: 'All your notifications where successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  def all_users
+    @notifications = Notification.all
+    @notifications.each do |notification|
+      notification.destroy
+    end
+    respond_to do |format|
+      format.html { redirect_to notifications_url, notice: "Everyone's notifications where successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
 
   # POST /notifications
   # POST /notifications.json
