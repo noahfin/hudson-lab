@@ -18,6 +18,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+          User.all.each do |user|
+          notification_str =  'Event '+ @event.title + ' was added by ' + current_user.first_name
+          @notification = Notification.create(name: notification_str, thing: 'event', thing_id: @event.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+          user.notifications << @notification if user.id != current_user.id
+       end
     @event.save
   end
 

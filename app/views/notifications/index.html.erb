@@ -28,16 +28,21 @@
                           <% notifi_type  = ''%>
                            <% notifi_color = ''%>
                           <% @notifications.each do |notification| %>
-                          <% if notification.thing == 'deal'
-                                notifi_type = 'fa fa-suitcase'
-                                notifi_color = 'bg-light-warning'
-                             elsif notification.thing == 'contact'
+                          <% if    notification.thing == 'contact'
                                    notifi_type = 'fa  fa-database'
-                                  notifi_color = 'bg-light-info'
+                                   notifi_color = 'bg-light-info'
+                             elsif notification.thing == 'deal'
+                                   notifi_type = 'fa fa-suitcase'
+                                   notifi_color = 'bg-light-warning'
                              elsif notification.thing == 'task'
                                    notifi_type = 'fa fa-tasks'
-                                    notifi_color = 'bg-light-danger'
-
+                                   notifi_color = 'bg-light-danger'
+                             elsif notification.thing == 'lead'
+                                   notifi_type = 'fa fa-bolt'
+                                   notifi_color = 'bg-light-inverse'
+                            elsif  notification.thing == 'issue'
+                                   notifi_type = 'fa fa-exclamation-triangle'
+                                   notifi_color = 'bg-light-danger'
                              end
                           %>
                           <% user =  User.find(notification.name_id) %>

@@ -29,6 +29,11 @@ class LeadsController < ApplicationController
 
     respond_to do |format|
       if @lead.save
+       User.all.each do |user|
+          notification_str =  'Lead '+ @lead.name + ' was added by ' + current_user.first_name
+          @notification = Notification.create(name: notification_str, thing: 'lead', thing_id: @lead.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+          user.notifications << @notification if user.id != current_user.id
+       end
       flash[:success] = "Lead was successfully created!"
         id_array = [] if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
         if params['contact_ids']

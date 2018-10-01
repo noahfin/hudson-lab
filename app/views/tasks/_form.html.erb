@@ -65,7 +65,6 @@
                <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
-
                      <% attr[:selected] = current_user.id.to_i if current_user.id %>
                      <label for="user_ids[]" class="bmd-label-floating text-black">Pick users</label>
                      <%= f.collection_select :user_ids, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_u_picker users-for-new-group", id: "users-t" } %>
@@ -184,7 +183,6 @@
                </div>
                <div class="card-body">
                   <div class="col-md-6 ml-auto mr-auto">
-
                      <% attr[:selected] =  session[:selected_group_id] %>
                      <label for="group_ids[]" class="bmd-label-floating text-black">Pick Groups<small></small></label>
                      <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
