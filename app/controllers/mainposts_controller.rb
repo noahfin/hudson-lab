@@ -30,6 +30,11 @@ class MainpostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+      User.all.each do |user|
+          notification_str =  'Post '+ @post.body + ' was added by ' + current_user.first_name
+          @notification = Notification.create(name: notification_str, thing: 'post', thing_id: @post.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+          user.notifications << @notification if user.id != current_user.id
+       end
      format.html
         format.json { render json: @post}
         format.js

@@ -79,7 +79,11 @@ class TasksController < ApplicationController
    @tasks = Task.order(created_at: :desc)
     respond_to do |format|
       if @task.update(task_params)
-
+         User.all.each do |user|
+            notification_str =  'Task '+ @task.name + ' was updated by ' + current_user.first_name
+            @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+            user.notifications << @notification if user.id != current_user.id
+         end
         format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :updated }
         format.js

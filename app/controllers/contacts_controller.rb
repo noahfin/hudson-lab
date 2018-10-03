@@ -90,6 +90,11 @@ class ContactsController < ApplicationController
     if current_user
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
       if @contact.update(contact_params)
+         User.all.each do |user|
+            notification_str =  'Contact '+ @contact.name + ' was updated by ' + current_user.first_name
+            @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+            user.notifications << @notification if user != current_user
+         end
         user_reltionships(@contact)
         flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
         redirect_to session[:return_to]

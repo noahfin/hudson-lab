@@ -5,7 +5,7 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
-    @leads = Lead.all
+    @leads = Lead.order(:desc)
   end
 
   # GET /leads/1
@@ -70,6 +70,11 @@ class LeadsController < ApplicationController
   def update
     respond_to do |format|
       if @lead.update(lead_params)
+          User.all.each do |user|
+            notification_str =  'Lead '+ @lead.name + ' was updated by ' + current_user.first_name
+            @notification = Notification.create(name: notification_str, thing: 'lead', thing_id: @lead.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+            user.notifications << @notification if user.id != current_user.id
+          end
         format.html { redirect_to @lead, notice: 'Lead was successfully updated.' }
         format.json { render :show, status: :ok, location: @lead }
       else

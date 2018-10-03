@@ -21,7 +21,7 @@
          </div>
          <!-- addres earnings rent  age image  -->
          <div class="modal-body">
-            <%= form_for(@company, :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: 'company-form') do |form| %>
+            <%= form_for(@company, id: 'company-form-2') do |form| %>
             <p class="description text-center">Company form</p>
             <div class="card-body">
                <div id="first-company-tab">
@@ -78,46 +78,33 @@
                      </div>
                   </div>
                </div>
-               <div id="last-compnay-tab" style="display: none;">
-                  <!--  last-compnay-tab -->
-                  <div class="row">
-                     <div class="form-group">
-                        <div class="row mt-3">
-                           <div class=" col-md-12">
-                              <div class="input-group ">
-                                 <div class="col-xl-12">
-                                    <div class="row ">
-                                       <div class="col-sm-4 ml-auto mr-auto">
-                                          <div class="fileinput fileinput-new" data-provides="fileinput">
-                                             <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @company.avatar.present? ? @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
-                                             </div>
-                                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @company.avatar.present? ? @company.avatar.url(:thumb) : 'placholder.png', class: "media-object" %>
-                                             </div>
-                                             <div class="text-center">
-                                                <span class="btn btn-default btn-file">
-                                                <span class="fileinput-new text-white">Choose Photo</span>
-                                                <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
-                                                </span>
-                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+
             </div>
          </div>
          <div class="modal-footer justify-content-center">
-            <%= form.submit "save", class: "btn btn-info btn-link btn-wd btn-lg", id: "s-company" %>
+            <%= form.submit "save", class: "btn btn-info btn-link btn-wd btn-lg bt-company" %>
          </div>
          <% end %>
       </div>
    </div>
 </div>
+<script type="text/javascript">
+
+$(".bt-company").click(function(event){
+    event.preventDefault(); //prevent default action
+    console.log("company")
+    var post_url = $('#company-form-2').attr("action"); //get form action url
+    var request_method = $('#company-form-2').attr("method"); //get form GET/POST method
+    var form_data = $('#company-form-2').serialize(); //Encode form elements for submission
+
+    $.ajax({
+        url : post_url,
+        type: request_method,
+        data : form_data
+    }).done(function(response){ //
+      console.log("done")
+      $('#main-content').html('<%= escape_javascript render("show") %>');
+        // $('#main-content').html(response);
+    });
+});
+</script>

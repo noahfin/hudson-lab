@@ -69,6 +69,11 @@ class DealsController < ApplicationController
  def update
   @deal = Deal.find(params[:id])
     @deal.update_attributes(deal_params)
+       User.all.each do |user|
+          notification_str =  'Deal '+ @deal.name + ' was updated by ' + current_user.first_name
+          @notification = Notification.create(name: notification_str, thing: 'deal', thing_id: @deal.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+          user.notifications << @notification if user.id != current_user.id
+       end
        if  params['contact_ids']
             deal_reltionships( @deal)
        end

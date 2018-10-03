@@ -16,7 +16,6 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :searcheds
   has_and_belongs_to_many :appointment
-  has_and_belongs_to_many :notifications
   has_and_belongs_to_many :contact_touches, class_name: 'Touch'
   has_many :leads
   has_many :current_users, -> { users }, class_name: 'User'

@@ -30,8 +30,10 @@ class LikesController < ApplicationController
 
 
       if @like.save
-          post_likes = @post.likes << @like
-          @post.update_attributes(likes: post_likes)
+
+
+          @post.likes << @like
+
        render json: { like:  @like, post:  @post}
 
       else
@@ -39,6 +41,7 @@ class LikesController < ApplicationController
 
 
     end
+
   end
 
   # PATCH/PUT /likes/1

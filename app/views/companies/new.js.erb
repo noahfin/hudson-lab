@@ -1,27 +1,27 @@
 $('#company-form-modal').html('<%= j render("form", ajax_true: true) %>' );
 $('#company-form-modal').modal('show');
 
- $(document).on('click', '#s-company ', function (event) {
-            event.preventDefault()
-             $('#company-form').prop("disabled", true);
-
-$('#s-company').trigger('click');
+//  $(document).on('click', '#s-company', function (event) {
+//   console.log($('#company_name').val());
+//             event.preventDefault()
 
 
 
-  // var data = {
-  //           company: {
 
-  //           'name': $('#company_name').val(),
-  //               'avatar': $('#company_avatar').val(),
-  //               'earnings': $('#company_earnings').val(),
-  //               'age': $('#company_age').val(),
-  //               'sector': $('#company_sector').val(),
-  //               'addres': $('#company_addres').val()
 
-  //                 },
-  //                 authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
-  //           }
+//   var data = {
+//             company: {
+
+//             'name': $('#company_name').val(),
+//                 'avatar': $('#company_avatar').val(),
+//                 'earnings': $('#company_earnings').val(),
+//                 'age': $('#company_age').val(),
+//                 'sector': $('#company_sector').val(),
+//                 'addres': $('#company_addres').val()
+
+//                   },
+//                   authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
+//             }
 
 // data.name =  $('#company_name').val();
 // data.avatar = $('#company_avatar');
@@ -32,45 +32,47 @@ $('#s-company').trigger('click');
 // data.addres = $('#company_addres').val();
 
 
-            // createCompanySend(data);
-            // return false
+//             createCompanySend(data);
+//             return false
 
-        });
+//         });
 
-var createCompanySend = function (data) {
-        var url = "/companies/";
-        $.ajax({
-           contentType: 'multipart/form-data',
-            url: url,
-            method: "post",
-            beforeSend: $.rails.CSRFProtection,
-            data: data,
-            success: function (company) {
-                clsoeWiz();
-                $.notify({
-                    title: "The Company Was Added ",
-                    message: $('#company_name').val() + '"' + ' was successfuly added to the database'
-                });
-
-
-            },
-            error: function (err) {
-
-                var errors = err.responseJSON;
-                var error = errors.join(", ");
-
-                if (error) {
+// var createCompanySend = function (data) {
+//         var url = "/companies/";
+//         $.ajax({
+//            contentType: 'multipart/form-data',
+//             url: url,
+//             method: "post",
+//             beforeSend: $.rails.CSRFProtection,
+//             data: data,
+//             success: function (company) {
+//                 clsoeWiz();
+//                 $.notify({
+//                     title: "The Company Was Added ",
+//                     message: $('#company_name').val() + '"' + ' was successfuly added to the database'
+//                 });
 
 
-                    $.notify({
-                        title: '<strong>Heads up!</strong>',
-                        message: error
-                    }, {
-                        type: 'danger'
-                    });
-                }
-            }
-        })
+//             },
+//             error: function (err) {
+
+//                 var errors = err.responseJSON;
+//                 var error = errors.join(", ");
+
+//                 if (error) {
 
 
-    }
+//                     $.notify({
+//                         title: '<strong>Heads up!</strong>',
+//                         message: error
+//                     }, {
+//                         type: 'danger'
+//                     });
+//                 }
+//             }
+//         })
+
+
+//     }
+
+

@@ -99,6 +99,14 @@
 
         <div class="collapse" id="componentsExamples">
           <ul class="nav text-white ">
+
+             <li class="nav-item text-white">
+              <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
+              <%= link_to contacts_path, class: "nav-link #{active}", remote: true do %>
+                <span class="sidebar-mini">  A</span>
+                 <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%=  current_user.contacts.count %></span></span>
+              <% end %>
+            </li>
             <li class="nav-item ">
               <%= link_to new_contact_path, class: "nav-link text-white" do %>
                 <span class="sidebar-mini"> NC </span>
@@ -112,13 +120,6 @@
              <% end %>
             </li>
 
-             <li class="nav-item text-white">
-              <% active = params[:group_id] == nil || params[:group_id].empty? && !session[:selected_group_id] ? 'active' : '' %>
-              <%= link_to contacts_path, class: "nav-link #{active}", remote: true do %>
-                <span class="sidebar-mini">  A</span>
-                 <span class="sidebar-normal"> All Contacts <span class="text-muted">  <%=  current_user.contacts.count %></span></span>
-              <% end %>
-            </li>
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
