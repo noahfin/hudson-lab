@@ -1,0 +1,12 @@
+<h4 class="text-muted m-2 pb-1 ">Last ten property added </h4>
+
+       <%  @properties.each do |property| %>
+   <tr id="edit_property_<%= property.id %>">
+      <td class="ml-0 mr-0 pl-0 pr-0">  <%= link_to edit_property_path(property.id), class: "btn ml-0 mr-0 text-white btn-link btn-sm",  title: 'edit', rel: "tooltip"  do %>
+         <%= property.name %>   <% end %>
+      </td>
+
+   </tr>
+   <!-- /.custom-control -->
+   <% end %>
+

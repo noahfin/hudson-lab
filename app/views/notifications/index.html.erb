@@ -50,7 +50,7 @@
                              <tr> <% class_str = "btn btn-just-icon  btn-round "+  notifi_color %>
                              <td> <%= link_to notification_path(notification), class: class_str  do %>
 
-                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right"><%= notification.name %> | <%= link_to user_path(user.id), class: "text-info" do user.first_name end %> | <span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span> <span><%= link_to notification, remote: true, method: :delete, data: { confirm: 'Are you sure?', AuthenticityToken: form_authenticity_token}, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
+                      <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right"><%= notification.name %> | <%= link_to user_path(user.id), class: "text-info" do user.first_name end %> | <span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span> <span><%= link_to notification, remote: true, method: :delete, data: { confirm: 'Are you sure?', AuthenticityToken: form_authenticity_token}, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
                       <i class="material-icons text-danger">delete</i>
                    <% end %></span>
                  </h6></td>

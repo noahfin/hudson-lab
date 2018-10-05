@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
     @searcheds = Searched.all
     @appointments = Appointment.order(created_at: :desc)
     @invoices = Invoice.all
-  end
+    @properties = Property.all.order(created_at: :desc).last(10)  end
 
   def contacts_search
     term = params[:query]
