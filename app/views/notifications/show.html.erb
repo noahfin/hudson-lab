@@ -11,7 +11,7 @@
 
                           <%
 
-
+                                   subject = ''
                              if    @notification.thing == 'contact'
                                    @subject_object = Contact.find(@notification.thing_id)
                                    subject = 'Contact'
@@ -51,7 +51,7 @@
                            end
 
                           %>
-                             <% subject = '' %>
+
 
 
                            <%  if subject == 'Contact' %>
