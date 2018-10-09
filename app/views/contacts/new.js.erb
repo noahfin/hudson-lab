@@ -19,11 +19,15 @@ $('.selectpicker').selectpicker('toggle');
         select: function (event, ui) {
           console.log(ui);
             $('.address-auto').val(ui.item.value);
+            paseAddress();
 
         }
     });
 
-$("#contact_address").change(function(){
+$("#contact_address").keyup(paseAddress);
+
+
+  var paseAddress = function(){
     var addressArray = ['#contact_street_num', '#contact_strret_name', '#contact_suite', '#contact_city', '#contact_state', '#contact_postal_code'];
     var city  = '';
     var cityEndIndex;
@@ -115,7 +119,7 @@ $("#contact_address").change(function(){
 
 }
 
-});
+};
 
 var removeComma = function(string){
    var stateElementLength;

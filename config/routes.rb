@@ -76,6 +76,7 @@
 
     resources :properties do
      get 'category', on: :collection
+     get 'search', on: :collection
      resources :posts
      resources :issues
      get 'autocomplete', on: :collection

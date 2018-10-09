@@ -7,3 +7,54 @@
 
 <%= link_to 'Edit', edit_notification_path(@notification) %> |
 <%= link_to 'Back', notifications_path %>
+
+
+                          <%       subject = ''
+
+
+                             if    notification.thing == 'contact'
+                                   @subject_object = Contact.find(notification.thing_id)
+                                   subject = 'Contact'
+                                   notifi_type = 'fa  fa-database'
+                                   notifi_color = 'bg-light-info'
+                             elsif notification.thing == 'deal'
+                                   @subject_object = Deal.find(notification.thing_id)
+                                   subject = 'Deal'
+                                   notifi_type = 'fa fa-suitcase'
+                                   notifi_color = 'bg-light-warning'
+                             elsif notification.thing == 'task'
+                                   notifi_type = 'fa fa-tasks'
+                                   notifi_color = 'bg-light-danger'
+                                   @subject_object = Task.find(notification.thing_id)
+                             elsif notification.thing == 'lead'
+                                   @subject_object = Lead.find(notification.thing_id)
+                                   subject = 'Lead'
+                                   notifi_type = 'fa fa-bolt'
+                                   notifi_color = 'bg-light-inverse'
+                            elsif  notification.thing == 'issue'
+                                   @subject_object = Issue.find(notification.thing_id)
+                                   subject = 'Issue'
+                                   notifi_type = 'fa fa-exclamation-triangle'
+                                   notifi_color = 'bg-light-danger'
+                                   @subject_object = Issue.find(notification.thing_id)
+                                   subject = 'Issue'
+                                   notifi_type = 'fa fa-calendar'
+                                   notifi_color = 'bg-light-inverse'
+                            elsif  notification.thing == 'post'
+                                   @subject_object = Mainpost.find(notification.thing_id)
+                                   subject = 'post'
+                                   notifi_type = 'fa fa-comment'
+                                   notifi_color = 'bg-light-info'
+                           elsif  notification.thing == 'company'
+                                   notifi_type = 'fa fa-building'
+                                   notifi_color = 'bg-light-info'
+                           end
+
+                          %>
+                             <%       subject = '' %>
+
+
+                           <%  if subject == 'Contact'%>
+                             <p> Contact Name:      <%= link_to contact_path(@subject_object), class: 'text-info' do %> <%=@subject_object.name %><% end %></p>
+                             <p> Contact: Email: <%= @subject_object.company %></p>
+                             <p> Contact: Email: <%= @subject_object.company %></p>

@@ -90,6 +90,7 @@ class ContactsController < ApplicationController
     if current_user
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
       if @contact.update(contact_params)
+
          User.all.each do |user|
             notification_str =  'Contact '+ @contact.name + ' was updated by ' + current_user.first_name
             @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
@@ -97,7 +98,9 @@ class ContactsController < ApplicationController
          end
         user_reltionships(@contact)
         flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
-        redirect_to session[:return_to]
+        @contacts = @contact
+     render("update.js.erb")
+
       end
     end
   end
@@ -167,7 +170,7 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:name,  :email, :company, :address, :Fulladdress, :address_id, :address_ids, :size_requirement, :location_need, :time_requirement, :phone, :cell, :page, :page_url, :suite, :county, :state, :country, :postal_code,:zip_code_ext, :city, :street_num, :strret_name, :notes,  :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [], :company_ids  => [])
+      params.require(:contact).permit(:name,  :email, :company, :address, :Fulladdress, :address_id, :address_ids, :size_requirement, :location_need, :lease_is_up, :time_requirement, :phone, :cell, :page, :page_url, :suite, :county, :state, :country, :postal_code,:zip_code_ext, :city, :street_num, :strret_name, :notes,  :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [], :company_ids  => [])
     end
 
     def find_contact

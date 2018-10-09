@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_184624) do
+ActiveRecord::Schema.define(version: 2018_10_05_201952) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -255,6 +255,7 @@ ActiveRecord::Schema.define(version: 2018_09_28_184624) do
     t.string "page_url"
     t.string "fax"
     t.string "personal_email"
+    t.datetime "lease_is_up"
     t.index ["group_id"], name: "index_contacts_on_group_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end

@@ -1,4 +1,6 @@
-$('#main-content').html('<%= escape_javascript render(@contacts) %>');
+var prevRow = $('#contact_<%= @contact.id %>').prev()[0];
+$('#contact_<%= @contact.id %>').remove();
+ $('<%= escape_javascript render(@contacts) %>').insertAfter(prevRow);
 $('#contact-form-wiz').hide();
 $('#form-modal').modal('hide');
 $('#form-modal').removeClass('modal');

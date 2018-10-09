@@ -274,7 +274,12 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="collapse" id="collapseleads">
+<!--                         leads section &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ -->
+                        <div class="collapse" id="collapseleads">
+                           <label>Enter When contact Lease is up</label>
+                           <%= form.date_field :lease_is_up ,class: "form-control input-sm date-range-picker text-white"  %>
+
                            <%= form_with(model:  @lead, remote: true) do |form| %>
                         <div class="card card-body card-1  rounded-0">
                            <span class="pull-right"><a  title="sendLeadInfo " id="Leads-contact-send"><i class="material-icons text-info">arrow_right_alt</i> Send</a></span>

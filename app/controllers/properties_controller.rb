@@ -11,6 +11,14 @@ class PropertiesController < ApplicationController
    def edit
 
    end
+   def search
+     @properties = Property.search(params[:query])
+
+    respond_to do |format|
+      format.html { render: search }
+      format.js
+    end
+   end
    def autocomplete
       @properties = Property.search(params[:query])
    end
