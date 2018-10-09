@@ -1,12 +1,79 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @notification.name %>
-</p>
 
-<%= link_to 'Edit', edit_notification_path(@notification) %> |
-<%= link_to 'Back', notifications_path %>
+
+<%  notification = @notification %>
+<style type="text/css">
+  .links-on-notifications {
+    position: relative;
+    bottom: 16px;
+    left: 40px;
+
+  }
+</style>
+<div class="row ">
+   <div class="col-xl-6">
+
+      <div class="card card-1  mb-4 p-0 tasks-card">
+         <div class="card-header  card-header-icon">
+              <span class="links-on-notifications"><%= link_to 'Delete just your notifications', just_user_notifications_path, class: "text-danger" %> OR  <%= link_to 'Delete just your notifications',all_users_notifications_path, class: "text-danger" %></span>
+            <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
+            <div class="card-icon bg-black">
+               <i class="material-icons">notifications</i>
+            </div>
+            <% end %>
+         </div>
+         <div class="card-body mb-4 task-body card-1 ">
+            <div class="tab-content p-0">
+               <div class="tab-pane active" id="maindash_tasks">
+                  <div class="table-responsive">
+                     <table class="table p-0">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                          <h4 class="text-muted m-2 pb-1 ">All notification</h4>
+                          <% notifi_type  = ''%>
+                           <% notifi_color = ''%>
+
+                          <% if    notification.thing == 'contact'
+                                   notifi_type = 'fa  fa-database'
+                                   notifi_color = 'bg-info'
+                             elsif notification.thing == 'deal'
+                                   notifi_type = 'fa fa-suitcase'
+                                   notifi_color = 'bg-warning'
+                             elsif notification.thing == 'task'
+                                   notifi_type = 'fa fa-tasks'
+                                   notifi_color = 'bg-danger'
+                             elsif notification.thing == 'lead'
+                                   notifi_type = 'fa fa-bolt'
+                                   notifi_color = 'bg-inverse'
+                            elsif  notification.thing == 'issue'
+                                   notifi_type = 'fa fa-exclamation-triangle'
+                                   notifi_color = 'bg-danger'
+                             end
+                          %>
+                          <% user =  User.find(notification.name_id) %>
+                          <tr>
+                             <tr> <% class_str = "btn btn-just-icon  btn-round "+  notifi_color %>
+                             <td> <%= link_to notification_path(notification), class: class_str  do %>
+
+                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right"><%= notification.name %> | <%= link_to user_path(user.id), class: "text-info" do user.first_name end %> | <span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span> <span><%= link_to notification, remote: true, method: :delete, data: { confirm: 'Are you sure?', AuthenticityToken: form_authenticity_token}, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
+                      <i class="material-icons text-danger">delete</i>
+                   <% end %></span>
+                 </h6></td>
+                          </tr>
+
+
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+
 
 
                           <%
@@ -56,7 +123,12 @@
 
                            <%  if subject == 'Contact' %>
                              <p> Contact Name:      <%= link_to contact_path(@subject_object), class: 'text-info' do %> <%=@subject_object.name %><% end %></p>
-                             <p> Contact: Email: <%= @subject_object.company %></p>
-                             <p> Contact: Email: <%= @subject_object.company %></p>
-
+                             <p> Contact Company: <%= @subject_object.company %></p>
+                             <p> Contact: Email: <%= @subject_object.email %></p>
+                            <% elsif subject == 'Deal' %>
+                             <p> Deal Name:      <%= link_to deal_path(@subject_object), class: 'text-info' do %> <%=@subject_object.name %><% end %></p>
+                             <p> Deal Contacts: <%= @subject_object.contacts.each do |contact| %><%= contact.name %>&nbsp;<% end %></p>
+                             <p> Deal Contacts: <%= @subject_object.status %></p>
                              <% end %>
+<%= link_to 'Edit', edit_notification_path(@notification), class: 'text-white' %> |
+<%= link_to 'Back', notifications_path, class: 'text-white' %>
