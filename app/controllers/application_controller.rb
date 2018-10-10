@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
     @users = User.all
     @search = Search.new
     @company = Company.new
-    @notifications =  current_user.notifications
+    @notifications =  current_user.notifications if current_user
 
   end
 

@@ -28,7 +28,7 @@
               <% if current_page?(controller: 'notifications', action: 'index') %>
                 <% notifi_count = current_user.notifications.count %>
                 <% else %>
-                <% notifi_count = @notifications.count %>
+                <% notifi_count = @notifications.count  if !@notifications.nil? %>
                 <% end %>
               <span class="notification"><%= notifi_count %></span>
               <p>
