@@ -36,7 +36,7 @@ class Property < ApplicationRecord
   counts
  end
   def self.search(term)
-    where('Fulladdress LIKE ? OR name LIKE ?  OR address LIKE ?  ', "%#{term}%", "%#{term}%", "%#{term}%" ) if term.present?
+    where(' name LIKE ? OR Fulladdress LIKE ? ', "%#{term}%", "%#{term}%") if term.present?
   end
 end
 
