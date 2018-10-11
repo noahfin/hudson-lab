@@ -216,8 +216,9 @@ $(document).on('click', '#Leads-contact-send', function (event) {
                 'address': $('#contact_address').val(),
                 'number': $('#contact_cell').val(),
                 'phone': $('#contact_phone').val(),
-                'name': $('#contact_phone').val(),
-                'business': $('#contact_phone').val()
+                'name':  "Deal " + $('#contact_company').val(),
+                'business': $('#contact_company').val()
+
 
 
               },
@@ -229,13 +230,14 @@ $(document).on('click', '#Leads-contact-send', function (event) {
             url: url,
             method: "post",
             data: formData,
-            success: function (lead) {
+            success: function (data) {
 
                 $.notify({
                     title: "New Lead Added:",
                     message: $('#contact_company').val() + '"' + ' was successfuly added as a new lead'
                 });
-               $('#lead_c_id').val(lead.id)
+
+
 
             },
             error: function (err) {
@@ -604,7 +606,7 @@ $('.selectpicker').selectpicker('mobile');
                 'name': $('#contact_name').val(),
                 'email': $('#contact_email').val(),
                 'company': $('#contact_company').val(),
-                'address': $('#contact_address').val(),
+                'Fulladdress': $('#contact_address').val(),
                 'cell': $('#contact_cell').val(),
                 'phone': $('#contact_phone').val(),
                 'county': $('#contact_county').val(),
@@ -930,10 +932,6 @@ $(postIdStr).html(like_number + 1);
 
     $(document).on('click',  "#btn_finshed", function (e) {
                  clsoeWiz();
-                $.notify({
-                    title: "Contact From Compete",
-                    message: $('#contact_first_name').val() + '"' + ' was successfuly'
-                });
    });
     var dataTable = $('.data-table').DataTable();
     var lastUrl = ''

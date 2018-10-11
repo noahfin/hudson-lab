@@ -99,7 +99,11 @@ class ContactsController < ApplicationController
         user_reltionships(@contact)
         flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
         @contacts = @contact
-     render("update.js.erb")
+    respond_to do |format|
+      format.html
+        format.json { render json: @properties}
+        format.js
+      end
 
       end
     end
@@ -158,6 +162,9 @@ class ContactsController < ApplicationController
        user.contacts << @contact
        end
      end
+      @lead =  Lead.where("business LIKE ? ", "%#{@contact.company}%").limit(30) if @contact.company && !@contact.company.empty?
+          @contact.leads << @lead if !@lead.nil?
+
 
     render json: @contact, status: :created
   else
@@ -170,7 +177,7 @@ class ContactsController < ApplicationController
   private
 
     def contact_params
-      params.require(:contact).permit(:name,  :email, :company, :address, :Fulladdress, :address_id, :address_ids, :size_requirement, :location_need, :lease_is_up, :time_requirement, :phone, :cell, :page, :page_url, :suite, :county, :state, :country, :postal_code,:zip_code_ext, :city, :street_num, :strret_name, :notes,  :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [], :company_ids  => [])
+      params.require(:contact).permit(:name,  :email, :company, :address, :Fulladdress, :address_id, :address_ids, :size_requirement, :location_need, :lease_is_up, :time_requirement, :phone, :cell, :page, :page_url, :suite, :county, :state, :country, :postal_code,:zip_code_ext, :city, :street_num, :strret_name, :notes,  :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :lead_ids, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [], :company_ids  => [])
     end
 
     def find_contact

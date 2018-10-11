@@ -1,3 +1,9 @@
+<style type="text/css" media="screen">
+   div[data-notify] {
+    z-index: 99999999999 !important;
+}
+
+</style>
 <div class="wizard-container " id="contact-form-wiz">
    <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
    <%= render 'layouts/messages' if !flash.empty? %>
@@ -277,6 +283,8 @@
 <!--                         leads section &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  -->
                         <div class="collapse" id="collapseleads">
+
+                           <input type="hidden" name="contact[lead_ids]" id= "lead_c_id" value="">
                            <label>Enter When contact Lease is up</label>
                            <%= form.date_field :lease_is_up ,class: "form-control input-sm date-range-picker text-white"  %>
 
@@ -502,16 +510,20 @@
             <input type="hidden" name="update-wiz" value="update" >
             <% if local_assigns[:ajax_true] %>
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
-            <% if @contact.persisted? %>
-            <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
-           <input type="hidden" name="page_url" value="" id="hidden_page_url">
 
-            <% end %>
             <% else %>
 
             <% end %>
+            <% if @contact.persisted? %>
+            <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
+           <input type="hidden" name="page_url" value="" id="hidden_page_url">
+               <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose contact-updated', id: "btn_finshed" %>
+
+               <% else %>
+               <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose contact-created', id: "btn_finshed" %>
+            <% end %>
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"></input>
-            <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose ', id: "btn_finshed" %>
+
          </div>
          <div class="clearfix"></div>
       </div>

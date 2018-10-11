@@ -111,7 +111,7 @@
                               <br><small><%= lead.address %></small>  <% end %>
                            </td>
                            <td  class="text-white">
-                              <%= lead.email %>
+                              <% lead.contacts.each do |contact| %><%= contact.name + ' ' %> <% end %>
                            </td>
                            <td  class="text-white">
                               <%= lead.size_requirement %>

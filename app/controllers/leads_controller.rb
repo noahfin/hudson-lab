@@ -49,11 +49,7 @@ class LeadsController < ApplicationController
            @lead.contact_ids = id_array
          end
        end
-         @deal = Deal.create(name: @lead.business)
-         @deal.lead_id = @lead.id
-        if params['contact_ids']
-         @deal.contact_ids = id_array if id_array
-        end
+
 
         format.html
         format.json { render json: @lead}
