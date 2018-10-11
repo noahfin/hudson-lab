@@ -1,13 +1,13 @@
 <style type="text/css" media="screen">
 
 </style>
-<div id="select-leter" class="bg-trans">
+<div id="select-leter" class="bg-white text-black" >
 <br><br><br><br>
     <header>
-      <% date = DateTime.now.strftime('%d-%m-%Y')%>
+      <% date = DateTime.now.strftime('%D %M %Y')%>
       <% month = Date.parse(date).strftime('%B')%>
       <% day = Date.parse(date).strftime('%d')%>
-      <% year = Date.parse(date).strftime('%y')%>
+      <% year = Date.parse(date).strftime('%Y')%>
       <time datetime=<%="#{DateTime.now.strftime('%m-%d-%Y')}"%>><%= month %> <%= day %>, <%= year %></time><br><br>
       <address class="return-address">
         <%= @contact.prefix %> <%= @contact.first_name %> <%= @contact.last_name %> <%= @contact.suffix %><br>
@@ -24,20 +24,13 @@
 <br>
 
 
-<span class="bg-trans">Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
+<span class="bg-trans" style= "background: none;" >Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
 
 <br><br>
     <div class="main-section-letterbg-trans"> <!-- use this div only if it is required for styling -->
-        <p class="bg-trans">
-          Sehr geehrte Frau Graf,
-          <br class="salution" />
 
-          Ich fliege nach Brasilien am 29. Dezember 2012 für 6 Wochen.
-          Meine Nichte kann mich vertreten.  Sie arbeitet sehr gesissenhaft.
-          Sie heisst Yasmin.  Ihre Nummer ist xxx.
-        </p>
         <p>
-          …
+
         </p>
       </div>
 </div>

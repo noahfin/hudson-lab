@@ -933,6 +933,18 @@ $(postIdStr).html(like_number + 1);
     $(document).on('click',  "#btn_finshed", function (e) {
                  clsoeWiz();
    });
+        $(document).on('click',  ".on-contact-create", function (e) {
+                           $.notify({
+                    title: "Great!",
+                    message: $('#contact_first_name').val() + '"' + ' was successfuly added to the database'
+                });
+                           setTimeout(function() {
+                          $.notifyClose();
+                        }, 2000);
+                 clsoeWiz();
+   });
+
+
     var dataTable = $('.data-table').DataTable();
     var lastUrl = ''
     document.addEventListener("turbolinks:before-cache", function () {

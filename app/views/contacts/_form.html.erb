@@ -510,18 +510,17 @@
             <input type="hidden" name="update-wiz" value="update" >
             <% if local_assigns[:ajax_true] %>
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
-
-            <% else %>
-
             <% end %>
-            <% if @contact.persisted? %>
+
+            <% new_record_class  = '' %>
+             <% if @contact.new_record? %>
+               <% new_record_class  = "on-contact-create" %>
+               <% end %>
+             <% finshed_class = 'btn btn-fill b-finsh btn-rose '  + new_record_class %>
+
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
-           <input type="hidden" name="page_url" value="" id="hidden_page_url">
-               <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose contact-updated', id: "btn_finshed" %>
-
-               <% else %>
-               <%= form.submit 'finshed', :class => 'btn btn-fill b-finsh btn-rose contact-created', id: "btn_finshed" %>
-            <% end %>
+            <input type="hidden" name="page_url" value="" id="hidden_page_url">
+            <%= form.submit 'finshed', :class => finshed_class, id: "btn_finshed" %>
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"></input>
 
          </div>
