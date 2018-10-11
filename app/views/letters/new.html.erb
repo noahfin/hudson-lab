@@ -1,12 +1,12 @@
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">New Letter</button>
+<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">New Letter</button>
 
 <%= link_to 'Back', letters_path %>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-content card-1 p-0">
      <%= render 'form', letter: @letter %>
     </div>
   </div>

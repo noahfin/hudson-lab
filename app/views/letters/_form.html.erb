@@ -1,94 +1,234 @@
 
-<%= simple_form_for(@letter) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
 
 
-<form>
+<form class="card-1 p-0">
         <!-- Sign up card -->
-        <div class="card person-card">
-            <div class="card-body">
-                <!-- Sex image -->
-                <img id="img_sex" class="person-img"
-                    src="https://visualpharm.com/assets/217/Life%20Cycle-595b40b75ba036ed117d9ef0.svg">
-                <h2 id="who_message" class="card-title">Who are you ?</h2>
+        <div class="card card-raised card-1 p-0">
+            <div class="card-body card-1">
+
+
+               <span><h1 class=" text-left text-white ml-0 "><i class="material-icons pt-4 mt-4">email</i> Select letter template</h2></h1></span>
                 <!-- First row (on medium screen) -->
                 <div class="row">
-                    <div class="form-group col-md-2">
-                        <select id="input_sex" class="form-control">
-                            <option value="Mr.">Mr.</option>
-                            <option value="Ms.">Ms.</option>
+                    <div class="form-group col-md-6">
+                        <select id="input_sex" class="form-control text-white">
+                            <option value="basic_letter">Basic Letter</option>
+                            <option value="Proposal_lease">Cover Letter</option>
+                            <option value="Proposal_purchase">Proposal To Purchase</option>
+                            <option value="Proposal_lease">Proposal To Lease</option>
+                            <option value="exclusive_agreement">Exclusive Agreement</option>
+                            <option value="exclusive_agreement">Exclusive Proposal</option>
+
                         </select>
                     </div>
-                    <div class="form-group col-md-5">
-                        <input id="first_name" type="text" class="form-control" placeholder="First name">
-                        <div id="first_name_feedback" class="invalid-feedback">
 
-                        </div>
-                    </div>
-                    <div class="form-group col-md-5">
-                        <input id="last_name" type="text" class="form-control" placeholder="Last name">
-                        <div id="last_name_feedback" class="invalid-feedback">
 
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-6" style="padding=0.5em;">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">How to contact you ?</h2>
-                        <div class="form-group">
-                            <label for="email" class="col-form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
-                            <div class="email-feedback">
+                <div class="card card-1">
+                    <div class="card-body card-1">
+                        <h4 class="card-title  text-white">Who is it being sent to?</h4>
 
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="tel" class="col-form-label">Phone number</label>
-                            <input type="text" class="form-control" id="tel" placeholder="+33 6 99 99 99 99" required>
-                            <div class="phone-feedback">
 
-                            </div>
+            <div class="row m-0">
+                 <div class="">
+            <div class="form-group card-1 ">
+
+                   <div class="   p-3  mr-4 bg-gray66">
+                  <div class="col-md-12 ">
+                     <div class="form-group bg-black">
+               <div class="form-group  pt-0 mt-0  ">
+                  <div class=" pt-0 mt-0  ">
+                     <div class="card-collapse  pt-0 mt-0 ">
+                        <div class="card-header pt-0 bg-black" role="tab" id="headingTwo">
+                           <div class="row">
+                              <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type name then select the contact" aria-label="Search" id="search-contat-task">
+                           </div>
+                           <h5 class="mb-0">
+                              <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              click to see who got added
+                              <i class="material-icons text-muted">keyboard_arrow_down</i>
+                              </a>
+                           </h5>
                         </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                           <div class="card-body" id="form-contact">
+                              <ul class="list-inline p-3">
+                                 <li class="list-inline-item m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                       <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                       <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                       <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                       <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                       <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Securize your account !</h2>
-                        <div class="form-group">
-                            <label for="password" class="col-form-label">Pasword</label>
-                            <input type="password" class="form-control" id="password" placeholder="Type your password" required>
-                            <div class="password-feedback">
+                 <div class="card card-1">
+                    <div class="card-body card-1">
+                        <h4 class="card-title text-white">What Property is this for</h4>
+            <div class="row m-0">
+    <div class="">
+      <div class="form-group card-1 ">
 
-                            </div>
+        <div class="p-3  mr-4 bg-gray66">
+          <div class="col-md-12  m-0">
+             <div class="form-group bg-black">
+               <div class="form-group  pt-0 mt-0  ">
+                  <div class=" pt-0 mt-0  ">
+                     <div class="card-collapse  pt-0 mt-0 ">
+                        <div class="card-header pt-0 bg-black" role="tab" id="headingTwo">
+                           <div class="row">
+                              <input class="form-control get-properties ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type the name of the property" aria-label="Search" id="get-properties">
+                           </div>
+                           <h5 class="mb-0">
+                              <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              View properties added
+                              <i class="material-icons text-muted">keyboard_arrow_down</i>
+                              </a>
+                           </h5>
                         </div>
-                        <div class="form-group">
-                            <label for="password_conf" class="col-form-label">Pasword (confirm)</label>
-                            <input type="password" class="form-control" id="password_conf" placeholder="Type your password again" required>
-                            <div class="password_conf-feedback">
-
-                            </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                           <div class="card-body" id="form-contact">
+                              <ul class="list-inline p-3">
+                                 <li class="list-inline-item m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="property_ids[]" value="0" checked="true" class="properties1">
+                                       <span class="p1  mt-4 p-2  text-muted text-center">Property 1</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="property_ids[]" value="0" checked="true" class="properties2">
+                                       <span class="p2 mt-4 p-2 text-muted text-center">Property 2 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="property_ids[]" value="0" checked="true" class="properties3">
+                                       <span class="p3 mt-4 p-2 text-muted text-center"> Property 3 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="property_ids[]" value="0" checked="true" class="properties4">
+                                       <span class="p4 mt-4 p-2 text-muted text-center">Property 4</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="property_ids[]" value="0" checked="true" class="properties5">
+                                       <span class="p5 mt-4 p-2  text-muted text-center"> Property 5 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                  </div>
+               </div>
+               </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+       </div>
+     </div>
             </div>
         </div>
-        <div style="margin-top: 1em;">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Sign up !</button>
+        <div class="ml-4 mr-4 mt-3">
+            <button type="button" class="btn btn-outline-white btn-lg btn-block ">Create Letter</button>
         </div>
         </form>

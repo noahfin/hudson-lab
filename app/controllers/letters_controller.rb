@@ -4,7 +4,7 @@ class LettersController < ApplicationController
   # GET /letters
   # GET /letters.json
   def index
-    @letters = Letter.all
+
   end
 
   # GET /letters/1
@@ -14,7 +14,7 @@ class LettersController < ApplicationController
 
   # GET /letters/new
   def new
-    @letter = Letter.new
+
   end
 
   # GET /letters/1/edit
