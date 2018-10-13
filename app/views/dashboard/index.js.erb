@@ -1,0 +1,30 @@
+$('#main-content').html('<%= escape_javascript render("index") %>');
+$('#contact-form-wiz').hide();
+$('#form-modal').modal('hide');
+$('#form-modal').removeClass('modal');
+$('#group_id').val('<%= params[:group] %>');
+   $('.tooltip-inner').hide();
+   $('.tooltip .arrow').hide();
+$('.custom-tip').tooltip('update');
+var toolTipLinks = []
+$(document).on('click', '.get-group', function() {
+   $('.tooltip-inner').hide();
+   $('.tooltip .arrow').hide();
+
+   });
+
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+  <% name = "info" if !name %>
+
+      $(function() {
+        $.notify({
+      title: '<strong>Heads up!</strong>',
+      message: '<%= msg.to_s %>'
+    },{
+      type: '<%= name.to_s %>'
+    });
+    });
+
+  <% end %>
+<% end %>

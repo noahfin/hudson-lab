@@ -126,9 +126,9 @@
       </div>
    </div>
 </div>
-<div class="col-md-12 first-show-card">
-   <div class="row first-show-card">
-      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+<div class="col-md-12 ">
+   <div class="row ">
+      <div class="col-lg-3 col-md-6 col-sm-6 ">
          <%= link_to contacts_path, remote: true do %>
          <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1">
             <div class="card-header card-header-icon">
@@ -145,7 +145,7 @@
             </div>
          </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+      <div class="col-lg-3 col-md-6 col-sm-6 ">
          <a href="/leads/" >
             <div class="card card-stats  rounded-0  card-dash-warning card-1" >
                <div class="card-header card-header-icon">
@@ -164,7 +164,7 @@
             </div>
          </a>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+      <div class="col-lg-3 col-md-6 col-sm-6 ">
          <%= link_to deals_path do %>
          <div class="card card-stats card-dash-rose rounded-0  card-1">
             <div class="card-header card-header-icon ">
@@ -186,7 +186,7 @@
       <% @invoices.each do |invoice| %>
         <% revenue += invoice.Commission_Earned if invoice.Commission_Earned %>
       <% end %>
-      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+      <div class="col-lg-3 col-md-6 col-sm-6 ">
            <%= link_to invoices_path do %>
          <div class="card card-stats  card-dash-success rounded-0 card-1" >
             <div class="card-header  card-header-icon">
@@ -219,7 +219,7 @@
                <div class="card-body text-white">
                   <div class="row">
                      <div class="col-md-6">
-                        <div class="table-responsive table-sales">
+                        <div class=" table-sales">
                            <table class="table">
                               <tbody>
                                  <% @searcheds.each do |searched| %>
