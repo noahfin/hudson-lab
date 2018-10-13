@@ -86,6 +86,8 @@
       </div>
    </div>
 </div>
+<div class="row">
+
 <div class="col-md-6">
    <div class="card card-1 ">
       <div class="card-header card-header-text card-1">
@@ -123,6 +125,54 @@
       </div>
    </div>
 </div>
+<div class="col-md-6">
+   <div class="card card-1 ">
+      <div class="card-header card-header-text card-1">
+         <div class="card-text bg-black">
+            <h4 class="card-title ">Search For Business To Prospect </h4>
+         </div>
+      </div>
+      <div class="card-body ">
+      <a class="csv-btn btn btn-outline-success" id="dataLink">Download CSV</a>
+      </div>
+   </div>
+</div>
+</div>
+<div class="row">
+ <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title ">Searched Companies</h4>
+                                    <p class="card-category">Seach for Companies to market to</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead class=" text-primary">
+                                                <tr><th>
+                                                    ID
+                                                </th>
+                                                <th>
+                                                    Name
+                                                </th>
+                                                <th>
+                                                    Address
+                                                </th>
+                                                <th>
+                                                    Number
+                                                </th>
+                                                <th>
+                                                    Website
+                                                </th>
+
+                                            </tr></thead>
+                                            <tbody id="company-search-radar">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+</div>
+
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%="#{@key}"%>&libraries=places"></script>
 
 <script type="text/javascript">
@@ -274,10 +324,11 @@
              }
 
          });
-
+          var id_index = 0;
        var infoWindowOptions = {
          content:  place.name +place.formatted_address + '<br><br>' +'<a href="tel:+' +place.formatted_phone_number +'">'+ place.formatted_phone_number + '</a><br>'
        }
+
        var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
        google.maps.event.addListener(marker,'click',function(e){
          infoWindow.open(map, marker);
@@ -368,24 +419,80 @@
 
    });// End of auto complete section
 
-   // code for CSV File
-   function callback2(place, status) {
-   if (status == google.maps.places.PlacesServiceStatus.OK){
-     placeData[x].name = place.name;
-     addressArray.push(place.formatted_address);
-     detailsArray.push({address: place.formatted_address, number: place.formatted_phone_number, website: place.website })
-       if(x !== addressArray.length) {
-           console.log(x);+
-           x++;
-           loopArray();
-         }else {
-           x = 0;
+//start of code to export the list as a csv file
+$('body').on('click', '.csv-btn', loopArray);
+map = new google.maps.Map(document.getElementById('regularMap'));
+    var $link = $("#dataLink");
+    var name;
+    var id;
+    var address;
+    var addressArray = [];
+    var detailsArray = [];
+    var csv = " ";
+    var x = 0;
+    function loopArray() {
+     if (x !== placeData.length){
+     if(x % 5 === 0 ) {
+     setTimeout(function(){
+      if (placeData[x] !== undefined){
+        var request = {
+          placeId: placeData[x].id
+         };
+        var service = new google.maps.places.PlacesService(map);
+            service.getDetails(request, callback2);
+      }
 
-         }
+     }, 2500);
+     }
 
-   }
-   }// End of CSV FIle section
+    var request = {
+        placeId: placeData[x].id
+       };
+     var service = new google.maps.places.PlacesService(map);
+          service.getDetails(request, callback2);
 
+    } else {
+         var regex = new RegExp(',', 'g')
+         var name = '';
+
+       for (var i=0; i<addressArray.length; i++) {
+                var number, website = '';
+                if (detailsArray[i].number !== undefined) {
+                  number = detailsArray[i].number;
+                }
+                if (detailsArray[i].website !== undefined) {
+                  website = detailsArray[i].website;
+                }
+
+                console.log(detailsArray[i].number);
+
+                console.log(detailsArray[i].website);
+                name = placeData[i].name;
+                name = name.replace(regex,'');
+                csv +=  name + "," + addressArray[i] + "," + number + "," + website +"\n";
+               };
+
+               $("#dataLink").attr("href", 'data:Application/octet-stream,' + encodeURIComponent(csv))[0].click();
+    }
+
+}
+
+  function callback2(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK){
+      placeData[x].name = place.name;
+      addressArray.push(place.formatted_address);
+      detailsArray.push({address: place.formatted_address, number: place.formatted_phone_number, website: place.website })
+        if(x !== addressArray.length) {
+            console.log(x);+
+            x++;
+            loopArray();
+          }else {
+            x = 0;
+
+          }
+
+    }
+  }
 
    //add placees radar search
    function doRadarSearch(keyWords) {
@@ -508,7 +615,7 @@
      query:  keyWords
    };
     service = new google.maps.places.PlacesService(map);
-   service.textSearch(request, callback);
+    service.textSearch(request, callback);
    }
 
    function callback(results, status) {
@@ -519,11 +626,9 @@
    }
 
    for (var i = 0, result; result = results[i]; i++) {
-     addMarker(result);
-
+      addMarker(result);
       placeData[i] = {name: undefined, id: result.place_id}; //sets the place data
-
-   }
+    }
    }
 
    function addMarker(place) {
@@ -544,8 +649,6 @@
 
          return;
        }
-
-
        infoWindow.setContent( '<div><strong class="text-black">' + result.name + '</strong><br>' +'<a href="tel:+' +result.formatted_phone_number +'" class="text-info">'+ result.formatted_phone_number + '</a><br> <a href="'+result.website+'" title="website"><p class="text-black">'+  result.website + '</P></a><br>'  );
        infoWindow.open(map, marker);
      });

@@ -6,16 +6,19 @@ $('#form-modal').modal('hide');
 $('#form-modal').removeClass('modal');
 $('.select_u_picker').attr("data-actions-box", "true");
       $(function() {
-        $.notify({
+       $.notify({
+      icon: 'fa fa-bell',
       title: '<strong>Heads up!</strong>',
       message: 'Contact Got Updated!'
     },{
       type: 'success'
 
 
-    });
+
     });
 
 setTimeout(function() {
   $.notifyClose();
 }, 2000);
+
+}

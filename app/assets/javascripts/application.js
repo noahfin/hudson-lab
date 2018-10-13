@@ -1206,6 +1206,7 @@ var getContactForDash = function(query){
                     $('#new_group').addClass('has-error')
                         .after('<p class="text-danger pt-2 mb-0">' + error + '</p>');
                     $.notify({
+                        icon: 'fa fa-bell',
                         title: '<strong>Heads up!</strong>',
                         message: error
                     }, {

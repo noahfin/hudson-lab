@@ -67,8 +67,8 @@
    <div class="page-header mdl-color--grey-900">
       <section class=" ml-auto mr-auto">
          <div class=" ml-auto mr-auto">
-              <p class="notice  bg-footer text-danger mt-3 mb-3 ml-3 p-2"><%= notice %></p>
-            <p class="alert  bg-footer text-danger mt-3 mb-3 ml-3 p-2"><%= alert %></p>
+              <p class="notice  bg-footer text-danger mt-3 mb-3 ml-3 p-2 custom-alert"><%= notice %></p>
+            <p class="alert  bg-footer text-danger mt-3 mb-3 ml-3 p-2 custom-alert"><%= alert %></p>
             <div class="mask ml-auto mr-auto ">
                <div class="ml-auto mr-auto">
                   <div class="mainlogin " >
@@ -117,5 +117,26 @@
    </section>
    </div>
 </body>
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function () {
+  var alert_msg =  $('.custom-alert').text();
+  $('.custom-alert').text("");
+  console.log(alert_msg)
+
+       $.notify({
+      icon: 'fa fa-bell',
+      title: '<strong>Heads up!</strong>',
+      message: alert_msg
+    },{
+      type: 'danger'
 
 
+
+    });
+
+setTimeout(function() {
+  $.notifyClose();
+}, 2000);
+
+});
+</script>

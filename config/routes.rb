@@ -1,5 +1,6 @@
   Rails.application.routes.draw do
 
+  resources :marketings
   resources :letters
   resources :notifications do
        get 'just_user', on: :collection

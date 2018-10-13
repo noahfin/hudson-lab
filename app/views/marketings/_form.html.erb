@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@marketing) do |f| %>
+  <%= f.error_notification %>
+               <div class="card-body">
+                  <div class="col-md-6 ml-auto mr-auto">
+                     <% attr[:selected] =  session[:selected_group_id] %>
+                     <label for="group_ids[]" class="bmd-label-floating text-black">Pick Groups<small></small></label>
+                     <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
+                  </div>
+               </div>
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

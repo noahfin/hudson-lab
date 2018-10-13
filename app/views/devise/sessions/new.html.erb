@@ -62,8 +62,8 @@
 
       <section class=" ml-auto mr-auto">
          <div class="mb-2 mt-2 p-2 mr-auto ml-auto">
-            <p class="notice  bg-footer text-danger mt-3 mb-3 ml-3 p-2"><%= notice %></p>
-            <p class="alert  bg-footer text-danger mt-3 mb-3 ml-3 p-2"><%= alert %></p>
+            <p class="notice  bg-footer text-white mt-3 mb-3 ml-3 p-2 custom-alert"><%= notice %></p>
+            <p class="alert  bg-footer text-white mt-3 mb-3 ml-3 p-2 custom-alert"><%= alert %></p>
          <div class=" ml-auto mr-auto">
          </div>
 
@@ -80,19 +80,30 @@
                               <h2><%= pluralize(resource.errors.count, "error") %> prohibited successfull login:</h2>
 
                               <ul>
-                              <% resource.errors.full_messages.each do |msg| %>
-                                <li><%= msg %></li>
-                              <% end %>
-                              </ul>
+                                     <% resource.errors.full_messages.each do |msg| %>
+                              <script>
+                                   $(function() {
+$.notify(<%="#{msg}"%>, {
+  animate: {
+    enter: 'animated fadeInRight',
+    exit: 'animated fadeOutRight'
+  }
+});
+}
+                              </script>
+                            <% end %>
+
+                             <% end %>
+
                             </div>
-                          <% end %>
+
                                                 <div class="form-group mr-auto ml-auto">
                            <label class="lb-responsive">Enter Email</label> <br class="br-responsive">
-                           <%= f.email_field :email, class: "dark-form-control pl-2 text-light", required: true, placeholder: 'Email'  %>
+                           <%= f.email_field :email, class: "form-control pl-2 text-light", required: true, placeholder: 'Email'  %>
                         </div>
                         <div class="form-group">
                            <label class="lb-responsive">Enter Password</label> <br class="br-responsive">
-                           <%= f.password_field :password, class: "dark-form-control  pl-2 text-light", required: true, placeholder: 'Password'  %>
+                           <%= f.password_field :password, class: "form-control  pl-2 text-light", required: true, placeholder: 'Password'  %>
                         </div>
                         <div class="form-group">
                            <button type="submit" class="btn btn-outline-info btn-block">Log in</button>
@@ -126,3 +137,27 @@
    </section>
    </div>
 </body>
+<script type="text/javascript">
+$(document).on('turbolinks:load', function () {
+  var alert_msg =  $('.custom-alert').text();
+  $('.custom-alert').text("");
+  console.log(alert_msg)
+
+       $.notify({
+      icon: 'fa fa-bell',
+      title: '<strong>Heads up!</strong>',
+      message: alert_msg
+    },{
+      type: 'danger'
+
+
+
+    });
+
+setTimeout(function() {
+  $.notifyClose();
+}, 2000);
+
+});
+
+</script>
