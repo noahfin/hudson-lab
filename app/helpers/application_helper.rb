@@ -49,4 +49,8 @@ def tel_to(text)
   end
   link_to text, "tel:#{groups.join '-'}"
 end
+
+      def accessible_attributes
+        attributes.reject(&:reference?)
+      end
 end

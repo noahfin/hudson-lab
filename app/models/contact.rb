@@ -1,6 +1,8 @@
 class Contact < ApplicationRecord
   require 'roo'
   include PgSearch
+
+  include ActiveModel::AttributeAssignment
   include ContactsHelper
   after_save :concat_full_name
   self.inheritance_column = :_type_disabled
@@ -59,14 +61,20 @@ def self.to_csv(options = {})
   end
 end
 
+  def self.accessible_attributes(attributes)
+    attributes.reject(&:reference?)
+  end
+
   def self.inport(file, group, users )
     spreadsheet = Roo::Spreadsheet.open(file.path)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       contact = find_by(id: row["id"]) || new
-      row = row.to_hash
-      contact.attributes = row
+      puts "*************************************************************************"
+      puts header
+      puts "*************************************************************************"
+      contact.assign_attributes(row.to_hash)
       contact.save!
       if Address.exists?([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
         contact.address_ids << Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])
