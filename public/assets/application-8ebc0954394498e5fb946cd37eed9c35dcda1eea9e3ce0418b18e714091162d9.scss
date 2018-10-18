@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
 
- *= require_tree .
- *= require_self
+
+
 
  */
 
@@ -312,7 +312,7 @@
   }
   html,
   body,
-  .content, #main-content, .main-container {
+  .content {
     max-width: 100vw !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -366,14 +366,6 @@
   }
   .card-stats {
     overflow: visible !important;
-    margin-bottom: 40px !important;
-  }
-    .card-d-fix {
-    overflow: visible !important;
-    margin-bottom: 50px !important;
-  }
-  .fix-top {
-    margin-top: 30px !important;
   }
 }
 
