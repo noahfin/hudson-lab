@@ -11,7 +11,7 @@
 
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-              <span class="links-on-notifications"><%= link_to 'Delete just your notifications', just_user_notifications_path, class: "text-danger" %> OR  <%= link_to 'Delete just your notifications',all_users_notifications_path, class: "text-danger" %></span>
+              <span class="links-on-notifications"><%= link_to 'Delete just your notifications', just_user_notifications_path, class: "text-danger" %> OR  <%= link_to 'Delete all notifications',all_users_notifications_path, class: "text-danger" %></span>
             <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
             <div class="card-icon bg-black">
                <i class="material-icons">notifications</i>
@@ -45,7 +45,7 @@
                                    notifi_color = 'bg-light-danger'
                              end
                           %>
-                          <% user =  User.find(notification.name_id) %>
+                          <% user =  User.find(notification.name_id) if notification.name_id %>
                           <tr>
                              <tr> <% class_str = "btn btn-just-icon  btn-round "+  notifi_color %>
                              <td> <%= link_to notification_path(notification.id), class: class_str  do %>

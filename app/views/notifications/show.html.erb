@@ -78,13 +78,17 @@
 
                                    subject = ''
                              if    @notification.thing == 'contact'
-                                   @subject_object = Contact.find(@notification.thing_id)
-                                   subject = 'Contact'
+                                   if  @notification.thing_id and Contact.find(@notification.thing_id)
+                                      @subject_object = Contact.find(@notification.thing_id)
+                                      subject = 'Contact'
+                                   end
                                    notifi_type = 'fa  fa-database'
                                    notifi_color = 'bg-light-info'
                              elsif @notification.thing == 'deal'
-                                   @subject_object = Deal.find(@notification.thing_id)
-                                   subject = 'Deal'
+                                   if  @notification.thing_id and Deal.find(@notification.thing_id)
+                                     @subject_object = Deal.find(@notification.thing_id)
+                                     subject = 'Deal'
+                                   end
                                    notifi_type = 'fa fa-suitcase'
                                    notifi_color = 'bg-light-warning'
                              elsif @notification.thing == 'task'

@@ -242,8 +242,16 @@
                                     <td class="text-right">
                                        <a data-toggle="modal" data-target=".bd-example-modal-lg" class="profile_modal_trigger" title= 'Get Phone Number' rel= "tooltip" >
                                           <p name="profile_name" class="p_name" value=><%= searched.name %> </p>
-                                          <% contact = Contact.find(searched.contact_id) %>
+                                         <% begin contact = Contact.find_by_id(searched.contact_id)
+                                            rescue ActiveRecord::RecordNotFound => e
+                                            contact = nil
+                                            end
+                                          %>
+                                          <% if !contact.nil?  %>
+
+
                                           <p name="profile_image" class="p_image" value=><%= contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150' %> </p>
+                                          <% end %>
                                           <p name="profile_number" class="p_number" value=><%= searched.number %></p>
                                           <p name="profile_email" class="p_email" value=><%= searched.email %></p>
                                           <p name="profile_cell" class="p_cell" value=><%= searched.cell %></p>

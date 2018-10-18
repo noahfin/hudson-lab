@@ -111,6 +111,13 @@ class ContactsController < ApplicationController
 
   def destroy
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
+    searched = Searched.where([' contact_id LIKE ?', "%#{@contact.id.to_s}%"])
+      if searched
+         searched.each do |search_object|
+         search_object.destroy
+        end
+      end
+
     respond_to do |format|
       if @contact.destroy
         flash[:danger] = "The Action Step was successfully deleted."
@@ -183,7 +190,6 @@ class ContactsController < ApplicationController
     def find_contact
        @contact = Contact.find(params[:id].to_i)
     end
-
     def previous_query_string
       if params[:group_id] && !params[:group_id].empty?
          session[:selected_group_id] = params[:group_id]
@@ -202,7 +208,6 @@ class ContactsController < ApplicationController
             county = params['county']
             group = Group.find(params[:group_id])
               @contacts = group.contacts.by_county(county).order(:last_name).page(params[:page])
-
           else
             if params['term']
               term = params['term'].split.map(&:capitalize)*' '

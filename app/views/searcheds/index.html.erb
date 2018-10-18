@@ -24,9 +24,9 @@
         <td><%= searched.email %></td>
         <td><%= searched.cell %></td>
         <td><%= searched.fulladdress %></td>
-        <td><%= link_to 'Show', searched %></td>
-        <td><%= link_to 'Edit', edit_searched_path(searched) %></td>
-        <td><%= link_to 'Destroy', searched, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', searched, class: "text-info" %></td>
+        <td><%= link_to 'Edit', edit_searched_path(searched), class: "text-success" %></td>
+        <td><%= link_to 'Destroy', searched, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Searched', new_searched_path %>
+<%= link_to 'New Searched', new_searched_path, class: "text-white" %>
