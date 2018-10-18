@@ -71,9 +71,6 @@ end
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       contact = find_by(id: row["id"]) || new
-      puts "*************************************************************************"
-      puts header
-      puts "*************************************************************************"
       contact.assign_attributes(row.to_hash)
       contact.save!
       if Address.exists?([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{contact.city}%", "%#{contact.street_num}%", "%#{contact.strret_name}%"])

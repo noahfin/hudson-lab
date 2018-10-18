@@ -825,7 +825,7 @@ $('.selectpicker').selectpicker('mobile');
             method: "patch",
             data: data,
             success: function (contact) {
-                $.getScript(pageUrl);
+                $.getScript(url);
             },
             error: function (err) {
 

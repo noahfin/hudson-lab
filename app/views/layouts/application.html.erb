@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
    <head>
       <title>Hudson Lab</title>
       <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
@@ -13,11 +13,11 @@
 
    </head>
    <body>
-      <div class="wrapper" style="min-width: 100vw;" id="content">
+      <div class="wrapper" id="content">
          <%if user_signed_in? %><%= render 'layouts/sidebar' %>
-         <div style="width: 100%;">
+         <div >
             <%= render 'layouts/navbar' %>
-            <div class="content" style="width: 100%;">
+            <div class="content">
                <div class="container-fluid main-container" >
                   <div id="flash-messages">
                      <%= render 'layouts/messages' if !flash.empty? %>
