@@ -21,7 +21,8 @@ class PropertiesController < ApplicationController
       end
    end
    def autocomplete
-      @properties = Property.search(params[:query])
+      term = params[:term]
+      @properties = Property.search(term)
    end
    def category
        @properties = Property.all

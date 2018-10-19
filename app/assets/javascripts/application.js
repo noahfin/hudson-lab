@@ -1218,7 +1218,17 @@ var getContactForDash = function(query){
 
 }
 
+     $('#p-search').autocomplete({
+        source: '/properties/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            $('#p-search').val(ui.item.value);
+            var uri = '/properties/' + ui.item.id.toString() + '/';
 
+            getProfile(uri);
+            $('p-search').val('');
+        }
+    });
     $('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
