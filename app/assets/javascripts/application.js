@@ -985,49 +985,57 @@ $(postIdStr).html(like_number + 1);
 
 
 
- //    var contact_ids_prop_i = 0;
- //    var contact_class_p_name = ['.c1', '.c2', '.c3', '.c4', '.c5', '.c6', '.c7', '.c8', '.c9', '.c10'];
- //    var contact_ids_prop = [];
- //    var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
 
 
- //    var property_class_p_name = ['.p1', '.p2', '.p3', '.p4', '.p5'];
- //    var property_ids_prop_i = 0;
- //    var property_class_prop = ['.properties1', '.properties2', '.properties3', '.properties4', '.properties5', '.properties6', '.properties7', '.properties8', '.properties9', '.properties10'];
- //    var property_ids_prop = [];
+    var property_class_p_name = ['.p1', '.p2', '.p3', '.p4', '.p5'];
+    var property_ids_prop_i = 0;
+    var property_class_prop = ['.properties1', '.properties2', '.properties3', '.properties4', '.properties5', '.properties6', '.properties7', '.properties8', '.properties9', '.properties10'];
+    var property_ids_prop = [];
 
- // //deal add with autocomplete
- //  $('#search-deals').autocomplete({
- //        source: '/deals/autocomplete',
- //        minLength: 3,
- //        select: function (event, ui) {
- //            contact_ids_prop[contact_ids_prop.length] = ui.item.id
- //            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
-
-
- //            $(contact_class_p_name[contact_ids_prop_i]).html(ui.item.value);
- //            contact_ids_prop_i++;
- //            $('.get-deals').val('');
- //        }
- //    });
+ //deal add with autocomplete
+  $('#search-deals').autocomplete({
+        source: '/deals/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            contact_ids_prop[contact_ids_prop.length] = ui.item.id
+            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
 
 
- // //properties add with autocomplete
- //  $('#get-properties').autocomplete({
- //        source: '/properties/autocomplete',
- //        minLength: 3,
- //        select: function (event, ui) {
- //            property_ids_prop[property_ids_prop.length] = ui.item.id
- //            $(property_class_prop[property_ids_prop_i]).val(ui.item.id);
+            $(contact_class_p_name[contact_ids_prop_i]).html(ui.item.value);
+            contact_ids_prop_i++;
+            $('.get-deals').val('');
+        }
+    });
 
 
- //            $(property_class_p_name[property_ids_prop_i]).html(ui.item.value);
- //            contact_ids_prop_i++;
- //            $('.get-properties').val('');
- //        }
- //    });
+ //properties add with autocomplete
+  $('#get-properties').autocomplete({
+        source: '/properties/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            property_ids_prop[property_ids_prop.length] = ui.item.id
+            $(property_class_prop[property_ids_prop_i]).val(ui.item.id);
 
 
+            $(property_class_p_name[property_ids_prop_i]).html(ui.item.value);
+            contact_ids_prop_i++;
+            $('.get-properties').val('');
+        }
+    });
+
+     $('.p-search').autocomplete({
+        source: '/properties/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            property_ids_prop[property_ids_prop.length] = ui.item.id
+            $(property_class_prop[property_ids_prop_i]).val(ui.item.id);
+
+
+            $(property_class_p_name[property_ids_prop_i]).html(ui.item.value);
+            property_ids_prop_i++;
+            $('.p-search').val('');
+        }
+    });
 
 
 

@@ -1,0 +1,111 @@
+<h1>cover_letter.html.erb</h1>
+<style type="text/css" media="screen">
+
+</style>
+<div id="select-leter" class="bg-white text-black" >
+<br><br><br><br>
+    <header>
+      <% date = DateTime.now.strftime('%d %m %y')%>
+      <% month = Date.parse(date).strftime('%B')%>
+      <% day = Date.parse(date).strftime('%d')%>
+      <% year = Date.parse(date).strftime('%Y')%>
+      <time datetime=<%="#{DateTime.now.strftime('%m-%d-%Y')}"%>><%= month %> <%= day %>, <%= year %></time><br><br>
+      <address class="return-address">
+        <%= @contact.prefix %> <%= @contact.first_name %> <%= @contact.last_name %> <%= @contact.suffix %><br>
+        <%= @contact.company %><br>
+        <%= @contact.street_num %> <%= @contact.strret_name %> <%= @contact.suite %><br>
+        <%= @contact.city %>, <%= @contact.state %> <%= @contact.postal_code %>
+      </address>
+      <br>
+      <br>
+      Re:
+    </header>
+
+<br>
+<br>
+
+
+<span class="bg-trans" style= "background: none;" >Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
+
+<br><br>
+    <div class="main-section-letterbg-trans"> <!-- use this div only if it is required for styling -->
+
+      <p>
+     </p>
+    </div>
+</div>
+<br><br>
+<button type="button" id="copy-letter-btn" class="btn btn-outline-success btn-large">Copy the letter</button>
+<button type="button" id="select-letter-btn" class="btn btn-outline-info btn-large">Select the letter</button>
+<script>
+  $(document).ready(function(){
+    $('#copy-letter-btn').hide();
+  });
+
+  $('body').on('click', '#select-letter-btn', function (event) {
+    $('#copy-letter-btn').show();
+    $('#select-letter-btn').hide();
+    var divElement = document.querySelector('#select-leter');
+    selectText(divElement);
+  });
+  $('body').on('click', '#copy-letter-btn', function (event) {
+   document.execCommand('copy')
+         $.notify({
+          title: '<strong>Heads up!</strong>',
+          message: 'The letter was copied to you clipbord!'
+      }, {
+          type: 'succes'
+      });
+  });
+;
+  function selectText(element) {
+  if (/INPUT|TEXTAREA/i.test(element.tagName)) {
+    element.focus();
+    if (element.setSelectionRange) {
+      element.setSelectionRange(0, element.value.length);
+    } else {
+      element.select();
+    }
+    return;
+  }
+
+  if (window.getSelection) { // All browsers, except IE <=8
+    window.getSelection().selectAllChildren(element);
+  } else if (document.body.createTextRange) { // IE <=8
+    var range = document.body.createTextRange();
+    range.moveToElementText(element);
+    range.select();
+  }
+}
+
+function deselectAll() {
+  var element = document.activeElement;
+
+  if (element && /INPUT|TEXTAREA/i.test(element.tagName)) {
+    if ('selectionStart' in element) {
+      element.selectionEnd = element.selectionStart;
+    }
+    element.blur();
+  }
+
+  if (window.getSelection) { // All browsers, except IE <=8
+    window.getSelection().removeAllRanges();
+  } else if (document.selection) { // IE <=8
+    document.selection.empty();
+  }
+}
+
+jQuery(function($) {
+  $('#btnSelect1').click(function() {
+    selectText($('#exampleDiv')[0]);
+    window.setTimeout(deselectAll, 2000);
+  });
+
+  $('#btnSelect2').click(function() {
+    selectText($('#exampleTextarea')[0]);
+    window.setTimeout(deselectAll, 2000);
+  });
+});
+</script>
+
+<%= @property if  @property  %>

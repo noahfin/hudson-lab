@@ -171,18 +171,14 @@ class ContactsController < ApplicationController
      end
       @lead =  Lead.where("business LIKE ? ", "%#{@contact.company}%").limit(30) if @contact.company && !@contact.company.empty?
           @contact.leads << @lead if !@lead.nil?
-
-
-    render json: @contact, status: :created
-  else
-    flash[:danger] = @contact.errors.to_s
-    render 'new'
+          render json: @contact, status: :created
+    else
+      flash[:danger] = @contact.errors.to_s
+      render 'new'
    end
-
   end
 
   private
-
     def contact_params
       params.require(:contact).permit(:name,  :email, :company, :address, :Fulladdress, :address_id, :address_ids, :size_requirement, :location_need, :lease_is_up, :time_requirement, :phone, :cell, :page, :page_url, :suite, :county, :state, :country, :postal_code,:zip_code_ext, :city, :street_num, :strret_name, :notes,  :prefix, :first_name, :middle_name, :last_name, :suffix, :owns_cents, :year_of_Founding, :primary_industry, :web_address, :latitude, :longitude, :type, :facility_size, :total_number_of_employees, :postion, :sic, :zip_code_ext, :group_id, :contact_id, :role, :user_id, :lead_ids, :verified, :avatar, {:user_id => []}, {:group_id => []}, :group_id => [], :user_id => [], :company_ids  => [])
     end
@@ -218,7 +214,7 @@ class ContactsController < ApplicationController
             end
          end
       else
-        if session[:selected_page] && !session[:selected_group_id].nil?
+      if session[:selected_page] && !session[:selected_group_id].nil?
           @contacts = Group.find( session[:selected_group_id]).contacts.order(:last_name).page(params[:selected_page])
         elsif session[:selected_group_id]
           @contacts = Group.find(session[:selected_group_id]).contacts.order(:last_name).page(params[:page])

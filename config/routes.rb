@@ -1,7 +1,13 @@
   Rails.application.routes.draw do
 
   resources :marketings
-  resources :letters
+  resources :letters do
+       post 'basic_letter', on: :collection
+       post 'cover_letter', on: :collection
+       post 'proposal_purchase', on: :collection
+       post 'proposal_lease', on: :collection
+       post 'exclusive_agreement', on: :collection
+     end
   resources :notifications do
        get 'just_user', on: :collection
        get 'all_users', on: :collection
