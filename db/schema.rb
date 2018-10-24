@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_154248) do
+ActiveRecord::Schema.define(version: 2018_10_24_204504) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -400,6 +400,21 @@ ActiveRecord::Schema.define(version: 2018_10_13_154248) do
     t.integer "user_id", null: false
     t.index ["deal_id", "user_id"], name: "index_deals_users_on_deal_id_and_user_id"
     t.index ["user_id", "deal_id"], name: "index_deals_users_on_user_id_and_deal_id"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "events", force: :cascade do |t|

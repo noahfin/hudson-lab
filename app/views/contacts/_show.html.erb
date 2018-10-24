@@ -51,7 +51,7 @@
       </div>
       <div class="card-body">
          <h6 class="card-category text-gray scondary-size-text"> <%= @contact.company  if @contact.company  %></h6>
-         <h4 class="card-title scondary-size-text"> <%= @contact.first_name if @contact.last_name  %> <%= @contact.first_name if @contact.last_name  %> </h4>
+         <h4 class="card-title scondary-size-text"> <%= @contact.first_name if @contact.last_name  %> <%= @contact.last_name if @contact.last_name  %> </h4>
          <p class="card-description scondary-size-text">
             <%= @contact.Fulladdress if  @contact.Fulladdress %>
          </p>
