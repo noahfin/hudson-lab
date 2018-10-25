@@ -81,4 +81,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   routes.default_url_options = { :host => 'localhost', port: 3000 }
+  config.active_job.queue_adapter = :delayed_job
 end

@@ -108,4 +108,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  # Do not swallow errors in after_commit/after_rollback callbacks.
+  config.active_record.raise_in_transactional_callbacks = true
+  config.active_job.queue_adapter = :delayed_job
 end

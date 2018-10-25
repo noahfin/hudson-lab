@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
     Time.zone = appointment_params[:time_zone]
     @appointment = Appointment.new(appointment_params)
       message = "The appontment '#{@appointment.name}' was just added."
-      TwilioTextMessenger.new(message).call
+      TwilioTextMessenger.new(message).call(params['appointment']['phone_number'])
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
           id_array = []
           contact_id_array = params['contact_ids'].to_a

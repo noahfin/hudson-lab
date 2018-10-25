@@ -45,7 +45,7 @@
             <%= f.label :time, "Hour And Minute", :class => 'control-label ml-4' %>
             <div class="  m-4 p-3  bg-gray66">
                <div class="form-group card card-5 p-2">
-                  <%= time_select :appointment, :time,  {:default => {:hour => '10', :minute => '30'}}, class: " m-3 p-2" %>
+                  <%= time_select :appointment, :time,  {:default => {:hour => '10', :minute => '30'},  :ampm => true}, class: " m-3 p-2" %>
                </div>
             </div>
          </div>
