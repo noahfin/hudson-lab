@@ -110,4 +110,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   # Do not swallow errors in after_commit/after_rollback callbacks.
   config.active_job.queue_adapter = :delayed_job
+
+  config.after_initialize do
+    Delayed::Job.scaler = :heroku_cedar
+  end
 end
