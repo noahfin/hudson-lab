@@ -10,12 +10,12 @@ class Appointment < ApplicationRecord
   # Notify our appointment attendee X minutes before the appointment time
   def reminder
        time_str = ((self.time).localtime).strftime("%I:%M%p on %b. %d, %Y")
-       message = "Your appontment '#{self.name}' is at '#{time_str}'"
+       message = "Your appontment '#{self.name}' is at '#{time_str}' Sent Form Hudson-Lab"
       TwilioTextMessenger.new(message).call(self.phone_number)
   end
 
   def when_to_run
-    minutes_before_appointment = 30.minutes
+    minutes_before_appointment = 120.minutes
     time - minutes_before_appointment
   end
 
