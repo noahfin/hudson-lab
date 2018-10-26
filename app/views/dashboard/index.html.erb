@@ -5,24 +5,28 @@
    }
    .card-icon-outline-warning {
    border: 1px solid rgba(255, 152, 0, 0.6);
-   background: transparent !important;
+   background: rgba(255, 152, 0, 0.6) !important;
    }
    .card-icon-outline-rose
    {
    border: 1px solid rgba(244, 67, 54, 0.6);
-   background: transparent !important;
+   background: rgba(244, 67, 54, 0.6)!important;
    }
    .card-icon-outline-success {
    border: 1px solid rgba(76, 175, 80, 0.6);
-   background: transparent !important;
+   background: rgba(76, 175, 80, 0.6)!important;
    }
    .card-icon-outline-info {
    border: 1px solid rgba(0, 188, 212, 0.6);
-   background: transparent !important;
+   background: rgba(0, 188, 212, 0.6) !important;
    }
    .card-icon-outline-danger {
    border: 1px solid rgba(244, 67, 54, 0.6);
-   background: transparent !important;
+   background: rgba(244, 67, 54, 0.6) !important;
+   }
+   .card-icon-outline-black {
+   border: 1px solid rgba(0, 0, 0, 0.6);
+   background: rgba(0, 0, 0, 0.6) !important;
    }
    .card-dash-warning {
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
@@ -126,14 +130,14 @@
       </div>
    </div>
 </div>
-<div class="col-md-12 ">
-   <div class="row ">
-      <div class="col-lg-3 col-md-6 col-sm-6 card-d-fix fix-top">
+<div class="col-md-12 first-show-card">
+   <div class="row first-show-card">
+      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
          <%= link_to contacts_path, remote: true do %>
-         <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1">
+         <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1-color">
             <div class="card-header card-header-icon">
                <div class="card-icon  card-icon-outline-info">
-                  <i class="material-icons bg-black text-info">person</i>
+                  <i class="material-icons bg-trans text-info">person</i>
                </div>
                <p class="card-category card-top-dash text-white">Contacs</p>
                <h3 class="card-title text-white">+<%= Contact.count %></h3>
@@ -145,12 +149,12 @@
             </div>
          </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 card-d-fix">
+      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
          <a href="/leads/" >
-            <div class="card card-stats  rounded-0  card-dash-warning card-1" >
+            <div class="card card-stats  rounded-0  card-dash-warning card-1-color" >
                <div class="card-header card-header-icon">
                   <div class="card-icon card-icon-outline-warning">
-                     <i class="material-icons bg-black text-warning">business</i>
+                     <i class="material-icons bg-trans text-warning">business</i>
                   </div>
                   <p class="card-category card-top-dash text-white">Leads</p>
                   <h3 class="card-title text-white"><%= Lead.count %></h3>
@@ -164,12 +168,12 @@
             </div>
          </a>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 card-d-fix">
+      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
          <%= link_to deals_path do %>
-         <div class="card card-stats card-dash-rose rounded-0  card-1">
+         <div class="card card-stats card-dash-rose rounded-0  card-1-color">
             <div class="card-header card-header-icon ">
                <div class="card-icon card-icon-outline-danger">
-                  <i class="material-icons bg-black text-danger">equalizer</i>
+                  <i class="material-icons bg-trans text-danger">equalizer</i>
                </div>
                <p class="card-category card-top-dash text-white">Deals</p>
                <h3 class="card-title text-white"><%= Deal.count %></h3>
@@ -186,12 +190,12 @@
       <% @invoices.each do |invoice| %>
         <% revenue += invoice.Commission_Earned if invoice.Commission_Earned %>
       <% end %>
-      <div class="col-lg-3 col-md-6 col-sm-6 card-d-fix">
+      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
            <%= link_to invoices_path do %>
-         <div class="card card-stats  card-dash-success rounded-0 card-1" >
+         <div class="card card-stats  card-dash-success rounded-0 card-1-color" >
             <div class="card-header  card-header-icon">
                <div class="card-icon  card-icon-outline-success">
-                  <i class="material-icons bg-black text-success">store</i>
+                  <i class="material-icons bg-trans text-success">store</i>
                </div>
                <p class="card-category card-top-dash text-wgite">Revenue</p>
                <h3 class="card-title text-white">$<%= number_with_precision(revenue, :precision => 0, :delimiter => ',') %></h3>
@@ -212,7 +216,7 @@
          <div class="col-md-12">
             <div class="card card-1-color ">
                <div class="card-header  card-header-icon">
-                  <div class="card-icon bg-black">
+                  <div class="card-icon card-icon-outline-black">
                      <i class="material-icons">face</i>
                   </div>
                </div>
@@ -242,16 +246,8 @@
                                     <td class="text-right">
                                        <a data-toggle="modal" data-target=".bd-example-modal-lg" class="profile_modal_trigger" title= 'Get Phone Number' rel= "tooltip" >
                                           <p name="profile_name" class="p_name" value=><%= searched.name %> </p>
-                                         <% begin contact = Contact.find_by_id(searched.contact_id)
-                                            rescue ActiveRecord::RecordNotFound => e
-                                            contact = nil
-                                            end
-                                          %>
-                                          <% if !contact.nil?  %>
-
-
+                                          <% contact = Contact.find(searched.contact_id) %>
                                           <p name="profile_image" class="p_image" value=><%= contact.avatar.present? ? contact.avatar.url(:thumb) : 'https://placehold.it/150x150' %> </p>
-                                          <% end %>
                                           <p name="profile_number" class="p_number" value=><%= searched.number %></p>
                                           <p name="profile_email" class="p_email" value=><%= searched.email %></p>
                                           <p name="profile_cell" class="p_cell" value=><%= searched.cell %></p>
@@ -472,7 +468,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
              <%= link_to new_task_path, remote: true, class: "text-white", title: 'Click to Add New Tasks', rel: "tooltip" do %>
-            <div class="card-icon bg-black">
+            <div class="card-icon card-icon-outline-black ">
                <i class="material-icons">assignment</i>
             </div>
             <% end %>
@@ -496,7 +492,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
             <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
-            <div class="card-icon bg-black">
+            <div class="card-icon card-icon-outline-black">
                <i class="material-icons">business</i>
             </div>
             <% end %>
@@ -521,7 +517,7 @@
 <div class="col-xl-6">
    <div class="card card-1  mb-4 p-0 tasks-card">
       <div class="card-header  card-header-icon">
-         <div class="card-icon bg-black">
+         <div class="card-icon card-icon-outline-black">
             <i class="material-icons">history</i>
          </div>
       </div>
@@ -594,7 +590,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to new_appointment_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
-          <div class="card-icon bg-black">
+          <div class="card-icon card-icon-outline-black">
                <i class="material-icons">assignment_ind</i>
          </div>
          <% end %>
@@ -621,7 +617,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
             <%= link_to notifications_path, class: "text-white", title: 'Click to view notification', rel: "tooltip" do %>
-            <div class="card-icon bg-black">
+            <div class="card-icon card-icon-outline-black ">
                <i class="material-icons">notifications</i>
             </div>
             <% end %>
@@ -682,7 +678,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to properties_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
-          <div class="card-icon bg-black">
+          <div class="card-icon card-icon-outline-black">
                <i class="material-icons">business</i>
          </div>
          <% end %>
