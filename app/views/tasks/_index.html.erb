@@ -46,6 +46,13 @@
                   <div class="ripple-container"></div>
                </a>
             </li>
+             <li class="nav-item nav-tab tab">
+               <a class="nav-link  nav-t-tab nav-tab complete_tasks"  href="#tasks-all-list" data-toggle="tab">
+                  <i class="material-icons">check_circle</i>
+                  Completed
+                  <div class="ripple-container"></div>
+               </a>
+            </li>
          </ul>
          <h4 class="display-5 pb-3 pull-right  far-right-touch "><small></i><%= link_to tasks_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">developer_board</i> <% end %><%= link_to new_task_path, class: 'text-white 5 pb-4 add-task', remote: true do %><i class="material-icons">add_box</i>    <% end %></small></h4>
       </div>
@@ -57,9 +64,10 @@
          <table class="table">
             <% @tasks.each do |task| %>
             <tr id="edit_task_<%= task.id %>">
+               <input type="hidden" class="task_id_hide" value="#edit_task_<%= task.id %>">
                <td>
-                  <div class="form-check pt-0 pb-2 mt-0">
-                     <label class="form-check-label pt-0 mt-0 pb-3">
+                  <div class="form-check">
+                     <label class="form-check-label">
                      <input class="form-check-input" type="checkbox" value="<%= task.complete %>" <%= 'checked=""' if task.complete == true %>>
                      <span class="form-check-sign">
                      <span class="check"></span>
@@ -67,18 +75,19 @@
                      </label>
                   </div>
                </td>
-               <td><%= link_to edit_task_path(task.id), class: "btn btn-link ", remote: true, title: 'edit', rel: "tooltip"  do %><%= task.name %>   <% end %></td>
+               <td><%= task.name %> </td>
                <td class="td-actions text-right">
-                  <%= link_to edit_task_path(task.id), class: "btn btn-link text-primary", remote: true, title: 'edit', rel: "tooltip"  do %>
-                  <i class="material-icons text-primary">edit</i>
+                  <%= link_to edit_task_path(task.id), class: "btn text-white btn-link btn-sm text-white", remote: true, title: 'edit', rel: "tooltip"  do %>
+                  <i class="material-icons text-white">edit</i>
                   <% end %>
-                  <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger btn-link btn-sm'  do %>
-                  <i class="material-icons">close</i>
+                  <%= link_to  task, method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn text-white btn-link btn-sm'  do %>
+                  <i class="material-icons text-white">close</i>
                   <% end %>
                </td>
             </tr>
             <% end %>
-
+            <tbody >
+            </tbody>
          </table>
       </div>
       <div id="task-table-1">
@@ -87,18 +96,76 @@
    </div>
 </div>
 <script >
-   var hrefTempIndex = "#tasks-all-list"
-   $('.tab-pane').hide();
-   $(hrefTempIndex).show();
-   $(document).on('click', '.nav-t-tab', function (e) {
-      e.preventDefault()
-      var tabSection =  $(this).attr('href');
-      $(hrefTempIndex).hide();
-       $(tabSection).show();
-        hrefTempIndex = tabSection;
-   })
-   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-      e.target // newly activated tab
-      e.relatedTarget // previous active tab
-   });
+var hrefTempIndex = "#tasks-all-list"
+$('.tab-pane').hide();
+$(hrefTempIndex).show();
+$(document).on('click', '.nav-t-tab', function(e) {
+    e.preventDefault()
+    var tabSection = $(this).attr('href');
+    $(hrefTempIndex).hide();
+    $(tabSection).show();
+    hrefTempIndex = tabSection;
+})
+$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+    e.target // newly activated tab
+    e.relatedTarget // previous active tab
+});
+
+$(function() {
+    var task_id_array = []
+    var task_html_array = []
+    var toogle_commpleted = false;
+    var remove_completed = function() {
+        var i2 = 0;
+        $('#tasks-all-list tr').each(function(index) {
+            var row = $(this);
+
+
+            if (row.find('.form-check-input').is(':checked')) {
+
+                var row2 = $(this).prev();
+
+                var rowValue = row2.find('.task_id_hide').val();
+                task_id_array[i2] = rowValue;
+                var html_str = '';
+                html_str = $(this).html();
+                task_html_array[i2] = html_str
+
+                i2++;
+                row.hide();
+            }
+        });
+    }
+
+    remove_completed();
+
+    $(document).on('click', '.complete_tasks', function(e) {
+        e.preventDefault();
+        if (toogle_commpleted == false) {
+            for (var i = task_id_array.length - 1; i >= 0; i--) {
+
+                var jStr = "";
+                jStr = "<tr>" + task_html_array[i] + "</tr>";
+                $(jStr).insertAfter(task_id_array[i]);
+                toogle_commpleted = true;
+
+            }
+        } else {
+
+            $('#tasks-all-list tr').each(function(index) {
+                var row = $(this);
+
+
+                if (row.find('.form-check-input').is(':checked')) {
+
+                    row.remove();
+                    toogle_commpleted = false;
+                }
+            });
+
+        }
+
+    });
+
+});
 </script>
