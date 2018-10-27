@@ -24,10 +24,6 @@
    border: 1px solid rgba(244, 67, 54, 0.6);
    background: rgba(244, 67, 54, 0.6) !important;
    }
-   .card-icon-outline-black {
-   border: 1px solid rgba(0, 0, 0, 0.6);
-   background: rgba(0, 0, 0, 0.6) !important;
-   }
    .card-dash-warning {
    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(255, 152, 0, 0.6);
    }
@@ -216,7 +212,7 @@
          <div class="col-md-12">
             <div class="card card-1-color ">
                <div class="card-header  card-header-icon">
-                  <div class="card-icon card-icon-outline-black">
+                  <div class="card-icon card-icon-outline-info ">
                      <i class="material-icons">face</i>
                   </div>
                </div>
@@ -468,7 +464,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
              <%= link_to new_task_path, remote: true, class: "text-white", title: 'Click to Add New Tasks', rel: "tooltip" do %>
-            <div class="card-icon card-icon-outline-black ">
+            <div class="card-icon bg-black ">
                <i class="material-icons">assignment</i>
             </div>
             <% end %>
@@ -492,7 +488,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
             <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
-            <div class="card-icon card-icon-outline-black">
+            <div class="card-icon bg-black ">
                <i class="material-icons">business</i>
             </div>
             <% end %>
@@ -517,7 +513,7 @@
 <div class="col-xl-6">
    <div class="card card-1  mb-4 p-0 tasks-card">
       <div class="card-header  card-header-icon">
-         <div class="card-icon card-icon-outline-black">
+         <div class="card-icon  bg-black">
             <i class="material-icons">history</i>
          </div>
       </div>
@@ -590,7 +586,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to new_appointment_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
-          <div class="card-icon card-icon-outline-black">
+          <div class="card-icon bg-black ">
                <i class="material-icons">assignment_ind</i>
          </div>
          <% end %>
@@ -617,7 +613,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
             <%= link_to notifications_path, class: "text-white", title: 'Click to view notification', rel: "tooltip" do %>
-            <div class="card-icon card-icon-outline-black ">
+            <div class="card-icon bg-black ">
                <i class="material-icons">notifications</i>
             </div>
             <% end %>
@@ -678,7 +674,7 @@
       <div class="card card-1  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to properties_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
-          <div class="card-icon card-icon-outline-black">
+          <div class="card-icon bg-black ">
                <i class="material-icons">business</i>
          </div>
          <% end %>
@@ -752,7 +748,4 @@
          document.getElementById("contact_profile_letter").href=letter_url
 
     });
-
-
-
 </script>
