@@ -191,7 +191,7 @@
          <div class="card card-stats  card-dash-success rounded-0 card-1-color" >
             <div class="card-header  card-header-icon">
                <div class="card-icon  card-icon-outline-success">
-                  <i class="material-icons bg-trans text-success">store</i>
+                  <i class="material-icons bg-trans text-white">store</i>
                </div>
                <p class="card-category card-top-dash text-wgite">Revenue</p>
                <h3 class="card-title text-white">$<%= number_with_precision(revenue, :precision => 0, :delimiter => ',') %></h3>
@@ -658,7 +658,7 @@
                           <tr> <% class_str = "btn btn-just-icon  btn-round "+  notifi_color %>
                              <td> <%= link_to notification_path(notification), class: class_str  do %>
 
-                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right"><%= notification.name %> &nbsp;&nbsp;<span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span></td>
+                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right text-white"><%= notification.name %> &nbsp;&nbsp;<span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span></td>
                           </tr>
                           <% end %>
 
