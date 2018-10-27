@@ -87,7 +87,7 @@
    border-radius: 0px !important;
    }
    .card-1-color {
-   background: #212529 !important;
+   background:  #212529 !important;
    }
 
 </style>
@@ -95,7 +95,7 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
       <div class="modal-content pt-0 pb-0">
-         <div class="card card-profile  mdl-color--grey-900 mt-0 mb-0">
+         <div class="card card-profile  card-1-color mt-0 mb-0">
             <div class="card-avatar avatar-hudson">
                <a href="">
                <%= image_tag Contact.first.avatar.present? ? Contact.first.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object ", id: "contact_profile_image" %>
@@ -133,7 +133,7 @@
          <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1-color">
             <div class="card-header card-header-icon">
                <div class="card-icon  card-icon-outline-info">
-                  <i class="material-icons bg-trans text-info">person</i>
+                  <i class="material-icons bg-trans text-white">person</i>
                </div>
                <p class="card-category card-top-dash text-white">Contacs</p>
                <h3 class="card-title text-white">+<%= Contact.count %></h3>
@@ -150,7 +150,7 @@
             <div class="card card-stats  rounded-0  card-dash-warning card-1-color" >
                <div class="card-header card-header-icon">
                   <div class="card-icon card-icon-outline-warning">
-                     <i class="material-icons bg-trans text-warning">business</i>
+                     <i class="material-icons bg-trans text-white">business</i>
                   </div>
                   <p class="card-category card-top-dash text-white">Leads</p>
                   <h3 class="card-title text-white"><%= Lead.count %></h3>
@@ -169,7 +169,7 @@
          <div class="card card-stats card-dash-rose rounded-0  card-1-color">
             <div class="card-header card-header-icon ">
                <div class="card-icon card-icon-outline-danger">
-                  <i class="material-icons bg-trans text-danger">equalizer</i>
+                  <i class="material-icons  text-white">equalizer</i>
                </div>
                <p class="card-category card-top-dash text-white">Deals</p>
                <h3 class="card-title text-white"><%= Deal.count %></h3>
@@ -212,11 +212,11 @@
          <div class="col-md-12">
             <div class="card card-1-color ">
                <div class="card-header  card-header-icon">
-                  <div class="card-icon card-icon-outline-info ">
+                  <div class="card-icon card-icon-outline-success  ">
                      <i class="material-icons">face</i>
                   </div>
                </div>
-               <div class="card-body text-white">
+               <div class="card-body text-white ">
                   <div class="row">
                      <div class="col-md-6">
                         <div class=" table-sales">
@@ -461,7 +461,7 @@
 </section>
 <div class="row pl-3 pr-3">
    <div class="col-xl-6">
-      <div class="card card-1-color   mb-4 p-0 tasks-card">
+      <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
              <%= link_to new_task_path, remote: true, class: "text-white", title: 'Click to Add New Tasks', rel: "tooltip" do %>
             <div class="card-icon card-icon-outline-warning  ">
@@ -469,12 +469,12 @@
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active m-0 p-0" id="maindash_tasks">
                   <div class="table-responsive m-0 p-0">
                      <table class="table p-0">
-                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1-color">
                            <%= render 'tasks' %>
                         </tbody>
                      </table>
@@ -488,17 +488,17 @@
       <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
             <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
-            <div class="card-icon bg-black ">
+            <div class="card-icon card-icon-outline-info">
                <i class="material-icons">business</i>
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
                      <table class="table p-0">
-                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1-color">
                            <%= render 'deals' %>
                         </tbody>
                      </table>
@@ -513,7 +513,7 @@
 <div class="col-xl-6">
    <div class="card card-1-color  mb-4 p-0 tasks-card">
       <div class="card-header  card-header-icon">
-         <div class="card-icon  card-icon-outline-danger">
+         <div class="card-icon  card-icon-outline-rose">
             <i class="material-icons">history</i>
          </div>
       </div>
@@ -542,12 +542,12 @@
          new_projects += 1
          end %>
 
-      <div class="card-body mb-4 task-body card-1 ">
+      <div class="card-body mb-4 task-body card-1-color">
          <div class="tab-content p-0">
             <div class="tab-pane active" id="maindash_tasks">
                <div class="table-responsive">
                   <table class="table p-0">
-                     <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                     <tbody class="p-0 m-0" id="task-table-prop-1 card-1-color">
                         <h4 class="text-muted m-2 pb-1 ">Datatbase Activity</h4>
                         <tr>
                            <td>
@@ -583,15 +583,15 @@
    </div>
 </div>
    <div class="col-xl-6">
-      <div class="card card-1-color   mb-4 p-0 tasks-card">
+      <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to new_appointment_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
-          <div class="card-icon card-dash-success">
+          <div class="card-icon card-icon-outline-warning ">
                <i class="material-icons">assignment_ind</i>
          </div>
          <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
@@ -610,15 +610,15 @@
 </div>
    <div class="row  pr-3 pl-3">
    <div class="col-xl-6">
-      <div class="card card-1-color   mb-4 p-0 tasks-card">
-         <div class="card-header  card-header-icon">
+      <div class="card card-1-color  mb-4 p-0 tasks-card">
+         <div class="card-header  card-header-icon ">
+              <div class="card-icon card-icon-outline-success  ">
             <%= link_to notifications_path, class: "text-white", title: 'Click to view notification', rel: "tooltip" do %>
-            <div class="card-icon card-icon-outline-info">
                <i class="material-icons">notifications</i>
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
@@ -630,28 +630,28 @@
                           <% @notifications.each do |notification| %>
                           <% if    notification.thing == 'contact'
                                    notifi_type = 'fa  fa-database'
-                                   notifi_color = 'bg-light-info'
+                                   notifi_color = 'bg-info'
                              elsif notification.thing == 'deal'
                                    notifi_type = 'fa fa-suitcase'
-                                   notifi_color = 'bg-light-warning'
+                                   notifi_color = 'bg-warning'
                              elsif notification.thing == 'task'
                                    notifi_type = 'fa fa-tasks'
-                                   notifi_color = 'bg-light-danger'
+                                   notifi_color = 'bg-danger'
                              elsif notification.thing == 'lead'
                                    notifi_type = 'fa fa-bolt'
-                                   notifi_color = 'bg-light-inverse'
+                                   notifi_color = 'bg-inverse'
                             elsif  notification.thing == 'issue'
                                    notifi_type = 'fa fa-exclamation-triangle'
-                                   notifi_color = 'bg-light-danger'
+                                   notifi_color = 'bg-danger'
                             elsif  notification.thing == 'event'
                                    notifi_type = 'fa fa-calendar'
                                    notifi_color = 'bg-light-inverse'
                             elsif  notification.thing == 'post'
                                    notifi_type = 'fa fa-comment'
-                                   notifi_color = 'bg-light-info'
+                                   notifi_color = 'bg-info'
                            elsif  notification.thing == 'company'
                                    notifi_type = 'fa fa-building'
-                                   notifi_color = 'bg-light-info'
+                                   notifi_color = 'bg-info'
                            end
 
                           %>
@@ -671,20 +671,20 @@
       </div>
     </div>
    <div class="col-xl-6">
-      <div class="card card-1-color   mb-4 p-0 tasks-card">
+      <div class="card card-1-color mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to properties_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
-          <div class="card-icon card-icon-outline-warning ">
+          <div class="card-icon card-icon-outline-info">
                <i class="material-icons">business</i>
          </div>
          <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
                      <table class="table p-0">
-                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1-color">
                            <%= render 'properties' %>
                         </tbody>
                      </table>
@@ -702,6 +702,8 @@
    $(function() {
     var hrefTempIndex = "#maindash_tasks"
     $(hrefTempIndex).show();
+
+
     $(document).on('click', '.task-user-tab', function (e) {
        e.preventDefault()
        var tabSection =  $(this).attr('href');
@@ -746,7 +748,4 @@
          document.getElementById("contact_profile_letter").href=letter_url
 
     });
-
-
-
 </script>
