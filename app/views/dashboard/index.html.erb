@@ -95,7 +95,7 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
       <div class="modal-content pt-0 pb-0">
-         <div class="card card-profile  mdl-color--grey-900 mt-0 mb-0">
+         <div class="card card-profile  card-1-color mt-0 mb-0">
             <div class="card-avatar avatar-hudson">
                <a href="">
                <%= image_tag Contact.first.avatar.present? ? Contact.first.avatar.url(:thumb) : 'https://placehold.it/150x150', class: "media-object ", id: "contact_profile_image" %>
@@ -469,7 +469,7 @@
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active m-0 p-0" id="maindash_tasks">
                   <div class="table-responsive m-0 p-0">
@@ -485,7 +485,7 @@
       </div>
    </div>
    <div class="col-xl-6">
-      <div class="cardcard-1-color  mb-4 p-0 tasks-card">
+      <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
             <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
             <div class="card-icon card-icon-outline-info">
@@ -493,7 +493,7 @@
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
@@ -511,7 +511,7 @@
 </div>
 <div class="row pl-3 pr-3">
 <div class="col-xl-6">
-   <div class="card card-1  mb-4 p-0 tasks-card">
+   <div class="card card-1-color  mb-4 p-0 tasks-card">
       <div class="card-header  card-header-icon">
          <div class="card-icon  card-icon-outline-rose">
             <i class="material-icons">history</i>
@@ -583,7 +583,7 @@
    </div>
 </div>
    <div class="col-xl-6">
-      <div class="card card-1  mb-4 p-0 tasks-card">
+      <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
          <%= link_to new_appointment_path, class: "text-white", title: 'Click to Add New Appointment', rel: "tooltip" do %>
           <div class="card-icon card-icon-outline-danger ">
@@ -618,7 +618,7 @@
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
@@ -679,12 +679,12 @@
          </div>
          <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
                      <table class="table p-0">
-                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1 ">
+                        <tbody class="p-0 m-0" id="task-table-prop-1 card-1-color">
                            <%= render 'properties' %>
                         </tbody>
                      </table>
