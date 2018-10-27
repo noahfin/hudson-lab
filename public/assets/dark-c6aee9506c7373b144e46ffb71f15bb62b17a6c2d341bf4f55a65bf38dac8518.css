@@ -1,0 +1,216 @@
+/* line 1, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.card-5 {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background-color: #000 !important;
+  border-radius: 0px !important;
+  color: white !important;
+}
+
+/* line 8, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-tree {
+  background-color: #3e474f !important;
+}
+
+/* line 11, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-footer {
+  background-color: #242424 !important;
+}
+
+/* line 14, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.card-6 {
+  background: #232526  !important;
+  color: white !important;
+}
+
+/* line 18, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.card-1 {
+  background: #191b1c !important;
+  color: white !important;
+}
+
+/* line 22, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.card-h-1 {
+  border-radius: 4px;
+  padding-left: 5px;
+  background-color: #3D3D3D  !important;
+  border: none !important;
+  color: white !important;
+}
+
+/* line 30, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.card-h-1 h5 a {
+  color: white !important;
+}
+
+/* line 34, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-black {
+  background-color: #000 !important;
+}
+
+/* line 38, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-dark-secondary {
+  background-color: #232526 !important;
+}
+
+/* line 41, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-grey.bg-darken-3 {
+  background-color: #424242 !important;
+}
+
+/* line 44, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.b-dark {
+  border-color: black !important;
+}
+
+/* line 47, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.b-light {
+  border-color: white !important;
+}
+
+/* line 50, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-dark-blue {
+  background-color: #051937 !important;
+}
+
+/* line 53, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-gray-dark {
+  background-color: #3d3d3d !important;
+}
+
+/* line 54, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-vue-dark {
+  background-color: #66615B !important;
+}
+
+/* line 55, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.form-group input[type=text].white-text {
+  color: white !important;
+}
+
+/* line 59, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.card-mertial-dark {
+  background-color: black !important;
+}
+
+/* line 63, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.dark {
+  color: #5bc0de !important;
+}
+
+/* line 67, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.text-white {
+  color: white !important;
+}
+
+/* line 71, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.text-white a {
+  color: white !important;
+}
+
+/* line 75, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-m-dark {
+  background: #303030 !important;
+}
+
+/* line 79, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+html, body, .content {
+  background: #191b1c  !important;
+  color: white !important;
+}
+
+/* line 84, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.dark-table {
+  color: white !important;
+}
+
+/* line 87, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.dark-table tr:nth-child(odd) {
+  background: #232526 !important;
+}
+
+/* line 89, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.dark-gray-icon {
+  background-color: #32325d !important;
+}
+
+/* line 95, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.dark-form-control {
+  border-radius: 0;
+  box-shadow: none;
+  height: 40px;
+  background-color: #353535;
+  border: 1px solid #353535;
+  color: #5c5c5c;
+  width: 100%;
+  padding-top: .3rem;
+}
+
+/* line 105, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.gray-dark {
+  background-color: #343a40;
+}
+
+/* line 108, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+#group-check-nav {
+  background-color: #353535  !important;
+}
+
+/* line 111, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.maindark-bg {
+  background-color: #252830 !important;
+}
+
+/* line 115, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.borderd-list-group a {
+  height: 55px;
+  width: 100%;
+  border: 1px solid #434857;
+  color: white !important;
+  padding-left: 2px !important;
+}
+
+/* line 123, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.borderd-list-group {
+  padding: 6px !important;
+}
+
+/* line 126, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.mdl-color--grey-900 {
+  background-color: #212121 !important;
+}
+
+/* line 129, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.text-black {
+  color: black !important;
+}
+
+/* line 132, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.btn-outline-black {
+  color: black !important;
+  background-color: transparent  !important;
+  border: 2px solid black  !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 33, 33, 0.4) !important;
+}
+
+/* line 138, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.btn-outline-gray {
+  color: #666 !important;
+  background-color: transparent  !important;
+  border: 1px solid #666  !important;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(2, 102, 102, 0.4) !important;
+}
+
+/* line 144, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.form-control-gray {
+  background-image: linear-gradient(to top, #666 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #666 1px, rgba(2, 102, 102, 0) 1px) !important;
+}
+
+/* line 147, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-gray66 {
+  background: #2A2A2E !important;
+}
+
+/* line 150, /Users/noahfinnerman/code/rails/dashbord/app/assets/stylesheets/dark.scss */
+.bg-f1-black {
+  background: #1F1209 !important;
+}
