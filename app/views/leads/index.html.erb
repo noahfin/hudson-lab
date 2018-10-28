@@ -1,96 +1,41 @@
-<div class="container-fluid">
-   <!--Section: Main panel-->
-   <div class="card rounded-0 pt-4 card-1 text-white">
-      <div class="col-md-12">
-         <!-- start of lead borderd table in container -->
-         <div class="container">
-            <div class="collapse" id="leads-header">
-               <div class="row">
-                  <div class="col-md-8">
-                     <h2>
-                        <span>   leads <%= link_to  new_lead_path, class: 'btn btn-just-icon btn-round bg-black ml-3' do %>
+
+<!--Section: Main panel-->
+<div class="card  card-1-color text-white">
+            <div class="card-header card-header-icon card-1">
+            <div class="card-icon bg-hudson">
+               <i class="material-icons">business</i>
+            </div>
+            <h4 class="card-title text-white pt-2">Leads <span>
+               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#leads-header" aria-expanded="false" aria-controls="leads-header">
+               <i class="material-icons mr-4 pr-4">whatshot</i>
+               </a>
+               </span>
+            </h4>
+         </div>
+   <div class="col-md-12">
+
+      <!-- start of deal borderd table in container -->
+      <div class="container">
+         <div class="collapse" id="leads-header">
+            <div class="row">
+               <div class="col-md-12">
+                  <h2>
+                     <span class="pull-right"><%= link_to  new_lead_path, class: 'btn btn-just-icon btn-round bg-hudson ml-3' do %>
                         <i class="fa fa-plus"></i>
                         <% end %>
-                        <span class="ml-4 pl-3">
-                        <a class="btn bg-black  btn-left-margin" href=""><i class="fa fa-file-text"></i> Download Excel/CSV</a>
-                        </span> </span>
-                     </h2>
-                  </div>
-                  <div class="col-md-4">
-                     <form action="/crm/leads" id="user-search" class="well form-inline pull-right" method="post" accept-charset="utf-8">
-                        <div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
-                        <input name="data[lead][search_all]" class="form-control" placeholder="Search" id="search" autocomplete="off" type="text">
-                        <button type="submit" class="btn bg-black btn-round btn-just-icon mr-3" id="send-search">
-                           <i class="material-icons">search</i>
-                           <div class="ripple-container"></div>
-                        </button>
-                        <a class="btn bg-black text-white" id="more"><i class="fa fa-caret-down"></i> More </a>
-                        <div id="hints" class="hints-search"></div>
-                     </form>
-                  </div>
-                  <div class="col-md-12">
-                     <div class="filter-box" style="display:none;">
-                        <form action="/crm/leads" class="well form-inline" id="leadIndexForm" method="post" accept-charset="utf-8">
-                           <div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
-                           <fieldset>
-                              <legend>Filters</legend>
-                              <div class="col-md-11">
-                                 <table>
-                                    <tbody>
-                                       <tr>
-                                          <td class="col-md-3" style="padding: 0;">
-                                             Name:&nbsp;
-                                             <div class="form-group"><input name="data[lead][search_name]" class="form-control" placeholder="Name" type="text" id="leadSearchName"></div>
-                                          </td>
-                                          <td class="col-md-3" style="padding: 0 10px 0 0;">
-                                             Amount:&nbsp;
-                                             <div class="form-group"><input name="data[lead][search_amount]" class="form-control" placeholder="Amount" type="text" id="leadSearchAmount"></div>
-                                          </td>
-                                          <td class="col-md-3" style="padding: 0;">
-                                             From:&nbsp;
-                                             <div class="form-group"><input name="data[lead][search_date_from]" class="form-control date  datetimepicker" placeholder="From" type="text" id="leadSearchDateFrom"></div>
-                                          </td>
-                                          <td class="col-md-3" style="padding: 0;">
-                                             To:&nbsp;
-                                             <div class="form-group"><input name="data[lead][search_date_to]" class="form-control date  datetimepickerr" placeholder="To " type="text" id="leadSearchDateTo"></div>
-                                          </td>
-                                       </tr>
-                                    </tbody>
-                                 </table>
-                              </div>
-                              <div class="col-md-1" style="padding-top: 2px;"><button class="btn btn-info btn-sm" type="submit">Filter</button></div>
-                           </fieldset>
-                        </form>
-                     </div>
-                  </div>
-                  <div class="col-md-12">
-                  </div>
+                      </span>
+                  </h2>
                </div>
+
             </div>
          </div>
-         <div class="card card-1">
-            <div class="card-header card-header-icon card-1">
-               <div class="card-icon bg-black">
-                  <i class="material-icons">business</i>
-               </div>
-               <div class="row">
-                  <div class="col-md-10">
-                     <span class="pb-2">
-                        <h4 class="card-title text-white">leads
-                           <span class=" mt-0 pt-0 pb-4">
-                           </span>
-                        </h4>
-                  </div>
-                  <div class="col-md-2">
-                  <%= link_to new_lead_path, class: 'text-white 5 pb-4 add-lead pull-right' do %><i class="material-icons">add_box</i>    <% end %>
-                  </div>
-               </div>
-               </span>
-            </div>
-            <div class="card-body">
-               <div class="table-responsive">
-                  <table class="table">
-                     <thead class=" text-primary">
+      </div>
+      <div class="card-1-color">
+
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-white">
                         <tr>
                            <th class="text-white">Action</th>
                            <th class="text-white"><a href="text-white">Company</a></th>
@@ -100,7 +45,8 @@
                            <th class="text-white"><a href="text-white">Time</a></th>
                            <th colspan="1" class="text-white text-right pr-4">Delete</th>
                         </tr>
-                     </thead>
+
+                  </thead>
                      <tbody>
                         <% @leads.each do |lead| %>
                         <tr id="edit_lead_<%= lead.id %>">
@@ -128,19 +74,22 @@
                         </tr>
                         <% end %>
                      </tbody>
-                  </table>
-               </div>
+               </table>
             </div>
          </div>
       </div>
    </div>
 </div>
+
+<!-- end of deal borderd table  -->
+
+
 <script>
    jQuery(function($) {
        $("#more").click(function(){
            $(".filter-box").toggle('fold');
        });
-       $(".date").datepicker({ dateFormat: 'yy-mm-dd' });
+
        $('#filter-result-close').click(function(){
            window.location.href = "/crm/leads";
        });
