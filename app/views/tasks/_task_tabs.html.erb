@@ -30,7 +30,7 @@
             </td>
             <td><%= task.name %></td>
                     <td><%  task.contacts.each_with_index do |contact, index|%>  <%= link_to contact_path(contact.id), class: "btn  btn-link", remote: true, title: 'View contact', rel: "tooltip"  do %>
-               <%= contact.name + " | " %>
+               <%= contact.name + ", " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
@@ -84,8 +84,8 @@
                </div>
             </td>
             <td><%= task.name %></td>
-               <td><%  task.properties.each_with_index do |property, index|%>  <%= link_to property_path(property.id), class: "btn  btn-link", remote: true, title: 'View property', rel: "tooltip"  do %>
-               <%= property.name + " | " %>
+               <td class="text-white"><%  task.properties.each_with_index do |property, index|%>  <%= link_to property_path(property.id), class: "btn  btn-link", remote: true, title: 'View property', rel: "tooltip"  do %>
+               <%= property.name + ", " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
@@ -135,8 +135,8 @@
                </div>
             </td>
             <td><%= task.name %></td>
-               <td><%  task.projects.each_with_index do |project, index|%>  <%= link_to project_path(project.id), class: "btn  btn-link", remote: true, title: 'View project', rel: "tooltip"  do %>
-               <%= project.name + " | " %>
+               <td class="text-white"><%  task.projects.each_with_index do |project, index|%>  <%= link_to project_path(project.id), class: "btn  btn-link", remote: true, title: 'View project', rel: "tooltip"  do %>
+               <%= project.name + ", " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
@@ -187,8 +187,8 @@
                </div>
             </td>
             <td><%= task.name %></td>
-            <td><%  task.leads.each_with_index do |lead, index|%>  <%= link_to lead_path(lead.id), class: "btn  btn-link", remote: true, title: 'View lead', rel: "tooltip"  do %>
-               <%= lead.name + " | " %>
+            <td class="text-white"><%  task.leads.each_with_index do |lead, index|%>  <%= link_to lead_path(lead.id), class: "btn  btn-link", remote: true, title: 'View lead', rel: "tooltip"  do %>
+               <%= lead.name + ", " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">
@@ -240,8 +240,8 @@
                </div>
             </td>
             <td><%= task.name %></td>
-             <td><%  task.groups.each_with_index do |group, index|%>  <%= link_to group_path(group.id), class: "btn  btn-link", remote: true, title: 'View Group', rel: "tooltip"  do %>
-               <%= group.name + " | " %>
+             <td class="text-white"><%  task.groups.each_with_index do |group, index|%>  <%= link_to group_path(group.id), class: "btn  btn-link", remote: true, title: 'View Group', rel: "tooltip"  do %>
+               <%= group.name + ", " %>
                 <% end %>
                <% end %></td>
             <td class="td-actions text-right">

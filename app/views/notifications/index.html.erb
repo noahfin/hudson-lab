@@ -5,20 +5,26 @@
     left: 40px;
 
   }
+  .card-icon-outline-success {
+   border: 1px solid rgba(76, 175, 80, 0.6);
+   background: rgba(76, 175, 80, 0.6)!important;
+   }
+  .card-1-color {
+   background:  #212529 !important;
+   }
 </style>
 <div class="row ">
-   <div class="col-xl-6">
+   <div class="col-xl-12">
 
-      <div class="card card-1  mb-4 p-0 tasks-card">
+      <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
-              <span class="links-on-notifications"><%= link_to 'Delete just your notifications', just_user_notifications_path, class: "text-danger" %> OR  <%= link_to 'Delete all notifications',all_users_notifications_path, class: "text-danger" %></span>
             <%= link_to new_deal_path, class: "text-white", title: 'Click to Add New Deal', rel: "tooltip" do %>
-            <div class="card-icon bg-black">
+            <div class="card-icon card-icon-outline-success text-white">
                <i class="material-icons">notifications</i>
             </div>
             <% end %>
          </div>
-         <div class="card-body mb-4 task-body card-1 ">
+         <div class="card-body mb-4 task-body card-1-color ">
             <div class="tab-content p-0">
                <div class="tab-pane active" id="maindash_tasks">
                   <div class="table-responsive">
@@ -50,7 +56,7 @@
                              <tr> <% class_str = "btn btn-just-icon  btn-round "+  notifi_color %>
                              <td> <%= link_to notification_path(notification.id), class: class_str  do %>
 
-                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right"><%= notification.name %> | <%= link_to user_path(user.id), class: "text-info" do user.first_name end %> | <span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span> <span><%= link_to notification_path(notification.id), remote: true, method: :delete, data: { confirm: 'Are you sure?', AuthenticityToken: form_authenticity_token}, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
+                             <i class="<%="#{notifi_type}"%>"></i><div class="ripple-container"></div></button><% end %></td><td class="text-right"><%= notification.name %> | <%= link_to user_path(user.id), class: "text-info" do user.first_name end %> | <span class="text-warning "> for <% notification.users.each do |user|%> <%= user.first_name %> <%end %></span>  </span><span class="text-muted"><%= time_ago_in_words(notification.created_at) %> ago</span> <span><%= link_to notification_path(notification.id), remote: true, method: :delete, data: { confirm: 'Are you sure?', AuthenticityToken: form_authenticity_token}, class: "text-danger", rel: 'tooltip', title: 'Delete' do %>
                       <i class="material-icons text-danger">delete</i>
                    <% end %></span>
                  </h6></td>
@@ -67,3 +73,5 @@
     </div>
   </div>
   <br>
+    <span class="links-on-notifications"><%= link_to 'Delete all notifications',all_users_notifications_path, class: "text-danger" %></span>
+

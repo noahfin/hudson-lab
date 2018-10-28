@@ -10,7 +10,12 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" rel="stylesheet" type="text/css">
-
+    <style type="text/css">
+     .card-1-color {
+      background:  #212529 !important;
+      color: white;
+    }
+</style>
    </head>
    <body>
       <div class="wrapper" id="content">
@@ -38,7 +43,7 @@
                <!--Modal: Login / Register Form-->
                <div id="tasks-form-modal" class="modal fade  modal-size-xl" role="dialog">
                   <div class="modal-dialog  modal-size-xl" >
-                     <div class="modal-content modal-size-xl bg-black" id="f-body">
+                     <div class="modal-content modal-size-xl card-1-color" id="f-body">
                      </div>
                   </div>
                </div>
