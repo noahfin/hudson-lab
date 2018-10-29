@@ -1,133 +1,149 @@
-<div class="col-md-6">
-   <div class="card text-muted rounded-0">
-      <div class="card-header ">
-         <h4 class="card-title">Touch Show Page -
-            <small class="description">Touch Info</small>
-         </h4>
-      </div>
-      <div class="card-body  text-muted"">
-         <div class="row">
-            <div class="col-lg-4 col-md-6">
-               <!--
-                  color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
-                  -->
-               <ul class="nav nav-pills nav-pills-info nav-pills-icons flex-column" role="tablist">
-                  <li class="nav-item">
-                     <a class="nav-link active text-muted" data-toggle="tab" href="#link10" role="tablist">
-                     <i class='material-icons'>fingerprint</i> Touch Type
-                     </a>
-                  </li>
-                  <li class="nav-item text-muted">
-                     <a class="nav-link text-muted" data-toggle="tab" href="#link11" role="tablist">
-                     <i class="material-icons">account_circle</i> Contacts
-                     </a>
-                  </li>
-               </ul>
+<div class="container">
+   <div class="col-md-12   ">
+      <div class="card card-1-color rounded-0">
+         <div class="card-header card-1 p-0 ">
+
+               <div class=" card-1-color div-header p-4">
+               <h4 class="card-title text-white">Touch Show Page -
+                  <small class="description">Touch Info</small>
+                  <span class="pull-right">
+                  <%= link_to 'Edit', edit_touch_path(@touch), class: 'text-white  pl-1' %> |
+                  <%= link_to 'Back', touches_path, class: 'text-white mr-3' %>
+                  </span>
+               </h4>
             </div>
-            <div class="col-md-8">
-               <div class="tab-content">
-                  <div class="tab-pane active" id="link10">
-                     <div class="card-header card-header-info card-header-icon mb-3 pt-0 mt-0">
-                        <div class="card-icon pull-right">
-                           <i class="material-icons">touch_app</i>
+
+         </div>
+         <div class="card-body  card-1-color text-white"">
+            <div class="row">
+               <div class="col-lg-4 col-md-8">
+                  <!--
+                     color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                     -->
+                  <ul class="nav nav-pills nav-pills-icons  nav-pills-dark flex-column" role="tablist" id="touch-pills">
+                     <li class="nav-item nav-pills-dark">
+                        <a class="nav-link active text-white" data-toggle="tab" href="#link10" role="tablist">
+                        <i class='material-icons'>fingerprint</i> Touch Type
+                        </a>
+                     </li>
+                     <li class="nav-item text-white nav-pills-dark">
+                        <a class="nav-link text-white" data-toggle="tab" href="#link11" role="tablist">
+                        <i class="material-icons">account_circle</i> Contacts
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-md-8">
+                  <div class="tab-content card-1-color ">
+                     <div class="tab-pane active" id="link10">
+                        <div class="card-header  card-header-icon mb-3 pt-0 mt-0">
+                           <div class="card-icon bg-black pull-right mt-3">
+                              <i class="material-icons">touch_app</i>
+                           </div>
                         </div>
+                        <% if @touch.email %>
+                        <p class=" text-white">
+                           <strong>Email:</strong>
+                           <%= @touch.email  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.phone %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Phone:</strong>
+                           <%= @touch.phone   %>
+                        </p>
+                        <% end %>
+                        <% if @touch.postcard %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Postcard:</strong>
+                           <%= @touch.postcard  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.social_media %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Social media:</strong>
+                           <%= @touch.social_media  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.in_person %>
+                        <p class=" text-white">
+                           <strong class=" text-white">In person:</strong>
+                           <%= @touch.in_person  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.letter %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Letter:</strong>
+                           <%= @touch.letter  %>
+                        </p>
+                        <% end %>
+                        <% if @touch.group_name %>
+                        <p class=" text-white">
+                           <strong class=" text-white">Group:</strong>
+                           <%= @touch.group_name  %>
+                        </p>
+                        <% end %>
+                        <br>
+                        <hr>
+                        <p class=" text-white">
+                           <strong class=" text-white">Description:</strong>
+                           <%= @touch.description %>
+                        </p>
                      </div>
-                     <% if @touch.email %>
-                     <p class="text-white">
-                        <strong>Email:</strong>
-                        <%= @touch.email  %>
-                     </p>
-                     <% end %>
-                     <% if @touch.phone %>
-                     <p class="text-white">
-                        <strong class=" text-white">Phone:</strong>
-                        <%= @touch.phone   %>
-                     </p>
-                     <% end %>
-                     <% if @touch.postcard %>
-                     <p class=" text-white">
-                        <strong class=" text-muted">Postcard:</strong>
-                        <%= @touch.Postcard  %>
-                     </p>
-                     <% end %>
-                     <% if @touch.social_media %>
-                     <p class="text-white">
-                        <strong class=" text-white">Social media:</strong>
-                        <%= @touch.social_media  %>
-                     </p>
-                     <% end %>
-                     <% if @touch.in_person %>
-                     <p class=" text-white">
-                        <strong class=" text-white">In person:</strong>
-                        <%= @touch.in_person  %>
-                     </p>
-                     <% end %>
-                     <% if @touch.letter %>
-                     <p class=" text-white">
-                        <strong class=" text-white">Letter:</strong>
-                        <%= @touch.letter  %>
-                     </p>
-                     <% end %>
-                     <br>
-                     <hr>
-                     <p class=" text-white">
-                        <strong class=" text-white">Description:</strong>
-                        <%= @touch.description %>
-                     </p>
-                  </div>
-                  <div class="tab-pane" id="link11">
-                     <div class="col-md-12">
-                        <strong class=" text-muted">Contacts:</strong>
-                        <div class="table-responsive table-sales">
-                           <table class="table">
-                              <tbody>
-                                 <% @touch.contacts.each do |contact| %>
-                                 <tr class="text-white">
-                                    <td>
-                                       <div class="flag">
-                                          <i class="material-icons">touch_app</i>
-                                       </div>
-                                    </td>
-                                    <td> <%= contact.first_name  %></td>
-                                    <td class="text-right text-white">
-                                       <% if @touch.email %>
-                                       <span class=" text-black mt-3">
-                                       Made a touch via email
-                                       </span>
-                                       <% end %>
-                                       <% if @touch.phone %>
-                                       <span class=" text-white">
-                                       Made a touch via phone
-                                       </span>
-                                       <% end %>
-                                       <% if @touch.postcard %>
-                                       <span class=" text-white">
-                                       Made a touch via postcard
-                                       </span>
-                                       <% end %>
-                                       <% if @touch.social_media %>
-                                       <span class="text-white">
-                                       Made a touch via socila media
-                                       </span>
-                                       <% end %>
-                                       <% if @touch.in_person %>
-                                       <span class="text-white">
-                                       Made a touch via in-person
-                                       </span>
-                                       <% end %>
-                                       <% if @touch.letter %>
-                                       <span class="text-white">
-                                       Made a touch via letter
-                                       </span>
-                                       <% end %>
-                                    </td>
-                                    <td class="text-right text-white">
-                                       <i class="material-icons">how_to_reg</i>
-                                    </td>
-                                 </tr>
-                                 <% end %>
-                              </tbody>
-                           </table>
+                     <div class="tab-pane" id="link11">
+                        <div class="col-md-12">
+                           <strong class=" text-white">Contacts:</strong>
+                           <div class="table-responsive table-sales">
+                              <table class="table text-white">
+                                 <tbody>
+                                    <% @touch.contacts.each do |contact| %>
+                                    <tr>
+                                       <td>
+                                          <div class="flag">
+                                             <i class="material-icons">touch_app</i>
+                                          </div>
+                                       </td>
+                                       <td> <% if contact.name %><%= contact.name  %> <% else %> <%= contact.first_name  %><% end %></td>
+                                       <td class="text-right text-white">
+                                          <% if @touch.email %>
+                                          <span class=" text-white mt-3">
+                                          Made a touch via email
+                                          </span>
+                                          <% end %>
+                                          <% if @touch.phone %>
+                                          <span class=" text-white">
+                                          Made a touch via phone
+                                          </span>
+                                          <% end %>
+                                          <% if @touch.postcard %>
+                                          <span class=" text-white">
+                                          Made a touch via postcard
+                                          </span>
+                                          <% end %>
+                                          <% if @touch.social_media %>
+                                          <span class="ext-white">
+                                          Made a touch via socila media
+                                          </span>
+                                          <% end %>
+                                          <% if @touch.in_person %>
+                                          <span class=" text-white">
+                                          Made a touch via in-person
+                                          </span>
+                                          <% end %>
+                                          <% if @touch.letter %>
+                                          <span class=" text-white">
+                                          Made a touch via letter
+                                          </span>
+                                          <% end %>
+                                       </td>
+                                       <td class="text-right">
+                                          <i class="material-icons">how_to_reg</i>
+                                       </td>
+                                    </tr>
+                                    <% end %>
+                                 </tbody>
+                              </table>
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -136,9 +152,5 @@
          </div>
       </div>
    </div>
-   <span class="ml-2">
-   <%= link_to 'Edit', edit_touch_path(@touch), class: 'text-white' %> |
-   <%= link_to 'Back', touches_path, class: 'text-white' %>
-   </span>
 </div>
 </div>
