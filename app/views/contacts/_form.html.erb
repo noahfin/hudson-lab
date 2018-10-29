@@ -456,32 +456,18 @@
                      </div>
                   </div>
                   <div class="tab-pane group-pane mdl-color--grey-900 rounded-0" id="groups-pane">
-                     <div class="mdl-color--grey-900 rounded-0 text-white ">
-                        <ul class="list-group mdl-color--grey-900 text-white" id="list-group-to-select-group">
-                           <input type="hidden"  value="group_id[]" class="groups-hiiden">
-                           <% @groups.each_with_index do |group, index| %>
-                           <% next if group.nil? || group.name.empty? %>
-                           <li class="list-group-item d-flex form-group-li justify-content-between align-items-center text-muted">
-                              <h5 class="text-wheight-light text-white pt-2 "><%= group.name %></h5>
-                              <nav class="navbar  bg-footer  justify-content-between align-items-center " id="group-check-nav">
-                                 <span class="ml-auto mr-auto text-center p-0   ">
-                              <div class="form-check form-check-right ml-auto mr-auto  ">
-                                 <div class="togglebutton ">
-                                    <label>
-                                    <input type="checkbox" name="group_ids[]" value=<%="#{group.id}"%> />
-                                    <span class="toggle"></span>
-                                    <span class="text-white">
-                                    </span>
-                                    </label>
-                                 </div>
+                                    <div class="card-body">
+         <% group_ids = [] %>
+             <% if !@group_ids.nil? %>
+                <%  @group_ids.each_with_index do |group, index| %>
+                         <% group_ids[index] = group.group_id %>
+                <% end %>
+              <% end %>
+              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+                      <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker dropdown groups-for-new-group", id: 'contact_group_id' } %>
 
-                              </div>
-                                 </span>
-                              </nav>
-                           </li>
-                           <% end %>
-                        </ul>
-                     </div>
+               </div>
+
                   </div>
                  </div>
                </div>
