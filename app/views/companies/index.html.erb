@@ -1,19 +1,54 @@
-<div class="container-fluid">
-   <div class="card text-center card-1">
-      <ul class="nav nav-pills card-1  pt-3 card-header-pills">
-         <li class="nav-item">
-            <a class="nav-link active bg-danger" href="#">Main</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="#">More</a>
-         </li>
-         <li class="nav-item">
-         </li>
-      </ul>
-      <div class="table-responsive  card-1">
-         <table class="table table-shopping">
-            <thead>
+
+<style type="text/css">
+   .img-container {
+      max-width: 60px;
+      max-height: 60px;
+   }
+   .img-container img {
+      border-radius: 50;
+      width: 60px;
+      height: 60px;
+   }
+</style>
+<!--Section: Main panel-->
+<div class="card  card-1-color text-white">
+            <div class="card-header card-header-icon card-1">
+            <div class="card-icon bg-hudson">
+               <i class="material-icons">business</i>
+            </div>
+            <h4 class="card-title text-white pt-2">Companies <span>
+               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#company-header" aria-expanded="false" aria-controls="company-header">
+               <i class="material-icons mr-4 pr-4">whatshot</i>
+               </a>
+               </span>
+            </h4>
+         </div>
+   <div class="col-md-12">
+
+      <!-- start of deal borderd table in container -->
+      <div class="container">
+         <div class="collapse" id="company-header">
+            <div class="row">
+               <div class="col-md-12">
+                  <h2>
+                     <span class="pull-right">  <%= link_to  new_company_path, class: 'btn btn-just-icon btn-round bg-hudson ml-3' do %>
+                     <i class="fa fa-plus"></i>
+                     <% end %>
+                      </span>
+                  </h2>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      <div class="card-1-color">
+
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-primary">
                <tr>
+                  <th class="text-center text-white">image</th>
                   <th class="text-center text-white">Name</th>
                   <th class="text-center text-white">Addres</th>
                   <th class="text-center text-white">Contact</th>
@@ -21,50 +56,68 @@
                   <th class="text-right text-white">rent </th>
                   <th class="text-center text-white">Age</th>
                   <th class="text-right text-white">Actions</th>
-                  <th></th>
+
                </tr>
-            </thead>
+                  </thead>
             <tbody>
                <% @companies.each do |company| %>
                <tr>
-                  <td>
-                     <div class="img-container">
+                  <td class="text-center">
+                     <div class="img-container mr-auto ml-auto">
                         <%= image_tag company.avatar.present? ? company.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
                      </div>
                   </td>
-                  <td class="td-name">
+                  <td class="text-center" >
                      <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'View' do %>
                      <%= company.name %>
                      <% end %>
-                     <br><small><%= company.addres %></small>
+                     </td>
+                     <td class="text-center"><%= company.addres %></td>
+
+
+                  <td class="text-center">
+                     <% company.contacts.each do |contact| %>
+                     <%= contact.name + " "%>
+                     <% end %>
                   </td>
-                  <td>
-                     Contacts to be added
-                  </td>
-                  <td>
+                  <td class="text-center">
                      <%= company.sector %>
                   </td>
-                  <td class="td-number">
+                  <td class="text-center">
                      <%= company.rent %>
                   </td>
                   <td class="text-center">
                      <%= company.age %>
                   </td>
-                  <td class="td-actions">
+                  <td class="td-actions text-right">
                      <%= link_to company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
-                     <i class="material-icons text-info">person</i>
+                     <i class="material-icons text-white">person</i>
                      <% end %>
                      <%= link_to edit_company_path(company), class: '', rel: 'tooltip', title: 'Edit' do %>
-                     <i class="material-icons text-success">edit</i>
+                     <i class="material-icons text-white">edit</i>
                      <% end %>
                      <%= link_to company, method: :delete, data: { confirm: 'Are you sure?' }, class: "", rel: 'tooltip', title: 'Delete' do %>
-                     <i class="material-icons text-danger">close</i>
+                     <i class="material-icons text-white">close</i>
                      <% end %>
                   </td>
                   <% end %>
                </tr>
             </tbody>
-         </table>
+               </table>
+            </div>
+         </div>
       </div>
    </div>
 </div>
+<!-- end of deal borderd table  -->
+<script>
+   jQuery(function($) {
+       $("#more").click(function(){
+           $(".filter-box").toggle('fold');
+       });
+
+       $('#filter-result-close').click(function(){
+           window.location.href = "/crm/leads";
+       });
+   });
+</script>
