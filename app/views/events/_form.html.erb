@@ -9,6 +9,13 @@
     <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden text-white' %>
     <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden text-white' %>
     <%= f.input :color, as: :select, collection: [['Black','black'], ['Green','green'], ['Red','red']] %>
+
+   <div class="form-group card card-5 p-2">
+      <%= f.text_field :phone_number, :class => 'form-control text-white', placeholder: 'Phone Number' %>
+   </div>
+   <%=f.error_span(:phone_number) %>
+
+
   </div>
 
   <div class="form-actions text-info">

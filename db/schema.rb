@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_204504) do
+ActiveRecord::Schema.define(version: 2018_10_31_153306) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -430,6 +430,7 @@ ActiveRecord::Schema.define(version: 2018_10_24_204504) do
     t.datetime "end"
     t.string "color"
     t.boolean "all_day_event"
+    t.string "phone_number"
   end
 
   create_table "events_users", id: false, force: :cascade do |t|

@@ -18,6 +18,9 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+          @appointment = Appointment.create(name: @event.title, phone_number: params['event']['phone_number'], time: @event.start)
+          message = "The appontment '#{@appointment.name}' was just added."
+          TwilioTextMessenger.new(message).call(params['event']['phone_number'])
           User.all.each do |user|
           notification_str =  'Event '+ @event.title + ' was added by ' + current_user.first_name
           @notification = Notification.create(name: notification_str, thing: 'event', thing_id: @event.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
@@ -45,6 +48,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :date_range, :start, :end, :color, :user_ids)
+      params.require(:event).permit(:title, :date_range, :start, :phone_number, :end, :color, :user_ids)
     end
 end
