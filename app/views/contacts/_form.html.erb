@@ -335,6 +335,8 @@
                   <div class="col-md-5 ml-0 pl-0 ">
                      <div class="row">
                         <div class="form-group  collapse" id="add-users-group">
+                     <div class="row">
+
                            <div class="row mt-1">
                               <div class=" col-md-12">
                                  <div class="input-group ">
@@ -342,14 +344,14 @@
                                        <div class="row ">
                                           <div class="col-sm-4 ml-auto mr-auto">
                                              <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                                                <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;">
                                                 </div>
-                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"><%= image_tag @contact.avatar.present? ? @contact.avatar.url(:thumb) : 'http://placehold.it/150x150', class: "media-object" %>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
                                                 </div>
                                                 <div class="text-center">
                                                    <span class="btn btn-default btn-file">
                                                    <span class="fileinput-new text-white">Choose Photo</span>
-                                                   <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
+                                                   <span class="fileinput-exists text-white">Change</span><%= form.file_field :image %>
                                                    </span>
                                                    <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                                 </div>
@@ -360,6 +362,10 @@
                                  </div>
                               </div>
                            </div>
+                           <div>
+                           </div>
+
+                     </div>
                            <div>
                            </div>
                         </div>

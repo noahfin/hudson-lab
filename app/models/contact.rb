@@ -20,6 +20,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :appointment
   has_and_belongs_to_many :contact_touches, class_name: 'Touch'
   has_many :leads
+  has_one_attached :image
   has_many :current_users, -> { users }, class_name: 'User'
   has_attached_file :avatar, styles: { medium: "150x150>", thumb: "100x100>" },
   :s3_credentials => "#{Rails.root}/config/s3.yml",
