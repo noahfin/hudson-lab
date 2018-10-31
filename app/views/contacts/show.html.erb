@@ -60,11 +60,9 @@
 <div class="col-md-4">
    <div class="card card-profile card-1-color">
       <div class="card-avatar avatar-hudson">
-         <a href="">
-         <% if @contact.image.attached? %> <%= image_tag url_for(@contact.image), class: 'media-object-2'  %> <% else %>  <%= image_tag  'https://placehold.it/150x150', class: "media-object" %> <% end %>
-
-
-         </a>
+          <%= link_to edit_contact_path(@contact.id), class: 'remote-link', remote: true do %>
+            <% if @contact.image.attached? %> <%= image_tag url_for(@contact.image), class: 'media-object-2'  %> <% else %>  <%= image_tag  'https://placehold.it/150x150', class: "media-object" %> <% end %>
+          <% end %>
       </div>
       <div class="card-body">
          <h6 class="card-category text-gray scondary-size-text"> <%= @contact.company  if @contact.company  %></h6>
