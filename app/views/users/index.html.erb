@@ -1,4 +1,4 @@
-
+<% unless !current_user.admin? %>
 <div class="col-md-12  mdl-color--grey-900">
    <div class="   mdl-color--grey-900 pt-4 ">
       <h3 class="text-white ml-3">Users</h3>
@@ -140,7 +140,7 @@
       </div>
    </div>
 </div>
-
+<% end %>
 <div class=" col-md-12 p-4 mdl-color--grey-900">
    <hr>
    <div class="row">
