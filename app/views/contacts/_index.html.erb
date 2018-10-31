@@ -1,91 +1,106 @@
+<style type="text/css">
+   @media (max-width: 992px) {
+   .nav-mobile-menu {
+   display: none  !important;
+   }
+   }
+   .contact-main-image {
+   max-height: 100px !important;
+   max-width: 100px !important;
+   margin-right: 40px !important;
+   }
+   .contact-main-image img{
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+   }
+</style>
 <div id="main-c-wrap">
-<div class="container-fluid pt-0" >
-   <div class="row pt-0">
-      <div class="col-md-3 group-sidenav" id="sidenav"><%= render 'layouts/sidenav' %>
-      </div>
-      <div class="col-md-9">
-         <div class="card card-1-color   mt-4 pt-0">
-            <div class="card-header card-header-icon r-padding-card">
-               <span>
-                  <H3 class="pl-3 pb-0  main-contact-h3">
-                     Contacts<a data-toggle="modal" data-target="#myModal" class="" , title="Upload Excel File", rel="tooltip">&nbsp;<i class="fa fa-file-excel-o text-info font-weight-light"></i></a>
-                     <div class="pull-right">
-                        <a  class="mb-4 mr-2" id="sort_contacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="material-icons text-info icon-drop-county ">view_module</i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sort_contacts">
-                           <div class="card">
-                              <article class="card-body">
-                                 <h4 class="card-title mb-4 mt-1">Sort Into Sub Group</h4>
-                                 <p>
-                                 </p>
-                                 <hr>
-                                 <ul class="list-group" id="list-county">
-                                    <li class="list-group-item">
-                                       <%= link_to "Westchester", contacts_path(:group_id => params[:group_id], :county => "Westchester "), class: " text-info send-county" %>
-                                    </li>
-                                    <li class="list-group-item">
-                                       <%= link_to "Dutchess", contacts_path(:group_id => params[:group_id] , :county => "Dutchess"), class: "text-info send-county" %>
-                                    </li>
-                                    <li class="list-group-item">
-                                       <%= link_to "Ulster", contacts_path(:group_id => params[:group_id], :county => "Ulster "), class: " text-info send-county" %>
-                                    </li>
-                                    <li class="list-group-item">
-                                       <%= link_to "Orange", contacts_path(:group_id => params[:group_id], :county => "Orange "), class: " text-info send-county"%>
-                                    </li>
-                                    <li class="list-group-item"><%= link_to "Rockland", contacts_path(:group_id => params[:group_id], :county => "Rockland "), class: " text-info send-county"%>
-                                    </li>
-                                 </ul>
-                              </article>
+   <div class="container-fluid pt-0" >
+      <div class="row pt-0">
+         <div class="col-md-3 group-sidenav" id="sidenav"><%= render 'layouts/sidenav' %>
+         </div>
+         <div class="col-md-9 contact-m-section">
+            <div class="card card-1-color   mt-4 pt-0">
+               <div class="card-header card-header-icon r-padding-card">
+                  <span>
+                     <H3 class="pl-3 pb-0  main-contact-h3">
+                        Contacts<a data-toggle="modal" data-target="#myModal" class="" , title="Upload Excel File", rel="tooltip">&nbsp;<i class="fa fa-file-excel-o text-info font-weight-light"></i></a>
+                        <div class="pull-right sort_contacts">
+                           <a  class="mb-4 mr-2 " id="sort_contacts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="material-icons text-info icon-drop-county ">view_module</i>
+                           </a>
+                           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sort_contacts">
+                              <div class="card">
+                                 <article class="card-body">
+                                    <h4 class="card-title mb-4 mt-1">Sort Into Sub Group</h4>
+                                    <p>
+                                    </p>
+                                    <hr>
+                                    <ul class="list-group" id="list-county">
+                                       <li class="list-group-item">
+                                          <%= link_to "Westchester", contacts_path(:group_id => params[:group_id], :county => "Westchester "), class: " text-info send-county" %>
+                                       </li>
+                                       <li class="list-group-item">
+                                          <%= link_to "Dutchess", contacts_path(:group_id => params[:group_id] , :county => "Dutchess"), class: "text-info send-county" %>
+                                       </li>
+                                       <li class="list-group-item">
+                                          <%= link_to "Ulster", contacts_path(:group_id => params[:group_id], :county => "Ulster "), class: " text-info send-county" %>
+                                       </li>
+                                       <li class="list-group-item">
+                                          <%= link_to "Orange", contacts_path(:group_id => params[:group_id], :county => "Orange "), class: " text-info send-county"%>
+                                       </li>
+                                       <li class="list-group-item"><%= link_to "Rockland", contacts_path(:group_id => params[:group_id], :county => "Rockland "), class: " text-info send-county"%>
+                                       </li>
+                                    </ul>
+                                 </article>
+                              </div>
                            </div>
                         </div>
+                     </H3>
+                  </span>
+                  <div class="hide-form">
+                     <div class="col-md-12 small-search-form-container ">
+                        <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline c-s-form', id: 'c-s-form') do |f| %>
+                        <span class=" small-search-form-container  span-out">
+                           <ul class="list-inline-custom small-search-form-container ">
+                              <li class="list-inline-item-custom">
+                                 <div class="long-input-div">
+                                    <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %>
+                                 </div>
+                              </li>
+                              <li class="list-inline-item-custom">
+                                 <div class="small-input-div">
+                                    <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search-r">
+                                       <i class="material-icons">search</i>
+                                       <div class="ripple-container"></div>
+                                    </button>
+                                 </div>
+                              </li>
+                        </span>
+                        </ul>
+                        <% end %>
                      </div>
-                  </H3>
-               </span>
-               <div class="hide-form">
-                  <div class="col-md-12 small-search-form-container ">
-                     <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline c-s-form', id: 'c-s-form') do |f| %>
-                     <span class=" small-search-form-container  span-out">
-                        <ul class="list-inline-custom small-search-form-container ">
-                           <li class="list-inline-item-custom">
-                              <div class="long-input-div">
-                                 <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %>
-                              </div>
-                           </li>
-                           <li class="list-inline-item-custom">
-                              <div class="small-input-div">
-                                 <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search-r">
-                                    <i class="material-icons">search</i>
-                                    <div class="ripple-container"></div>
-                                 </button>
-                              </div>
-                           </li>
-                     </span>
-                     </ul>
+                  </div>
+               </div>
+               <div class="panel panel-default mt-3 card-1-color main-contact-panel">
+                  <table class="table" id="contacts"><%= render  @contacts %>
+                  </table>
+                  <% if @contacts.blank? %>
+                  <div class="panel-footer message">
+                     <div class="alert alert-warning">
+                        <strong>Record not found</strong>
+                     </div>
                      <% end %>
                   </div>
-               </div>
-            </div>
-            <div class="panel panel-default mt-3 card-1-color main-contact-panel">
-               <table class="table" id="contacts"><%= render  @contacts %>
-               </table>
-               <% if @contacts.blank? %>
-               <div class="panel-footer message">
-                  <div class="alert alert-warning">
-                     <strong>Record not found</strong>
+                  <div class="text-center p-3" id="pagin">
+                     <nav><%= paginate @contacts, remote: true %>
+                     </nav>
                   </div>
-                  <% end %>
                </div>
-               <div class="text-center p-3" id="pagin">
-                  <nav><%= paginate @contacts, remote: true %>
-                  </nav>
-               </div>
-
             </div>
          </div>
       </div>
    </div>
-</div>
-<!-- Modal -->
-
+   <!-- Modal -->
 </div>

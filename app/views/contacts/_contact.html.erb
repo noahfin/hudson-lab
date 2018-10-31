@@ -6,7 +6,7 @@
         <% if contact.email  == nil %>
             <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : 'placholder.png', class: "media-object small-image" %>
             <% else %>
-            <%= image_tag contact.avatar.present? ? contact.avatar.url(:thumb) : gravatar_url(contact.email), class: "media-object"  unless contact.email == nil %>
+              <% if contact.image.attached? %> <%= image_tag url_for(contact.image), class: 'media-object-2'  %> <% else %> <%= image_tag  gravatar_url(contact.email), class: "media-object" %> <% end %>
             <% end %>
         <% end %>
       </div>
