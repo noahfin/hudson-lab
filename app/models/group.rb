@@ -16,7 +16,8 @@ class Group < ApplicationRecord
  def to_csv(contacts, options = {})
   CSV.generate(options) do |csv|
 
-      header = {:id=> "Id",
+      header = {
+  :id=> "Id",
   :name=> "Name",
  :prefix=> "Prefix",
  :first_name=> "First Name",
@@ -48,8 +49,9 @@ class Group < ApplicationRecord
     csv << header.values
     contacts.each do |contact|
 
-      h = {:id=> contact.id.to_s,
-  :name=> contact.name.to_s,
+      h = {
+ :id=> contact.id.to_s,
+ :name=> contact.name.to_s,
  :prefix=> contact.prefix.to_s,
  :first_name=> contact.first_name.to_s,
  :middle_name=> contact.middle_name.to_s,
@@ -59,7 +61,6 @@ class Group < ApplicationRecord
  :web_address=> contact.web_address.to_s,
  :latitude=>contact.latitude.to_s,
  :longitude=> contact.longitude.to_s,
- :type=> contact.type.to_s,
  :facility_size=>contact.facility_size,
  :total_number_of_employees=>contact.total_number_of_employees.to_s,
  :primary_industry=>contact.primary_industry.to_s,
