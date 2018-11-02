@@ -1,8 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
-  # GET /appointments
-  # GET /appointments.json
  def index
     @appointments = Appointment.all
     if @appointments.length.zero?
@@ -10,17 +8,14 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # GET /appointments/1
-  # GET /appointments/1.json
   def show
   end
 
-  # GET /appointments/new
   def new
     @appointment = Appointment.new
   end
 
-  # GET /appointments/1/edit
+
   def edit
   end
 
@@ -30,23 +25,20 @@ class AppointmentsController < ApplicationController
   def create
     Time.zone = appointment_params[:time_zone]
     @appointment = Appointment.new(appointment_params)
-      message = "The appontment '#{@appointment.name}' was just added."
+      message = "The appontment '#{@appointment.name}' added, I will remind you two hours before."
       TwilioTextMessenger.new(message).call(params['appointment']['phone_number'])
         if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
           id_array = []
           contact_id_array = params['contact_ids'].to_a
-
             contact_id_array.each do |id |
               if id.to_i > 0
                id_array << id
                contact_id = id.to_s
               end
            end
-
           if contact_id_array[0].to_i > 0
            @appointment.contact_ids = id_array
          end
-
        end
         if  params['appointment']['user_id']
             params['appointment']['user_id'].each do |u_id|
@@ -55,7 +47,6 @@ class AppointmentsController < ApplicationController
             @appointment.users << user
            end
          end
-
 
     respond_to do |format|
       if @appointment.save
@@ -68,8 +59,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /appointments/1
-  # PATCH/PUT /appointments/1.json
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
@@ -82,8 +71,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # DELETE /appointments/1
-  # DELETE /appointments/1.json
   def destroy
     @appointment.destroy
     respond_to do |format|
@@ -93,12 +80,10 @@ class AppointmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_appointment
       @appointment = Appointment.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
       params.require(:appointment).permit(:name, :phone_number, :time, :fulladdress, :contact_ids,{:user_ids => []})
     end
