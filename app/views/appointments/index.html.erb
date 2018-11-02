@@ -19,7 +19,7 @@
          <td><%= link_to appointment.id, appointment_path(appointment) %></td>
          <td><%= appointment.name %></td>
          <td><%= appointment.phone_number %></td>
-         <td><%= appointment.times.trftime("%I:%M%p on %b. %d, %Y") %></td>
+         <td><%= appointment.time.strftime("%I:%M%p on %b. %d, %Y") %></td>
          <td><%= appointment.created_at %></td>
          <td>
             <%= link_to "Edit",

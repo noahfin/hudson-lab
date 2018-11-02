@@ -3,9 +3,6 @@
 
 </div>
 <%= render 'form', lead: @lead %>
-<div class="col-md-8 col-md-offset-2 pl-0 ">
 
-</div>
-<div class="col-md-8 col-md-offset-2">
-<span class="pr-3 pull-right" > <%= link_to 'Show', @lead %> | <%= link_to 'Back', leads_path %> </span>
-</div>
+<span class="pr-4 pull-right mt-4" > <%= link_to 'Show', @lead, class: 'text-white' %> | <%= link_to 'Back', leads_path, class: 'text-white mr-4' %> </span>
+
