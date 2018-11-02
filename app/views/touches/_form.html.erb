@@ -109,9 +109,9 @@
    }
 </style>
 <div class="col-md-12">
-<div class="card bg-dark">
+<div class="card card-1-color">
    <div class="card-header  card-header-text">
-      <div class="card-text bg-black">
+      <div class="card-text bg-hudson">
          <i class='material-icons'>fingerprint</i>
       </div>
    </div>
@@ -289,8 +289,8 @@
                      </div>
                   </div>
                </div>
-               <label class="form-check-label">Description</label>
-               <%= form.text_field :description, id: :touch_description, class: 'form-control text-white' %>
+               <label class="form-check-label pl-2">Description</label>
+               <%= form.text_field :description, id: :touch_description, class: 'form-control text-white ' %>
             </div>
          </div>
          <div class="row">
@@ -376,7 +376,7 @@
                   <div class="col-md-4">
                      <input type="hidden" name="group[id]" value="" id="group-id-touch">
                      <input type="hidden" name="touch[group_name]" value="not-given" id="group-name-touch">
-                     <%= form.submit remote: true, class: 'btn btn-lg bg-black pull-right border-0 btn-social btn-fill btn-github' do %>
+                     <%= form.submit remote: true, class: 'btn btn-lg bg-hudson pull-right border-0 btn-social btn-fill btn-github' do %>
                      <div class="ripple-container"></div>
                      <% end %>
                   </div>

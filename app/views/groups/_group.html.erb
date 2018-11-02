@@ -4,17 +4,17 @@
       <div class="row">
          <% group.each do |group| %>
          <div class=" col-md-4 ">
-            <div class="card card-raised  bg-black group-card" >
+            <div class="card card-raised  card-1-color group-card" >
                <div class="card-body">
-                  <h2 class="card-category text-white"><%= group.name %> <span class="pull-right text-danger"><%= group.contacts.count %></span>
+                  <h2 class="card-category text-white"><%= group.name %> <span class="pull-right text-hudson"><%= group.contacts.count %></span>
                      </h2>
                   <a href="#pablo">
-                     <h4 class="card-title">Download this group as a  <%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-danger' %></h4>
+                     <h4 class="card-title">Download:<%= link_to " CSV", group_path(group.id, format: "csv"), class: 'text-danger' %></h4>
                   </a>
                   <p class="card-description">
                      <%= group.name %> has <%= group.contacts.count %> contact stored
                   </p>
-                 <h6> <%= link_to group_path(group.id), class: "btn  mdl-color--grey-900 text-white btn-round group-view-link", remote: true do %>
+                 <h6> <%= link_to group_path(group.id), class: "btn btn-outline-white text-white btn-round group-view-link", remote: true do %>
                   <i class="material-icons">content_copy</i> View Group
                   <% end %>
                   <span class="pull-right delete-group-link"> <%= link_to group, remote: true, method: :delete, data: { confirm: 'Are you sure?', AuthenticityToken: form_authenticity_token}, class: "text-danger delete_group", rel: 'tooltip', title: 'Delete' do %>
