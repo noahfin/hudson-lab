@@ -12,14 +12,14 @@
    }
    .card-reg { z-index: 99999999; }
    .lable-remember {
-      position: relative;
-      top: -1.1rem;
-      left: 1.1rem;
+   position: relative;
+   top: -1.1rem;
+   left: 1.1rem;
    }
    @media screen and (min-width: 1600px) {
-     .mainlogin {
-       margin-top: 17%;
-     }
+   .mainlogin {
+   margin-top: 17%;
+   }
    }
 </style>
 <body class="presentation-page ">
@@ -43,10 +43,10 @@
                            <i class="material-icons">dashboard</i> Dashboard
                            </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                            <%= link_to "<i class='material-icons'>person_add</i> Register".html_safe, new_user_registration_path, class: 'nav-link' %>
                         </li>
-                        <li class="nav-item ">
+                        <li class="nav-item active">
                            <%= link_to "<i class='material-icons'>fingerprint</i> Login".html_safe, new_user_session_path, class: 'nav-link' %>
                         </li>
                         <li>
@@ -59,45 +59,19 @@
       </div>
    </nav>
    <div class="page-header mdl-color--grey-900">
-
       <section class=" ml-auto mr-auto">
          <div class="mb-2 mt-2 p-2 mr-auto ml-auto">
             <p class="notice  bg-footer text-white mt-3 mb-3 ml-3 p-2 custom-alert"><%= notice %></p>
             <p class="alert  bg-footer text-white mt-3 mb-3 ml-3 p-2 custom-alert"><%= alert %></p>
-         <div class=" ml-auto mr-auto">
-         </div>
-
+            <div class=" ml-auto mr-auto">
+            </div>
             <div class="mask ml-auto mr-auto ">
                <div class="ml-auto mr-auto">
-
                   <div class="mainlogin" >
-
                      <div class=" cool-form ml-auto mr-auto bg-footer  p-4">
                         <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: '') do |f| %>
                         <h2 class="text-center">Log in</h2>
-                          <% if resource.errors.any? %>
-                            <div id="error_explanation">
-                              <h2><%= pluralize(resource.errors.count, "error") %> prohibited successfull login:</h2>
-
-                              <ul>
-                                     <% resource.errors.full_messages.each do |msg| %>
-                              <script>
-                                   $(function() {
-$.notify(<%="#{msg}"%>, {
-  animate: {
-    enter: 'animated fadeInRight',
-    exit: 'animated fadeOutRight'
-  }
-});
-}
-                              </script>
-                            <% end %>
-
-                             <% end %>
-
-                            </div>
-
-                                                <div class="form-group mr-auto ml-auto">
+                        <div class="form-group mr-auto ml-auto">
                            <label class="lb-responsive">Enter Email</label> <br class="br-responsive">
                            <%= f.email_field :email, class: "form-control pl-2 text-light", required: true, placeholder: 'Email'  %>
                         </div>
@@ -109,12 +83,14 @@ $.notify(<%="#{msg}"%>, {
                            <button type="submit" class="btn btn-outline-info btn-block">Log in</button>
                         </div>
                         <div class="clearfix">
-                     <label class="pull-left checkbox-inline">  <% if devise_mapping.rememberable? -%>
-                      <div class="field">
-                        <%= f.check_box :remember_me %>
-                        <%= f.label :remember_me, class: "lable-remember" %>
-                      </div>
-                    <% end -%></label>
+                           <label class="pull-left checkbox-inline">
+                              <% if devise_mapping.rememberable? -%>
+                              <div class="field">
+                                 <%= f.check_box :remember_me %>
+                                 <%= f.label :remember_me, class: "lable-remember" %>
+                              </div>
+                              <% end -%>
+                           </label>
                            <a href="#" class="pull-right text-muted">Forgot Password?</a>
                            <div class="col-md-12">
                            </div>
@@ -125,9 +101,6 @@ $.notify(<%="#{msg}"%>, {
                            </div>
                         </div>
                         <% end %>
-
-
-
                      </div>
                   </div>
                </div>
@@ -138,26 +111,19 @@ $.notify(<%="#{msg}"%>, {
    </div>
 </body>
 <script type="text/javascript">
-$(document).on('turbolinks:load', function () {
-  var alert_msg =  $('.custom-alert').text();
-  $('.custom-alert').text("");
-  console.log(alert_msg)
-
-       $.notify({
-      icon: 'fa fa-bell',
-      title: '<strong>Heads up!</strong>',
-      message: alert_msg
-    },{
-      type: 'danger'
-
-
-
-    });
-
-setTimeout(function() {
-  $.notifyClose();
-}, 2000);
-
-});
+   $(document).on('turbolinks:load', function () {
+     var alert_msg =  $('.custom-alert').text();
+     $('.custom-alert').text("");
+          $.notify({
+         icon: 'fa fa-bell',
+         title: '<strong>Heads up!</strong>',
+         message: alert_msg
+       },{
+         type: 'danger'
+       });
+   setTimeout(function() {
+     $.notifyClose();
+   }, 2000);
+   });
 
 </script>
