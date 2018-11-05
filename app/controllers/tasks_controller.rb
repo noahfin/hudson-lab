@@ -39,6 +39,7 @@ class TasksController < ApplicationController
 
 
   def create
+
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
@@ -49,7 +50,13 @@ class TasksController < ApplicationController
          end
          @tasks = Task.all.order(:name)
          groups = params['task']['group_ids'].to_a
-         @task.groups = groups if params['task']['group_ids']
+         if params['task']['group_ids']
+          params['task']['group_ids'].each do |group_id|
+            next if group_id == 0 || group_id == ''
+            group = Group.find(group_id)
+              @task.groups << group
+          end
+
          contacts = params['task']['contact_ids'].to_a
          contact_array = []
          contacts.each do |contact|
@@ -74,6 +81,7 @@ class TasksController < ApplicationController
       end
     end
   end
+end
 
   def update
    @tasks = Task.order(created_at: :desc)

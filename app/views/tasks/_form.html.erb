@@ -28,7 +28,7 @@
          </li>
       </ul>
       <div class="tab-content tab-space tab-subcategories">
-           <%= form_with model: @task, id: "task-main-form", remote: local_assigns[:ajax_true], :authenticity_token => true, id: 'tasks-form-id' do |f|%>
+           <%= form_with model: @task, remote: local_assigns[:ajax_true], :authenticity_token => true, id: 'tasks-form-id-just-one' do |f|%>
          <div class="tab-pane" role="tabpanel" id="task-deals-tab" style="display:none;">
             <div class="card rounded-0">
 
@@ -75,12 +75,14 @@
                         <div class="row">
                         <div class="col-md-6">
                             <div class="form-group text-black">
-                              <input type="checkbox"  name="task[complete]" /><span class="pl-2">Complete</span>
+                            <%= f.check_box(:complete, {}, true) %>
+                           <span class="pl-2">Complete</span>
                            </div>
                         </div>
                        <div class="col-md-6">
                             <div class="form-group text-black">
-                              <input type="checkbox" name="task[personal]" /> <span class="pl-2">Personal</span>
+                               <%= f.check_box(:personal, {}, true) %>
+                               <span class="pl-2">Personal</span>
                            </div>
                         </div>
                      </div>
@@ -230,7 +232,7 @@
    </div>
 </div>
      <div class="modal-footer">
-         <%= f.submit class: "btn btn-outline-info", id: "task-send", remote: true %>
+         <%= f.submit class: "btn btn-outline-info", id: "task-send-2", remote: true %>
     </div>
 <% end %>
 <script>
@@ -257,4 +259,8 @@ if( /Android|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
   $('.selectpicker').selectpicker('mobile');
 }
 
+   $('#task-send-2').click(function (e) {
+$("#tasks-form-id-just-one").prop('disabled', false);
+$("#tasks-form-id-just-one").submit();
+   });
 </script>

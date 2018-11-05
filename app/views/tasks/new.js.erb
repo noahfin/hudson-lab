@@ -27,89 +27,89 @@ $('.get-contacts').autocomplete({
         }
     });
 
-     var getAutocompleteContactsValues = function(){
-       var contactInputs = $( ".c-ids" ).serializeArray();
-       var contactValueArray = [];
+ //     var getAutocompleteContactsValues = function(){
+ //       var contactInputs = $( ".c-ids" ).serializeArray();
+ //       var contactValueArray = [];
 
-      jQuery.each( contactInputs, function( i, input ) {
-        if (input.value !== "0") {
-       contactValueArray.push( input.value );
-       }
-      });
+ //      jQuery.each( contactInputs, function( i, input ) {
+ //        if (input.value !== "0") {
+ //       contactValueArray.push( input.value );
+ //       }
+ //      });
 
-        return contactValueArray;
+ //        return contactValueArray;
 
-    }
+ //    }
 
-        var getGroupValues = function(){
-            var group_ids_array = []
-            group_ids = $('#groups-t').val();
-            jQuery.each( group_ids, function( i, input ) {
-              if (input.value !== "0" && input.value !== "") {
-             group_ids_array.push( input.value );
-             }
-            });
-            return group_ids_array;
-        }
+ //        var getGroupValues = function(){
+ //            var group_ids_array = []
+ //            group_ids = $('#groups-t').val();
+ //            jQuery.each( group_ids, function( i, input ) {
+ //              if (input.value !== "0" && input.value !== "") {
+ //             group_ids_array.push( input.value );
+ //             }
+ //            });
+ //            return group_ids_array;
+ //        }
 
- $(document).on('click', '#task-send ', function (event) {
-            event.preventDefault()
-             $('#taks-form').prop("disabled", true);
-            var group_ids = getGroupValues();
-             var contact_ids = getAutocompleteContactsValues();
-             var formData = {
-            task: {
+ // $(document).on('click', '#task-send ', function (event) {
+ //            event.preventDefault()
+ //             $('#taks-form').prop("disabled", true);
+ //            var group_ids = getGroupValues();
+ //             var contact_ids = getAutocompleteContactsValues();
+ //             var formData = {
+ //            task: {
 
-            'name': $('#task_name').val(),
-                'complete': $('#task_complete').val(),
-                'personal':  $('#task_personal').val(),
-                'contact_ids': contact_ids,
-                'lead_ids': $('#leads-select').val(),
-                'user_ids': $('#users-t').val(),
-                'project_ids': $('#projects-select').val(),
-                'group_ids': $('#groups-t').val(),
-                'property_ids': $('#property-select').val()
+ //            'name': $('#task_name').val(),
+ //                'complete': $('#task_complete').val(),
+ //                'personal':  $('#task_personal').val(),
+ //                'contact_ids': contact_ids,
+ //                'lead_ids': $('#leads-select').val(),
+ //                'user_ids': $('#users-t').val(),
+ //                'project_ids': $('#projects-select').val(),
+ //                'group_ids': $('#groups-t').val(),
+ //                'property_ids': $('#property-select').val()
 
-                  },
-                  authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
-            }
+ //                  },
+ //                  authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
+ //            }
 
-            createTaskSend(formData);
-            return false
+ //            createTaskSend(formData);
+ //            return false
 
-        });
- var createTaskSend = function (data) {
+ //        });
+ // var createTaskSend = function (data) {
 
-        $.ajax({
-            url: $("#tasks-form-id").attr("action"),
-            method: "post",
-            data: data,
-            success: function (contact) {
-                $('#tasks-form-modal').modal('hide');
-                $.notify({
-                    title: "New Action Step:",
-                    message: '"'+$('#task_name').val()+'"' + ' was successfuly created'
-                });
-
-
-            },
-            error: function (err) {
-
-                var errors = err.responseJSON;
-                var error = errors.join(", ");
-
-                if (error) {
+ //        $.ajax({
+ //            url: $("#tasks-form-id").attr("action"),
+ //            method: "post",
+ //            data: data,
+ //            success: function (contact) {
+ //                $('#tasks-form-modal').modal('hide');
+ //                $.notify({
+ //                    title: "New Action Step:",
+ //                    message: '"'+$('#task_name').val()+'"' + ' was successfuly created'
+ //                });
 
 
-                    $.notify({
-                        title: '<strong>Heads up!</strong>',
-                        message: error
-                    }, {
-                        type: 'danger'
-                    });
-                }
-            }
-        })
+ //            },
+ //            error: function (err) {
+
+ //                var errors = err.responseJSON;
+ //                var error = errors.join(", ");
+
+ //                if (error) {
 
 
-    }
+ //                    $.notify({
+ //                        title: '<strong>Heads up!</strong>',
+ //                        message: error
+ //                    }, {
+ //                        type: 'danger'
+ //                    });
+ //                }
+ //            }
+ //        })
+
+
+ //    }
