@@ -15,6 +15,20 @@
    height: 90px;
    object-fit: cover;
    }
+   @media (max-width: 1336px) {
+   .contact-side-links {
+   display: none  !important;
+   }
+   }
+   @media (max-width: 700px) {
+   .r-padding-card {
+   padding: 30px !important
+   }
+   .icon-drop-county {
+   margin-right: 7px !important;
+   margin-top: 35px !important;
+   }
+   }
 </style>
 <div id="main-c-wrap">
    <div class="container-fluid pt-0" >
@@ -61,18 +75,18 @@
                      </H3>
                   </span>
                   <div class="hide-form">
-                     <div class="col-md-12 small-search-form-container ">
+                     <div class="col-md-12 small-search-form-container" style= "width: 100% !important;">
                         <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline c-s-form', id: 'c-s-form') do |f| %>
-                        <span class=" small-search-form-container  span-out">
-                           <ul class="list-inline-custom small-search-form-container ">
+                        <span class=" small-search-form-container" style= "width: 100% !important;">
+                           <ul class="list-inline-custom small-search-form-container" style= "width: 100% !important;">
                               <li class="list-inline-item-custom">
-                                 <div class="long-input-div">
-                                    <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Name", id: "r-search" %>
+                                 <div class="long-input-div" style= "padding-left:  14px !important; ">
+                                    <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Search", id: "r-search" %>
                                  </div>
                               </li>
-                              <li class="list-inline-item-custom">
-                                 <div class="small-input-div">
-                                    <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search-r">
+                              <li class="list-inline-item-custom"  style= "width: 100% !important;">
+                                 <div class="small-input-div" style="margin-left:  14px !important;" >
+                                    <button type="submit" class="btn btn-outline-info btn-round btn-just-icon " id="send-search-r" style= "position: relative; left: 43px;">
                                        <i class="material-icons">search</i>
                                        <div class="ripple-container"></div>
                                     </button>
