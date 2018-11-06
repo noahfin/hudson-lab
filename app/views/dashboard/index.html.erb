@@ -89,19 +89,19 @@
    .card-1-color {
    background:  #212529 !important;
    }
-/*   @media only screen
-and (min-device-width : 992px)
-and (max-device-width : 1327px) {
-   .card-top-dash, .card-stats > .card-title{
-        display: none;
-    }
-}*/
-@media screen and (max-width: 1327px) {
+@media screen and (max-width: 1372px) {
   .card-top-dash, .card-stats h3.card-title.text-white {
         display: none !important;
     }
 }
-
+@media screen and (max-width: 700px) {
+  .top-wigets {
+        display: none !important;
+    }
+    .search-sec {
+      padding-top: 20px !important;
+    }
+}
 
 
 </style>
@@ -141,8 +141,8 @@ and (max-device-width : 1327px) {
    </div>
 </div>
 <div class="col-md-12 first-show-card">
-   <div class="row first-show-card">
-      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card">
+   <div class="row first-show-card top-wigets">
+      <div class="col-lg-3 col-md-6 col-sm-6 first-show-card ">
          <%= link_to contacts_path, remote: true do %>
          <div class="card card-stats card-category card-category-social card-dash-info rounded-0 card-1-color">
             <div class="card-header card-header-icon">
@@ -150,7 +150,7 @@ and (max-device-width : 1327px) {
                   <i class="material-icons bg-trans text-white">person</i>
                </div>
                <p class="card-category card-top-dash text-white">Contacs</p>
-               <h3 class="card-title text-white">+<%= Contact.count %></h3>
+               <h3 class="card-title text-white"><%= Contact.count %></h3>
             </div>
             <div class="card-footer">
                <div class="stats text-white">
@@ -222,9 +222,9 @@ and (max-device-width : 1327px) {
    </div>
 </div>
    <section>
-      <div class="row">
-         <div class="col-md-12">
-            <div class="card card-1-color ">
+      <div class="row pl-3 pr-3">
+         <div class="col-md-12 ">
+            <div class="card card-1-color search-sec ">
                <div class="card-header  card-header-icon">
                   <div class="card-icon card-icon-outline-success  ">
                      <i class="material-icons">face</i>
@@ -473,8 +473,8 @@ and (max-device-width : 1327px) {
       </div>
 </div>
 </section>
-<div class="row ">
-   <div class="col-xl-6">
+<div class="row pl-3 pr-3 ">
+   <div class="col-xl-6 ">
       <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon">
              <%= link_to new_task_path, remote: true, class: "text-white", title: 'Click to Add New Tasks', rel: "tooltip" do %>
@@ -523,7 +523,7 @@ and (max-device-width : 1327px) {
       </div>
    </div>
 </div>
-<div class="row">
+<div class="row pl-3 pr-3">
 <div class="col-xl-6">
    <div class="card card-1-color  mb-4 p-0 tasks-card">
       <div class="card-header  card-header-icon">
@@ -622,8 +622,10 @@ and (max-device-width : 1327px) {
    </div>
 </div>
 </div>
-   <div class="row  pr-3 pl-3">
-   <div class="col-xl-6">
+  <div class="col-md-12 pr-3 pl-3">
+   <div class="pr-3 pl-3">
+   <div class="row  ">
+       <div class="col-xl-6">
       <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon ">
               <div class="card-icon card-icon-outline-success  ">
@@ -709,8 +711,9 @@ and (max-device-width : 1327px) {
       </div>
    </div>
   </div>
-
 </div>
+</div>
+   </div>
 <script>
    $("#tasks-user-list").hide();
    $(function() {

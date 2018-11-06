@@ -12,6 +12,7 @@
    }
 </style>
 <div class="">
+  <h5 class="link-r"> If the maps are not loading properly try clicking this link <i class="fa fa-sync"></i></h5>
    <div class="container-fluid">
       <div class="row">
          <div class="col-md-12">
@@ -2982,7 +2983,10 @@ eventSources: [
 
     }
 
-  demo.initMaterialWizard();
+$(".link-r").click(function(event) {
+ location.reload();
+});
+
 demo.initGoogleMaps();
 $.notifyDefaults({
   placement: {
@@ -3004,3 +3008,4 @@ setTimeout(function() {
 
 </body>
 </html>
+))
