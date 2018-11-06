@@ -27,7 +27,11 @@
 <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
 <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
 </div>
-<%= submit_tag 'send group form', class: 'btn btn-outline-info btn-block plan-group-b' %>
+<% if  @group.persisted? %>
+<%= submit_tag 'Update group', class: 'btn btn-outline-info btn-block plan-group-b' %>
+<% else %>
+<%= submit_tag 'Create new group', class: 'btn btn-outline-info btn-block plan-group-b' %>
+<% end %>
 <% end %>
 
 

@@ -26,7 +26,13 @@ class StepsController < ApplicationController
   # POST /steps.json
   def create
     @step = Step.new(step_params)
-
+  if params['step']['project_ids']
+    params['step']['project_ids'].each do |p_id|
+      next if p_id.to_i < 1 || index == ""
+       @project = Project.find(p_id) if p_id.to_i > 0
+       @project.steps << @step
+     end
+   end
     respond_to do |format|
       if @step.save
         format.html { redirect_to @step, notice: 'Step was successfully created.' }
@@ -70,6 +76,6 @@ class StepsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:name, :description, :start_time, :finsh_time, :started_time, :finshed_time)
+      params.require(:step).permit(:name, :description, :start_time, :finsh_time, :started_time, :finshed_time, :property_ids, {:project_ids => []})
     end
 end

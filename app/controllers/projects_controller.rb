@@ -10,6 +10,9 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+        if @project.steps.length.zero?
+      flash[:alert] = "You have no steps for this project's timeline. Create one now to get started."
+    end
   end
 
   # GET /projects/new

@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   has_and_belongs_to_many :tasks
   has_and_belongs_to_many :teams
+  has_and_belongs_to_many :steps
   has_attached_file :avatar,
   :storage => :s3,
   :styles => {

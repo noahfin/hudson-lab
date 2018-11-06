@@ -1,6 +1,7 @@
   Rails.application.routes.draw do
 
   resources :marketings
+  resources :steps
   resources :letters do
        post 'basic_letter', on: :collection
        post 'cover_letter', on: :collection

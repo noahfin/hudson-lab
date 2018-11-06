@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@step) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :start_time %>
+    <%= f.input :finsh_time %>
+    <%= f.input :started_time %>
+    <%= f.input :finshed_time %>
+
+    <div class="form-group ml-auto mr-auto">
+       <% attr = {prompt: "Select related projects"} %>
+
+       <label for="project_ids[]" class="bmd-label-floating text-white">Pick Projects<small></small></label>
+       <%= f.collection_select :project_ids, Project.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker ", id: "projects-select" } %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
