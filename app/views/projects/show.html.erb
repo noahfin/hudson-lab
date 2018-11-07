@@ -142,14 +142,13 @@
          <div class="card card-timeline card-plain">
             <div class="card-body">
                <ul class="timeline">
-                       <% @project.steps.each do |step| %>
-
+                  <% @project.steps.each do |step| %>
                       <% if step_temp == step.name %>
                        <% index += 1 %>
                        <% next %>
                        <% end %>
                         <% step_temp = step.name %>
-                  <% if index % 2 == 0  || index == 0 %>
+                      <% if index % 2 == 0  || index == 0 %>
                           <li>
                      <div class="timeline-badge success">
                         <i class="material-icons">extension</i>

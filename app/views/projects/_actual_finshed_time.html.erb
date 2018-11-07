@@ -1,5 +1,4 @@
 
-
 <div class="col-md-12 slideInRight" id="actual_finshed_time_div">
 <div class="row">
 <div class="project-info col-md-12" >
@@ -14,7 +13,7 @@
                   </p>
                </div>
              </div>
-   <p class="text-white text-center mt-3 mb-3" ><%= @project.actual_finshed_time %></p>
+   <p class="text-white text-center mt-3 mb-3" ><%= @project.actual_finshed_time.strftime("%B %e, %Y at %I:%M %p") if @project.actual_finshed_time %></p>
     <div class="col-md-8 ml-auto mr-auto">
       <div class="row">
 <%= link_to  project_path(session[:selected_project].to_i), class: 'text-warning text-center col-md-8 ml-auto mr-auto', remote: true do %>

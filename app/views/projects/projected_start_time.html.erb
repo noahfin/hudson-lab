@@ -3,7 +3,7 @@
     <div class="project-info" id="projected_start_time_div"  style=" min-height: 600px; with: 100%; ">
    <h4 class="info-title text-center text-white">Start Time</h4>
    Wifey made the best Father's Day meal ever. So thankful so happy so blessed. Thank you for making my family We just had fun with the “future” theme !!! It was a fun night all together ... The always rude Kanye Show at 2am Sold Out Famous viewing @ Figueroa and 12th in downtown.
-   <p class="text-white  text-center" ><%= @project.projected_start_time %></p>
+   <p class="text-white  text-center" ><%= @project.projected_start_time.strftime("%B %e, %Y at %I:%M %p") if @project.projected_start_time %></p>
    <a href="#projected_start_time_div" title="" class="all-sections text-danger">Back To All Section</a>
 </div>
 </div>

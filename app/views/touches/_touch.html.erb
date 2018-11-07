@@ -179,7 +179,7 @@ touch_letter_array = []
                         <% if touch_count > 1 %>
                         <%= touch.contacts.first.Fulladdress     %>  <% " + #{touch_count - 1} addresses" %>
                         <% else %>
-                        <%= touch.contacts.Fulladdress  %>
+                        <%= touch.contacts.first.Fulladdress  %>
                         <% end %>
                      </p>
                   </td>

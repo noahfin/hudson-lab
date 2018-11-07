@@ -12,9 +12,9 @@
                   </p>
                </div>
              </div>
-   <p class="text-white  text-center mt-3 mb-3" ><%= @project.projected_start_time %></p>
+   <p class="text-white  text-center mt-3 mb-3" ><%= @project.projected_start_time.strftime("%B %e, %Y at %I:%M %p") if @project.projected_start_time %></p>
     <div class="col-md-8 ml-auto mr-auto">
-            <div class="row">
+<div class="row">
 <%= link_to  project_path(session[:selected_project].to_i), class: 'text-warning text-center col-md-8  ml-auto mr-auto', remote: true do %>
 Back To All Section
 <% end %>
