@@ -10,7 +10,7 @@
          <div class="card-body ">
             <div class="row">
                <div class="col-md-3">
-                  <%= form_for(@property, multipart: true,  :authenticity_token => true, id: "property-form") do |form| %>
+               <%= form_for(@property, multipart: true,  :authenticity_token => true, id: "property-form") do |form| %>
                   <h4 class="title text-white">Property Image</h4>
                   <div class="fileinput fileinput-new text-center " data-provides="fileinput">
                      <div class="fileinput-new thumbnail square-image">
@@ -352,11 +352,10 @@
                      <%= form.label :gross_rental_per_sf, class: 'bmd-label-floating text-white'  %>
                      <%= form.text_field :gross_rental_per_sf, id: :property_zip_code, class: 'form-control text-white' %>
                   </div>
-                      <div class="form-group bmd-form-group text-white">
+                  <div class="form-group bmd-form-group text-white">
                      <%= form.label :electric, class: 'bmd-label-floating text-white'  %>
                      <%= form.text_field :electric, id: :property_zip_code, class: 'form-control text-white' %>
                   </div>
-
 
             </div>
          </div>
