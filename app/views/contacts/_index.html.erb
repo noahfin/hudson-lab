@@ -126,9 +126,9 @@
          var charPressed = String.fromCharCode(event.keyCode)
          keyLetter = $.trim($(this).text());
          var keyLetter = keyLetter.slice(0,1);
-         console.log(keyLetter)
          if ( charPressed == keyLetter) {
             window.location.hash = $(this).attr('id');
+            break;
          }
 
       });
