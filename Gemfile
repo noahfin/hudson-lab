@@ -24,7 +24,6 @@ gem 'roo'
 gem 'aws-sdk'
 gem 'emoji'
 gem 'csv'
-gem 'simple_form'
 gem 'pg_search'
 gem 'warden'
 gem 'fullcalendar-rails'
@@ -41,8 +40,6 @@ gem 'twilio-ruby'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
-
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -58,7 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
-# gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
 group :development do

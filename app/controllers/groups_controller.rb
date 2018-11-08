@@ -12,7 +12,6 @@ class GroupsController < ApplicationController
       end
   end
 
-
   def autocomplete
        @groups = Group.search(params[:term])
   end
