@@ -117,7 +117,6 @@
          </div>
       </div>
    </div>
-   <!-- Modal -->
 </div>
 <script>
    var autoGroup = function(){
@@ -128,7 +127,7 @@
          var keyLetter = keyLetter.slice(0,1);
          if ( charPressed == keyLetter) {
             window.location.hash = $(this).attr('id');
-            break;
+            return;
          }
 
       });
