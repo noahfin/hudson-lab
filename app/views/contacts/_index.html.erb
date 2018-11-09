@@ -119,19 +119,19 @@
    </div>
 </div>
 <script>
-   var autoGroup = function(){
-   if (event.keyCode >= 65 && event.keyCode <= 90) {
-      $('#groups-s-list a').each(function(i){
-         var charPressed = String.fromCharCode(event.keyCode)
-         keyLetter = $.trim($(this).text());
-         var keyLetter = keyLetter.slice(0,1);
-         if ( charPressed == keyLetter) {
-            window.location.hash = $(this).attr('id');
-            return;
-         }
+   // var autoGroup = function(){
+   // if (event.keyCode >= 65 && event.keyCode <= 90) {
+   //    $('#groups-s-list a').each(function(i){
+   //       var charPressed = String.fromCharCode(event.keyCode)
+   //       keyLetter = $.trim($(this).text());
+   //       var keyLetter = keyLetter.slice(0,1);
+   //       if ( charPressed == keyLetter) {
+   //          window.location.hash = $(this).attr('id');
+   //          return;
+   //       }
 
-      });
-      }
-   }
-   document.addEventListener('keydown', autoGroup);
+   //    });
+   //    }
+   // }
+   // document.addEventListener('keydown', autoGroup);
 </script>
