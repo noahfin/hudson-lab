@@ -92,7 +92,7 @@ touch_letter_array = []
             <tr>
                <th>View</th>
                <th>Type</th>
-               <th class="text-right">Name</th>
+               <th class="text-right">Description</th>
                <th class="text-right">Email</th>
                <th class="text-right">Actions</th>
             </tr>
@@ -112,7 +112,7 @@ touch_letter_array = []
                   </td>
                   <% touch_count = touch.contacts.count  %>
                   <% if touch_count > 1 %>
-                  <td class="text-right">> <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %></td>
+                  <td class="text-right">> <%= touch.description %>  <% " + #{touch_count - 1} contacts" %></td>
                   <% elsif  touch_count == 1%>
                   <td class="text-right"> <%= touch.contacts.first.name  %></td>
                   <% end %>
@@ -147,7 +147,7 @@ touch_letter_array = []
             <tr>
                <th>View</th>
                <th>Type</th>
-               <th class="text-right">Name</th>
+               <th class="text-right">Description</th>
                <th class="text-right">Address</th>
                <th class="text-right">Actions</th>
             </tr>
@@ -169,7 +169,7 @@ touch_letter_array = []
                   <td>
                      <% touch_count = touch.contacts.count  %>
                      <% if touch_count > 1 %>
-                     <%= touch.contacts.first.name  %>  <% " +#{touch_count - 1} contacts" %>
+                     <%= touch.description %>  <% " +#{touch_count - 1} contacts" %>
                      <% elsif  touch_count == 1 %>
                      <%= touch.contacts.first.name %>
                      <% end %>
@@ -205,7 +205,7 @@ touch_letter_array = []
             <tr>
                <th>View</th>
                <th>Type</th>
-               <th class="text-right">Name</th>
+               <th class="text-right">Description</th>
                <th  class="text-right">Address</th>
                <th  class="text-right">Actions</th>
             </tr>
@@ -227,7 +227,7 @@ touch_letter_array = []
                   <% touch_count = touch.contacts.count  %>
                   <td class="text-right">
                      <% if touch_count > 1 %>
-                     <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %>
+                     <%= touch.description %>  <% " + #{touch_count - 1} contacts" %>
                      <% elsif  touch_count == 1 %>
                      <%= touch.contacts.first.name %>
                      <% end %>
@@ -263,7 +263,7 @@ touch_letter_array = []
             <tr>
                <th>View</th>
                <th>Type</th>
-               <th class="text-right">Name</th>
+               <th class="text-right">Description</th>
                <th  class="text-right">website</th>
                <th  class="text-right">Actions</th>
             </tr>
@@ -285,7 +285,7 @@ touch_letter_array = []
                   <td  class="text-right">
                      <% touch_count = touch.contacts.count  %>
                      <% if touch_count > 1 %>
-                     <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %>
+                     <%= touch.description %>  <% " + #{touch_count - 1} contacts" %>
                      <% elsif  touch_count == 1 %>
                      <%= touch.contacts.first.name  %>
                      <% end %>
@@ -321,7 +321,7 @@ touch_letter_array = []
             <tr>
                <th>View</th>
                <th>Type</th>
-               <th class="text-right">Name</th>
+               <th class="text-right">Description</th>
                <th  class="text-right">Postcard</th>
                <th  class="text-right">Actions</th>
             </tr>
@@ -342,7 +342,7 @@ touch_letter_array = []
                   <td class="text-right">
                      <% touch_count = touch.contacts.count  %>
                      <% if touch_count > 1 %>
-                     <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %>
+                     <%= touch.description %>  <% " + #{touch_count - 1} contacts" %>
                      <% elsif  touch_count == 1 %>
                      <%= touch.contacts.first.name %>
                      <% end %>
