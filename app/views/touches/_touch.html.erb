@@ -34,13 +34,14 @@ touch_letter_array = []
       <div class="table-responsive table-sales mt-3">
          <table class="table">
             <tr>
-               <th>View</th>
-               <th>Type</th>
-               <th class="text-right">Name</th>
-               <th class="text-right">Email</th>
+               <th class="text-center">View</th>
+               <th class="text-center">Type</th>
+               <th class="text-right">Contact</th>
+               <th class="text-right">Name or Description</th>
                <th class="text-right">Actions</th>
             </tr>
             <tbody id="task-table-1">
+
                <% touch_phone_array.each do |touch| %>
                <tr id="edit_touch_<%= touch.id %>">
                   <td>
@@ -56,14 +57,14 @@ touch_letter_array = []
                   </td>
                   <% touch_count = touch.contacts.count  %>
                   <% if touch_count > 1 %>
-                  <td class="text-right"> <%= touch.contacts.first.name %>  <% " + #{touch_count - 1} contacts" %></td>
+                  <td class="text-right"> <%= touch.contacts.first.name %>  <% " + #{touch.contacts.count} contacts" %></td>
                   <% elsif  touch_count == 1%>
                   <td class="text-right"> <%= touch.contacts.first.name  %></td>
                   <% end %>
                   <td class="text-right">
                      <p class=" text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.phone %>  <% " + #{touch_count - 1} emails" %>
+                        <%= touch.description %>  <% " + #{touch_count - 1} emails" %>
                         <% elsif  touch_count == 1 %>
                         <%= touch.contacts.first.phone  %>
                         <% end %>
@@ -90,9 +91,9 @@ touch_letter_array = []
       <div class="table-responsive table-sales mt-3">
          <table class="table">
             <tr>
-               <th>View</th>
-               <th>Type</th>
-               <th class="text-right">Description</th>
+               <th class="text-center">View</th>
+               <th class="text-center">Type</th>
+               <th class="text-right">Name or Description</th>
                <th class="text-right">Email</th>
                <th class="text-right">Actions</th>
             </tr>
@@ -112,14 +113,14 @@ touch_letter_array = []
                   </td>
                   <% touch_count = touch.contacts.count  %>
                   <% if touch_count > 1 %>
-                  <td class="text-right">> <%= touch.description %>  <% " + #{touch_count - 1} contacts" %></td>
+                  <td class="text-right"> <%= touch.description %>  <% " + #{touch_count - 1} contacts" %></td>
                   <% elsif  touch_count == 1%>
                   <td class="text-right"> <%= touch.contacts.first.name  %></td>
                   <% end %>
                   <td class="text-right">
                      <p class=" text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.email %>  <% " + #{touch_count - 1} emails" %>
+                        Their is more then one email.
                         <% elsif  touch_count == 1 %>
                         <%= touch.contacts.first.email  %>
                         <% end %>
@@ -145,9 +146,9 @@ touch_letter_array = []
       <div class="table-responsive table-sales mt-3">
          <table class="table">
             <tr>
-               <th>View</th>
-               <th>Type</th>
-               <th class="text-right">Description</th>
+               <th class="text-center">View</th>
+               <th class="text-center">Type</th>
+               <th class="text-center">Name or Description</th>
                <th class="text-right">Address</th>
                <th class="text-right">Actions</th>
             </tr>
@@ -177,7 +178,7 @@ touch_letter_array = []
                   <td class="text-right">
                      <p class=" text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.Fulladdress     %>  <% " + #{touch_count - 1} addresses" %>
+                         There is more then one address.
                         <% else %>
                         <%= touch.contacts.first.Fulladdress  %>
                         <% end %>
@@ -203,9 +204,9 @@ touch_letter_array = []
       <div class="table-responsive table-sales mt-3">
          <table class="table">
             <tr>
-               <th>View</th>
-               <th>Type</th>
-               <th class="text-right">Description</th>
+               <th class="text-center">View</th>
+               <th class="text-center">Type</th>
+               <th class="text-right">Name or Description</th>
                <th  class="text-right">Address</th>
                <th  class="text-right">Actions</th>
             </tr>
@@ -235,7 +236,7 @@ touch_letter_array = []
                   <td class="text-right">
                      <p class="text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.Fulladdress %>  <% " + #{touch_count - 1} addresses" %>
+                        There is more then one address.
                         <% elsif  touch_count == 1 %>
                         <%= touch.contacts.first.Fulladdress  %>
                         <% end %>
@@ -261,9 +262,9 @@ touch_letter_array = []
       <div class="table-responsive table-sales mt-3">
          <table class="table">
             <tr>
-               <th>View</th>
-               <th>Type</th>
-               <th class="text-right">Description</th>
+               <th class="text-center">View</th>
+               <th class="text-center">Type</th>
+               <th class="text-right">Name or Description</th>
                <th  class="text-right">website</th>
                <th  class="text-right">Actions</th>
             </tr>
@@ -293,7 +294,7 @@ touch_letter_array = []
                   <td class="text-right">
                      <p class=" text-white">
                         <% if touch_count > 1 %>
-                        <%= touch.contacts.first.web_address %>  <% " + #{touch_count - 1} websites" %>
+                        There is more then one web address.
                         <% elsif  touch_count == 1 %>
                         <%= touch.contacts.first.web_address  %>
                         <% end %>
@@ -319,9 +320,9 @@ touch_letter_array = []
       <div class="table-responsive table-sales mt-3">
          <table class="table">
             <tr>
-               <th>View</th>
-               <th>Type</th>
-               <th class="text-right">Description</th>
+               <th class="text-center">View</th>
+               <th class="text-center">Type</th>
+               <th class="text-right"> Name or Description</th>
                <th  class="text-right">Postcard</th>
                <th  class="text-right">Actions</th>
             </tr>
