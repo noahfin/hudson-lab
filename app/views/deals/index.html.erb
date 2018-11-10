@@ -6,30 +6,16 @@
                <i class="material-icons">business</i>
             </div>
             <h4 class="card-title text-white pt-2">Deals <span>
-               <a class="btn-link text-white pull-right  pt-0" data-toggle="collapse" href="#deals-header" aria-expanded="false" aria-controls="deals-header">
-               <i class="material-icons mr-4 pr-4">whatshot</i>
-               </a>
-               </span>
+          <span class="pull-right"><%= link_to  new_deal_path, class: 'btn btn-link mr-0 mt-2', title: 'Add new deal', rel: "tooltip" do %>
+               <i class="fa fa-plus"></i>
+               <% end %>
+          </span>
             </h4>
          </div>
    <div class="col-md-12">
 
       <!-- start of deal borderd table in container -->
-      <div class="container">
-         <div class="collapse" id="deals-header">
-            <div class="row">
-               <div class="col-md-12">
-                  <h2>
-                     <span class="pull-right">  <%= link_to  new_deal_path, class: 'btn btn-just-icon btn-round bg-hudson ml-3' do %>
-                     <i class="fa fa-plus"></i>
-                     <% end %>
-                      </span>
-                  </h2>
-               </div>
 
-            </div>
-         </div>
-      </div>
       <div class="card-1-color">
 
          <div class="card-body">
