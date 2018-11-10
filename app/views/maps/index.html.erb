@@ -11,53 +11,33 @@
    padding: 0;
    }
 
-/* ----------- iPad Pro ----------- */
-/* Portrait and Landscape */
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1366px)
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-      .map{
+
+@media screen and (max-width: 992px) {
+  #regularMap, .map{
+    position: relative;
+    left: -1.3rem;
+    min-width: 90vw !important;
     min-height: 90vh !important;
+    margin: auto;
+  }
+  .map-md-12 {
+    margin: 0px !important;
+    padding: 0px !important;
   }
 }
-
-/* Portrait */
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1366px)
-  and (orientation: portrait)
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-      .map{
-    min-height: 90vh !important;
-  }
-}
-
-/* Landscape */
-@media only screen
-  and (min-device-width: 1024px)
-  and (max-device-width: 1366px)
-  and (orientation: landscape)
-  and (-webkit-min-device-pixel-ratio: 1.5) {
-      .map{
-    min-height: 90vh !important;
-  }
-
-}
-
 </style>
 <div class="">
   <h5 class="link-r"> If the maps are not loading properly try clicking this link <i class="fa fa-sync"></i></h5>
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-md-12">
+   <div class="container-fluid map-md-12">
+      <div class="row map-md-12">
+         <div class="col-md-12 map-md-12">
             <div class="card card-1">
                <div class="card-header card-header-text card-1">
                   <div class="card-text bg-black">
                      <h4 class="card-title bg-black">Satellite Map</h4>
                   </div>
                </div>
-               <div class="card-body ">
+               <div class="card-body map-body">
                   <h4 class="card-title"></h4>
                   <div id="satelliteMap" class="map map-big" style="position: relative; overflow: hidden;">
                      <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
@@ -73,16 +53,16 @@
                </div>
             </div>
          </div>
-         <div class="col-md-12">
+         <div class="col-md-12 map-md-12">
             <div class="card card-1 ">
                <div class="card-header card-header-text card-1">
                   <div class="card-text bg-black">
                      <h4 class="card-title ">Custom Map &amp; Find Propects</h4>
                   </div>
                </div>
-               <div class="card-body card-1 ">
+               <div class="card-body card-1 map-body">
                   <h4 class="card-title bg-black"></h4>
-                  <div id="regularMap" class="map" style="position: relative; overflow: hidden;">
+                  <div id="regularMap" class="map map-big" style="position: relative; overflow: hidden;">
                      <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
                         <div class="gm-err-container">
                            <div class="gm-err-content">
@@ -3012,4 +2992,3 @@ setTimeout(function() {
 
 </body>
 </html>
-))
