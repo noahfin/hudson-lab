@@ -10,6 +10,41 @@
    margin: 0;
    padding: 0;
    }
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1366px)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+      .map{
+    min-height: 90vh !important;
+  }
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1366px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+      .map{
+    min-height: 90vh !important;
+  }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 1024px)
+  and (max-device-width: 1366px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+      .map{
+    min-height: 90vh !important;
+  }
+
+}
+
 </style>
 <div class="">
   <h5 class="link-r"> If the maps are not loading properly try clicking this link <i class="fa fa-sync"></i></h5>
