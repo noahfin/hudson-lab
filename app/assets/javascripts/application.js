@@ -1237,6 +1237,9 @@ var getContactForDash = function(query){
             $('p-search').val('');
         }
     });
+
+
+     //get Contacts for forms section
     $('.get-contacts').autocomplete({
         source: '/contacts/autocomplete',
         minLength: 3,
@@ -1250,7 +1253,6 @@ var getContactForDash = function(query){
             $('.get-contacts').val('');
         }
     });
-
 
 
     $('#query_groups').autocomplete({

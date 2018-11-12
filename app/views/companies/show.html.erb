@@ -538,7 +538,6 @@
    }
    .profile-feed a, .text-hudson-ornage{ color:  #be7e45 !important; }
 </style>
-<p id="notice"><%= notice %></p>
 <div class="container">
    <div class="container-fluid">
       <div class="row ">
@@ -647,8 +646,8 @@
                      <ul class="user-details">
                         <li> <a href="#"> <i class="entypo-location"></i> <h4><%= @company.name %> </h4></a></li>
                         <% if @ceo %>
-                        <li> <a href="#"> <i class="material-icons">recent_actors</i><%  @ceo.name %> </a></li>
-                        <li> <i class="material-icons">work</i> Works as <span class="text-hudson-ornage"><% @ceo.postion %></span> </a></li>
+                        <li> <a href="#"> <i class="material-icons ">recent_actors</i> <span class="text-white"><%=  @ceo.name %> </span></a></li>
+                        <li><a href="#"> <i class="material-icons mt-3 pb-3">work</i> <span class="pb-3  text-white">Works as <span class="text-hudson-ornage"><%= @ceo.postion %></span> </span></a></li>
                         <% end %>
                      </ul>
                   </section>
@@ -657,7 +656,7 @@
             <div class="col-sm-9">
                <ul class="profile-info-sections">
                   <li>
-                     <div class="profile-name"> <p> <a class="text-white" ><%  @ceo.name if @ceo %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> <%= @company.updated_at.strftime("%B %e, %Y at %I:%M %p") if  @company.updated_at %></p> <span> <a href="#"><% @ceo.postion if @ceo %> <% @company.name %></a> </span></div>
+                     <div class="profile-name"> <p> <a class="text-white" ><%=  @ceo.name if @ceo %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> <%= @company.updated_at.strftime("%B %e, %Y at %I:%M %p") if  @company.updated_at %></p> <span> <a href="#"><%= @ceo.postion if @ceo %> at <%= @company.name %></a> </span></div>
                   </li>
                   <li>
                      <div class="profile-stat">

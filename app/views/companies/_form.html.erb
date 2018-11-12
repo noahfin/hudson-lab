@@ -1,3 +1,4 @@
+<div class="modal-body">
 <div class="main main-raised main-lead card-1-color p-3 mt-3" data-parallax="true">
 <%= form_with(model: @company, local: true) do |form| %>
    <% if @company.errors.any? %>
@@ -20,20 +21,16 @@
       </div>
       <div class="row">
          <div class="col-md-6" >
-
                <div class="form-group p-2">
                     <%= form.label :name, class: "pl-2" %>
-                     <%= form.text_field :name, class: "form-control  text-white" %>
-
+                    <%= form.text_field :name, class: "form-control  text-white" %>
                </div>
-
          </div>
          <div class="col-md-6">
 
             <div class="form-group  p-2">
                   <%= form.label :earnings, class: "pl-2" %>
-    <%= form.text_field :earnings, id: :company_earnings, class: 'form-control  text-white' %>
-
+                  <%= form.text_field :earnings, id: :company_earnings, class: 'form-control  text-white' %>
             </div>
          </div>
       </div>
@@ -43,9 +40,8 @@
 
                <div class="form-group  p-2">
                      <%= form.label :rent, class: "pl-2" %>
-    <%= form.text_field :rent, id: :company_rent, class: 'form-control  text-white'  %>
-
-            </div>
+                     <%= form.text_field :rent, id: :company_rent, class: 'form-control  text-white'  %>
+              </div>
             </div>
             <div class="col-sm-3 ">
 
@@ -166,10 +162,9 @@
                </div>
                      </div>
                      <div class="col-md-6" >
-                                      <div class="form-group  p-2">
-                      <%= form.label :description, class: "pl-2" %>
-                      <%= form.text_field :description, id: :description, class: 'form-control  text-white'  %>
-
+                      <div class="form-group  p-2">
+                        <%= form.label :description, class: "pl-2" %>
+                        <%= form.text_field :description, id: :description, class: 'form-control  text-white'  %>
                         </div>
                      </div>
                   </div>
@@ -180,6 +175,10 @@
       </div>
    </div>
 </div>
+</div>
+</div>
+
+
 <script >
       $('.address-auto').autocomplete({
         source: '/addresses/autocomplete',

@@ -1,78 +1,21 @@
 $('#company-form-modal').html('<%= j render("form", ajax_true: true) %>' );
 $('#company-form-modal').modal('show');
+var contact_ids_prop_i = 0;
+var contact_class_p_name = ['.c1', '.c2', '.c3', '.c4', '.c5', '.c6', '.c7', '.c8', '.c9', '.c10'];
 
-//  $(document).on('click', '#s-company', function (event) {
-//   console.log($('#company_name').val());
-//             event.preventDefault()
+var contact_class_prop = ['.contact1', '.contact2', '.contact3', '.contact4', '.contact5', '.contact6', '.contact7', '.contact8', '.contact9', '.contact10'];
+var contact_ids_prop = [];
 
-
-
-
-
-//   var data = {
-//             company: {
-
-//             'name': $('#company_name').val(),
-//                 'avatar': $('#company_avatar').val(),
-//                 'earnings': $('#company_earnings').val(),
-//                 'age': $('#company_age').val(),
-//                 'sector': $('#company_sector').val(),
-//                 'addres': $('#company_addres').val()
-
-//                   },
-//                   authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
-//             }
-
-// data.name =  $('#company_name').val();
-// data.avatar = $('#company_avatar');
-// data.earnings =  $('#company_earnings').val();
-// data.age = $('#company_age').val();
-// authenticity_token = '<%= "" +form_authenticity_token.to_s %>';
-// data.sector = $('#company_sector').val();
-// data.addres = $('#company_addres').val();
+    $('.get-contacts').autocomplete({
+        source: '/contacts/autocomplete',
+        minLength: 3,
+        select: function (event, ui) {
+            contact_ids_prop[contact_ids_prop.length] = ui.item.id
+            $(contact_class_prop[contact_ids_prop_i]).val(ui.item.id);
 
 
-//             createCompanySend(data);
-//             return false
-
-//         });
-
-// var createCompanySend = function (data) {
-//         var url = "/companies/";
-//         $.ajax({
-//            contentType: 'multipart/form-data',
-//             url: url,
-//             method: "post",
-//             beforeSend: $.rails.CSRFProtection,
-//             data: data,
-//             success: function (company) {
-//                 clsoeWiz();
-//                 $.notify({
-//                     title: "The Company Was Added ",
-//                     message: $('#company_name').val() + '"' + ' was successfuly added to the database'
-//                 });
-
-
-//             },
-//             error: function (err) {
-
-//                 var errors = err.responseJSON;
-//                 var error = errors.join(", ");
-
-//                 if (error) {
-
-
-//                     $.notify({
-//                         title: '<strong>Heads up!</strong>',
-//                         message: error
-//                     }, {
-//                         type: 'danger'
-//                     });
-//                 }
-//             }
-//         })
-
-
-//     }
-
-
+            $(contact_class_p_name[contact_ids_prop_i]).html(ui.item.value);
+            contact_ids_prop_i++;
+            $('.get-contacts').val('');
+        }
+    });

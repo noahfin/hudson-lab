@@ -1,2 +1,8 @@
-<%= render 'form', company: @company %>
+<%  if local_assigns[:ajax_true] %>
+<div id="company-form-modal" class="modal fade  bd-example-modal-lg  modal-size-xl" role="dialog">
+<div class="modal-dialog  modal-size-xl" >
+<div class="modal-content modal-size-xl">
+<% else %>
+<%= render "form" %>
 <%= link_to 'Back', companies_path, class: "mt-4 pt-4 ml-4 pl-4" %>
+<% end %>
