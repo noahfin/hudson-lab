@@ -1,33 +1,36 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  # GET /companies
-  # GET /companies.json
+
   def index
     @companies = Company.all
   end
 
-  # GET /companies/1
-  # GET /companies/1.json
+
   def show
+    ceo = "CEO"
+    president = "President"
+    @ceo = @company.contacts.where('postion LIKE ? or postion LIKE ?', "%#{ceo}%", "%#{president}%").first
   end
 
-  # GET /companies/new
   def new
     @company = Company.new
   end
 
-  # GET /companies/1/edit
   def edit
   end
 
-  # POST /companies
-  # POST /companies.json
   def create
     @company = Company.new(company_params)
-
     respond_to do |format|
-      if @company.save
+     if @company.save
+      if params['contact_ids']
+         params['contact_ids'].each do |id|
+          next if id == "0"
+          @contact = Contact.find(id)
+          @company.contacts << @contact
+        end
+       end
        User.all.each do |user|
           notification_str =  'Company '+ @company.name + ' was added by ' + current_user.first_name
           @notification = Notification.create(name: notification_str, thing: 'company', thing_id: @company.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
@@ -38,12 +41,10 @@ class CompaniesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
     end
   end
+end
 
-  # PATCH/PUT /companies/1
-  # PATCH/PUT /companies/1.json
   def update
     respond_to do |format|
       if @company.update(company_params)
@@ -56,8 +57,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # DELETE /companies/1
-  # DELETE /companies/1.json
   def destroy
     @company.destroy
     respond_to do |format|
@@ -72,8 +71,7 @@ class CompaniesController < ApplicationController
       @company = Company.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:addres, :earnings, :rent, :sector, :age, :name, :avatar, :deal_ids  => [])
+      params.require(:company).permit(:addres, :earnings, :rent, :sector, :age, :name, :description, :avatar, :deal_ids, :contact_ids, {:contact_ids => []})
     end
 end

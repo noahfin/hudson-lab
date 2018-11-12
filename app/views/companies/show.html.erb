@@ -571,7 +571,7 @@
                                     <li class="nav-item nav-pills-dark">
                                        <a class="nav-link " href="#schedule-1" role="tab" data-toggle="tab">
                                        <i class="material-icons">schedule</i>
-                                       Deals
+                                       More
                                        </a>
                                     </li>
                                     <li class="nav-item nav-pills-dark">
@@ -583,7 +583,7 @@
                                     <li class="nav-item link-tabs" >
                                        <div class="  mr-4 mt-4 pt-4 pr-4">
                                           <span class=" pt-4 ">
-                                          <%= link_to 'Edit', edit_company_path(@company), class: " pb-4 text-white" %> | <%= link_to 'Back', deals_path, class: " pb-4 text-white"  %>
+                                          <%= link_to 'Edit', edit_company_path(@company), class: " pb-4 text-white" %> | <%= link_to 'Back', companies_path, class: " pb-4 text-white"  %>
                                           </span>
                                        </div>
                                     </li>
@@ -595,30 +595,30 @@
                            <div class="tab-content tab-space">
                               <div class="tab-pane active" id="dashboard-1">
                                  <div class="row">
-                                    <div class="col-md-6 pl-2">
-                                       <p>
+                                    <div class="col-md-6 pl-4">
+                                       <p class="pl-4">
                                           <strong>Name:</strong>
                                           <%= @company.name %>
                                        </p>
-                                       <p>
+                                       <p class="pl-4">
                                           <strong>Earnings:</strong>
                                           <%= @company.earnings %>
                                        </p>
-                                       <p>
+                                       <p class="pl-4">
                                           <strong>Sector:</strong>
                                           <%= @company.sector %>
                                        </p>
                                     </div>
-                                    <div class="col-md-6">
-                                       <p>
+                                    <div class="col-md-6 pl-4">
+                                       <p class="pl-4">
                                           <strong>Age:</strong>
                                           <%= @company.age %>
                                        </p>
-                                       <p>
+                                       <p class="pl-4">
                                           <strong>Rent:</strong>
                                           <%= @company.rent %>
                                        </p>
-                                       <p>
+                                       <p class="pl-4">
                                           <strong>Addres:</strong>
                                           <%= @company.addres %>
                                        </p>
@@ -626,6 +626,7 @@
                                  </div>
                               </div>
                               <div class="tab-pane" id="schedule-1">
+                                 <%= @company.description %>
                               </div>
                               <div class="tab-pane" id="tasks-1">
                                  <%= @company.description %>
@@ -644,9 +645,11 @@
                <div class="profile-env ">
                   <section class="profile-info-tabs mt-3 ">
                      <ul class="user-details">
-                        <li> <a href="#"> <i class="entypo-location"></i> Prishtina </a></li>
-                        <li> <a href="#"> <i class="entypo-suitcase"></i> Works as <span class="text-hudson-ornage">Laborator</span> </a></li>
-                        <li> <a href="#"> <i class="entypo-calendar"></i> 16 October </a></li>
+                        <li> <a href="#"> <i class="entypo-location"></i> <h4><%= @company.name %> </h4></a></li>
+                        <% if @ceo %>
+                        <li> <a href="#"> <i class="material-icons">recent_actors</i><%  @ceo.name %> </a></li>
+                        <li> <i class="material-icons">work</i> Works as <span class="text-hudson-ornage"><% @ceo.postion %></span> </a></li>
+                        <% end %>
                      </ul>
                   </section>
                </div>
@@ -654,26 +657,26 @@
             <div class="col-sm-9">
                <ul class="profile-info-sections">
                   <li>
-                     <div class="profile-name"> <strong> <a class="text-white" >Marting flowtlhrow</a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> </strong> <span> <a href="#">Co-Founder at Google</a> </span></div>
+                     <div class="profile-name"> <p> <a class="text-white" ><%  @ceo.name if @ceo %></a> <a href="#" class="user-status is-online tooltip-info" data-toggle="tooltip" data-placement="top" data-original-title="Online"></a> <%= @company.updated_at.strftime("%B %e, %Y at %I:%M %p") if  @company.updated_at %></p> <span> <a href="#"><% @ceo.postion if @ceo %> <% @company.name %></a> </span></div>
                   </li>
                   <li>
                      <div class="profile-stat">
-                        <h3>643</h3>
-                        <span> <a href="#">followers</a> </span>
+                        <h3><%= @company.contacts.count if @company.contacts %></h3>
+                        <span> <a href="#">Contacts</a> </span>
                      </div>
                   </li>
                   <li>
                      <div class="profile-stat">
-                        <h3>108</h3>
-                        <span> <a href="#">following</a> </span>
+                        <h3>Not sure</h3>
+                        <span> <a href="#">Branches</a> </span>
                      </div>
                   </li>
                   <li>
                      <div class=" mt-0 mb-0 pt-0 pb-3" style= "display: inline; position: relative; bottom: .6rem;">
-                        <a class="btn pb-4 btn-just-icon btn-round mdl-grey-900-btn">
+                       <%= link_to new_company_path, class: "btn pb-4 btn-just-icon btn-round mdl-grey-900-btn" do %>
                            <i class="material-icons">person_add</i>
                            <div class="ripple-container"></div>
-                        </a>
+                      <% end %>
                      </div>
                   </li>
                </ul>
@@ -685,28 +688,7 @@
    </div>
    <div class="container">
       <section class="profile-feed">
-         <a class="btn  mdl-grey-900-btn  ml-3" id="more"><i class="fa fa-caret-down"></i> Post Somthing </a>
-         <div class="col-md-12">
-            <div class="filter-box" style="display:none;">
-               <div class="card mdl-color--grey-900 col-md-12 p-4">
-                  <div class="row">
-                     <div class="col-md-4 t-2">
-                        <label class="text-white label-floating pt-2 mt-2" for="postType">Post Type</label>
-                        <select id="postType" class="form-control mt-3 ">
-                           <option selected>Info</option>
-                           <option>...</option>
-                        </select>
-                     </div>
-                     <div class="col-md-8">
-                        <div class="form-group shadow-textarea">
-                           <label for="exampleFormControlTextarea6" class="text-white label-floating">Post Contact</label>
-                           <textarea class="form-control z-depth-1 text-white" id="exampleFormControlTextarea6" rows="4" ></textarea>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+
          <hr>
          <!--   <form class="profile-post-form" method="post">
             <textarea class="form-control autogrow mdl-color--grey-900" placeholder="What's on your mind?" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 80px;"></textarea>
@@ -715,117 +697,7 @@
                <div class="post-submit mt-2"> <button type="button" class="btn mdl-grey-900-btn">POST</button></div>
             </div>
             </form> -->
-         <div class="profile-stories">
-            <article class="story">
-               <aside class="user-thumb"> <a href="#"> <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="44" alt="" class="img-circle"> </a> </aside>
-               <div class="story-content">
-                  <header>
-                     <div class="publisher"> <a href="#">Marting flowtlhrow</a>&nbsp; posted a status update <em>3 hours ago</em></div>
-                     <div class="story-type"> <i class="entypo-feather"></i></div>
-                  </header>
-                  <div class="story-main-content">
-                     <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
-                  </div>
-                  <footer>
-                     <div class="section section-comments">
-                        <div class="row">
-                           <div class="col-md-8 ml-auto mr-auto">
-                              <div class="media-area">
-                                 <h3 class="title text-center">3 Comments</h3>
-                                 <div class="media">
-                                    <a class="float-left" href="#pablo">
-                                       <div class="avatar">
-                                          <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
-                                       </div>
-                                    </a>
-                                    <div class="media-body">
-                                       <h4 class="media-heading">Tina Andrew
-                                          <small>· 7 minutes ago</small>
-                                       </h4>
-                                       <h6 class="text-muted"></h6>
-                                       <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-                                       <div class="media-footer">
-                                          <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
-                                          <i class="material-icons">reply</i> Reply
-                                          </a>
-                                          <a href="#pablo" class="btn btn-danger btn-link float-right">
-                                          <i class="material-icons">thumb</i> 243
-                                          </a>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="media">
-                                    <a class="float-left" href="#pablo">
-                                       <div class="avatar">
-                                          <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
-                                       </div>
-                                    </a>
-                                    <div class="media-body">
-                                       <h4 class="media-heading">John Camber
-                                          <small>· Yesterday</small>
-                                       </h4>
-                                       <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                                       <p> Don't forget, You're Awesome!</p>
-                                       <div class="media-footer">
-                                          <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
-                                          <i class="material-icons">reply</i> Reply
-                                          </a>
-                                          <a href="#pablo" class="btn btn-link float-right">
-                                          <i class="fa fa-thumbs-up"></i> 25
-                                          </a>
-                                       </div>
-                                       <div class="media">
-                                          <a class="float-left" href="#pablo">
-                                             <div class="avatar">
-                                                <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile4-square.jpg">
-                                             </div>
-                                          </a>
-                                          <div class="media-body">
-                                             <h4 class="media-heading">Tina Andrew
-                                                <small>· 12 Hours Ago</small>
-                                             </h4>
-                                             <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                                             <p> Don't forget, You're Awesome!</p>
-                                             <div class="media-footer">
-                                                <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="" data-original-title="Reply to Comment">
-                                                <i class="material-icons">reply</i> Reply
-                                                </a>
-                                                <a href="#pablo" class="btn btn-link btn-secondary float-right">
-                                                <i class=" fa fa-thumbs-up"></i> 2
-                                                </a>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <h3 class="title text-center">Post your comment</h3>
-                              <div class="media media-post">
-                                 <a class="author float-left" href="#pablo">
-                                    <div class="avatar">
-                                       <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
-                                    </div>
-                                 </a>
-                                 <div class="media-body">
-                                    <div class="form-group label-floating bmd-form-group">
-                                       <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write some nice stuff or nothing...</label>
-                                       <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
-                                    </div>
-                                    <div class="media-footer">
-                                       <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
-                                    </div>
-                                 </div>
-                              </div>
-                              <!-- end media-post -->
-                           </div>
-                        </div>
-                     </div>
-                  </footer>
-                  <hr>
-               </div>
-            </article>
-            <div class="text-center"> <a href="#" class="btn text-white mdl-grey-900-btn btn-icon icon-left" id="load-more-deal"> <i class="entypo-hourglass"></i> Load More … </a></div>
-         </div>
+
       </section>
    </div>
 </div>

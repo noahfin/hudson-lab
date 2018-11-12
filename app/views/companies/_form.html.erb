@@ -1,110 +1,195 @@
-<div class="modal-dialog modal-login" role="document">
-   <div class="modal-content">
-      <div class="card card-signup bg-black">
-         <div class="modal-header ">
-            <div class="card-header p-0 card-1 ">
-               <div class="div-header card-1   p-4">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                  <div class="social-line text-center card-1 pl-4">
-                     <a href="#first-company-tab" class="btn btn-just-icon btn-link nav-company-tabs" >
-                     <i class="fa fa-address-card text-danger text-center"></i>
-                     </a>
-                     <a href="#second-company-tab" class="btn btn-just-icon btn-link nav-company-tabs">
-                     <i class="fa fa-list-alt text-info text-center"></i>
-                     </a>
-                     <a href="#last-compnay-tab" class="btn btn-just-icon btn-link nav-company-tabs">
-                     <i class=" fa fa-image text-warning text-center"></i>
-                     </a>
-                  </div>
-               </div>
+<div class="main main-raised main-lead card-1-color p-3 mt-3" data-parallax="true">
+<%= form_with(model: @company, local: true) do |form| %>
+   <% if @company.errors.any? %>
+   <div id="error_explanation">
+      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+      <ul>
+         <% lead.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
+      </ul>
+   </div>
+   <% end %>
+   <div class="">
+      <div class="">
+         <div class="row">
+            <div class="col-md-12">
+               <h3 class="page-title"><span class="ml-4 pl-2">Company Form</span> <span><%= form.submit class: 'btn btn-outline-white roundd-0  float-right mr-4 lead-submit-btn' %></span></h3>
             </div>
          </div>
-         <!-- addres earnings rent  age image  -->
-         <div class="modal-body">
-            <%= form_for(@company, id: 'company-form-2') do |form| %>
-            <p class="description text-center">Company form</p>
-            <div class="card-body">
-               <div id="first-company-tab">
-                  <div class="form-group bmd-form-group">
-                     <div class="input-group">
-                        <span class="input-group-addon">
-                        <i class="fa fa-user-circle"></i>
-                        </span>
-                        <%= form.text_field :name, id: :company_name, class: 'form-control text-white', placeholder: 'Name...' %>
-                     </div>
-                  </div>
-                  <div class="form-group bmd-form-group">
-                     <div class="input-group">
-                        <span class="input-group-addon">
-                        <i class="fa fa-address-card"></i>
-                        </span>
-                        <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
-                        <%= form.text_field :addres, id: :company_addres, class: 'form-control text-white address-auto', placeholder: 'Addres...' %>
-                     </div>
-                  </div>
-                  <div class="form-group bmd-form-group">
-                     <div class="input-group">
-                        <span class="input-group-addon">
-                        <i class="fa fa-universal-access "></i>
-                        </span>
-                        <%= form.text_field :sector, id: :company_sector, class: 'form-control text-white', placeholder: 'Sector...' %>
+      </div>
+      <div class="row">
+         <div class="col-md-6" >
+
+               <div class="form-group p-2">
+                    <%= form.label :name, class: "pl-2" %>
+                     <%= form.text_field :name, class: "form-control  text-white" %>
+
+               </div>
+
+         </div>
+         <div class="col-md-6">
+
+            <div class="form-group  p-2">
+                  <%= form.label :earnings, class: "pl-2" %>
+    <%= form.text_field :earnings, id: :company_earnings, class: 'form-control  text-white' %>
+
+            </div>
+         </div>
+      </div>
+      <div class="">
+         <div class="row">
+            <div class=" col-md-3 ">
+
+               <div class="form-group  p-2">
+                     <%= form.label :rent, class: "pl-2" %>
+    <%= form.text_field :rent, id: :company_rent, class: 'form-control  text-white'  %>
+
+            </div>
+            </div>
+            <div class="col-sm-3 ">
+
+               <div class="form-group  p-2">
+                  <label  class="bmd-label-floating text-white">Connect the deal</label>
+                  <select class="selectpicker  mt-0 mb-0 pt-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="company[deal_ids]" id="lead-contact-user" >
+                     <% Deal.all.each do |deal| %>
+                     <option class="text-dark" value=<%= "#{deal.id}"%>><%= "#{deal.name}"%></option>
+                     <% end %>
+                  </select>
+
+            </div>
+         </div>
+            <div class="col-md-3">
+
+               <div class="form-group p-2">
+                    <%= form.label :sector, class: "pl-2" %>
+                    <%= form.text_field :sector, id: :company_sector, class: "form-control  text-white" %>
+               </div>
+
+         </div>
+            <div class="col-md-3 ">
+
+               <div class="form-group  p-2">
+                 <%= form.label :addres, id: :company_addres, class: "pl-2" %>
+                 <%= form.text_field :addres, id: :company_addres, class: "form-control  text-white address-auto" %>
+               </div>
+            </div>
+
+         </div>
+      </div>
+      <div class="">
+
+
+          <div class="col-md-6 mt-0">
+
+
+
+            <div class="form-group card-1-color">
+               <div class="form-group  pt-0 mt-0  ">
+                  <div class=" pt-0 mt-0  ">
+                     <div class="card-collapse  pt-0 mt-0 ">
+                        <div class="card-header pt-0 card-1-color" role="tab" id="headingTwo">
+                           <div class="row">
+                              <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type name then select the contact" aria-label="Search" id="search-contat-task">
+                           </div>
+                           <h5 class="mb-0">
+                              <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              click to see who got added
+                              <i class="material-icons text-muted">keyboard_arrow_down</i>
+                              </a>
+                           </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                           <div class="card-body" id="form-contact">
+                              <ul class="list-inline p-3">
+                                 <li class="list-inline-item m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                       <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                       <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                       <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                       <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                                 <li class="list-inline-item  m-2">
+                                    <div class="form-check mr-3 pr-3">
+                                       <label class="form-check-label">
+                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                       <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
+                                       <span class="form-check-sign">
+                                       <span class="check"></span>
+                                       </span>
+                                       </label>
+                                    </div>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
-               <!--   second section   -->
-               <div id="second-company-tab" style="display: none;">
-                  <div class="form-group bmd-form-group">
-                     <div class="input-group">
-                        <span class="input-group-addon">
-                        <i class="fa fa-user-circle"></i>
-                        </span>
-                        <%= form.text_field :rent, id: :company_earnings, class: 'form-control text-white', placeholder: 'Rent...' %>
+               </div>
                      </div>
-                  </div>
-                  <div class="form-group bmd-form-group">
-                     <div class="input-group">
-                        <span class="input-group-addon">
-                        <i class="fa fa-address-card"></i>
-                        </span>
-                        <%= form.text_field :earnings, id: :company_earnings, class: 'form-control text-white', placeholder: 'Earnings...' %>
-                     </div>
-                  </div>
-                  <div class="form-group bmd-form-group">
-                     <div class="input-group">
-                        <span class="input-group-addon">
-                        <i class="fa fa-universal-access "></i>
-                        </span>
-                        <%= form.text_field :age, id: :company_age, class: 'form-control text-white', placeholder: 'Age...' %>
+                     <div class="col-md-6" >
+                                      <div class="form-group  p-2">
+                      <%= form.label :description, class: "pl-2" %>
+                      <%= form.text_field :description, id: :description, class: 'form-control  text-white'  %>
+
+                        </div>
                      </div>
                   </div>
                </div>
 
-            </div>
-         </div>
-         <div class="modal-footer justify-content-center">
-            <%= form.submit "save", class: "btn btn-info btn-link btn-wd btn-lg bt-company" %>
-         </div>
-         <% end %>
+            <% end %>
+
       </div>
    </div>
 </div>
-<script type="text/javascript">
+<script >
+      $('.address-auto').autocomplete({
+        source: '/addresses/autocomplete',
+        minLength: 2,
+        select: function (event, ui) {
+          console.log(ui);
+            $('.address-auto').val(ui.item.value);
 
-$(".bt-company").click(function(event){
-    event.preventDefault(); //prevent default action
-    console.log("company")
-    var post_url = $('#company-form-2').attr("action"); //get form action url
-    var request_method = $('#company-form-2').attr("method"); //get form GET/POST method
-    var form_data = $('#company-form-2').serialize(); //Encode form elements for submission
-
-    $.ajax({
-        url : post_url,
-        type: request_method,
-        data : form_data
-    }).done(function(response){ //
-      console.log("done")
-      $('#main-content').html('<%= escape_javascript render("show") %>');
-        // $('#main-content').html(response);
+        }
     });
-});
+
 </script>
+

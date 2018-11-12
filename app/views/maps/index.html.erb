@@ -27,7 +27,9 @@
 }
 </style>
 <div class="">
-  <h5 class="link-r"> If the maps are not loading properly try clicking this link <i class="fa fa-sync"></i></h5>
+  <h5 class="link-r">If the maps are not loading properly try reloading the page or click this icon <a href="#" title="reload" id="link-r"> <i class="material-icons">
+autorenew
+</i></a></h5>
    <div class="container-fluid map-md-12">
       <div class="row map-md-12">
          <div class="col-md-12 map-md-12">
@@ -2967,10 +2969,10 @@ eventSources: [
 
     }
 
-$(".link-r").click(function(event) {
- location.reload();
-});
+$(document).on('click', '#link-r', function (event) {
 
+    location.reload();
+});
 demo.initGoogleMaps();
 $.notifyDefaults({
   placement: {
