@@ -1,194 +1,197 @@
 <div class="modal-body">
-<div class="main main-raised main-lead card-1-color p-3 mt-3" data-parallax="true">
-<%= form_with(model: @company, local: true) do |form| %>
-   <% if @company.errors.any? %>
-   <div id="error_explanation">
-      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
-      <ul>
-         <% lead.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-         <% end %>
-      </ul>
-   </div>
-   <% end %>
-   <div class="">
-      <div class="">
-         <div class="row">
-            <div class="col-md-12">
-               <h3 class="page-title"><span class="ml-4 pl-2">Company Form</span> <span><%= form.submit class: 'btn btn-outline-white roundd-0  float-right mr-4 lead-submit-btn' %></span></h3>
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6" >
-               <div class="form-group p-2">
-                    <%= form.label :name, class: "pl-2" %>
-                    <%= form.text_field :name, class: "form-control  text-white" %>
-               </div>
-         </div>
-         <div class="col-md-6">
-
-            <div class="form-group  p-2">
-                  <%= form.label :earnings, class: "pl-2" %>
-                  <%= form.text_field :earnings, id: :company_earnings, class: 'form-control  text-white' %>
-            </div>
-         </div>
-      </div>
-      <div class="">
-         <div class="row">
-            <div class=" col-md-3 ">
-
-               <div class="form-group  p-2">
-                     <%= form.label :rent, class: "pl-2" %>
-                     <%= form.text_field :rent, id: :company_rent, class: 'form-control  text-white'  %>
-              </div>
-            </div>
-            <div class="col-sm-3 ">
-
-               <div class="form-group  p-2">
-                  <label  class="bmd-label-floating text-white">Connect the deal</label>
-                  <select class="selectpicker  mt-0 mb-0 pt-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="company[deal_ids]" id="lead-contact-user" >
-                     <% Deal.all.each do |deal| %>
-                     <option class="text-dark" value=<%= "#{deal.id}"%>><%= "#{deal.name}"%></option>
-                     <% end %>
-                  </select>
-
-            </div>
-         </div>
-            <div class="col-md-3">
-
-               <div class="form-group p-2">
-                    <%= form.label :sector, class: "pl-2" %>
-                    <%= form.text_field :sector, id: :company_sector, class: "form-control  text-white" %>
-               </div>
-
-         </div>
-            <div class="col-md-3 ">
-
-               <div class="form-group  p-2">
-                 <%= form.label :addres, id: :company_addres, class: "pl-2" %>
-                 <%= form.text_field :addres, id: :company_addres, class: "form-control  text-white address-auto" %>
-               </div>
-            </div>
-
-         </div>
-      </div>
-      <div class="">
-
-
-          <div class="col-md-6 mt-0">
-
-
-
-            <div class="form-group card-1-color">
-               <div class="form-group  pt-0 mt-0  ">
-                  <div class=" pt-0 mt-0  ">
-                     <div class="card-collapse  pt-0 mt-0 ">
-                        <div class="card-header pt-0 card-1-color" role="tab" id="headingTwo">
-                           <div class="row">
-                              <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type name then select the contact" aria-label="Search" id="search-contat-task">
-                           </div>
-                           <h5 class="mb-0">
-                              <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              click to see who got added
-                              <i class="material-icons text-muted">keyboard_arrow_down</i>
-                              </a>
-                           </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                           <div class="card-body" id="form-contact">
-                              <ul class="list-inline p-3">
-                                 <li class="list-inline-item m-2">
-                                    <div class="form-check mr-3 pr-3">
-                                       <label class="form-check-label">
-                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
-                                       <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
-                                       <span class="form-check-sign">
-                                       <span class="check"></span>
-                                       </span>
-                                       </label>
-                                    </div>
-                                 </li>
-                                 <li class="list-inline-item  m-2">
-                                    <div class="form-check mr-3 pr-3">
-                                       <label class="form-check-label">
-                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
-                                       <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
-                                       <span class="form-check-sign">
-                                       <span class="check"></span>
-                                       </span>
-                                       </label>
-                                    </div>
-                                 </li>
-                                 <li class="list-inline-item  m-2">
-                                    <div class="form-check mr-3 pr-3">
-                                       <label class="form-check-label">
-                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
-                                       <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
-                                       <span class="form-check-sign">
-                                       <span class="check"></span>
-                                       </span>
-                                       </label>
-                                    </div>
-                                 </li>
-                                 <li class="list-inline-item  m-2">
-                                    <div class="form-check mr-3 pr-3">
-                                       <label class="form-check-label">
-                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
-                                       <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
-                                       <span class="form-check-sign">
-                                       <span class="check"></span>
-                                       </span>
-                                       </label>
-                                    </div>
-                                 </li>
-                                 <li class="list-inline-item  m-2">
-                                    <div class="form-check mr-3 pr-3">
-                                       <label class="form-check-label">
-                                       <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
-                                       <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
-                                       <span class="form-check-sign">
-                                       <span class="check"></span>
-                                       </span>
-                                       </label>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               </div>
-                     </div>
-                     <div class="col-md-6" >
-                      <div class="form-group  p-2">
-                        <%= form.label :description, class: "pl-2" %>
-                        <%= form.text_field :description, id: :description, class: 'form-control  text-white'  %>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
+   <div class="main main-raised main-lead card-1-color p-3 mt-3" data-parallax="true">
+      <%= form_with(model: @company, local: true) do |form| %>
+      <% if @company.errors.any? %>
+      <div id="error_explanation">
+         <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+         <ul>
+            <% lead.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
             <% end %>
-
+         </ul>
       </div>
+      <% end %>
+      <div class="">
+         <div class="">
+            <div class="row">
+               <div class="col-md-12">
+                  <h3 class="page-title"><span class="ml-4 pl-2">Company Form</span> <span><%= form.submit class: 'btn btn-outline-white roundd-0  float-right mr-4 lead-submit-btn' %></span></h3>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6" >
+               <div class="form-group p-2">
+                  <%= form.label :name, class: "pl-2 pb-4" %>
+                  <%= form.text_field :name, class: "form-control  text-white mt-3" %>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group  p-2">
+                  <%= form.label :earnings, class: "pl-2 pb-4" %>
+                  <%= form.text_field :earnings, id: :company_earnings, class: 'form-control  text-white mt-3' %>
+               </div>
+            </div>
+         </div>
+         <div class="">
+            <div class="row">
+               <div class=" col-md-3 ">
+                  <div class="form-group  p-2">
+                     <%= form.label :rent, class: "pl-2 pb-4" %>
+                     <%= form.text_field :rent, id: :company_rent, class: 'form-control  text-white mt-3'  %>
+                  </div>
+               </div>
+               <div class="col-sm-3 ">
+                  <div class="form-group  p-2">
+                     <label  class="bmd-label-floating text-white ">Connect the deal</label>
+                     <select class="selectpicker  mt-0 mb-0 pt-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="company[deal_ids]" id="lead-contact-user" >
+                        <% Deal.all.each do |deal| %>
+                        <option class="text-dark" value=<%= "#{deal.id}"%>><%= "#{deal.name}"%></option>
+                        <% end %>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="form-group p-2">
+                     <%= form.label :sector, class: "pl-2 pb-4" %>
+                     <%= form.text_field :sector, id: :company_sector, class: "form-control  text-white mt-3" %>
+                  </div>
+               </div>
+               <div class="col-md-3 ">
+                  <div class="form-group  p-2">
+                     <%= form.label :addres, id: :company_addres, class: "pl-2 pb-4" %>
+                     <%= form.text_field :addres, id: :company_addres, class: "form-control  text-white address-auto mt-3" %>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6 mt-0">
+               <div class="form-group card-1-color">
+                  <div class="form-group  pt-0 mt-0  ">
+                     <div class=" pt-0 mt-0  ">
+                        <div class="card-collapse  pt-0 mt-0 ">
+                           <div class="card-header pt-0 card-1-color" role="tab" id="headingTwo">
+                              <div class="row">
+                                 <input class="form-control get-contacts ml-3 mr-2 pl-2 mt-0 pt-2 pb-2" type="text" placeholder="Type name then select the contact" aria-label="Search" id="search-contat-task">
+                              </div>
+                              <h5 class="mb-0">
+                                 <a class="collapsed  pl-2 text-muted" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                 click to see who got added
+                                 <i class="material-icons text-muted">keyboard_arrow_down</i>
+                                 </a>
+                              </h5>
+                           </div>
+                           <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                              <div class="card-body" id="form-contact">
+                                 <ul class="list-inline p-3">
+                                    <li class="list-inline-item m-2">
+                                       <div class="form-check mr-3 pr-3">
+                                          <label class="form-check-label">
+                                          <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact1">
+                                          <span class="c1  mt-4 p-2  text-muted text-center">contact 1</span>
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </li>
+                                    <li class="list-inline-item  m-2">
+                                       <div class="form-check mr-3 pr-3">
+                                          <label class="form-check-label">
+                                          <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact2">
+                                          <span class="c2 mt-4 p-2 text-muted text-center">contact 2 </span>
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </li>
+                                    <li class="list-inline-item  m-2">
+                                       <div class="form-check mr-3 pr-3">
+                                          <label class="form-check-label">
+                                          <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact3">
+                                          <span class="c3 mt-4 p-2 text-muted text-center"> contact 3 </span>
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </li>
+                                    <li class="list-inline-item  m-2">
+                                       <div class="form-check mr-3 pr-3">
+                                          <label class="form-check-label">
+                                          <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact4">
+                                          <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </li>
+                                    <li class="list-inline-item  m-2">
+                                       <div class="form-check mr-3 pr-3">
+                                          <label class="form-check-label">
+                                          <input type="checkbox" name="contact_ids[]" value="0" checked="true" class="contact5">
+                                          <span class="c5 mt-4 p-2  text-muted text-center"> contact 5 </span>
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                          </span>
+                                          </label>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6" >
+               <div class="form-group  p-2">
+                  <%= form.label :description, class: "pl-2 pb-4" %>
+                  <%= form.text_field :description, id: :description, class: 'form-control  text-white mt-3'  %>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-xl-6">
+               <div class="row ">
+                  <div class="col-sm-4 ">
+                     <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                        </div>
+                        <div class="text-center">
+                           <span class="btn btn-default btn-file">
+                           <span class="fileinput-new text-white">Choose Photo</span>
+                           <span class="fileinput-exists text-white">Change</span><%= form.file_field :avatar %>
+                           </span>
+                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <% end %>
    </div>
 </div>
 </div>
 </div>
-
-
+</div>
 <script >
-      $('.address-auto').autocomplete({
-        source: '/addresses/autocomplete',
-        minLength: 2,
-        select: function (event, ui) {
-          console.log(ui);
-            $('.address-auto').val(ui.item.value);
+   $('.address-auto').autocomplete({
+     source: '/addresses/autocomplete',
+     minLength: 2,
+     select: function (event, ui) {
+       console.log(ui);
+         $('.address-auto').val(ui.item.value);
 
-        }
-    });
+     }
+   });
 
 </script>
-
