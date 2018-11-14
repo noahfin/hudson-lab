@@ -1,7 +1,8 @@
 <style type="text/css" media="screen">
    div[data-notify] {
-   z-index: 99999999999 !important;
-   }
+    z-index: 99999999999 !important;
+}
+
 </style>
 <div class="wizard-container " id="contact-form-wiz">
    <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
@@ -49,7 +50,7 @@
                <input id="check-wiz" name="prodId" type="hidden" value="befor-submit">
                <div class="row mb-3">
                   <div class="col-md-4">
-                     <label class="bmd-label-floating text-white">Contact Name</label>
+                     <label class="bmd-label-floating text-white">Name</label>
                      <%= form.text_field :name, id: :contact_name, class: 'form-control text-white' %>
                   </div>
                   <div class="col-md-4">
@@ -63,7 +64,7 @@
                </div>
                <div class="row mb-3">
                   <div class="col-md-12 ">
-                     <label class="bmd-label-floating text-white">Company Name</label>
+                     <label class="bmd-label-floating text-white">Company</label>
                      <%= form.text_field :company, id: :contact_company, class: 'form-control text-white r-r-input'%>
                   </div>
                </div>
@@ -157,57 +158,62 @@
                      <h5 class="info-text text-white">Fill out the current address for contact </h5>
                   </div>
                </div>
-               <div class="row mb-3">
-                  <div class="col-md-6">
-                     <LABEL class= "bmd-label-floating text-white">Full Address</LABEL>
-                     <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
-                     <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto mb-0 mt-0',  autofocus: true %>
+                <div class="row mb-3">
+                     <div class="col-md-6">
+                        <%= form.label :Fulladdress, class: 'bmd-label-floating text-white' %>
+                        <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
+                        <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto mb-0 mt-0',  autofocus: true %>
+                     </div>
+                     <div class="col-md-6 ">
+                        <%= form.label :notes, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white' %>
+                     </div>
+
+
                   </div>
-                  <div class="col-md-6 ">
-                     <%= form.label :notes, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white' %>
+                  <div class="row mb-3">
+                     <div class="col-md-3">
+                        <%= form.label :street_num, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :strret_name, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :city, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :city, id: :contact_city, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-3">
+                        <%= form.label :county, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :county, id: :contact_county, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
                   </div>
-               </div>
-               <div class="row mb-3">
-                  <div class="col-md-3">
-                     <LABEL class= "bmd-label-floating text-white">Street Number</LABEL>
-                     <%= form.text_field :street_num, id: :contact_street_num, class: 'form-control text-white mb-0 mt-0' %>
+                  <div class="row mb-3">
+                     <div class="col-md-2">
+                        <%= form.label :suite, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white ' %>
+
+                     </div>
+                     <div class="col-md-2">
+                        <%= form.label :state, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :state, id: :contact_state, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-4 ">
+                        <%= form.label :country, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :country, id: :contact_country, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-2 ">
+                        <%= form.label :postal_code, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white mb-0 mt-0' %>
+                     </div>
+                     <div class="col-md-2">
+                        <%= form.label :zip_code_ext, class: 'bmd-label-floating text-white' %>
+                        <%= form.text_field :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
+                     </div>
                   </div>
-                  <div class="col-md-3">
-                     <LABEL class= "bmd-label-floating text-white">Street Name</LABEL>
-                     <%= form.text_field :strret_name, id: :contact_strret_name, class: 'form-control text-white mb-0 mt-0' %>
-                  </div>
-                  <div class="col-md-3">
-                     <%= form.label :city, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :city, id: :contact_city, class: 'form-control text-white mb-0 mt-0' %>
-                  </div>
-                  <div class="col-md-3">
-                     <%= form.label :county, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :county, id: :contact_county, class: 'form-control text-white mb-0 mt-0' %>
-                  </div>
-               </div>
-               <div class="row mb-3">
-                  <div class="col-md-2">
-                     <%= form.label :suite, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :suite, id: :contact_suite, class: 'form-control text-white ' %>
-                  </div>
-                  <div class="col-md-2">
-                     <%= form.label :state, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :state, id: :contact_state, class: 'form-control text-white mb-0 mt-0' %>
-                  </div>
-                  <div class="col-md-4 ">
-                     <%= form.label :country, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :country, id: :contact_country, class: 'form-control text-white mb-0 mt-0' %>
-                  </div>
-                  <div class="col-md-2 ">
-                     <%= form.label :postal_code, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :postal_code, id: :contact_postal_code, class: 'form-control text-white mb-0 mt-0' %>
-                  </div>
-                  <div class="col-md-2">
-                     <%= form.label :zip_code_ext, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
-                  </div>
-               </div>
+
+
             </div>
             <div class="tab-pane" id="group">
                <div class="row justify-content-center">
@@ -274,17 +280,21 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="collapse" id="collapseleads">
-                        <input type="hidden" name="contact[lead_ids]" id= "lead_c_id" value="">
-                        <label>Enter When contact Lease is up</label>
-                        <%= form.date_field :lease_is_up ,class: "form-control input-sm date-range-picker text-white"  %>
-                        <%= form_with(model:  @lead, remote: true) do |form| %>
+<!--                         leads section &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ -->
+                        <div class="collapse" id="collapseleads">
+
+                           <input type="hidden" name="contact[lead_ids]" id= "lead_c_id" value="">
+                           <label>Enter When contact Lease is up</label>
+                           <%= form.date_field :lease_is_up ,class: "form-control input-sm date-range-picker text-white"  %>
+
+                           <%= form_with(model:  @lead, remote: true) do |form| %>
                         <div class="card card-body card-1  rounded-0">
                            <span class="pull-right"><a  title="sendLeadInfo " id="Leads-contact-send"><i class="material-icons text-info">arrow_right_alt</i> Send</a></span>
-                           <input type="hidden" name="lead[business]" id="lead_c_business">
-                           <input type="hidden" name="lead[name]"  id="lead_c_name">
-                           <input type="hidden" name="lead[number]"  id="lead_c_number">
-                           <input type="hidden" name="form_authenticity_token" value=<%= "#{form_authenticity_token}" %> id="lead_c_form_authenticity_token">
+                                  <input type="hidden" name="lead[business]" id="lead_c_business">
+                                  <input type="hidden" name="lead[name]"  id="lead_c_name">
+                                   <input type="hidden" name="lead[number]"  id="lead_c_number">
+                                   <input type="hidden" name="form_authenticity_token" value=<%= "#{form_authenticity_token}" %> id="lead_c_form_authenticity_token">
                            <div class="row">
                               <div class=" col-sm-3 mt-4">
                                  <div class="form-group">
@@ -313,9 +323,9 @@
                                  </div>
                               </div>
                               <div class="row">
-                                 <%= form.submit  :class => 'btn btn-link pull', id: "Leads-contact-send" do %>
-                                 <i class="material-icons text-info">arrow_right_alt</i> Send
-                                 <% end %>
+                                  <%= form.submit  :class => 'btn btn-link pull', id: "Leads-contact-send" do %>
+                                  <i class="material-icons text-info">arrow_right_alt</i> Send
+                                  <% end %>
                               </div>
                            </div>
                         </div>
@@ -325,25 +335,25 @@
                   <div class="col-md-5 ml-0 pl-0 ">
                      <div class="row">
                         <div class="form-group  collapse" id="add-users-group">
-                           <div class="row">
-                              <div class="row mt-1">
-                                 <div class=" col-md-12">
-                                    <div class="input-group ">
-                                       <div class="col-xl-12">
-                                          <div class="row ">
-                                             <div class="col-sm-4 ml-auto mr-auto">
-                                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                                   <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;">
-                                                   </div>
-                                                   <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
-                                                   </div>
-                                                   <div class="text-center">
-                                                      <span class="btn btn-outline-info btn-file">
-                                                      <span class="fileinput-new text-white">Choose Photo</span>
-                                                      <span class="fileinput-exists text-white">Change</span><%= form.file_field :image %>
-                                                      </span>
-                                                      <a href="#" class="btn btn-outline-danger fileinput-exists" data-dismiss="fileinput">Remove</a>
-                                                   </div>
+                     <div class="row">
+
+                           <div class="row mt-1">
+                              <div class=" col-md-12">
+                                 <div class="input-group ">
+                                    <div class="col-xl-12">
+                                       <div class="row ">
+                                          <div class="col-sm-4 ml-auto mr-auto">
+                                             <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="max-width: 150px; max-height: 150px;">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                                </div>
+                                                <div class="text-center">
+                                                   <span class="btn btn-default btn-file">
+                                                   <span class="fileinput-new text-white">Choose Photo</span>
+                                                   <span class="fileinput-exists text-white">Change</span><%= form.file_field :image %>
+                                                   </span>
+                                                   <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                                                 </div>
                                              </div>
                                           </div>
@@ -351,126 +361,131 @@
                                     </div>
                                  </div>
                               </div>
-                              <div>
-                              </div>
                            </div>
+                           <div>
+                           </div>
+
+                     </div>
                            <div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="form-group ml-4 collapse" id="add-group">
-                  <div class="row mt-4">
-                     <div class=" col-md-12">
-                        <div class="input-group pl-0">
-                           <div class="col-xl-12">
-                              <div class="row pl-0">
-                                 <div class="col-xl-10 pl-3 mb-4">
-                                    <label for="new_group" class="bmd-label-floating">New Group Name</label>
-                                    <input type="text" name="new_group" id="new_group" class="form-control ml-0 new_group pb-4 text-white">
-                                 </div>
-                                 <div class="col-xl-2 ">
-                                    <input type="hidden" id="group_authenticity_token" value=<%="#{form_authenticity_token}"%>>
-                                    <span class="input-group-btn mr-0 ml-2">
-                                    <button type="button" class="btn btn-fab btn-round btn-info save-new-group" id="save-new-group" data-remote="true">
-                                    <i class="material-icons">input</i>
-                                    </button>
+         <div class="form-group ml-4 collapse" id="add-group">
+            <div class="row mt-4">
+              <div class=" col-md-12">
+                <div class="input-group pl-0">
+                  <div class="col-xl-12">
+                    <div class="row pl-0">
+                      <div class="col-xl-10 pl-3 mb-4">
+                        <label for="new_group" class="bmd-label-floating">New Group Name</label>
+                        <input type="text" name="new_group" id="new_group" class="form-control ml-0 new_group pb-4 text-white">
+                        </div>
+                        <div class="col-xl-2 ">
+                           <input type="hidden" id="group_authenticity_token" value=<%="#{form_authenticity_token}"%>>
+                          <span class="input-group-btn mr-0 ml-2">
+                            <button type="button" class="btn btn-fab btn-round btn-info save-new-group" id="save-new-group" data-remote="true">
+                              <i class="material-icons">input</i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="btn-group"><% User.all.each do |user| %><%  next if !user.first_name  %>
+                  <div class="togglebutton form-check-inline">
+                    <label>
+                      <input type="checkbox" checked="true" value=
+                        <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                        <span class="toggle"></span>
+                        <span class="text-light"><%= user.first_name if user.first_name %>
+                        </span>
+                      </label>
+                    </div><% end %>
+                  </div>
+                </div>
+              </div>
+               <!--  end of main row justify center -->
+               <div style= "min-width: 400px; margin: 0 auto;">
+               <div class="row">
+                  <div class="form-group ">
+                     <div class=" ">
+                        <div class="collapse " id="collapseGroup">
+                           <div style= "min-width: 600px; margin: 0 auto;">
+                              <div class="card text-center rounded-0 card mdl-color--grey-900">
+                                <div class="card-header p-0 bg-black rounded-0 pb-0 mb-0" >
+                                 <div class="div-header  p-4 card-6 rounded-0">
+                                  <ul class="nav nav-pills card-header-pills rounded-0 mdl-color--grey-900  mt-3">
+                                    <li class="nav-item text-white">
+                                      <a class="nav-link active nav-t-tab text-white" href="#groups-pane"><span class="text-white">Groups</span></a>
+                                    </li>
+                                    <li class="nav-item text-white">
+                                      <a class="nav-link nav-t-tab text-white text-white" href="#users"><span class="text-white">Users</span></a>
+                                    </li>
+                                      <li class="nav-item text-white ">
+                                      <a  class="nav-link  text-white text-white" data-toggle="collapse" href="#add-group" aria-expanded="false" aria-controls="add-group"><span class="text-white ">New Group</span></a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+               <div class="card-body card mdl-color--grey-900 rounded-0">
+                  <div class="tab-pane group-pane" id="users">
+                     <div class="col-md-12">
+                        <h4 class="ml-4 ml-3 pull-right"><i class="material-icons text-white">
+                           folder_shared
+                           </i>
+                        </h4>
+                        <% @users.each.each_slice(6) do |user| %>
+                        <div class="col-md-12">
+                           <div class="row">
+                              <% user.each do |user| %>
+                              <%  next if !user.first_name  %>
+                              <div class="col-md-2">
+                                 <div class="togglebutton ">
+                                    <label>
+                                    <input type="checkbox" name="user_ids[]" checked="true" value=
+                                       <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
+                                    <span class="toggle"></span>
+                                    <span class="text-white"><%= user.first_name if user.first_name %>
                                     </span>
+                                    </label>
                                  </div>
                               </div>
+                              <% end %>
                            </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div>
-                     <div class="btn-group">
-                        <% User.all.each do |user| %><%  next if !user.first_name  %>
-                        <div class="togglebutton form-check-inline">
-                           <label>
-                           <input type="checkbox" checked="true" value=
-                              <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                           <span class="toggle"></span>
-                           <span class="text-light"><%= user.first_name if user.first_name %>
-                           </span>
-                           </label>
                         </div>
                         <% end %>
                      </div>
                   </div>
+                  <div class="tab-pane group-pane mdl-color--grey-900 rounded-0" id="groups-pane">
+                                    <div class="card-body">
+         <% group_ids = [] %>
+             <% if !@group_ids.nil? %>
+                <%  @group_ids.each_with_index do |group, index| %>
+                         <% group_ids[index] = group.group_id %>
+                <% end %>
+              <% end %>
+              <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+                      <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker dropdown groups-for-new-group", id: 'contact_group_id' } %>
+
                </div>
-               <!--  end of main row justify center -->
-               <div style= "min-width: 400px; margin: 0 auto;">
-                  <div class="row">
-                     <div class="form-group ">
-                        <div class=" ">
-                           <div class="collapse " id="collapseGroup">
-                              <div style= "min-width: 600px; margin: 0 auto;">
-                                 <div class="card text-center rounded-0 card mdl-color--grey-900">
-                                    <div class="card-header p-0 bg-black rounded-0 pb-0 mb-0" >
-                                       <div class="div-header  p-4 card-6 rounded-0">
-                                          <ul class="nav nav-pills card-header-pills rounded-0 mdl-color--grey-900  mt-3">
-                                             <li class="nav-item text-white">
-                                                <a class="nav-link active nav-t-tab text-white" href="#groups-pane"><span class="text-white">Groups</span></a>
-                                             </li>
-                                             <li class="nav-item text-white">
-                                                <a class="nav-link nav-t-tab text-white text-white" href="#users"><span class="text-white">Users</span></a>
-                                             </li>
-                                             <li class="nav-item text-white ">
-                                                <a  class="nav-link  text-white text-white" data-toggle="collapse" href="#add-group" aria-expanded="false" aria-controls="add-group"><span class="text-white ">New Group</span></a>
-                                             </li>
-                                          </ul>
-                                       </div>
-                                    </div>
-                                    <div class="card-body card mdl-color--grey-900 rounded-0">
-                                       <div class="tab-pane group-pane" id="users">
-                                          <div class="col-md-12">
-                                             <h4 class="ml-4 ml-3 pull-right"><i class="material-icons text-white">
-                                                folder_shared
-                                                </i>
-                                             </h4>
-                                             <% @users.each.each_slice(6) do |user| %>
-                                             <div class="col-md-12">
-                                                <div class="row">
-                                                   <% user.each do |user| %>
-                                                   <%  next if !user.first_name  %>
-                                                   <div class="col-md-2">
-                                                      <div class="togglebutton ">
-                                                         <label>
-                                                         <input type="checkbox" name="user_ids[]" checked="true" value=
-                                                            <%="#{user.id}" if user.first_name %> class="users-for-new-group"/>
-                                                         <span class="toggle"></span>
-                                                         <span class="text-white"><%= user.first_name if user.first_name %>
-                                                         </span>
-                                                         </label>
-                                                      </div>
-                                                   </div>
-                                                   <% end %>
-                                                </div>
-                                             </div>
-                                             <% end %>
-                                          </div>
-                                       </div>
-                                       <div class="tab-pane group-pane mdl-color--grey-900 rounded-0" id="groups-pane">
-                                          <div class="card-body">
-                                             <% group_ids = [] %>
-                                             <% if !@group_ids.nil? %>
-                                             <%  @group_ids.each_with_index do |group, index| %>
-                                             <% group_ids[index] = group.group_id %>
-                                             <% end %>
-                                             <% end %>
-                                             <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
-                                             <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker dropdown groups-for-new-group", id: 'contact_group_id' } %>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
+
+                  </div>
+                 </div>
+               </div>
+
+
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
+               </div>
+
             </div>
          </div>
       </div>
@@ -483,15 +498,18 @@
             <% if local_assigns[:ajax_true] %>
             <input type="button"  class="btn btn_next btn-fill bg-hudson btn-wd" value="Next" id="btn_next">
             <% end %>
+
             <% new_record_class  = '' %>
-            <% if @contact.new_record? %>
-            <% new_record_class  = "on-contact-create" %>
-            <% end %>
-            <% finshed_class = 'btn btn-fill b-finsh btn-rose '  + new_record_class %>
+             <% if @contact.new_record? %>
+               <% new_record_class  = "on-contact-create" %>
+               <% end %>
+             <% finshed_class = 'btn btn-fill b-finsh btn-rose '  + new_record_class %>
+
             <input type="hidden" name="id" value=<%="#{@contact.id}"%> id="hidden_update">
             <input type="hidden" name="page_url" value="" id="hidden_page_url">
             <%= form.submit 'finshed', :class => finshed_class, id: "btn_finshed" %>
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"></input>
+
          </div>
          <div class="clearfix"></div>
       </div>
@@ -514,4 +532,6 @@
       e.target // newly activated tab
       e.relatedTarget // previous active tab
    });
+
+
 </script>
