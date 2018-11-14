@@ -4,9 +4,7 @@
    z-index: 20;
    margin-top: 0px !important;
    }
-   .profile-picture {
-    margin: auto;
-   }
+
   .profile-picture img {
     display:block;
     margin:auto;
@@ -203,9 +201,8 @@
    background: #fff;
    }
    .full-size-img {
-       width: 300px !important;
-       height: auto !important;
-       background-size: cover: !important;
+       max-width: 300px !important;
+       max-height: 400px !important;
    }
 
 </style>
@@ -215,7 +212,7 @@
          <div class="col-md-4 pb-0">
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
                <table class="profile-picture pb-0 pl-0" style="height:400px; width: 300px !important;" id="deal-company-logo">
-                  <td  class="">  <%= image_tag @company.avatar.present? ?  @company.avatar.url(:thumb) : 'placholder.png', class: "ml-auto mr-auto full-size-img" %>
+                  <td  class="">  <%= image_tag @company.avatar.present? ?  @company.avatar.url(:medium) : 'placholder.png', class: "ml-auto mr-auto full-size-img" %>
                </table>
             </div>
          </div>
@@ -365,10 +362,6 @@
       </div>
    </div>
    <div class="container">
-      <section class="profile-feed">
-
-         <hr>
-
-      </section>
+ <hr>
    </div>
 </div>
