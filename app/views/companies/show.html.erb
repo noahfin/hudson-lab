@@ -4,6 +4,10 @@
    z-index: 20;
    margin-top: 0px !important;
    }
+      .full-size-img {
+       max-width: 300px !important;
+       max-height: 400px !important;
+   }
 
   .profile-picture img {
     display:block;
@@ -200,10 +204,7 @@
    .profile-env section.profile-info-tabs .nav-tabs li.active a {
    background: #fff;
    }
-   .full-size-img {
-       max-width: 300px !important;
-       max-height: 400px !important;
-   }
+
 
 </style>
 <div class="container">
@@ -211,7 +212,7 @@
       <div class="row ">
          <div class="col-md-4 pb-0">
             <div class="profile-env img-thumbnail table-reponsive bg-black pl-0" style="height:400px;">
-               <table class="profile-picture pb-0 pl-0" style="height:400px; width: 300px !important;" id="deal-company-logo">
+               <table class="profile-picture p-0 ml-auto mr-auto" style="height:400px; width: 300px !important;" id="deal-company-logo">
                   <td  class="">  <%= image_tag @company.avatar.present? ?  @company.avatar.url(:medium) : 'placholder.png', class: "ml-auto mr-auto full-size-img" %>
                </table>
             </div>
