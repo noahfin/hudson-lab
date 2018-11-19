@@ -90,12 +90,9 @@ class ContactsController < ApplicationController
     if current_user
     authorize @contact unless current_user.contacts.where(["id = ?", params[:id] ])
       if @contact.update(contact_params)
-
-         User.all.each do |user|
-            notification_str =  'Contact '+ @contact.name + ' was updated by ' + current_user.first_name
-            @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-            user.notifications << @notification if user != current_user
-         end
+        notification_str =  'Contact '+ @contact.name + ' was updated by ' + current_user.first_name
+        @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+        @notification.users = User.all
         user_reltionships(@contact)
         flash[:success] = "Contact was successfully updated." unless @contact.errors.any?
         @contacts = @contact
@@ -104,7 +101,6 @@ class ContactsController < ApplicationController
         format.json { render json: @properties}
         format.js
       end
-
       end
     end
   end
@@ -117,7 +113,6 @@ class ContactsController < ApplicationController
          search_object.destroy
         end
       end
-
     respond_to do |format|
       if @contact.destroy
         flash[:danger] = "The Action Step was successfully deleted."
@@ -135,11 +130,10 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-       User.all.each do |user|
-          notification_str =  'Contact '+ @contact.name + ' was added by ' + current_user.first_name
-          @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-          user.notifications << @notification if user != current_user
-       end
+        notification_str =  'Contact '+ @contact.name + ' was added by ' + current_user.first_name
+        @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+        @notification.users = User.all
+
        address = Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{params['contact']['city'] }%", "%#{params['contact']['street_num']}%", "%#{params['contact']['strret_name']}%"]).first
       if  address != nil
         @contact.address_ids << address
@@ -171,7 +165,8 @@ class ContactsController < ApplicationController
      end
       @lead =  Lead.where("business LIKE ? ", "%#{@contact.company}%").limit(30) if @contact.company && !@contact.company.empty?
           @contact.leads << @lead if !@lead.nil?
-          render json: @contact, status: :created
+          redirect_to action: "index"
+          flash[:success] = "Contact was successfully added"
     else
       flash[:danger] = @contact.errors.to_s
       render 'new'

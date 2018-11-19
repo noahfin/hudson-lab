@@ -42,11 +42,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-          User.all.each do |user|
-            notification_str =  'Task '+ @task.name + ' was added by ' + current_user.first_name
-            @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-            user.notifications << @notification if user.id != current_user.id
-         end
+        notification_str =  'Task '+ @task.name + ' was added by ' + current_user.first_name
+        @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+        @notification.users = User.all
          @tasks = Task.all.order(:name)
          groups = params['task']['group_ids'].to_a
          if params['task']['group_ids']
@@ -55,7 +53,6 @@ class TasksController < ApplicationController
             group = Group.find(group_id)
               @task.groups << group
           end
-
          contacts = params['task']['contact_ids'].to_a
          contact_array = []
          contacts.each do |contact|
@@ -86,11 +83,11 @@ end
    @tasks = Task.order(created_at: :desc)
     respond_to do |format|
       if @task.update(task_params)
-         User.all.each do |user|
-            notification_str =  'Task '+ @task.name + ' was updated by ' + current_user.first_name
-            @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-            user.notifications << @notification if user.id != current_user.id
-         end
+
+        notification_str =  'Task '+ @task.name + ' was updated by ' + current_user.first_name
+        @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+        @notification.users = User.all
+
         format.html { redirect_to '/tasks/' }
         format.json { render json: @tasks, status: :updated }
         format.js

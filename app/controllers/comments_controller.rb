@@ -28,11 +28,10 @@ class CommentsController < ApplicationController
       @post = Mainpost.find(params['comment']['mainpost_ids'])
     respond_to do |format|
       if @comment.save
-      User.all.each do |user|
           notification_str =  'Post '+ @post.body + ' was added by ' + current_user.first_name
           @notification = Notification.create(name: notification_str, thing: 'post', thing_id: @post.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-          user.notifications << @notification if user.id != current_user.id
-       end
+          @notification.users = User.all
+
        format.html
         format.json { render json: @comment}
         format.js

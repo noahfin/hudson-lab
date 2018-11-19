@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_153306) do
+ActiveRecord::Schema.define(version: 2018_11_19_151745) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -147,6 +147,26 @@ ActiveRecord::Schema.define(version: 2018_10_31_153306) do
     t.integer "group_id", null: false
     t.index ["canva_id", "group_id"], name: "index_canvas_groups_on_canva_id_and_group_id"
     t.index ["group_id", "canva_id"], name: "index_canvas_groups_on_group_id_and_canva_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_contacts", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["category_id", "contact_id"], name: "index_categories_contacts_on_category_id_and_contact_id"
+    t.index ["contact_id", "category_id"], name: "index_categories_contacts_on_contact_id_and_category_id"
+  end
+
+  create_table "categories_groups", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "group_id", null: false
+    t.index ["category_id", "group_id"], name: "index_categories_groups_on_category_id_and_group_id"
+    t.index ["group_id", "category_id"], name: "index_categories_groups_on_group_id_and_category_id"
   end
 
   create_table "comments", force: :cascade do |t|

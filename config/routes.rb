@@ -1,5 +1,6 @@
   Rails.application.routes.draw do
 
+  resources :categories
   resources :marketings
   resources :steps
   resources :letters do

@@ -7,6 +7,7 @@ class Contact < ApplicationRecord
   after_save :concat_full_name
   self.inheritance_column = :_type_disabled
   has_and_belongs_to_many :groups
+  has_and_belongs_to_many :categories
   has_and_belongs_to_many :user
   has_and_belongs_to_many :properties
   has_and_belongs_to_many :tasks

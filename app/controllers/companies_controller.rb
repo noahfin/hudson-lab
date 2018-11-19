@@ -31,11 +31,10 @@ class CompaniesController < ApplicationController
           @company.contacts << @contact
         end
        end
-       User.all.each do |user|
           notification_str =  'Company '+ @company.name + ' was added by ' + current_user.first_name
           @notification = Notification.create(name: notification_str, thing: 'company', thing_id: @company.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-          user.notifications << @notification
-       end
+          @notification.users = User.all
+
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
