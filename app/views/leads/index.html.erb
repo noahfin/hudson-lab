@@ -1,80 +1,78 @@
-
-<!--Section: Main panel-->
 <div class="card  card-1-color text-white">
-            <div class="card-header card-header-icon card-1">
-            <div class="card-icon bg-hudson">
-               <i class="material-icons">business</i>
-            </div>
-            <h4 class="card-title text-white pt-2">Leads <span>
-       <span class="pull-right"><%= link_to  new_lead_path, class: 'mr-3' do %>
-                        <i class="fa fa-plus"></i>
-                        <% end %>
-                      </span>
-               </span>
-            </h4>
-         </div>
+   <div class="card-header card-header-icon card-1">
+      <div class="card-icon bg-hudson">
+         <i class="material-icons">business</i>
+      </div>
+      <h4 class="card-title text-white pt-2">Leads <span>
+         <span class="pull-right"><%= link_to  new_lead_path, class: 'mr-3' do %>
+         <i class="fa fa-plus"></i>
+         <% end %>
+         </span>
+         </span>
+      </h4>
+   </div>
    <div class="col-md-12">
-
       <!-- start of deal borderd table in container -->
       <div class="container">
          <div class="collapse" id="leads-header">
             <div class="row">
                <div class="col-md-12">
                   <h2>
-               <span class="pull-right"><%= link_to  new_lead_path, class: 'btn btn-link mr-0 mt-2', title: 'Add new deal', rel: "tooltip" do %>
-               <i class="fa fa-plus"></i>
-               <% end %>
-          </span>
+                     <span class="pull-right"><%= link_to new_lead_path, class: 'btn btn-outline-white mr-0 mt-2', title: 'Add new deal', rel: "tooltip" do %>
+                     <i class="fa fa-plus"></i>
+                     <% end %>
+                     </span>
                   </h2>
                </div>
-
             </div>
          </div>
       </div>
       <div class="card-1-color">
-
          <div class="card-body">
             <div class="table-responsive">
                <table class="table">
                   <thead class=" text-white">
-                        <tr>
-                           <th class="text-white">Action</th>
-                           <th class="text-white"><a href="text-white">Company</a></th>
-                           <th class="text-white"><a href="text-white">Contact Name</a></th>
-                           <th class="text-white"><a href="text-white">Size </a></th>
-                           <th class="text-white"><a href="text-white">Location Need</a></th>
-                           <th class="text-white"><a href="text-white">Time</a></th>
-                           <th colspan="1" class="text-white text-right pr-4">Delete</th>
-                        </tr>
-
+                     <tr>
+                        <th class="text-white">Action</th>
+                        <th class="text-white"><a href="text-white">Company</a></th>
+                        <th class="text-white"><a href="text-white">Contact Name</a></th>
+                        <th class="text-white"><a href="text-white">Size </a></th>
+                        <th class="text-white"><a href="text-white">Location Need</a></th>
+                        <th class="text-white"><a href="text-white">Time</a></th>
+                        <th colspan="1" class="text-white text-right pr-4">Delete</th>
+                     </tr>
                   </thead>
-                     <tbody>
-                        <% @leads.each do |lead| %>
-                        <tr id="edit_lead_<%= lead.id %>">
-                           <td class="text-white">
-                              <%= link_to  edit_lead_path(lead) do %><i class="fa fa-edit"></i><% end %>
-                           </td>
-                           <td class="text-white"> <%= link_to lead_path(lead)  do %>    <%= lead.business %>
-                              <br><small><%= lead.address %></small>  <% end %>
-                           </td>
-                           <td  class="text-white">
-                              <% lead.contacts.each do |contact| %><%= contact.name + ' ' %> <% end %>
-                           </td>
-                           <td  class="text-white">
-                              <%= lead.size_requirement %>
-                           </td>
-                           <td  class="text-white">
-                              <%= lead.location_need %>
-                           </td>
-                           <td class="text-center">
-                              <%= lead.date %>
-                           </td>
-                           <td colspan="1" class="text-danger text-right">      <%= link_to lead_path(lead.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this lead?"}  do %>
-                              <i class="fa fa-trash text-white"></i>     <% end %>
-                           </td>
-                        </tr>
+                  <tbody>
+                     <% @leads.each do |lead| %>
+                     <tr id="edit_lead_<%= lead.id %>">
+                        <td class="text-white">
+                           <%= link_to  edit_lead_path(lead) do %><i class="fa fa-edit"></i><% end %>
+                        </td>
+                        <td class="text-white">
+                          <%= link_to lead_path(lead)  do %>
+                            <%= lead.business %>
+                          <% end %>
+                        </td>
+                        <td  class="text-white">
+                           <% lead.contacts.each do |contact| %><%= contact.name + ' ' %> <% end %>
+                        </td>
+                        <td  class="text-white">
+                           <%= lead.size_requirement %>
+                        </td>
+                        <td  class="text-white">
+                           <%= lead.location_need %>
+                        </td>
+                        <td class="text-center">
+                           <%= lead.date %>
+                        </td>
+                        <td colspan="1" class="text-danger text-right">
+                         <%= link_to lead_path(lead.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this lead?"}  do %>
+                           <i class="fa fa-trash text-white"></i>
                         <% end %>
-                     </tbody>
+                        </td>
+                     </tr>
+                     <% end %>
+                  </tbody>
                </table>
             </div>
          </div>
@@ -82,18 +80,3 @@
    </div>
 </div>
 
-<!-- end of deal borderd table  -->
-
-
-<script>
-   jQuery(function($) {
-       $("#more").click(function(){
-           $(".filter-box").toggle('fold');
-       });
-
-       $('#filter-result-close').click(function(){
-           window.location.href = "/crm/leads";
-       });
-   });
-</script>
-<!-- end of lead borderd table  -->
