@@ -24,6 +24,81 @@ $('.selectpicker').selectpicker('toggle');
         }
     });
 
+
+    $(document).on('click', '#fancy-group-add', function (event) {
+
+        var inputs = document.querySelectorAll('ul input[type=checkbox]');
+        var user_ids = []
+        var i = 0;
+
+        $('.users-for-new-group').each(function (i) {
+            user_ids[i] = $(this).val();
+        });
+var group_authenticity_token  = $('#group_authenticity_token').val()
+
+        var newGroup = $('input[name=new_group').val();
+        console.log(newGroup);
+        if (newGroup === undefined || newGroup === '') {
+            console.log(newGroup + "is in the block");
+            newGroup = $('.g-name').val();
+        }
+
+              var formData = {
+            group: {
+
+            'name': newGroup,
+                'user_ids': user_ids
+
+
+                  },
+                  authenticity_token: group_authenticity_token
+            }
+        event.preventDefault();
+        $.ajax({
+            url: "/groups",
+            method: "post",
+            data: formData,
+            success: function (group) {
+                console.log(group);
+                if (group) {
+
+                    var newitemnum = group.id;
+                    var newitemdesc = group.name;
+                    $("select").append('<option value="'+newitemnum+'" selected="">'+newitemdesc+'</option>');
+
+                    $("#contact_group_id").selectpicker("refresh");
+                    $('.selectpicker').selectpicker('render');
+                    $.notify({
+                        title: "New Group Added:",
+                        message: 'The Group: ' + '"' + group.name + '"' + ' was successfuly created it is selected'
+                    });
+
+                    $('input[name=new_group').val("");
+                    $('a[href*="#add-group"]').click();
+                }
+            },
+            error: function (err) {
+
+                var errors = err.responseJSON;
+                var error = errors.join(", ");
+
+                if (error) {
+                    newGroup.next('.text-danger').detach();
+                    $('#new_group').addClass('has-error')
+                        .after('<p class="text-danger pt-2 mb-0">' + error + '</p>');
+                    $.notify({
+                        title: '<strong>Heads up!</strong>',
+                        message: error
+                    }, {
+                        type: 'danger'
+                    });
+                }
+            }
+        })
+
+    });
+
+
 $("#contact_address").keyup(paseAddress);
 
 

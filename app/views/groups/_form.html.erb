@@ -1,4 +1,4 @@
-<%= form_for @group, :authenticity_token => true, remote: true do |form| %>
+<%= form_for @group do |form| %>
    <% if group.errors.any? %>
    <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -28,7 +28,19 @@
       <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
    <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
    </div>
-   <%= form.submit class: 'btn btn-outline-info btn-block' %>
+   <%= form.submit class: 'btn btn-outline-info btn-block group_fancy_form_btn' %>
 <% end %>
 
+<script type="text/javascript">
+       $(document).on('click', '.group_fancy_form_btn', function (event) {
+                 $.notify({
+                        icon: 'fa fa-bell',
+                        title: '<strong>Heads up!</strong>',
+                        message: "Your Group was Added!"
+                    }, {
+                        type: 'success'
+                    });
+                }
+       });
 
+</script>
