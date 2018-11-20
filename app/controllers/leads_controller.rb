@@ -37,6 +37,9 @@ class LeadsController < ApplicationController
            @lead.contact_ids = id_array
          end
        end
+       if params['user_ids']
+        @lead.users = params['user_ids']
+       end
         format.html
         format.json { render json: @lead}
         format.js
@@ -49,11 +52,26 @@ class LeadsController < ApplicationController
   def update
     respond_to do |format|
       if @lead.update(lead_params)
-          User.all.each do |user|
-            notification_str =  'Lead '+ @lead.name + ' was updated by ' + current_user.first_name
-            @notification = Notification.create(name: notification_str, thing: 'lead', thing_id: @lead.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-            user.notifications << @notification if user.id != current_user.id
-          end
+         if params['contact_ids']
+          id_array = [] if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
+            contact_id_array = params['contact_ids'].to_a
+              contact_id_array.each do |id |
+                if id.to_i > 0
+                 id_array << id
+                end
+             end
+            if contact_id_array[0].to_i > 0
+             @lead.contact_ids = id_array
+           end
+         end
+         if params['user_ids']
+            @lead.users = params['user_ids']
+         end
+
+        notification_str =  'Lead '+ @lead.name + ' was updated by ' + current_user.first_name
+        @notification = Notification.create(name: notification_str, thing: 'lead', thing_id: @lead.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
+        @notification.users = User.all
+
         format.html { redirect_to @lead, notice: 'Lead was successfully updated.' }
         format.json { render :show, status: :ok, location: @lead }
       else
@@ -78,6 +96,6 @@ class LeadsController < ApplicationController
     end
 
     def lead_params
-      params.require(:lead).permit(:name, :business, :address, :email, :date, :phone, :number, :size_requirement, :location_need, :time_requirement, :notes, :contact_id, :property_id, :user_id,{:user_ids => []}, :contact_ids)
+      params.require(:lead).permit(:name, :business, :address, :email, :date, :phone, :number, :size_requirement, :location_need, :time_requirement, :notes, :contact_id, :property_id, :user_ids,{:user_ids => []}, :contact_ids)
     end
 end

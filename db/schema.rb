@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_151745) do
+ActiveRecord::Schema.define(version: 2018_11_19_220029) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -546,6 +546,13 @@ ActiveRecord::Schema.define(version: 2018_11_19_151745) do
     t.integer "lead_id", null: false
     t.index ["lead_id", "task_id"], name: "index_leads_tasks_on_lead_id_and_task_id"
     t.index ["task_id", "lead_id"], name: "index_leads_tasks_on_task_id_and_lead_id"
+  end
+
+  create_table "leads_users", id: false, force: :cascade do |t|
+    t.integer "lead_id", null: false
+    t.integer "user_id", null: false
+    t.index ["lead_id", "user_id"], name: "index_leads_users_on_lead_id_and_user_id"
+    t.index ["user_id", "lead_id"], name: "index_leads_users_on_user_id_and_lead_id"
   end
 
   create_table "likes", force: :cascade do |t|

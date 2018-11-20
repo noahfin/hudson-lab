@@ -1,27 +1,22 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Mainposts</h1>
-
 <table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @mainposts.each do |mainpost| %>
+   <thead>
       <tr>
-        <td><%= mainpost.body %></td>
-        <td><%= link_to 'Show', mainpost %></td>
-        <td><%= link_to 'Edit', edit_mainpost_path(mainpost) %></td>
-        <td><%= link_to 'Destroy', mainpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <th>Body</th>
+         <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
+   </thead>
+   <tbody>
+      <% @mainposts.each do |mainpost| %>
+      <tr>
+         <td><%= mainpost.body %></td>
+         <td><%= link_to 'Show', mainpost %></td>
+         <td><%= link_to 'Edit', edit_mainpost_path(mainpost) %></td>
+         <td><%= link_to 'Destroy', mainpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Mainpost', new_mainpost_path %>

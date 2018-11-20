@@ -20,111 +20,95 @@
       </div>
       <div class="row">
          <div class="col-md-6" >
-
-               <div class="form-group p-2">
-                  <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white', placeholder: 'Company Name'  %>
-               </div>
-
+            <div class="form-group p-2">
+               <%= form.text_field :business, id: :lead_business, class: 'form-control  text-white', placeholder: 'Company Name'  %>
+            </div>
          </div>
          <div class="col-md-6">
-
             <div class="form-group  p-2">
                <%= form.text_field :name, id: :lead_name, class: 'form-control  text-white', placeholder: 'Contact Person'  %>
-
             </div>
          </div>
       </div>
       <div class="">
          <div class="row">
             <div class=" col-sm-3 ">
-
                <div class="form-group  p-2">
                   <%= form.text_field :size_requirement, id: :lead_size_requirement, class: 'form-control  text-white mt-4', placeholder: 'Size Requirement' %>
-
-            </div>
+               </div>
             </div>
             <div class="col-sm-3 ">
-
                <div class="form-group  p-2">
-                  <label  class="bmd-label-floating text-white">Assign To</label>
-                  <select class="selectpicker  mt-0 mb-0 pt-0" data-style="select-with-transition" title="" data-size="8" data-style="btn-outline-info" name="lead[contact_id]" id="lead-contact-user" >
+                     <div class="form-group">
+                     <% attr = {prompt: "Asign to"} %>
+                     <% user_ids = [] %>
                      <% User.all.each do |user| %>
-                     <option class="text-dark" value=<%= "#{user.id}"%>><%= "#{user.first_name}"%></option>
+                     <% user_ids.push(user.id.to_s) %>
                      <% end %>
-                  </select>
-
+                     <% attr[:selected] = user_ids %>
+                     <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
+                     </div>
+               </div>
             </div>
-         </div>
             <div class="col-sm-3">
-
-               <div class="form-group p-2">
+               <div class="form-group p-2 mt-4">
                   <%= form.text_field :location_need, id: :lead_location_need, class: 'form-control text-white', placeholder: 'Location Need' %>
                </div>
-
-         </div>
+            </div>
             <div class="col-sm-3 ">
-
-               <div class="form-group  p-2">
+               <div class="form-group  p-2 mt-4">
                   <input class="form-control  text-white"  type="text" placeholder= 'Postal Code'>
                </div>
             </div>
-
          </div>
       </div>
       <div class="">
          <div class="row">
             <div class="col-sm-6 ">
-
                <div class="form-group  p-2">
                   <%= form.text_field :email, id: :lead_email, class: 'form-control  text-white', placeholder: 'Email' %>
                </div>
-
-         </div>
+            </div>
             <div class="col-sm-6">
-
                <div class="form-group  p-2">
                   <%= form.text_field :phone, id: :lead_phone, class: 'form-control  text-white', placeholder: 'Phone Number' %>
                </div>
-
             </div>
          </div>
          <div class="row">
             <div class="col-sm-6">
                <div class="   card-1-color">
-               <div class="form-group p-2">
-                  <%= form.text_field :number, id: :lead_number, class: 'form-control  text-white', placeholder: 'Mobile Number' %>
+                  <div class="form-group p-2">
+                     <%= form.text_field :number, id: :lead_number, class: 'form-control  text-white', placeholder: 'Mobile Number' %>
+                  </div>
                </div>
-            </div>
             </div>
             <div class="col-sm-6">
-                   <div class="    card-1-color">
-               <div class="form-group p-2">
-                  <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white ', placeholder: 'Time Requirement' %>
+               <div class="    card-1-color">
+                  <div class="form-group p-2">
+                     <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white ', placeholder: 'Time Requirement' %>
+                  </div>
                </div>
             </div>
-         </div>
          </div>
          <div class="row mb-2 pb-0 ">
             <div class="col-sm-6" >
-                   <div class="    card-1-color">
-               <div class="form-group  p-2">
-                  <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white ', placeholder: 'Notes'  %>
+               <div class="    card-1-color">
+                  <div class="form-group  p-2">
+                     <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white ', placeholder: 'Notes'  %>
+                  </div>
                </div>
-            </div>
             </div>
             <div class="col-sm-6 mb-0 mt-3 ">
-                   <div class="  mt-4   card-1-color">
+               <div class="  mt-4   card-1-color">
                   <div class="form-group  mt-3 p-2">
-                  <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
-                  <%= form.text_field :address, id: :lead_address, class: 'form-control address-auto  text-white', placeholder: 'Address'  %>
+                     <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
+                     <%= form.text_field :address, id: :lead_address, class: 'form-control address-auto  text-white', placeholder: 'Address'  %>
+                  </div>
                </div>
             </div>
-            </div>
-          </div>
-          <div class="col-md-6 mt-0">
-
-
-
+         </div>
+         <div class="col-md-6 mt-0">
             <div class="form-group card-1-color">
                <div class="form-group  pt-0 mt-0  ">
                   <div class=" pt-0 mt-0  ">
@@ -204,25 +188,22 @@
                      </div>
                   </div>
                </div>
-               </div>
-                     </div>
-                  </div>
-               </div>
-
-            <% end %>
-
+            </div>
+         </div>
       </div>
    </div>
+   <% end %>
+</div>
+</div>
 </div>
 <script >
-      $('.address-auto').autocomplete({
-        source: '/addresses/autocomplete',
-        minLength: 2,
-        select: function (event, ui) {
-          console.log(ui);
-            $('.address-auto').val(ui.item.value);
+   $('.address-auto').autocomplete({
+     source: '/addresses/autocomplete',
+     minLength: 2,
+     select: function (event, ui) {
+       console.log(ui);
+         $('.address-auto').val(ui.item.value);
 
-        }
-    });
-
+     }
+   });
 </script>

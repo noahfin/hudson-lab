@@ -1,108 +1,69 @@
-<div class="container">
-   <div class="mdl-color--grey-900  card rounded-0 p-3">
-      <h2 class="title text-white ml-4 pl-3">Lead Information</h2>
-      <ul class="scondary-smaller-text">
-         <div class="row">
-            <div class="col-md-6">
-               <ul class="list-group scondary-size-text text-white">
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="pb-3 text-white">Name:</strong>
-                        <span class="text-white"> <%= @lead.name %></span>
-                     </p>
-                  </li>
-                  <li class="list-group-item">
-                      <p class="scondary-size-text">
-                  <strong class="mb-3 text-white">Email:</strong>
-               <span class="text-white"><%= @lead.email %></span>
-               </p>
-                  </li>
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Business:</strong>
-                        <span class="text-white"><%= @lead.business %></span>
-                     </p>
-                  </li>
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Date:</strong>
-                     <span class="text-white">  <%= @lead.date %></span>
-                     </p>
-                  </li>
-               </ul>
-            </div>
-            <div class="col-md-6">
-               <ul class="list-group scondary-size-text text-white">
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Address:</strong>
-                     <span class="text-white"><%= @lead.address %></span>
-                     </p>
-                  </li>
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Phone:</strong>
-                      <span class="text-white"> <%= @lead.phone %></span>
-                     </p>
-                  </li>
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white"> Cell Number:</strong>
-                      <span class="text-white">  <%= @lead.number %></span>
-                     </p>
-                  </li>
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Size requirement:</strong>
-                     <span class="text-white">  <%= @lead.size_requirement %></span>
-                     </p>
-                  </li>
-               </ul>
+<div class="card  card-1-color text-white">
+   <div class="card-header card-header-icon card-1">
+      <div class="card-icon bg-hudson">
+         <i class="material-icons">business</i>
+      </div>
+      <h4 class="text-white pt-2">Lead
+         <span class="pull-right">      <span class="pl-0"> <%= link_to 'Edit', edit_lead_path(@lead), class: 'pl-0  ml-3 text-info' %>&nbsp; <%= link_to 'Back', leads_path, class: 'pr-4 text-info ' %> </span>
+         <%= link_to  new_lead_path, class: 'btn btn-link mr-0 mt-2', title: 'Add New Lead', rel: "tooltip" do %>
+         <i class="fa fa-plus"></i>
+         <% end %>
+         </span>
+      </h4>
+   </div>
+   <div class="col-md-12">
+      <!-- start of deal borderd table in container -->
+      <div class="card-1-color">
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-primary">
+                     <tr>
+                        <th class="text-white">Action</th>
+                        <th class="text-white"><a>Name</a></th>
+                        <th class="text-white"><a>Email</a></th>
+                        <th class="text-white"><a>Business</a></th>
+                        <th class="text-white"><a>Date</a></th>
+                        <th class="text-white"><a>Address</a></th>
+                        <th class="text-white"><a>Phone</a></th>
+                        <th class="text-white"><a>Cell Number</a></th>
+                        <th class="text-white"><a>Size requirement</a></th>
+                        <th class="text-white"><a>Location Need</a></th>
+                        <th class="text-white"><a>Time requirement</a></th>
+                        <th class="text-white"><a>Notes</a></th>
+                        <th class="text-white"><a>Contacts</a></th>
+                        <th class="text-white"><a>Created</a></th>
+                        <th class="text-white"><a>Users</a></th>
+                        <th colspan="1" class="text-white text-right pr-4">Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td class="text-white">
+                           <%= link_to  edit_lead_path(@lead) do %><i class="fa fa-edit"></i><% end %>
+                        </td>
+                        <td class="text-white"> <%= @lead.name %></td>
+                        <td class="text-white"> <%= @lead.email %></td>
+                        <td class="text-white"> <%= @lead.business %> </td>
+                        <td class="text-white"> <%= @lead.date %> </td>
+                        <td class="text-white"> <%= @lead.address %> </td>
+                        <td class="text-white"> <%= @lead.phone %> </td>
+                        <td class="text-white"> <%= @lead.number %> </td>
+                        <td class="text-white"> <%= @lead.size_requirement %> </td>
+                        <td class="text-white"> <%= @lead.location_need %></td>
+                        <td class="text-white"> <%= @lead.time_requirement %></td>
+                        <td class="text-white"> <%= @lead.notes %> </td>
+                        <td class="text-white"> <%  @lead.contacts.each do |contact| %> <span><%= contact.first_name + ' ' %> <% end %></span></td>
+                        <td class="text-white"> <%= @lead.created_at.strftime("%d %b. %Y") %></td>
+                        <td class="text-white"> <% @lead.users.each do |user| %> <span><%= user.first_name + ' ' %> <% end %></span></td>
+                        <td colspan="1" class="text-danger text-right">      <%= link_to lead_path(@lead.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this Lead?"}  do %>
+                           <i class="fa fa-trash text-white"></i>     <% end %>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
          </div>
-         <div class="row">
-
-
-             <div class="col-md-4">
-               <ul class="list-group  text-white">
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Location need:</strong>
-                   <span>    <%= @lead.location_need %></span>
-                     </p>
-                  </li>
-                   </div>
-                   <div class="col-md-4">
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white"> Time requirement:</strong>
-                   <span class="text-white"> <%= @lead.time_requirement %> </span>
-                     </p>
-                  </li>
-               </div>
-                  <div class="col-md-4">
-                  <li class="list-group-item">
-                     <p class="scondary-size-text">
-                        <strong class="mb-3 text-white">Contact:</strong>
-                  <span class="text-white"> <%= @lead.contact.name if  @lead.contact &&  @lead.contact.name %></span>
-                     </p>
-                  </li>
-               </div>
-               </ul>
-
-
-               </div>
-          <div class="row">
-            <div class="p-4 text-white">
-               <h5>  <strong class="scondary-size-text ttext-white p-4">Notes: &nbsp;</strong></h5>
-               <h5 class="scondary-size-text text-white p-4">
-
-                <span> <%= @lead.notes %> </span>
-            </h5>
-           </div>
-         </div>
-
-     <span class="pl-0"> <%= link_to 'Edit', edit_lead_path(@lead), class: 'pl-0  ml-3 text-info' %>&nbsp;&nbsp;&nbsp; <%= link_to 'Back', leads_path, class: 'pr-4 pull-right text-info ' %> </span>
-
+      </div>
    </div>
 </div>
