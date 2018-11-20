@@ -5,8 +5,8 @@
          <div class="row">
             <div class="col-md-8">
                <h2>
-                  <span><%= @group.name %> <%= link_to  new_group_path, class: 'btn btn-just-icon btn-round mdl-color--grey-900 ml-3' do %>
-                  <i class="fa fa-plus"></i>
+                  <span><%= @group.name %> <%= link_to  edit_group_path(@group), remote: true, class: 'btn btn-just-icon btn-round mdl-color--grey-900 ml-3' do %>
+                  <i class="fa fa-edit"></i>
                   <% end %>
                   <span class="ml-4 pl-3">
                   <%= link_to  group_path(@group.id, format: "csv"), class: 'btn mdl-color--grey-900  btn-left-margin' do %>

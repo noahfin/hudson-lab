@@ -3,14 +3,14 @@
       <div class="col-md-6 mr-auto ml-auto p-4">
          <div class="row ">
             <div class="col-md-8">
-               <h1>New Group</h1>
+               <h1 class="pull-left">New Group</h1>
             </div>
-            <div class="col-md-2 "> </div>
-            <div class="col-md-2 mt-4 pl-4">
-               <%= link_to 'Back', groups_path, class: 'text-info' %>
+            <div class="col-md-4">
+               <%= link_to 'Back', groups_path, class: 'text-info float-right mt-4 pt-4' %>
             </div>
+
+            </div>
+            <%= render 'form', group: @group %>
          </div>
-         <%= render 'form', group: @group %>
       </div>
    </div>
-</div>

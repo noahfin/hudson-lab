@@ -1,37 +1,34 @@
 <%= form_for @group, :authenticity_token => true, remote: true do |form| %>
-<% if group.errors.any? %>
-<div id="error_explanation">
-   <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
-   <ul>
-      <% group.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+   <% if group.errors.any? %>
+   <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <ul>
+         <% group.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
+      </ul>
+   </div>
+   <% end %>
+   <div class="form-group">
+      <%=  hidden_field(:new_authenticity_token, :id, :value => form_authenticity_token.to_s, id: 'group_authenticity_token') %>
+      <%=  hidden_field(:group, :id, :value => @group.id.to_s, id: 'group_id') %>
+     <label class="bmd-label-floating text-white">Group Name</label>
+      <%= form.text_field :name, id: :group_name, class: 'form-control g-name text-white' %>
+   </div>
+   <div class="form-group">
+      <% attr = {prompt: "Select related users"} %>
+      <% user_ids = [] %>
+      <% User.all.each do |user| %>
+      <% user_ids.push(user.id.to_s) %>
       <% end %>
-   </ul>
-</div>
-<% end %>
-<div class="form-group">
-   <%=  hidden_field(:new_authenticity_token, :id, :value => form_authenticity_token.to_s, id: 'group_authenticity_token') %>
-   <%=  hidden_field(:group, :id, :value => @group.id.to_s, id: 'group_id') %>
-   <%= form.text_field :name, id: :group_name, class: 'form-control g-name text-white', placeholder: 'Enter new group name new_group' %>
-</div>
-<div class="form-group">
-<% attr = {prompt: "Select related users"} %>
-<% user_ids = [] %>
-<% User.all.each do |user| %>
-<% user_ids.push(user.id.to_s) %>
-<% end %>
-<% attr[:selected] = user_ids %>
-<% if @group.persisted? %>
-<input type="hidden"  id="update-group-h">
-<% end %>
-<label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
-<%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
-</div>
-<% if  @group.persisted? %>
-<%= submit_tag 'Update group', class: 'btn btn-outline-info btn-block plan-group-b' %>
-<% else %>
-<%= submit_tag 'Create new group', class: 'btn btn-outline-info btn-block plan-group-b' %>
-<% end %>
+      <% attr[:selected] = user_ids %>
+   <% if @group.persisted? %>
+      <input type="hidden"  id="update-group-h">
+   <% end %>
+      <label for="group[user_ids]" class="bmd-label-floating text-light">Pick users<small>(required)</small></label>
+   <%= form.collection_select :user_ids, User.all, :id, :first_name, attr,{ multiple: "true", required: true,  class: "selectpicker select_u_picker" } %>
+   </div>
+   <%= form.submit class: 'btn btn-outline-info btn-block' %>
 <% end %>
 
 
