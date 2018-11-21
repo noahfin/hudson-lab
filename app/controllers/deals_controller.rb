@@ -38,11 +38,18 @@ class DealsController < ApplicationController
 
       @deal = Deal.new(deal_params)
       if @deal.save
-          User.all.each do |user|
           notification_str =  'Deal '+ @deal.name + ' was added by ' + current_user.first_name
           @notification = Notification.create(name: notification_str, thing: 'deal', thing_id: @deal.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
-          user.notifications << @notification if user.id != current_user.id
-       end
+          @notification.users = User.all
+      address = Address.where([' address LIKE ? ', "%#{params['deal']['full_address']}%"]).first
+      if  address != nil
+        @deal.addresses << address
+        else
+          if params['deal']['full_address']
+            address = Address.create(address: params['deal']['full_address'])
+            @deal.addresses <<  address
+          end
+      end
         if params['contact_ids'] && !params['contact_ids'].empty?
         params['contact_ids'].each_with_index do |c_id, i|
           next if c_id.to_i == 0
@@ -98,7 +105,7 @@ class DealsController < ApplicationController
    private
 
     def deal_params
-      params.require(:deal).permit(:name, :code, :category, :active, :image,  :lead_id, :user_ids,  :status, :potential_commission, :contact_ids, :company_ids  => [])
+      params.require(:deal).permit(:name, :code, :category, :active, :image,  :full_address, :lead_id, :user_ids,  :status, :potential_commission, :contact_ids, :company_ids  => [])
     end
     def find_deal
       @deal = Deal.find params[:id]

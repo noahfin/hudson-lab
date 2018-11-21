@@ -134,13 +134,13 @@ class ContactsController < ApplicationController
         @notification = Notification.create(name: notification_str, thing: 'contact', thing_id: @contact.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
         @notification.users = User.all
 
-       address = Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{params['contact']['city'] }%", "%#{params['contact']['street_num']}%", "%#{params['contact']['strret_name']}%"]).first
+      address = Address.where([' city LIKE ? and street_num LIKE ? and strret_name  LIKE ?', "%#{params['contact']['city'] }%", "%#{params['contact']['street_num']}%", "%#{params['contact']['strret_name']}%"]).first
       if  address != nil
-        @contact.address_ids << address
+        @contact.addresses << address
         else
           if params['contact']['Fulladdress']
             address = Address.create(address: params['contact']['Fulladdress'])
-            @contact.address_ids <<  address
+            @contact.addresses <<  address
           end
       end
       if params['contact'][:group_id]
