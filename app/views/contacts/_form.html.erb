@@ -4,6 +4,7 @@
 }
 
 </style>
+
 <div class="wizard-container " id="contact-form-wiz">
    <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
    <%= render 'layouts/messages' if !flash.empty? %>
@@ -212,8 +213,6 @@
                         <%= form.text_field :zip_code_ext, id: :contact_zip_code_ext, class: 'form-control text-white' %>
                      </div>
                   </div>
-
-
             </div>
             <div class="tab-pane" id="group">
                <div class="row justify-content-center">
@@ -516,7 +515,10 @@
    </div>
    <% end %>
 </div>
-<!-- wizard container -->
+<!--  end of wizard container -->
+
+
+
 <script >
    var hrefTempIndex = "#groups-pane"
    $('.group-pane').hide();
@@ -532,6 +534,5 @@
       e.target // newly activated tab
       e.relatedTarget // previous active tab
    });
-
-
 </script>
+
