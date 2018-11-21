@@ -1,5 +1,43 @@
 
 
+<!-- role section  -->
+                  <p class="mt-3"> Pick One Best describes the contact role or leave blank</p>
+                  <div class="col-md-12">
+                     <div class="row m-0">
+                        <div class="col-md-12">
+                           <div class="form-group">
+                              <div class="form-check form-check-inline ">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Broker:</label>
+                                 <input type="checkbox" name="contact[role]" value="broker">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Agent:</label>
+                                 <input type="checkbox" name="contact[role]" value="agent">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Owner:</label>
+                                 <input type="checkbox" name="contact[role]" value="owner">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1 ml-2  pt-2">Buyer:</label>
+                                 <input type="checkbox" name="contact[role]" value="buyer">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1 ml-2  pt-2">Employee:</label>
+                                 <input type="checkbox" name="contact[role]" value="employee">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1 ml-2  pt-2">Management:</label>
+                                 <input type="checkbox" name="contact[role]" value="management">
+                              </div>
+                              <div class="form-check form-check-inline">
+                                 <label class="bmd-label-floating mr-1   ml-2  pt-2">Peronal:</label>
+                                 <input type="checkbox" name="contact[role]" value="peronal">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
 <%= form_with model: @contact,  :format=> :js, multipart: true, remote: local_assigns[:ajax_true], :authenticity_token => true, id: "contact_form"  do |form|%>
 <div class="panel-body">
   <div class="form-horizontal">
