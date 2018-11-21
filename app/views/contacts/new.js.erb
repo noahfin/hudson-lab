@@ -33,8 +33,8 @@ $('.selectpicker').selectpicker('toggle');
         $('.users-for-new-group').each(function (i) {
             user_ids[i] = $(this).val();
         });
-var group_authenticity_token  = $('#group_authenticity_token').val()
-
+        var group_authenticity_token  = $('#group_authenticity_token').val()
+        var newGroup = $("#new_group").val();
 
         console.log(newGroup);
         if (newGroup === undefined || newGroup === '') {
