@@ -520,6 +520,14 @@
 
 
 <script >
+
+ $(document).on('click', '#groups-pane', function (e) {
+
+       e.preventDefault()
+      $('.selectpicker').selectpicker('toggle');
+   });
+
+
    var hrefTempIndex = "#groups-pane"
    $('.group-pane').hide();
    $("#groups-pane").show();
