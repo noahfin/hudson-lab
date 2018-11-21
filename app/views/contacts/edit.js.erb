@@ -8,112 +8,112 @@ $('.selectpicker').selectpicker('toggle').selectpicker('setStyle', 'btn-outline-
 
 $('#btn_finshed').hide();
 
- var getUsersAndGroupsInputs = function () {
+ // var getUsersAndGroupsInputs = function () {
 
-          var user_ids = []
-        $('.users-for-new-group').each(function (i) {
-            if ($(this).is(':checked') && $(this).val() !== "") {
-                user_ids[i] = $(this).val();
-            }
-        });
+ //          var user_ids = []
+ //        $('.users-for-new-group').each(function (i) {
+ //            if ($(this).is(':checked') && $(this).val() !== "") {
+ //                user_ids[i] = $(this).val();
+ //            }
+ //        });
 
-        var group_ids = []
-        $('.groups-for-new-group').each(function (i) {
-            if ($(this).is(':checked') && $(this).val() !== "") {
-                group_ids[i] = $(this).val();
-            }
-        });
+ //        var group_ids = []
+ //        $('.groups-for-new-group').each(function (i) {
+ //            if ($(this).is(':checked') && $(this).val() !== "") {
+ //                group_ids[i] = $(this).val();
+ //            }
+ //        });
 
- var userGroupArray = [[user_ids][group_ids]];
+ // var userGroupArray = [[user_ids][group_ids]];
 
-   return userGroupArray;
- }
-
-
-    var getContactInputs = function () {
-      var userGroupArray  = getUsersAndGroupsInputs();
-      console.log(userGroupArray);
-        var formData = {
-            contact: {
-                'id': $('#hidden_update').val(),
-                'name': $('#contact_name').val(),
-                'email': $('#contact_email').val(),
-                'company': $('#contact_company').val(),
-                'Fulladdress': $('#contact_address').val(),
-                'cell': $('#contact_cell').val(),
-                'phone': $('#contact_phone').val(),
-                'county': $('#contact_county').val(),
-                'state': $('#contact_state').val(),
-                'country': $('#contact_country').val(),
-                'postal_code': $('#contact_postal_code').val(),
-                'notes': $('#contact_notes').val(),
-                'city': $('#contact_city').val(),
-                'street_num': $('#contact_street_num').val(),
-                'strret_name': $('#contact_strret_name').val(),
-                'prefix': $('#contact_prefix').val(),
-                'first_name': $('#contact_first_name').val(),
-                'middle_name': $('#contact_middle_name').val(),
-                'last_name': $('#contact_last_name').val(),
-                'suffix': $('#contact_suffix').val(),
-                'owns_cents': $('#contact_owns_cents').val(),
-                'year_of_Founding': $('#contact_year_of_Founding').val(),
-                'primary_industry': $('#contact_primary_industry').val(),
-                'web_address': $('#contact_web_address').val(),
-                'latitude': $('#contact_latitude').val(),
-                'longitude': $('#contact_longitude').val(),
-                'type': $('#contact_type').val(),
-                'facility_size': $('#contact_facility_size').val(),
-                'total_number_of_employees': $('#contact_facility_size').val(),
-                'postion': $('#contact_postion').val(),
-                'sic': $('#contact_sic').val(),
-                'role': $('#contact_role').val(),
-                'suite': $('#contact_suite').val(),
-                'group_id': $('#groups-hiiden'),
-                'user_id': userGroupArray[0],
-                'verified': $('#contact_verified').val()
+ //   return userGroupArray;
+ // }
 
 
-            },
-               authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
+ //    var getContactInputs = function () {
+ //      var userGroupArray  = getUsersAndGroupsInputs();
+ //      console.log(userGroupArray);
+ //        var formData = {
+ //            contact: {
+ //                'id': $('#hidden_update').val(),
+ //                'name': $('#contact_name').val(),
+ //                'email': $('#contact_email').val(),
+ //                'company': $('#contact_company').val(),
+ //                'Fulladdress': $('#contact_address').val(),
+ //                'cell': $('#contact_cell').val(),
+ //                'phone': $('#contact_phone').val(),
+ //                'county': $('#contact_county').val(),
+ //                'state': $('#contact_state').val(),
+ //                'country': $('#contact_country').val(),
+ //                'postal_code': $('#contact_postal_code').val(),
+ //                'notes': $('#contact_notes').val(),
+ //                'city': $('#contact_city').val(),
+ //                'street_num': $('#contact_street_num').val(),
+ //                'strret_name': $('#contact_strret_name').val(),
+ //                'prefix': $('#contact_prefix').val(),
+ //                'first_name': $('#contact_first_name').val(),
+ //                'middle_name': $('#contact_middle_name').val(),
+ //                'last_name': $('#contact_last_name').val(),
+ //                'suffix': $('#contact_suffix').val(),
+ //                'owns_cents': $('#contact_owns_cents').val(),
+ //                'year_of_Founding': $('#contact_year_of_Founding').val(),
+ //                'primary_industry': $('#contact_primary_industry').val(),
+ //                'web_address': $('#contact_web_address').val(),
+ //                'latitude': $('#contact_latitude').val(),
+ //                'longitude': $('#contact_longitude').val(),
+ //                'type': $('#contact_type').val(),
+ //                'facility_size': $('#contact_facility_size').val(),
+ //                'total_number_of_employees': $('#contact_facility_size').val(),
+ //                'postion': $('#contact_postion').val(),
+ //                'sic': $('#contact_sic').val(),
+ //                'role': $('#contact_role').val(),
+ //                'suite': $('#contact_suite').val(),
+ //                'group_id': $('#groups-hiiden'),
+ //                'user_id': userGroupArray[0],
+ //                'verified': $('#contact_verified').val()
 
-        }
-        return formData;
 
-    }
+ //            },
+ //               authenticity_token: '<%= "" +form_authenticity_token.to_s %>'
 
-        var showFormSend = function (data) {
-        var url = $( '#contact_form' ).attr( 'action' );
-        $.ajax({
-            url: url,
-            method: "patch",
-            data: data,
-            success: function (contact) {
-                $.getScript(pageUrl);
-            },
-            error: function (err) {
+ //        }
+ //        return formData;
 
-                var errors = err.responseJSON;
-                var error = errors.join(", ");
+ //    }
 
-                if (error) {
+ //        var showFormSend = function (data) {
+ //        var url = $( '#contact_form' ).attr( 'action' );
+ //        $.ajax({
+ //            url: url,
+ //            method: "patch",
+ //            data: data,
+ //            success: function (contact) {
+ //                $.getScript(pageUrl);
+ //            },
+ //            error: function (err) {
 
+ //                var errors = err.responseJSON;
+ //                var error = errors.join(", ");
 
-                    $.notify({
-                        title: '<strong>Heads up!</strong>',
-                        message: error
-                    }, {
-                        type: 'danger'
-                    });
-                }
-            }
-        })
+ //                if (error) {
 
 
-    }
+ //                    $.notify({
+ //                        title: '<strong>Heads up!</strong>',
+ //                        message: error
+ //                    }, {
+ //                        type: 'danger'
+ //                    });
+ //                }
+ //            }
+ //        })
 
-    $(document).on('click', '.b-update-contact', function (event) {
-    var formData = getContactInputs();
-       showFormSend(formData);
 
-     });
+ //    }
+
+ //    $(document).on('click', '.b-update-contact', function (event) {
+ //    var formData = getContactInputs();
+ //       showFormSend(formData);
+
+ //     });
 
