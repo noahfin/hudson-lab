@@ -24,7 +24,6 @@ $('.selectpicker').selectpicker('toggle');
         }
     });
 
-
     $(document).on('click', '#fancy-group-add', function (event) {
 
         var inputs = document.querySelectorAll('ul input[type=checkbox]');
@@ -36,10 +35,10 @@ $('.selectpicker').selectpicker('toggle');
         });
 var group_authenticity_token  = $('#group_authenticity_token').val()
 
-        var newGroup = $('input[name=new_group').val();
+
         console.log(newGroup);
         if (newGroup === undefined || newGroup === '') {
-            console.log(newGroup + "is in the block");
+
             newGroup = $('.g-name').val();
         }
 
@@ -59,7 +58,7 @@ var group_authenticity_token  = $('#group_authenticity_token').val()
             method: "post",
             data: formData,
             success: function (group) {
-                console.log(group);
+
                 if (group) {
 
                     var newitemnum = group.id;
@@ -99,8 +98,8 @@ var group_authenticity_token  = $('#group_authenticity_token').val()
     });
 
 
-$("#contact_address").keyup(paseAddress);
-
+$(".address-parse").keyup(paseAddress);
+$(".address-parse").bind('paste', paseAddress);
 
   var paseAddress = function(){
     var addressArray = ['#contact_street_num', '#contact_strret_name', '#contact_suite', '#contact_city', '#contact_state', '#contact_postal_code'];
