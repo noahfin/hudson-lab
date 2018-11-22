@@ -52,7 +52,7 @@
                         <td class="text-white"> <%= @lead.size_requirement %> </td>
                         <td class="text-white"> <%= @lead.location_need %></td>
                         <td class="text-white"> <%= @lead.time_requirement %></td>
-                        <td class="text-white"> <%= @lead.notes %> </td>
+                        <td class="text-white"> <button type="button" class="btn btn-outline-info btn-small" data-toggle="modal" data-target="#leadsModal">view notes</button></td>
                         <td class="text-white"> <%  @lead.contacts.each do |contact| %> <span><%= contact.first_name + ' ' %> <% end %></span></td>
                         <td class="text-white"> <%= @lead.created_at.strftime("%d %b. %Y") %></td>
                         <td class="text-white"> <% @lead.users.each do |user| %> <span><%= user.first_name + ' ' %> <% end %></span></td>
@@ -67,3 +67,36 @@
       </div>
    </div>
 </div>
+<div class="modal fade" id="leadsModal" tabindex="-1" role="dialog" aria-labelledby="leadsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-black">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lead Notes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_with(model: @lead, remote: true) do |form| %>
+      <div class="modal-body">
+         <div class="form-group  p-2">
+            <%= form.text_area :notes, id: :lead_notes, class: 'form-control  text-white ', placeholder: 'Notes', rows: "20"  %>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary mr-3  roundd-0" data-dismiss="modal">Close</button>
+        <%= form.submit class: 'btn btn-outline-white roundd-0 notes_lead' %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+<script>
+   $(document).on('click', '.notes_lead', function (e) {
+     $(this).closest('form').submit();
+     $('#leadsModal').modal('hide');
+     var location = window.location.href;
+     $.get( location );
+   }
+
+
+</script>
