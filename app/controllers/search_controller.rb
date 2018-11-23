@@ -4,7 +4,6 @@ def create
      if params[:query].present?
       query =  params[:query].split.map(&:capitalize).join(' ')
        @contacts = Contact.search(query).order('first_name ASC').page(params[:page])
-
       respond_to do |format|
         format.html
         format.js
