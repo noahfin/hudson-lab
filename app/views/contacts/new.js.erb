@@ -97,14 +97,9 @@ $('.selectpicker').selectpicker('toggle');
 
     });
 
-var after_paste = true;
-$(".address-parse").bind('paste', function(){
-  if (after_paste === true) {
-    console.log("address was paste")
-    paseAddress();
-    after_paste = false;
-  }
-});
+
+$(".address-parse").keyup(paseAddress);
+$(".address-parse").bind('paste', paseAddress);
 
   var paseAddress = function(){
     var addressArray = ['#contact_street_num', '#contact_strret_name', '#contact_suite', '#contact_city', '#contact_state', '#contact_postal_code'];
@@ -123,6 +118,7 @@ $(".address-parse").bind('paste', function(){
 
  address.forEach(function( item, index ) {
   addressLength = index;
+   console.log(addressLength);
 });
 
 
@@ -175,6 +171,17 @@ $(".address-parse").bind('paste', function(){
                 }
 
           }
+            // if (parseInt(address[cityIndex - 1]) !== 'NaN' || parseInt(address[cityIndex - 1]) != NaN ) {
+            //   console.log(parseInt(address[cityIndex - 1]));
+            //   suite = address[cityIndex - 1];
+            //   if (address[cityIndex - 2] == 'suite') {
+            //     address.splice(cityIndex - 2,1);
+            //   }
+
+            // }
+
+            }
+
 
 
    $(addressArray[0]).val(address[0]);
