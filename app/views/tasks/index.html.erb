@@ -68,6 +68,13 @@
       <div class="tab-pane" id="tasks-all-list">
          <table class="table">
             <% @tasks.each do |task| %>
+            <% can_show = false%>
+            <% task.users.each do |user| %>
+            <% if user.id == current_user.id %>
+            <%  can_show = true   %>
+            <% end %>
+            <% end %>
+            <% next if !can_show && task.personal  %>
             <tr id="edit_task_<%= task.id %>">
                <input type="hidden" class="task_id_hide" value="#edit_task_<%= task.id %>">
                <td>

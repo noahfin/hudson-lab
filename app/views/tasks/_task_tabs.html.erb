@@ -9,14 +9,14 @@
          <h6>Action Steps For Contacts</h6>
       <table class="table">
          <% task_contact_array.each_with_index do |task, index| %>
-            <% is_personl_user = false%>
+            <% can_show = false%>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
-            <%  is_personl_user = true   %>
+            <%  can_show = true   %>
 
             <% end %>
             <% end %>
-         <% next if  !is_personl_user && task.personal?  || task_contact_array[index].nil?%>
+         <% next if  !can_show && task.personal  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check  pt-2 pb-2 mt-0">
@@ -64,14 +64,14 @@
        <h6>Action Steps For Properties</h6>
       <table class="table">
          <% properties_array.each_with_index do |task, index|%>
-            <% is_personl_user = false %>
+            <% can_show = false %>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
-            <%  is_personl_user = true   %>
+            <%  can_show = true   %>
 
             <% end %>
             <% end %>
-           <% next if  !is_personl_user && task.personal %>
+           <% next if !can_show && task.personal  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check  pt-2  mt-0">
@@ -97,6 +97,7 @@
                <% end %>
             </td>
          </tr>
+
          <% end %>
          <tbody >
          </tbody>
@@ -115,14 +116,14 @@
 
       <table class="table">
          <% projects_array.each_with_index do |task, index|%>
-            <% is_personl_user = false %>
+            <% can_show = false %>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
-            <%  is_personl_user = true   %>
+            <%  can_show = true   %>
 
             <% end %>
             <% end %>
-          <% next if  !is_personl_user && task.personal %>
+          <% next if !can_show && task.personal  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check  pt-2  mt-0">
@@ -167,14 +168,14 @@
        <h6>Action Steps For Deals</h6>
       <table class="table">
          <% leads_array.each_with_index do |task, index|%>
-            <% is_personl_user = false %>
+            <% can_show = false %>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
-            <%  is_personl_user = true   %>
+            <%  can_show = true   %>
 
             <% end %>
             <% end %>
-         <% next if  !is_personl_user && task.personal %>
+         <% next if  !can_show && task.personal  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check  pt-2 mt-0">
@@ -220,13 +221,13 @@
       <h6>Action Steps For Marketing</h6>
       <table class="table">
          <% groups_array.each_with_index do |task, index| %>
-            <% is_personl_user = false%>
+            <% can_show = false%>
             <% task.users.each do |user| %>
             <% if user.id == current_user.id %>
-            <%  is_personl_user = true   %>
+            <%  can_show = true   %>
             <% end %>
             <% end %>
-        <% next if  !is_personl_user && task.personal %>
+         <% next if !can_show && task.personal  %>
          <tr id="edit_task_<%= task.id %>">
             <td>
                <div class="form-check  pt-2  mt-0">
@@ -252,7 +253,8 @@
                <% end %>
             </td>
          </tr>
-         <% end %>
+
+          <% end %>
 
          <tbody >
          </tbody>
