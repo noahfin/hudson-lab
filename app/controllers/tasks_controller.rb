@@ -34,7 +34,12 @@ class TasksController < ApplicationController
 
 
   def edit
-
+    @group_ids = @task.groups
+    @lead_ids = @task.leads
+    @project_ids = @task.projects
+    @user_ids = @task.users
+    @deal_ids = @task.deals
+    @property_ids = @task.properties
   end
 
 

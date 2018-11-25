@@ -41,7 +41,13 @@
                </div>
                <div class="card-body">
                   <div class="col-md-6 ml-auto mr-auto">
-                     <% attr = {prompt: "Select"} %>
+                     <% lead_ids = [] %>
+                     <% if !@lead_ids.nil? %>
+                     <%  @lead_ids.each_with_index do |lead, index| %>
+                     <% lead_ids[index] = lead.id %>
+                     <% end %>
+                     <% end %>
+                     <% attr = {prompt: "Select"} %><% attr[:selected] = lead_ids %>
                      <label for="lead_ids" class="bmd-label-floating text-black">Pick Deals and Leads</label>
                      <%= f.collection_select :lead_ids, Lead.all, :id, :name,  attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
                   </div>
@@ -61,7 +67,13 @@
                <div class="card-body">
                   <div class="row">
                      <div class="col-md-6 ml-auto mr-auto">
-                        <% attr[:selected] = current_user.id.to_i if current_user.id %>
+                     <% user_ids = [] %>
+                     <% if !@user_ids.nil? %>
+                     <%  @user_ids.each_with_index do |user, index| %>
+                     <% user_ids[index] = user.id %>
+                     <% end %>
+                     <% end %>
+                     <% attr = {prompt: "Select"} %><% attr[:selected] = user_ids %>
                         <label for="user_ids[]" class="bmd-label-floating text-black">Pick users</label>
                         <%= f.collection_select :user_ids, User.all, :id, :first_name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_u_picker users-for-new-group", id: "users-t" } %>
                      </div>
@@ -181,7 +193,15 @@
                </div>
                <div class="card-body">
                   <div class="col-md-6 ml-auto mr-auto">
-                     <% attr[:selected] =  session[:selected_group_id] %>
+                     <% group_ids = [] %>
+                     <% if !@group_ids.nil? %>
+                     <% puts @group_ids %>
+                     <%  @group_ids.each_with_index do |group, index| %>
+                     <% group_ids[index] = group.id %>
+                     <% end %>
+                     <% end %>
+                     <% puts group_ids %>
+                     <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
                      <label for="group_ids[]" class="bmd-label-floating text-black">Pick Groups<small></small></label>
                      <%= f.collection_select :group_ids, Group.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker select_g_picker groups-for-new-group", id: "groups-t" } %>
                   </div>
@@ -202,7 +222,13 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group ml-auto mr-auto">
-                           <% attr = {prompt: "Select related projects"} %>
+                           <% project_ids = [] %>
+                           <% if !@project_ids.nil? %>
+                           <%  @project_ids.each_with_index do |project, index| %>
+                           <% project_ids[index] = project.id %>
+                           <% end %>
+                           <% end %>
+                           <% attr = {prompt: "Select related projects"} %><% attr[:selected] = project_ids %>
                            <label for="project_ids[]" class="bmd-label-floating text-black">Pick Projects<small></small></label>
                            <%= f.collection_select :project_ids, Project.all, :id, :name, attr,{ remote: true, multiple: "true",  class: "selectpicker ", id: "projects-select" } %>
                         </div>
