@@ -46,6 +46,17 @@ class TasksController < ApplicationController
         @notification = Notification.create(name: notification_str, thing: 'task', thing_id: @task.id.to_s,  user_name: current_user.first_name,  name_id: current_user.id )
         @notification.users = User.all
          @tasks = Task.all.order(:name)
+        if params['contact_ids']
+          contacts = params['contact_ids']
+          contact_array = []
+          contacts.each do |contact_id|
+          next if contact_id == ""
+             if contact_id.to_i > 0
+              contact_array.push(contact_id)
+                 @task.contact_ids = contact_array
+              end
+           end
+         end
          groups = params['task']['group_ids'].to_a
          if params['task']['group_ids']
           params['task']['group_ids'].each do |group_id|
@@ -53,20 +64,25 @@ class TasksController < ApplicationController
             group = Group.find(group_id)
               @task.groups << group
           end
-         contacts = params['task']['contact_ids'].to_a
+         end
+         if params['task']['contact_ids']
+         contacts = params['task']['contact_ids']
          contact_array = []
-         contacts.each do |contact|
-           if contact != ""
-            contact_array << contact.to_i
+         contacts.each do |contact_id|
+         next if contact_id == ""
+          contact = Contact.find(contact_id)
+
+             @task.contact_ids << contact
            end
          end
-         @task.contact_ids = contact_array if  params['task']['contact_ids']
-         users = params['task']['users_ids'].to_a
-         @task.users = users  if   params['task']['user_ids']
-         projects = params['task']['project_ids'].to_a
-         @task.projects = projects if  params['task']['projects_ids']
-         leads = params['task']['lead_ids'].to_a
-         @task.leads = leads if  params['task']['leads_ids']
+         if  params['task']['project_ids']
+             projects = params['task']['project_ids'].to_a
+             @task.projects = projects if  params['task']['projects_ids']
+         end
+         if params['task']['lead_ids']
+             leads = params['task']['lead_ids'].to_a
+             @task.leads = leads if  params['task']['leads_ids']
+         end
          format.html { redirect_to '/tasks/' }
          format.json { render json: @tasks, status: :created }
          format.js
@@ -77,7 +93,7 @@ class TasksController < ApplicationController
       end
     end
   end
-end
+
 
   def update
    @tasks = Task.order(created_at: :desc)
