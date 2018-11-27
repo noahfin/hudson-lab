@@ -1,0 +1,55 @@
+<div class="card  card-1-color text-white">
+   <div class="card-header card-header-icon card-1">
+      <div class="card-icon bg-hudson">
+         <i class="material-icons">business</i>
+      </div>
+      <h4 class="card-title text-white pt-2">tenant watch <span>
+         <span class="pull-right"><%= link_to  new_tenant_path, class: 'mr-3' do %>
+         <i class="fa fa-plus"></i>
+         <% end %>
+         </span>
+         </span>
+      </h4>
+   </div>
+   <div class="col-md-12">
+      <div class="card-1-color">
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-white">
+                     <tr>
+                        <th class="text-white">Action</th>
+                        <th>Company name</th>
+                        <th>Notes</th>
+                        <th colspan="1" class="text-white text-right pr-4">Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                          <% @tenants.each do |tenant| %>
+                     <tr id="tenant<%= tenant.id %>">
+                        <td class="text-white">
+                           <%= link_to  edit_tenant_path(tenant) do %><i class="fa fa-edit"></i><% end %>
+                        </td>
+                        <td class="text-white">
+                          <%= link_to tenant_path(tenant)  do %>
+                            <%= tenant.company_name %>
+                          <% end %>
+                        </td>
+                        <td  class="text-white">
+                          <%= tenant.notes %>                        </td>
+
+                        <td colspan="1" class="text-danger text-right">
+                         <%= link_to tenant_path(tenant.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this tenant_watch?"}  do %>
+                           <i class="fa fa-trash text-white"></i>
+                        <% end %>
+                        </td>
+                     </tr>
+                     <% end %>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+

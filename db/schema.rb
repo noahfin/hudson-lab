@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_230030) do
+ActiveRecord::Schema.define(version: 2018_11_27_154338) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -334,6 +334,13 @@ ActiveRecord::Schema.define(version: 2018_11_21_230030) do
     t.integer "contact_id", null: false
     t.index ["contact_id", "task_id"], name: "index_contacts_tasks_on_contact_id_and_task_id"
     t.index ["task_id", "contact_id"], name: "index_contacts_tasks_on_task_id_and_contact_id"
+  end
+
+  create_table "contacts_tenants", id: false, force: :cascade do |t|
+    t.integer "tenant_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "tenant_id"], name: "index_contacts_tenants_on_contact_id_and_tenant_id"
+    t.index ["tenant_id", "contact_id"], name: "index_contacts_tenants_on_tenant_id_and_contact_id"
   end
 
   create_table "contacts_touches", id: false, force: :cascade do |t|
@@ -845,6 +852,13 @@ ActiveRecord::Schema.define(version: 2018_11_21_230030) do
     t.integer "user_id", null: false
     t.index ["team_id", "user_id"], name: "index_teams_users_on_team_id_and_user_id"
     t.index ["user_id", "team_id"], name: "index_teams_users_on_user_id_and_team_id"
+  end
+
+  create_table "tenants", force: :cascade do |t|
+    t.string "company_name"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "touches", force: :cascade do |t|

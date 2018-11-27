@@ -1,7 +1,6 @@
 module TasksHelper
   def task_relationships(contacts, groups, projects, properties, leads)
     if contacts
-      contacts = contacts
       contact_array = []
       contacts.each do |contact_id|
       next if contact_id == ""

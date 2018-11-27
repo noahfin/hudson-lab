@@ -1,0 +1,91 @@
+<div class="col-md-8 m-auto">
+   <div class="card card-1-color p-4">
+      <nav class="navbar navbar-dark bg-trans">
+         <h1 class="pl-1">New Tenant</h1>
+      </nav>
+      <%= simple_form_for(@tenant) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+         <div class="form-group">
+            <%= f.input :company_name, class: "form-control text-white" %>
+         </div>
+         <div class="form-group">
+            <%= f.input :notes, class: "form-control  text-white" %>
+         </div>
+      </div>
+      <div class=" ">
+         <div class="form-group">
+            <input class="form-control get-contacts  mt-0 pt-0  text-white" type="text" placeholder="Find Contacts" aria-label="Search" id="search-contat-task">
+         </div>
+         <a class="" data-toggle="collapse" href="#collapseContacts-add" aria-expanded="false" aria-controls="collapseContacts-add">
+         <i class="material-icons text-muted float-right ">keyboard_arrow_down</i></a>
+         <div class="collapse" id="collapseContacts-add">
+            <div class="card card-body">
+               <div class="card-body" id="form-contact">
+                  <ul class="list-inline p-3">
+                     <li class="list-inline-item m-2">
+                        <div class="form-check mr-3 pr-3">
+                           <label class="form-check-label">
+                           <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact1 c-ids">
+                           <span class="c1  mt-4 p-2  text-center">contact 1</span>
+                           <span class="form-check-sign">
+                           <span class="check"></span>
+                           </span>
+                           </label>
+                        </div>
+                     </li>
+                     <li class="list-inline-item  m-2">
+                        <div class="form-check mr-3 pr-3">
+                           <label class="form-check-label">
+                           <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact2  c-ids">
+                           <span class="c2 mt-4 p-2  text-center">contact 2 </span>
+                           <span class="form-check-sign">
+                           <span class="check"></span>
+                           </span>
+                           </label>
+                        </div>
+                     </li>
+                     <li class="list-inline-item  m-2">
+                        <div class="form-check mr-3 pr-3">
+                           <label class="form-check-label">
+                           <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact3  c-ids">
+                           <span class="c3 mt-4 p-2 text-center"> contact 3 </span>
+                           <span class="form-check-sign">
+                           <span class="check"></span>
+                           </span>
+                           </label>
+                        </div>
+                     </li>
+                     <li class="list-inline-item  m-2">
+                        <div class="form-check mr-3 pr-3">
+                           <label class="form-check-label">
+                           <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact4  c-ids">
+                           <span class="c4 mt-4 p-2 text-muted text-center">contact 4</span>
+                           <span class="form-check-sign">
+                           <span class="check"></span>
+                           </span>
+                           </label>
+                        </div>
+                     </li>
+                     <li class="list-inline-item  m-2">
+                        <div class="form-check mr-3 pr-3">
+                           <label class="form-check-label">
+                           <input type="checkbox" name="contact_ids[]" value="" checked="true" class="contact5  c-ids">
+                           <span class="c5 mt-4 p-2  text-center"> contact 5 </span>
+                           <span class="form-check-sign">
+                           <span class="check"></span>
+                           </span>
+                           </label>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="form-actions">
+         <%= f.button :submit, class: "btn btn-outline-info" %>
+      </div>
+      <% end %>
+   </div>
+</div>

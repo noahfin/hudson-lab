@@ -1,7 +1,6 @@
 class Contact < ApplicationRecord
   require 'roo'
   include PgSearch
-
   include ActiveModel::AttributeAssignment
   include ContactsHelper
   after_save :concat_full_name
@@ -19,6 +18,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :companies
   has_and_belongs_to_many :searcheds
   has_and_belongs_to_many :appointment
+  has_and_belongs_to_many :tenants
   has_and_belongs_to_many :contact_touches, class_name: 'Touch'
   has_many :leads
   has_one_attached :image
