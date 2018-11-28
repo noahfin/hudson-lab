@@ -8,7 +8,6 @@ touch_in_person_array = []
 touch_letter_array = []
 %>
 <% @touches.each do |touch| %>
-
       <% if touch.email %>
        <% touch_email_array.push(touch)  %>
       <% end %>
@@ -25,7 +24,7 @@ touch_letter_array = []
        <% touch_in_person_array.push(touch) %>
       <% end %>
       <% if touch.letter %>
-       <% touch_letter_array.push(touch) %>
+      <% touch_letter_array.push(touch) %>
       <% end %>
 <% end %>
 
@@ -41,7 +40,6 @@ touch_letter_array = []
                <th class="text-right">Actions</th>
             </tr>
             <tbody id="task-table-1">
-
                <% touch_phone_array.each do |touch| %>
                <tr id="edit_touch_<%= touch.id %>">
                   <td>
@@ -85,7 +83,6 @@ touch_letter_array = []
       </div>
    </div>
 </div>
-
 <div class="tab-pane" id="email-touch">
    <div class="card-1-color">
       <div class="table-responsive table-sales mt-3">
