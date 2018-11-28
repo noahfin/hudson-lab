@@ -41,6 +41,10 @@
                               <i class="material-icons">touch_app</i>
                            </div>
                         </div>
+                         <p class="text-info"> Time: <%= @touch.created_at.strftime("%A, %d %b %Y %l:%M %p")   %></p>
+
+                        <br>
+                        <hr>
                         <% if @touch.email %>
                         <p class=" text-white">
                            <strong>Email:</strong>
@@ -85,16 +89,30 @@
                         <% end %>
                         <br>
                         <hr>
+
+
                         <p class=" text-white">
                            <strong class=" text-white">Description:</strong>
                            <%= @touch.description %>
                         </p>
+                        <br>
+                        <hr>
+
                      </div>
                      <div class="tab-pane" id="link11">
                         <div class="col-md-12">
                            <strong class=" text-white">Contacts:</strong>
                            <div class="table-responsive table-sales">
                               <table class="table text-white">
+                                 <thead class=" text-white">
+                                    <tr>
+                                       <th class="text-white">Action</th>
+                                       <th class="text-white">Contact name</th>
+                                       <th class="text-white">Touch created at</th>
+                                       <th class="text-white">mediums</th>
+                                       <th class="text-white">View</th>
+                                    </tr>
+                                 </thead>
                                  <tbody>
                                     <% @touch.contacts.each do |contact| %>
                                     <tr>
@@ -104,6 +122,7 @@
                                           </div>
                                        </td>
                                        <td> <% if contact.name %><%= contact.name  %> <% else %> <%= contact.first_name  %><% end %></td>
+                                       <td> <%= @touch.created_at.strftime("%A, %d %b %Y %l:%M %p")   %></td>
                                        <td class="text-right text-white">
                                           <% if @touch.email %>
                                           <span class=" text-white mt-3">
@@ -137,7 +156,9 @@
                                           <% end %>
                                        </td>
                                        <td class="text-right">
+                                          <%= link_to contact_path(contact) do %>
                                           <i class="material-icons">how_to_reg</i>
+                                          <% end %>
                                        </td>
                                     </tr>
                                     <% end %>

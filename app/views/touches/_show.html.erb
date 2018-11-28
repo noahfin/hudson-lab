@@ -95,6 +95,13 @@
                            <strong class=" text-white">Contacts:</strong>
                            <div class="table-responsive table-sales">
                               <table class="table text-white">
+                                 <thead class=" text-white">
+                                    <tr>
+                                       <th class="text-white">Action</th>
+                                       <th>Contact name</th>
+                                       <th>Touch created at</th>
+                                    </tr>
+                                 </thead>
                                  <tbody>
                                     <% @touch.contacts.each do |contact| %>
                                     <tr>
@@ -104,6 +111,7 @@
                                           </div>
                                        </td>
                                        <td> <% if contact.name %><%= contact.name  %> <% else %> <%= contact.first_name  %><% end %></td>
+                                       <td> <%= touch.created_at.strftime("%A, %d %b %Y %l:%M %p")   %></td>
                                        <td class="text-right text-white">
                                           <% if @touch.email %>
                                           <span class=" text-white mt-3">
