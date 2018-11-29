@@ -14,7 +14,6 @@ class DashboardController < ApplicationController
         format.js
     end
   end
-
   def contacts_search
     term = params[:query]
       @contacts = Contact.where('name LIKE ? or first_name LIKE ? or last_name LIKE ? or company LIKE ? or email LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%").order(:name) if term.present?

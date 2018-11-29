@@ -123,6 +123,13 @@
                 <span class="sidebar-normal"> Record Touch </span>
              <% end %>
             </li>
+               <li class="nav-item text-white">
+                <%= link_to tenants_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> VT </span>
+                <span class="sidebar-normal"> View Tenants </span>
+             <% end %>
+            </li>
+
             <%  @groups.each do |group| %>
             <li class="nav-item ">
                 <% active = params[:group_id].to_i == group.id || (session[:selected_group_id] && session[:selected_group_id].to_i == group.id) ? 'active' : '' %>
@@ -318,6 +325,12 @@
                 <span class="sidebar-mini"> NL </span>
                 <span class="sidebar-normal"> New Lead </span>
               <% end %>
+            </li>
+            <li class="nav-item text-white">
+                <%= link_to tenants_path, class: "nav-link" do %>
+                <span class="sidebar-mini"> VT </span>
+                <span class="sidebar-normal"> View Tenants </span>
+             <% end %>
             </li>
 
           </ul>
