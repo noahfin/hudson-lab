@@ -102,7 +102,9 @@
    <div class="card card-1-color  p-4  rounded-0" >
          <h2>Contact Notes</h2>
       <div class="card-body card-1-color">
-         <p><%= @contact.notes %></p>
+         <a class="btn btn-primary" data-toggle="modal" data-target="#contactFormModal">
+        <p><%= @contact.notes %></p>
+      </a>
       </div>
    </div>
    <div class="card card-1-color  p-4  rounded-0">
@@ -183,3 +185,34 @@
 </div>
 </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="contactFormModal" tabindex="-1" role="dialog" aria-labelledby="contactFormModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+            <%= form_with model: @contact  do |form|%>
+
+      <div class="modal-body">
+              <label  class="bmd-label-floating text-white">Contact Notes</label>
+            <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white', row: 20 %>
+
+      </div>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= form.submit class: "btn btn-success" %>
+      </div>
+       <% end %>
+    </div>
+  </div>
+</div>
+<script>
+
+</script>

@@ -165,7 +165,7 @@
                   </div>
                   <div class="col-md-6 ">
                      <%= form.label :notes, class: 'bmd-label-floating text-white' %>
-                     <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white' %>
+                     <input type="text" class="form-control text-white note-input-2" id="get_notes">
                   </div>
                </div>
                <div class="row mb-3">
@@ -471,16 +471,37 @@
          <div class="clearfix"></div>
       </div>
    </div>
-   <% end %>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-muted" id="myModalLabel">Notes</h4>
+      </div>
+      <div class="modal-body">
+                <label  class="bmd-label-floating text-muted">Contact Notes</label>
+            <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-muted', row: 20 %>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default mr-4" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary " id="get_notes">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 <!--  end of wizard container -->
+   <% end %>
 <script >
    $(document).on('click', '#groups-pane', function (e) {
 
          e.preventDefault()
         $('.selectpicker').selectpicker('toggle');
      });
-
 
      var hrefTempIndex = "#groups-pane"
      $('.group-pane').hide();
@@ -496,4 +517,20 @@
         e.target // newly activated tab
         e.relatedTarget // previous active tab
      });
+
+
+
+       $(document).on('click', '#get_notes', function (e) {
+         swal("Write something here:", {
+  content: "input",
+})
+.then((value) => {
+  swal(`You typed: ${value}`);
+});
+       console.log("note button click")
+        var notes =  $(".note-input").val();
+        console.log(notes);
+        $("#get_notes").val(notes);
+     });
+
 </script>

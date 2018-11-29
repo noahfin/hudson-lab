@@ -81,6 +81,6 @@ class TenantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.require(:tenant).permit(:company_name, :notes, :contact_ids)
+      params.require(:tenant).permit(:company_name, :notes, :lease_up,  :contact_ids)
     end
 end

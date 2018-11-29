@@ -16,8 +16,10 @@
 </style>
 <div class="card-body pt-0 mt-0 first-show-card main-c-info" >
    <div class=" first-show-card">
+
       <div class=" p-0 col-md-12 first-show-card">
          <ul id="contact-info" class="pl-0 ml-0 list-group first-show-card mt-0" >
+
             <li class="profile-list list-group-item pl-0 "><span class="pull-left"><strong class="left-c-text pl-0  main-size-text">Name</strong></span><span class="float-right c-info-text-right scondary-size-text"><%= @contact.name if @contact.name %></span></li>
             <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">First Name</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.first_name  if  @contact.first_name  %></span></li>
             <li class="profile-list list-group-item pl-0"><span class="pull-left"><strong class="left-c-text  pl-0 main-size-text">Middle Name</strong></span> <span class="float-right c-info-text-right scondary-size-text"> <%= @contact.middle_name  if  @contact.middle_name  %></span></li>
@@ -79,6 +81,7 @@
          <a href="" title="" class="btn-back btn btn-link text-danger text-center">Go Back</a>
       </div>
    </div>
+
    <div class="card card-1-color pl-1  pr-4 first-show-card">
       <div class="pl-2 pr-0  pt-3 first-show-card c-basic-h4 ">
          <h4 class=""><span>     <%= link_to edit_contact_path(@contact.id), class: "text-info pull-right", title: 'edit', rel: "tooltip"  do %>
@@ -99,10 +102,13 @@
    <div class="card card-1-color  p-4  rounded-0" >
          <h2>Contact Notes</h2>
       <div class="card-body card-1-color">
-         <p><%= @contact.notes %></p>
+         <a class="btn btn-primary" data-toggle="modal" data-target="#contactFormModal">
+        <p><%= @contact.notes %></p>
+      </a>
       </div>
    </div>
    <div class="card card-1-color  p-4  rounded-0">
+
          <div class="row">
             <div class="col-md-5">
                <h4>Contact Touches</h4>
@@ -114,6 +120,8 @@
             </span>
          </div>
          </div>
+
+
       <% if @contact.contact_touches %>
       <% @contact.contact_touches.each do |touch| %>
       <p>
@@ -177,3 +185,6 @@
 </div>
 </div>
 </div>
+
+
+
