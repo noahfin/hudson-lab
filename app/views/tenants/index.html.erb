@@ -19,13 +19,13 @@
                   <thead class=" text-white">
                      <tr>
                         <th class="text-white">Action</th>
-                        <th>Company name</th>
-                        <th>Notes</th>
+                        <th class="text-white">Company name</th>
+                        <th class="text-white">Notes</th>
                         <th colspan="1" class="text-white text-right pr-4">Delete</th>
                      </tr>
                   </thead>
                   <tbody>
-                          <% @tenants.each do |tenant| %>
+                    <% @tenants.each do |tenant| %>
                      <tr id="tenant<%= tenant.id %>">
                         <td class="text-white">
                            <%= link_to  edit_tenant_path(tenant) do %><i class="fa fa-edit"></i><% end %>
