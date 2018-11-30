@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_30_194953) do
+ActiveRecord::Schema.define(version: 2018_11_30_204952) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -313,6 +313,13 @@ ActiveRecord::Schema.define(version: 2018_11_30_194953) do
     t.integer "contact_id", null: false
     t.index ["contact_id", "lead_id"], name: "index_contacts_leads_on_contact_id_and_lead_id"
     t.index ["lead_id", "contact_id"], name: "index_contacts_leads_on_lead_id_and_contact_id"
+  end
+
+  create_table "contacts_owners", id: false, force: :cascade do |t|
+    t.integer "owner_id", null: false
+    t.integer "contact_id", null: false
+    t.index ["contact_id", "owner_id"], name: "index_contacts_owners_on_contact_id_and_owner_id"
+    t.index ["owner_id", "contact_id"], name: "index_contacts_owners_on_owner_id_and_contact_id"
   end
 
   create_table "contacts_properties", id: false, force: :cascade do |t|
@@ -626,6 +633,15 @@ ActiveRecord::Schema.define(version: 2018_11_30_194953) do
   create_table "notifications_users", id: false, force: :cascade do |t|
     t.integer "notification_id", null: false
     t.integer "user_id", null: false
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "building"
+    t.string "fulladdres"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "personal_messages", force: :cascade do |t|

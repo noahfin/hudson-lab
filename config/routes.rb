@@ -1,5 +1,6 @@
   Rails.application.routes.draw do
 
+  resources :owners
   resources :tenants
   resources :categories
   resources :marketings

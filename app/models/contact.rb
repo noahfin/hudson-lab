@@ -19,6 +19,7 @@ class Contact < ApplicationRecord
   has_and_belongs_to_many :searcheds
   has_and_belongs_to_many :appointment
   has_and_belongs_to_many :tenants
+  has_and_belongs_to_many :owners
   has_and_belongs_to_many :contact_touches, class_name: 'Touch'
   has_many :leads
   has_one_attached :image
