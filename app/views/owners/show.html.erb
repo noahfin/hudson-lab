@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @owner.name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @owner.phone %>
-</p>
-
-<p>
-  <strong>Building:</strong>
-  <%= @owner.building %>
-</p>
-
-<p>
-  <strong>Fulladdres:</strong>
-  <%= @owner.fulladdres %>
-</p>
-
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+<div class="col-md-8 m-auto">
+  <div class="card card-1-color p-3 text-white">
+     <div class="text-white">
+        <p id="notice"><%= notice %></p>
+        <p>
+           <strong>Name:</strong>
+           <%= @owner.name %>
+        </p>
+        <p>
+           <strong>Phone:</strong>
+           <%= @owner.phone %>
+        </p>
+        <p>
+           <strong>Building:</strong>
+           <%= @owner.building %>
+        </p>
+        <p>
+           <strong>Fulladdres:</strong>
+           <%= @owner.fulladdres %>
+        </p>
+        <%= link_to 'Edit', edit_owner_path(@owner) %> |
+        <%= link_to 'Back', owners_path %>
+     </div>
+  </div>
+</div>

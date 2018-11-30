@@ -18,25 +18,25 @@
                <table class="table">
                   <thead class=" text-white">
                      <tr>
-      <th class=" text-white">Name</th>
-      <th class=" text-white">Phone</th>
-      <th class=" text-white">Building</th>
-      <th class=" text-white">Fulladdres</th>
-      <th colspan="3"></th>
+                        <th class=" text-white">Name</th>
+                        <th class=" text-white">Phone</th>
+                        <th class=" text-white">Building</th>
+                        <th class=" text-white">Fulladdres</th>
+                        <th colspan="3"></th>
                      </tr>
                   </thead>
                   <tbody>
-    <% @owners.each do |owner| %>
-      <tr class=" text-white">
-        <td><%= owner.name %></td>
-        <td><%= owner.phone %></td>
-        <td><%= owner.building %></td>
-        <td><%= owner.fulladdres %></td>
-        <td><%= link_to 'Show', owner %></td>
-        <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+                     <% @owners.each do |owner| %>
+                     <tr class=" text-white">
+                        <td><%= owner.name %></td>
+                        <td><%= owner.phone %></td>
+                        <td><%= owner.building %></td>
+                        <td><%= owner.fulladdres %></td>
+                        <td><%= link_to 'Show', owner %></td>
+                        <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
+                        <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                     </tr>
+                     <% end %>
                   </tbody>
                </table>
             </div>
@@ -44,4 +44,3 @@
       </div>
    </div>
 </div>
-

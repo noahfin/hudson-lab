@@ -54,6 +54,18 @@ class OwnersController < ApplicationController
   def update
     respond_to do |format|
       if @owner.update(owner_params)
+        contacts =  params['contact_ids'].to_a
+        if contacts
+        contacts = contacts
+        contact_array = []
+        contacts.each do |contact_id|
+        next if contact_id == ""
+           if contact_id.to_i > 0
+            contact_array.push(contact_id)
+               @owner.contact_ids = contact_array
+            end
+         end
+       end
         format.html { redirect_to @owner, notice: 'Owner was successfully updated.' }
         format.json { render :show, status: :ok, location: @owner }
       else
