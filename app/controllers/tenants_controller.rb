@@ -68,6 +68,6 @@ class TenantsController < ApplicationController
     end
 
     def tenant_params
-      params.require(:tenant).permit(:company_name, :notes, :lease_up, :space_size, :price, :contact_ids)
+      params.require(:tenant).permit(:company_name, :notes, :lease_up, :space_size, :price, :fulladress,  :contact_ids)
     end
 end

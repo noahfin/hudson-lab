@@ -22,6 +22,14 @@
   <strong>Contact:</strong>
   <%= @tenant.contacts.first.name if @tenant.contacts.first %>
 </p>
+<p>
+  <strong>Price:</strong>
+  <%= @tenant.price if @tenant.price %>
+</p>
+<p>
+  <strong>Full Address:</strong>
+  <%= @tenant.fulladress if @tenant.fulladress %>
+</p>
 </div>
 
 <%= link_to 'Edit', edit_tenant_path(@tenant),class: "text-muted" %> <span class="text-muted">| </span>
