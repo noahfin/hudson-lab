@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_03_173849) do
+ActiveRecord::Schema.define(version: 2018_12_04_200435) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -879,6 +879,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_173849) do
     t.string "space_size"
     t.string "price"
     t.string "fulladress"
+    t.string "use"
   end
 
   create_table "touches", force: :cascade do |t|

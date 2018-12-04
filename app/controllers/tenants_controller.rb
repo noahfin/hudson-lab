@@ -1,7 +1,5 @@
 class TenantsController < ApplicationController
   before_action :set_tenant, only: [:show, :edit, :update, :destroy]
-
-
   def index
     @tenants = Tenant.all
   end
@@ -68,6 +66,6 @@ class TenantsController < ApplicationController
     end
 
     def tenant_params
-      params.require(:tenant).permit(:company_name, :notes, :lease_up, :space_size, :price, :fulladress,  :contact_ids)
+      params.require(:tenant).permit(:company_name, :notes, :lease_up, :space_size, :price, :fulladress, :use, :contact_ids)
     end
 end
