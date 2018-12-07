@@ -157,8 +157,10 @@
                      <h5 class="info-text text-white">Fill out the current address for contact </h5>
                   </div>
                </div>
+
                <div class="row mb-3">
-                      <slabel class="bmd-label-floating text-white">Full Address</label>
+                   <div class="col-md-6">
+                      <label class="bmd-label-floating text-white">Full Address</label>
                      <input type="hidden" name="lead[address_ids]" class="address_id_hidden">
                      <%= form.text_field :Fulladdress, id: :contact_address, class: 'form-control text-white address-parse address-auto mb-0 mt-0',  autofocus: true %>
                   </div>
@@ -166,7 +168,7 @@
                      <%= form.label :notes, class: 'bmd-label-floating text-white' %>
                      <input type="text" class="form-control text-white note-input-2" id="get_notes">
                   </div>
-               </div>
+            </div>
                <div class="row mb-3">
                   <div class="col-md-3">
                      <%= form.label :street_num, class: 'bmd-label-floating text-white' %>
@@ -368,7 +370,7 @@
                   <div class="row">
                      <div class="form-group ">
                         <div class=" ">
-                           <div class="collapse " id="collapseGroup"  style= "min-width: 168%; margin: 0 auto;">
+                           <div class="collapse " id="collapseGroup" >
                               <div >
                                  <div class="card text-center rounded-0 card mdl-color--grey-900">
                                     <div class="card-header card-header-tabs  pb-2 mb-0 bg-black">
