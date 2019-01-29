@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
 
    end
    def search
-     @properties = Property.search(params[:query])
+     @properties = Property.search_property(params[:query])
 
     respond_to do |format|
       format.html

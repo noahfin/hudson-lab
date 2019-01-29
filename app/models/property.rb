@@ -1,4 +1,5 @@
 class Property < ApplicationRecord
+  include PgSearch
   has_many :posts, dependent: :destroy
   has_many :issues, dependent: :destroy
   has_and_belongs_to_many :tasks
@@ -35,6 +36,9 @@ class Property < ApplicationRecord
     list.each {|issue| counts[issue] += 1}
   counts
  end
+
+   pg_search_scope :search_property, against: [:Fulladdress]
+
   def self.search(term)
     @properties = Property.where('Fulladdress LIKE ? or name LIKE ? or description LIKE ? or rental_rate LIKE ? or category LIKE ?', "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%") if term.present?
   end
