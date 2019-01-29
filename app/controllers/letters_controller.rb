@@ -30,10 +30,10 @@ class LettersController < ApplicationController
   end
 
   def proposal_purchase
-    if params['property_ids']
+    if params['property_ids'].first.to_i > 0
        @property = Property.find(params['property_ids'].first)
     end
-    if params['contact_ids']
+    if params['contact_ids'].first.to_i > 0
       @contact = Contact.find(params['contact_ids'].first)
     end
     render 'proposal_purchase.html.erb'
