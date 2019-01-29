@@ -36,7 +36,7 @@ class LettersController < ApplicationController
     if params['contact_ids']
       @contact = Contact.find(params['contact_ids'].first)
     end
-    render 'cover_letter.html.erb'
+    render 'proposal_purchase.html.erb'
   end
 
   def proposal_lease

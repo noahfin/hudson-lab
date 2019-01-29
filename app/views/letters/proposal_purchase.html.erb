@@ -1,113 +1,1842 @@
 <h1>proposal_to_purchase.html.erb</h1>
-
-
 <style type="text/css" media="screen">
-
 </style>
 <div id="select-leter" class="bg-white text-black" >
-<br><br><br><br>
-    <header>
-      <% date = DateTime.now.strftime('%d %m %y')%>
-      <% month = Date.parse(date).strftime('%B')%>
-      <% day = Date.parse(date).strftime('%d')%>
-      <% year = Date.parse(date).strftime('%Y')%>
-      <time datetime=<%="#{DateTime.now.strftime('%m-%d-%Y')}"%>><%= month %> <%= day %>, <%= year %></time><br><br>
-      <address class="return-address">
-        <%= @contact.prefix %> <%= @contact.first_name %> <%= @contact.last_name %> <%= @contact.suffix %><br>
-        <%= @contact.company %><br>
-        <%= @contact.street_num %> <%= @contact.strret_name %> <%= @contact.suite %><br>
-        <%= @contact.city %>, <%= @contact.state %> <%= @contact.postal_code %>
-      </address>
-      <br>
-      <br>
-      Re:
-    </header>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+  {font-family:"Cambria Math";
+  panose-1:2 4 5 3 5 4 6 3 2 4;
+  mso-font-charset:0;
+  mso-generic-font-family:roman;
+  mso-font-pitch:variable;
+  mso-font-signature:-536869121 1107305727 33554432 0 415 0;}
+@font-face
+  {font-family:Calibri;
+  panose-1:2 15 5 2 2 2 4 3 2 4;
+  mso-font-charset:0;
+  mso-generic-font-family:swiss;
+  mso-font-pitch:variable;
+  mso-font-signature:-536859905 -1073732485 9 0 511 0;}
+@font-face
+  {font-family:"Arial Unicode MS";
+  panose-1:2 11 6 4 2 2 2 2 2 4;
+  mso-font-alt:Arial;
+  mso-font-charset:0;
+  mso-generic-font-family:roman;
+  mso-font-pitch:auto;
+  mso-font-signature:0 0 0 0 0 0;}
+@font-face
+  {font-family:"Helvetica Neue";
+  mso-font-alt:Arial;
+  mso-font-charset:0;
+  mso-generic-font-family:roman;
+  mso-font-pitch:auto;
+  mso-font-signature:0 0 0 0 0 0;}
+@font-face
+  {font-family:Garamond;
+  panose-1:2 2 4 4 3 3 1 1 8 3;
+  mso-font-charset:0;
+  mso-generic-font-family:roman;
+  mso-font-pitch:variable;
+  mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+  {mso-style-unhide:no;
+  mso-style-qformat:yes;
+  mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Arial Unicode MS";
+  border:none;
+  mso-bidi-language:AR-SA;}
+a:link, span.MsoHyperlink
+  {mso-style-unhide:no;
+  mso-style-parent:"";
+  text-decoration:underline;
+  text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+  {mso-style-noshow:yes;
+  mso-style-priority:99;
+  color:fuchsia;
+  mso-themecolor:followedhyperlink;
+  text-decoration:underline;
+  text-underline:single;}
+p.HeaderFooter, li.HeaderFooter, div.HeaderFooter
+  {mso-style-name:"Header & Footer";
+  mso-style-unhide:no;
+  mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  tab-stops:right 451.0pt;
+  font-size:12.0pt;
+  font-family:"Helvetica Neue",serif;
+  mso-fareast-font-family:"Arial Unicode MS";
+  mso-bidi-font-family:"Arial Unicode MS";
+  color:black;
+  border:none;}
+p.Body, li.Body, div.Body
+  {mso-style-name:Body;
+  mso-style-unhide:no;
+  mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:12.0pt;
+  font-family:"Times New Roman",serif;
+  mso-fareast-font-family:"Arial Unicode MS";
+  mso-bidi-font-family:"Arial Unicode MS";
+  color:black;
+  border:none;
+  text-underline:black;}
+p.Default, li.Default, div.Default
+  {mso-style-name:Default;
+  mso-style-unhide:no;
+  mso-style-parent:"";
+  margin:0in;
+  margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:11.0pt;
+  font-family:"Helvetica Neue",serif;
+  mso-fareast-font-family:"Helvetica Neue";
+  mso-bidi-font-family:"Helvetica Neue";
+  color:black;
+  border:none;
+  text-underline:black;}
+span.GramE
+  {mso-style-name:"";
+  mso-gram-e:yes;}
+.MsoChpDefault
+  {mso-style-type:export-only;
+  mso-default-props:yes;
+  font-size:10.0pt;
+  mso-ansi-font-size:10.0pt;
+  mso-bidi-font-size:10.0pt;
+  mso-fareast-font-family:"Arial Unicode MS";
+  border:none;}
+.MsoPapDefault
+  {mso-style-type:export-only;}
+ /* Page Definitions */
+ @page
+  {mso-footnote-separator:url("Offical%2084%20Noxon%20Rd%20Property%20Proposal_files/header.htm") fs;
+  mso-footnote-continuation-separator:url("Offical%2084%20Noxon%20Rd%20Property%20Proposal_files/header.htm") fcs;
+  mso-endnote-separator:url("Offical%2084%20Noxon%20Rd%20Property%20Proposal_files/header.htm") es;
+  mso-endnote-continuation-separator:url("Offical%2084%20Noxon%20Rd%20Property%20Proposal_files/header.htm") ecs;}
+@page WordSection1
+  {size:8.5in 11.0in;
+  margin:1.0in 1.0in 1.0in 1.0in;
+  mso-header-margin:.5in;
+  mso-footer-margin:.6in;
+  mso-header:url("Offical%2084%20Noxon%20Rd%20Property%20Proposal_files/header.htm") h1;
+  mso-footer:url("Offical%2084%20Noxon%20Rd%20Property%20Proposal_files/header.htm") f1;
+  mso-paper-source:0;}
+div.WordSection1
+  {page:WordSection1;}
+ /* List Definitions */
+ @list l0
+  {mso-list-id:125588080;
+  mso-list-type:hybrid;
+  mso-list-template-ids:-646949182 -982843630 -8885306 691422146 -546907428 -802760456 548282438 -1970109012 -1861721504 1823485668;
+  mso-list-style-name:"Imported Style 2";}
+@list l0:level1
+  {mso-level-number-format:alpha-lower;
+  mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:"Arial Unicode MS";
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:"Arial Unicode MS";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level2
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level3
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level4
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level5
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level6
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level7
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level8
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l0:level9
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1
+  {mso-list-id:146170275;
+  mso-list-type:hybrid;
+  mso-list-template-ids:-441918634 623050618 1976104798 1511033218 -1219037988 592451398 1520352302 -769077552 -1419617638 1044263224;
+  mso-list-style-name:"Imported Style 1";}
+@list l1:level1
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.25in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level2
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.75in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level3
+  {mso-level-number-format:roman-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:3.25in;
+  text-indent:-14.65pt;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level4
+  {mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:3.75in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level5
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:4.25in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level6
+  {mso-level-number-format:roman-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:4.75in;
+  text-indent:-14.65pt;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level7
+  {mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:5.25in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level8
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:5.75in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l1:level9
+  {mso-level-number-format:roman-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:6.25in;
+  text-indent:-14.65pt;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2
+  {mso-list-id:208340182;
+  mso-list-type:hybrid;
+  mso-list-template-ids:-441918634 1261193946 -590453196 1004569434 -1396171952 963312162 1989052926 1319636848 -1067161762 218947752;
+  mso-list-style-id:146170275;}
+@list l2:level1
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.25in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level2
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.75in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level3
+  {mso-level-number-format:roman-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:3.25in;
+  text-indent:-14.65pt;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level4
+  {mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:3.75in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level5
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:4.25in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level6
+  {mso-level-number-format:roman-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:4.75in;
+  text-indent:-14.65pt;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level7
+  {mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:5.25in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level8
+  {mso-level-number-format:alpha-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:5.75in;
+  text-indent:-.25in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l2:level9
+  {mso-level-number-format:roman-lower;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:6.25in;
+  text-indent:-14.65pt;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:Garamond;
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:Garamond;
+  font-variant:normal !important;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3
+  {mso-list-id:1299797442;
+  mso-list-type:hybrid;
+  mso-list-template-ids:-646949182 224577702 1592139858 1877517148 -1887690602 1821688268 785252704 973886816 -1372969542 -1174778826;
+  mso-list-style-id:125588080;}
+@list l3:level1
+  {mso-level-number-format:alpha-lower;
+  mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:Garamond;
+  mso-fareast-font-family:"Arial Unicode MS";
+  mso-hansi-font-family:Garamond;
+  mso-bidi-font-family:"Arial Unicode MS";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level2
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level3
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level4
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level5
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level6
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level7
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level8
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+@list l3:level9
+  {mso-level-suffix:none;
+  mso-level-tab-stop:none;
+  mso-level-number-position:left;
+  margin-left:2.0in;
+  text-indent:0in;
+  mso-ascii-font-family:"Times New Roman";
+  mso-fareast-font-family:"Times New Roman";
+  mso-hansi-font-family:"Times New Roman";
+  mso-bidi-font-family:"Times New Roman";
+  font-variant:normal !important;
+  color:black;
+  text-transform:none;
+  position:relative;
+  top:0pt;
+  mso-text-raise:0pt;
+  letter-spacing:0pt;
+  background:windowtext;
+  mso-highlight:windowtext;
+  mso-font-width:100%;
+  mso-font-kerning:0pt;
+  text-effect:none;
+  text-effect:none;
+  text-effect:none;
+  mso-ansi-font-weight:normal;
+  mso-bidi-font-weight:normal;
+  mso-ansi-font-style:normal;
+  mso-bidi-font-style:normal;
+  text-decoration:none;
+  text-line-through:none;
+  vertical-align:baseline;}
+ol
+  {margin-bottom:0in;}
+ul
+  {margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+  {mso-style-name:"Table Normal";
+  mso-tstyle-rowband-size:0;
+  mso-tstyle-colband-size:0;
+  mso-style-noshow:yes;
+  mso-style-priority:99;
+  mso-style-parent:"";
+  mso-padding-alt:0in 5.4pt 0in 5.4pt;
+  mso-para-margin:0in;
+  mso-para-margin-bottom:.0001pt;
+  mso-pagination:widow-orphan;
+  font-size:10.0pt;
+  font-family:"Times New Roman",serif;
+  border:none;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
 
-<br>
-<br>
+<body bgcolor=white lang=EN-US link="#000000" vlink=fuchsia style='tab-interval:
+.5in'>
 
+<div class=WordSection1>
 
-<span class="bg-trans" style= "background: none;" >Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
+<p class=Body align=center style='text-align:center;line-height:107%'><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-fareast-font-family:Calibri'><span style='mso-spacerun:yes'>
+</span></span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><span style='mso-tab-count:2'>                        </span><o:p></o:p></span></p>
 
-<br><br>
-    <div class="main-section-letterbg-trans"> <!-- use this div only if it is required for styling -->
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
 
-      <p>
-     </p>
-    </div>
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-size:11.0pt;
+line-height:107%;font-family:"Garamond",serif'>December 21</span><span
+style='font-family:"Garamond",serif'>, 2018</span><span style='font-family:
+"Garamond",serif;mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Via
+Email and Regular Mail</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Mr.
+Walter Finnerman</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Berkshire
+Hathaway</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span lang=DE style='font-family:"Garamond",serif;
+mso-ansi-language:DE'>892 Main St.</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Fishkill,
+NY 12524&nbsp;</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Re:
+<span style='mso-tab-count:1'>      </span>84 Noxon Rd<span
+style='mso-spacerun:yes'>  </span></span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='text-indent:.5in;line-height:107%'><span style='font-family:
+"Garamond",serif'>Poughkeepsie, NY 12603</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='text-indent:.5in;line-height:107%'><span style='font-family:
+"Garamond",serif;mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Dear
+Walter:</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>You
+will find outlined below a revised proposal that we have been authorized to
+submit in behalf of our client to purchase a 4.22 acres lot of the commercially
+zoned land located at 84 Noxon Rd Poughkeepsie, NY 12603 based on the owner’s
+request for a $290,000 sale price or one as close as possible. Our clients have
+agreed to meet the owner’</span><span lang=PT style='font-family:"Garamond",serif;
+mso-ansi-language:PT'>s request.</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond;color:#010101'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-size:11.0pt;
+line-height:107%;font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+style='font-family:"Garamond",serif'>Property:</span></b><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                </span><span style='mso-tab-count:
+1'>                 </span>84 Noxon Rd, Poughkeepsie, NY 12603</span><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond;color:#010101'><span
+style='mso-tab-count:2'>                        </span></span><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                                               </span><span
+style='mso-tab-count:1'> </span></span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><b><span style='font-family:"Garamond",serif'>Purchaser:</span></b><span
+lang=DE style='font-family:"Garamond",serif;mso-ansi-language:DE'><span
+style='mso-spacerun:yes'>                            </span><span
+style='mso-tab-count:1'>  </span>Partner Rentals</span><span style='font-family:
+"Garamond",serif;mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:1.5in;text-indent:.5in;line-height:107%'><span
+style='font-family:"Garamond",serif'>711 East Chester St.</span><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'> </span><span style='mso-tab-count:4'>                                               </span>Kingston,
+NY 12401 </span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-size:11.0pt;
+line-height:107%;font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'>Founded in 2016, Partner Rentals in an
+independently-owned and </span><span style='font-family:"Garamond",serif'>operated
+construction equipment rental company that operates in New York's Hudson
+Valley.&nbsp; Their fleet consists primarily of aerial, material handling,
+earthmoving, and compaction equipment.&nbsp; In addition to rentals, they also
+sell new and used equipment, provide equipment training, perform equipment
+hauling, and service their customer's equipment.&nbsp; They are dealers for
+most of the equipment </span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'> </span><span style='mso-tab-count:4'>                                               </span>they
+rent, but focus on Volvo CE, Liu Gong Forklifts, Genie Lifts, </span><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:1.5in;text-indent:.5in;line-height:107%'><span
+lang=DE style='font-family:"Garamond",serif;mso-ansi-language:DE'>Wacker
+Neuson, and Husqvarna.</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Default><span style='font-size:12.0pt;font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Default style='margin-left:2.0in;text-indent:-2.0in'><span
+style='font-size:12.0pt;font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><span style='mso-tab-count:1'>                                                </span>Partner
+Rentals is owned by the del Aguila family, who have been </span><span
+style='font-size:12.0pt;font-family:"Garamond",serif'>renting equipment in the
+Hudson Valley since 1992.&nbsp; Our former business, Volvo Rents, was acquired
+by Volvo Construction Equipment in 2011 and they had the opportunity to help
+them grow into a national rental company by leading their IT and fleet organizations.&nbsp;
+In 2016, they decided to take our new experiences </span><span
+style='font-size:12.0pt;font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Default style='margin-left:1.5in;text-indent:.5in'><span
+style='font-size:12.0pt;font-family:"Garamond",serif'>and restart our family
+business.</span><span style='font-size:12.0pt;font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Default><span style='font-size:12.0pt;font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Default style='margin-left:2.0in;text-indent:-2.0in'><span
+style='font-size:12.0pt;font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><span style='mso-tab-count:1'>                                                </span>At
+this point, we have successfully rebuilt our Kingston, NY location and are now
+looking to expand into Dutchess County, NY.<o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-tab-count:4'>                                                </span><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><b><span lang=DA style='font-family:
+"Garamond",serif;mso-ansi-language:DA'>Seller:</span></b><span lang=DE
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond;mso-ansi-language:DE'><span style='mso-tab-count:
+4'>                                      </span>Noxon Land Dev Inc.</span><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-tab-count:4'>                                                </span></span><span
+style='font-size:11.0pt;line-height:107%;font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><b><span style='font-family:"Garamond",serif'>Purchase
+Price:</span></b><span style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>        </span><span style='mso-tab-count:2'>              </span>$290,000
+as is.</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-tab-count:4'>                                                </span><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;line-height:107%;
+tab-stops:2.25in'><span style='font-family:"Garamond",serif'>a. <span
+style='mso-tab-count:1'>   </span>$10,000 cash deposit with the signing of the
+Contract to Purchase</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;line-height:107%;
+tab-stops:2.25in'><span style='font-family:"Garamond",serif'>b. <span
+style='mso-tab-count:1'>  </span>The remaining balance of $280,000, in cash at
+closing. </span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-tab-count:4'>                                                </span>Closing
+estimated to be 3 to 6 months</span><span style='font-family:"Garamond",serif'>’
+subject to meeting </span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:1.5in;text-indent:.5in;line-height:107%'><span
+lang=FR style='font-family:"Garamond",serif;mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+lang=FR style='font-family:"Garamond",serif;mso-ansi-language:FR'>Conditions&nbsp;:<span
+style='mso-tab-count:1'>                           </span></span></b><span
+style='font-family:"Garamond",serif'>The buyers will need the right to transfer
+the contract to a single asset entity that will be used to purchase the
+property.</span><span style='font-size:11.0pt;line-height:107%;font-family:
+"Calibri",sans-serif;mso-fareast-font-family:Calibri'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;line-height:107%'><span
+style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+mso-fareast-font-family:Calibri'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+style='font-family:"Garamond",serif'>Earnest Money Deposit:</span></b><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>    </span><span
+style='mso-tab-count:1'>   </span>$10,000. The Deposit is to be placed in
+Escrow Account to be held by the Buyer's Title Company or the seller's attorney
+upon the full execution of the Purchase Agreement. The initial Deposit shall be
+applied to the Purchase Price, assuming the transaction contemplated herein is
+consummated. In the event that the Agreement is not executed, conditions have
+not been met and the closing does not occur, the Initial Deposit shall be returned
+to the Buyer without any liquidated damages.</span><span style='font-size:11.0pt;
+line-height:107%;font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+style='font-family:"Garamond",serif'>Closing Documents:</span></b><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>
+</span><span style='mso-tab-count:1'>      </span>Upon the execution of the
+Purchase Contract, Seller shall </span><span style='font-family:"Arial Unicode MS",serif'><br>
+</span><span style='font-family:"Garamond",serif'>deliver to Buyer any
+available pertinent documentation </span><span style='font-family:"Arial Unicode MS",serif'><br>
+</span><span style='font-family:"Garamond",serif'>relating to the Property as
+follows if they are available: <o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif'>a. Seller's existing title insurance
+policy or abstract; </span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:1.5in;text-indent:.5in;line-height:107%'><span
+style='font-family:"Garamond",serif'>b. All available site engineering and
+survey plans; </span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif'>c. All additional pertinent environmental,
+and engineering reports regarding the property in the Seller's </span><span
+lang=IT style='font-family:"Garamond",serif;mso-ansi-language:IT'>possession. </span><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+lang=IT style='font-family:"Garamond",serif;mso-ansi-language:IT'>Due Diligence
+Period:<span style='mso-spacerun:yes'>    </span></span></b><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>  </span><span
+style='mso-tab-count:1'>    </span>The Buyer shall have a period of 75 days
+following the date of the full execution and delivery of the Purchase Contract
+for the Due Diligence review of the property, (the “</span><span lang=IT
+style='font-family:"Garamond",serif;mso-ansi-language:IT'>Due Diligence Period</span><span
+style='font-family:"Garamond",serif'>”), including, but not limited to, the
+review of the following items:</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;mso-list:l2 level1 lfo2'><![if !supportLists]><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><span style='mso-list:Ignore'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR></span><span style='font-family:"Garamond",serif'>Environmental Review<o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;mso-list:l2 level1 lfo2'><![if !supportLists]><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><span style='mso-list:Ignore'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR></span><span style='font-family:"Garamond",serif'>A Clear and
+Marketable Title, including all leasehold interests in the property if any.<o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;mso-list:l2 level1 lfo2'><![if !supportLists]><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><span style='mso-list:Ignore'>c.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR></span><span style='font-family:"Garamond",serif'>Survey and engineering
+reports and studies.<o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;mso-list:l2 level1 lfo2'><![if !supportLists]><span
+lang=IT style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond;mso-ansi-language:IT'><span style='mso-list:Ignore'>d.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR></span><span lang=IT style='font-family:"Garamond",serif;mso-ansi-language:
+IT'>Site plan approval.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.25in;text-indent:-.25in;mso-list:l2 level1 lfo2'><![if !supportLists]><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><span style='mso-list:Ignore'>e.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+dir=LTR></span><span style='font-family:"Garamond",serif'>Make sure the
+foundation is usable. <o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+lang=FR style='font-family:"Garamond",serif;mso-ansi-language:FR'>Conditions :</span></b><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                       </span><span style='mso-tab-count:
+1'>    </span>The Contract to Purchase is subject to the following conditions :
+<o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:0in;line-height:106%;
+mso-list:l3 level1 lfo4'><![if !supportLists]><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-list:Ignore'>a.</span></span><![endif]><span dir=LTR></span><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>   </span>The
+proposed contract is subject to the property being </span><span
+style='font-family:"Arial Unicode MS",serif'><br>
+</span><span style='font-family:"Garamond",serif'>delivered environmentally
+clean and able to qualify for </span><span style='font-family:"Arial Unicode MS",serif'><br>
+</span><span style='font-family:"Garamond",serif'>institutional financing. <o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:0in;line-height:106%;
+mso-list:l3 level1 lfo4'><![if !supportLists]><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-list:Ignore'>b.</span></span><![endif]><span dir=LTR></span><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>   </span>The
+purchase is subject to the conveyance of a clean and </span><span
+style='font-family:"Arial Unicode MS",serif'><br>
+</span><span style='font-family:"Garamond",serif'>marketable title. <o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:0in;line-height:106%;
+mso-list:l3 level1 lfo4'><![if !supportLists]><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-list:Ignore'>c.</span></span><![endif]><span dir=LTR></span><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>   </span>Subject
+to Planning Board and related municipal approval of </span><span
+style='font-family:"Arial Unicode MS",serif'><br>
+</span><span style='font-family:"Garamond",serif'>their proposed use and
+building a new building on top of the existing foundation and turning sections
+of the un-used site into outside storage. This will include geotechnical
+evaluation and engineering as required by the Planning Board. This also
+includes an evaluation by a biologist who will determine the wetland area.<o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:0in;line-height:106%;
+mso-list:l3 level1 lfo4'><![if !supportLists]><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><span
+style='mso-list:Ignore'>d.</span></span><![endif]><span dir=LTR></span><span
+style='font-family:"Garamond",serif'><span style='mso-spacerun:yes'>   </span>Prior
+to purchase, the 2 underground tanks on the property will be removed with that
+immediate area delivered environmentally cleaned. The seller will provide proof
+and/or verification that there is no contamination.<o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><b><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+style='font-family:"Garamond",serif'>Brokerage:</span></b><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                          </span><span
+style='mso-tab-count:1'>    </span>This proposal is submitted with the
+understanding that Hudson Commercial Real Estate Corp. will receive from the
+seller one half of a full 6% real estate brokerage commission in accordance
+with a real estate brokerage agreement. (3% to Hudson Commercial). This
+transaction will be a 50/50 division between Hudson Commercial and Berkshire
+Hathaway.in this transaction. </span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+style='font-family:"Garamond",serif'>Contract: </span></b><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                      </span><span style='mso-tab-count:
+1'>         </span>The Seller will draft the contract of purchase and sale for
+the Purchaser’s review.</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><b><span
+style='font-family:"Garamond",serif'>Possession: </span></b><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                 </span><span style='mso-tab-count:
+1'>           </span>The property will be delivered free and clear upon the
+sale of Property.</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='margin-left:2.0in;text-indent:-2.0in;line-height:107%'><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='margin-left:.25in;line-height:107%'><span
+style='font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>This
+proposal is submitted with the understanding that it is not binding on either
+party and will be used as a basis to discuss and review terms and conditions
+for a proposed contract.</span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Contract
+to Purchase will not be binding until it has been reviewed by attorneys for
+both Buyer and Seller, fully executed by the Buyer and Seller and the earnest
+money deposit has been received and deposited.</span><span style='font-family:
+"Garamond",serif;mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-size:11.0pt;
+line-height:107%;font-family:"Garamond",serif;mso-fareast-font-family:Garamond;
+mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Very
+truly yours,</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
+Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'> </span></span><span style='font-family:"Garamond",serif;
+mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+
+<p class=Body style='line-height:107%'><span style='font-size:11.0pt;
+line-height:107%;font-family:"Garamond",serif'>Noah P. Finnerman </span><span
+style='font-family:"Garamond",serif'><span
+style='mso-spacerun:yes'>                         </span><span
+style='mso-tab-count:2'>                  </span><span
+style='mso-spacerun:yes'>                                               </span><span
+style='mso-tab-count:3'>                         </span><span
+style='mso-spacerun:yes'>                                </span><span
+style='mso-spacerun:yes'>                         </span></span></p>
+
+</div>
+
+</body>
+
+</html>
 </div>
 <br><br>
 <button type="button" id="copy-letter-btn" class="btn btn-outline-success btn-large">Copy the letter</button>
 <button type="button" id="select-letter-btn" class="btn btn-outline-info btn-large">Select the letter</button>
 <script>
-  $(document).ready(function(){
-    $('#copy-letter-btn').hide();
-  });
+   $(document).ready(function(){
+     $('#copy-letter-btn').hide();
+   });
 
-  $('body').on('click', '#select-letter-btn', function (event) {
-    $('#copy-letter-btn').show();
-    $('#select-letter-btn').hide();
-    var divElement = document.querySelector('#select-leter');
-    selectText(divElement);
-  });
-  $('body').on('click', '#copy-letter-btn', function (event) {
-   document.execCommand('copy')
-         $.notify({
-          title: '<strong>Heads up!</strong>',
-          message: 'The letter was copied to you clipbord!'
-      }, {
-          type: 'succes'
-      });
-  });
-;
-  function selectText(element) {
-  if (/INPUT|TEXTAREA/i.test(element.tagName)) {
-    element.focus();
-    if (element.setSelectionRange) {
-      element.setSelectionRange(0, element.value.length);
-    } else {
-      element.select();
-    }
-    return;
-  }
+   $('body').on('click', '#select-letter-btn', function (event) {
+     $('#copy-letter-btn').show();
+     $('#select-letter-btn').hide();
+     var divElement = document.querySelector('#select-leter');
+     selectText(divElement);
+   });
+   $('body').on('click', '#copy-letter-btn', function (event) {
+    document.execCommand('copy')
+          $.notify({
+           title: '<strong>Heads up!</strong>',
+           message: 'The letter was copied to you clipbord!'
+       }, {
+           type: 'succes'
+       });
+   });
+   ;
+   function selectText(element) {
+   if (/INPUT|TEXTAREA/i.test(element.tagName)) {
+     element.focus();
+     if (element.setSelectionRange) {
+       element.setSelectionRange(0, element.value.length);
+     } else {
+       element.select();
+     }
+     return;
+   }
 
-  if (window.getSelection) { // All browsers, except IE <=8
-    window.getSelection().selectAllChildren(element);
-  } else if (document.body.createTextRange) { // IE <=8
-    var range = document.body.createTextRange();
-    range.moveToElementText(element);
-    range.select();
-  }
-}
+   if (window.getSelection) { // All browsers, except IE <=8
+     window.getSelection().selectAllChildren(element);
+   } else if (document.body.createTextRange) { // IE <=8
+     var range = document.body.createTextRange();
+     range.moveToElementText(element);
+     range.select();
+   }
+   }
 
-function deselectAll() {
-  var element = document.activeElement;
+   function deselectAll() {
+   var element = document.activeElement;
 
-  if (element && /INPUT|TEXTAREA/i.test(element.tagName)) {
-    if ('selectionStart' in element) {
-      element.selectionEnd = element.selectionStart;
-    }
-    element.blur();
-  }
+   if (element && /INPUT|TEXTAREA/i.test(element.tagName)) {
+     if ('selectionStart' in element) {
+       element.selectionEnd = element.selectionStart;
+     }
+     element.blur();
+   }
 
-  if (window.getSelection) { // All browsers, except IE <=8
-    window.getSelection().removeAllRanges();
-  } else if (document.selection) { // IE <=8
-    document.selection.empty();
-  }
-}
+   if (window.getSelection) { // All browsers, except IE <=8
+     window.getSelection().removeAllRanges();
+   } else if (document.selection) { // IE <=8
+     document.selection.empty();
+   }
+   }
 
-jQuery(function($) {
-  $('#btnSelect1').click(function() {
-    selectText($('#exampleDiv')[0]);
-    window.setTimeout(deselectAll, 2000);
-  });
+   jQuery(function($) {
+   $('#btnSelect1').click(function() {
+     selectText($('#exampleDiv')[0]);
+     window.setTimeout(deselectAll, 2000);
+   });
 
-  $('#btnSelect2').click(function() {
-    selectText($('#exampleTextarea')[0]);
-    window.setTimeout(deselectAll, 2000);
-  });
-});
+   $('#btnSelect2').click(function() {
+     selectText($('#exampleTextarea')[0]);
+     window.setTimeout(deselectAll, 2000);
+   });
+   });
 </script>
-
-<%= @property if  @property  %>
