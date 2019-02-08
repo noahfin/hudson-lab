@@ -10,20 +10,20 @@ class LettersController < ApplicationController
   end
 
   def basic_letter
-    if params['property_ids']
+    if params['property_ids'].first.to_i > 0
        @property = Property.find(params['property_ids'].first)
     end
-    if params['contact_ids']
+     if params['contact_ids'].first.to_i > 0
        @contact = Contact.find(params['contact_ids'].first)
     end
     render 'basic_letter.html.erb'
   end
 
   def cover_letter
-    if params['property_ids']
+    if params['property_ids'].first.to_i > 0
        @property = Property.find(params['property_ids'].first)
     end
-    if params['contact_ids']
+     if params['contact_ids'].first.to_i > 0
        @contact = Contact.find(params['contact_ids'].first)
     end
     render 'cover_letter.html.erb'
@@ -40,24 +40,34 @@ class LettersController < ApplicationController
   end
 
   def proposal_lease
-    if params['property_ids']
+    if params['property_ids'].first.to_i > 0
        @property = Property.find(params['property_ids'].first)
     end
-    if params['contact_ids']
+    if params['contact_ids'].first.to_i > 0
       @contact = Contact.find(params['contact_ids'].first)
     end
     render 'proposal_lease.html.erb'
   end
 
   def exclusive_agreement
-    if params['property_ids']
+   if params['property_ids'].first.to_i > 0
        @property = Property.find(params['property_ids'].first)
     end
-    if params['contact_ids']
+    if params['contact_ids'].first.to_i > 0
       @contact = Contact.find(params['contact_ids'].first)
     end
       render 'exclusive_agreement.html.erb'
   end
+  def beechwood_letter
+    if params['property_ids'].first.to_i > 0
+       @property = Property.find(params['property_ids'].first)
+    end
+     if params['contact_ids'].first.to_i > 0
+       @contact = Contact.find(params['contact_ids'].first)
+    end
+    render 'beechwood_letter.html.erb'
+  end
+
 
   def new
 

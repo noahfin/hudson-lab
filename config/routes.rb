@@ -11,6 +11,7 @@
        post 'proposal_purchase', on: :collection
        post 'proposal_lease', on: :collection
        post 'exclusive_agreement', on: :collection
+       post 'beechwood_letter', on: :collection
      end
   resources :notifications do
        get 'just_user', on: :collection

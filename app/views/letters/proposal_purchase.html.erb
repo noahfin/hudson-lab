@@ -1300,45 +1300,32 @@ mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p
 
 <p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
 mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-size:11.0pt;
-line-height:107%;font-family:"Garamond",serif'>December 21</span><span
-style='font-family:"Garamond",serif'>, 2018</span><span style='font-family:
-"Garamond",serif;mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
-mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Via
-Email and Regular Mail</span><span style='font-family:"Garamond",serif;
-mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
-mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Mr.
-Walter Finnerman</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
-Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Berkshire
-Hathaway</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
-Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
-
-<p class=Body style='line-height:107%'><span lang=DE style='font-family:"Garamond",serif;
-mso-ansi-language:DE'>892 Main St.</span><span style='font-family:"Garamond",serif;
-mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Fishkill,
-NY 12524&nbsp;</span><span style='font-family:"Garamond",serif;mso-fareast-font-family:
-Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif;
-mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p>&nbsp;</o:p></span></p>
-
-<p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Re:
-<span style='mso-tab-count:1'>      </span>84 Noxon Rd<span
+    <header>
+      <% date = DateTime.now.strftime('%d %m %y')%>
+      <% month = Date.parse(date).strftime('%B')%>
+      <% day = Date.parse(date).strftime('%d')%>
+      <% year = Date.parse(date).strftime('%Y')%>
+      <time datetime=<%="#{DateTime.now.strftime('%m-%d-%Y')}"%>><%= month %> <%= day %>, <%= year %></time><br><br>
+      <address class="return-address">
+        <%= @contact.prefix %> <%= @contact.first_name %> <%= @contact.last_name %> <%= @contact.suffix %><br>
+        <%= @contact.company %><br>
+        <%= @contact.street_num %> <%= @contact.strret_name %> <%= @contact.suite %><br>
+        <%= @contact.city %>, <%= @contact.state %> <%= @contact.postal_code %>
+      </address>
+      <br>
+      <br>
+     <p class=Body style='line-height:107%'><span style='font-family:"Garamond",serif'>Re:
+<span style='mso-tab-count:1'>      </span> <%= @property.Fulladdress if @property %><span
 style='mso-spacerun:yes'>  </span></span><span style='font-family:"Garamond",serif;
 mso-fareast-font-family:Garamond;mso-bidi-font-family:Garamond'><o:p></o:p></span></p>
+    </header>
+
+<br>
+<br>
+
+
+<span class="bg-trans" style= "background: none;" >Dear</span> <%= @contact.prefix %> <%= @contact.last_name %>:
+
 
 <p class=Body style='text-indent:.5in;line-height:107%'><span style='font-family:
 "Garamond",serif'>Poughkeepsie, NY 12603</span><span style='font-family:"Garamond",serif;
