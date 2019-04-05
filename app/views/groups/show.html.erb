@@ -98,6 +98,7 @@
 
                      </tr>
                   </thead>
+
                   <tbody>
                      <%  @group.contacts.order(:last_name).each do |contact| %>
                      <tr>
@@ -132,8 +133,8 @@
                         <td class="d-"><%= contact.middle_name %></td>
                         <td class="d-"><%= contact.last_name %></td>
                         <td class="d-"><%= contact.owns_cents %></td>
-                        <td class="d-"><%= contact.lattitude %></td>
-                        <td class="d-"><%= contact.lattitude %></td>
+                        <td class="d-"><%= contact.latitude %></td>
+                        <td class="d-"><%= contact.latitude %></td>
                         <td class="d-"><%= contact.primary_industry %></td>
                         <td class="d-"><%= contact.sic %></td>
                         <td class="d-"><%= contact.country %></td>
