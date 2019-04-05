@@ -64,37 +64,38 @@
                <table class="table">
                   <thead class="">
                      <tr>
+
                         <th class="d- text-info">Edit </th>
                         <th class="d- text-info">Name </th>
-                        <th class="d- text-info">Company </th>
-                        <th class="d- text-info">Web Address</th>
-                        <th class="d- text-info">Prefix </th>
-                        <th class="d- text-info">First Name </th>
-                        <th class="d- text-info">Middle </th>
-                        <th class="d- text-info">Last Name </th>
-                        <th class="d- text-info">Suffix </th>
-                        <th class="d- text-info">Phone </th>
-                        <th class="d- text-info">Cell Phone </th>
-                        <th class="d- text-info">Email </th>
-                        <th class="d- text-info">Address</th>
-                        <th class="d- text-info">Suite</th>
-                        <th class="d- text-info">Street Number</th>
-                        <th class="d- text-info">Strret Name </th>
-                        <th class="d- text-info">City</th>
-                        <th class="d- text-info">State </th>
-                        <th class="d- text-info">County </th>
-                        <th class="d- text-info">Country </th>
-                        <th class="d- text-info">Postal Code </th>
-                        <th class="d- text-info">Zip Code Ext</th>
-                        <th class="d- text-info">Latitude </th>
-                        <th class="d- text-info">Longitude </th>
-                        <th class="d- text-info">Owns or Rents </th>
-                        <th class="d- text-info">year_of_Founding </th>
-                        <th class="d- text-info">Primary Industry </th>
-                        <th class="d- text-info">Facility Size</th>
-                        <th class="d- text-info">Total Employees </th>
-                        <th class="d- text-info">Position </th>
-                        <th class="d- text-info">SIC </th>
+                        <th class="d- text-info">suffix </th>
+                        <th class="d- text-info">position</th>
+                        <th class="d- text-info">company </th>
+                        <th class="d- text-info">full address </th>
+                        <th class="d- text-info">street #</th>
+                        <th class="d- text-info">street name </th>
+                        <th class="d- text-info">suite </th>
+                        <th class="d- text-info">city </th>
+                        <th class="d- text-info">state </th>
+                        <th class="d- text-info">postal code </th>
+                        <th class="d- text-info">zipcode ext</th>
+                        <th class="d- text-info">county</th>
+                        <th class="d- text-info">phone</th>
+                        <th class="d- text-info">cellphone</th>
+                        <th class="d- text-info">email</th>
+                        <th class="d- text-info">webaddress </th>
+                        <th class="d- text-info">facility size </th>
+                        <th class="d- text-info">total employees </th>
+                        <th class="d- text-info">prefix </th>
+                        <th class="d- text-info">first name</th>
+                        <th class="d- text-info">middle name  </th>
+                        <th class="d- text-info">last name </th>
+                        <th class="d- text-info">Owns or Rents</th>
+                        <th class="d- text-info">lattitude</th>
+                        <th class="d- text-info">lattitude </th>
+                        <th class="d- text-info">primary industry</th>
+                        <th class="d- text-info">sic </th>
+                        <th class="d- text-info">country </th>
+
                      </tr>
                   </thead>
                   <tbody>
@@ -108,35 +109,34 @@
                            <%= contact.name %>
                            <% end %>
                         </td>
+                        <td class="d-"><%= contact.suffix %></td>
+                        <td class="d-"><%= contact.postion %></td>
                         <td class="d-"><%= contact.company %></td>
+                        <td class="d-"><%= contact.Fulladdress %></td>
+                        <td class="d-"><%= contact.street_num %></td>
+                        <td class="d-"><%= contact.strret_name %></td>
+                        <td class="d-"><%= contact.suite %></td>
+                        <td class="d-"><%= contact.city %></td>
+                        <td class="d-"><%= contact.state %></td>
+                        <td class="d-"><%= contact.postal_code %></td>
+                        <td class="d-"><%= contact.zip_code_ext %></td>
+                        <td class="d-"><%= contact.county %></td>
+                        <td class="d-"><%= contact.phone %></td>
+                        <td class="d-"><%= contact.cell %></td>
+                        <td class="d-"><%= contact.email %></td>
                         <td class="d-"><%= contact.web_address %></td>
+                        <td class="d-"><%= contact.facility_size %></td>
+                        <td class="d-"><%= contact.total_number_of_employees %></td>
                         <td class="d-"><%= contact.prefix %></td>
                         <td class="d-"><%= contact.first_name %></td>
                         <td class="d-"><%= contact.middle_name %></td>
                         <td class="d-"><%= contact.last_name %></td>
-                        <td class="d-"><%= contact.suffix %></td>
-                        <td class="d-"><%= contact.phone %></td>
-                        <td class="d-"><%= contact.cell %></td>
-                        <td class="d-"><%= contact.email %></td>
-                        <td class="d-"><%= contact.Fulladdress %></td>
-                        <td class="d-"><%= contact.suite %></td>
-                        <td class="d-"><%= contact.street_num %></td>
-                        <td class="d-"><%= contact.strret_name %></td>
-                        <td class="d-"><%= contact.city %></td>
-                        <td class="d-"><%= contact.state %></td>
-                        <td class="d-"><%= contact.county %></td>
-                        <td class="d-"><%= contact.country %></td>
-                        <td class="d-"><%= contact.postal_code %></td>
-                        <td class="d-"><%= contact.zip_code_ext %></td>
-                        <td class="d-"><%= contact.latitude %></td>
-                        <td class="d-"><%= contact.longitude %></td>
                         <td class="d-"><%= contact.owns_cents %></td>
-                        <td class="d-"><%= contact.year_of_Founding %></td>
+                        <td class="d-"><%= contact.lattitude %></td>
+                        <td class="d-"><%= contact.lattitude %></td>
                         <td class="d-"><%= contact.primary_industry %></td>
-                        <td class="d-"><%= contact.facility_size %></td>
-                        <td class="d-"><%= contact.total_number_of_employees %></td>
-                        <td class="d-"><%= contact.postion %></td>
                         <td class="d-"><%= contact.sic %></td>
+                        <td class="d-"><%= contact.country %></td>
                      </tr>
                      <% end %>
                   </tbody>

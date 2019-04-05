@@ -1,5 +1,5 @@
-FactoryBot.define do
-  factory :mainpost do
-    body "MyString"
-  end
-end
+# FactoryBot.define do
+#   factory :mainpost do
+#     body "MyString"
+#   end
+# end

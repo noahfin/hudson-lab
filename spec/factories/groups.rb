@@ -1,5 +1,5 @@
-FactoryBot.define do
-  factory :group do
-    
-  end
-end
+# FactoryBot.define do
+#   factory :group do
+
+#   end
+# end

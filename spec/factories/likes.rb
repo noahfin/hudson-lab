@@ -1,5 +1,5 @@
-FactoryBot.define do
-  factory :like do
-    like "MyString"
-  end
-end
+# FactoryBot.define do
+#   factory :like do
+#     like "MyString"
+#   end
+# end

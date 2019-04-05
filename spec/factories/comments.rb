@@ -1,6 +1,6 @@
-FactoryBot.define do
-  factory :comment do
-    title "MyString"
-    body "MyText"
-  end
-end
+# FactoryBot.define do
+#   factory :comment do
+#     title "MyString"
+#     body "MyText"
+#   end
+# end
