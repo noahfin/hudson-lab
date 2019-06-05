@@ -70,7 +70,7 @@ class Group < ApplicationRecord
  :email=> contact.email.to_s,
  :company=> contact.company.to_s,
  :phone=> contact.phone.to_s,
- :address=> contact.address.to_s,
+ :Fulladdress=> contact.Fulladdress.to_s,
  :street_num=>contact.street_num.to_s,
  :strret_name=>contact.strret_name.to_s,
  :city=> contact.city.to_s,
