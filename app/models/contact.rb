@@ -113,7 +113,7 @@ end
   def concat_full_name
     if  self.first_name && self.last_name
       if  self.first_name.empty?
-       fullname = self.WORK-MUST + " " + self.last_name
+       fullname = self.first_name + " " + self.last_name
        self.name = fullname
       end
     end
