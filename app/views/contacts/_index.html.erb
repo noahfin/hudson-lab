@@ -76,24 +76,14 @@
                   </span>
                   <div class="hide-form">
                      <div class="col-md-12 small-search-form-container" style= "width: 100% !important;">
-                        <%= form_for(@search, remote: true, authenticity_token: true, class: 'form-inline c-s-form', id: 'c-s-form') do |f| %>
-                        <span class=" small-search-form-container" style= "width: 100% !important;">
-                           <ul class="list-inline-custom small-search-form-container" style= "width: 100% !important;">
-                              <li class="list-inline-item-custom">
-                                 <div class="long-input-div" style= "padding-left:  14px !important; ">
-                                    <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Search", id: "r-search" %>
-                                 </div>
-                              </li>
-                              <li class="list-inline-item-custom"  style= "width: 100% !important;">
-                                 <div class="small-input-div" style="margin-left:  14px !important;" >
-                                    <button type="submit" class="btn btn-outline-info btn-block " id="send-search-r">
-                                       <i class="material-icons">search</i>
-                                       <div class="ripple-container"></div>
-                                    </button>
-                                 </div>
-                              </li>
-                        </span>
-                        </ul>
+                        <%= form_for(@search, remote: true, authenticity_token: true, class: 'c-s-form', id: 'c-s-form') do |f| %>
+                        <div class="" >
+                           <%= text_field_tag :query, params[:query], class: "form-control  text-white", placeholder: "Search", id: "r-search" %>
+                        </div>
+                        <button type="submit" class="btn btn-outline-info btn-block " id="send-search-r">
+                           <i class="material-icons text-center ml-auto mr-auto">search</i>
+                           <div class="ripple-container"></div>
+                        </button>
                         <% end %>
                      </div>
                   </div>
