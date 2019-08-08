@@ -61,18 +61,17 @@ class LeadsController < ApplicationController
   def update
     respond_to do |format|
       if @lead.update(lead_params)
-         if params['contact_ids']
-          id_array = [] if !params['contact_ids'].nil? && params['contact_ids'].first.to_i > 0
-            contact_id_array = params['contact_ids'].to_a
-              contact_id_array.each do |id |
-                if id.to_i > 0
-                 id_array << id
-                end
-             end
-            if contact_id_array[0].to_i > 0
-             @lead.contact_ids = id_array
-           end
-         end
+
+
+            contact_array = []
+            if   params['contact_ids'].first.to_i > 0
+             @contact = Contact.find(params['contact_ids'].first.to_i)
+                 @lead.contacts << @contact
+                 @contact.leads << @lead
+               end
+
+
+
          if params['user_ids']
             @lead.users = params['user_ids']
          end
@@ -105,6 +104,6 @@ class LeadsController < ApplicationController
     end
 
     def lead_params
-      params.require(:lead).permit(:name, :business, :address, :email, :date, :phone, :number, :size_requirement, :location_need, :time_requirement, :notes, :contact_id, :property_id, :user_ids,{:user_ids => []}, :contact_ids)
+      params.require(:lead).permit(:name, :business, :address, :email, :date, :phone, :number, :size_requirement, :location_need, :time_requirement, :notes, :contact_id, :property_id, :user_ids,{:user_ids => []}, :contact_ids, :address_ids)
     end
 end

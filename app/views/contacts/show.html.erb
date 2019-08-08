@@ -100,11 +100,68 @@
       </ul>
    </div>
    <div class="card card-1-color  p-4  rounded-0" >
-         <h2>Contact Notes</h2>
+         <h4>Contact Notes</h4>
       <div class="card-body card-1-color">
         <p><%= @contact.notes %></p>
       </div>
    </div>
+      <div class="card-1-color  p-4  rounded-0">
+         <h4>Contact Leads</h4>
+
+         <% @contact.leads.each do |lead| %>
+         <div class="card-body">
+
+            <div class="table-responsive">
+               <table class="table">
+                  <thead class=" text-primary">
+                     <tr>
+                        <th class="text-white">Action</th>
+                        <th class="text-white"><a>Name</a></th>
+                        <th class="text-white"><a>Email</a></th>
+                        <th class="text-white"><a>Business</a></th>
+                        <th class="text-white"><a>Date</a></th>
+                        <th class="text-white"><a>Address</a></th>
+                        <th class="text-white"><a>Phone</a></th>
+                        <th class="text-white"><a>Cell Number</a></th>
+                        <th class="text-white"><a>Size requirement</a></th>
+                        <th class="text-white"><a>Location Need</a></th>
+                        <th class="text-white"><a>Time requirement</a></th>
+                        <th class="text-white"><a>Notes</a></th>
+                        <th class="text-white"><a>Contacts</a></th>
+                        <th class="text-white"><a>Created</a></th>
+                        <th class="text-white"><a>Users</a></th>
+                        <th colspan="1" class="text-white text-right pr-4">Delete</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td class="text-white">
+                           <%= link_to  edit_lead_path(lead) do %><i class="fa fa-edit"></i><% end %>
+                        </td>
+                        <td class="text-white"> <%= lead.name %></td>
+                        <td class="text-white"> <%= lead.email %></td>
+                        <td class="text-white"> <%= lead.business %> </td>
+                        <td class="text-white"> <%= lead.date %> </td>
+                        <td class="text-white"> <%= lead.address %> </td>
+                        <td class="text-white"> <%= lead.phone %> </td>
+                        <td class="text-white"> <%= lead.number %> </td>
+                        <td class="text-white"> <%= lead.size_requirement %> </td>
+                        <td class="text-white"> <%= lead.location_need %></td>
+                        <td class="text-white"> <%= lead.time_requirement %></td>
+                        <td class="text-white"> <%= lead.notes %></td>
+                        <td class="text-white"> <%  lead.contacts.each do |contact| %> <span><%= contact.first_name + ' ' %> <% end %></span></td>
+                        <td class="text-white"> <%= lead.created_at.strftime("%d %b. %Y") %></td>
+                        <td class="text-white"> <% lead.users.each do |user| %> <span><%= user.first_name + ' ' %> <% end %></span></td>
+                        <td colspan="1" class="text-danger text-right">      <%= link_to lead_path(lead.id), method: :delete, class: 'btn btn-link', remote: true, data: { confirm: "Are you sure you want delete this Lead?"}  do %>
+                           <i class="fa fa-trash text-white"></i>     <% end %>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+         <% end %>
+      </div>
    <div class="card card-1-color  p-4  rounded-0">
 
          <div class="row">
