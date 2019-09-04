@@ -166,7 +166,7 @@
                   </div>
                   <div class="col-md-6 ">
                      <%= form.label :notes, class: 'bmd-label-floating text-white' %>
-                     <input type="text" class="form-control text-white note-input-2" id="get_notes">
+                     <%= form.text_field :notes, id: :contact_notes, class: 'form-control text-white mb-0 mt-0' %>
                   </div>
             </div>
                <div class="row mb-3">
@@ -246,7 +246,7 @@
                         <%= form.date_field :lease_is_up ,class: "form-control input-sm date-range-picker text-white"  %>
                         <%= form_with(model:  @lead, remote: true) do |form| %>
                         <div class="card card-body card-1  rounded-0">
-                           <span class="pull-right"><a  title="sendLeadInfo " id="Leads-contact-send"><i class="material-icons text-info">arrow_right_alt</i> Send</a></span>
+                           <span class="pull-right"><a  title="sendLeadInfo " id="Leads-contact-send"><i class="material-icons text-info">arrow_right_alt</i> Create The Lead</a></span>
                            <input type="hidden" name="lead[business]" id="lead_c_business">
                            <input type="hidden" name="lead[name]"  id="lead_c_name">
                            <input type="hidden" name="lead[number]"  id="lead_c_number">
@@ -278,11 +278,7 @@
                                     <%= form.text_field :time_requirement, id: :lead_time_requirement, class: 'form-control  text-white' %>
                                  </div>
                               </div>
-                              <div class="row">
-                                 <%= form.submit  :class => 'btn btn-link pull', id: "Leads-contact-send" do %>
-                                 <i class="material-icons text-info">arrow_right_alt</i> Send
-                                 <% end %>
-                              </div>
+
                            </div>
                         </div>
                         <% end %>
@@ -476,7 +472,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -494,7 +490,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!--  end of wizard container -->
    <% end %>
 <script >
