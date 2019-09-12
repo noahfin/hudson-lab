@@ -32,6 +32,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -45,8 +46,11 @@ class GroupsController < ApplicationController
   def update
      if  @group.update(group_params)
           flash[:info] = "Group with the slected users was successfully updated."
+            @groups = Group.all.order(:name)
+    render action: "index"
     else
        flash[:danger] = @group.errors.full_messages.to_s
+        render action: "edit"
     end
   end
 
