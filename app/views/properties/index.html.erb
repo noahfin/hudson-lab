@@ -18,8 +18,68 @@
          </div>
          <div class="mt-4">
          </div>
-         <div id="render-properties">
-            <%= render  @properties %>
+         <div id="col-md-12">
+            <% @properties.each_slice(3) do |slice| %>
+                 <div class="row">
+                   <% slice.each do |property| %>
+
+                        <div  class="col-md-4">
+      <div class="card-custom-background" >
+         <div class="card-headed-overlay">
+
+         </div>
+         <div class="card-background-left div-sides bg-body">
+
+         </div>
+
+         <div class="card-background-right div-sides bg-body">
+
+         </div>
+
+      <div class="card text-center property-card rounded-0 card-background card-background-main " style="background-image: url('<%= asset_url(property.avatar.present? ? property.avatar.url() : 'image_placeholder.jpg') %>');">
+         <div class="card-header mt-0 rounded-0">
+
+            <ul class="list-inline">
+               <li class=" list-inline-item">
+                  <%= link_to  property_issues_path(property), class: 'btn btn-link' do %>
+         <span class="text-white"> Fix </span> <i class="material-icons  text-success ">build</i>
+                  <% end %>
+               </li>
+               <li class="list-inline-item">
+                  <%= link_to  new_property_issue_path(property), class: 'btn btn-link btn-danger text-danger' do %>
+             <span class="text-white">  New </span> <i class="material-icons">report_problem</i>
+                  <% end %>
+               </li>
+
+            </ul>
+         </div>
+         <div class="card-body rounded-0">
+            <%= link_to  property_posts_path(property), class: 'text-info', title: 'View Activty', rel: "tooltip"  do %>
+            <h6 class="card-category text-info"><%= property.name %></h6>
+            <% end %>
+            <p class="card-description">
+            </p>
+            <div class="row">
+               <div class="col-md-6">
+                  <%= link_to property_path(property.id), class: ' btn-outline-info nav-link btn-round', title: 'View property', rel: "tooltip" do %>
+                  <i class="material-icons">subject</i> view
+                  <% end %>
+               </div>
+               <div class="col-md-6">
+                  <%= link_to edit_property_path( property.id), class: " btn-outline-info  nav-link btn-round", title: 'edit property', rel: "tooltip"  do %>
+                  <i class="material-icons text-info">edit</i>
+                  <p >edit</p>
+                  <% end %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+
+                   <% end %>
+                 </div>
+               <% end %>
          </div>
          <% if @properties.blank? %>
          <div class="panel-footer message">
