@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_200435) do
+ActiveRecord::Schema.define(version: 2019_12_04_160046) do
 
   create_table "account_logins", force: :cascade do |t|
     t.string "ipAddress"
@@ -782,6 +782,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_200435) do
     t.text "availability"
     t.string "water_and_sewer"
     t.string "Fulladdress"
+    t.string "webbrochure"
   end
 
   create_table "properties_tasks", id: false, force: :cascade do |t|

@@ -69,7 +69,7 @@ class PropertiesController < ApplicationController
    end
    private
     def property_params
-      params.require(:property).permit(:name, :code, :category, :avatar, :Fulladdress, :rental_rate, :price, :year_built, :building_class, :lease_type,  :overhead_doors, :loading_docks, :min_divisible, :space_use, :space_available, :date_available, :property_type, :address, :zip_code, :county, :description, :for_lease,  :for_sale, :owner_name, :type_ofproperty, :known_as, :size_and_floors, :space1,  :space2,  :space3, :space4, :space5, :space6, :rental_per_sf, :cam_per_sf, :cam, :utilites_per_sf, :taxes_per_sf, :rental_includes, :cleaning, :electric, :gross_rental_per_sf, :escalations, :parking, :landlords_work, :possession, :lease_term, :exclusive, :add_comments, :contact_person, :availability, :water_and_sewer, :contact_ids)
+      params.require(:property).permit(:name, :code, :category, :avatar, :Fulladdress, :rental_rate, :price, :year_built, :building_class, :lease_type,  :overhead_doors, :loading_docks, :min_divisible, :space_use, :space_available, :date_available, :property_type, :address, :zip_code, :county, :description, :for_lease,  :for_sale, :owner_name, :type_ofproperty, :known_as, :size_and_floors, :space1,  :space2,  :space3, :space4, :space5, :space6, :rental_per_sf, :cam_per_sf, :cam, :utilites_per_sf, :taxes_per_sf, :rental_includes, :cleaning, :electric, :gross_rental_per_sf, :escalations, :parking, :landlords_work, :possession, :lease_term, :exclusive, :add_comments, :contact_person, :availability, :water_and_sewer, :contact_ids, :webbrochure)
     end
     def find_property
       @property = Property.find params[:id]
