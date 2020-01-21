@@ -1,6 +1,17 @@
 <div class="plan-form">
    <%= form_with model: @contact, multipart: true,  :authenticity_token => true, id: "contact_form"  do |form|%>
    <%= render 'layouts/messages' if !flash.empty? %>
+   <div class="col-md-12">
+      <label>Edit Groups</label>
+                  <% group_ids = [] %>
+            <% if !@group_ids.nil? %>
+            <%  @group_ids.each_with_index do |group, index| %>
+            <% group_ids[index] = group.group_id %>
+            <% end %>
+            <% end %>
+            <% attr = {prompt: "Select Groups"} %><% attr[:selected] = group_ids %>
+            <%= form.collection_select :group_id, @groups, :id, :name, attr,{remote: true, multiple: "true", class: "selectpicker select_g_picker dropdown groups-for-new-group" , id: 'contact_group_id' } %>
+   </div>
    <div class="row">
       <div class="col-md-6">
          <div class="form-group">
