@@ -166,13 +166,13 @@
                   <div class="card-icon card-icon-outline-warning">
                      <i class="material-icons bg-trans text-white">business</i>
                   </div>
-                  <p class="card-category card-top-dash text-white">Leads</p>
+                  <p class="card-category card-top-dash text-white">Bords</p>
                   <h3 class="card-title text-white"><%= Lead.count %></h3>
                </div>
                <div class="card-footer">
                   <div class="stats text-white">
                      <i class="material-icons text-warning mt-2 pt-1 pr-3">warning</i>
-                     View Leads
+                     View Bords
                   </div>
                </div>
             </div>
@@ -628,8 +628,8 @@
        <div class="col-xl-6">
       <div class="card card-1-color  mb-4 p-0 tasks-card">
          <div class="card-header  card-header-icon ">
+             <%= link_to notifications_path, class: "text-white", title: 'Click to view notification', rel: "tooltip" do %>
               <div class="card-icon card-icon-outline-success  ">
-            <%= link_to notifications_path, class: "text-white", title: 'Click to view notification', rel: "tooltip" do %>
                <i class="material-icons">notifications</i>
             </div>
             <% end %>

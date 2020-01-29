@@ -8,7 +8,7 @@
       <ul class="nav nav-pills nav-pills-warning nav-pills-icons justify-content-center" role="tablist" id="taskTabs">
          <li class="nav-item" role="presentation" >
             <a class="nav-link nav-a-tab text-white" data-toggle="tab" href="#task-deals-tab"  aria-controls="task-deals-tab" role="tablist">
-            <i class="material-icons nav-tab-i">business</i> Deals
+            <i class="material-icons nav-tab-i">business</i> Bords
             </a>
          </li>
          <li class="nav-item active" role="presentation" >
@@ -33,9 +33,9 @@
             <div class="card rounded-0">
                <div class="card-header bg-white p-0">
                   <div class="bg-white div-header p-4">
-                     <h4 class="card-title">Create Action Steps For Deals</h4>
+                     <h4 class="card-title">Create Action Steps For Bords</h4>
                      <p class="card-category">
-                        Select the Deal or Lead so it will tied to this Action Step
+                        Select the Deal or Bord so it will tied to this Action Step
                      </p>
                   </div>
                </div>
@@ -48,7 +48,7 @@
                      <% end %>
                      <% end %>
                      <% attr = {prompt: "Select"} %><% attr[:selected] = lead_ids %>
-                     <label for="lead_ids" class="bmd-label-floating text-black">Pick Deals and Leads</label>
+                     <label for="lead_ids" class="bmd-label-floating text-black">Pick Deals and Bords</label>
                      <%= f.collection_select :lead_ids, Lead.all, :id, :name,  attr,{ remote: true, multiple: "true",  class: "selectpicker select_l_picker ", id: "leads-select" } %>
                   </div>
                </div>
