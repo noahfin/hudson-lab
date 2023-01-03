@@ -35,7 +35,7 @@ gem 'therubyracer'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'sprockets', '~> 4.0.0.beta1'
 gem "twitter-bootstrap-rails"
-gem 'httparty', '~> 0.16.2'
+gem 'httparty', '~> 0.21.0'
 gem 'twilio-ruby'
 gem 'delayed_job_active_record'
 gem 'daemons'
